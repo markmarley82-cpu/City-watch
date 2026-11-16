@@ -31,7 +31,7 @@ Every mission and case known to the project, from the game files and the design 
 
 | ID | Title | Type | Status |
 |---|---|---|---|
-| CW-NC-01 | The Bridge That Was Closed | extension | **Live, tested** — rebuilt as the replayable partner shift (Nobby/Colon) |
+| CW-NC-01 | The Bridge That Was Closed | extension | **Live, tested** — the team's pilot (`dist/cases/bridge-closure.mjs`, Duty → The Bridge That Was Closed; `tests/cw-nc01-bridge-pilot.mjs`) |
 | CW-NC-02 | Dibbler’s Guarantee | extension | Design only |
 | CW-NC-03 | The Lodger Who Never Left | enquiry | Design only |
 | CW-NC-04 | The Lamp That Went Out | extension | Design only |
@@ -94,6 +94,30 @@ Every mission and case known to the project, from the game files and the design 
 | CW-PS-08 | Angua von Überwald: The Runner Who Turned Back | Design only |
 | CW-PS-09 | Sally von Humpeding: A Seat by the Door | Design only |
 | CW-PS-10 | Captain Carrot: Three People, One Key | Design only |
+
+## Partner story follow-ups (`docs/cases/City-Watch-Partner-Story-Followups.md`)
+
+| ID | Mission | Status |
+|---|---|---|
+| CW-PS-11 | Nobby: Change for a Silver Piece | Design only |
+| CW-PS-12 | Colon: The Queue Nobody Owned | Design only |
+| CW-PS-13 | Detritus: The Crate Everyone Heard | Design only |
+| CW-PS-14 | Visit: Two Minutes After Closing | Design only |
+| CW-PS-15 | Reg Shoe: The Complaint That Came Back | Design only |
+| CW-PS-16 | Cheery: A Seal With Nothing to Say | Design only |
+| CW-PS-17 | Dorfl: A Word Given in the Street | Design only |
+| CW-PS-18 | Angua: The Exit Left Open | Design only |
+| CW-PS-19 | Sally: The Door Everyone Watched | Design only |
+| CW-PS-20 | Carrot: The Agreement Nobody Signed | Design only |
+
+## Inquirer conspiracy arc (`docs/cases/City-Watch-Inquirer-Story-Arc.md`)
+
+| ID | Edition | Status |
+|---|---|---|
+| INQ-01 | Who Really Owns the Bridges? | **Partly live**: the bridge pilot publishes this Inquirer follow-up and the Contract Bridge second-notice lead |
+| INQ-02 | The Secret Office Behind the Secret Signs | Design only |
+| INQ-03 | Our Readers Were Right to Be Worried | Design only |
+| INQ-04 | We Stand by the Question Mark | Design only |
 
 ## Street cases (old engine, `streetFiles` in campaign-engine.html)
 
@@ -180,4 +204,4 @@ The Bell Tower, The Dock Ledger, The Market Stall, The Shades Workshop: from the
 - `City-Watch-Patrol-Cases-v1.zip` and `City-Watch-Quest-Emblems-v1.zip` in the team Google Drive folder.
 
 
-**Total tracked: 137** (including the ending and 4 old mystery sites).
+**Total tracked: 151** (including the ending and 4 old mystery sites).
