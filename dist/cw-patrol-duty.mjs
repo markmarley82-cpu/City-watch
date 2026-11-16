@@ -833,7 +833,8 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
    if(viewOfEvidence?.complete&&e.interview){
     for(const finding of viewOfEvidence.findings)button(finding.text,()=>file('supported',finding.id));
    }
-   if(clues.length)button('File as unresolved',()=>file('unresolved'));
+   // Filing unresolved needs the required evidence first, so the opening case teaches the full lead-to-report loop.
+   if(viewOfEvidence?.complete)button('File as unresolved',()=>file('unresolved'));
   }else{
    text('p',view(record).openingReminder);
    for(const clue of viewOfEvidence?.clues||[])text('p',clue.text);

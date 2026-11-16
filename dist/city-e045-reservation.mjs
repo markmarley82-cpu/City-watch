@@ -8,6 +8,7 @@ export function createReservation(contract){
  const arrayPrototype=Array.prototype;
  const finite=p=>{
   if(!Array.isArray(p)||p.length<2)return false;
+  if(typeof p[0]==='number'&&typeof p[1]==='number'&&Object.getPrototypeOf(p)===arrayPrototype&&!Object.hasOwn(p,'slice')&&!Object.hasOwn(p,'constructor'))return Number.isFinite(p[0])&&Number.isFinite(p[1]);
   if(Object.getPrototypeOf(p)!==arrayPrototype||Object.hasOwn(p,'slice')||Object.hasOwn(p,'constructor'))return p.slice(0,2).every(Number.isFinite);
   const hasX=0 in p,x=hasX?p[0]:undefined,hasY=1 in p,y=hasY?p[1]:undefined;
   return (!hasX||Number.isFinite(x))&&(!hasY||Number.isFinite(y));
@@ -23,7 +24,12 @@ export function createReservation(contract){
   const edgeLengths=p.map((a,i)=>Math.hypot(p[(i+1)%p.length][0]-a[0],p[(i+1)%p.length][1]-a[1]));
   return{...r,p,edgeLengths,pointThresholds:edgeLengths.map(length=>-eps*length),bounds:[Math.min(...p.map(v=>v[0])),Math.min(...p.map(v=>v[1])),Math.max(...p.map(v=>v[0])),Math.max(...p.map(v=>v[1]))]};
  });
- const inside=(q,r)=>q[0]>=r.bounds[0]-eps&&q[0]<=r.bounds[2]+eps&&q[1]>=r.bounds[1]-eps&&q[1]<=r.bounds[3]+eps&&r.p.every((a,i)=>cross(a,r.p[(i+1)%r.p.length],q)>=r.pointThresholds[i]);
+ const inside=(q,r)=>{
+  const x=q[0],y=q[1],b=r.bounds;if(!(x>=b[0]-eps&&x<=b[2]+eps&&y>=b[1]-eps&&y<=b[3]+eps))return false;
+  const p=r.p,n=p.length,t=r.pointThresholds;
+  for(let i=0;i<n;i++){const a=p[i],c=p[i+1===n?0:i+1];if(!((c[0]-a[0])*(y-a[1])-(c[1]-a[1])*(x-a[0])>=t[i]))return false;}
+  return true;
+ };
  function hit(a,b,r){
   if(Math.max(a[0],b[0])<r.bounds[0]-eps||Math.min(a[0],b[0])>r.bounds[2]+eps||Math.max(a[1],b[1])<r.bounds[1]-eps||Math.min(a[1],b[1])>r.bounds[3]+eps)return false;
   let lo=0,hi=1;const d=[b[0]-a[0],b[1]-a[1]];
@@ -33,10 +39,12 @@ export function createReservation(contract){
   }
   return lo<=1&&hi>=0;
  }
- const probe=(p,[x,y])=>[p[0]+x,p[1]+y,...p.slice(2)];
- function pointClear(p){return finite(p)&&!areas.some(r=>inside(p,r));}
+ const probe=(p,v)=>{const x=v[0],y=v[1];if(Object.getPrototypeOf(p)===arrayPrototype&&!Object.hasOwn(p,'slice')){if(p.length===3)return[p[0]+x,p[1]+y,p[2]];if(p.length===2)return[p[0]+x,p[1]+y];}return[p[0]+x,p[1]+y,...p.slice(2)];};
+ // Union of every region's bounds: a point outside it is outside every region (inside() rejects on the same per-region bounds).
+ const union=[Math.min(...areas.map(r=>r.bounds[0]))-eps,Math.min(...areas.map(r=>r.bounds[1]))-eps,Math.max(...areas.map(r=>r.bounds[2]))+eps,Math.max(...areas.map(r=>r.bounds[3]))+eps];
+ function pointClear(p){if(!finite(p))return false;const x=p[0],y=p[1];if(!(x>=union[0]&&x<=union[2]&&y>=union[1]&&y<=union[3]))return true;for(let i=0;i<areas.length;i++)if(inside(p,areas[i]))return false;return true;}
  function footClear(p){return finite(p)&&offsets.every(v=>pointClear(probe(p,v)));}
- function segmentClear(a,b){if(!finite(a)||!finite(b))return false;return offsets.every(v=>{const p=probe(a,v),q=probe(b,v);return !areas.some(r=>hit(p,q,r));});}
+ function segmentClear(a,b){if(!finite(a)||!finite(b))return false;return offsets.every(v=>{const p=probe(a,v),q=probe(b,v);if(Math.max(p[0],q[0])<union[0]||Math.min(p[0],q[0])>union[2]||Math.max(p[1],q[1])<union[1]||Math.min(p[1],q[1])>union[3])return true;return !areas.some(r=>hit(p,q,r));});}
  function gates({basePointClear,baseSegmentClear}){
   if(typeof basePointClear!=='function'||typeof baseSegmentClear!=='function')throw Error('Preserved base point/segment gates are required');
   const point=p=>basePointClear(p)&&pointClear(p),foot=p=>finite(p)&&offsets.every(v=>point(probe(p,v)));

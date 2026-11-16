@@ -25,8 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # Publish the game without the old play-*.html test pages and the
+      # development source inventory (which lists Google Drive links).
+      - name: Prepare site
+        run: |
+          mkdir _site
+          cp -a dist/. _site/
+          rm -f _site/play-*.html _site/source-inventory.json
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

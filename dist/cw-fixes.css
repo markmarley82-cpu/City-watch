@@ -1,0 +1,21 @@
+/* Headings the game focuses itself (tabindex="-1", e.g. "Choose your recruit")
+   keep focus for screen readers but no longer show the heavy keyboard ring. */
+/* Must out-rank "html body :is(...,[tabindex]):focus-visible" in cw-qa-access.css. */
+html body :is(h1,h2,h3)[tabindex="-1"]:focus,
+html body :is(h1,h2,h3)[tabindex="-1"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+#p21-duty-actions .cw-fixes-tip {
+  margin: .4em .2em .8em;
+  font-size: .85em;
+  line-height: 1.35;
+  opacity: .85;
+}
+.cw-fan-note {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.3;
+  opacity: .7;
+}
