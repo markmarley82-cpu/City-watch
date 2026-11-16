@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+ <defs>
+  <radialGradient id="leather"><stop stop-color="#493326"/><stop offset="1" stop-color="#160e0a"/></radialGradient>
+  <linearGradient id="rim" x2=".7" y2="1"><stop stop-color="#e2bc76"/><stop offset=".38" stop-color="#96703c"/><stop offset=".72" stop-color="#50341b"/><stop offset="1" stop-color="#b38747"/></linearGradient>
+  <radialGradient id="boss" cx="33%" cy="24%"><stop stop-color="#f3d494"/><stop offset=".32" stop-color="#cf9e4f"/><stop offset=".7" stop-color="#947039"/><stop offset="1" stop-color="#49301b"/></radialGradient>
+  <g id="cap"><path d="M39 7Q48 1 57 7L56 18Q48 23 40 18Z" fill="url(#rim)" stroke="#24160d" stroke-width="2"/><path d="M41 12q7 8 14 0M44 8l4 4 4-4" fill="none" stroke="#e2b66b" stroke-width="1.5"/><circle cx="48" cy="7" r="2" fill="#e0b470"/></g>
+  <g id="rivet"><circle cx="22" cy="22" r="4" fill="#29190e"/><circle cx="21.5" cy="21.5" r="2.7" fill="url(#boss)" stroke="#ba9352" stroke-width="1"/></g>
+ </defs>
+ <path d="M29 5Q48 0 67 5L91 29Q96 48 91 67L67 91Q48 96 29 91L5 67Q0 48 5 29Z" fill="url(#leather)" stroke="#704d2d" stroke-width="2"/>
+ <circle cx="48" cy="48" r="38" fill="none" stroke="url(#rim)" stroke-width="4"/>
+ <circle cx="48" cy="48" r="33" fill="none" stroke="#b28a50" stroke-width="1" stroke-dasharray="2 3"/>
+ <use href="#cap"/><use href="#cap" transform="rotate(90 48 48)"/><use href="#cap" transform="rotate(180 48 48)"/><use href="#cap" transform="rotate(270 48 48)"/>
+ <use href="#rivet"/><use href="#rivet" transform="rotate(90 48 48)"/><use href="#rivet" transform="rotate(180 48 48)"/><use href="#rivet" transform="rotate(270 48 48)"/>
+ <circle cx="48" cy="49" r="26" fill="#160e08" stroke="#cfaa66" stroke-width="2"/>
+ <circle cx="48" cy="47" r="22" fill="url(#boss)" stroke="#63431f" stroke-width="2"/>
+ <path d="M31 44a18 18 0 0 1 23-14" fill="none" stroke="#f2d298" stroke-width="2" opacity=".65"/>
+</svg>
