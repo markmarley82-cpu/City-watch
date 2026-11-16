@@ -1,0 +1,28 @@
+/* City cases (cw-cases.js): text styles inside the Watch duty notebook, and the
+   on-street lead button, styled to match the game's own action buttons. */
+.cw-case-sheet .cw-case-speaker { font-weight: bold; margin: .6em 0 .1em; }
+.cw-case-sheet .cw-case-speech { font-style: italic; line-height: 1.4; }
+.cw-case-sheet .cw-case-clue { font-size: .92em; line-height: 1.35; margin: .3em 0; }
+.cw-case-sheet .cw-case-note { font-size: .9em; opacity: .9; }
+.cw-case-sheet .cw-case-current { font-weight: bold; }
+.cw-case-sheet .cw-case-filed { font-size: .9em; }
+.cw-case-sheet h4 { margin: 1em 0 .3em; }
+#cw-case-lead {
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+  transform: translateX(-50%);
+  z-index: 40;
+  max-width: calc(100% - 32px);
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid #c9a35c;
+  background: #3a291d;
+  color: #f6ecd6;
+  font: 600 16px/1.2 Georgia, 'Times New Roman', serif;
+  box-shadow: 0 4px 14px #0008;
+  cursor: pointer;
+}
+#cw-case-lead[hidden] { display: none; }
+#cw-case-lead::before { content: '✦ '; color: #e6c27a; }

@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "note": "Authored City Watch street cases, from docs/cases briefs CW-NC-01, CW-NC-08 and CW-NC-12. Original stories; unnamed witnesses are invented residents, not canon.",
+  "places": {
+    "colon": { "name": "Sergeant Colon, Watch Square", "at": [121, 134, "RC1"] },
+    "carrot": { "name": "Captain Carrot, Watch Square", "at": [134, 135, "RC1"] },
+    "desk": { "name": "the Watch House duty desk", "at": [126, 132, "RC1"] },
+    "bridge": { "name": "the Watch-side approach to Pon’s Bridge", "at": [83, 160, "E033"] },
+    "quay": { "name": "the quay by the Dock Warehouse", "at": [43, 244, "APRON:warehouse"] },
+    "drum": { "name": "the Mended Drum", "at": [107, 243, "APRON:drum"] },
+    "market": { "name": "the Market Hall approach", "at": [59, 273, "E056"] },
+    "shades": { "name": "the Shades tenement", "at": [80, 241, "APRON:shades"] }
+  },
+  "cases": [
+    {
+      "id": "CW-NC-01",
+      "title": "The Bridge That Was Closed",
+      "where": "Pon’s Bridge and the quay",
+      "giverLine": "Sergeant Colon: “Carters keep turning back from Pon’s Bridge. Someone’s put up a notice saying it’s shut. Funny thing is, nobody told me it was shut, and I’m usually the first to hear about anything that means less walking.”",
+      "brief": "Find out who closed the bridge, and whether anyone is making money from the carts going the long way round.",
+      "clues": {
+        "notice": "The closure notice at Pon’s Bridge has no Watch stamp, no council seal and no date. The bridge behind it is perfectly open.",
+        "tally": "The quay tally shows the same fish trader arriving first on every morning the carts were sent round, while everyone else arrived late.",
+        "payment": "Nobby saw the fish trader hand coins to the man who came to straighten the notice. That links the trader to the notice, not just the timing."
+      },
+      "scenes": [
+        {
+          "id": "read-notice", "place": "bridge", "label": "Read the closure notice",
+          "title": "A notice on Pon’s Bridge",
+          "text": "BRIDGE CLOSED FOR REPAIRS. ALL CARTS BY THE LONG ROUTE. It is written in confident capitals. Behind it, the bridge is entirely unrepaired and entirely open. A pigeon crosses it to make the point.",
+          "gives": ["notice"]
+        },
+        {
+          "id": "check-tally", "place": "quay", "label": "Check the quay tally",
+          "title": "The quay tally",
+          "speaker": "A tally clerk",
+          "text": "“Times of arrival? Here. Mornings the bridge was ‘shut’, the carts came round the long way and turned up late. All except one fish trader, who was here early every time, selling to everybody else’s customers.”",
+          "gives": ["tally"]
+        },
+        {
+          "id": "decide-notice", "place": "bridge", "label": "Decide what to do about the notice",
+          "requires": ["notice", "tally"],
+          "title": "What about the notice?",
+          "speaker": "Nobby Nobbs",
+          "text": "“We could have it down in two seconds. Or we leave it up a bit, I hang about looking like I’m not looking, and we see who comes to check on it. People always come to check on a good scheme.”",
+          "choice": {
+            "prompt": "Carts are still being turned away while it stays up.",
+            "options": [
+              { "id": "remove", "label": "Take the notice down now", "text": "You take the notice down and wave the next cart across. The carters cheer, which is a rare sound around a Watch officer. Whoever put it up will know the game is over, though.", "gives": [] },
+              { "id": "watch", "label": "Leave it up while Nobby keeps watch", "text": "Nobby settles into a doorway with the air of a man who has done this before. “Meet me down the quay in a bit,” he says. “Bring a pie if you see one.”", "gives": [] }
+            ]
+          }
+        },
+        {
+          "id": "nobby-lookout", "place": "quay", "label": "Meet Nobby at his lookout",
+          "requiresChoice": { "decide-notice": "watch" },
+          "title": "Nobby’s lookout",
+          "speaker": "Nobby Nobbs",
+          "text": "“Bloke came to straighten the notice, very proud of it. Then the fish trader walks up, all casual, and gives him a handful of coins. I’ve seen money change hands before, and that was money changing hands.” The notice is down now; Nobby is wearing it as a hat.",
+          "gives": ["payment"]
+        }
+      ],
+      "file": {
+        "place": "carrot", "label": "Report to Captain Carrot", "officer": "Captain Carrot",
+        "title": "Reporting the closed bridge",
+        "prompt": "“So who closed Pon’s Bridge, and what can you prove?”",
+        "reject": "Captain Carrot reads your notes twice. “I believe you believe it. But your evidence doesn’t show that yet.”",
+        "findings": [
+          { "id": "carters", "label": "The carters closed it to shorten their rounds", "requires": ["never"], "reject": "“The carters were the ones losing money,” says Carrot. “Nothing you’ve found points at them.”" },
+          { "id": "obstruction", "label": "Obstruction: a fake notice sent the carts the long way", "requires": ["notice", "tally"], "outcome": "partial", "merit": 6, "coins": 0,
+            "summary": "Fake notice removed; who paid for it was not proven.",
+            "reply": "“That’s fair and it’s true,” says Carrot. “The trader got lucky, or got clever. Without seeing money change hands, we can’t say which. Well done keeping it honest.”" },
+          { "id": "orchestration", "label": "The fish trader paid to have the notice put up", "requires": ["notice", "tally", "payment"], "outcome": "full", "merit": 12, "coins": 3,
+            "summary": "Fish trader shown to have paid for the fake notice.",
+            "reply": "“The notice, the tally and a payment that Nobby saw with his own eyes,” says Carrot. “That’s a case. I’ll have a word with our fish trader. A long word, with paperwork.”" }
+        ]
+      }
+    },
+    {
+      "id": "CW-NC-08",
+      "title": "A Receipt for a Raincoat",
+      "where": "the Market and the Mended Drum",
+      "giverLine": "Sergeant Colon: “Gentleman says his raincoat’s on a stall by the Market Hall, and the stallholder’s got a receipt for it. Now, I’m not saying anyone’s lying. I’m saying someone’s wrong, and I’d like it to be someone who isn’t me.”",
+      "brief": "Find out whose coat it is, and how a receipt came to be with it. Get the coat home without accusing anyone you can’t prove did wrong.",
+      "clues": {
+        "seam": "The coat on the stall has a little anchor darned into the collar, exactly as the owner described. It is his coat.",
+        "receipt": "The stallholder’s receipt is genuine, from a pawnshop, but it describes a coat with brass buttons and a hood. This coat has horn buttons and no hood.",
+        "mixup": "At the Mended Drum, two coats hung on one peg. A customer took the wrong one home, then sold it with the receipt for his own coat. The stallholder bought it honestly."
+      },
+      "scenes": [
+        {
+          "id": "examine-coat", "place": "market", "label": "Examine the raincoat",
+          "title": "A raincoat on a stall",
+          "text": "A sturdy oilskin raincoat, much loved and much mended. Inside the collar someone has darned a tiny anchor in thick thread, just as the owner said.",
+          "gives": ["seam"]
+        },
+        {
+          "id": "read-receipt", "place": "market", "label": "Read the stallholder’s receipt",
+          "title": "The stallholder’s receipt",
+          "speaker": "The stallholder",
+          "text": "“Bought fair and square, I did. Here’s the receipt.” The receipt is real enough. It describes a raincoat with brass buttons and a hood. The coat in front of you has horn buttons and nowhere to keep a hood.",
+          "gives": ["receipt"]
+        },
+        {
+          "id": "decide-coat", "place": "market", "label": "Decide how to handle the coat",
+          "requires": ["seam", "receipt"],
+          "title": "The coat and the receipt",
+          "speaker": "The stallholder",
+          "text": "“If it’s his coat, it’s his coat. But I paid for it, and I don’t like being called a thief.”",
+          "choice": {
+            "prompt": "You can settle this now, or dig into how the wrong receipt got here.",
+            "options": [
+              { "id": "return", "label": "Arrange the return now, no accusations", "text": "You agree the coat goes home, and promise the stallholder the receipt question will be looked into. Nobody is called a thief. Everybody is slightly damp.", "gives": [] },
+              { "id": "investigate", "label": "Find out how the wrong receipt got here", "text": "The stallholder remembers where it came from: “Bloke from the Mended Drum sold it me. Said he had the receipt to prove it was his.”", "gives": [] }
+            ]
+          }
+        },
+        {
+          "id": "ask-drum", "place": "drum", "label": "Ask about the coat at the Mended Drum",
+          "requiresChoice": { "decide-coat": "investigate" },
+          "title": "Coats at the Mended Drum",
+          "speaker": "A regular by the door",
+          "text": "“Peg by the door only takes one coat, so people hang two. Last wet night, two raincoats, one peg. Fellow grabbed the wrong one going home, sold it the next day with his own receipt, thinking it was his. Came back this morning looking for his real one, very embarrassed.”",
+          "gives": ["mixup"]
+        }
+      ],
+      "file": {
+        "place": "colon", "label": "Report to Sergeant Colon", "officer": "Sergeant Colon",
+        "title": "Reporting the raincoat",
+        "prompt": "“Right then. Whose coat is it, and is anybody going in the cells?”",
+        "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+        "findings": [
+          { "id": "theft", "label": "The stallholder stole the coat", "requires": ["never"], "reject": "“The stallholder paid for it and kept the receipt,” says Colon. “That’s not theft. That’s bad luck with paperwork.”" },
+          { "id": "returned", "label": "It’s the owner’s coat: returned, nobody blamed", "requires": ["seam", "receipt"], "outcome": "partial", "merit": 6, "coins": 0,
+            "summary": "Coat returned; how the receipt got there was left open.",
+            "reply": "“Coat goes home, nobody gets accused of anything they didn’t do,” says Colon. “Proper policing, that. The receipt business can stay a mystery. The city’s full of them.”" },
+          { "id": "mixup", "label": "An honest mix-up at the Mended Drum: wrong coat, wrong receipt", "requires": ["seam", "receipt", "mixup"], "outcome": "full", "merit": 10, "coins": 2,
+            "summary": "Honest mix-up explained; coat returned, nobody to blame.",
+            "reply": "“Two coats, one peg,” says Colon, delighted. “Nobody’s a criminal, everybody gets their own coat back, and I get to write ‘peg-related’ on a form. Best kind of case.”" }
+        ]
+      }
+    },
+    {
+      "id": "CW-NC-12",
+      "title": "The Fine on the Nail",
+      "where": "the Shades and the Market",
+      "giverLine": "Sergeant Colon: “People in the Shades are finding fines nailed to their doors. Watch fines, supposedly. Thing is, we don’t do fines by nail. We don’t hardly do fines at all, it’s all the writing.”",
+      "brief": "Check whether the fines are real, find out if anyone has actually paid, and stop people being cheated. You never pay anything yourself.",
+      "clues": {
+        "notice": "The notice nailed in the Shades says ‘FINE: 3 coins for Unlicensed Washing. Pay the collector. By order of the Watch.’ No signature, no number.",
+        "norecord": "The duty desk has no fines for washing, no collector, and no record of any notices in the Shades. The Watch never issued them.",
+        "paid": "A neighbour paid 3 coins to a man in a long coat who said he was collecting for the Watch. Money was really taken.",
+        "collector": "You watched the collector make his rounds and saw him take another payment. You can describe him and where he goes."
+      },
+      "scenes": [
+        {
+          "id": "read-fine", "place": "shades", "label": "Read the notice on the nail",
+          "title": "A fine on a nail",
+          "text": "FINE: 3 COINS FOR UNLICENSED WASHING. PAY THE COLLECTOR. BY ORDER OF THE WATCH. It is nailed to a door that has clearly not been washed, licensed or otherwise, in years.",
+          "gives": ["notice"]
+        },
+        {
+          "id": "check-desk", "place": "desk", "label": "Check the duty desk records",
+          "title": "The duty desk",
+          "speaker": "The desk officer",
+          "text": "“Fines for washing? In the Shades? We’d be more likely to give out medals for it.” The ledger has no such fine, no collector, and nothing about the Shades but the usual.",
+          "gives": ["norecord"]
+        },
+        {
+          "id": "decide-fines", "place": "shades", "label": "Decide what to tell the residents",
+          "requires": ["notice", "norecord"],
+          "title": "Warn them, or watch first?",
+          "speaker": "A resident",
+          "text": "“So it’s not real? Then who’s been coming round for the money?”",
+          "choice": {
+            "prompt": "Warning everyone now stops anyone else paying. Keeping quiet a little longer might show you who is collecting.",
+            "options": [
+              { "id": "warn", "label": "Warn the street now: nobody pays", "text": "Word travels down the street faster than you can walk it. Nobody else will be paying any fines today. Somebody mentions a neighbour by the Market who already paid.", "gives": [] },
+              { "id": "watch", "label": "Say nothing yet and watch for the collector", "text": "You ask the resident to keep this between you for an hour. They agree, with the expression of someone who will tell everyone in an hour and five minutes. The collector works the Market side next, they say.", "gives": [] }
+            ]
+          }
+        },
+        {
+          "id": "neighbour-paid", "place": "market", "label": "Talk to the neighbour who paid",
+          "requiresChoice": { "decide-fines": "warn" },
+          "title": "The neighbour who paid",
+          "speaker": "A neighbour",
+          "text": "“Three coins, I gave him. Long coat, very polite, said it was for the Watch. I thought, well, at least it’s not for the Thieves’ Guild. Should I have thought harder?”",
+          "gives": ["paid"]
+        },
+        {
+          "id": "watch-collector", "place": "market", "label": "Watch the collector make his rounds",
+          "requiresChoice": { "decide-fines": "watch" },
+          "title": "Watching the collector",
+          "text": "A man in a long coat works along the Market side, tapping each notice and holding out his hand. A woman pays him three coins. You note his face, his coat and where he goes next. Then you warn the street, so nobody else pays.",
+          "gives": ["paid", "collector"]
+        }
+      ],
+      "file": {
+        "place": "carrot", "label": "Report to Captain Carrot", "officer": "Captain Carrot",
+        "title": "Reporting the fines",
+        "prompt": "“Are these fines real? And if not, has anybody been cheated?”",
+        "reject": "Carrot shakes his head gently. “Your notes don’t say that yet. What do you actually know?”",
+        "findings": [
+          { "id": "real", "label": "The fines are real, so residents should pay", "requires": ["never"], "reject": "“No signature, no record at the desk,” says Carrot. “The Watch doesn’t fine people by nail.”" },
+          { "id": "false-notice", "label": "False notices: no such fine exists", "requires": ["notice", "norecord"], "outcome": "partial", "merit": 5, "coins": 0,
+            "summary": "Notices shown to be fake; no one proven to have been cheated.",
+            "reply": "“Good,” says Carrot. “Fake notices are a nuisance, and you’ve shown they’re fake. If anyone was actually paid, we’ll need a witness to prove it.”" },
+          { "id": "fraud", "label": "Fraud: money was taken for a fake fine", "requires": ["notice", "norecord", "paid"], "outcome": "full", "merit": 9, "coins": 0,
+            "summary": "Fraud proven: money was taken for fake fines.",
+            "replies": { "warn": "“You warned them first and still found the proof,” says Carrot. “Nobody else paid today because of you. We don’t know the collector’s face yet, but we know what he did.”" },
+            "reply": "“The notice was fake and somebody paid,” says Carrot. “That’s fraud, and it’s proven.”" },
+          { "id": "collector", "label": "Fraud by the collector you watched", "requires": ["notice", "norecord", "paid", "collector"], "outcome": "full", "merit": 12, "coins": 2,
+            "summary": "Collector seen taking money; fraud proven and he can be found.",
+            "reply": "“Fake fine, a payment you saw, and a description good enough to find him,” says Carrot. “And you warned the street once you had it. That’s the job done properly.”" }
+        ]
+      }
+    }
+  ]
+}

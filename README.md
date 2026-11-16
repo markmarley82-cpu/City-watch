@@ -41,6 +41,24 @@ cd dist && python3 -m http.server 8000
 Then open http://localhost:8000/. The game must be served over HTTP (not opened
 as a file) because it uses JavaScript modules.
 
+## City cases
+
+Duty → **City cases** offers optional street cases after the opening purse case.
+They are played by `dist/cw-cases.js` from the data in
+`dist/cases/city-cases.json`, so a new case is mostly writing:
+
+- `places`: named street points (`[x, y, edge]`) where scenes happen.
+- each case: `scenes` (with `gives` clues, `requires` clues, an optional
+  `choice`, and `requiresChoice` for branch-only scenes), and a `file` section
+  with `findings`. A finding pays only if its `requires` clues were recorded;
+  findings without an `outcome` are wrong answers that are gently rejected.
+- every case needs a partial finding that can always be filed, and a fuller one
+  for the second branch.
+
+Progress is saved in the campaign record (`state.flags.cityCasesV1`), each case
+pays once, and reloading resumes the same branch. The briefs these come from are
+in `docs/cases/`. Built so far: CW-NC-01, CW-NC-08, CW-NC-12.
+
 ## Faster loading on phones
 
 `dist/cw-prefetch.js` downloads, in the background, the files the city asks
