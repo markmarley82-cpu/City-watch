@@ -1,0 +1,42 @@
+{
+  "atlases": [
+    {
+      "category": "buildings",
+      "file": "atlases/buildings.png",
+      "pixel_size": [
+        2047,
+        1123
+      ],
+      "item_count": 12
+    },
+    {
+      "category": "furniture",
+      "file": "atlases/furniture.png",
+      "pixel_size": [
+        2016,
+        1051
+      ],
+      "item_count": 21
+    },
+    {
+      "category": "terrain",
+      "file": "atlases/terrain.png",
+      "pixel_size": [
+        2048,
+        152
+      ],
+      "item_count": 18
+    },
+    {
+      "category": "overlays",
+      "file": "atlases/overlays.png",
+      "pixel_size": [
+        840,
+        208
+      ],
+      "item_count": 4
+    }
+  ],
+  "optional": true,
+  "direct_per_sprite_loading_preferred": true
+}

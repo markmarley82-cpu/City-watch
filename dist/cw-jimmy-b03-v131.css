@@ -1,0 +1,68 @@
+/* JIMMY B03-UI v1.3.1 — bounded CSS correction for real tab reveal and Notes layout.
+   Load after cw-jimmy-b03-v13.css. Keeps all six existing live tab buttons.
+*/
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs {
+  scroll-snap-type: none !important;
+  scroll-padding-inline-start: 4px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab] {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal;
+}
+/* An unpainted tail gives the last real index tab room to finish at the left
+   of the scroll track. It avoids a chopped previous section label on phones. */
+@media (max-width: 650px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs::after {
+  content: '';
+  flex: 0 0 max(0px, calc(100% - 70px));
+  pointer-events: none;
+ }
+}
+/* The 100px v1.3 textarea minimum overran Buddy's 64px landscape grid
+   track, covering Save. A 44px editing row restores the Save control at
+   844x390 while retaining vertical scrolling on still-shorter screens. */
+@media (orientation: landscape) and (max-height: 550px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes {
+   grid-template-rows: auto minmax(44px,1fr) auto !important;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes #nb-text {
+   min-height: 44px !important;
+   height: 100% !important;
+ }
+}
+/* Notes: keep Save below the text editor rather than letting it cover the
+   editable region. Landscape retains Buddy's established 2-column notes grid. */
+@media (orientation: portrait) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  grid-template-rows: auto minmax(90px,1fr) auto auto !important;
+  align-content: start;
+  gap: 7px;
+  overflow-y: auto !important;
+  scroll-padding-bottom: 18px;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes #nb-text {
+  min-height: 90px !important;
+  height: 100% !important;
+  resize: none;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes #nb-save {
+  position: static !important;
+  justify-self: start;
+  margin: 0 !important;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes #nb-status {
+  margin: 0 !important;
+  min-height: 0;
+ }
+}
+
+@media (orientation:portrait) and (max-height:600px) and (max-width:330px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes {
+  grid-template-rows: auto minmax(62px,1fr) auto auto !important;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes #nb-text {
+  min-height: 62px !important;
+ }
+}

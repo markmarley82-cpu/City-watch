@@ -1,0 +1,4329 @@
+{
+  "id": "MATE-481-S007",
+  "expectedBuildings": 25,
+  "candidateComplete": true,
+  "sourceBase": "60de706e47b13d1387cbc7c17bf6c50798146553",
+  "scope": "Twenty-five independent paintings in E008:3:5; candidate integration only",
+  "buildings": [
+    {
+      "id": "roof-25",
+      "retireId": "roof:25",
+      "sourceParcel": 29,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        203.016,
+        292.046,
+        4.198,
+        4.674
+      ],
+      "p": [
+        204.61499999999998,
+        293.883
+      ],
+      "sourceAsset": "legacy:dolly_building_flower_shop",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        207,
+        294,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-25.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        425
+      ],
+      "anchor": [
+        200,
+        282.896
+      ],
+      "contacts": {
+        "rear": [
+          206.664,
+          220.79200000000003
+        ],
+        "left": [
+          75.792,
+          286.228
+        ],
+        "front": [
+          193.336,
+          345
+        ],
+        "right": [
+          324.20799999999997,
+          279.564
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          258.772,
+          312.28200000000004
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-25: a narrow family house, built in irregular grey stone with patched limewash, with a restrained half-hipped tile roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-25.webp",
+      "emissionFile": "roof-25-emission.webp",
+      "emissionBytes": 1932,
+      "emissionSha256": "8cc082a5feb8a2cb5b1355c3a805b7484cef5c796c304f1bfaa37040b8d9e039",
+      "emissionPixels": 596,
+      "dimensions": [
+        400,
+        425
+      ],
+      "scale": 1,
+      "sha256": "d8985462e89aac6471eb37feb562018141d624a48a8869c091a8737ca6ed697e",
+      "sourceSha256": "07a211436c152ace063ce7549ef3fd636456c787301ed33f9dc6ddf306112c6f",
+      "bytes": 39494,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 67.6109100527265,
+      "doorFoot": [
+        259.3430725683363,
+        314.1512314879053
+      ],
+      "windowCentres": [
+        [
+          124.1212524628833,
+          262.37116866703667,
+          124.1212524628833,
+          310.3926262314417
+        ],
+        [
+          229.6602340086027,
+          208.61224994218585,
+          229.6602340086027,
+          326.83788299569864
+        ],
+        [
+          263.63059369363117,
+          196.0794958836317,
+          263.63059369363117,
+          309.8527031531844
+        ],
+        [
+          294.63266952268623,
+          183.21693250774715,
+          294.63266952268623,
+          294.3516652386569
+        ]
+      ],
+      "selectedMaster": "roof-25-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.32980931733037316,
+        "offset": [
+          0.7725677813237439,
+          -6.423424957217435
+        ],
+        "sourceContacts": [
+          [
+            224,
+            880
+          ],
+          [
+            588,
+            1060
+          ],
+          [
+            980,
+            880
+          ]
+        ],
+        "targetContacts": [
+          [
+            75.792,
+            286.228
+          ],
+          [
+            193.336,
+            345
+          ],
+          [
+            324.20799999999997,
+            279.564
+          ]
+        ],
+        "residuals": [
+          2.675284757210424,
+          2.279109814051103,
+          4.250591328497021
+        ],
+        "maxContactResidualPx": 4.250591328497021
+      }
+    },
+    {
+      "id": "roof-26",
+      "retireId": "roof:26",
+      "sourceParcel": 30,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        203.80700000000002,
+        298.218,
+        3.874,
+        3.701
+      ],
+      "p": [
+        205.24400000000003,
+        299.56850000000003
+      ],
+      "sourceAsset": "legacy:dolly_building_timber_fronted_tavern",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        203,
+        300,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-26.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        286.975
+      ],
+      "contacts": {
+        "rear": [
+          197.578,
+          233.95000000000002
+        ],
+        "left": [
+          93.95,
+          285.764
+        ],
+        "front": [
+          202.422,
+          340
+        ],
+        "right": [
+          306.05,
+          288.18600000000004
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          148.186,
+          312.882
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-26: a low repair workshop with rooms above, built in irregular grey stone with patched limewash, with a long slate catslide with a small rear stack. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-26.webp",
+      "emissionFile": "roof-26-emission.webp",
+      "emissionBytes": 1976,
+      "emissionSha256": "52353716095774d9277a5e0ce22a5087c225cefb0afdbf51ca546cddf8154b97",
+      "emissionPixels": 658,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "38937b91f9109d7eb0965222d09009124e48b78a75223fe965de5762a992d6e4",
+      "sourceSha256": "875051ed65acd8104831954db13d024c16f8016c6f3c5ef09da1e2f2bee5f8cf",
+      "bytes": 27262,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 62.031573426101666,
+      "doorFoot": [
+        145.5641207727296,
+        311.4383608654979
+      ],
+      "windowCentres": [
+        [
+          120.04924717482362,
+          206.10172674570262,
+          120.04924717482362,
+          298.8136235874118
+        ],
+        [
+          171.07899437063557,
+          229.04170484290248,
+          171.07899437063557,
+          324.3284971853178
+        ],
+        [
+          183.4853090558559,
+          278.66696358378385,
+          183.4853090558559,
+          330.53165452792797
+        ]
+      ],
+      "selectedMaster": "roof-26-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.23408140915510062,
+        "offset": [
+          57.783592339566866,
+          67.05736970757286
+        ],
+        "sourceContacts": [
+          [
+            155,
+            943
+          ],
+          [
+            614,
+            1160
+          ],
+          [
+            1064,
+            942
+          ]
+        ],
+        "targetContacts": [
+          [
+            93.95,
+            285.764
+          ],
+          [
+            202.422,
+            340
+          ],
+          [
+            306.05,
+            288.18600000000004
+          ]
+        ],
+        "residuals": [
+          2.0354586681026046,
+          1.6779540397862767,
+          1.011562031337935
+        ],
+        "maxContactResidualPx": 2.0354586681026046
+      }
+    },
+    {
+      "id": "roof-27",
+      "retireId": "roof:27",
+      "sourceParcel": 31,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        204.223,
+        303.188,
+        3.861,
+        3.797
+      ],
+      "p": [
+        205.6535,
+        304.5865
+      ],
+      "sourceAsset": "legacy:dolly_building_bread_and_buns_bakery",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        208,
+        305,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-27.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        286.394
+      ],
+      "contacts": {
+        "rear": [
+          199.10399999999998,
+          232.788
+        ],
+        "left": [
+          92.788,
+          285.946
+        ],
+        "front": [
+          200.89600000000002,
+          340
+        ],
+        "right": [
+          307.212,
+          286.842
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          254.054,
+          313.421
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-27: a plain provision shop with a dwelling above, built in irregular grey stone with patched limewash, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-27.webp",
+      "emissionFile": "roof-27-emission.webp",
+      "emissionBytes": 2028,
+      "emissionSha256": "2a0f301e0d530a0ef3b21b0e9c5e686d811ad4e3665e0e0435798e84b6f5796d",
+      "emissionPixels": 1449,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "ec734cd4331887811c39e81211eb97a43156186da550b90afb717887b9267024",
+      "sourceSha256": "89bab61445433351e1dc9adcbf4f61b1ffcee9cb57f1d7627de98a0eeb11aed2",
+      "bytes": 30014,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 68.69918642581062,
+      "doorFoot": [
+        254.91398232286664,
+        312.43346192231854
+      ],
+      "windowCentres": [
+        [
+          114.93535833788162,
+          184.06596803747055,
+          114.93535833788162,
+          297.01967916894085
+        ],
+        [
+          162.67000430511152,
+          208.25582241275598,
+          162.67000430511152,
+          320.8870021525558
+        ],
+        [
+          253.94638814785523,
+          205.03050849605125,
+          253.94638814785523,
+          313.4748059260724
+        ],
+        [
+          146.22090332991743,
+          268.5691926551343,
+          146.22090332991743,
+          312.6624516649587
+        ]
+      ],
+      "selectedMaster": "roof-27-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3225313916704724,
+        "offset": [
+          3.6620282115686393,
+          -4.614896089755803
+        ],
+        "sourceContacts": [
+          [
+            276,
+            899
+          ],
+          [
+            612,
+            1068
+          ],
+          [
+            941,
+            906
+          ]
+        ],
+        "targetContacts": [
+          [
+            92.788,
+            285.946
+          ],
+          [
+            200.89600000000002,
+            340
+          ],
+          [
+            307.212,
+            286.842
+          ]
+        ],
+        "residuals": [
+          0.6146150777272765,
+          0.216823068162021,
+          0.7580616583161022
+        ],
+        "maxContactResidualPx": 0.7580616583161022
+      }
+    },
+    {
+      "id": "roof-28",
+      "retireId": "roof:28",
+      "sourceParcel": 32,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        204.372,
+        311.522,
+        2.968,
+        4.509
+      ],
+      "p": [
+        205.35600000000002,
+        313.2765
+      ],
+      "sourceAsset": "legacy:dolly_building_weathered_end_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        207,
+        313,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-28.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        287.661
+      ],
+      "contacts": {
+        "rear": [
+          221.574,
+          235.322
+        ],
+        "left": [
+          95.322,
+          298.448
+        ],
+        "front": [
+          178.426,
+          340
+        ],
+        "right": [
+          304.678,
+          276.874
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          241.552,
+          308.437
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-28: a shared lodging with a side stair door, built in irregular grey stone with patched limewash, with a steep patched slate gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-28.webp",
+      "emissionFile": "roof-28-emission.webp",
+      "emissionBytes": 1932,
+      "emissionSha256": "33e7e00d0f1e95da7ba8b41077e3964c9e973f9d4899224fa3ad9433c9ede5f3",
+      "emissionPixels": 1184,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "5956215a3ad925ab2f39a866c7cccdaef7ba7fe9dde9f6ab2af40267e789a938",
+      "sourceSha256": "016baf8eb3a6bac4a4c94505ebc6ff1ba69e8aaac76fdd80c4bed9f31292c0a8",
+      "bytes": 28730,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 61.41932502284483,
+      "doorFoot": [
+        245.43848967926147,
+        309.28770624064737
+      ],
+      "windowCentres": [
+        [
+          131.28215259491637,
+          214.42539795929014,
+          131.28215259491637,
+          316.4280762974582
+        ],
+        [
+          145.7526741971573,
+          271.6643500748209,
+          145.7526741971573,
+          323.6633370985786
+        ],
+        [
+          203.634760606121,
+          275.84472298213495,
+          203.634760606121,
+          327.3956196969395
+        ],
+        [
+          211.3523721273162,
+          209.60189075854316,
+          211.3523721273162,
+          323.5368139363419
+        ],
+        [
+          222.28565511567598,
+          205.74308499794557,
+          222.28565511567598,
+          318.070172442162
+        ],
+        [
+          260.8737127216518,
+          186.77062334167414,
+          260.8737127216518,
+          298.77614363917405
+        ],
+        [
+          273.7363985903104,
+          179.6961461139119,
+          273.7363985903104,
+          292.34480070484483
+        ]
+      ],
+      "selectedMaster": "roof-28-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3215671467164651,
+        "offset": [
+          3.2984282017632722,
+          0.5832453928408654
+        ],
+        "sourceContacts": [
+          [
+            282,
+            912
+          ],
+          [
+            548,
+            1050
+          ],
+          [
+            938,
+            879
+          ]
+        ],
+        "targetContacts": [
+          [
+            95.322,
+            298.448
+          ],
+          [
+            178.426,
+            340
+          ],
+          [
+            304.678,
+            276.874
+          ]
+        ],
+        "residuals": [
+          4.78735448549874,
+          2.0804085322318038,
+          6.371689937037279
+        ],
+        "maxContactResidualPx": 6.371689937037279
+      }
+    },
+    {
+      "id": "roof-29",
+      "retireId": "roof:29",
+      "sourceParcel": 33,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        206.054,
+        317.88,
+        2.84,
+        4.563
+      ],
+      "p": [
+        206.974,
+        319.6615
+      ],
+      "sourceAsset": "legacy:dolly_building_balcony_gabled_cottage",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        205,
+        320,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-29.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        288.179
+      ],
+      "contacts": {
+        "rear": [
+          224.122,
+          236.35799999999998
+        ],
+        "left": [
+          96.358,
+          300.23999999999995
+        ],
+        "front": [
+          175.878,
+          340
+        ],
+        "right": [
+          303.642,
+          276.118
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          136.118,
+          320.12
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-29: a laundry dwelling, built in irregular grey stone with patched limewash, with a low brown clay-tile gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-29.webp",
+      "emissionFile": "roof-29-emission.webp",
+      "emissionBytes": 2052,
+      "emissionSha256": "df47fa6e14e8bb780cdd5cfafe6f88e962c41738ca1876fd712cde1f3ae2dcb9",
+      "emissionPixels": 989,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "d69b852ef034a393334ccf2eb7bba6fdaca711f8b856275192dd4d9ba7b29574",
+      "sourceSha256": "e516df3b4d47cb1ed10f57f37159b8f4b8156b693b06d7f311f2f6c4fde6cb11",
+      "bytes": 31360,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 68.90027346821694,
+      "doorFoot": [
+        135.19738434177316,
+        321.0840341581886
+      ],
+      "windowCentres": [
+        [
+          130.74375449781996,
+          211.31515741604832,
+          130.74375449781996,
+          317.4328772489099
+        ],
+        [
+          253.61154254570494,
+          241.70463164537594,
+          253.61154254570494,
+          301.1332287271475
+        ]
+      ],
+      "selectedMaster": "roof-29-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2619782261148933,
+        "offset": [
+          36.95554954868817,
+          60.677677399984674
+        ],
+        "sourceContacts": [
+          [
+            232,
+            928
+          ],
+          [
+            522,
+            1060
+          ],
+          [
+            1021,
+            815
+          ]
+        ],
+        "targetContacts": [
+          [
+            96.358,
+            300.23999999999995
+          ],
+          [
+            175.878,
+            340
+          ],
+          [
+            303.642,
+            276.118
+          ]
+        ],
+        "residuals": [
+          3.81076167968957,
+          2.7110953395652246,
+          2.084898447269541
+        ],
+        "maxContactResidualPx": 3.81076167968957
+      }
+    },
+    {
+      "id": "roof-55",
+      "retireId": "roof:55",
+      "sourceParcel": 63,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        198.452,
+        297.18,
+        4.415,
+        4.684
+      ],
+      "p": [
+        200.1595,
+        299.022
+      ],
+      "sourceAsset": "legacy:dolly_building_blue_slate_tenement",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        203,
+        299,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-55.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        428
+      ],
+      "anchor": [
+        200,
+        284.307
+      ],
+      "contacts": {
+        "rear": [
+          203.766,
+          220.61400000000003
+        ],
+        "left": [
+          72.614,
+          286.19
+        ],
+        "front": [
+          196.234,
+          348
+        ],
+        "right": [
+          327.38599999999997,
+          282.42400000000004
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          261.81,
+          315.212
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-55: a small backstreet storehouse, built in soot-darkened russet brick, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-55.webp",
+      "emissionFile": "roof-55-emission.webp",
+      "emissionBytes": 2104,
+      "emissionSha256": "f31a083df233f72b660cf9c7d1e2db58ed2d0f9aa058e31bf1b991aa9374d18d",
+      "emissionPixels": 1146,
+      "dimensions": [
+        400,
+        428
+      ],
+      "scale": 1,
+      "sha256": "8c028880b4befb810b6d776422be87890c81cb19426c2324ec0d41a0ade7d342",
+      "sourceSha256": "ce3467d5469baf97a03f86e6325a87e746dfedde145a744c59afb2063a17e225",
+      "bytes": 40212,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 77.27477458498214,
+      "doorFoot": [
+        267.3012615548816,
+        311.97756454874855
+      ],
+      "windowCentres": [
+        [
+          137.42019811781546,
+          210.9259362453104,
+          137.42019811781546,
+          318.59309905890774
+        ],
+        [
+          272.6510536415342,
+          185.36581849797014,
+          272.6510536415342,
+          309.7914731792329
+        ]
+      ],
+      "selectedMaster": "roof-55-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2972106714807005,
+        "offset": [
+          11.997294752959846,
+          15.658525082490144
+        ],
+        "sourceContacts": [
+          [
+            202,
+            916
+          ],
+          [
+            620,
+            1110
+          ],
+          [
+            1063,
+            900
+          ]
+        ],
+        "targetContacts": [
+          [
+            72.614,
+            286.19
+          ],
+          [
+            196.234,
+            348
+          ],
+          [
+            327.38599999999997,
+            282.42400000000004
+          ]
+        ],
+        "residuals": [
+          1.8090484686264,
+          2.4378654393639514,
+          0.9070501359275328
+        ],
+        "maxContactResidualPx": 2.4378654393639514
+      }
+    },
+    {
+      "id": "roof-56",
+      "retireId": "roof:56",
+      "sourceParcel": 64,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        199.753,
+        304.753,
+        3.086,
+        3.128
+      ],
+      "p": [
+        200.796,
+        305.817
+      ],
+      "sourceAsset": "legacy:dolly_building_stone_guildhouse",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        199,
+        306,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-56.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        296.502
+      ],
+      "contacts": {
+        "rear": [
+          200.588,
+          253.00400000000002
+        ],
+        "left": [
+          113.00399999999999,
+          296.796
+        ],
+        "front": [
+          199.412,
+          340
+        ],
+        "right": [
+          286.996,
+          296.208
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          156.208,
+          318.398
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-56: a modest carpenter home, built in soot-darkened russet brick, with a steep patched slate gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-56.webp",
+      "emissionFile": "roof-56-emission.webp",
+      "emissionBytes": 1990,
+      "emissionSha256": "c236bff79e995d683708665a593f6b184b18bea37f632900268053996d6a57b7",
+      "emissionPixels": 457,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "5cc7e7a92b686994b7b78fa6e2746b464a83117420a88b30eb09942d6fd1e03a",
+      "sourceSha256": "0a492579d68fab4d6fe727cd6a188b29ef76ab388cf06bd413aa50cfec52a761",
+      "bytes": 23056,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.68251599387415,
+      "doorFoot": [
+        153.5398522580927,
+        316.4133657106885
+      ],
+      "windowCentres": [
+        [
+          167.9428416494412,
+          221.87738079656472,
+          167.9428416494412,
+          324.2654208247206
+        ],
+        [
+          221.3648386646247,
+          245.96965396027494,
+          221.3648386646247,
+          329.02358066768767
+        ]
+      ],
+      "selectedMaster": "roof-56-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.26187253438815444,
+        "offset": [
+          39.10155473046922,
+          42.49469474067894
+        ],
+        "sourceContacts": [
+          [
+            281,
+            980
+          ],
+          [
+            614,
+            1134
+          ],
+          [
+            946,
+            962
+          ]
+        ],
+        "targetContacts": [
+          [
+            113.00399999999999,
+            296.796
+          ],
+          [
+            199.412,
+            340
+          ],
+          [
+            286.996,
+            296.208
+          ]
+        ],
+        "residuals": [
+          2.355110223431568,
+          0.7234103298176029,
+          1.7993279452126238
+        ],
+        "maxContactResidualPx": 2.355110223431568
+      }
+    },
+    {
+      "id": "roof-57",
+      "retireId": "roof:57",
+      "sourceParcel": 65,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        198.142,
+        312.057,
+        4.784,
+        4.435
+      ],
+      "p": [
+        200.034,
+        313.7745
+      ],
+      "sourceAsset": "legacy:dolly_building_brick_washing_line_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        200,
+        311,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-57.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        430
+      ],
+      "anchor": [
+        200,
+        285.467
+      ],
+      "contacts": {
+        "rear": [
+          195.114,
+          220.93399999999997
+        ],
+        "left": [
+          70.934,
+          283.024
+        ],
+        "front": [
+          204.886,
+          350
+        ],
+        "right": [
+          329.06600000000003,
+          287.90999999999997
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          137.91,
+          316.512
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-57: a seamstress dwelling, built in soot-darkened russet brick, with a low brown clay-tile gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-57.webp",
+      "emissionFile": "roof-57-emission.webp",
+      "emissionBytes": 2428,
+      "emissionSha256": "0132bb2f51bfdcfb8fa97cc40e18c3a44e938fe905f5d0b4c0448ebf66ab6b85",
+      "emissionPixels": 877,
+      "dimensions": [
+        400,
+        430
+      ],
+      "scale": 1,
+      "sha256": "3dc51ae2965a5808c626ed6dd39c6839508976495f87264a9d85516b6ac87d3c",
+      "sourceSha256": "279a9c5da2221dee9c1bd5e6935638c8f876a4c72a57309d0575237c0c1a512f",
+      "bytes": 40196,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.23005497491546,
+      "doorFoot": [
+        131.18588315995137,
+        314.815595993963
+      ],
+      "windowCentres": [
+        [
+          106.23938859380118,
+          187.21570999468895,
+          106.23938859380118,
+          300.67669429690056
+        ],
+        [
+          173.33685673723966,
+          221.0511853832605,
+          173.33685673723966,
+          334.2254283686198
+        ],
+        [
+          179.35842439113796,
+          288.43539484355125,
+          179.35842439113796,
+          337.236212195569
+        ]
+      ],
+      "selectedMaster": "roof-57-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.28674131685230114,
+        "offset": [
+          14.482167201064811,
+          30.654950993332534
+        ],
+        "sourceContacts": [
+          [
+            202,
+            891
+          ],
+          [
+            654,
+            1114
+          ],
+          [
+            1102,
+            886
+          ]
+        ],
+        "targetContacts": [
+          [
+            70.934,
+            283.024
+          ],
+          [
+            204.886,
+            350
+          ],
+          [
+            329.06600000000003,
+            287.90999999999997
+          ]
+        ],
+        "residuals": [
+          3.4466256755168043,
+          2.8762612667466447,
+          3.496949674648556
+        ],
+        "maxContactResidualPx": 3.496949674648556
+      }
+    },
+    {
+      "id": "roof-58",
+      "retireId": "roof:58",
+      "sourceParcel": 66,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        197.24099999999999,
+        316.466,
+        4.203,
+        2.764
+      ],
+      "p": [
+        198.84249999999997,
+        317.348
+      ],
+      "sourceAsset": "legacy:dolly_building_bread_and_buns_bakery",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        199,
+        319,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-58.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        291.231
+      ],
+      "contacts": {
+        "rear": [
+          179.85399999999998,
+          242.462
+        ],
+        "left": [
+          102.46199999999999,
+          281.158
+        ],
+        "front": [
+          220.14600000000002,
+          340
+        ],
+        "right": [
+          297.538,
+          301.304
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          161.304,
+          310.579
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-58: a courtyard house, built in soot-darkened russet brick, with a restrained half-hipped tile roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-58.webp",
+      "emissionFile": "roof-58-emission.webp",
+      "emissionBytes": 2038,
+      "emissionSha256": "a1df04e666ae97a56f3fbe198d76183733299a1edcfc45e6eeee5e5248fa44cc",
+      "emissionPixels": 492,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "caf938add4f8aad3362a97d2fe49be2f6a35cbf10d68a9f296a210f1cccd9ff1",
+      "sourceSha256": "9b72ce8755dced6f99611fb500029cbfdef9147b4800262aef5179a3dee462c8",
+      "bytes": 27592,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.09319580480195,
+      "doorFoot": [
+        162.2148542948773,
+        309.25901516858795
+      ],
+      "windowCentres": [
+        [
+          122.8209876050966,
+          252.044113547716,
+          122.8209876050966,
+          291.33749380254835
+        ],
+        [
+          189.1027315593308,
+          212.96289659356847,
+          189.1027315593308,
+          324.4783657796654
+        ],
+        [
+          195.6683760076276,
+          277.99404160526996,
+          195.6683760076276,
+          327.7611880038138
+        ],
+        [
+          275.08140885845535,
+          216.08939394990026,
+          275.08140885845535,
+          312.53229557077236
+        ],
+        [
+          246.63028291583598,
+          277.99404160526996,
+          246.63028291583598,
+          326.75785854208203
+        ]
+      ],
+      "selectedMaster": "roof-58-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3126497356331802,
+        "offset": [
+          11.830331455317634,
+          13.179715523966308
+        ],
+        "sourceContacts": [
+          [
+            286,
+            872
+          ],
+          [
+            670,
+            1038
+          ],
+          [
+            914,
+            914
+          ]
+        ],
+        "targetContacts": [
+          [
+            102.46199999999999,
+            281.158
+          ],
+          [
+            220.14600000000002,
+            340
+          ],
+          [
+            297.538,
+            301.304
+          ]
+        ],
+        "residuals": [
+          4.80803216650468,
+          2.566759025429345,
+          2.3630475343325896
+        ],
+        "maxContactResidualPx": 4.80803216650468
+      }
+    },
+    {
+      "id": "roof-86",
+      "retireId": "roof:86",
+      "sourceParcel": 100,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        192.266,
+        305.101,
+        4.261,
+        4.643
+      ],
+      "p": [
+        193.8965,
+        306.9225
+      ],
+      "sourceAsset": "legacy:dolly_building_blue_slate_tenement",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        191,
+        307,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-86.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        425
+      ],
+      "anchor": [
+        200,
+        282.672
+      ],
+      "contacts": {
+        "rear": [
+          205.34799999999998,
+          220.34400000000002
+        ],
+        "left": [
+          75.344,
+          285.346
+        ],
+        "front": [
+          194.65200000000002,
+          345
+        ],
+        "right": [
+          324.656,
+          279.99800000000005
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          134.998,
+          315.173
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-86: a plain provision shop with a dwelling above, built in warm limewash above a low brick base, with a long slate catslide with a small rear stack. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-86.webp",
+      "emissionFile": "roof-86-emission.webp",
+      "emissionBytes": 2112,
+      "emissionSha256": "ba555e28231e07d4213738e8f992806a695f11ec2864d9f9b85276c4944e6170",
+      "emissionPixels": 1864,
+      "dimensions": [
+        400,
+        425
+      ],
+      "scale": 1,
+      "sha256": "75628fc9163d81b78faaf782c9fd25b8de8981ef629b27ae100c3d4df469deba",
+      "sourceSha256": "66e6ba98b7513eb89b50e89ec545728beb6dd6645be2016af4c2efc4124b7dc0",
+      "bytes": 35646,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 65.72316772446491,
+      "doorFoot": [
+        144.11657242086304,
+        317.3331762798166
+      ],
+      "windowCentres": [
+        [
+          128.38003930373762,
+          201.31481447512735,
+          128.38003930373762,
+          311.86401965186883
+        ],
+        [
+          282.6597757461435,
+          199.46345763781846,
+          282.6597757461435,
+          300.99611212692827
+        ],
+        [
+          100.91824621698936,
+          266.11230378093785,
+          100.91824621698936,
+          298.1331231084947
+        ]
+      ],
+      "selectedMaster": "roof-86-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.30855947288481184,
+        "offset": [
+          12.361677499048369,
+          8.773703395004759
+        ],
+        "sourceContacts": [
+          [
+            204,
+            905
+          ],
+          [
+            587,
+            1080
+          ],
+          [
+            1016,
+            880
+          ]
+        ],
+        "targetContacts": [
+          [
+            75.344,
+            285.346
+          ],
+          [
+            194.65200000000002,
+            345
+          ],
+          [
+            324.656,
+            279.99800000000005
+          ]
+        ],
+        "residuals": [
+          2.674271240870101,
+          3.201885002344546,
+          1.240942163245249
+        ],
+        "maxContactResidualPx": 3.201885002344546
+      }
+    },
+    {
+      "id": "roof-87",
+      "retireId": "roof:87",
+      "sourceParcel": 101,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        190.397,
+        310.54,
+        4.797,
+        3.471
+      ],
+      "p": [
+        192.2955,
+        311.7755
+      ],
+      "sourceAsset": "legacy:dolly_building_stone_guildhouse",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        192,
+        314,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-87.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        282.124
+      ],
+      "contacts": {
+        "rear": [
+          181.436,
+          224.24800000000002
+        ],
+        "left": [
+          84.24799999999999,
+          272.84200000000004
+        ],
+        "front": [
+          218.564,
+          340
+        ],
+        "right": [
+          315.752,
+          291.406
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          151.406,
+          306.42100000000005
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-87: a shared lodging with a side stair door, built in warm limewash above a low brick base, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-87.webp",
+      "emissionFile": "roof-87-emission.webp",
+      "emissionBytes": 1912,
+      "emissionSha256": "7d00c7ca30f7a310696ae49d127a8f28524ebe09f71c454c20318e636b079cf3",
+      "emissionPixels": 299,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "8e1cefb1642ecb73ce2b9e8a895f52194071e4722407f3b0c5a72f98c31160a4",
+      "sourceSha256": "9c4f428aec43538b15193d150f22a5e3c3e2d2a288fa6565548afebbffee7d73",
+      "bytes": 32192,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.20196246896896,
+      "doorFoot": [
+        139.450415000661,
+        298.9818023708448
+      ],
+      "windowCentres": [
+        [
+          110.54431815444272,
+          182.44459087503856,
+          110.54431815444272,
+          285.9901590772214
+        ],
+        [
+          152.5342272573703,
+          199.1796995754807,
+          152.5342272573703,
+          306.9851136286852
+        ],
+        [
+          195.74123517487547,
+          213.1763359431232,
+          195.74123517487547,
+          328.5886175874378
+        ],
+        [
+          284.58944863904105,
+          199.78824898276952,
+          284.58944863904105,
+          306.98727568047946
+        ],
+        [
+          185.7001699546102,
+          276.46547430115896,
+          185.7001699546102,
+          323.56808497730515
+        ],
+        [
+          298.89035971032797,
+          254.86197034240638,
+          298.89035971032797,
+          299.836820144836
+        ]
+      ],
+      "selectedMaster": "roof-87-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3042747036444027,
+        "offset": [
+          14.697786506455884,
+          14.18067975968387
+        ],
+        "sourceContacts": [
+          [
+            226,
+            860
+          ],
+          [
+            670,
+            1061
+          ],
+          [
+            992,
+            911
+          ]
+        ],
+        "targetContacts": [
+          [
+            84.24799999999999,
+            272.84200000000004
+          ],
+          [
+            218.564,
+            340
+          ],
+          [
+            315.752,
+            291.406
+          ]
+        ],
+        "residuals": [
+          3.1152259483892197,
+          2.983860456896999,
+          0.7869059521929636
+        ],
+        "maxContactResidualPx": 3.1152259483892197
+      }
+    },
+    {
+      "id": "roof-88",
+      "retireId": "roof:88",
+      "sourceParcel": 102,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        193.233,
+        317.508,
+        3.582,
+        4.282
+      ],
+      "p": [
+        194.524,
+        319.149
+      ],
+      "sourceAsset": "legacy:dolly_building_brick_washing_line_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        197,
+        319,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-88.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        284.952
+      ],
+      "contacts": {
+        "rear": [
+          209.8,
+          229.904
+        ],
+        "left": [
+          89.904,
+          289.852
+        ],
+        "front": [
+          190.2,
+          340
+        ],
+        "right": [
+          310.096,
+          280.052
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          250.148,
+          310.026
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-88: a laundry dwelling, built in warm limewash above a low brick base, with a steep patched slate gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-88.webp",
+      "emissionFile": "roof-88-emission.webp",
+      "emissionBytes": 1984,
+      "emissionSha256": "015faccbca8f7d7f3865045debd9f6d37a1497f421233322e96808964a57dd02",
+      "emissionPixels": 903,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "4ce6dc255cb780bb3946daf75b8ab7f853cce25c00985b853b04bb90c9501196",
+      "sourceSha256": "6aedbc1785e752c7f859ad916b10a40f240f8d606220c8c49a79f1911c491ce5",
+      "bytes": 34236,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 70.38106463089699,
+      "doorFoot": [
+        253.99876649758025,
+        308.01187702910204
+      ],
+      "windowCentres": [
+        [
+          147.31880632870093,
+          258.13553201508057,
+          147.31880632870093,
+          318.55940316435044
+        ],
+        [
+          236.5420457426727,
+          189.41701221798428,
+          236.5420457426727,
+          316.8289771286636
+        ],
+        [
+          278.93693900459095,
+          185.8148317447494,
+          278.93693900459095,
+          295.6315304977045
+        ]
+      ],
+      "selectedMaster": "roof-88-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.27709080563345273,
+        "offset": [
+          37.59084729785366,
+          35.077433480151115
+        ],
+        "sourceContacts": [
+          [
+            182,
+            919
+          ],
+          [
+            561,
+            1095
+          ],
+          [
+            980,
+            890
+          ]
+        ],
+        "targetContacts": [
+          [
+            89.904,
+            289.852
+          ],
+          [
+            190.2,
+            340
+          ],
+          [
+            310.096,
+            280.052
+          ]
+        ],
+        "residuals": [
+          1.8869803102542861,
+          3.2145285305800484,
+          1.8951421340522772
+        ],
+        "maxContactResidualPx": 3.2145285305800484
+      }
+    },
+    {
+      "id": "roof-116",
+      "retireId": "roof:116",
+      "sourceParcel": 133,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        187.303,
+        297.781,
+        3.267,
+        3.35
+      ],
+      "p": [
+        188.4365,
+        298.956
+      ],
+      "sourceAsset": "legacy:dolly_building_timber_fronted_tavern",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        188,
+        297,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-116.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        293.681
+      ],
+      "contacts": {
+        "rear": [
+          201.162,
+          247.36199999999997
+        ],
+        "left": [
+          107.362,
+          294.262
+        ],
+        "front": [
+          198.838,
+          340
+        ],
+        "right": [
+          292.63800000000003,
+          293.09999999999997
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          153.1,
+          317.131
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-116: a small cobbler dwelling, built in worn ochre limewash over rubble stone, with a long slate catslide with a small rear stack. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-116.webp",
+      "emissionFile": "roof-116-emission.webp",
+      "emissionBytes": 1998,
+      "emissionSha256": "bda940ea70995f9aac7853fe85353fe5d5b44fef8b64daf71d60935b6d21a885",
+      "emissionPixels": 273,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "9d930136f1e38c8dda6fa30aa3ff7f2f444bfc2b27a76b39d18579daf6fbd7f5",
+      "sourceSha256": "6f75e0d50b50bba609a274c72cfadca014177799a4ce2cde3777612d105b6b86",
+      "bytes": 29640,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.22830491052218,
+      "doorFoot": [
+        148.96310844928985,
+        316.70143936038585
+      ],
+      "windowCentres": [
+        [
+          146.71386819950504,
+          209.73756970395203,
+          146.71386819950504,
+          313.9379340997525
+        ],
+        [
+          238.6828028573734,
+          220.4839397862573,
+          238.6828028573734,
+          320.0775985713133
+        ],
+        [
+          260.1755430219839,
+          212.23672553704628,
+          260.1755430219839,
+          309.331228489008
+        ]
+      ],
+      "selectedMaster": "roof-116-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.24991558330942484,
+        "offset": [
+          48.99687512551992,
+          49.29176521930128
+        ],
+        "sourceContacts": [
+          [
+            234,
+            993
+          ],
+          [
+            595,
+            1154
+          ],
+          [
+            979,
+            972
+          ]
+        ],
+        "targetContacts": [
+          [
+            107.362,
+            294.262
+          ],
+          [
+            198.838,
+            340
+          ],
+          [
+            292.63800000000003,
+            293.09999999999997
+          ]
+        ],
+        "residuals": [
+          3.1980121836949893,
+          2.5726864789257595,
+          1.3585885395600232
+        ],
+        "maxContactResidualPx": 3.1980121836949893
+      }
+    },
+    {
+      "id": "roof-117",
+      "retireId": "roof:117",
+      "sourceParcel": 134,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        186.31,
+        305.04,
+        3.637,
+        2.656
+      ],
+      "p": [
+        187.6285,
+        305.868
+      ],
+      "sourceAsset": "legacy:dolly_building_bread_and_buns_bakery",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        188,
+        304,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-117.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        295.949
+      ],
+      "contacts": {
+        "rear": [
+          186.266,
+          251.89800000000002
+        ],
+        "left": [
+          111.898,
+          289.082
+        ],
+        "front": [
+          213.734,
+          340
+        ],
+        "right": [
+          288.102,
+          302.81600000000003
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          162.816,
+          314.541
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-117: a narrow family house, built in worn ochre limewash over rubble stone, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-117.webp",
+      "emissionFile": "roof-117-emission.webp",
+      "emissionBytes": 1834,
+      "emissionSha256": "dd089752835dd03d737bdef87e9e95e04e578641268a3f5c263f4c7e48b5ccde",
+      "emissionPixels": 238,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "6472b0fc8525787f9b5778da9912e71ec5625edd9ce2e8535fc1cc9e8de01582",
+      "sourceSha256": "ca542b548ad479ce5eb600d6ffcab8e29c352a0e35b2c9648409cdbfa6b47a25",
+      "bytes": 24270,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 63.79830808833825,
+      "doorFoot": [
+        160.75039748922956,
+        316.7858029797551
+      ],
+      "windowCentres": [
+        [
+          126.42237384778868,
+          193.7230767179859,
+          126.42237384778868,
+          296.3441869238943
+        ],
+        [
+          154.92111045577735,
+          216.71637557215857,
+          154.92111045577735,
+          310.59355522788866
+        ],
+        [
+          195.72611968994292,
+          241.97661938378488,
+          195.72611968994292,
+          330.99605984497146
+        ],
+        [
+          279.6030831157277,
+          195.01847383653083,
+          279.6030831157277,
+          307.06545844213616
+        ]
+      ],
+      "selectedMaster": "roof-117-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3238492796362348,
+        "offset": [
+          3.359647586019463,
+          3.2997002918798444
+        ],
+        "sourceContacts": [
+          [
+            333,
+            901
+          ],
+          [
+            652,
+            1036
+          ],
+          [
+            879,
+            910
+          ]
+        ],
+        "targetContacts": [
+          [
+            111.898,
+            289.082
+          ],
+          [
+            213.734,
+            340
+          ],
+          [
+            288.102,
+            302.81600000000003
+          ]
+        ],
+        "residuals": [
+          6.046157533764211,
+          1.4223706887865275,
+          4.814100787609205
+        ],
+        "maxContactResidualPx": 6.046157533764211
+      }
+    },
+    {
+      "id": "roof-118",
+      "retireId": "roof:118",
+      "sourceParcel": 135,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        186.797,
+        310.872,
+        2.641,
+        4.455
+      ],
+      "p": [
+        187.6175,
+        312.59950000000003
+      ],
+      "sourceAsset": "legacy:dolly_building_weathered_end_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        186,
+        313,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-118.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        290.328
+      ],
+      "contacts": {
+        "rear": [
+          225.39600000000002,
+          240.65599999999998
+        ],
+        "left": [
+          100.656,
+          303.02599999999995
+        ],
+        "front": [
+          174.60399999999998,
+          340
+        ],
+        "right": [
+          299.344,
+          277.63
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          137.63,
+          321.513
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-118: a low repair workshop with rooms above, built in worn ochre limewash over rubble stone, with a steep patched slate gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-118.webp",
+      "emissionFile": "roof-118-emission.webp",
+      "emissionBytes": 1980,
+      "emissionSha256": "ebe53a0eab48962accdfc7b995a5d90736c4e1b12b4e65b193256ddbefaef393",
+      "emissionPixels": 1020,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "4d501393eb774b6d5aca04b667140589353eba1b70951ef6cdc586e7288435cc",
+      "sourceSha256": "3f3f8d57c8585d93ef59e242a632cdf59f5bf86bbd2c63e56ba49f9a2ac62d56",
+      "bytes": 33558,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 69.14694476245757,
+      "doorFoot": [
+        131.5528681260047,
+        319.226520325058
+      ],
+      "windowCentres": [
+        [
+          135.09188498392575,
+          211.42262219146275,
+          135.09188498392575,
+          320.2439424919628
+        ],
+        [
+          227.10632328987322,
+          205.1612846736024,
+          227.10632328987322,
+          313.7488383550634
+        ],
+        [
+          270.3912217829077,
+          190.18852104393642,
+          270.3912217829077,
+          292.1063891085462
+        ],
+        [
+          235.8177494016789,
+          262.33001853232713,
+          235.8177494016789,
+          309.39312529916054
+        ]
+      ],
+      "selectedMaster": "roof-118-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2722320659939274,
+        "offset": [
+          35.18271676415441,
+          23.03803252366498
+        ],
+        "sourceContacts": [
+          [
+            244,
+            1033
+          ],
+          [
+            507,
+            1163
+          ],
+          [
+            972,
+            932
+          ]
+        ],
+        "targetContacts": [
+          [
+            100.656,
+            303.02599999999995
+          ],
+          [
+            174.60399999999998,
+            340
+          ],
+          [
+            299.344,
+            277.63
+          ]
+        ],
+        "residuals": [
+          1.5532018373931686,
+          1.4442096542739338,
+          0.9801983562388664
+        ],
+        "maxContactResidualPx": 1.5532018373931686
+      }
+    },
+    {
+      "id": "roof-119",
+      "retireId": "roof:119",
+      "sourceParcel": 136,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        186.807,
+        316.807,
+        3.091,
+        4.298
+      ],
+      "p": [
+        187.8525,
+        318.456
+      ],
+      "sourceAsset": "legacy:dolly_building_balcony_gabled_cottage",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        186,
+        318,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-119.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        288.277
+      ],
+      "contacts": {
+        "rear": [
+          216.898,
+          236.55399999999997
+        ],
+        "left": [
+          96.554,
+          296.726
+        ],
+        "front": [
+          183.102,
+          340
+        ],
+        "right": [
+          303.446,
+          279.828
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          139.828,
+          318.363
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-119: a plain provision shop with a dwelling above, built in worn ochre limewash over rubble stone, with a low brown clay-tile gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-119.webp",
+      "emissionFile": "roof-119-emission.webp",
+      "emissionBytes": 1960,
+      "emissionSha256": "6ed5e224715f09cd2e0880ff461cd5ea8316a4bf5c87cfaba75f735137f019b4",
+      "emissionPixels": 812,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "b10006dcc6f77a70c69699370b02ed273efbd4de6e9c21ac071b62252bfb4eee",
+      "sourceSha256": "61a1fe541d73d0dcd198fdb08200bf2a1fbcfe23de62355b6678d50a46ac83b9",
+      "bytes": 30474,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 66.95966424802113,
+      "doorFoot": [
+        157.7755937362577,
+        319.5752372059147
+      ],
+      "windowCentres": [
+        [
+          118.17925382036059,
+          199.49853160729987,
+          118.17925382036059,
+          307.5386269101803
+        ],
+        [
+          159.06327958718117,
+          224.6084057003078,
+          159.06327958718117,
+          327.98063979359057
+        ],
+        [
+          265.29736228836856,
+          199.176610144569,
+          265.29736228836856,
+          298.90231885581574
+        ],
+        [
+          117.85733235762972,
+          265.81435292985924,
+          117.85733235762972,
+          307.3776661788149
+        ]
+      ],
+      "selectedMaster": "roof-119-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3219214627308708,
+        "offset": [
+          3.5752130881705853,
+          -13.291555257805726
+        ],
+        "sourceContacts": [
+          [
+            283,
+            967
+          ],
+          [
+            561,
+            1080
+          ],
+          [
+            934,
+            924
+          ]
+        ],
+        "targetContacts": [
+          [
+            96.554,
+            296.726
+          ],
+          [
+            183.102,
+            340
+          ],
+          [
+            303.446,
+            279.828
+          ]
+        ],
+        "residuals": [
+          2.270539980959986,
+          5.7176082463448665,
+          4.409763381053401
+        ],
+        "maxContactResidualPx": 5.7176082463448665
+      }
+    },
+    {
+      "id": "roof-147",
+      "retireId": "roof:147",
+      "sourceParcel": 167,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        180.928,
+        292.364,
+        3.863,
+        4.564
+      ],
+      "p": [
+        182.3595,
+        294.14599999999996
+      ],
+      "sourceAsset": "legacy:dolly_building_brick_washing_line_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        180,
+        295,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-147.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        281.011
+      ],
+      "contacts": {
+        "rear": [
+          209.814,
+          222.02200000000002
+        ],
+        "left": [
+          82.022,
+          285.918
+        ],
+        "front": [
+          190.186,
+          340
+        ],
+        "right": [
+          317.978,
+          276.10400000000004
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          136.104,
+          312.959
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-147: a small cobbler dwelling, built in soot-darkened russet brick, with a low brown clay-tile gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-147.webp",
+      "emissionFile": "roof-147-emission.webp",
+      "emissionBytes": 2106,
+      "emissionSha256": "24140a90db5d5b7ad247898e26028cfaae6179f1c48b265f93ebd53c19b7613c",
+      "emissionPixels": 870,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "604036645428401e5f583a19c187c343e5da7ea5cf2fa9af3ed9f14b3489dfc7",
+      "sourceSha256": "aeb5974f90c0ee2f11880b85abba8a1231a9bff19636babe44f9138c3ffb0039",
+      "bytes": 37952,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.08330481017146,
+      "doorFoot": [
+        129.76116248388553,
+        307.43384227955397
+      ],
+      "windowCentres": [
+        [
+          129.49076879270336,
+          198.7355784243264,
+          129.49076879270336,
+          309.6523843963517
+        ],
+        [
+          272.52903142806497,
+          198.7355784243264,
+          272.52903142806497,
+          298.82848428596753
+        ]
+      ],
+      "selectedMaster": "roof-147-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.27039369118215806,
+        "offset": [
+          35.12337057013019,
+          22.168498082377198
+        ],
+        "sourceContacts": [
+          [
+            176,
+            973
+          ],
+          [
+            565,
+            1167
+          ],
+          [
+            1052,
+            950
+          ]
+        ],
+        "targetContacts": [
+          [
+            82.022,
+            285.918
+          ],
+          [
+            190.186,
+            340
+          ],
+          [
+            317.978,
+            276.10400000000004
+          ]
+        ],
+        "residuals": [
+          0.9528512645248507,
+          3.2330799031860114,
+          3.34564163372191
+        ],
+        "maxContactResidualPx": 3.34564163372191
+      }
+    },
+    {
+      "id": "roof-148",
+      "retireId": "roof:148",
+      "sourceParcel": 168,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        180.035,
+        297.84,
+        3.119,
+        3.478
+      ],
+      "p": [
+        181.0945,
+        299.07899999999995
+      ],
+      "sourceAsset": "legacy:dolly_building_bread_and_buns_bakery",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        183,
+        299,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-148.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        293.821
+      ],
+      "contacts": {
+        "rear": [
+          205.026,
+          247.64200000000002
+        ],
+        "left": [
+          107.642,
+          296.334
+        ],
+        "front": [
+          194.974,
+          340
+        ],
+        "right": [
+          292.358,
+          291.30800000000005
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          243.666,
+          315.654
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-148: a narrow family house, built in soot-darkened russet brick, with a restrained half-hipped tile roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-148.webp",
+      "emissionFile": "roof-148-emission.webp",
+      "emissionBytes": 1946,
+      "emissionSha256": "73b5258b3d441ee6935bb9efeb9c3e2bb8ddf250a7efa180f92a88e0619d3bbb",
+      "emissionPixels": 1179,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "de85529dc942f24ce063ba721cc6340db2eeb69edfe5e7d8851410292b052944",
+      "sourceSha256": "d38358fb779292d40dd374c4730e0302d5b986c0b8003efd5387ac2c8baa68f9",
+      "bytes": 27980,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 70.12061573474709,
+      "doorFoot": [
+        254.1931247317497,
+        309.97411507571536
+      ],
+      "windowCentres": [
+        [
+          132.47969823281878,
+          194.24659479804333,
+          132.47969823281878,
+          308.7528491164094
+        ],
+        [
+          133.04978453960535,
+          262.37190845903746,
+          133.04978453960535,
+          309.0378922698027
+        ],
+        [
+          248.49226166388408,
+          196.5269400251896,
+          248.49226166388408,
+          313.24086916805794
+        ]
+      ],
+      "selectedMaster": "roof-148-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.28504315339328085,
+        "offset": [
+          27.583817784091423,
+          23.790789068861386
+        ],
+        "sourceContacts": [
+          [
+            278,
+            953
+          ],
+          [
+            589,
+            1101
+          ],
+          [
+            930,
+            950
+          ]
+        ],
+        "targetContacts": [
+          [
+            107.642,
+            296.334
+          ],
+          [
+            194.974,
+            340
+          ],
+          [
+            292.358,
+            291.30800000000005
+          ]
+        ],
+        "residuals": [
+          1.2128156195259612,
+          2.428772022890048,
+          3.2889955226326726
+        ],
+        "maxContactResidualPx": 3.2889955226326726
+      }
+    },
+    {
+      "id": "roof-149",
+      "retireId": "roof:149",
+      "sourceParcel": 169,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        181.278,
+        303.12,
+        3.131,
+        4.502
+      ],
+      "p": [
+        182.34349999999998,
+        304.871
+      ],
+      "sourceAsset": "legacy:dolly_building_weathered_end_house",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        180,
+        305,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-149.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        286.569
+      ],
+      "contacts": {
+        "rear": [
+          219.194,
+          233.13800000000003
+        ],
+        "left": [
+          93.138,
+          296.166
+        ],
+        "front": [
+          180.806,
+          340
+        ],
+        "right": [
+          306.86199999999997,
+          276.97200000000004
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          136.972,
+          318.08299999999997
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-149: a low repair workshop with rooms above, built in soot-darkened russet brick, with a long slate catslide with a small rear stack. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-149.webp",
+      "emissionFile": "roof-149-emission.webp",
+      "emissionBytes": 1940,
+      "emissionSha256": "f47abc1d929dd425ebcf1032856e36039fa2bafc0d34749cfd96cb9b4659e0d2",
+      "emissionPixels": 606,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "5d3b24bcacab0608151f760d0e6d42a976c60ca9e96d88d3067441ea6c98faa7",
+      "sourceSha256": "522036027b2d769e4b7f275c3b5bd8efa54b8577237b457d03381b7a4583a51f",
+      "bytes": 32892,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.25053805673939,
+      "doorFoot": [
+        134.89689528744344,
+        320.15513508833624
+      ],
+      "windowCentres": [
+        [
+          137.76522287926218,
+          208.29035900740607,
+          137.76522287926218,
+          318.47961143963107
+        ],
+        [
+          223.528217874642,
+          216.03484350531662,
+          223.528217874642,
+          318.638891062679
+        ],
+        [
+          281.1816024701983,
+          181.90174516267382,
+          281.1816024701983,
+          289.81219876490087
+        ],
+        [
+          273.72395073146964,
+          263.93591428868933,
+          273.72395073146964,
+          293.54102463426517
+        ]
+      ],
+      "selectedMaster": "roof-149-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2868327591818723,
+        "offset": [
+          26.7609450758776,
+          22.422731057552824
+        ],
+        "sourceContacts": [
+          [
+            241,
+            971
+          ],
+          [
+            522,
+            1101
+          ],
+          [
+            982,
+            877
+          ]
+        ],
+        "targetContacts": [
+          [
+            93.138,
+            296.166
+          ],
+          [
+            180.806,
+            340
+          ],
+          [
+            306.86199999999997,
+            276.97200000000004
+          ]
+        ],
+        "residuals": [
+          5.5069236300794815,
+          4.66869210001682,
+          3.3826778861108924
+        ],
+        "maxContactResidualPx": 5.5069236300794815
+      }
+    },
+    {
+      "id": "roof-150",
+      "retireId": "roof:150",
+      "sourceParcel": 170,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        180.953,
+        311.363,
+        2.825,
+        3.03
+      ],
+      "p": [
+        181.8655,
+        312.378
+      ],
+      "sourceAsset": "legacy:dolly_building_balcony_gabled_cottage",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        180,
+        312,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-150.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        299.015
+      ],
+      "contacts": {
+        "rear": [
+          202.87,
+          258.03
+        ],
+        "left": [
+          118.03,
+          300.45
+        ],
+        "front": [
+          197.13,
+          340
+        ],
+        "right": [
+          281.97,
+          297.58
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          157.57999999999998,
+          320.225
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-150: a plain provision shop with a dwelling above, built in soot-darkened russet brick, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-150.webp",
+      "emissionFile": "roof-150-emission.webp",
+      "emissionBytes": 2018,
+      "emissionSha256": "caf13e89cbe6326c22596731ed36e9a9c0f6aa7c40ae81a872eba9d9cd312223",
+      "emissionPixels": 197,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "e38a4526c2419d9fa27a67d1a74dcbaad446ed60eb606578afa2f9f327479101",
+      "sourceSha256": "ca42ad71b83e511d80c54e6d3a0c5a9d1ed1a5ad23efb91ed141bbdb12887eca",
+      "bytes": 23254,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 66.16674847636952,
+      "doorFoot": [
+        173.3768807532667,
+        326.24182601506686
+      ],
+      "windowCentres": [
+        [
+          144.97787808863023,
+          203.56984543277116,
+          144.97787808863023,
+          313.9239390443151
+        ],
+        [
+          170.15637529645224,
+          215.28077436664188,
+          170.15637529645224,
+          326.5131876482261
+        ]
+      ],
+      "selectedMaster": "roof-150-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2927732233467678,
+        "offset": [
+          19.963711719560365,
+          23.807086297855733
+        ],
+        "sourceContacts": [
+          [
+            332,
+            942
+          ],
+          [
+            610,
+            1078
+          ],
+          [
+            893,
+            940
+          ]
+        ],
+        "targetContacts": [
+          [
+            118.03,
+            300.45
+          ],
+          [
+            197.13,
+            340
+          ],
+          [
+            281.97,
+            297.58
+          ]
+        ],
+        "residuals": [
+          1.2135234702210134,
+          1.54014067960554,
+          1.539315317256348
+        ],
+        "maxContactResidualPx": 1.54014067960554
+      }
+    },
+    {
+      "id": "roof-151",
+      "retireId": "roof:151",
+      "sourceParcel": 171,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        180.549,
+        318.515,
+        3.594,
+        3.555
+      ],
+      "p": [
+        181.846,
+        319.79249999999996
+      ],
+      "sourceAsset": "legacy:dolly_building_striped_awning_corner_shop",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        184,
+        320,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-151.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        289.957
+      ],
+      "contacts": {
+        "rear": [
+          199.454,
+          239.914
+        ],
+        "left": [
+          99.914,
+          289.68399999999997
+        ],
+        "front": [
+          200.546,
+          340
+        ],
+        "right": [
+          300.086,
+          290.23
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          250.316,
+          315.115
+        ],
+        "height": 65,
+        "face": "+X",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-151: a shared lodging with a side stair door, built in soot-darkened russet brick, with a steep patched slate gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-151.webp",
+      "emissionFile": "roof-151-emission.webp",
+      "emissionBytes": 2118,
+      "emissionSha256": "a8c8d4e5451864dfa8466aaef0b8d534937cd0aff15caa189df47bbcbddbd8c3",
+      "emissionPixels": 825,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "bef9b9042e953b3d178aaea8d3966942c75c62aacbbcd815765c3f9ec28e476a",
+      "sourceSha256": "195e50accc17df7d2430206c3eee80d205bdf48ae3ba52d7cee53f5568476650",
+      "bytes": 30594,
+      "actualPaintedFace": "+X",
+      "measuredDoorHeight": 75.40154780356227,
+      "doorFoot": [
+        268.1170068076726,
+        308.63608843551975
+      ],
+      "windowCentres": [
+        [
+          115.73647296197981,
+          170.13701108922757,
+          115.73647296197981,
+          297.59523648098985
+        ],
+        [
+          235.62177909316668,
+          198.21541173574238,
+          235.62177909316668,
+          322.46211045341664
+        ],
+        [
+          271.58737093252273,
+          184.3339552363418,
+          271.58737093252273,
+          304.4793145337386
+        ],
+        [
+          222.3712978891934,
+          272.35500894845006,
+          222.3712978891934,
+          329.0873510554033
+        ]
+      ],
+      "selectedMaster": "roof-151-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3154876477136496,
+        "offset": [
+          11.625549216475434,
+          -8.113509868984465
+        ],
+        "sourceContacts": [
+          [
+            282,
+            947
+          ],
+          [
+            593,
+            1100
+          ],
+          [
+            918,
+            946
+          ]
+        ],
+        "targetContacts": [
+          [
+            99.914,
+            289.68399999999997
+          ],
+          [
+            200.546,
+            340
+          ],
+          [
+            300.086,
+            290.23
+          ]
+        ],
+        "residuals": [
+          1.1834941653459685,
+          2.1288605360099027,
+          1.1622204831938603
+        ],
+        "maxContactResidualPx": 2.1288605360099027
+      }
+    },
+    {
+      "id": "roof-168",
+      "retireId": "roof:168",
+      "sourceParcel": 192,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        172.946,
+        298.394,
+        4.651,
+        4.696
+      ],
+      "p": [
+        174.7715,
+        300.242
+      ],
+      "sourceAsset": "legacy:dolly_building_timber_fronted_tavern",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        175,
+        303,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-168.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        431
+      ],
+      "anchor": [
+        200,
+        285.571
+      ],
+      "contacts": {
+        "rear": [
+          200.63,
+          220.14200000000002
+        ],
+        "left": [
+          69.142,
+          285.886
+        ],
+        "front": [
+          199.37,
+          351
+        ],
+        "right": [
+          330.858,
+          285.25600000000003
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          134.256,
+          318.443
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-168: a plain provision shop with a dwelling above, built in weathered timber frame with dull plaster, with a low brown clay-tile gable. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-168.webp",
+      "emissionFile": "roof-168-emission.webp",
+      "emissionBytes": 2792,
+      "emissionSha256": "f116f17632a31427ec01e0a875aab507f3526b95bb5d1c46667d9ebb9b7a8835",
+      "emissionPixels": 2155,
+      "dimensions": [
+        400,
+        431
+      ],
+      "scale": 1,
+      "sha256": "6ac93d9176456964659ab3316d1457bc2d44bbdd64771d7a7793951a0f2a1b3b",
+      "sourceSha256": "7818a0e8938be01c935940eb8521c516ae18252e08faf573bf43fece5b251ae8",
+      "bytes": 39006,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 74.03528082216867,
+      "doorFoot": [
+        111.50080016896548,
+        301.5301775212367
+      ],
+      "windowCentres": [
+        [
+          102.24639006619441,
+          184.7331396724706,
+          102.24639006619441,
+          302.43819503309726
+        ],
+        [
+          165.11255524708764,
+          210.26254685252877,
+          165.11255524708764,
+          333.87127762354385
+        ],
+        [
+          187.1316689398878,
+          216.96401623729403,
+          187.1316689398878,
+          344.8808344699439
+        ],
+        [
+          157.77285068282092,
+          271.5331240846684,
+          157.77285068282092,
+          330.20142534141047
+        ]
+      ],
+      "selectedMaster": "roof-168-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.319117589750727,
+        "offset": [
+          6.191995551225574,
+          -8.333002126719236
+        ],
+        "sourceContacts": [
+          [
+            190,
+            924
+          ],
+          [
+            617,
+            1119
+          ],
+          [
+            1013,
+            925
+          ]
+        ],
+        "targetContacts": [
+          [
+            69.142,
+            285.886
+          ],
+          [
+            199.37,
+            351
+          ],
+          [
+            330.858,
+            285.25600000000003
+          ]
+        ],
+        "residuals": [
+          2.405914367099834,
+          4.340465929195414,
+          2.12201958684653
+        ],
+        "maxContactResidualPx": 4.340465929195414
+      }
+    },
+    {
+      "id": "roof-169",
+      "retireId": "roof:169",
+      "sourceParcel": 193,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        172.73800000000003,
+        304.353,
+        4.581,
+        3.163
+      ],
+      "p": [
+        174.52850000000004,
+        305.4345
+      ],
+      "sourceAsset": "legacy:dolly_building_blue_slate_tenement",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        175,
+        303,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-169.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        285.79200000000003
+      ],
+      "contacts": {
+        "rear": [
+          180.148,
+          231.58400000000003
+        ],
+        "left": [
+          91.584,
+          275.86600000000004
+        ],
+        "front": [
+          219.852,
+          340
+        ],
+        "right": [
+          308.416,
+          295.718
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          155.71800000000002,
+          307.933
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-169: a shared lodging with a side stair door, built in weathered timber frame with dull plaster, with an uneven shingle roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-169.webp",
+      "emissionFile": "roof-169-emission.webp",
+      "emissionBytes": 1908,
+      "emissionSha256": "9da5af8623655d35c9f13d2e9b3a86e39f04c210c7e502cd40867ffbdfee5c0a",
+      "emissionPixels": 613,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "300fbea1de789a5c4f84028b100815c76bd72bba08831536c3f4981e714c16bb",
+      "sourceSha256": "5215d9bd7d9ca02d3e830f2250c09fd514c53835649bffe340e9d51670c325f1",
+      "bytes": 28486,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 64.36233420052547,
+      "doorFoot": [
+        158.81294403086838,
+        313.2975815010453
+      ],
+      "windowCentres": [
+        [
+          131.30539040989692,
+          193.3860128038007,
+          131.30539040989692,
+          295.7266952049485
+        ],
+        [
+          195.13359735564623,
+          226.76896622730976,
+          195.13359735564623,
+          327.64079867782317
+        ],
+        [
+          121.42403619653822,
+          255.6118379852216,
+          121.42403619653822,
+          290.78601809826915
+        ],
+        [
+          275.51974919945604,
+          226.5019025999217,
+          275.51974919945604,
+          312.166125400272
+        ]
+      ],
+      "selectedMaster": "roof-169-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2670636273880725,
+        "offset": [
+          37.03192994190732,
+          41.42680881998746
+        ],
+        "sourceContacts": [
+          [
+            205,
+            898
+          ],
+          [
+            682,
+            1120
+          ],
+          [
+            1018,
+            930
+          ]
+        ],
+        "targetContacts": [
+          [
+            91.584,
+            275.86600000000004
+          ],
+          [
+            219.852,
+            340
+          ],
+          [
+            308.416,
+            295.718
+          ]
+        ],
+        "residuals": [
+          5.3875117146237725,
+          0.8692339726962246,
+          5.941983943949709
+        ],
+        "maxContactResidualPx": 5.941983943949709
+      }
+    },
+    {
+      "id": "roof-170",
+      "retireId": "roof:170",
+      "sourceParcel": 194,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        174.29799999999997,
+        310.709,
+        3.455,
+        2.962
+      ],
+      "p": [
+        175.52549999999997,
+        311.69
+      ],
+      "sourceAsset": "legacy:dolly_building_stone_guildhouse",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        176,
+        310,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-170.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        295.081
+      ],
+      "contacts": {
+        "rear": [
+          193.098,
+          250.16200000000003
+        ],
+        "left": [
+          110.162,
+          291.63
+        ],
+        "front": [
+          206.902,
+          340
+        ],
+        "right": [
+          289.83799999999997,
+          298.53200000000004
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          158.53199999999998,
+          315.815
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-170: a laundry dwelling, built in weathered timber frame with dull plaster, with a restrained half-hipped tile roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-170.webp",
+      "emissionFile": "roof-170-emission.webp",
+      "emissionBytes": 1884,
+      "emissionSha256": "5c01b2023b2bd804492ac6f0363050ccdbee1bd05bc0444ee29af93cfc75f62c",
+      "emissionPixels": 442,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "6b4fe59e68a899069051f43194392835348e31a6a1a5f9f5714e030d3a6c7156",
+      "sourceSha256": "0862c3f0d0ca9f290f646ea77dc0d4904d8d816e022c1a430add770c18e3ab7f",
+      "bytes": 26490,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 67.42833162581762,
+      "doorFoot": [
+        147.6428523942236,
+        311.177805527097
+      ],
+      "windowCentres": [
+        [
+          127.10786048999732,
+          198.69508867857394,
+          127.10786048999732,
+          300.1029302449987
+        ],
+        [
+          188.71283620267616,
+          279.60908662955507,
+          188.71283620267616,
+          330.90541810133806
+        ]
+      ],
+      "selectedMaster": "roof-170-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.3064924164809892,
+        "offset": [
+          11.5602194766644,
+          2.846434547221861
+        ],
+        "sourceContacts": [
+          [
+            313,
+            949
+          ],
+          [
+            650,
+            1084
+          ],
+          [
+            904,
+            974
+          ]
+        ],
+        "targetContacts": [
+          [
+            110.162,
+            291.63
+          ],
+          [
+            206.902,
+            340
+          ],
+          [
+            289.83799999999997,
+            298.53200000000004
+          ]
+        ],
+        "residuals": [
+          3.3829052120795504,
+          6.2614763966860885,
+          3.0846910094239535
+        ],
+        "maxContactResidualPx": 6.2614763966860885
+      }
+    },
+    {
+      "id": "roof-171",
+      "retireId": "roof:171",
+      "sourceParcel": 195,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        175.70600000000002,
+        317.962,
+        2.986,
+        3.541
+      ],
+      "p": [
+        176.699,
+        319.2325
+      ],
+      "sourceAsset": "legacy:dolly_building_balcony_gabled_cottage",
+      "section": "E008:3:5",
+      "street": "Hubwards Gate to Upper Broad Way",
+      "approach": [
+        175,
+        319,
+        "E008"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-171.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        294.311
+      ],
+      "contacts": {
+        "rear": [
+          207.76999999999998,
+          248.62199999999999
+        ],
+        "left": [
+          108.622,
+          298.19599999999997
+        ],
+        "front": [
+          192.23000000000002,
+          340
+        ],
+        "right": [
+          291.378,
+          290.426
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          150.42600000000002,
+          319.09799999999996
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-171: a weaver home and workroom, built in weathered timber frame with dull plaster, with a long slate catslide with a small rear stack. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S007",
+      "owner": "Mate — S007 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-171.webp",
+      "emissionFile": "roof-171-emission.webp",
+      "emissionBytes": 2102,
+      "emissionSha256": "630814472b5e6587202c9bb91bdda7da5bae067763d5c512ff76928c04442956",
+      "emissionPixels": 1127,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "6d71d23a767b54adf58ea0f2b29f8e8a814844701c9049a888a7bcee0266218b",
+      "sourceSha256": "ffa72b5f862ae670f5310a6f758d7ec2312a07e303dca6a33dcc1a64e2cfb6e0",
+      "bytes": 25558,
+      "actualPaintedFace": "+Y",
+      "measuredDoorHeight": 62.73446123221198,
+      "doorFoot": [
+        148.07596109902235,
+        316.88102539587777
+      ],
+      "windowCentres": [
+        [
+          146.79566597183435,
+          210.10441178839864,
+          146.79566597183435,
+          317.28283298591714
+        ],
+        [
+          252.5480434775631,
+          209.84835276296104,
+          252.5480434775631,
+          309.8409782612184
+        ]
+      ],
+      "selectedMaster": "roof-171-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.2560590254375999,
+        "offset": [
+          44.3720557967944,
+          41.8736320758955
+        ],
+        "sourceContacts": [
+          [
+            249,
+            1002
+          ],
+          [
+            579,
+            1160
+          ],
+          [
+            965,
+            974
+          ]
+        ],
+        "targetContacts": [
+          [
+            108.622,
+            298.19599999999997
+          ],
+          [
+            192.23000000000002,
+            340
+          ],
+          [
+            291.378,
+            290.426
+          ]
+        ],
+        "residuals": [
+          0.5506475896335203,
+          1.1685744335145924,
+          0.8539867743977733
+        ],
+        "maxContactResidualPx": 1.1685744335145924
+      }
+    }
+  ],
+  "navigationChanged": false,
+  "newInteractiveDoors": 0,
+  "creativeAcceptance": false,
+  "liveIntegrated": false
+}

@@ -1,0 +1,40 @@
+{
+  "id": "CW-GAMEPLAY-AUDIO-v1",
+  "base_commit": "dde69fd71f8c68d94ab7276a8c07753f24501ceb",
+  "derived_footsteps": [
+    {
+      "file": "footstep-stone.mp3",
+      "source": "../echo-all-v012/REAL07_01.mp3",
+      "source_sha256": "285ce1cfc142e63e7075f8db10f181379a2435b379395ac7606290c92b0405af",
+      "source_start_seconds": 5.967721088435374,
+      "duration_seconds": 0.25,
+      "changes": "Single footfall excerpt, short fades, mono 22050Hz 64kbps MP3. Retained Echo source unchanged.",
+      "bytes": 2880,
+      "sha256": "bc07c364defc8e8c4704e2e52aa3316e8457a6b06a6c21b0cb85a908d3858da3"
+    },
+    {
+      "file": "footstep-wood.mp3",
+      "source": "../echo-all-v012/REAL07_02.mp3",
+      "source_sha256": "d7298cafc93cf35e784feceee9005c89d466e485d7c15db5ab091f4e3a9db063",
+      "source_start_seconds": 1.7157936507936509,
+      "duration_seconds": 0.25,
+      "changes": "Single footfall excerpt, short fades, mono 22050Hz 64kbps MP3. Retained Echo source unchanged.",
+      "bytes": 2880,
+      "sha256": "42b4bbd65b0656e5c24d6a64552005e3cc0f2af835f820fb0a7ccc649604ed3a"
+    },
+    {
+      "file": "footstep-bridge.mp3",
+      "source": "../echo-all-v012/REAL07_08.mp3",
+      "source_sha256": "60c805f11ca694223867af5fb670b1561324f0bcf3657e66e0a080c47f031921",
+      "source_start_seconds": 5.417471655328798,
+      "duration_seconds": 0.25,
+      "changes": "Single footfall excerpt, short fades, mono 22050Hz 64kbps MP3. Retained Echo source unchanged.",
+      "bytes": 2880,
+      "sha256": "beadeba6b0d71bf0328541e5af51824843381a8edd37ec9e73c04690b4ca3ded"
+    }
+  ],
+  "credits_source": "../echo-all-v012/sfx.json",
+  "music_source": "../echo-all-v012/tracks.json",
+  "music": "Existing credited 30-second listening copies loop after explicit Sound ON / Play during patrol. No permanent soundtrack selection.",
+  "default_silent": true
+}

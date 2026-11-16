@@ -1,0 +1,48 @@
+/* Shared concept-art finish. Retain the existing buttons and all input handlers. */
+body.cw-lab-painted-ui {
+  --cw-pad-art:url('assets/jimmy-ui-ornate-v1/leather-pad.webp');
+  --cw-stud-art:url('assets/jimmy-ui-ornate-v1/brass-centre.svg');
+  --cw-action-paper:url('assets/jimmy-ui-ornate-v1/action-parchment.webp');
+}
+/* Keep masked icons, faces and movement buttons in one paint layer below sheets. */
+body.cw-lab-painted-ui #app.cw-clean-play {isolation:isolate;}
+body.cw-lab-painted-ui #cw-p20-dock {isolation:isolate;z-index:10;}
+body.cw-lab-painted-ui #app.cw-clean-play > #overlay {z-index:100;isolation:isolate;}
+body.cw-lab-painted-ui #cw-p20-dock.cw-ui-sheet-blocked {
+  visibility:hidden!important;pointer-events:none!important;
+}
+/* Older hover/pressed rules must use the same material as the resting face. */
+body.cw-lab-painted-ui .dpad button,
+body.cw-lab-painted-ui .cw-ui-dpad button {--cw-ui-control-art:var(--cw-pad-art);}
+body.cw-lab-painted-ui .dpad::after,
+body.cw-lab-painted-ui .cw-ui-dpad::after {
+  left:51px;top:51px;width:46px;height:46px;
+  filter:drop-shadow(0 2px 2px #080502b0);
+}
+body.cw-lab-painted-ui .dpad button::before,
+body.cw-lab-painted-ui .cw-ui-dpad button::before {
+  inset:15px;background:#f4e1bd;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main,
+body.cw-lab-painted-ui .cw-ui-scene-dock :is(.city-tools,.bridge-tools) button {
+  --cw-ui-control-art:var(--cw-action-paper);
+  box-sizing:border-box;height:72px!important;min-height:72px!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr);grid-template-rows:26px 30px;
+  padding:6px 5px!important;gap:4px!important;text-align:center;
+  border-radius:4px!important;line-height:1.15!important;
+  color:#302317!important;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main::before,
+body.cw-lab-painted-ui .cw-ui-scene-dock button[data-ui-icon]::before {
+  width:26px!important;height:26px!important;background:#302317!important;justify-self:center;
+}
+body.cw-lab-painted-ui .cw-ui-scene-dock #cw-ux108b-notebook {font:600 13px/1.15 Georgia,'Times New Roman',serif!important;}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools #combat {color:#302317!important;}
+/* Give the longer scene captions a full-width row of three on narrow phones. */
+@media (max-width:359px) and (orientation:portrait) {
+  body.cw-lab-painted-ui .cw-ui-scene-dock {grid-template-columns:minmax(0,1fr);gap:5px;padding-inline:8px;}
+  body.cw-lab-painted-ui .cw-ui-dpad {justify-self:center;}
+  body.cw-lab-painted-ui .cw-ui-scene-dock :is(.city-tools,.bridge-tools) {
+    grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;width:100%;
+  }
+}

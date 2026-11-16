@@ -1,0 +1,303 @@
+{
+  "id": "palace-reception",
+  "name": "Palace public reception",
+  "image": "assets/palace-001/reception-room.webp",
+  "size": [
+    1536,
+    1024
+  ],
+  "actorHeight": 150,
+  "entry": [
+    0.49,
+    0.815
+  ],
+  "floor": [
+    [
+      0.05859375,
+      0.5224609375
+    ],
+    [
+      0.4654947916666667,
+      0.28515625
+    ],
+    [
+      0.9309895833333334,
+      0.556640625
+    ],
+    [
+      0.9244791666666666,
+      0.6103515625
+    ],
+    [
+      0.5013020833333334,
+      0.888671875
+    ]
+  ],
+  "obstacles": [
+    {
+      "id": "waiting-bench",
+      "polygon": [
+        [
+          0.12044270833333333,
+          0.380859375
+        ],
+        [
+          0.2766927083333333,
+          0.3212890625
+        ],
+        [
+          0.3216145833333333,
+          0.376953125
+        ],
+        [
+          0.16731770833333334,
+          0.4638671875
+        ]
+      ]
+    },
+    {
+      "id": "clerk-counter-and-restricted-rear",
+      "polygon": [
+        [
+          0.5826822916666666,
+          0.275390625
+        ],
+        [
+          0.8203125,
+          0.322265625
+        ],
+        [
+          0.8854166666666666,
+          0.41015625
+        ],
+        [
+          0.8463541666666666,
+          0.5390625
+        ],
+        [
+          0.5989583333333334,
+          0.419921875
+        ]
+      ]
+    },
+    {
+      "id": "guard-desk",
+      "polygon": [
+        [
+          0.7845052083333334,
+          0.55078125
+        ],
+        [
+          0.8919270833333334,
+          0.57421875
+        ],
+        [
+          0.9309895833333334,
+          0.6416015625
+        ],
+        [
+          0.869140625,
+          0.7109375
+        ],
+        [
+          0.7942708333333334,
+          0.654296875
+        ]
+      ]
+    },
+    {
+      "id": "guard-footprint",
+      "polygon": [
+        [
+          0.7486979166666666,
+          0.6064453125
+        ],
+        [
+          0.7682291666666666,
+          0.59375
+        ],
+        [
+          0.7877604166666666,
+          0.6064453125
+        ],
+        [
+          0.7682291666666666,
+          0.625
+        ]
+      ]
+    },
+    {
+      "id": "entrance-left-pier",
+      "polygon": [
+        [
+          0.322265625,
+          0.6640625
+        ],
+        [
+          0.3912760416666667,
+          0.6865234375
+        ],
+        [
+          0.396484375,
+          0.83984375
+        ],
+        [
+          0.3209635416666667,
+          0.8173828125
+        ]
+      ]
+    },
+    {
+      "id": "entrance-right-pier",
+      "polygon": [
+        [
+          0.6022135416666666,
+          0.685546875
+        ],
+        [
+          0.6412760416666666,
+          0.6640625
+        ],
+        [
+          0.6705729166666666,
+          0.802734375
+        ],
+        [
+          0.6139322916666666,
+          0.853515625
+        ]
+      ]
+    }
+  ],
+  "counterOcclusion": [
+    [
+      918,
+      283
+    ],
+    [
+      1315,
+      405
+    ],
+    [
+      1305,
+      522
+    ],
+    [
+      924,
+      411
+    ]
+  ],
+  "npcs": [
+    {
+      "id": "palace-public-clerk",
+      "actorId": "p3_human_01",
+      "name": "Palace reception clerk",
+      "position": [
+        0.68359375,
+        0.3369140625
+      ],
+      "scale": 1,
+      "original": true,
+      "portrait": "assets/characters-drawn-v1/p3_human_01-portrait.webp"
+    },
+    {
+      "id": "palace-public-guard",
+      "actorId": "dwarf-guard",
+      "name": "Palace reception guard",
+      "position": [
+        0.7682291666666666,
+        0.6064453125
+      ],
+      "scale": 0.82,
+      "original": true,
+      "portrait": "assets/characters-drawn-v1/dwarf-guard-portrait.webp"
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "clerk",
+      "kind": "talk",
+      "npc": "palace-public-clerk",
+      "title": "Reception clerk",
+      "stand": [
+        0.68359375,
+        0.5615234375
+      ],
+      "radius": 0.055,
+      "text": "State your business and the office you need, please. Public enquiries are received here; official correspondence is recorded for the appropriate office. An enquiry is not an appointment with Lord Vetinari."
+    },
+    {
+      "id": "guard",
+      "kind": "talk",
+      "npc": "palace-public-guard",
+      "title": "Reception guard",
+      "stand": [
+        0.7356770833333334,
+        0.6689453125
+      ],
+      "radius": 0.055,
+      "text": "The reception floor is open. The doors behind the counter and the service door remain closed. If you have Watch business, speak to the clerk first. I am here to keep the doorway clear."
+    },
+    {
+      "id": "notices",
+      "kind": "examine",
+      "title": "Public notices",
+      "stand": [
+        0.2734375,
+        0.4765625
+      ],
+      "radius": 0.055,
+      "text": "Notices distinguish public enquiries, deliveries and appointments. They direct visitors to the reception counter rather than into the administrative rooms."
+    },
+    {
+      "id": "restricted-door",
+      "kind": "examine",
+      "title": "Closed administrative door",
+      "stand": [
+        0.4947916666666667,
+        0.36328125
+      ],
+      "radius": 0.055,
+      "text": "The administrative door is closed. The Oblong Office is not a public waiting room. No key or permission to enter is granted by visiting reception."
+    },
+    {
+      "id": "service-door",
+      "kind": "examine",
+      "title": "Closed service door",
+      "stand": [
+        0.8333333333333334,
+        0.546875
+      ],
+      "radius": 0.055,
+      "text": "The service door is closed and guarded. Deliveries are handled by Palace staff; the public reception gives no access to the working rooms beyond."
+    }
+  ],
+  "lights": [
+    [
+      600,
+      155,
+      170
+    ],
+    [
+      873,
+      153,
+      170
+    ],
+    [
+      1243,
+      359,
+      150
+    ],
+    [
+      551,
+      705,
+      180
+    ],
+    [
+      928,
+      733,
+      180
+    ]
+  ],
+  "lore": "Patrician\u2019s Palace and Oblong Office are established institutions. This public room, its layout, anonymous staff and dialogue are original game content. No canon appointments, throne, treasury, private plan or royal insignia is asserted."
+}

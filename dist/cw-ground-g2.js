@@ -1,0 +1,4 @@
+'use strict';
+// Ground G2: continuous diffuse materials; no collision or save data.
+window.CW_GROUND_G2={"earth":"/assets/embedded-originals-v1/2233c25b7731713ebb71feccde858df1ee299aea7a7a25c21831e9fab4c0eeca.webp","cobbles":"/assets/embedded-originals-v1/df985f5d33ee30d1214cfc0fde181ae8a938d8d6ecedf0864116b3f09c964905.webp","grass":"/assets/embedded-originals-v1/c206bd78dbc6dbfef03286ceaef13661abdcf74b29edc0ce4bd3e23773a8136f.webp","flags":"/assets/embedded-originals-v1/77362ff8ab22e771f0fbee091207cfffd38832eebcc431bcafedd0bfc8c9efe9.webp","water":"/assets/embedded-originals-v1/7d3a1d9e03172ca113595c5da4ee204ab0b3a848ede81409ada84ba366e566af.webp","planks":"/assets/embedded-originals-v1/5ff0d2e0fb2545e5a54deefcd17fa8670cd90c87652fb7faa413e37f092330b6.webp"};
+window.CW_R2_PARTS=window.CW_R2_PARTS||[];window.CW_R2_PARTS.push('cw-ground-g2.js');

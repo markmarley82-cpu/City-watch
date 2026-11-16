@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "post-office-e010-fit",
+  "source": "4f062dc015064b00de711c49aed569af8b6195de",
+  "disposition": "game-original placement; no canonical coordinates, street renaming, or new public cross-link",
+  "bounds": [130.1, 218.75, 5.4, 5.5],
+  "scope": {"edgeID": "E010"},
+  "regions": [{"id": "post-office-solid", "worldPolygon": [[130.1,218.75],[135.5,218.75],[135.5,224.25],[130.1,224.25]]}],
+  "boundary": {"epsilonWorldUnits": 1e-9},
+  "foot": {"probes": [[0,0],[-0.12,-0.12],[-0.12,0.12],[0.12,-0.12],[0.12,0.12]], "maxSavedFootDistanceFromAnchor": 0.8},
+  "public": {"facing": "east", "threshold": [135.5,222], "standing": [136,222,"E010"], "tieIn": [137,222,"E010"]},
+  "service": {"facing": "north", "threshold": [132,218.75], "standing": [132,218,"E010"], "tieIn": [137,218,"E010"], "access": "staff only; outside loading approach is separate from visitor threshold"},
+  "inscription": {
+    "text": "Neither rain nor snow nor gloom of night can stay these messengers about their duty.",
+    "material": "Restored bronze letters along the stone frontage band",
+    "source": "Going Postal: the frontage is described as bronze letters and the missing HUGOS letters are recovered and reinstalled",
+    "interaction": "Read the motto; public threshold only"
+  },
+  "retained": {"palaceDoor": [144,231], "addedEdges": 0, "styledImageRequirement": "public stone arcade and separate loading threshold backed by matching geometry; working restored premises"}
+}

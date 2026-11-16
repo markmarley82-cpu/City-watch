@@ -1,0 +1,84 @@
+/* P20 Base 0.4 — existing controls, less permanent chrome. No new world artwork. */
+#app.cw-clean-play {position:relative;max-width:100%!important;padding-right:0!important;--clean-caption:.857143em;}
+#app.cw-clean-play > .top {height:auto!important;min-height:42px!important;padding:5px 12px!important;border-bottom:1px solid #c4a46765;box-shadow:none;gap:8px;}
+#app.cw-clean-play .top .brand {font-size:14px!important;letter-spacing:.65px;}
+#app.cw-clean-play .top .sub {display:none!important;}
+#app.cw-clean-play .stats {gap:8px!important;}
+#app.cw-clean-play .stats strong {font-size:16px!important;}
+#app.cw-clean-play .stats span {font-size:12px!important;}
+#app.cw-clean-play > .scene {min-height:0!important;flex:1 1 auto;}
+#app.cw-clean-play .area,#app.cw-clean-play .clock {background:transparent!important;border:0!important;box-shadow:none!important;text-shadow:0 1px 3px #000,0 0 7px #071016;padding:2px 0;font-size:10px;}
+#app.cw-clean-play .area{top:10px;left:12px;max-width:54%;}
+#app.cw-clean-play .clock{top:10px;right:12px;}
+#app.cw-clean-play .mission {top:32px!important;bottom:auto!important;left:10px!important;right:10px!important;min-height:44px;max-width:530px;padding:0!important;gap:4px;background:transparent!important;border:0!important;box-shadow:none!important;align-items:center;justify-content:flex-start;pointer-events:none;}
+#app.cw-clean-play .mission > div{flex:0 1 auto;min-width:0;}
+#app.cw-clean-play .mission small{display:none;}
+#app.cw-clean-play .mission b {font:600 13px/1.35 system-ui!important;overflow-wrap:anywhere;color:#fff3d3;text-shadow:0 1px 3px #000,0 0 6px #09151b;}
+#app.cw-clean-play #guide {width:44px;height:44px;min-height:44px;padding:6px!important;flex:none;border:0!important;border-radius:50%;background:#122a35b8!important;color:#f5d79f!important;font-size:23px;box-shadow:none;pointer-events:auto;}
+#app.cw-clean-play:not(.cw-review-mode) #asset-status:not(.art-error),#app.cw-clean-play:not(.cw-review-mode) #cw-p20-mini,#app.cw-clean-play:not(.cw-review-mode) #cw-wall108-scene-badge {display:none!important;}
+#app.cw-clean-play #city-camera {top:80px!important;right:10px;box-shadow:none;border:0;background:#122834e8;z-index:8;}
+#app.cw-clean-play:not(.cw-camera-open):not(.cw-review-mode) #city-camera {display:none!important;}
+#app.cw-clean-play #city-camera button{min-width:44px;min-height:44px;}
+#app.cw-clean-play #cluehint{top:82px!important;}
+#app.cw-clean-play.i1-inside .mission{display:none;}
+#app.cw-clean-play.i1-inside #room-toolbar{top:34px;}
+#app.cw-clean-play.i1-inside #room-toolbar button{min-width:44px;min-height:44px;}
+/* A single dock: movement on the left, original six actions on the right. */
+#cw-p20-dock{display:grid;grid-template-columns:136px minmax(0,1fr);gap:12px;align-items:center;flex:none;padding:7px 12px;background:linear-gradient(#162a34,#10222c);border-top:1px solid #b2946238;}
+#app.cw-clean-play #cw-p20-dock .dpad{display:grid!important;grid-template-columns:repeat(3,44px)!important;grid-template-rows:repeat(3,44px)!important;gap:2px!important;}
+#app.cw-clean-play #cw-p20-dock .dpad button{min-width:44px!important;min-height:44px!important;width:44px;height:44px;border-radius:50%!important;padding:0!important;border:1px solid #c4b38a40!important;background:#29444f96!important;color:#f5dfb5!important;font-size:18px;box-shadow:none!important;}
+#cw-p20-tools{display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));gap:5px;align-content:center;min-width:0;}
+#app.cw-clean-play #cw-p20-tools > .actions,#app.cw-clean-play #cw-p20-tools > .quick {display:contents!important;}
+#app.cw-clean-play #cw-p20-tools button.p13-main {min-width:44px!important;min-height:52px!important;height:auto!important;margin:0!important;padding:4px 1px!important;border:0!important;background:transparent!important;box-shadow:none!important;color:#f5dfb5!important;border-radius:12px!important;font-size:var(--clean-caption)!important;font-weight:600!important;line-height:1.15!important;overflow-wrap:anywhere;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+#app.cw-clean-play #cw-p20-tools button.p13-main::before {width:24px;height:24px;}
+#app.cw-clean-play #cw-p20-tools button:active,#app.cw-clean-play #cw-p20-tools button:hover {background:#c9ac7020!important;}
+#app.cw-clean-play #cw-p20-tools #combat{color:#f7afa0!important;}
+#app.cw-clean-play #cw-p20-tools #patrol::before {content:'⚜';display:block;font-size:24px;line-height:24px;height:24px;}
+#app.cw-clean-play #cw-p20-tools #combat::before {content:'⚔';display:block;font-size:24px;line-height:24px;height:24px;}
+/* Brief notification, with full messages retained in the on-demand journal. */
+#app.cw-clean-play .log.cw-clean-toast {position:absolute;bottom:12px;left:12px;right:12px;z-index:7;display:block!important;min-height:44px!important;max-height:none!important;height:auto!important;padding:8px 12px!important;border:0!important;border-radius:0!important;background:linear-gradient(90deg,#102631ed,#102631a8)!important;box-shadow:none!important;opacity:0;visibility:hidden;pointer-events:none;overflow:visible;transition:opacity .16s ease;cursor:pointer;}
+#app.cw-clean-play .log.cw-clean-toast.is-visible{opacity:1;visibility:visible;pointer-events:auto;}
+#app.cw-clean-play .log.cw-clean-toast #portrait{display:none!important;}
+#app.cw-clean-play .log.cw-clean-toast #speaker{display:none!important;}
+#app.cw-clean-play .log.cw-clean-toast #message{display:-webkit-box!important;-webkit-line-clamp:2;font-size:13px!important;line-height:1.4;}
+.cw-visually-hidden {position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;}
+/* Inventory has one small disclosure instead of three permanent menu blocks. */
+#cw-p16-inventory .p20-inv-header #cw-p16-close{width:44px;min-width:44px;min-height:44px;height:44px;padding:0!important;max-width:none;border-radius:50%!important;border:0!important;box-shadow:none;background:#20170eb5!important;font:400 28px/1 system-ui!important;}
+#cw-p16-inventory .p20-bag-options{margin:14px 0 0;border:0;background:none;}
+#cw-p16-inventory .p20-bag-options > summary,#cw-p16-inventory .p20-uniform-guide > summary {background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#ebce9d;padding:10px 0!important;min-height:44px;min-width:44px;font:500 14px/1.4 system-ui;cursor:pointer;}
+#cw-p16-inventory .p20-bag-options > summary::marker {color:#c6a366;}
+#cw-p16-inventory .statsline{font-size:.8125em;margin:4px 0 8px;gap:4px 8px;}
+#cw-p16-inventory .p20-uniform-guide{margin:0;}
+#cw-p16-inventory .actions button {font:500 1em/1.4 system-ui!important;min-height:44px!important;text-align:left;padding:9px 0!important;border:0!important;border-bottom:1px solid #a987512b!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;color:#f6dfb5;}
+#cw-p16-inventory .item.image-unavailable .glyph{font-size:24px;color:#dfc79a;}
+#cw-p16-inventory .item b{font-size:1em;}
+/* On-demand tools use a readable list, not another screenful of big cards. */
+#p13-menu-panel{border-width:1px!important;box-shadow:0 15px 50px #0008;border-radius:14px;padding:14px;}
+#p13-menu-panel h2{font-size:21px;}
+#p13-menu-grid button,#p13-menu-close {background:transparent!important;border:0!important;border-bottom:1px solid #a38b633b!important;border-radius:0!important;box-shadow:none!important;min-height:48px!important;text-align:left;}
+#p13-menu-close{text-align:center;margin-top:8px;}
+#p13-menu-grid .cw-review-item[hidden]{display:none!important;}
+#cw-clean-reader {border:1px solid #a18760;border-radius:10px;padding:16px;color:#f6e5c6;background:#172c35;width:min(440px,calc(100vw - 24px));max-height:80dvh;overflow:auto;}
+#cw-clean-reader::backdrop{background:#071018bb;}
+#cw-clean-reader header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+#cw-clean-reader h2{font:21px Georgia;margin:0;}
+#cw-clean-reader button {min-width:44px;min-height:44px;border:0;background:none;color:#f4dfb5;font:28px system-ui;}
+#cw-clean-reader article{border-bottom:1px solid #cfb98933;padding:10px 0;}
+#cw-clean-reader p{font-size:15px;line-height:1.5;white-space:pre-wrap;margin:5px 0;}
+#cw-clean-reader small{color:#c5ac82;}
+
+@media(max-width:340px) and (min-width:306px){
+ #cw-p20-dock{grid-template-columns:136px minmax(0,1fr);padding:6px;gap:4px;}
+ #app.cw-clean-play #cw-p20-tools button.p13-main{font-size:11px!important;letter-spacing:-.12px;overflow-wrap:normal;word-break:normal;hyphens:none;}
+}
+@media(max-width:305px){#cw-p20-dock{grid-template-columns:132px minmax(0,1fr);padding:6px;gap:4px;}#cw-p20-tools{grid-template-columns:repeat(2,minmax(44px,1fr));}#app.cw-clean-play .top .brand{font-size:12px!important;}#app.cw-clean-play .stats{gap:5px!important;}}
+@media(orientation:landscape) and (max-height:550px){
+ #app.cw-clean-play{padding-right:226px!important;}
+ #cw-p20-dock{position:absolute;right:0;top:0;bottom:0;width:220px;display:flex;flex-direction:column;justify-content:space-evenly;gap:6px;padding:6px;border-top:0;border-left:1px solid #b2946238;overflow-y:auto;}
+ #cw-p20-tools{width:100%;flex:none;}
+ #app.cw-clean-play .mission b{font-size:12px!important;}
+ #app.cw-clean-play .top{min-height:38px!important;}
+}
+@media(prefers-reduced-motion:reduce){#app.cw-clean-play .cw-clean-toast{transition:none;}}
+/* The Inventory source button stays off the action dock; More is its existing route. */
+#app.cw-clean-play #cw-p20-tools #inventory{display:none!important;}

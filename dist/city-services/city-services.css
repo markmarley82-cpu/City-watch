@@ -1,0 +1,168 @@
+#cw-city-services{width:min(1120px,calc(100% - 12px));height:min(96dvh,920px);max-width:none;max-height:none;margin:auto;padding:0;border:0;background:#151b18;color:#eadcbe;font:16px/1.45 Georgia,serif;overflow:auto}#cw-city-services::backdrop{background:#071018d8;backdrop-filter:blur(3px)}#cw-city-services *{box-sizing:border-box}#cw-city-services button,#cw-city-services select{font:600 15px Georgia,serif;min-height:44px}#cw-city-services button{cursor:pointer;color:#342519;border:0;padding:9px 16px;background:#d3b98e var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100% no-repeat}#cw-city-services button[aria-pressed=true]{color:#fff1d0;background-image:var(--cw-watch-control-selected,linear-gradient(#70543a,#4e3728))}#cw-city-services button:disabled{opacity:.52;cursor:default}#cw-city-services button:focus-visible,#cw-city-services select:focus-visible{outline:3px solid #e2b653;outline-offset:2px}.services-shell>header{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:linear-gradient(115deg,#37291e,#211b15);border-bottom:2px solid #9e7845}.services-shell>header small{font-size:10px;letter-spacing:.1em}.services-shell h2{margin:2px 0;font-size:24px}.services-tabs{position:sticky;top:69px;z-index:7;display:grid;grid-template-columns:1fr 1fr;background:#211b15;padding:7px 12px;gap:8px}.services-tabs button{width:100%}[data-services-panel]{padding:12px}.fitted-shop .shop-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.fitted-shop select,.lodging-select select{max-width:100%;background:#e8d6b4;color:#302319;border:1px solid #a4834c;padding:8px}.fitted-shop .shop-toolbar label{display:grid;gap:4px;max-width:100%;font-size:13px}.fitted-shop .shop-tabs,.fitted-shop .shop-actions,.fitted-shop .shop-people{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.fitted-shop .shop-title{font-size:clamp(22px,4vw,31px);font-weight:normal;margin:12px 0 4px}.fitted-shop .shop-stage{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#29332f;isolation:isolate}.fitted-shop .shop-stage canvas{position:absolute;inset:0;display:block;width:100%;height:100%}.fitted-shop .shop-hits{position:absolute;inset:0;pointer-events:none}.fitted-shop .shop-hit{position:absolute;min-height:0;padding:0;background:none!important;pointer-events:auto;border:0}.fitted-shop .shop-actions{margin:10px 0}.fitted-shop .shop-people{width:100%;margin-bottom:5px}.fitted-shop .shop-people button{font-size:13px}.fitted-shop .shop-status{font:13px/1.45 system-ui;color:#c0c4bd;border-top:1px solid #5e665e;padding-top:8px}.services-offer{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:12px;margin-top:12px}.services-art,.lodging-art{display:grid;grid-template-columns:1fr 1fr;gap:8px}.services-art figure,.lodging-art figure{margin:0;background:#252c27;border:1px solid #69583f;padding:6px}.services-art img,.lodging-art img{display:block;width:100%;aspect-ratio:3/2;object-fit:contain;background:#141814}.services-art figcaption,.lodging-art figcaption{font:12px system-ui;color:#cfbea0;padding:5px}.services-purchase{background:#dfc99e;color:#342519;padding:13px;border:14px solid transparent;border-image:url('../assets/jimmy-b03-v13/notebook-landscape.webp') 150 110 100 110 fill /28px 20px stretch}.services-purchase h3{margin:4px 0;font-size:20px}.services-purchase p{margin:6px 0}.services-purchase [role=status]{min-height:2.8em;font-weight:bold}.services-purchase [data-preparation]{border-top:1px solid #82643a;margin-top:12px;padding-top:8px}.lodging-select{display:flex;align-items:center;gap:10px;margin-bottom:10px}.lodging-art img{aspect-ratio:3/2}.services-boundary{font:13px/1.5 system-ui;color:#c9c2b4}.cw-npc-dialogue{width:min(92vw,900px);border:0;padding:0;background:transparent;color:#302319}.cw-npc-dialogue::backdrop{background:#071018cc}.cw-npc-dialogue .cw-dialogue-folio{border:solid transparent;border-width:62px 24px 28px;border-image:url('../assets/jimmy-b03-v13/notebook-landscape.webp') 150 110 100 110 fill /62px 24px 28px stretch;padding:4px 10px 18px}.cw-npc-dialogue .cw-dialogue-top,.cw-npc-dialogue .cw-dialogue-spread{display:flex;gap:12px}.cw-npc-dialogue .cw-dialogue-top{align-items:center;justify-content:space-between}.cw-npc-dialogue .cw-dialogue-profile{width:34%;min-width:150px}.cw-npc-dialogue .cw-dialogue-portrait{height:240px;overflow:hidden}.cw-npc-dialogue .cw-dialogue-page{flex:1}.cw-npc-dialogue .cw-dialogue-responses{display:grid;gap:7px}.cw-npc-dialogue .cw-dialogue-responses button{width:100%}@media(max-width:700px){.services-offer{grid-template-columns:1fr}.services-art,.lodging-art{grid-template-columns:1fr 1fr}.cw-npc-dialogue .cw-dialogue-spread{display:block}.cw-npc-dialogue .cw-dialogue-profile{width:100%;display:flex;gap:8px;align-items:center}.cw-npc-dialogue .cw-dialogue-portrait{width:120px;height:120px}.services-tabs{top:66px}}@media(max-width:470px){[data-services-panel]{padding:8px}.services-art,.lodging-art{grid-template-columns:1fr}.services-shell>header h2{font-size:19px}.services-shell>header button{padding:8px}.fitted-shop .shop-actions button{padding:8px 11px}.fitted-shop .shop-stage{min-height:230px}}
+/* Live counters hide the art-review controls and keep stock controls readable. */
+#cw-city-services [hidden]{display:none!important}
+.services-purchase label{display:grid;gap:5px;font-size:14px}
+.services-purchase select{width:100%;max-width:100%;min-height:44px;padding:8px;background:#f0dfbd;color:#302319;border:1px solid #82643a;font:inherit}
+/* Mark's recovered Dibbler tray direction: a material counter and inspectable stock. */
+#cw-city-services{width:min(780px,calc(100% - 12px));background:#291e17;color:#ead7b4;border:2px solid #86643c;border-radius:8px}
+#cw-city-services .services-shell>header{background:#302219;border-bottom:1px solid #85633d}
+#cw-city-services .services-tabs{background:#281c16}
+#cw-city-services .shop-counter-mode .shop-stage,#cw-city-services .shop-counter-mode .shop-title,#cw-city-services .shop-counter-mode .shop-status,#cw-city-services .services-art{display:none}
+#cw-city-services .shop-counter-mode .shop-actions{margin:8px 0 0;border:0}
+#cw-city-services .services-counter-tray{margin:0 auto;width:100%;max-width:740px}
+#cw-city-services .services-tray-stage{position:relative;aspect-ratio:2/1;width:100%}
+#cw-city-services .services-tray-stage canvas{display:block;width:100%;height:100%}
+#cw-city-services .services-tray-hits{position:absolute;inset:0;pointer-events:none}
+#cw-city-services .services-tray-hit{position:absolute;pointer-events:auto;background:none!important;border:0!important;min-height:44px;min-width:44px;padding:0!important;border-radius:12px}
+#cw-city-services .services-tray-hit:hover,#cw-city-services .services-tray-hit:focus-visible{outline:2px solid #c7a465;outline-offset:1px}
+#cw-city-services .services-tray-labels{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin:2px 0 10px}
+#cw-city-services .services-tray-labels button{background:#dac49d!important;border:1px solid #8b6d45;padding:7px 9px;color:#3b291d;border-radius:2px;font-size:13px}
+#cw-city-services .services-tray-labels button[aria-pressed=true]{background:#e9d5ab!important;color:#3b291d;box-shadow:inset 0 -3px #86623b}
+#cw-city-services .services-offer{display:block;margin-top:8px}
+#cw-city-services .services-purchase{border:0;border-image:none;background:#e1c797;padding:16px 20px;color:#362719;box-shadow:0 3px 9px #0005;border-radius:2px}
+#cw-city-services .services-purchase h3{font-size:21px}
+#cw-city-services .services-purchase p{font-size:15px;line-height:1.45}
+#cw-city-services .services-boundary{margin:0 0 6px;color:#cfbda2}
+@media(max-width:470px){#cw-city-services{height:calc(100dvh - 8px)}#cw-city-services .services-purchase{padding:12px}#cw-city-services .services-tray-labels{gap:4px}#cw-city-services .services-tray-labels button{font-size:12px;padding:7px}#cw-city-services .services-shell h2{font-size:18px}}
+#cw-city-services button{background:#dbc49c;border:1px solid #927447;border-radius:3px;color:#3b291d}
+#cw-city-services button[aria-pressed=true]{background:#5a4330;color:#f1dcb6}
+
+/* Match the Notebook materials without changing the illustrated counter. */
+#cw-city-services .services-shell > header {
+  background: #302219 url('../assets/jimmy-ui-ornate-v1/leather-pad.webp') center / cover;
+}
+#cw-city-services button[data-services-close] {
+  min-height: 44px;
+  background: #3d281c var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center / 100% 100% no-repeat;
+  color: #f6e5c4;
+}
+#cw-city-services .services-purchase {
+  background: #e1c797 url('../assets/lab01-notebook/page_portrait.webp') center / cover;
+}
+#cw-city-services .services-boundary {
+  font-family: Georgia, serif;
+}
+
+/* The purchase is the primary action. Keep the tray as a separate way to browse. */
+#cw-city-services [data-sale-buy] {
+  min-height: 44px;
+  width: 100%;
+  background: var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22));
+  color: #f6e5c4;
+}
+
+#cw-city-services .services-options {
+  margin: 8px 12px;
+}
+#cw-city-services .services-options > summary {
+  display: list-item;
+  padding: 10px 12px;
+  min-height: 44px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #ead7b4;
+}
+#cw-city-services [data-sale-status]:empty,
+#cw-city-services [data-counter-location]:empty {
+  display: none;
+}
+
+/* Street doors open their own service, with no directory navigation. */
+#cw-city-services:not([data-service-context="directory"]) .services-shell > .services-options,
+#cw-city-services[data-service-context="counter"] :is(.shop-toolbar, .services-boundary, [data-walk-shop], [data-counter-location], #cw-fitted-shops + section) {
+  display: none;
+}
+
+/* Compact counter with a separate purchase action for every retained offer. */
+#cw-city-services {
+  width:min(640px,calc(100% - 16px));height:auto;max-height:calc(100dvh - 16px);
+  border:18px solid transparent;border-radius:5px;background:#302219;
+  border-image:url('../assets/jimmy-ui-ornate-v1/leather-pad.webp') 220 fill / 18px stretch;
+}
+#cw-city-services .services-shell>header {
+  background:transparent;border-bottom:1px solid #987144;padding:6px 8px 12px;
+}
+#cw-city-services .services-shell>header h2 {font-size:20px;line-height:1.2}
+#cw-city-services button[data-services-close] {
+  background:#e1c797;color:#362719;padding:8px 12px;
+  border:8px solid transparent;
+  border-image:url('../assets/jimmy-ui-ornate-v1/action-parchment.webp') 160 fill / 8px stretch;
+}
+#cw-city-services .services-purchase {
+  padding:10px;background:none;box-shadow:none;color:#f6e5c4;
+}
+#cw-city-services [data-sale-balance] {margin:0 0 12px;font-size:14px;color:#f6e5c4;line-height:1.5}
+#cw-city-services.has-visible-goods :is([data-sale-selector],[data-sale-title],[data-sale-copy],[data-sale-buy]) {display:none!important}
+#cw-city-services .services-goods {display:grid;gap:10px}
+#cw-city-services .services-good {
+  display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:10px;align-items:center;
+  padding:8px;color:#362719;border:12px solid transparent;border-radius:3px;
+  background:#e1c797;
+  border-image:url('../assets/jimmy-ui-ornate-v1/action-parchment.webp') 160 fill / 12px stretch;
+}
+#cw-city-services .services-good>img {width:64px;height:64px;object-fit:contain}
+#cw-city-services .services-good>div:first-child {grid-column:1/3}
+#cw-city-services .services-good h3 {font-size:18px;margin:0;line-height:1.2}
+#cw-city-services .services-good-price {font-weight:bold;font-size:15px;margin:4px 0}
+#cw-city-services .services-good details {font-size:14px}
+#cw-city-services .services-good summary {cursor:pointer;min-height:32px;display:flex;align-items:center;text-decoration:underline}
+#cw-city-services .services-good details p {font-size:14px;margin:4px 0;line-height:1.4}
+#cw-city-services .services-good button {
+  min-width:64px;min-height:48px;padding:10px;color:#362719;
+  background:#e1c797;border:8px solid transparent;border-radius:3px;font-weight:bold;
+  border-image:url('../assets/jimmy-ui-ornate-v1/action-parchment.webp') 160 fill / 8px stretch;
+}
+#cw-city-services .services-good button:disabled {opacity:1;color:#65533e;background:#d1bd98;filter:saturate(.35)}
+#cw-city-services .services-options {margin:0 12px 8px}
+#cw-city-services [data-sale-status] {margin:10px 0 0}
+@media(max-width:380px){
+  #cw-city-services {border-width:12px;border-image-width:12px}
+  #cw-city-services .services-good {grid-template-columns:40px minmax(0,1fr) auto;gap:6px;padding:5px;border-width:8px;border-image-width:8px}
+  #cw-city-services .services-good>img {width:44px;height:52px}
+  #cw-city-services .services-good h3 {font-size:16px}
+  #cw-city-services .services-good button {min-width:52px;font-size:14px;padding:5px;border-width:5px;border-image-width:5px}
+}
+
+/* A street counter is a content-sized folio, not the full-screen art viewer.
+   Reserve a real column for dismissal so long shop names cannot crush Close. */
+html body #cw-city-services {
+  height:fit-content;
+  min-height:0;
+  max-height:calc(100dvh - max(16px,env(safe-area-inset-top)) - max(16px,env(safe-area-inset-bottom)));
+  overflow:auto;
+  overscroll-behavior:contain;
+  scroll-padding-block:80px 16px;
+}
+html body #cw-city-services .services-shell {min-height:0;height:auto}
+html body #cw-city-services .services-shell>header {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) max-content;
+  align-items:start;
+  gap:12px;
+  height:auto;
+  min-height:44px;
+  position:relative;
+  top:auto;
+  padding:8px 8px 12px;
+}
+html body #cw-city-services .services-shell>header>div {min-width:0}
+html body #cw-city-services .services-shell>header h2 {
+  margin:0;
+  font-size:clamp(18px,4.5vw,22px);
+  line-height:1.2;
+  overflow-wrap:break-word;
+}
+html body #cw-city-services button[data-services-close] {
+  width:max-content;
+  min-width:76px!important;
+  white-space:nowrap;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+html body #cw-city-services [data-services-panel] {min-width:0}
+html body #cw-city-services .services-purchase {padding:8px}
+html body #cw-city-services [data-sale-balance] {line-height:1.45;margin:8px 0 12px}
+@media(max-width:380px) {
+  html body #cw-city-services .services-shell>header {gap:8px;padding-inline:4px}
+  html body #cw-city-services .services-purchase {padding:4px}
+}

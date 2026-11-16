@@ -1,0 +1,38 @@
+{
+  "id": "P21-BASE-060",
+  "build": 60,
+  "version": "0.90",
+  "receivingSource": "40d4be86adb8f9d62cf2e05258904a91b386969b",
+  "immutableRollback": {
+    "build": "P21 build20",
+    "source": "5fee81a4792eee94bfba09c387210e8488d03263",
+    "siteVersion": "appgprj_6ad7d815d7008191815cf5cd2e2c53e7~appgver_6baf216fcd6081918b8613b5e364ada1",
+    "libraryFileId": "libfile_350af016de74819181f790c86a962c29",
+    "libraryVersion": 7,
+    "zipSHA256": "3726dcedf548555e021fbad80e610849d77f40ee1bedfc7075c73926cde01db3",
+    "preserve": "Immutable baseline source, saved Site version and Library ZIP version7. New candidates derive from it; never reset saves or discard its completed systems. Stable build20 ZIP is not replaced by this street section."
+  },
+  "orderedStep": 1,
+  "stage": "Consolidated development base, not a finished-game declaration",
+  "retained": {
+    "bridges": 7,
+    "uniqueWatchPremises": 27,
+    "uniqueUniversityReplacementPremises": 8,
+    "universityCharacters": 9,
+    "cityContacts": 18,
+    "partnerChoices": 10,
+    "remainingWatchTemplates": 17,
+    "widerLegacyFillers": 498,
+    "universitySurplusSourceUses": 39
+  },
+  "updates": [
+    "Attached recruit tabs and equal leather navigation buttons",
+    "Notebook drafts retained across sections, with explicit save/discard and failure retry",
+    "Direct partner conversations and paged nearby contacts",
+    "Invalid pursuit last-sighting recovery preserves existing incident progress"
+  ],
+  "saveAndInstallIdentityUnchanged": true,
+  "university14AndGuildRoomsRemainIsolated": true,
+  "physicalIPhoneVerified": false,
+  "creativeAcceptance": false
+}

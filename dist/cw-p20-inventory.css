@@ -1,0 +1,42 @@
+/* P20 Base 0.4: source artwork uniformly scaled, contents independently scroll. */
+#cw-p16-inventory{position:fixed;inset:0;z-index:10050;display:none;background:#071016b5;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));box-sizing:border-box;font-size:16px;line-height:1.25;touch-action:pan-y}
+#cw-p16-inventory.open{display:flex}
+#cw-p16-inventory *{box-sizing:border-box}
+#cw-p16-inventory .folio{position:relative;flex:none;width:256px;height:448px;max-width:100%;max-height:100%;background:transparent;border:0;color:#fff3dc;font:inherit;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;isolation:isolate;filter:drop-shadow(0 12px 20px #0007)}
+#cw-p16-inventory .p20-bag-art{position:absolute;inset:0;z-index:-1;pointer-events:none}
+#cw-p16-inventory .p20-bag-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+#cw-p16-inventory .p20-inv-header{position:absolute;left:var(--cavity-x,48px);top:7%;width:var(--cavity-w,160px);display:flex;justify-content:space-between;align-items:center;gap:6px;z-index:4}
+#cw-p16-inventory h2{font:normal 1.125em/1.2 Georgia,serif;margin:0;overflow-wrap:anywhere;text-shadow:0 1px 3px #000;min-width:0}
+#cw-p16-inventory button,#cw-p16-inventory summary{font:600 1em/1.25 system-ui;color:#fff3dc;background:#302b24;border:1px solid #c29b62;border-radius:7px;padding:10px 7px;min-height:48px;min-width:48px;cursor:pointer;white-space:normal;overflow-wrap:anywhere;touch-action:manipulation}
+#cw-p16-inventory button:hover{background:#41392f}
+#cw-p16-inventory button:focus-visible,#cw-p16-inventory summary:focus-visible,#cw-p16-inventory .p20-inv-middle:focus-visible{outline:3px solid #f1ca80;outline-offset:-3px}
+#cw-p16-inventory #cw-p16-close{flex:none;margin-left:auto;max-width:100%;position:relative}
+#cw-p16-inventory .p20-inv-middle{position:absolute;left:var(--cavity-x,48px);top:var(--cavity-y,64px);width:var(--cavity-w,160px);height:var(--cavity-h,292px);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 5px 8px;scrollbar-width:thin;scrollbar-color:#ae8d5b transparent;min-width:0;scroll-padding:6px;z-index:3}
+#cw-p16-inventory .statsline{display:flex;flex-wrap:wrap;gap:4px 10px;min-width:0;margin:0 0 12px;font-size:.875em;line-height:1.4;text-shadow:0 1px 2px #140b06}
+#cw-p16-inventory .statsline span{white-space:normal;overflow-wrap:anywhere}
+#cw-p16-inventory .statsline .rankline{font-weight:750}
+#cw-p16-inventory .p20-flow-title{display:none;margin:0 0 10px}
+#cw-p16-inventory .folio[data-compact-title="true"] .p20-inv-header h2{display:none}
+#cw-p16-inventory .folio[data-compact-title="true"] .p20-flow-title{display:block}
+#cw-p16-inventory .p20-sack{position:relative;min-height:0;width:100%;background:none;padding:0}
+#cw-p16-inventory .inventory-grid{display:grid;grid-template-columns:repeat(var(--sack-cols,2),minmax(0,1fr));gap:14px 12px;min-width:0;color:#fff3dc;font-size:1em}
+#cw-p16-inventory .item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;gap:4px;text-align:center;overflow-wrap:anywhere;background:none;border:0;padding:0}
+#cw-p16-inventory .item b{font-size:1em;font-weight:500;line-height:1.25;overflow-wrap:anywhere;max-width:100%;text-shadow:0 1px 2px #140b06}
+#cw-p16-inventory .item img{display:block;width:36px;height:36px;object-fit:contain;pointer-events:none;flex:none}
+#cw-p16-inventory .item .glyph{display:none;font-size:24px;width:36px;height:36px;line-height:36px}
+#cw-p16-inventory .item.image-unavailable .glyph,#cw-p16-inventory.source-view .item .glyph{display:block}
+#cw-p16-inventory .item.image-unavailable img,#cw-p16-inventory.source-view .item img{display:none}
+#cw-p16-inventory .item.state{grid-column:1/-1;justify-content:center;min-height:64px}
+#cw-p16-inventory .p20-uniform-guide{margin:14px 0 0}
+#cw-p16-inventory summary{display:list-item;list-style-position:inside;font-size:.875em;background:#242722dd;border-color:#8c7450;padding:10px 5px}
+#cw-p16-inventory .paper-doll{display:flex;justify-content:center;margin:10px 0 0}
+#cw-p16-inventory .paper-doll svg{width:65px;height:100px}
+#cw-p16-inventory .small{font-size:.875em;line-height:1.4;color:#e2ceb0;overflow-wrap:anywhere;margin:8px 0}
+#cw-p16-inventory .actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;padding:0!important;margin:12px 0 0!important;background:none;border:0}
+#cw-p16-inventory .actions button{display:block!important;width:100%;margin:0!important;font:600 1em/1.25 system-ui!important;min-height:48px!important;padding:10px 5px!important}
+#cw-p16-inventory #cw-p16-original{background:#242722}
+#cw-p16-inventory.art-unavailable .folio{background:#302b24;border:1px solid #c29b62;border-radius:20px}
+#cw-p16-inventory.art-unavailable .p20-bag-art{display:none}
+/* Original action menu is retained; this is not the bag surface. */
+#app .overlay .sheet{background:linear-gradient(140deg,#ebdbb0,#cbb181)!important;color:#342619!important;border:4px double #9c7847!important;box-shadow:0 18px 50px #000b,inset 0 0 20px #7c5d352e!important;border-radius:13px!important}
+#app .overlay .sheet button{background:linear-gradient(#6e5235,#392d25)!important;color:#ffe9b8!important;border:1px solid #b99a64!important;border-radius:8px!important;min-height:44px}

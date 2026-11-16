@@ -1,0 +1,30 @@
+{
+  "asset_id": "shades-ground-v1",
+  "runtime_files": [
+    {
+      "file": "ground.webp",
+      "dimensions": [
+        2044,
+        1022
+      ],
+      "screen_box": [
+        -5068,
+        3990,
+        -3024,
+        5012
+      ],
+      "mode": "RGBA",
+      "sha256": "56e5d802a797f4ee9097304593bd9ef766313e1441df625f3493ea3e9988e522",
+      "bytes": 517450
+    }
+  ],
+  "region": [
+    73,
+    212,
+    31,
+    42
+  ],
+  "source_masters": "Retained approved uu-ground-v19 generated masters, unchanged.",
+  "encoding": "WebP quality 88 RGB / exact lossless alpha; one global patch, no internal chunk seams.",
+  "max_decoded_MiB": 7.968780517578125
+}

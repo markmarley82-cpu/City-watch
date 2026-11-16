@@ -1,0 +1,1401 @@
+{
+  "schema": "CW_CITY_WALLS296_LAYOUT_v1",
+  "build": 296,
+  "baseBuild": 295,
+  "baseSiteVersion": 395,
+  "baseCommit": "b1e4fef11317e4bc78256f47206b88622db27edf",
+  "scope": "IMPLEMENTATION LAYOUT UNDER MARK APPROVAL: That\u2019s close enough make the walls and gates",
+  "coordinateFrame": {
+    "units": "engine cells",
+    "atlasTransform": "ex=224-Atlas_Y; ey=Atlas_X",
+    "canonMetricClaim": false
+  },
+  "envelope": {
+    "corners": [
+      [
+        7.5,
+        4.5
+      ],
+      [
+        241.5,
+        4.5
+      ],
+      [
+        241.5,
+        342.5
+      ],
+      [
+        7.5,
+        342.5
+      ]
+    ],
+    "bounds": [
+      7.5,
+      4.5,
+      241.5,
+      342.5
+    ],
+    "class": "APPROVED APPROXIMATE GAME ENVELOPE",
+    "currentPublicExtentToRetain": [
+      14,
+      11,
+      235,
+      336
+    ],
+    "foundationWidth": 0.9
+  },
+  "gates": [
+    {
+      "id": "gate:hubwards",
+      "name": "Hubwards Gate",
+      "kind": "land",
+      "side": "bottom",
+      "center": [
+        173.755102,
+        342.5
+      ],
+      "outwardNormal": [
+        0,
+        1
+      ],
+      "clearWidth": 6,
+      "sourceApproach": {
+        "node": "hub_app",
+        "edge": "E008",
+        "at": [
+          168,
+          319
+        ],
+        "outward": [
+          0.237869,
+          0.971297
+        ]
+      },
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "sto-lat",
+      "newNamedStreet": false,
+      "artIndex": 0,
+      "uniqueArtID": "CW296-GATE-HUBWARDS",
+      "innerReceiver": [
+        174,
+        336
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            174,
+            336
+          ],
+          [
+            173.755102,
+            342.0
+          ]
+        ],
+        "polygon": [
+          [
+            171,
+            336
+          ],
+          [
+            170.755102,
+            342.0
+          ],
+          [
+            176.755102,
+            342.0
+          ],
+          [
+            177,
+            336
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          176.755102,
+          342.5,
+          5.0,
+          2.75
+        ],
+        [
+          165.755102,
+          342.5,
+          5.0,
+          2.75
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:rimwards",
+      "name": "Rimwards Gate",
+      "kind": "land",
+      "side": "top",
+      "center": [
+        79.557692,
+        4.5
+      ],
+      "outwardNormal": [
+        0,
+        -1
+      ],
+      "clearWidth": 6,
+      "sourceApproach": {
+        "node": "rim_app",
+        "edge": "E025",
+        "at": [
+          84,
+          15
+        ],
+        "outward": [
+          -0.38964,
+          -0.920967
+        ]
+      },
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "sto-helit",
+      "newNamedStreet": false,
+      "artIndex": 1,
+      "uniqueArtID": "CW296-GATE-RIMWARDS",
+      "innerReceiver": [
+        80,
+        11
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            80,
+            11
+          ],
+          [
+            79.557692,
+            5.0
+          ]
+        ],
+        "polygon": [
+          [
+            83,
+            11
+          ],
+          [
+            82.557692,
+            5.0
+          ],
+          [
+            76.557692,
+            5.0
+          ],
+          [
+            77,
+            11
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          71.557692,
+          1.75,
+          5.0,
+          2.75
+        ],
+        [
+          82.557692,
+          1.75,
+          5.0,
+          2.75
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:deosil",
+      "name": "Deosil Gate",
+      "kind": "land",
+      "side": "left",
+      "center": [
+        7.5,
+        64
+      ],
+      "outwardNormal": [
+        -1,
+        0
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "quirm",
+      "newNamedStreet": false,
+      "artIndex": 2,
+      "uniqueArtID": "CW296-GATE-DEOSIL",
+      "innerReceiver": [
+        14,
+        64
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            14,
+            64
+          ],
+          [
+            8.0,
+            64.0
+          ]
+        ],
+        "polygon": [
+          [
+            14,
+            61
+          ],
+          [
+            8.0,
+            61.0
+          ],
+          [
+            8.0,
+            67.0
+          ],
+          [
+            14,
+            67
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          4.75,
+          67,
+          2.75,
+          5
+        ],
+        [
+          4.75,
+          56,
+          2.75,
+          5
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:least",
+      "name": "Least Gate",
+      "kind": "land",
+      "side": "top",
+      "center": [
+        196,
+        4.5
+      ],
+      "outwardNormal": [
+        0,
+        -1
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "sto-kerrig",
+      "newNamedStreet": false,
+      "artIndex": 3,
+      "uniqueArtID": "CW296-GATE-LEAST",
+      "innerReceiver": [
+        196,
+        11
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            196,
+            11
+          ],
+          [
+            196.0,
+            5.0
+          ]
+        ],
+        "polygon": [
+          [
+            199,
+            11
+          ],
+          [
+            199.0,
+            5.0
+          ],
+          [
+            193.0,
+            5.0
+          ],
+          [
+            193,
+            11
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          188,
+          1.75,
+          5,
+          2.75
+        ],
+        [
+          199,
+          1.75,
+          5,
+          2.75
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:trading",
+      "name": "Trading Gate",
+      "kind": "land",
+      "side": "right",
+      "center": [
+        241.5,
+        275
+      ],
+      "outwardNormal": [
+        1,
+        0
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "uberwald",
+      "newNamedStreet": false,
+      "artIndex": 4,
+      "uniqueArtID": "CW296-GATE-TRADING",
+      "innerReceiver": [
+        235,
+        275
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            235,
+            275
+          ],
+          [
+            241.0,
+            275.0
+          ]
+        ],
+        "polygon": [
+          [
+            235,
+            278
+          ],
+          [
+            241.0,
+            278.0
+          ],
+          [
+            241.0,
+            272.0
+          ],
+          [
+            235,
+            272
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          241.5,
+          267,
+          2.75,
+          5
+        ],
+        [
+          241.5,
+          278,
+          2.75,
+          5
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:limping",
+      "name": "Limping Gate",
+      "kind": "land",
+      "side": "right",
+      "center": [
+        241.5,
+        320
+      ],
+      "outwardNormal": [
+        1,
+        0
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "morpork-mountains",
+      "newNamedStreet": false,
+      "artIndex": 5,
+      "uniqueArtID": "CW296-GATE-LIMPING",
+      "innerReceiver": [
+        235,
+        320
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            235,
+            320
+          ],
+          [
+            241.0,
+            320.0
+          ]
+        ],
+        "polygon": [
+          [
+            235,
+            323
+          ],
+          [
+            241.0,
+            323.0
+          ],
+          [
+            241.0,
+            317.0
+          ],
+          [
+            235,
+            317
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          241.5,
+          312,
+          2.75,
+          5
+        ],
+        [
+          241.5,
+          323,
+          2.75,
+          5
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:onion",
+      "name": "Onion Gate",
+      "kind": "land",
+      "side": "bottom",
+      "center": [
+        82,
+        342.5
+      ],
+      "outwardNormal": [
+        0,
+        1
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "istanzia",
+      "newNamedStreet": false,
+      "artIndex": 6,
+      "uniqueArtID": "CW296-GATE-ONION",
+      "innerReceiver": [
+        82,
+        336
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            82,
+            336
+          ],
+          [
+            82.0,
+            342.0
+          ]
+        ],
+        "polygon": [
+          [
+            79,
+            336
+          ],
+          [
+            79.0,
+            342.0
+          ],
+          [
+            85.0,
+            342.0
+          ],
+          [
+            85,
+            336
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          85,
+          342.5,
+          5,
+          2.75
+        ],
+        [
+          74,
+          342.5,
+          5,
+          2.75
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:shambling",
+      "name": "Shambling Gate",
+      "kind": "land",
+      "side": "left",
+      "center": [
+        7.5,
+        285
+      ],
+      "outwardNormal": [
+        -1,
+        0
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "drovers-trail",
+      "newNamedStreet": false,
+      "artIndex": 7,
+      "uniqueArtID": "CW296-GATE-SHAMBLING",
+      "innerReceiver": [
+        14,
+        285
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            14,
+            285
+          ],
+          [
+            8.0,
+            285.0
+          ]
+        ],
+        "polygon": [
+          [
+            14,
+            282
+          ],
+          [
+            8.0,
+            282.0
+          ],
+          [
+            8.0,
+            288.0
+          ],
+          [
+            14,
+            288
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          4.75,
+          288,
+          2.75,
+          5
+        ],
+        [
+          4.75,
+          277,
+          2.75,
+          5
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    },
+    {
+      "id": "gate:traitors",
+      "name": "Traitors Gate",
+      "kind": "land",
+      "side": "top",
+      "center": [
+        35,
+        4.5
+      ],
+      "outwardNormal": [
+        0,
+        -1
+      ],
+      "clearWidth": 6,
+      "sourceApproach": null,
+      "placementClass": "APPROVED GAME ADAPTATION; NOT CANONICAL COORDINATES",
+      "loreRoadLead": "jowser-cove",
+      "newNamedStreet": false,
+      "artIndex": 8,
+      "uniqueArtID": "CW296-GATE-TRAITORS",
+      "innerReceiver": [
+        35,
+        11
+      ],
+      "receiverValidation": "REQUIRES EXACT EXISTING PUBLIC DRY MEMBERSHIP IN INTEGRATION SNAPSHOT",
+      "apron": {
+        "centerline": [
+          [
+            35,
+            11
+          ],
+          [
+            35.0,
+            5.0
+          ]
+        ],
+        "polygon": [
+          [
+            38,
+            11
+          ],
+          [
+            38.0,
+            5.0
+          ],
+          [
+            32.0,
+            5.0
+          ],
+          [
+            32,
+            11
+          ]
+        ],
+        "width": 6,
+        "navigation": "ADD ONLY NEW DRY CELLS; RETAIN ORIGINAL MEMBERS; DO NOT CROSS HELD MASKS",
+        "maxReceiverSearchCells": 2
+      },
+      "towerRects": [
+        [
+          27,
+          1.75,
+          5,
+          2.75
+        ],
+        [
+          38,
+          1.75,
+          5,
+          2.75
+        ]
+      ],
+      "archCollision": false,
+      "outsideTravel": false,
+      "heldCattleMarketAccess": false,
+      "depthCells": 2.75
+    }
+  ],
+  "riverInterfaces": [
+    {
+      "id": "water:upstream",
+      "name": "Water Gate",
+      "kind": "river",
+      "sourceSurface": "River_Ankh",
+      "interface": [
+        [
+          209,
+          164
+        ],
+        [
+          209,
+          192
+        ]
+      ],
+      "center": [
+        209,
+        178
+      ],
+      "outwardNormal": [
+        1,
+        0
+      ],
+      "clearWidth": 28,
+      "perimeterSide": "right",
+      "perimeterInterval": [
+        162,
+        194
+      ],
+      "perimeterBreakID": "break:water-upstream",
+      "navigation": false,
+      "waterGeometryChange": false,
+      "pierFootprints": "OUTSIDE EXISTING WET SURFACE; VERIFY AGAINST ALL BASELINE MEMBERS",
+      "placementClass": "GAME ADAPTATION OF CANONICAL NAME"
+    },
+    {
+      "id": "water:downstream",
+      "name": "River Gate",
+      "kind": "river",
+      "sourceSurface": "River_Ankh",
+      "interface": [
+        [
+          12,
+          152
+        ],
+        [
+          12,
+          195
+        ]
+      ],
+      "center": [
+        12,
+        173.5
+      ],
+      "outwardNormal": [
+        -1,
+        0
+      ],
+      "clearWidth": 43,
+      "perimeterSide": "left",
+      "perimeterInterval": [
+        150,
+        197
+      ],
+      "perimeterBreakID": "break:water-downstream",
+      "navigation": false,
+      "waterGeometryChange": false,
+      "pierFootprints": "OUTSIDE EXISTING WET SURFACE; VERIFY AGAINST ALL BASELINE MEMBERS",
+      "placementClass": "GAME ADAPTATION OF CANONICAL NAME"
+    },
+    {
+      "id": "water:cut-bypass",
+      "name": null,
+      "kind": "unnamed-water-bypass",
+      "sourceSurface": "The_Cut",
+      "interface": [
+        [
+          209,
+          86
+        ],
+        [
+          209,
+          113
+        ]
+      ],
+      "center": [
+        209,
+        99.5
+      ],
+      "outwardNormal": [
+        1,
+        0
+      ],
+      "clearWidth": 27,
+      "perimeterSide": "right",
+      "perimeterInterval": [
+        84,
+        115
+      ],
+      "perimeterBreakID": "break:cut-bypass",
+      "navigation": false,
+      "waterGeometryChange": false,
+      "canonGateClaim": false,
+      "pierFootprints": null,
+      "placementClass": "PRESERVED GAME-ORIGINAL WATER OPENING; NOT A THIRD NAMED RIVER GATE"
+    }
+  ],
+  "openings": [
+    {
+      "id": "break:gate:hubwards",
+      "owner": "gate:hubwards",
+      "side": "bottom",
+      "interval": [
+        170.755102,
+        176.755102
+      ]
+    },
+    {
+      "id": "break:gate:rimwards",
+      "owner": "gate:rimwards",
+      "side": "top",
+      "interval": [
+        76.557692,
+        82.557692
+      ]
+    },
+    {
+      "id": "break:gate:deosil",
+      "owner": "gate:deosil",
+      "side": "left",
+      "interval": [
+        61,
+        67
+      ]
+    },
+    {
+      "id": "break:gate:least",
+      "owner": "gate:least",
+      "side": "top",
+      "interval": [
+        193,
+        199
+      ]
+    },
+    {
+      "id": "break:gate:trading",
+      "owner": "gate:trading",
+      "side": "right",
+      "interval": [
+        272,
+        278
+      ]
+    },
+    {
+      "id": "break:gate:limping",
+      "owner": "gate:limping",
+      "side": "right",
+      "interval": [
+        317,
+        323
+      ]
+    },
+    {
+      "id": "break:gate:onion",
+      "owner": "gate:onion",
+      "side": "bottom",
+      "interval": [
+        79,
+        85
+      ]
+    },
+    {
+      "id": "break:gate:shambling",
+      "owner": "gate:shambling",
+      "side": "left",
+      "interval": [
+        282,
+        288
+      ]
+    },
+    {
+      "id": "break:gate:traitors",
+      "owner": "gate:traitors",
+      "side": "top",
+      "interval": [
+        32,
+        38
+      ]
+    },
+    {
+      "id": "break:water-upstream",
+      "owner": "water:upstream",
+      "side": "right",
+      "interval": [
+        162,
+        194
+      ]
+    },
+    {
+      "id": "break:water-downstream",
+      "owner": "water:downstream",
+      "side": "left",
+      "interval": [
+        150,
+        197
+      ]
+    },
+    {
+      "id": "break:cut-bypass",
+      "owner": "water:cut-bypass",
+      "side": "right",
+      "interval": [
+        84,
+        115
+      ]
+    }
+  ],
+  "walls": [
+    {
+      "id": "wall:top:01",
+      "side": "top",
+      "centerline": [
+        [
+          7.5,
+          4.5
+        ],
+        [
+          32,
+          4.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.5,
+        4.05,
+        24.5,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-01",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:top:02",
+      "side": "top",
+      "centerline": [
+        [
+          38,
+          4.5
+        ],
+        [
+          76.557692,
+          4.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        38,
+        4.05,
+        38.557692,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-02",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:top:03",
+      "side": "top",
+      "centerline": [
+        [
+          82.557692,
+          4.5
+        ],
+        [
+          193,
+          4.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        82.557692,
+        4.05,
+        110.442308,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-03",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:top:04",
+      "side": "top",
+      "centerline": [
+        [
+          199,
+          4.5
+        ],
+        [
+          241.5,
+          4.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        199,
+        4.05,
+        42.5,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-04",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:right:05",
+      "side": "right",
+      "centerline": [
+        [
+          241.5,
+          4.5
+        ],
+        [
+          241.5,
+          84
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        241.05,
+        4.5,
+        0.9,
+        79.5
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-05",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:right:06",
+      "side": "right",
+      "centerline": [
+        [
+          241.5,
+          115
+        ],
+        [
+          241.5,
+          162
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        241.05,
+        115,
+        0.9,
+        47
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-06",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:right:07",
+      "side": "right",
+      "centerline": [
+        [
+          241.5,
+          194
+        ],
+        [
+          241.5,
+          272
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        241.05,
+        194,
+        0.9,
+        78
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-07",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:right:08",
+      "side": "right",
+      "centerline": [
+        [
+          241.5,
+          278
+        ],
+        [
+          241.5,
+          317
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        241.05,
+        278,
+        0.9,
+        39
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-08",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:right:09",
+      "side": "right",
+      "centerline": [
+        [
+          241.5,
+          323
+        ],
+        [
+          241.5,
+          342.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        241.05,
+        323,
+        0.9,
+        19.5
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-09",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:bottom:10",
+      "side": "bottom",
+      "centerline": [
+        [
+          7.5,
+          342.5
+        ],
+        [
+          79,
+          342.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.5,
+        342.05,
+        71.5,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-10",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:bottom:11",
+      "side": "bottom",
+      "centerline": [
+        [
+          85,
+          342.5
+        ],
+        [
+          170.755102,
+          342.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        85,
+        342.05,
+        85.755102,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-11",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:bottom:12",
+      "side": "bottom",
+      "centerline": [
+        [
+          176.755102,
+          342.5
+        ],
+        [
+          241.5,
+          342.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        176.755102,
+        342.05,
+        64.744898,
+        0.9
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-12",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:left:13",
+      "side": "left",
+      "centerline": [
+        [
+          7.5,
+          4.5
+        ],
+        [
+          7.5,
+          61
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.05,
+        4.5,
+        0.9,
+        56.5
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-13",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:left:14",
+      "side": "left",
+      "centerline": [
+        [
+          7.5,
+          67
+        ],
+        [
+          7.5,
+          150
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.05,
+        67,
+        0.9,
+        83
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-14",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:left:15",
+      "side": "left",
+      "centerline": [
+        [
+          7.5,
+          197
+        ],
+        [
+          7.5,
+          282
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.05,
+        197,
+        0.9,
+        85
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-15",
+      "newNavigation": false
+    },
+    {
+      "id": "wall:left:16",
+      "side": "left",
+      "centerline": [
+        [
+          7.5,
+          288
+        ],
+        [
+          7.5,
+          342.5
+        ]
+      ],
+      "foundationWidth": 0.9,
+      "foundationRect": [
+        7.05,
+        288,
+        0.9,
+        54.5
+      ],
+      "cap": "butt",
+      "artSection": "CW296-WALL-16",
+      "newNavigation": false
+    }
+  ],
+  "preservation": {
+    "baselineNavigationCells": "ALL RETAINED",
+    "existingGraphNodes": "UNCHANGED",
+    "bridges": "E001..E007 UNCHANGED",
+    "waterPolygons": "UNCHANGED",
+    "heldMasks": "UNCHANGED; NO APRON MAY OVERLAP THEM",
+    "campusAndPalace": "NO CHANGES",
+    "cattleMarketHeldAccess": "RETAINED",
+    "artRule": "NINE DISTINCT GATEHOUSE FACADES; NO OLD BUILDING MODELS",
+    "runtimeGateClosure": false
+  },
+  "integrationChecksRequired": [
+    "Exact dry-public receiver membership and path to Watch House for all 9 gates",
+    "Add only short original unnamed aprons beyond retained dry border",
+    "No new apron or foundation overlap with held masks, campus, Palace or current structural footprints",
+    "All original valid navigation cells, saved positions and held relations retained",
+    "Original river surfaces remain unchanged; no dry valid cells painted over with water",
+    "Visual depth, cutaway, daytime/nighttime readability and phone performance checks"
+  ],
+  "loreSources": [
+    "https://wiki.lspace.org/Category:Gates_of_Ankh-Morpork",
+    "https://wiki.lspace.org/Hubwards_Gate",
+    "https://wiki.lspace.org/Rimwards_Gate",
+    "https://www.discworldemporium.com/product/the-compleat-ankh-morpork/"
+  ],
+  "visualRework": {
+    "instruction": "Mark: half as thick and make textures",
+    "wallThicknessCells": 0.9,
+    "towerDepthCells": 2.75,
+    "newMaterials": "assets/city-walls300/painted-materials.webp",
+    "clearPassageCells": 6,
+    "materialDirection": "Painted game art: broad brush tones and softened mortar, matched to retained painted-wall references"
+  }
+}

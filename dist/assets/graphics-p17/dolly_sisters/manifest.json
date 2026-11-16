@@ -1,0 +1,22 @@
+{
+  "pack": "Ankh-Morpork \u2014 Dolly Sisters District",
+  "version": "1.0",
+  "asset_format": "fully_separated_transparent_png_plus_json",
+  "asset_count": 87,
+  "counts_by_category": {
+    "buildings": 12,
+    "furniture": 21,
+    "terrain": 18,
+    "overlays": 4,
+    "effects": 32
+  },
+  "primary_asset_index": "metadata/sprites.json",
+  "district_spawn_groups": "metadata/district_spawn_groups.json",
+  "animations": "metadata/animations.json",
+  "atlases": "metadata/atlases.json",
+  "lore_sources": [
+    "https://wiki.lspace.org/Dolly_Sisters",
+    "https://wiki.lspace.org/Ankh-Morpork_Neighbourhoods"
+  ],
+  "license_notice": "Unofficial fan-art game graphics. This pack does not assert approval or commercial-use rights for Discworld trademarks and settings."
+}

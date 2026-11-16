@@ -1,0 +1,484 @@
+{
+  "id": "DOCKSIDE-001",
+  "base": "3ad940f862f04cc5069609cc6f5bcaf8b500ea2e",
+  "sectionTask": "MATE-481-S064",
+  "instances": [
+    {
+      "id": "DOCKSIDE-001:warehouse",
+      "landmarkID": "warehouse",
+      "oldID": "landmark:warehouse",
+      "sourceParcel": null,
+      "kind": "building",
+      "file": "warehouse-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/warehouse-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/warehouse-walls.webp"
+      },
+      "dimensions": [
+        582,
+        368
+      ],
+      "p": [
+        50.5,
+        247.5
+      ],
+      "anchor": [
+        266,
+        362
+      ],
+      "rect": [
+        45,
+        240,
+        6,
+        8
+      ],
+      "support": [
+        44.5,
+        239.5,
+        6,
+        8
+      ],
+      "approach": [
+        44,
+        244
+      ],
+      "source": "art-source/street-by-street/dockside-001/warehouse-source.png",
+      "sourceSHA256": "9c82f64770dc283f354acf0ea9c8e633bc499c59b5ac1588ad9803bd8e91ee62",
+      "sha256": "8c1b1f118983c784ddfb85087b7babf1a77f01e22bb74c373dc4521f725f7fa0",
+      "sourceFoundation": {
+        "front": [
+          748,
+          878
+        ],
+        "left": [
+          272,
+          741
+        ],
+        "right": [
+          1482,
+          650
+        ]
+      },
+      "sourceDoorHeight": 189,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 748,
+          "a": 0.35294117647058826,
+          "b": 0.0774865501756258
+        },
+        {
+          "lo": 748,
+          "hi": 1774,
+          "a": 0.30517711171662126,
+          "b": -0.04575926646771335
+        }
+      ],
+      "verticalScale": 0.3439153439153439,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-001:net",
+      "landmarkID": "net",
+      "oldID": "landmark:net",
+      "sourceParcel": null,
+      "kind": "building",
+      "file": "net-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/net-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/net-walls.webp"
+      },
+      "dimensions": [
+        290,
+        201
+      ],
+      "p": [
+        32.5,
+        251.5
+      ],
+      "anchor": [
+        145,
+        196
+      ],
+      "rect": [
+        29,
+        248,
+        4,
+        4
+      ],
+      "support": [
+        28.5,
+        247.5,
+        4,
+        4
+      ],
+      "approach": [
+        33,
+        250
+      ],
+      "source": "art-source/street-by-street/dockside-001/net-source.png",
+      "sourceSHA256": "115ef3aab952dd0758590178a14c41d412e4322639ca0f3f019ec4ee983353b0",
+      "sha256": "edbf5cbfb92afbba2f320e030e7be209c271a08c3edb7f66ee75d927a15c5a96",
+      "sourceFoundation": {
+        "front": [
+          877,
+          876
+        ],
+        "left": [
+          186,
+          711
+        ],
+        "right": [
+          1584,
+          684
+        ]
+      },
+      "sourceDoorHeight": 355,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 877,
+          "a": 0.16208393632416787,
+          "b": 0.03732088624365586
+        },
+        {
+          "lo": 877,
+          "hi": 1774,
+          "a": 0.15841584158415842,
+          "b": -0.029483833695240748
+        }
+      ],
+      "verticalScale": 0.18309859154929578,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-001:sail-repair",
+      "landmarkID": null,
+      "oldID": "roof:517",
+      "sourceParcel": 614,
+      "kind": "building",
+      "file": "sail-repair-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/sail-repair-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/sail-repair-walls.webp"
+      },
+      "dimensions": [
+        240,
+        257
+      ],
+      "p": [
+        46.309999999999995,
+        254.965
+      ],
+      "anchor": [
+        141,
+        243
+      ],
+      "rect": [
+        42.282,
+        252.431,
+        4.528,
+        3.034
+      ],
+      "support": [
+        41.782,
+        251.931,
+        4.528,
+        3.034
+      ],
+      "approach": [
+        44,
+        251
+      ],
+      "source": "art-source/street-by-street/dockside-001/sail-repair-source.png",
+      "sourceSHA256": "7d0ec367f116b979e67548d3ea64dcd95ef8965236294402846a50cfb2f1e80c",
+      "sha256": "de31ecc00e1a53e27fb6ae0d00aee98c1932971e2b596a1918745393fee5bc5b",
+      "sourceFoundation": {
+        "front": [
+          947,
+          971
+        ],
+        "left": [
+          77,
+          793
+        ],
+        "right": [
+          1463,
+          845
+        ]
+      },
+      "sourceDoorHeight": 295,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 947,
+          "a": 0.1457287356321839,
+          "b": 0.02778351841028638
+        },
+        {
+          "lo": 947,
+          "hi": 1536,
+          "a": 0.16463565891472867,
+          "b": -0.02851412429378531
+        }
+      ],
+      "verticalScale": 0.22033898305084745,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-001:dock-lodging",
+      "landmarkID": null,
+      "oldID": "roof:499",
+      "sourceParcel": 592,
+      "kind": "building",
+      "file": "dock-lodging-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/dock-lodging-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/dock-lodging-walls.webp"
+      },
+      "dimensions": [
+        271,
+        337
+      ],
+      "p": [
+        51.928,
+        253.706
+      ],
+      "anchor": [
+        139,
+        330
+      ],
+      "rect": [
+        48.485,
+        251.015,
+        3.943,
+        3.191
+      ],
+      "support": [
+        47.985,
+        250.515,
+        3.943,
+        3.191
+      ],
+      "approach": [
+        50,
+        254
+      ],
+      "source": "art-source/street-by-street/dockside-001/dock-lodging-source.png",
+      "sourceSHA256": "cafeb5787af4f0d71beb987b52f629a2d31ac70e59e66a4053fb5db4ae62a552",
+      "sha256": "7521e2f185de3d9deb364e4527963e036241d371da09a9f96812ac77f4b27e74",
+      "sourceFoundation": {
+        "front": [
+          750,
+          1183
+        ],
+        "left": [
+          145,
+          1000
+        ],
+        "right": [
+          1137,
+          1031
+        ]
+      },
+      "sourceDoorHeight": 240,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 750,
+          "a": 0.18248595041322313,
+          "b": 0.009321487603305782
+        },
+        {
+          "lo": 750,
+          "hi": 1312,
+          "a": 0.2308733850129199,
+          "b": -0.009062876830318695
+        }
+      ],
+      "verticalScale": 0.2708333333333333,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-001:rope-house",
+      "landmarkID": null,
+      "oldID": "roof:535",
+      "sourceParcel": 632,
+      "kind": "building",
+      "file": "rope-house-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/rope-house-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/rope-house-walls.webp"
+      },
+      "dimensions": [
+        290,
+        316
+      ],
+      "p": [
+        39.566,
+        256.648
+      ],
+      "anchor": [
+        135,
+        310
+      ],
+      "rect": [
+        36.962,
+        252.787,
+        3.104,
+        4.361
+      ],
+      "support": [
+        36.462,
+        252.287,
+        3.104,
+        4.361
+      ],
+      "approach": [
+        40,
+        254
+      ],
+      "source": "art-source/street-by-street/dockside-001/rope-house-source.png",
+      "sourceSHA256": "851dad56f6c76330dc40550a0ea177905ecd66c4247058d9d934bdce45534c25",
+      "sha256": "86312dba6234bf92b3af0beffa3b7cac0c59e48114423a85022a4c38eb101976",
+      "sourceFoundation": {
+        "front": [
+          489,
+          1155
+        ],
+        "left": [
+          168,
+          1045
+        ],
+        "right": [
+          1173,
+          1034
+        ]
+      },
+      "sourceDoorHeight": 282,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 489,
+          "a": 0.2707538940809969,
+          "b": 0.05639062327390028
+        },
+        {
+          "lo": 489,
+          "hi": 1344,
+          "a": 0.1785204678362573,
+          "b": -0.04848527642984529
+        }
+      ],
+      "verticalScale": 0.23049645390070922,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-001:provisions-home",
+      "landmarkID": null,
+      "oldID": "roof:565",
+      "sourceParcel": 662,
+      "kind": "building",
+      "file": "provisions-home-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-001/provisions-home-roof.webp",
+        "walls": "art-source/street-by-street/dockside-001/provisions-home-walls.webp"
+      },
+      "dimensions": [
+        259,
+        253
+      ],
+      "p": [
+        33.255,
+        242.016
+      ],
+      "anchor": [
+        149,
+        248
+      ],
+      "rect": [
+        29.731,
+        239.63,
+        4.024,
+        2.886
+      ],
+      "support": [
+        29.231,
+        239.13,
+        4.024,
+        2.886
+      ],
+      "approach": [
+        29,
+        241
+      ],
+      "source": "art-source/street-by-street/dockside-001/provisions-home-source.png",
+      "sourceSHA256": "34c6572d49add6d703df9aa2ec36b6cd75ef376dfe21f1ccd2f8ba644b608845",
+      "sha256": "a0270e42c7fd9ef31472787ce76f630147648bf27dfa40387640687eaf2ae0e2",
+      "sourceFoundation": {
+        "front": [
+          776,
+          1012
+        ],
+        "left": [
+          179,
+          832
+        ],
+        "right": [
+          1349,
+          848
+        ]
+      },
+      "sourceDoorHeight": 294,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 776,
+          "a": 0.18873031825795644,
+          "b": 0.027705329367928078
+        },
+        {
+          "lo": 776,
+          "hi": 1536,
+          "a": 0.1410261780104712,
+          "b": -0.007234723557835011
+        }
+      ],
+      "verticalScale": 0.22108843537414966,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    }
+  ],
+  "replacedLandmarks": [
+    "warehouse",
+    "net"
+  ],
+  "replacedObjects": [
+    "landmark:warehouse",
+    "landmark:net",
+    "roof:517",
+    "roof:499",
+    "roof:535",
+    "roof:565"
+  ],
+  "newNavigation": false,
+  "newDoors": false,
+  "sourceImagesUsedOnce": true,
+  "sectionTasks": [
+    "MATE-481-S064",
+    "MATE-481-S054 first four"
+  ],
+  "physicalIPhoneVerified": false,
+  "creativeAcceptance": false
+}

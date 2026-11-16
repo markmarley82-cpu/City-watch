@@ -1,0 +1,55 @@
+{
+  "source_drive_id": "1cQ9kjJAS2rmAkBJfgEugjpkrYvWVlMjf",
+  "files": [
+    {
+      "file": "cover_portrait.webp",
+      "sha256": "ba87da3b970771df934b35683e796f7d1e2ffb90b4bd8af3c7c019ca8d9d1c27",
+      "bytes": 1009914,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "cover_landscape.webp",
+      "sha256": "a420a65b641532a0de7239e86ddd746619520c6a81964aa7734daa4d7ce3162b",
+      "bytes": 1196374,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "cover_landscape_short.exact.webp",
+      "sha256": "2dc6d75857bd69958452bfed8f34ba4daea73237a2170d864c0b4fd4b78d8319",
+      "bytes": 709775,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "page_portrait.webp",
+      "sha256": "76b288cd7657b9815aae15e760f6c89945d2e85c0416ffbfc460b560e562cc9a",
+      "bytes": 659045,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "tab_normal.exact.webp",
+      "sha256": "4cf0b3b376575251df930ea5e963431b10681b1c6e60c4bf0f452bcfb4a1abb1",
+      "bytes": 25695,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "button_normal.exact.webp",
+      "sha256": "990acb68e54c63a26677b0ddbdeb5579e761125d22b7d18547fc9ca29ffaf097",
+      "bytes": 41313,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    },
+    {
+      "file": "button_pressed.exact.webp",
+      "sha256": "c29e8a1f17c37b7f2083719d2f6b03a38c7328a7b4230b395724dd2f71981e86",
+      "bytes": 37148,
+      "source": "CW_JIMMY_NOTEBOOK_PRODUCTION_v1.1",
+      "edited": false
+    }
+  ],
+  "art_status": "Trial integration; final creative acceptance open"
+}

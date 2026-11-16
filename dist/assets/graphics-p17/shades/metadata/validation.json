@@ -1,0 +1,12 @@
+{
+  "result": "pass",
+  "errors": [],
+  "statistics": {
+    "checked": 118,
+    "pixels_nonempty": 1966694,
+    "min_alpha": 255,
+    "max_alpha": 0
+  },
+  "individual_sprites": 118,
+  "atlas_pages": 5
+}

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Unseen University · City Watch</title>
+<style>
+:root{color-scheme:dark;--ink:#f0e1bb;--muted:#b7bfbc;--gold:#d2aa66;--bg:#14262a;--wall:#22363d;--border:#947d56;font-family:system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);height:100dvh;display:flex;flex-direction:column;overscroll-behavior:none}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;background:#192c34;border-bottom:1px solid var(--border);min-height:57px}
+h1{font:700 19px Georgia,serif;letter-spacing:.02em;margin:0}.sub{color:#c6b896;font-size:11px;margin-top:3px}
+main{flex:1;display:flex;min-height:0}#stage{position:relative;flex:1;min-width:0;overflow:hidden;background:radial-gradient(ellipse,#283b42,#0a1519);touch-action:none}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
+#overlaytop{position:absolute;top:8px;left:10px;right:10px;display:flex;justify-content:space-between;pointer-events:none;gap:8px}
+.pill{padding:7px 10px;background:#172c35e9;border:1px solid #766a52;border-radius:7px;color:var(--ink);font-size:12px;line-height:1.4;max-width:56%;pointer-events:auto}
+.pill strong{color:#ffe3a4}.levels{display:flex;gap:5px;align-items:center}
+button,select{font:inherit;min-height:39px;border:1px solid #b59b67;border-radius:7px;background:#e4c994;color:#222b2d;font-weight:700;padding:6px 9px;cursor:pointer}
+button:disabled{opacity:.42;cursor:default}.smallbtn{background:#35474c;color:#eadbbd;padding:5px 7px;font-size:12px;min-height:32px}
+#sidebar{width:260px;padding:11px;background:#21353b;border-left:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+#sidebar h2{font:700 18px Georgia,serif;margin:0}#sidebar select{width:100%;font-size:13px}#sidebar label{font-size:12px;color:#c9bf9d;font-weight:700}
+.group{padding:10px;border:1px solid #5e6a62;border-radius:9px;background:#172c32;display:grid;gap:8px}.group p{margin:0;font-size:12px;color:#c5c6b8;line-height:1.5}
+.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{flex:1;white-space:nowrap}
+#steps{font:12px/1.6 system-ui,sans-serif;color:#d6b96e;min-height:38px}
+.controls{padding:8px 12px;border-top:1px solid #7d6944;background:#15262b;display:flex;align-items:center;gap:20px;justify-content:center;min-height:68px}
+.pad{display:grid;grid-template-columns:repeat(3,52px);grid-template-rows:repeat(3,42px);gap:4px;align-items:center}
+.pad button{padding:0;min-height:38px;font-size:19px;background:#c7aa78}.pad button[data-dir="0,-1"]{grid-column:2;grid-row:1}.pad button[data-dir="-1,0"]{grid-column:1;grid-row:2}.pad button[data-dir="1,0"]{grid-column:3;grid-row:2}.pad button[data-dir="0,1"]{grid-column:2;grid-row:3}
+.extras{display:flex;gap:7px;flex-wrap:wrap}.extras button{font-size:13px}.footnote{font-size:10px;line-height:1.4;color:#bab7a4;max-width:290px}
+#toast{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:#20363ae8;border:1px solid #bda36f;border-radius:8px;padding:7px 12px;font-size:12px;max-width:90%;text-align:center;pointer-events:none}
+#loading{position:absolute;inset:0;display:grid;place-items:center;background:#14242beb;font:18px Georgia,serif;z-index:5}
+@media(max-width:850px){body{height:100dvh}header{min-height:50px;padding:7px 11px}h1{font-size:16px}.sub{font-size:10px}main{display:flex;flex-direction:column-reverse}#sidebar{height:94px;width:auto;flex-direction:row;align-items:center;overflow:visible;padding:5px 9px;gap:7px}#sidebar>.group{background:transparent;border:0;padding:0;flex:1;gap:4px;min-width:0}#sidebar .secondarygroup{display:none}#sidebar h2,#sidebar .otherlabel{display:none}#sidebar label{font-size:10px}#sidebar select{min-height:34px;padding:5px;font-size:12px}#sidebar .actions button{font-size:11px;min-height:34px}#stage{flex:1;min-height:0}.controls{min-height:125px;padding:3px 8px;gap:13px}.pad{grid-template-columns:repeat(3,38px);grid-template-rows:repeat(3,35px);gap:2px}.pad button{font-size:15px;min-height:32px}.extras{max-width:240px}.extras button{font-size:11px;min-height:34px;padding:5px}.footnote{font-size:9px;max-width:145px}#overlaytop{top:7px;left:7px;right:7px}.pill{padding:5px 7px;font-size:10px;max-width:66%}.levels button{font-size:10px}.sub{max-width:240px}}
+@media(max-height:650px){#sidebar{height:74px}.controls{min-height:80px}.pad{grid-template-rows:repeat(3,24px);grid-template-columns:repeat(3,34px)}.pad button{min-height:24px}.footnote{display:none}}
+
+/* Buddy v0.12 host integration: readable touch targets and short landscape. Geometry retained. */
+button,select,.pad button,.extras button,#sidebar select,#sidebar .actions button{min-height:44px!important}
+button:focus-visible,select:focus-visible,canvas:focus-visible{outline:3px solid #d8b56a;outline-offset:2px}
+@media(max-width:850px){.pad{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(3,44px)}.controls{min-height:146px}.footnote{font-size:11px;line-height:1.3}#sidebar{height:108px}.sub{font-size:11px}}
+@media(orientation:landscape) and (max-height:500px){header{min-height:44px;padding:4px 10px}main{display:grid;grid-template-columns:minmax(0,1fr) 216px}#sidebar{grid-column:2;grid-row:1;height:auto;display:flex;flex-direction:column;align-items:stretch;overflow:auto}#stage{grid-column:1;grid-row:1}.controls{min-height:0;position:absolute;right:4px;bottom:3px;width:208px;box-sizing:border-box;display:flex;gap:5px;padding:3px;background:#202d2d}.pad{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(3,44px);gap:1px}.extras{display:flex;flex-direction:column;gap:2px;max-width:68px}.extras button{font-size:10px!important;padding:2px}.footnote{display:none}#sidebar>.group{flex:0}#sidebar .actions{display:flex}#sidebar .secondarygroup{display:none}#sidebar{padding-bottom:185px}}
+
+@media(orientation:landscape) and (max-height:500px){
+ body{position:relative;display:block;height:100dvh;overflow:hidden}header{height:44px;min-height:44px;max-height:44px;padding:0 6px;box-sizing:border-box}header h1{font-size:14px}header .sub{font-size:10px}main{display:block;position:static}#stage{position:absolute;left:0;top:44px;bottom:0;right:216px;min-height:0}#sidebar{position:absolute;right:0;top:44px;width:216px;height:46px;display:block;padding:1px 7px;background:#243633;overflow:visible;z-index:2}#sidebar>.group:first-child{display:flex;flex-direction:row;align-items:center;gap:3px;padding:0;margin:0}#sidebar label{display:none}#sidebar select{width:0;flex:1;min-width:0;margin:0;font-size:11px}#sidebar .actions{display:contents}#walk{width:62px;padding:3px;font-size:11px}#stop{position:absolute;left:9px;top:144px;width:44px;padding:2px;font-size:11px;z-index:5}.controls{position:absolute;left:auto;right:0;top:92px;bottom:auto;width:216px;min-height:0;display:block;padding:0 9px;border:0;background:#243633}.pad{display:grid;grid-template-columns:repeat(4,44px);grid-template-rows:44px;gap:3px;width:198px}.controls .pad button[data-dir]{grid-column:auto;grid-row:auto}.extras{position:absolute;left:9px;right:auto;top:48px;width:197px;max-width:197px;display:grid;grid-template-columns:repeat(4,44px);grid-template-rows:repeat(2,44px);gap:3px}.extras button{font-size:10px!important;padding:2px!important}.extras #stairs{grid-column:1/3;grid-row:1}.extras #save{grid-column:3;grid-row:1}.extras #restore{grid-column:4;grid-row:1}.extras #reset{grid-column:2;grid-row:2}.extras #collision{grid-column:3/5;grid-row:2}.footnote{display:none}
+}
+</style><link rel="stylesheet" href="../../cw-joystick.css?v=p21-b407-s039-reuse"><link rel="stylesheet" href="notebook.css?v=p21-b407-s039-reuse"><link rel="stylesheet" href="campaign-ui.css?v=p21-b502-university-ui"></head><body>
+<header><div><h1>UNSEEN UNIVERSITY</h1><div class="sub">University rooms and stairs</div></div><div class="levels"><button id="zoomout" class="smallbtn" aria-label="Zoom out">−</button><button id="zoomin" class="smallbtn" aria-label="Zoom in">+</button><button id="overview" class="smallbtn">Map</button></div></header>
+<main>
+<aside id="sidebar">
+<div class="group"><label for="destination">Walk to a room</label><select id="destination" aria-label="University destination"></select><div class="actions"><button id="walk">Walk route</button><button id="stop" class="smallbtn">Stop</button></div></div>
+<div class="group secondarygroup"><h2>Controls</h2><p>WASD / arrow keys and the movement circle walk continuously. Release to stop. Tap the map to walk there. E uses a stair when standing on it. The camera follows the recruit.</p><p>Every doorway matches the approved v1.2 connection graph; furniture remains solid. The artwork is a registered candidate, not a released game asset.</p><div id="steps">No route selected.</div></div>
+</aside>
+<div id="stage"><canvas id="game" tabindex="0" aria-label="Playable isometric university interior"></canvas><div id="overlaytop"><div class="pill" id="roomlabel">Loading rooms…</div><div class="pill" id="positionlabel">F0</div></div><div id="toast" role="status" aria-live="polite">Touch arrows or tap a reachable floor tile.</div><div id="loading">Preparing university interior…</div></div>
+</main>
+<div class="controls"><div id="uu-stick"></div><div class="pad"><button data-dir="0,-1" title="North">▲</button><button data-dir="-1,0" title="West">◀</button><button data-dir="1,0" title="East">▶</button><button data-dir="0,1" title="South">▼</button></div>
+<div class="extras"><button id="stairs">Use stairs</button><button id="save" class="smallbtn">Save</button><button id="restore" class="smallbtn">Reload</button><button id="reset" class="smallbtn">Reset</button><button id="collision" class="smallbtn">Collision: off</button></div>
+<div class="footnote">Standalone playtest only. Uses an isolated browser save. Shares your painted recruit appearance. Uses a separate position save; campaign doors, quests and world cells are unchanged.</div></div>
+<script src="../../cw-joystick.js?v=p21-b407-s039-reuse"></script><script src="../../cw-character-runtime.js?v=p21-b498-appearance-recovery"></script>
+<script src="../../cw-clothing.js?v=p21-b407-s039-reuse"></script>
+<script src="../../cw-race-wardrobe.js?v=p21-b407-s039-reuse"></script>
+<script src="../../cw-modular-wardrobe-data.js?v=p21-b407-s039-reuse"></script>
+<script src="../../cw-heads.js?v=p21-b407-s039-reuse"></script>
+<script type="module">
+"use strict";
+import {UNIVERSITY_LAYOUT as DATA} from "./layout.mjs?v=p21-b407-s039-reuse";
+import {createUniversityGraph,universityManualTarget} from "./core.mjs?v=p21-b407-s039-reuse";
+import {createUniversityBridge} from './campaign-bridge.mjs?v=p21-b501-uu-case';
+import {createCaseScene,universityActorHeight} from '../../university-case/scene.mjs?v=p21-b502-university-ui';
+const ART={"F0":"art/UU_F0_playable_v1.4.webp?v=a92087e025a1","B1":"art/UU_B1_playable_v1.4.webp?v=d9ba6f8cdc89","F1":"art/UU_F1_playable_v1.4.webp?v=9bcc5dfa37e3"};
+const floorNames={F0:"Ground floor",B1:"Cellars",F1:"Tower"};
+const graph=createUniversityGraph(DATA);
+import '../../cw-locomotion.js?v=p21-b407-s039-reuse';
+const {roomBy,levels,coord,K,pairKey,zone,solids,roomEnter,stairs,movable,canWalk,neighbors,bfs,GOALS}=graph;let portalMoves=0;let campaignBridge=null;const exploredRooms=new Set(["GATE"]);
+let player=[...DATA.start],path=[],auto=false,zoom=1.28,overview=false,showCollision=false,images={},loaded=false,walkTick=0,walkMS=CWLocomotion.profile.cityStepMS/2,previous=[...player],animateFrom=0;
+const TW=28,TH=14,X0=1070,Y0=110;const canvas=document.getElementById('game'),ctx=canvas.getContext('2d',{alpha:false});let CSSW=900,CSSH=700,deviceScale=1,lastFrame=0;
+const $=(id)=>document.getElementById(id);const pr=(x,y)=>[X0+(x-y)*TW/2,Y0+(x+y)*TH/2];
+const toWorld=(px,py)=>{let A=(px-X0)/(TW/2),B=(py-Y0)/(TH/2);return [(A+B)/2,(B-A)/2]};
+function currentRoom(){const z=zone[player[0]].get(coord(player[1],player[2]));return roomBy[z]?.name||DATA.corridors.find(c=>c.id===z)?.name||'University corridor'}
+function notify(s){$('toast').textContent=campaignBridge?.campaign&&s==='Progress saved.'?'':s}
+function setHUD(){const room=currentRoom();const roomID=zone[player[0]].get(coord(player[1],player[2]));if(roomBy[roomID])exploredRooms.add(roomID);$('roomlabel').innerHTML='<strong>'+room+'</strong> · '+floorNames[player[0]];$('positionlabel').textContent=path.length>1?Math.max(0,path.length-1)+' steps remaining':'Ready';$('stairs').disabled=!stairs.has(K(...player));if(campaignBridge?.campaign)$('stairs').hidden=$('stairs').disabled;$('steps').textContent=path.length>1?'Planned route: '+(path.length-1)+' steps, '+new Set(path.map(p=>p[0])).size+' floor level(s).':'Select a destination, or move manually.';canvas.dataset.localPosition=JSON.stringify(player);campaignBridge?.changed();}
+function resize(){let b=$('stage').getBoundingClientRect();CSSW=b.width;CSSH=b.height;deviceScale=Math.min(2,window.devicePixelRatio||1);canvas.width=Math.round(CSSW*deviceScale);canvas.height=Math.round(CSSH*deviceScale);canvas.style.width=CSSW+'px';canvas.style.height=CSSH+'px';}
+let uuCharacters=null,uuCharacterKey=window.CWCharacters.selected(),uuMotion=null;
+const uuWalk=window.CWCharacters.createWalkMotion({stepMS:walkMS});let uuVisual=[player[1],player[2]],uuFoot=null,uuStick=null;
+const uuProject=([x,y])=>[(x-y)*14,(x+y)*7];
+function uuClear(a,b){if(campaignBridge?.blocked)return false;const x=Math.round(b[0]),y=Math.round(b[1]),[l,px,py]=player,dx=x-px,dy=y-py;if(!movable(l,x,y)||Math.max(Math.abs(dx),Math.abs(dy))>1)return false;if(!dx&&!dy)return true;if(dx&&dy)return false; /* Save one legal graph edge at a time. */return canWalk(l,px,py,x,y);}
+const uuDrive=CWLocomotion.createDrive({read:()=>uuFoot||[player[1],player[2]],write:q=>{uuFoot=q;const next=[player[0],Math.round(q[0]),Math.round(q[1])];if(next.join(',')!==player.join(',')){previous=player.slice();player=next;setHUD();}},options:()=>({speed:CWLocomotion.pixelsPerMS(60),projectVector:uuProject,clear:uuClear,segment:2})});
+function endManual(clear=false){uuStick?.stop();uuDrive.stop(performance.now());if(clear&&uuFoot){uuWalk.reset([player[1],player[2]],performance.now(),player[0],uuFoot);uuFoot=null;}}
+
+const uuCharactersReady=window.CWCharacters.createLibrary({baseURL:new URL('../../',location.href)}).then(async library=>{
+ uuCharacters=library;library.pin([uuCharacterKey]);await library.ensure(window.CWCharacters.defaultRecruit);await library.ensure(uuCharacterKey);
+}).catch(error=>{notify('Character painting could not load. Return and retry.');throw error;});
+let caseScene=null;
+function actor(x,y){const C=window.CWCharacters,a=uuCharacters?.get(uuCharacterKey)||uuCharacters?.get(C.defaultRecruit);if(!a)return;
+ const [px,py]=pr(x+.5,y+.5),now=performance.now(),m=C.movement(uuMotion,[x,y],now,player[0]);uuMotion=m;
+ const h=campaignBridge?.campaign?universityActorHeight(C.height(a,uuCharacterKey)):C.height(a,uuCharacterKey);ctx.save();ctx.fillStyle='rgba(0,0,0,.45)';ctx.beginPath();ctx.ellipse(px,py,Math.max(5,h*.19),Math.max(2,h*.06),0,0,Math.PI*2);ctx.fill();
+ const f=C.draw(ctx,a,{clip:m.moving?'walk':'idle',elapsed:m.moving?now-m.walkStart:now,facing:m.facing,reduced:uuReduced.reduced,clothing:true},px,py,h);ctx.restore();
+ canvas.dataset.clothing=JSON.stringify(window.CWClothing.selected(uuCharacterKey));canvas.dataset.wardrobe=JSON.stringify(window.CWClothing.report());canvas.dataset.character=uuCharacterKey;canvas.dataset.characterFrame=String(f.index);canvas.dataset.actorHeight=String(h);canvas.dataset.characterFacing=String(m.facing);
+}
+const uuReduced=window.CWCharacters.motionPreference();
+function draw(now){lastFrame=now||0;ctx.setTransform(deviceScale,0,0,deviceScale,0,0);ctx.fillStyle='#0d181d';ctx.fillRect(0,0,CSSW,CSSH);
+if(!loaded)return;uuWalk.accept([player[1],player[2]],now,player[0],walkMS);uuVisual=uuFoot?.slice()||uuWalk.sample(now,{reduced:uuReduced.reduced,pause:campaignBridge?.blocked});canvas.dataset.visualPosition=JSON.stringify(uuVisual);let xy=pr(uuVisual[0]+.5,uuVisual[1]+.5), scale=overview?Math.min((CSSW-30)/2510,(CSSH-34)/1520):zoom;let camera=overview?[1255,760]:xy;
+ctx.save();ctx.translate(CSSW/2,CSSH*.51);ctx.scale(scale,scale);ctx.translate(-camera[0],-camera[1]);
+const im=images[player[0]];ctx.drawImage(im,0,0);
+if(showCollision){ctx.save();for(const [key] of zone[player[0]]){const [x,y]=key.split(',').map(Number);const pts=[[x,y],[x+1,y],[x+1,y+1],[x,y+1]].map(v=>pr(...v));ctx.fillStyle=solids[player[0]].has(key)?'#db383565':'#00a9a915';ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fill();}ctx.restore()}
+if(path.length>0){ctx.save();ctx.strokeStyle='#43ffbd';ctx.fillStyle='#a8ffce';ctx.lineWidth=2;ctx.setLineDash([5,5]);ctx.beginPath();let drawing=false;for(const n of path){if(n[0]!==player[0]){drawing=false;continue}let [px,py]=pr(n[1]+.5,n[2]+.5);if(!drawing){ctx.moveTo(px,py);drawing=true}else ctx.lineTo(px,py)}ctx.stroke();ctx.setLineDash([]);ctx.restore()}
+if(caseScene)caseScene.draw(player[0],uuVisual,now,()=>actor(...uuVisual));else actor(...uuVisual);ctx.restore();
+if(campaignBridge?.campaign)return;ctx.save();ctx.textAlign='center';ctx.font='11px system-ui';ctx.fillStyle='#f5ebcb';ctx.fillText(overview?'Whole floor view • Tap “Map” to return to follow camera':'Tap clear floor to walk.',CSSW/2,CSSH-12);ctx.restore();}
+function tick(now){if(document.hidden){requestAnimationFrame(tick);return;}if(!campaignBridge?.blocked){if(dragVector?.some(Boolean)){if(now-dragTick>=walkMS){dragTick=now;const step=universityManualTarget(graph,player,...dragVector,dragPhase++);if(step)manual(step[1]-player[1],step[2]-player[2]);}}else uuDrive.sample(now);}else endManual();if(auto&&!campaignBridge?.blocked&&now-walkTick>=walkMS){walkTick=now-Math.min(walkMS,Math.max(0,now-walkTick-walkMS));if(path.length<=1){auto=false;path=[];notify('Arrived · '+currentRoom());setHUD()}else{const next=path[1];if(next[0]!==player[0]){let s=stairs.get(K(...player));if(!s||s[0]!==next[0]||s[1]!==next[1]||s[2]!==next[2]){auto=false;notify('Stair mismatch; route cancelled.')}else{previous=[...player];player=[...next];portalMoves++;path.shift()}}else if(canWalk(...player,next[1],next[2])){previous=[...player];player=[...next];path.shift()}else{auto=false;notify('Blocked collision; route cancelled.')}setHUD()}}
+draw(now);requestAnimationFrame(tick)}
+function manual(dx,dy){if(campaignBridge?.blocked)return false;endManual(true);campaignBridge?.cancelReturn();auto=false;path=[];let [l,x,y]=player;if(canWalk(l,x,y,x+dx,y+dy)){previous=[...player];player=[l,x+dx,y+dy];setHUD();return true}notify('Blocked: wall, closed edge or furniture.');return false}
+function stair(){if(campaignBridge?.blocked)return false;endManual(true);campaignBridge?.cancelReturn();let v=stairs.get(K(...player));if(!v){notify('Stand on a stair marker first.');return false}auto=false;path=[];player=v.slice(0,3);portalMoves++;notify('Stairs · '+floorNames[player[0]]);setHUD();return true}
+function plan(goal,autostart=false){if(campaignBridge?.blocked)return false;endManual(true);let result=bfs(player,goal);if(!result.length){notify('No route to that location.');return false}path=result;auto=!!autostart;walkTick=performance.now();notify('Route ready: '+Math.max(0,path.length-1)+' steps.');setHUD();return true}
+function reset(){endManual(true);player=[...DATA.start];auto=false;path=[];overview=false;zoom=1.28;setHUD();notify('Returned to Great Gates.');}
+const dest=$('destination');for(const r of DATA.rooms){let opt=document.createElement('option');opt.value=r.id;opt.textContent=r.name+' · '+floorNames[r.level];dest.add(opt)}dest.value='LIB';
+$('walk').onclick=()=>plan(GOALS[dest.value],true);$('stop').onclick=()=>{endManual();campaignBridge?.cancelReturn();auto=false;path=[];notify('Movement stopped.');setHUD()};$('reset').onclick=()=>{if(!campaignBridge.campaign)reset();};$('stairs').onclick=stair;$('zoomin').onclick=()=>{overview=false;zoom=Math.min(3,zoom*1.18)};$('zoomout').onclick=()=>{overview=false;zoom=Math.max(.6,zoom/1.18)};$('overview').onclick=()=>{overview=!overview;notify(overview?'Full floor overview':'Following recruit')};$('collision').onclick=()=>{showCollision=!showCollision;$('collision').textContent='Collision: '+(showCollision?'on':'off')};
+const snapshot=()=>({schema:1,position:player.slice(),exploredRooms:[...exploredRooms]});
+campaignBridge=createUniversityBridge({graph,snapshot,restore:value=>{endManual(true);player=value.position.slice();previous=player.slice();auto=false;path=[];exploredRooms.clear();value.exploredRooms.forEach(id=>exploredRooms.add(id));setHUD();draw(performance.now());},startReturn:()=>plan(DATA.start,true),cancelReturn:()=>{auto=false;path=[];},atGate:()=>player.join(',')===DATA.start.join(','),notify,onCaseArt:value=>caseScene?.update(value)});
+if(campaignBridge.campaign){caseScene=createCaseScene({ctx,pr});document.documentElement.classList.add('campaign');const tools=document.createElement('div');tools.id='uu-tools';tools.setAttribute('aria-label','University controls');
+ const rooms=document.createElement('button');rooms.type='button';rooms.textContent='Rooms';rooms.setAttribute('aria-controls','sidebar');rooms.setAttribute('aria-expanded','false');
+ const roomMenu=open=>{ $('sidebar').toggleAttribute('data-open',open);rooms.setAttribute('aria-expanded',String(open)); };
+ rooms.onclick=()=>roomMenu(rooms.getAttribute('aria-expanded')!=='true');
+ $('sidebar').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();roomMenu(false);rooms.focus();}});
+ for(const k of ['walk','stop'])$(k).addEventListener('click',()=>{roomMenu(false);canvas.focus({preventScroll:true});});
+ tools.append(rooms,$('overview'),$('stairs'));document.body.append(tools);
+ $('toast').textContent='Tap to walk or drag to steer.';}
+uuStick=CWJoystick.mount({...CWLocomotion.profile,element:$('uu-stick'),projection:'street',blocked:()=>!loaded||campaignBridge.blocked,context:()=>player[0],step:(dx,dy)=>{const next=universityManualTarget(graph,player,dx,dy);return next?manual(next[1]-player[1],next[2]-player[2]):false;},driveByFrame:true,onEngage:()=>{campaignBridge?.cancelReturn();auto=false;path=[];uuFoot=uuVisual.slice();uuDrive.reset();},onDrive:(vector,now,input)=>input?uuDrive.drive(vector,now):uuDrive.sample(now),onStop:()=>uuDrive.stop(performance.now())});
+const SAVEKEY='cw.atlas.uu.standalone.v1.4';
+$('save').onclick=()=>{if(campaignBridge.campaign){campaignBridge.save();return;}try{localStorage.setItem(SAVEKEY,JSON.stringify({player,version:'1.4'}));notify('Standalone university position saved.')}catch(e){notify('This browser blocks local saves.')}};
+$('restore').onclick=()=>{if(campaignBridge.campaign)return;try{let x=JSON.parse(localStorage.getItem(SAVEKEY)||'null');if(x?.version==='1.4'&&Array.isArray(x.player)&&movable(...x.player)){endManual(true);player=x.player;uuWalk.reset([player[1],player[2]],performance.now(),player[0]);auto=false;path=[];setHUD();notify('University position restored.')}else notify('No valid standalone save found.')}catch(e){notify('Save could not be loaded.')}};
+document.querySelectorAll('[data-dir]').forEach(b=>b.onclick=()=>manual(...b.dataset.dir.split(',').map(Number)));
+window.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,button,a'))return;if(e.key==='e'||e.key==='E'){stair();e.preventDefault();}});
+let pointer=null,dragVector=null,dragSector=null,dragTick=0,dragPhase=0;
+canvas.addEventListener('pointerdown',e=>{
+ if(!loaded||e.button!==0||!e.isPrimary||pointer)return;
+ pointer={x:e.clientX,y:e.clientY,id:e.pointerId,dragged:false};canvas.setPointerCapture(e.pointerId);
+});
+canvas.addEventListener('pointermove',e=>{
+ if(!campaignBridge?.campaign||!pointer||e.pointerId!==pointer.id||overview)return;
+ const x=e.clientX-pointer.x,y=e.clientY-pointer.y;
+ const zone=44*(dragVector?.some(Boolean)?CWLocomotion.profile.stopZone:CWLocomotion.profile.startZone);
+ if(Math.hypot(x,y)<zone){dragVector=null;dragSector=null;if(pointer.dragged)uuDrive.stop(performance.now());return;}
+ if(!pointer.dragged){pointer.dragged=true;dragTick=performance.now()-walkMS;dragPhase=0;endManual(true);campaignBridge.cancelReturn();auto=false;path=[];setHUD();}
+ dragSector=CWJoystick.sector(x,y,dragSector);dragVector=CWJoystick.plan(dragSector,'street')[0];
+});
+function clearPointer(e){
+ if(!pointer||e.pointerId!==pointer.id)return;
+ if(pointer.dragged){dragVector=null;dragSector=null;uuDrive.stop(performance.now());}
+ pointer=null;
+}
+canvas.addEventListener('pointerup',e=>{
+ if(!pointer||e.pointerId!==pointer.id)return;
+ if(!pointer.dragged&&Math.hypot(e.clientX-pointer.x,e.clientY-pointer.y)<12){
+ const rect=canvas.getBoundingClientRect();const scale=overview?Math.min((CSSW-30)/2510,(CSSH-34)/1520):zoom;const camera=overview?[1255,760]:pr(player[1]+.5,player[2]+.5);let picx=camera[0]+(e.clientX-rect.left-CSSW/2)/scale,picy=camera[1]+(e.clientY-rect.top-CSSH*.51)/scale;let [x,y]=toWorld(picx,picy);x=Math.floor(x);y=Math.floor(y);if(movable(player[0],x,y))plan([player[0],x,y],true);else notify('Choose an unobstructed floor tile.')
+ }
+ clearPointer(e);
+});
+for(const event of ['pointercancel','lostpointercapture'])canvas.addEventListener(event,clearPointer);
+const imagesLoad=Object.fromEntries(levels.map(l=>[l,ART[l]]));async function load(){await uuCharactersReady;for(const lv of levels){let im=new Image();im.decoding='async';im.src=imagesLoad[lv];try{await im.decode();images[lv]=im}catch(err){$('loading').textContent='Missing painting '+lv+' · verify art folder';throw err}}
+loaded=true;$('loading').remove();resize();setHUD();campaignBridge.ready();requestAnimationFrame(tick);window.addEventListener('resize',resize)}
+// QA is read-only and never changes the protected campaign: geometry introspection + deterministic route tracing.
+if(!campaignBridge.campaign)window.__UU_QA={DATA,roomBy,zone,solids,roomEnter,stairs,GOALS,canWalk,movable,bfs,neighbors,pr,toWorld,getState:()=>({player:[...player],floor:player[0],images:Object.fromEntries(levels.map(l=>[l,{loaded:!!images[l],w:images[l]?.naturalWidth,h:images[l]?.naturalHeight}])),portalsUsed:portalMoves}),routeTo:(id)=>plan(GOALS[id],true)};
+load().catch(e=>{console.error(e);campaignBridge.error();});
+</script><script>document.getElementById("game").addEventListener("pointerdown",()=>document.getElementById("game").focus());</script></body></html>

@@ -1,0 +1,65 @@
+/* Match the current outdoor three-action dock; preserve approved Watch materials. */
+body.cw-room-compact{height:100dvh;overflow:hidden}
+body.cw-room-compact #app.cw-clean-play{height:100dvh;max-height:100dvh;min-height:0;padding:0!important;display:flex;flex-direction:column}
+body.cw-room-compact #app.cw-clean-play>.top{height:26px!important;min-height:26px!important;max-height:26px;padding:2px 8px!important;flex:none;background:#30281f!important;border:0!important}
+body.cw-room-compact #app.cw-clean-play>.top .brand{display:none!important}
+body.cw-room-compact #app.cw-clean-play .stats{display:flex!important;justify-content:flex-start;gap:16px!important;text-align:left;font:11px/1.2 Georgia,serif}
+body.cw-room-compact #app.cw-clean-play .stats>div{display:flex;flex-direction:row-reverse;align-items:center;gap:4px}
+body.cw-room-compact #app.cw-clean-play .stats strong{font:700 12px Georgia,serif!important}
+body.cw-room-compact #app.cw-clean-play .stats span{font:11px Georgia,serif!important;text-transform:none}
+body.cw-room-compact #app.cw-clean-play>.scene{flex:1 1 0!important;height:auto!important;min-height:100px!important;overflow:hidden;border:0!important}
+body.cw-room-compact #app.cw-clean-play>.scene>canvas{position:absolute;inset:0;width:100%;height:100%}
+body.cw-room-compact #app.cw-clean-play .area,
+body.cw-room-compact #app.cw-clean-play .clock{border:0!important;border-radius:3px!important;background:rgba(13,18,15,.84)!important;color:#f6e5c4!important;padding:5px 8px!important;font:12px/1.2 Georgia,serif!important;letter-spacing:0;text-shadow:0 1px 2px #000;top:8px!important}
+body.cw-room-compact #app.cw-clean-play .area{left:8px;max-width:54%}
+body.cw-room-compact #app.cw-clean-play .clock{right:8px}
+body.cw-room-compact #app.cw-clean-play #room-toolbar,
+body.cw-room-compact #app.cw-clean-play>.bottom{display:none!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-dock{position:relative!important;inset:auto!important;width:100%!important;height:76px;min-height:76px;max-height:76px;display:block!important;flex:none;padding:5px 7px!important;border:0!important;border-top:1px solid #937047!important;background:linear-gradient(105deg,#493226,#2d241d)!important;box-sizing:border-box;overflow:visible}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools{width:100%;max-width:none;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px;height:100%;align-items:center}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(.actions,.quick){display:contents!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools button{display:none!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch){display:flex!important;min-width:0!important;height:62px!important;min-height:62px!important;margin:0!important;padding:4px!important;gap:2px!important;font:600 11px/1.15 Georgia,serif!important;background:transparent var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100% no-repeat!important;border:0!important;border-radius:3px!important;color:#302317!important;box-shadow:0 2px 3px #0a07054f!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch)::before{width:20px!important;height:20px!important}
+/* The existing mounted joystick stays available on request; its handlers are untouched. */
+body.cw-room-compact #app.cw-clean-play #cw-p20-dock>.dpad{position:absolute!important;width:1px!important;height:1px!important;min-width:0!important;clip-path:inset(50%)!important;overflow:hidden!important;margin:-1px!important;padding:0!important}
+body.cw-room-compact #app.cw-clean-play.cw-room-stick-shown #cw-p20-dock>.dpad{left:8px;bottom:calc(100% + 8px);width:88px!important;height:auto!important;margin:0!important;clip-path:none!important;overflow:visible!important;background:#30281ff0!important;border-radius:8px;box-shadow:0 2px 8px #0006}
+body.cw-room-compact .cw-joystick{--stick-size:88px;border-width:4px}
+body.cw-room-compact .cw-joystick-grip{width:43px;height:43px}
+body.cw-room-compact .cw-joystick-mark{transform:rotate(var(--angle)) translateY(-31px) rotate(45deg)}
+body.cw-room-compact .cw-joystick-help{display:none}
+@media(orientation:landscape) and (max-height:550px){
+ body.cw-room-compact #app.cw-clean-play #cw-p20-dock{height:68px;min-height:68px;max-height:68px}
+ body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch){height:56px!important;min-height:56px!important}
+}
+/* Legacy action decoration has a more specific permanent display rule. */
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools button.p13-main:not(#interact):not(#cw-ux108b-notebook):not(#p13-menu-launch){display:none!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #interact{grid-column:1;grid-row:1}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #cw-ux108b-notebook{grid-column:2;grid-row:1}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #p13-menu-launch{grid-column:3;grid-row:1}
+
+/* Focus in a retained room sheet must not scroll the full-screen room behind it. */
+html.p21-engine:has(body.cw-room-compact){height:100%;overflow:hidden}
+body.cw-room-compact{position:fixed;inset:0;width:100%;margin:0!important}
+body.cw-room-compact #app.cw-clean-play{position:fixed!important;inset:0}
+body.cw-room-compact #app.cw-clean-play #cw-p20-dock>.dpad{visibility:hidden!important}
+body.cw-room-compact #app.cw-clean-play.cw-room-stick-shown #cw-p20-dock>.dpad{visibility:visible!important}
+
+/* Mark's current phone review: use the same isolated Watch objects as outdoors,
+   rather than the retired full-width three-parchment dock. Original buttons
+   and their action handlers remain in place. */
+body.cw-room-compact #app.cw-clean-play>.top{position:absolute!important;top:10px;left:10px;z-index:5;width:auto!important;height:auto!important;max-height:none;min-height:36px!important;padding:6px 8px!important;background:#101c18c7!important;border-radius:4px}
+body.cw-room-compact #app.cw-clean-play>.scene{position:absolute!important;inset:0!important;height:100%!important}
+body.cw-room-compact #app.cw-clean-play .area{top:58px!important;left:10px!important;background:transparent url('assets/street-plaque02/ordinary.png') center/100% 100% no-repeat!important;color:#302317!important;padding:10px 17px!important;max-width:calc(100% - 130px);text-shadow:none}
+body.cw-room-compact #app.cw-clean-play .clock{top:12px!important;right:10px!important;font-size:11px!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-dock{position:absolute!important;inset:auto 0 0!important;height:88px!important;min-height:88px!important;max-height:88px!important;background:none!important;border:0!important;pointer-events:none}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools{display:block!important;position:relative;height:100%;pointer-events:none}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch){position:absolute!important;bottom:8px!important;width:64px!important;min-width:64px!important;height:64px!important;min-height:64px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;color:#fff0cf!important;text-shadow:0 1px 3px #000;pointer-events:auto;font:700 12px/14px Georgia,serif!important;overflow:visible!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #interact{left:8px!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #cw-ux108b-notebook{right:84px!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #p13-menu-launch{right:8px!important;font-size:0!important;background:transparent url('assets/watch-kit285/organiser-closed.webp') center/56px 56px no-repeat!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook)::before{content:''!important;width:46px!important;height:46px!important;background:center/contain no-repeat!important;mask:none!important;-webkit-mask:none!important;filter:drop-shadow(0 1px 2px #0008)}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #interact::before{background-image:url('assets/watch-kit285/duty.webp')!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #cw-ux108b-notebook::before{background-image:url('assets/watch-kit285/notebook.webp')!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools #p13-menu-launch::before{display:none!important}
+body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch):focus-visible{outline:2px solid #f5d28f!important;outline-offset:2px}

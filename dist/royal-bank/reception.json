@@ -1,0 +1,192 @@
+{
+ "id": "royal-bank-reception",
+ "name": "Royal Bank public hall",
+ "size": [
+  1536,
+  1024
+ ],
+ "actorHeight": 96,
+ "entry": [
+  0.5,
+  0.652
+ ],
+ "floor": [
+  [
+   0.076,
+   0.664
+  ],
+  [
+   0.191,
+   0.474
+  ],
+  [
+   0.242,
+   0.49
+  ],
+  [
+   0.273,
+   0.538
+  ],
+  [
+   0.731,
+   0.538
+  ],
+  [
+   0.767,
+   0.49
+  ],
+  [
+   0.812,
+   0.474
+  ],
+  [
+   0.927,
+   0.664
+  ],
+  [
+   0.784,
+   0.866
+  ],
+  [
+   0.217,
+   0.866
+  ]
+ ],
+ "obstacles": [
+  {
+   "id": "cashier-counter",
+   "polygon": [
+    [
+     0.29,
+     0.454
+    ],
+    [
+     0.705,
+     0.454
+    ],
+    [
+     0.702,
+     0.54
+    ],
+    [
+     0.3,
+     0.54
+    ]
+   ]
+  },
+  {
+   "id": "painted-foreground-entry",
+   "polygon": [
+    [
+     0.388,
+     0.735
+    ],
+    [
+     0.433,
+     0.695
+    ],
+    [
+     0.5,
+     0.666
+    ],
+    [
+     0.569,
+     0.695
+    ],
+    [
+     0.612,
+     0.735
+    ],
+    [
+     0.612,
+     0.889
+    ],
+    [
+     0.388,
+     0.889
+    ]
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "id": "chief-cashier",
+   "kind": "talk",
+   "title": "Mavolio Bent",
+   "npc": "bent",
+   "stand": [
+    0.46,
+    0.587
+   ],
+   "radius": 0.043,
+   "text": "The public counter handles enquiries, Officer. If your duty requires us to look up a transaction, please bring the written reference. The vault is closed to visitors."
+  },
+  {
+   "id": "bank-counter-notice",
+   "kind": "examine",
+   "title": "Counter notice",
+   "stand": [
+    0.625,
+    0.584
+   ],
+   "radius": 0.045,
+   "text": "Public enquiries at this counter. Staff only beyond the wicket. The Royal Mint has a separate entrance."
+  }
+ ],
+ "art": {
+  "plate": "public-hall.webp",
+  "staff": [
+   {
+    "id": "bent",
+    "name": "Mavolio Bent",
+    "sprite": "bent.webp",
+    "position": [
+     0.466,
+     0.423
+    ],
+    "height": 98,
+    "spriteBounds": [
+     63,
+     2,
+     119,
+     380
+    ],
+    "footX": 122
+   }
+  ],
+  "counterFront": [
+   [
+    0.272,
+    0.409
+   ],
+   [
+    0.732,
+    0.409
+   ],
+   [
+    0.732,
+    0.54
+   ],
+   [
+    0.27,
+    0.54
+   ]
+  ],
+  "notice": [
+   0.823,
+   0.436
+  ]
+ },
+ "lights": [
+  [
+   480,
+   189,
+   117
+  ],
+  [
+   1053,
+   188,
+   117
+  ]
+ ]
+}

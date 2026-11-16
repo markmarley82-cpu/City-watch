@@ -1,0 +1,18 @@
+/* The campaign uses the city control treatment; the standalone viewer is unchanged. */
+.campaign body{display:block;position:relative;height:100dvh;overflow:hidden;background:#101a16}
+.campaign body>header,.campaign #uu-stick,.campaign .controls,.campaign .pad,.campaign .footnote,.campaign #sidebar .secondarygroup{display:none!important}
+.campaign main{position:absolute;display:block;inset:0;height:auto}
+.campaign #stage{position:absolute;inset:0;min-width:0;overflow:hidden}
+.campaign #sidebar{display:none;position:absolute;z-index:3;top:66px;right:10px;height:auto;width:min(19rem,calc(100vw - 20px));max-height:calc(100dvh - 82px);overflow:auto;padding:.65rem;background:#212f26;color:#f6e6c7;border:1px solid #a08658;border-radius:8px;box-shadow:0 5px 18px #090c08a8}
+.campaign #sidebar[data-open]{display:block}
+.campaign #sidebar .group{padding:0;border:0;background:none}
+.campaign #sidebar label,.campaign #steps{color:#ebd4a6}
+.campaign #steps{min-height:0;margin:0}
+.campaign #overlaytop{top:10px;right:10px;left:10px;align-items:start}
+.campaign .pill,.campaign #toast{color:#f5e7c7;background:#212f26ed;border-color:#917853;box-shadow:none}
+.campaign #positionlabel{margin-left:auto}
+.campaign button,.campaign #sidebar select{font-family:Georgia,serif;font-size:15px;font-weight:600;min-height:44px!important;padding:.4rem .7rem;background:#28372e;color:#f4e3bd;border:1px solid #a08658;border-radius:6px}
+.campaign #uu-tools{position:absolute;z-index:4;right:10px;bottom:max(10px,env(safe-area-inset-bottom));display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.campaign #uu-tools [hidden],.campaign #toast:empty{display:none!important}
+.campaign #toast{bottom:66px;max-width:calc(100vw - 20px)}
+@media(max-height:400px){.campaign #sidebar{top:54px;max-height:calc(100dvh - 116px)}}

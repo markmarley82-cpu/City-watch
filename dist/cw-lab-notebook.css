@@ -1,0 +1,270 @@
+/* Buddy LAB01: Jimmy v1.1 artwork, live text and existing P12 content. */
+#watch-notebook.cw-lab-notebook {
+  padding: max(6px, env(safe-area-inset-top)) max(6px, env(safe-area-inset-right)) max(6px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
+  background: #090d13e8;
+  overscroll-behavior: contain;
+}
+#watch-notebook.cw-lab-notebook .book {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  width: min(760px, 100%);
+  height: min(860px, calc(100dvh - max(12px, env(safe-area-inset-top)) - max(12px, env(safe-area-inset-bottom))));
+  max-height: none;
+  min-height: 0;
+  overflow: hidden;
+  padding: 4px 5px 8px;
+  border: solid transparent;
+  border-width: 24px 12px 18px;
+  border-image: url('assets/lab01-notebook/cover_portrait.webp') 150 76 107 76 fill / 24px 12px 18px stretch;
+  border-radius: 9px;
+  background: #3b2922 !important;
+  color: #33281d !important;
+  box-shadow: 0 12px 60px #000c;
+  font: 1rem/1.5 Georgia, 'Times New Roman', serif;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 0 3px 8px;
+}
+#watch-notebook.cw-lab-notebook .book h2 {
+  color: #f2ddb1 !important;
+  font: bold 1.2rem/1.25 Georgia, serif;
+  margin: 0;
+  min-width: 0;
+  text-shadow: 0 1px 2px #0c0908;
+  overflow-wrap: break-word;
+}
+#watch-notebook.cw-lab-notebook .book button {
+  font: inherit;
+  min-height: 44px !important;
+  min-width: 44px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid #9b7a4c !important;
+  border-radius: 5px;
+  background: #49362a var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center / 100% 100% no-repeat !important;
+  color: #fff1cf !important;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+#watch-notebook.cw-lab-notebook .book button:active {
+  background-image: var(--cw-watch-control-close-pressed,linear-gradient(#3e2b22,#513a2b)) !important;
+}
+#watch-notebook.cw-lab-notebook .book button:focus-visible,
+#watch-notebook.cw-lab-notebook select:focus-visible,
+#watch-notebook.cw-lab-notebook textarea:focus-visible {
+  outline: 3px solid #ebbe60;
+  outline-offset: 2px;
+}
+#watch-notebook.cw-lab-notebook #nb-close {
+  float: none !important;
+  min-width: 60px;
+  padding: 8px;
+  font: 600 0.875rem/1.2 system-ui, sans-serif;
+  white-space: nowrap;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-sections {
+  position: relative;
+  min-width: 0;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-sections::before,
+#watch-notebook.cw-lab-notebook .lab-nb-sections::after {
+  display: none;
+  position: absolute;
+  top: 14px;
+  color: #4b321d;
+  font: bold 20px/1 Georgia, serif;
+  pointer-events: none;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-sections::before { content: '‹'; left: -9px; }
+#watch-notebook.cw-lab-notebook .lab-nb-sections::after { content: '›'; right: -9px; }
+#watch-notebook.cw-lab-notebook .lab-nb-sections.can-scroll-left::before,
+#watch-notebook.cw-lab-notebook .lab-nb-sections.can-scroll-right::after { display: block; }
+#watch-notebook.cw-lab-notebook #nb-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  max-width: 100%;
+  padding: 2px 2px 6px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #8f6b37 #dec79b;
+  scroll-padding-inline: 2px;
+}
+#watch-notebook.cw-lab-notebook #nb-tabs button {
+  flex: 0 0 auto;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  min-width: 84px;
+  min-height: 44px !important;
+  padding: 8px 10px;
+  white-space: nowrap;
+  touch-action: pan-x;
+  background: #3b3027 var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center / 100% 100% no-repeat !important;
+  border-color: #80653e !important;
+  color: #3b291a !important;
+}
+#watch-notebook.cw-lab-notebook #nb-tabs button.selected {
+  color: #302013 !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  box-shadow: inset 0 -3px #d5b670;
+  border-color: #e3c78d !important;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-paper {
+  min-height: 0;
+  overflow: hidden;
+  border: solid transparent;
+  border-width: 15px 10px 16px;
+  border-image: url('assets/lab01-notebook/page_portrait.webp') 95 70 102 68 fill / 15px 10px 16px stretch;
+  background: #dec79b;
+}
+#watch-notebook.cw-lab-notebook #nb-content {
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 7px 18px;
+  color: #30251b;
+  scrollbar-color: #90744c #ddc79e;
+  overflow-wrap: anywhere;
+}
+#watch-notebook.cw-lab-notebook #nb-content .entry {
+  padding: 0;
+  border-bottom: 1px solid #9c7d4c75;
+  margin: 0 0 8px;
+}
+#watch-notebook.cw-lab-notebook #nb-content .lab-nb-entry {
+  display: block;
+  width: 100%;
+  padding: 12px 4px;
+  border: 0 !important;
+  border-radius: 0;
+  text-align: left;
+  line-height: 1.45;
+  color: #342718 !important;
+  background: transparent !important;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-entry strong {
+  display: block;
+  font-weight: 700;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-entry span {
+  display: block;
+  margin-top: 4px;
+}
+#watch-notebook.cw-lab-notebook .book small {
+  display: block;
+  color: #644c30 !important;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+#watch-notebook.cw-lab-notebook .lab-nb-read-hint { font-style: italic; margin-top: 6px; }
+#watch-notebook.cw-lab-notebook .lab-nb-detail h3 { font-size: 1.3rem; line-height: 1.3; margin: 18px 0 12px; }
+#watch-notebook.cw-lab-notebook .lab-nb-detail p { line-height: 1.6; white-space: pre-wrap; }
+#watch-notebook.cw-lab-notebook .lab-nb-detail small { white-space: pre-wrap; }
+#watch-notebook.cw-lab-notebook textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 12px;
+  font: 1rem/1.6 Georgia, serif;
+  background: #f2e3c1b8 !important;
+  color: #30251b !important;
+  border: 1px solid #87633e;
+  border-radius: 3px;
+}
+#watch-notebook.cw-lab-notebook #nb-save { margin: 12px 0 6px; }
+#watch-notebook.cw-lab-notebook #nb-status { min-height: 24px; }
+@media (min-width: 650px) {
+  #watch-notebook.cw-lab-notebook .book {
+    border-image-source: url('assets/lab01-notebook/cover_landscape.webp');
+    border-image-slice: 145 105 100 105 fill;
+    border-width: 24px 18px 20px;
+    border-image-width: 24px 18px 20px;
+  }
+  #watch-notebook.cw-lab-notebook #nb-content { padding: 8px 18px 22px; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  #watch-notebook.cw-lab-notebook .book {
+    height: calc(100dvh - 12px);
+    border-image-source: url('assets/lab01-notebook/cover_landscape_short.exact.webp');
+    border-image-slice: 64 105 72 105 fill;
+    border-width: 10px 14px;
+    border-image-width: 10px 14px;
+  }
+  #watch-notebook.cw-lab-notebook .lab-nb-header { padding-bottom: 3px; }
+  #watch-notebook.cw-lab-notebook #nb-tabs { padding-bottom: 4px; }
+  #watch-notebook.cw-lab-notebook #nb-tabs button { min-height: 44px !important; }
+  #watch-notebook.cw-lab-notebook .lab-nb-paper { border-width: 8px; border-image-width: 8px; }
+}
+
+/* Short landscape screens need writing width, not a shrunken portrait book.
+ * Use Jimmy's existing landscape cover and parchment components. The painted
+ * portrait presentation stays intact; the original Save callback is untouched.
+ */
+@media (orientation: landscape) and (max-height: 550px) {
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+    width: min(800px, var(--cw-nb-available-width));
+    height: var(--cw-nb-available-height);
+    aspect-ratio: auto;
+    grid-template-rows: 44px auto minmax(0, 1fr);
+    padding: 4px 8px 6px;
+    border: solid transparent;
+    border-width: 12px 18px;
+    border-image: url('assets/lab01-notebook/cover_landscape_short.exact.webp') 64 105 72 105 fill / 12px 18px stretch;
+    background: #3b2922 !important;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive .lab-nb-paper {
+    border: solid transparent;
+    border-width: 6px 10px;
+    border-image: url('assets/lab01-notebook/page_portrait.webp') 95 70 102 68 fill / 6px 10px stretch;
+    background: #e5cda0;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive #nb-content {
+    padding: 4px 8px 10px;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive #nb-content.lab-nb-notes {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto minmax(64px, 1fr) auto;
+    gap: 6px 10px;
+    padding-bottom: 4px;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive .lab-nb-notes > p {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: .875rem;
+    line-height: 1.35;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive .lab-nb-notes textarea {
+    grid-column: 1 / -1;
+    min-height: 64px;
+    height: 100%;
+    padding: 8px;
+    resize: none;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive #nb-save {
+    margin: 0;
+    justify-self: start;
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive #nb-status {
+    min-height: 0;
+    align-self: center;
+  }
+}
+
+/* Draft choices stay on the Notebook page, above its existing scroller. */
+#watch-notebook.cw-lab-notebook .nb-draft-choice{display:grid;gap:12px}
+#watch-notebook.cw-lab-notebook .nb-draft-choice h3,#watch-notebook.cw-lab-notebook .nb-draft-choice p{margin:0}
+#watch-notebook.cw-lab-notebook .nb-draft-choice button{width:100%;white-space:normal}
+/* Use quiet parchment under live entries; keep the illustrated cover at the edges. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive .lab-nb-paper{background:#e8d5ad url('assets/lab01-notebook/page_portrait.webp') center/cover no-repeat!important}

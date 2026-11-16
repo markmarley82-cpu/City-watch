@@ -1,0 +1,326 @@
+{
+  "id": "DOCKSIDE-003",
+  "base": "6bf5b1fc65f6c37ba9ba2f3e78cb164905d4a91d",
+  "sectionTask": "MATE-481-S054",
+  "instances": [
+    {
+      "id": "DOCKSIDE-003:chandler",
+      "landmarkID": null,
+      "oldID": "roof:500",
+      "sourceParcel": 593,
+      "kind": "building",
+      "file": "chandler-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-003/chandler-roof.webp",
+        "walls": "art-source/street-by-street/dockside-003/chandler-walls.webp"
+      },
+      "dimensions": [
+        274,
+        321
+      ],
+      "p": [
+        51.313,
+        259.858
+      ],
+      "anchor": [
+        140,
+        310
+      ],
+      "rect": [
+        47.841,
+        257.061,
+        3.972,
+        3.297
+      ],
+      "support": [
+        47.341,
+        256.561,
+        3.972,
+        3.297
+      ],
+      "approach": [
+        47,
+        261
+      ],
+      "source": "art-source/street-by-street/dockside-003/chandler-source.png",
+      "sourceSHA256": "49d08b34a8816279fb02229f74fd384a632196cd947fee1a30f97184fc1123a9",
+      "sha256": "7479623fae7a5bcd82c77774ef9f10217b5234ed3434e1881db3fcd6d557e896",
+      "sourceFoundation": {
+        "front": [
+          752,
+          1218
+        ],
+        "left": [
+          142,
+          1100
+        ],
+        "right": [
+          1105,
+          1091
+        ]
+      },
+      "sourceDoorHeight": 292,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 752,
+          "a": 0.18232131147540984,
+          "b": 0.04809979788906355
+        },
+        {
+          "lo": 752,
+          "hi": 1254,
+          "a": 0.2615184135977337,
+          "b": -0.05067266871046607
+        }
+      ],
+      "verticalScale": 0.2226027397260274,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-003:boatwright",
+      "landmarkID": null,
+      "oldID": "roof:518",
+      "sourceParcel": 615,
+      "kind": "building",
+      "file": "boatwright-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-003/boatwright-roof.webp",
+        "walls": "art-source/street-by-street/dockside-003/boatwright-walls.webp"
+      },
+      "dimensions": [
+        266,
+        270
+      ],
+      "p": [
+        44.547000000000004,
+        262.104
+      ],
+      "anchor": [
+        128,
+        256
+      ],
+      "rect": [
+        40.764,
+        258.199,
+        4.283,
+        4.405
+      ],
+      "support": [
+        40.264,
+        257.699,
+        4.283,
+        4.405
+      ],
+      "approach": [
+        40,
+        259
+      ],
+      "source": "art-source/street-by-street/dockside-003/boatwright-source.png",
+      "sourceSHA256": "0035349ea9092c77adba044e7f443c1ab8f739a2b76d23f9a97543c0ac7a10ad",
+      "sha256": "b2a0cdcf4d97b90217bcc262a4f0ee6f6ef39db5dec04e22ab56e579bd8fe972",
+      "sourceFoundation": {
+        "front": [
+          653,
+          1195
+        ],
+        "left": [
+          28,
+          1005
+        ],
+        "right": [
+          1200,
+          989
+        ]
+      },
+      "sourceDoorHeight": 340,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 653,
+          "a": 0.1918784,
+          "b": 0.03782155294117648
+        },
+        {
+          "lo": 653,
+          "hi": 1254,
+          "a": 0.22548446069469835,
+          "b": -0.04074524142380902
+        }
+      ],
+      "verticalScale": 0.19117647058823528,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-003:porter",
+      "landmarkID": null,
+      "oldID": "roof:536",
+      "sourceParcel": 633,
+      "kind": "building",
+      "file": "porter-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-003/porter-roof.webp",
+        "walls": "art-source/street-by-street/dockside-003/porter-walls.webp"
+      },
+      "dimensions": [
+        284,
+        350
+      ],
+      "p": [
+        39.723,
+        260.248
+      ],
+      "anchor": [
+        147,
+        340
+      ],
+      "rect": [
+        36.504,
+        257.515,
+        3.719,
+        3.233
+      ],
+      "support": [
+        36.004,
+        257.015,
+        3.719,
+        3.233
+      ],
+      "approach": [
+        36,
+        261
+      ],
+      "source": "art-source/street-by-street/dockside-003/porter-source.png",
+      "sourceSHA256": "9b5af24d6d9d818c4e707e8f46bb1116e150359b8d695c49fb2045e50c91119f",
+      "sha256": "dfca3bf231f0c1fd6973612e799ab071d8996c734782515f9fc62811cd162925",
+      "sourceFoundation": {
+        "front": [
+          655,
+          1225
+        ],
+        "left": [
+          184,
+          1126
+        ],
+        "right": [
+          1057,
+          1064
+        ]
+      },
+      "sourceDoorHeight": 267,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 655,
+          "a": 0.22108704883227173,
+          "b": 0.059373410625253455
+        },
+        {
+          "lo": 655,
+          "hi": 1254,
+          "a": 0.22518407960199005,
+          "b": -0.015092645387295725
+        }
+      ],
+      "verticalScale": 0.24344569288389514,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    },
+    {
+      "id": "DOCKSIDE-003:saltstore",
+      "landmarkID": null,
+      "oldID": "roof:567",
+      "sourceParcel": 664,
+      "kind": "building",
+      "file": "saltstore-body.webp",
+      "sourceLayers": {
+        "roof": "art-source/street-by-street/dockside-003/saltstore-roof.webp",
+        "walls": "art-source/street-by-street/dockside-003/saltstore-walls.webp"
+      },
+      "dimensions": [
+        217,
+        281
+      ],
+      "p": [
+        33.297,
+        266.087
+      ],
+      "anchor": [
+        119,
+        243
+      ],
+      "rect": [
+        29.891,
+        263.505,
+        3.906,
+        3.082
+      ],
+      "support": [
+        29.391,
+        263.005,
+        3.906,
+        3.082
+      ],
+      "approach": [
+        29,
+        265
+      ],
+      "source": "art-source/street-by-street/dockside-003/saltstore-source.png",
+      "sourceSHA256": "dd1b21cbddae608cd9a50bfc51f9e6835f0ebab2a2c7d400d9ed8fb40c2ea6ea",
+      "sha256": "07ebc2b009b0d0b3a1e10177b33ce8b0d3c5d9fba59d82d9d2c60ca3562fe15a",
+      "sourceFoundation": {
+        "front": [
+          666,
+          1092
+        ],
+        "left": [
+          42,
+          890
+        ],
+        "right": [
+          1195,
+          879
+        ]
+      },
+      "sourceDoorHeight": 312,
+      "doorHeight": 65,
+      "planes": [
+        {
+          "lo": 0,
+          "hi": 666,
+          "a": 0.1752692307692308,
+          "b": 0.02019337606837607
+        },
+        {
+          "lo": 666,
+          "hi": 1254,
+          "a": 0.1631304347826087,
+          "b": 0.0023194706994328997
+        }
+      ],
+      "verticalScale": 0.20833333333333334,
+      "mirror": false,
+      "lore": "Existing game-original dock location; original visual interpretation. Not a claim of a canonical published lot. Existing contacts and case bindings retained. Painted service doors add no engine ingress."
+    }
+  ],
+  "replacedLandmarks": [],
+  "replacedObjects": [
+    "roof:500",
+    "roof:518",
+    "roof:536",
+    "roof:567"
+  ],
+  "newNavigation": false,
+  "newDoors": false,
+  "sourceImagesUsedOnce": true,
+  "sectionTasks": [
+    "MATE-481-S054 next four"
+  ],
+  "physicalIPhoneVerified": false,
+  "creativeAcceptance": false
+}

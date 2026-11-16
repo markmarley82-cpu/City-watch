@@ -1,0 +1,102 @@
+/* Minimal patrol sheet: streets, water, position. Place actions are contextual. */
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map{
+ box-sizing:border-box;position:fixed;inset:0!important;margin:auto!important;width:min(1060px,100vw)!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;padding:0!important;border:0!important;border-radius:0!important;background:#e9dfc3!important;box-shadow:0 8px 32px #0007!important;filter:none;overflow:hidden!important;display:none!important;
+}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map[open]{display:block!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map::before{display:none!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map>header{
+ position:absolute!important;inset:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) auto auto!important;z-index:6;width:64px;min-height:44px!important;margin:0!important;padding:0!important;border:0!important;background:none!important;display:block!important;
+}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map>header>div{display:none!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map #atlas-close{box-sizing:border-box;width:64px;min-width:64px;min-height:44px!important;max-width:none;padding:7px!important;border:1px solid #8b8067!important;border-radius:5px!important;background:#fcf8e9ed!important;box-shadow:none!important;color:#37392f!important;text-shadow:none!important;font:14px Georgia,serif!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map>.cw-notebook-page{
+ position:absolute;inset:0;display:block!important;overflow:hidden!important;max-width:100%;min-height:0;margin:0!important;padding:0!important;
+}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-image{position:absolute;inset:0;height:auto!important;min-height:0!important;margin:0!important;border:0!important;overflow:auto!important;background:#e9dfc3;touch-action:none!important;overscroll-behavior:contain;scrollbar-width:none;cursor:grab;isolation:isolate}
+.atlas-image::-webkit-scrollbar{display:none}
+.atlas-map-content{position:relative;min-width:100%;min-height:100%}
+.atlas-map-plane{position:absolute}
+.atlas-map-plan{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-controls{position:absolute;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:5;display:grid;gap:5px;grid-template-columns:44px}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-controls button{box-sizing:border-box;width:44px;min-height:44px!important;padding:4px!important;border:1px solid #8b8067!important;border-radius:5px!important;background:#fcf8e9ed!important;box-shadow:none!important;color:#37392f!important;font:22px/1 Georgia,serif!important;text-align:center}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map button:disabled{opacity:.45}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary{position:absolute;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));z-index:5;box-sizing:border-box;width:fit-content;min-width:150px;max-width:calc(100% - 80px);display:grid;gap:4px;padding:10px;background:#fcf8e9f5;border:1px solid #8b8067;border-radius:5px;color:#33392f;box-shadow:0 2px 7px #302a1b20}
+.atlas-map-summary>strong{font:600 15px/1.3 Georgia,serif}
+.atlas-map-summary>span{font:12px/1.3 Georgia,serif}
+.atlas-map-actions{display:flex;gap:8px;align-items:center}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-actions button{box-sizing:border-box;min-height:44px!important;padding:8px 12px!important;border:1px solid #92876f!important;border-radius:4px!important;background:transparent!important;color:#33392f!important;box-shadow:none!important;font:14px/1.2 Georgia,serif!important;text-align:center}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map #city-visit{background:#385b4d!important;color:#fffbed!important;flex:1;border-color:#385b4d!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-place-pin{position:absolute;transform:translate(-50%,-50%);width:44px!important;height:44px!important;min-height:44px!important;max-width:none!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;z-index:2}
+.atlas-place-pin::before{content:'';position:absolute;left:19px;top:19px;width:6px;height:6px;box-sizing:border-box;border:1px solid #fff9e8;border-radius:50%;background:#6b6b54;box-shadow:0 0 0 1px #6b6b5440}
+.atlas-place-pin.is-primary::before{width:9px;height:9px;left:17.5px;top:17.5px;background:#4b5949}
+.atlas-place-pin.is-selected::before{width:12px;height:12px;left:16px;top:16px;background:#a56930;box-shadow:0 0 0 2px #f8f0d9,0 0 0 3px #a56930}
+.atlas-place-pin.is-selected{z-index:4!important}
+.atlas-place-pin:focus-visible::after{content:attr(data-label);position:absolute;bottom:40px;left:50%;transform:translateX(-50%);background:#fcf8e9;padding:4px 7px;max-width:200px;width:max-content;color:#33392f;font:13px Georgia,serif;pointer-events:none}
+.atlas-map-plane[data-detail='false'] .atlas-place-pin:not(.is-primary):not(.is-selected){display:none}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-player-pin{position:absolute;transform:translate(-50%,-50%);z-index:4;width:44px!important;min-height:44px!important;height:44px!important;padding:0!important;border:0!important;box-shadow:none!important;background:transparent!important;color:#235d7a!important;font:600 11px/1 Georgia,serif!important;text-align:center}
+.atlas-player-pin::before{content:'';position:absolute;left:17px;top:7px;width:10px;height:10px;background:#23617d;border:2px solid #f9f3df;border-radius:50%;box-shadow:0 0 0 2px #23617d40}
+.atlas-player-pin{box-sizing:border-box;display:block;pointer-events:none;white-space:nowrap;line-height:44px!important;padding-top:12px!important}
+.atlas-map-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);pointer-events:none}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map [hidden]{display:none!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map button:focus-visible{outline:2px solid #76502f!important;outline-offset:1px}
+@media(min-width:1080px){html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map{height:calc(100dvh - 20px)!important;max-height:calc(100dvh - 20px)!important;border-radius:6px!important}}
+/* Mark's old printed-map direction, informed by the published city charts. */
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map,
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-image{background:#dfc596 url('assets/lab01-notebook/page_portrait.webp') center/cover!important}
+.atlas-map-plan{mix-blend-mode:multiply}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map>.cw-notebook-page::after{content:'';position:absolute;inset:6px;z-index:4;border:1px solid #73572f99;outline:1px solid #73572f55;outline-offset:-4px;pointer-events:none}
+.atlas-map-cartouche{position:absolute;top:max(17px,env(safe-area-inset-top));left:max(17px,env(safe-area-inset-left));z-index:5;pointer-events:none;background:#ead5aedb;padding:7px 10px;border-top:1px solid #785b35;border-bottom:3px double #785b35;color:#513c23;text-align:center}
+.atlas-map-cartouche strong{font:600 17px/1.2 Baskerville,'Iowan Old Style',Georgia,serif;letter-spacing:.11em}
+.atlas-map-cartouche small{display:block;margin-top:3px;font:italic 11px/1.2 Georgia,serif;letter-spacing:.04em}
+.atlas-street-name{position:absolute;transform:translate(-50%,-50%) rotate(var(--street-angle));white-space:nowrap;font:italic 11px/1.2 Georgia,serif;letter-spacing:.05em;color:#5f4829;pointer-events:none;text-shadow:0 0 3px #efdfbb,0 0 3px #efdfbb}
+.atlas-map-plane[data-detail='false'] .atlas-street-name{display:none}
+.atlas-place-pin.is-primary::after{content:attr(data-label);position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:130px;max-width:130px;text-align:center;color:#4b3520;font:600 italic 12px/1.15 Georgia,serif;text-shadow:0 0 4px #ecd9b3,0 0 4px #ecd9b3;pointer-events:none}
+.atlas-place-pin::before{border-color:#e2c99e;background:#66502f;box-shadow:none}
+.atlas-place-pin.is-primary::before{background:#594021;border-radius:0;transform:rotate(45deg)}
+.atlas-place-pin.is-selected::before{background:#86432f;box-shadow:0 0 0 2px #e4cba0,0 0 0 3px #86432f}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-player-pin{color:#803c2c!important;font-style:italic!important}
+.atlas-player-pin::before{background:#873d2c;border:1px solid #ead4aa;box-shadow:0 0 0 2px #873d2c66;border-radius:40% 50% 45% 48%;transform:rotate(-14deg)}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map :is(#atlas-close,.atlas-map-controls button,.atlas-map-actions button){background:#e6cfa6e8!important;border-color:#80613d!important;color:#513c23!important;border-radius:2px!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary{background:#e8d1a9f5;border:3px double #80613d;border-radius:1px;color:#513c23}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map #city-visit{background:#78563a!important;border-color:#78563a!important;color:#fff1d0!important}
+@media(max-width:400px){.atlas-map-cartouche{padding:6px}.atlas-map-cartouche strong{font-size:14px}.atlas-map-cartouche small{font-size:10px}}
+
+.atlas-place-pin.is-primary::after{pointer-events:auto}
+.atlas-place-pin[aria-label='Opera House']::after{bottom:auto;top:34px}
+
+/* The finished chart carries its own border and title. The folded index keeps
+   existing destinations without pretending the game is registered to the art. */
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart{background:#d7bd8d!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart .atlas-image{background:#d7bd8d!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart>.cw-notebook-page::after{display:none}
+.atlas-chart-art{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none;pointer-events:none}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart .atlas-index-toggle{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:5;box-sizing:border-box;min-height:44px;padding:8px 16px!important;border:3px double #80613d!important;border-radius:1px!important;background:#ecdbb4f2!important;color:#513c23!important;box-shadow:0 2px 7px #38270e33!important;font:italic 15px Georgia,serif!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart .atlas-place-index{width:330px;max-width:calc(100% - 76px);gap:9px}
+.atlas-place-index label{font:italic 14px Georgia,serif;color:#513c23}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart .atlas-place-index select{box-sizing:border-box;width:100%;max-width:100%;min-height:44px;padding:8px;color:#513c23;background:#f4e7c7;border:1px solid #80613d;border-radius:1px;font:15px Georgia,serif}
+@media(max-height:430px){html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-engraved-chart .atlas-place-index{gap:5px;padding:8px}}
+/* Live playable survey: a single unwarped engine projection, printed in ink. */
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-image{background:#e9d8af url('assets/lab01-notebook/page_portrait.webp') center/cover!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-index-toggle{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:5;min-height:44px;padding:8px 16px!important;border:3px double #80613d!important;border-radius:1px!important;background:#ecdbb4f2!important;color:#513c23!important;font:italic 15px Georgia,serif!important}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-place-index{width:330px;max-width:calc(100% - 76px);gap:8px}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-place-index select{box-sizing:border-box;width:100%;max-width:100%;min-height:44px;padding:8px;color:#513c23;background:#f4e7c7;border:1px solid #80613d;border-radius:1px;font:15px Georgia,serif}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-map-controls button[aria-label='Centre map on you']{font:italic 12px Georgia,serif!important}
+.atlas-survey .atlas-map-plan{overflow:visible}
+.atlas-survey .atlas-place-pin.is-selected::after{content:attr(data-label);position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:140px;color:#742f20;font:600 italic 12px/1.15 Georgia,serif;text-shadow:0 0 4px #ecd9b3;pointer-events:none}
+.atlas-survey .atlas-player-pin{z-index:5!important}
+.atlas-survey .atlas-player-pin::before{left:16px;top:10px;width:12px;height:12px;border:2px solid #fff0ca;box-shadow:0 0 0 2px #8b3d29;background:#8b3d29}
+.atlas-survey .atlas-route-line{filter:drop-shadow(0 .1px .05px #f6e6c1)}
+
+@media(max-height:450px){html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map.atlas-survey .atlas-place-index{width:500px;grid-template-columns:minmax(0,1fr) auto;gap:5px;padding:8px}.atlas-survey .atlas-place-index>label{display:none}.atlas-survey .atlas-place-index>select{grid-column:1;grid-row:1}.atlas-survey .atlas-place-index>.atlas-map-actions{grid-column:2;grid-row:1}.atlas-survey .atlas-place-index>span{grid-column:1/-1;grid-row:2}}
+
+.atlas-area-name{position:absolute;transform:translate(-50%,14px);font:italic 16px/1.2 Georgia,serif;letter-spacing:.12em;color:#675236;white-space:nowrap;text-shadow:0 0 4px #f3e2bc,0 0 4px #f3e2bc;pointer-events:none}.atlas-walkable-ground,.atlas-walkable-outline{pointer-events:none}
+/* Pale walking space must remain distinct from unadmitted parchment ground. */
+.atlas-survey .atlas-map-plan{mix-blend-mode:normal}
+.atlas-survey .atlas-walkable-ground{fill:#fff8e5}
+
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-controls .atlas-beat-focus{font:italic 12px Georgia,serif!important}
+.atlas-beat-pin{position:absolute;z-index:4;transform:translate(-50%,8px);border:1px solid #315c66;border-radius:3px;padding:3px 6px;background:#fbf6df;color:#234952;font:600 12px Georgia,serif;white-space:nowrap;pointer-events:none}
+.atlas-beat-pin::before{content:'';position:absolute;left:50%;top:-13px;width:9px;height:9px;border:1px solid #fbf6df;background:#315c66;transform:translateX(-50%) rotate(45deg)}
+
+.atlas-area-picker{position:absolute;z-index:6;left:max(10px,env(safe-area-inset-left));bottom:calc(max(10px,env(safe-area-inset-bottom)) + 52px);min-height:44px;max-width:calc(100% - 74px);background:#e6cfa6;color:#513c23;border:1px solid #80613d;padding:4px 8px;font:16px Georgia,serif}
+.atlas-map-plane[data-detail='false'] .atlas-area-name{font-size:12px;letter-spacing:.04em}

@@ -1,0 +1,8 @@
+// Additive scenery only. Load the whole section before retiring either old lot.
+export async function createWatchNeighbourhood({read,load,addSprites,lightAnchors,manifestPath='assets/watch-streets-v1/manifest.json'}){
+ const manifest=await read(manifestPath),base=manifestPath.slice(0,manifestPath.lastIndexOf('/')+1);
+ const rows=await Promise.all(manifest.instances.map(async i=>{const im=await load(base+i.file,i.dimensions);if((im.cwSourceWidth||im.width)!==i.dimensions[0]||(im.cwSourceHeight||im.height)!==i.dimensions[1])throw Error('Watch scenery dimensions differ: '+i.id);return[i.id,im,i.p,i.anchor,1,i.rect,{quarter:['joined-premises','individual-house'].includes(i.kind),watchNeighbourhood:true,sceneryKind:i.kind,sourceAsset:i.id,doorHeight:i.doorHeight}]}));
+ const group=addSprites(rows);for(const i of manifest.instances)lightAnchors[i.id]=i.lights;
+ const retired=new Set(manifest.replacesQuarterIds),bs=group.map(o=>o.bounds);
+ return Object.freeze({replaces:id=>retired.has(id),bounds:[Math.min(...bs.map(b=>b[0]))-20,Math.min(...bs.map(b=>b[1]))-20,Math.max(...bs.map(b=>b[0]+b[2]))+20,Math.max(...bs.map(b=>b[1]+b[3]))+20],report:()=>({id:manifest.id,uniquePremises:manifest.instances.reduce((n,i)=>n+(i.premises||0),0),joinedCompounds:manifest.instances.filter(i=>i.kind==='joined-premises').length,individualHouses:manifest.instances.filter(i=>i.kind==='individual-house').length,privateRearYards:manifest.instances.filter(i=>i.privateRearYard).length,streetLamps:manifest.instances.filter(i=>i.kind==='street-lamp').length,replacedQuarterIds:[...retired],remainingQuarterTemplates:manifest.remainingQuarterTemplates??44-retired.size,newNavigation:false,newDoors:false,creativeAcceptance:false,physicalPhoneVerified:false})});
+}

@@ -1,0 +1,490 @@
+{
+  "schema": 1,
+  "id": "E045-COOPER-RESERVATION-PROPOSED-222",
+  "status": "BUDDY_INTEGRATED_BOUNDED_GAME_RESERVATION_CREATIVE_ACCEPTANCE_PENDING",
+  "nativeBase": "e4613a694f5daee1abd7a386822428f3aff4f8f6",
+  "nativeBuild": 221,
+  "nativeSite": 319,
+  "scope": {
+    "edgeID": "E045",
+    "section": [
+      34,
+      195,
+      69,
+      221
+    ],
+    "newPublicDoors": 0,
+    "sceneryOnly": true,
+    "noEnter": true
+  },
+  "art": {
+    "pivot": [
+      48.75,
+      214
+    ],
+    "sourcePivot": [
+      277,
+      990
+    ],
+    "uniformScale": 0.26639344262295084,
+    "barrelOnlySourceShift": [
+      0,
+      13.138461538461538
+    ],
+    "originalMasterUnchanged": true,
+    "sourceProjectionUnchanged": true,
+    "originalMasterSHA256": "6f925158c5416f1459d27729d431c256d948c355d79eb7bee9554f198ec5bbf5"
+  },
+  "regions": [
+    {
+      "id": "wallHypothesisWithUncertainty",
+      "role": "structural-wall-reservation",
+      "worldPolygon": [
+        [
+          46.885245901639344,
+          211.45023419203747
+        ],
+        [
+          47.15163934426229,
+          211.18384074941451
+        ],
+        [
+          52.97423887587822,
+          208.82435597189695
+        ],
+        [
+          53.12646370023419,
+          208.97658079625293
+        ],
+        [
+          53.24538934426229,
+          212.01632025761126
+        ],
+        [
+          53.13122072599532,
+          212.13048887587823
+        ],
+        [
+          47.384733606557376,
+          214.71831088992974
+        ],
+        [
+          47.23250878220141,
+          214.56608606557376
+        ]
+      ],
+      "authorship": "Proposed original-game collision reservation; not a surveyed wall/foundation or canonical footprint."
+    },
+    {
+      "id": "small-door-threshold",
+      "role": "closed-threshold-or-prop-reservation",
+      "worldPolygon": [
+        [
+          48.155371779859486,
+          214.38531908665107
+        ],
+        [
+          48.85941159250586,
+          213.68127927400468
+        ],
+        [
+          49.439768735362996,
+          214.26163641686182
+        ],
+        [
+          48.735728922716625,
+          214.9656762295082
+        ]
+      ],
+      "authorship": "Proposed original-game collision reservation; not a surveyed wall/foundation or canonical footprint."
+    },
+    {
+      "id": "cargo-bay-threshold",
+      "role": "closed-threshold-or-prop-reservation",
+      "worldPolygon": [
+        [
+          49.439768735362996,
+          213.95718676814988
+        ],
+        [
+          51.64702868852459,
+          211.7499268149883
+        ],
+        [
+          53.01705210772834,
+          213.11995023419203
+        ],
+        [
+          50.80979215456674,
+          215.32721018735364
+        ]
+      ],
+      "authorship": "Proposed original-game collision reservation; not a surveyed wall/foundation or canonical footprint."
+    },
+    {
+      "id": "barrels",
+      "role": "closed-threshold-or-prop-reservation",
+      "worldPolygon": [
+        [
+          51.25351288056206,
+          209.82464871194378
+        ],
+        [
+          51.9908518735363,
+          209.08730971896955
+        ],
+        [
+          53.741437353629976,
+          210.83789519906324
+        ],
+        [
+          53.00409836065574,
+          211.57523419203747
+        ]
+      ],
+      "authorship": "Proposed original-game collision reservation; not a surveyed wall/foundation or canonical footprint."
+    }
+  ],
+  "boundary": {
+    "obstacle": "closed, including vertices and tangent/collinear segment contact",
+    "clearance": "No further implicit inflation beyond explicit native foot probes",
+    "epsilonWorldUnits": 1e-09
+  },
+  "foot": {
+    "profile": "exact current createFreeWalk five point probes; not a newly invented circular actor radius",
+    "probes": [
+      [
+        0,
+        0
+      ],
+      [
+        -0.12,
+        -0.12
+      ],
+      [
+        -0.12,
+        0.12
+      ],
+      [
+        0.12,
+        -0.12
+      ],
+      [
+        0.12,
+        0.12
+      ]
+    ],
+    "sweep": "analytic convex clipping for each probe; no runtime sampling step",
+    "maxSavedFootDistanceFromAnchor": 1.5
+  },
+  "inference": {
+    "visibleControlUncertaintySourcePixels": [
+      8,
+      12,
+      8
+    ],
+    "hiddenRear": "A+C-B closure with propagated28px bound is an explicit authoring assumption, not measured",
+    "hiddenRearMeasured": false,
+    "extraInflationApplied": false
+  },
+  "integration": {
+    "pointClear": "preserve existing point clear + !inside reservation; native continuous controller applies its existing five probes",
+    "segmentClear": "preserve base graph/water/held/occupancy predicate and exact analytic sweep of the same five probes; do not recursively decorate its own callback",
+    "targetValidation": "require full-foot-clear current membership before every target/recovery selection",
+    "membership": "Atomically remove all31 exact enumerated full-foot-unstandable extra E045 states after proving no pre-fill-original-member conflict; do not leave the three foot-only anchors as route or saved destinations.",
+    "recovery": "pure proposed navigation delta only; caller uses current canonical store.navigation(position,visited,steps,cityFoot), retaining every campaign/pending/encounter field",
+    "activation": "install together before building services/target indexes or restoring saved feet; rebuild per-world caches; Buddy owns any implementation",
+    "cacheOwnership": "Pure polygon checks are static for this reservation. Any base navigation/collision cache remains Stride/Buddy-owned and must key/invalidate by activated world generation; no whole-world or actor result is cached here."
+  },
+  "preserve": [
+    "569",
+    "570",
+    "591",
+    "560/657 holds",
+    "all original E045 centres and both junctions",
+    "all current doors",
+    "water and seven bridges",
+    "Palace and University",
+    "save/install identity",
+    "400ms movement profile"
+  ],
+  "sourceSHA256": {
+    "dist/city-free-walk.mjs": "312b9bb417fec97f7a751f37eb67968382262b83e1586e3d9b40154ec7cc9144",
+    "dist/city-open-ground.mjs": "7c9e09ee27205cdfa058a610275489524afc1e2f5443d0cc0b69f89cef8d1394",
+    "dist/city-core.mjs": "72363321cd38ae1c4ef610574635ec8697a90554a2f5d620e3cccf909ddafdc7",
+    "dist/city-movement.mjs": "c2fe06e8bbc93ca5b80d6eabeee9ab95119eda71feee7cb341cc3c10934dac75",
+    "dist/assets/city-v07/city-design.json": "79b0baabb2b8f4fbfbf534045280c579d31cd80d3fa9fba6f6d9a25a4a10f9a8",
+    "qa/e045-receiver218/polygon219/screen-results.json": "3c3b74a4464f6e8fe209e30a55b022b79779f146b9a0ef930ef33cedec949269",
+    "qa/e045-receiver218/native221/results.json": "641f3eb656a4fbe8810664757e0585a8f25cccd2f2946129c9c431eacde7ca7e",
+    "qa/e045-receiver218/barrel-backplate220/workshop-barrels-shifted-candidate.png": "88658e521af351c4606c237d14f7ad0043592c9eae4bbdef75a26df812fdf34a",
+    "dist/city.mjs": "b2bc7cdb4145d27563daa25b10a2b62130c6cf3300ae369ce2409acdbd1969a1",
+    "dist/parcel569-premise.mjs": "2f09f051453126c4a2fad0e6e7ba73e24483033353ca845f399e7b0c2dbe163a",
+    "dist/parcel570-premise.mjs": "01ce949c5f104d9795dbe0f02dfdf5a82583abf02685d1fa0318fdca9bb22f9b",
+    "dist/parcel591-premise.mjs": "85601a5f3e6280f69044b3199be4b57d690b29c18b5f4b1e6b993403c948b1ed"
+  },
+  "approvalClaim": false,
+  "cohesion": "Opposite bare setback and full connected E045 composition remain unfinished.",
+  "membershipAuthoringDecision": {
+    "author": "Buddy proposed-contract choice in current delegated session; no Mark creative/native-placement acceptance",
+    "chosenPolicy": "REMOVE_ALL_31_NATIVE_FIVE_PROBE_UNSTANDABLE_EXTRA_ANCHORS",
+    "centreInsideCount": 28,
+    "additionalFootOnlyAnchors": [
+      [
+        47,
+        213,
+        "E045"
+      ],
+      [
+        50,
+        210,
+        "E045"
+      ],
+      [
+        53,
+        213,
+        "E045"
+      ]
+    ],
+    "fullFootUnstandableCount": 31,
+    "originalE045CentresConsumed": 0,
+    "originalE045CentresRetained": 142,
+    "old28Result": "Historical centre-mask test consequence retained for comparison, superseded by31production-target proposal"
+  },
+  "materialMapDecision": "Proposed v1 reserves the explicit original-game polygon union and removes31 extra E045 targets (28 centre-inside plus3 native foot-probe-only). No original142 route centre, real door, held cell or existing premise moves. Buddy has chosen31 for the proposal; no native placement or Mark final creative/map acceptance is claimed.",
+  "receivingBase": "15edc4f015f74bb7019f22a22028388bfaaba038",
+  "expectedRemoval": [
+    {
+      "key": "47,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "47,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "48,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "48,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "48,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "48,214",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "49,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "49,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "49,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "49,214",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "50,210",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "50,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "50,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "50,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "50,214",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,210",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,214",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "51,215",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "52,210",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "52,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "52,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "52,213",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "52,214",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "53,209",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "53,210",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "53,211",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "53,212",
+      "edges": [
+        "E045"
+      ]
+    },
+    {
+      "key": "53,213",
+      "edges": [
+        "E045"
+      ]
+    }
+  ],
+  "renderer": {
+    "canvas": [
+      352,
+      318
+    ],
+    "anchor": [
+      73.79098360655738,
+      263.7295081967213
+    ],
+    "sourceCanvas": [
+      1319,
+      1193
+    ],
+    "uniformScale": 0.26639344262295084,
+    "sourceAsset": "E045-COOPER-WORKSHOP-001",
+    "spriteID": "e045-cooper-workshop",
+    "id": "E045-COOPER-RESERVATION-PROPOSED-222",
+    "lightAnchors": [
+      [
+        71.92622950819673,
+        127.06967213114756
+      ],
+      [
+        147.04918032786887,
+        147.58196721311475
+      ],
+      [
+        225.90163934426232,
+        173.15573770491804
+      ],
+      [
+        36.76229508196722,
+        190.47131147540986
+      ]
+    ]
+  },
+  "proposalStatusBeforeIntegration": "PROPOSED_AUTHORED_GAME_FOOTPRINT_PENDING_BUDDY_MATERIAL_MAP_ACCEPTANCE",
+  "buddyIntegration": {
+    "build": 224,
+    "base": "15edc4f015f74bb7019f22a22028388bfaaba038",
+    "originalE045CentresRetained": 142,
+    "removedSyntheticAnchors": 31,
+    "newPublicDoors": 0,
+    "engineeringAcceptance": true,
+    "wholeSectionAcceptance": false,
+    "markCreativeAcceptance": false
+  }
+}

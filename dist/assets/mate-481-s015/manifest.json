@@ -1,0 +1,177 @@
+{
+  "id": "MATE-481-S015",
+  "expectedBuildings": 1,
+  "candidateComplete": true,
+  "sourceBase": "60de706e47b13d1387cbc7c17bf6c50798146553",
+  "scope": "1 independent paintings in E028:2:3; candidate integration only",
+  "buildings": [
+    {
+      "id": "roof-216",
+      "retireId": "roof:216",
+      "sourceParcel": 256,
+      "classification": "original-unnamed-infill",
+      "name": "Unnamed residential premise",
+      "rect": [
+        150.736,
+        199.798,
+        3.906,
+        4.635
+      ],
+      "p": [
+        152.189,
+        201.6155
+      ],
+      "sourceAsset": "legacy:dolly_building_balcony_gabled_cottage",
+      "section": "E028:2:3",
+      "street": "New Bridge toward University precinct",
+      "approach": [
+        150,
+        202,
+        "E028"
+      ],
+      "status": "fitted-candidate-not-live",
+      "generationComplete": true,
+      "placementComplete": false,
+      "navigationVerified": false,
+      "creativeAcceptance": false,
+      "guide": "guides/roof-216.png",
+      "guideIsArtwork": false,
+      "canvas": [
+        400,
+        420
+      ],
+      "anchor": [
+        200,
+        280.21299999999997
+      ],
+      "contacts": {
+        "rear": [
+          210.206,
+          220.42599999999996
+        ],
+        "left": [
+          80.42599999999999,
+          285.316
+        ],
+        "front": [
+          189.794,
+          340
+        ],
+        "right": [
+          319.574,
+          275.10999999999996
+        ]
+      },
+      "doorControl": {
+        "foot": [
+          135.11,
+          312.658
+        ],
+        "height": 65,
+        "face": "+Y",
+        "needsThresholdReview": true
+      },
+      "humanHeight": 60,
+      "uniformScaleOnly": true,
+      "mirror": false,
+      "recolour": false,
+      "scope": "Retain the current exact footprint, all walking cells, door identities and saves",
+      "requiredChecks": [
+        "original single-use artwork",
+        "source hash uniqueness",
+        "foundation registration",
+        "doorway scale",
+        "threshold and lane traversal",
+        "actor depth/cutaway",
+        "day and night",
+        "atlas parity",
+        "save/reload",
+        "phone resource budget"
+      ],
+      "brief": "Produce ONE original unnamed Ankh-Morpork premise, roof-216: a seamstress dwelling, built in patched brown brick with an old stone doorway, with a shallow slate hip roof. This individual design must differ in its window arrangement, construction history, roof repairs, chimney placement and doorway from every other delivered house. Use restrained hand-painted realistic late-medieval city art. Neutral daytime light; dark unlit windows. Match exact guide foundation contacts, 65px door and 60px actor scale. Preserve transparent background and existing walking lanes. Do not copy, mirror, recolour, stretch or repeat another building painting. No paving island, external props blocking alleys, new canonical name, text or invented heraldry. Produce an individually registered source, separable walls/roof and independent runtime cutout. Guide is geometry reference, not finished art.",
+      "taskId": "MATE-481-S015",
+      "owner": "Mate — S015 art return",
+      "claimLocation": "Team Sync / Critical Path; claim this section before making artwork",
+      "file": "roof-216.webp",
+      "emissionFile": "roof-216-emission.webp",
+      "emissionBytes": 3066,
+      "emissionSha256": "395fbd0ebba13a73456a6fc89e0dc736c47680eb1cb05c361884d21c380a96a6",
+      "emissionPixels": 876,
+      "dimensions": [
+        400,
+        420
+      ],
+      "scale": 1,
+      "sha256": "71afc794e78d091639a94837c4eb386b8ac11efa767b50cffbffa4167575d440",
+      "sourceSha256": "9b174f677c60fc32eb57c25c7d200c71b756fc8583dc1c13a9cadd2bf9992b3f",
+      "bytes": 42790,
+      "measuredDoorFace": "+Y",
+      "measuredDoorHeight": 71.29015349451308,
+      "doorFoot": [
+        129.33877169362586,
+        303.19729229262185
+      ],
+      "windowCentres": [
+        [
+          118.66783643347992,
+          169.7828621814617,
+          118.66783643347992,
+          304.43691821673997
+        ],
+        [
+          257.38999481537667,
+          178.94794650620375,
+          257.38999481537667,
+          306.20200259231166
+        ]
+      ],
+      "selectedMaster": "roof-216-master.png",
+      "registration": {
+        "method": "uniform scale and translation only",
+        "scale": 0.31702124955870187,
+        "offset": [
+          6.137973690123118,
+          -21.682121489516305
+        ],
+        "sourceContacts": [
+          [
+            229.5,
+            970.17
+          ],
+          [
+            581.4,
+            1124.38
+          ],
+          [
+            991.44,
+            950.9
+          ]
+        ],
+        "targetContacts": [
+          [
+            80.42599999999999,
+            285.316
+          ],
+          [
+            189.794,
+            340
+          ],
+          [
+            319.574,
+            275.10999999999996
+          ]
+        ],
+        "residuals": [
+          1.63301603108435,
+          5.271266648356578,
+          4.744123362234238
+        ],
+        "maxContactResidualPx": 5.271266648356578
+      }
+    }
+  ],
+  "navigationChanged": false,
+  "newInteractiveDoors": 0,
+  "creativeAcceptance": false,
+  "liveIntegrated": false
+}

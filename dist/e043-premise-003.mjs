@@ -1,0 +1,8 @@
+export const E043_PREMISE_003=Object.freeze({id:'E043-INFILL-003',gameId:'scenic:e043-unnamed-limewash-home',name:'Unnamed E043 limewashed shop-home',locationLabel:'Dimwell · limewashed shop-home',rect:[61.676,93.083,2.95,3.479],p:[61.676,93.083],anchor:[235,410],dimensions:[470,520],sourceParcel:541,visualDoorHeight:65,actorHeight:60});
+const exact=(a,b)=>a.length===b.length&&a.every((v,i)=>Math.abs(v-b[i])<.001);
+export async function createE043Premise003({load,addSprites}){
+ const im=await load('assets/e043-infill-003/limewash-shop-home-painted.webp');
+ if((im.cwSourceWidth||im.width)!==E043_PREMISE_003.dimensions[0]||(im.cwSourceHeight||im.height)!==E043_PREMISE_003.dimensions[1])throw Error('E043 premise 003 dimensions changed');
+ const group=addSprites([['e043-premise-003:limewash-shop-home-painted',im,E043_PREMISE_003.p,E043_PREMISE_003.anchor,1,E043_PREMISE_003.rect,{e043Premise003:true,sceneryKind:'building',sourceAsset:'E043-INFILL-003:limewash-shop-home-painted',sourceParcel:E043_PREMISE_003.sourceParcel}]]),o=group[0];
+ return Object.freeze({gameId:E043_PREMISE_003.gameId,name:E043_PREMISE_003.name,locationLabel:E043_PREMISE_003.locationLabel,bounds:[o.bounds[0]-35,o.bounds[1]-25,o.bounds[0]+o.bounds[2]+45,o.bounds[1]+o.bounds[3]+35],replaces:r=>exact(r,E043_PREMISE_003.rect),report:()=>({...E043_PREMISE_003,ready:true,parts:1,uniqueBuildingCount:1,geometry:'narrow limewashed street front, deep rear workshop range, half-hipped slate roof, chimney, fenced service yard, full stone foundation and human-scale door',noMirrorsOrRecolours:true,newNavigation:false,newInteractiveDoors:false,creativeAcceptance:false})});
+}

@@ -1,0 +1,314 @@
+/*
+ * CITY WATCH — B03-UI v1.3 (Jimmy / design-side integration candidate)
+ * Target: verified P20 Lab01 v0.5 / Site 6, source b17d420e0383d983d0fef8cb06f581ea2837c0a3.
+ * Install last, AFTER dynamically injected cw-lab-notebook.css AND cw-team-notebook.css.
+ * Copy the six assets to dist/assets/jimmy-b03-v13/ (paths below are relative to dist/).
+ * This is presentation ONLY. Six existing top tabs, original P12 Save, detail/Back and
+ * handlers remain Buddy-owned and unchanged. No font file or fictional data in PNGs.
+ */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook {
+  --cw-ui-book-art: url('assets/jimmy-b03-v13/notebook-portrait.webp');
+  --cw-b03-ink: #2c2018;
+  --cw-b03-heading-font: Baskerville, 'Iowan Old Style', 'EB Garamond', Georgia, serif;
+  --cw-b03-body-font: 'Iowan Old Style', Baskerville, 'EB Garamond', Georgia, serif;
+}
+/* One continuous painted notebook. Keep v0.5 portrait nine-slice ::before,
+ * whose art source is controlled by --cw-ui-book-art above. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+  color: var(--cw-b03-ink) !important;
+  font-family: var(--cw-b03-body-font) !important;
+  font-weight: 400 !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.45 !important;
+  font-synthesis: none;
+  grid-template-rows: minmax(44px,auto) auto minmax(0,1fr) !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto !important;
+  align-items: center;
+  gap: 3px 4px;
+  padding: 0 1px 1px;
+  margin: 0;
+  min-width: 0;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header h2 {
+  flex: none !important;
+  display: block !important;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  font: 600 1.1875rem/1.15 var(--cw-b03-heading-font) !important;
+  letter-spacing: .005em !important;
+  color: #f6e5c3 !important;
+  overflow-wrap: normal;
+  text-shadow: 0 1px 2px #120b07;
+}
+/* FINAL CLOSE art: actual separate transparent stitched leather/metal strap,
+ * not the reused normal parchment tab. Same component used in all orientations. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close {
+  flex: none !important;
+  width: clamp(82px, calc(var(--cw-nb-width) * .24), 108px) !important;
+  min-width: 82px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  margin: 0 0 0 auto;
+  padding: 7px 7px 8px 15px !important;
+  border: 0 !important;
+  border-image: none !important;
+  border-radius: 0 !important;
+  background: url('assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat !important;
+  box-shadow: none !important;
+  color: #fff3d4 !important;
+  font: 600 1rem/1.15 var(--cw-b03-heading-font) !important;
+  text-shadow: 0 1px 2px #180e07 !important;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close:active {
+  background-image: url('assets/jimmy-b03-v13/close-strap-pressed.exact.webp') !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close:focus-visible {
+  outline: 3px solid #f6df9d !important;
+  outline-offset: -6px !important;
+}
+/* Six REAL section controls. Never wrap into portrait two-row grid.
+ * Native horizontal swipe is allowed, with full section labels and >=44px
+ * effective CSS target height. Selected/focus states remain distinct. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections {
+  position: relative !important;
+  min-width: 0 !important;
+  min-height: 49px;
+  overflow: hidden;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  grid-template-columns: none !important;
+  align-items: stretch;
+  gap: 4px !important;
+  min-height: 49px;
+  max-width: 100% !important;
+  max-height: none !important;
+  margin: 0;
+  padding: 2px 4px 4px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #91734d transparent;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab] {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 92px !important;
+  min-height: 46px !important;
+  height: 46px !important;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: url('assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100% no-repeat !important;
+  color: #312218 !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px #f5e4b980;
+  font: italic 600 1.025rem/1.1 var(--cw-b03-heading-font) !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  touch-action: pan-x;
+  scroll-snap-align: start;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab].selected {
+  background-image: url('assets/jimmy-b03-v13/tab_selected.exact.webp') !important;
+  color: #fdf0d5 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-shadow: 0 1px 2px #171319;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab]:focus-visible {
+  outline: 2px solid #5d391c !important;
+  outline-offset: -5px !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab].selected:focus-visible {
+  outline-color: #ffebc0 !important;
+}
+/* Keep the real tabs, but expose the scroll state that cw-lab-notebook.js
+ * already maintains. The small brass-edged leather chevrons are visual cues,
+ * not controls, so swipe, tab clicks and keyboard navigation stay unchanged. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::before,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::after {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  width: 24px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #bd9659;
+  border-radius: 3px;
+  background: linear-gradient(#594230f2,#302219f2);
+  color: #f2d28d;
+  box-shadow: 0 1px 4px #120a07aa, inset 0 0 0 1px #2a190e;
+  font: 700 20px/1 var(--cw-b03-heading-font);
+  text-shadow: 0 1px 2px #100905;
+  pointer-events: none;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::before {
+  content: '\2039';
+  left: 0;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::after {
+  content: '\203a';
+  right: 0;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections.can-scroll-left::before,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections.can-scroll-right::after {
+  display: grid !important;
+}
+/* Build 281 current-render repair: the scroll cue used to cover the fourth
+ * tab, leaving a stray "Wi" fragment beside the chevron. Reserve a real cue
+ * gutter at both edges and size complete tab stops into the remaining strip.
+ * This changes presentation only; the retained swipe, click and keyboard tab
+ * handlers above continue to own navigation. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs {
+  box-sizing: border-box;
+  padding-inline: 30px !important;
+  scroll-padding-inline: 30px !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab] {
+  flex-basis: calc((100% - 4px) / 2) !important;
+}
+@media (min-width: 650px) {
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab] {
+    flex-basis: calc((100% - 8px) / 3) !important;
+  }
+}
+/* Paper remains a scrollable live-text host. P12 save, navigation and chapter
+ * state are neither copied nor painted into the background images. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-paper {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: transparent !important;
+  border: 0 !important;
+  border-image: none !important;
+  box-shadow: none !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  padding: 9px 8px 16px;
+  color: var(--cw-b03-ink) !important;
+  font: 400 1.0625rem/1.48 var(--cw-b03-body-font) !important;
+  overflow-wrap: break-word;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content .lab-nb-entry,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-detail p,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content textarea {
+  color: #2d231a !important;
+  font: 400 1.0625rem/1.48 var(--cw-b03-body-font) !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(#nb-content .lab-nb-entry strong,#nb-content .lab-nb-detail h3) {
+  color: #2e2015 !important;
+  font: 600 1.21rem/1.28 var(--cw-b03-heading-font) !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(#nb-content .lab-nb-read-hint,#nb-content small) {
+  font: italic 400 1rem/1.4 var(--cw-b03-body-font) !important;
+  color: #63452c !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content button:not([data-tab]) {
+  min-height: 44px !important;
+}
+
+/* Purisa was installed in the v0.5 style under CW Notebook Hand. Explicitly
+ * override the places where its !important rules survive inherited typography:
+ * notes prompt, save status, Back/Save buttons, and button captions. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes > p,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-status {
+  font: 400 1rem/1.45 var(--cw-b03-body-font) !important;
+  color: #392719 !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(#nb-save,#lab-nb-back) {
+  font: 600 1.05rem/1.2 var(--cw-b03-heading-font) !important;
+  color: #fff1d1 !important;
+  text-shadow: 0 1px 2px #160c08;
+  background: url('assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat !important;
+  border: 0 !important;
+  border-image: none !important;
+  border-radius: 0 !important;
+  min-height: 48px !important;
+  min-width: 108px !important;
+  padding: 9px 16px 9px 22px !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(#nb-save,#lab-nb-back):active {
+  background-image: url('assets/jimmy-b03-v13/close-strap-pressed.exact.webp') !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(#nb-save,#lab-nb-back):focus-visible {
+  outline: 3px solid #f0cd81 !important;
+  outline-offset: -6px !important;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content textarea {
+  background: #e9d3a6c9 !important;
+  border: 1px solid #99794b !important;
+  border-radius: 3px;
+  min-height: 100px;
+  font-family: var(--cw-b03-body-font) !important;
+}
+
+/* Source-authored paper and leather remain the same in landscape.
+ * Retain Buddy's generous landscape writing width, but exchange the smooth
+ * inherited cover for the actual blank aged panorama. */
+@media (orientation: landscape) and (max-height: 550px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+   width: min(800px, var(--cw-nb-available-width));
+   height: var(--cw-nb-available-height);
+   aspect-ratio: auto;
+   border: 0 !important;
+   border-image: none !important;
+   padding: 11px 6.2% max(90px, 31vh) 7% !important;
+   background: url('assets/jimmy-b03-v13/notebook-landscape.webp') center/100% 100% no-repeat !important;
+   box-shadow: none !important;
+   filter: drop-shadow(0 8px 12px #0009);
+   grid-template-rows: minmax(44px,auto) auto minmax(0,1fr) !important;
+ }
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive::before {display:none !important;}
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content {padding:2px 8px 6px;}
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content.lab-nb-notes {
+   min-height: 0;
+   overflow-y:auto !important;
+   grid-template-rows:auto minmax(64px,1fr) auto;
+ }
+}
+@media (orientation:portrait) and (min-height:500px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+   position:relative;
+   padding: calc(var(--cw-nb-width) * .045) 12% calc(var(--cw-nb-width) * .5078125 + 6px) 12%;
+ }
+ /* v0.5 art pseudo-element takes the updated variable without changing
+    the height-safe nine-slice or disabling live text. */
+}
+@media (max-width:330px) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header h2 {font-size:1.06rem !important;}
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button[data-tab] {min-width:86px !important; padding-inline:9px !important;}
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content {padding-inline:5px;}
+}
+@media (prefers-reduced-motion: reduce) {
+ body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs {scroll-behavior:auto !important;}
+}

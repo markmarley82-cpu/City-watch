@@ -1,0 +1,33 @@
+/* Scoped live UI. Paint is decoration; all words and controls are real DOM. */
+.cw-oath,.cw-oath *{box-sizing:border-box}
+.cw-oath{position:fixed;inset:0;z-index:12000;overflow:auto;overscroll-behavior:contain;background:#0b1820 url('assets/watch-desk.webp') center top/cover no-repeat;color:#302217;font:17px/1.5 'Iowan Old Style',Baskerville,Georgia,serif;padding:max(12px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));isolation:isolate;-webkit-text-size-adjust:100%;}
+.cw-oath::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(#07131d18,#07131d70);pointer-events:none}
+.cw-oath-wrap{width:min(100%,620px);margin:0 auto}
+.cw-oath-brand{display:flex;align-items:center;justify-content:center;gap:12px;min-height:74px;margin:0 8px 24px;padding:10px 16px;color:#e5c798;text-align:center;background:#172026;border:2px solid #8b6740;border-radius:8px;box-shadow:0 6px 14px #0006,inset 0 0 12px #0008}
+.cw-oath-brand>span{font-size:32px;color:#a9997a}.cw-oath-brand strong{display:block;font-size:clamp(26px,7.5vw,40px);letter-spacing:.045em;line-height:1.05}.cw-oath-brand small{display:block;font-size:12px;letter-spacing:.22em;margin-top:5px}
+.cw-oath-form{margin:0;padding:0}
+.cw-oath-paper{position:relative;border:38px solid transparent;border-image:url('assets/oath-folio.webp') 150 fill / 38px stretch;margin:0;background:none;filter:drop-shadow(0 5px 12px #0008);padding:0 8px 5px;}
+.cw-oath-heading{text-align:center;margin:0 0 18px}.cw-oath-lantern{display:none}.cw-oath-heading p{font-weight:bold;font-size:13px;letter-spacing:.055em;margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid #76613e}.cw-oath-heading h1{font-size:clamp(28px,7vw,38px);line-height:1.1;margin:10px 0 0;color:#241b13;font-weight:700}.cw-oath-heading h1:focus{outline:none}
+.cw-oath-words{font-size:1em;line-height:1.55;margin:0;text-wrap:pretty;color:#2d2117;overflow-wrap:break-word}
+.cw-oath-signature{margin-top:24px}.cw-oath-signature label{display:block;font-weight:bold;font-size:16px}.cw-oath-signature input{display:block;border:0;border-bottom:2px solid #614b31;border-radius:0;background:transparent;color:#1f3140;width:100%;min-height:54px;padding:6px 2px;font:italic 27px/1.3 'Apple Chancery','URW Chancery L',Georgia,serif;box-shadow:none;outline-offset:4px;}
+.cw-oath-signature input:focus-visible{outline:3px solid #37627b;background:#fff4ce70}.cw-oath-signature input[aria-invalid=true]{border-bottom-color:#873b2b}
+.cw-oath #cw-oath-help{font-size:13px;line-height:1.4;margin:9px 0 0;color:#5b4833}.cw-oath #cw-oath-error{font-size:14px;line-height:1.4;margin:7px 0 0;color:#6a261b}.cw-oath #cw-oath-error:empty{display:none}
+.cw-oath-actions{padding:14px 12px 0}.cw-oath button{font:700 18px/1.25 'Iowan Old Style',Baskerville,Georgia,serif;cursor:pointer;touch-action:manipulation;min-height:52px;width:100%;white-space:normal;}
+.cw-oath-submit{border:14px solid transparent;border-image:url('../assets/jimmy-ui-v014/leather-pad.webp') 210 fill / 14px stretch;background:none;color:#f5dfb4;padding:9px 12px;text-shadow:0 1px 2px #000;filter:drop-shadow(0 3px 4px #0008)}
+.cw-oath-submit:disabled{color:#c9b899;filter:brightness(.8);cursor:default}.cw-oath-submit:not(:disabled):hover{filter:brightness(1.12)}.cw-oath-submit:not(:disabled):active{transform:translateY(1px)}
+.cw-oath-cancel{background:#142531e8;border:1px solid #8d7553;border-radius:5px;color:#e6d1a9;margin-top:10px;font-size:15px!important}.cw-oath [hidden]{display:none!important}
+.cw-oath button:focus-visible{outline:3px solid #e7c77f;outline-offset:3px}.cw-oath-footer{text-align:center;color:#eddbb6;font-style:italic;margin:12px 0 0;font-size:15px;text-shadow:0 1px 3px #000}
+@media(max-width:359px){.cw-oath{font-size:16px;padding-inline:6px}.cw-oath-paper{border-width:29px;border-image-width:29px;padding-inline:2px}.cw-oath-brand{margin-inline:2px;gap:7px;padding-inline:8px}.cw-oath-brand>span{display:none}.cw-oath-heading p{font-size:11px}.cw-oath-actions{padding-inline:6px}.cw-oath button{font-size:16px}.cw-oath-brand small{font-size:10px}}
+@media(min-width:960px){.cw-oath{padding-top:24px;padding-bottom:24px}.cw-oath-wrap{max-width:660px}.cw-oath-brand{margin-bottom:22px}.cw-oath-paper{border-width:44px;border-image-width:44px;padding-inline:14px}.cw-oath{font-size:18px}}
+@media(orientation:landscape) and (max-height:520px){.cw-oath{padding-top:10px}.cw-oath-wrap{width:min(96%,820px)}.cw-oath-brand{min-height:54px;max-width:440px;margin:0 auto 10px}.cw-oath-brand strong{font-size:27px}.cw-oath-brand small{font-size:10px}.cw-oath-paper{border-width:32px;border-image-width:32px}.cw-oath-heading{margin-bottom:12px}.cw-oath-heading h1{font-size:28px}.cw-oath-signature{margin-top:16px}}
+@media(prefers-reduced-motion:reduce){.cw-oath *{scroll-behavior:auto;transition:none;animation:none}}
+@media(forced-colors:active){.cw-oath{background:Canvas;color:CanvasText}.cw-oath-paper{border:2px solid CanvasText;background:Canvas}.cw-oath button,.cw-oath input{border:2px solid ButtonText;color:ButtonText}.cw-oath-words,.cw-oath-heading h1{color:CanvasText}}
+
+/* QUILL oath badge v1.0: decorative asset only; signing and text unchanged. */
+.cw-oath .cw-oath-lantern{display:block;width:clamp(76px,20vw,104px);aspect-ratio:1302/1208;margin:0 auto 10px;background:url('assets/watch-badge-star.webp') center/contain no-repeat;font-size:0;line-height:0;pointer-events:none}
+@media(orientation:landscape) and (max-height:520px){.cw-oath .cw-oath-lantern{width:64px;margin-bottom:5px}}
+
+/* Keep the return action in the approved parchment control family. */
+.cw-oath .cw-oath-cancel{border:0;border-radius:0;background:transparent url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100% no-repeat;color:#342519;text-shadow:none}
+.cw-oath .cw-oath-cancel:active{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');color:#fff1cf}
+@media(forced-colors:active){.cw-oath .cw-oath-cancel{background:ButtonFace;color:ButtonText;border:2px solid ButtonText}}

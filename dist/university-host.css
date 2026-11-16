@@ -1,0 +1,14 @@
+#cw-university-host{position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;background:#e7d6b0;color:#302318;font:17px Georgia,serif;overflow:hidden;box-sizing:border-box}#cw-university-host::backdrop{background:#071018db}#cw-university-host>header{height:58px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:5px 12px;background:#302219 url('assets/jimmy-ui-ornate-v1/leather-pad.webp') center/cover;border-bottom:2px solid #a17d45;color:#f6e5c4}#cw-university-host h2{font:600 19px Georgia;margin:0}#cw-university-host button{font:16px Georgia;min-height:46px;min-width:48px;padding:8px 16px;border:0;background:#d7bc87 var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100%;color:#342519;cursor:pointer}#cw-university-host button:focus-visible{outline:3px solid #e9c46f;outline-offset:-3px}#cw-university-host iframe{display:block;width:100%;height:calc(100dvh - 58px);border:0;background:#171810}#cw-university-host .cw-university-recovery{position:absolute;z-index:2;inset:62px 12px auto;max-height:calc(100% - 74px);overflow:auto;display:grid;gap:8px;justify-items:end;pointer-events:none}#cw-university-status{justify-self:stretch;margin:0;padding:12px;pointer-events:auto;background:#ead8b5 url('assets/lab01-notebook/page_portrait.webp') center/cover;border:1px solid #987746;box-shadow:0 3px 15px #0007}#cw-university-retry{pointer-events:auto}#cw-university-host [hidden]{display:none!important}@media(max-width:450px){#cw-university-host>header{padding:5px 8px}#cw-university-host h2{font-size:17px}#cw-university-host button{font-size:14px;padding:8px 10px}}@media(orientation:landscape) and (max-height:500px){#cw-university-host>header{height:50px}#cw-university-host .cw-university-recovery{top:54px;max-height:calc(100% - 66px)}#cw-university-host iframe{height:calc(100dvh - 50px)}}
+
+/* Match the city shop header's leather and stitched action strap. */
+#cw-university-host #cw-university-leave {
+  background: #3d281c var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center / 100% 100% no-repeat;
+  color: #f6e5c4;
+}
+
+#cw-university-host:not([data-loading])>header{background:#18251f;border-color:#776747}
+#cw-university-host:not([data-loading]) #cw-university-leave{
+ border:1px solid #a68b61;border-radius:6px;background:#29382f;color:#f3e3c2;
+}
+
+#cw-university-host:not([data-loading])>header button{border:1px solid #a08658;border-radius:6px;background:#29382f;color:#f3e3c2}

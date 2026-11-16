@@ -1,0 +1,24 @@
+{
+  "name": "Ankh-Morpork The Shades \u2014 Separated Sprite Pack",
+  "version": "1.0",
+  "district": "The Shades",
+  "contains_game_code": false,
+  "individual_pngs": 118,
+  "atlases": 5,
+  "entrypoints": {
+    "individual_sprites": "sprites/",
+    "assets": "metadata/sprites.json",
+    "atlas_frames": "metadata/atlases.json",
+    "spawn_weights": "metadata/spawn_groups.json"
+  },
+  "sources": [
+    {
+      "file": "grimy_isometric_slum_sprite_sheet.png",
+      "role": "architecture"
+    },
+    {
+      "file": "grimdark_slum_isometric_props_sheet.png",
+      "role": "street_props"
+    }
+  ]
+}

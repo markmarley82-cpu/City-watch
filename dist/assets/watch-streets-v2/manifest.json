@@ -1,0 +1,96 @@
+{
+  "id": "WATCH-002",
+  "sourceBase": "8e72fb3bca0cb60b1458ed01bbf598304efbb6e6",
+  "scope": "Second adjoining Watch pair; four unique premises total, neighbourhood unfinished",
+  "classification": "Original unnamed trade premises, not canon address, resident or quest",
+  "replacesQuarterIds": [
+    "west-street-1",
+    "west-inner-1"
+  ],
+  "remainingQuarterTemplates": 40,
+  "instances": [
+    {
+      "id": "WATCH-002:joined-workshops",
+      "kind": "joined-premises",
+      "file": "joined-workshops.webp",
+      "dimensions": [
+        332,
+        423
+      ],
+      "anchor": [
+        183,
+        378
+      ],
+      "p": [
+        120.5,
+        129.5
+      ],
+      "rect": [
+        115,
+        125,
+        6,
+        5
+      ],
+      "doorHeight": 65,
+      "premises": 2,
+      "privateRearYard": true,
+      "mirror": false,
+      "sha256": "5fe017049384670713291ff81e854806ccef5c8f4903b8c5706481e6ea2d5a01",
+      "lights": [
+        [
+          247.543429844098,
+          281.9202219169678
+        ],
+        [
+          297.27616926503345,
+          265.3176586692984
+        ]
+      ]
+    }
+  ],
+  "source": {
+    "file": "art-source/street-by-street/watch-002/joined-workshops-source.png",
+    "sha256": "c11bb71c7a8293b662516a014b1514cd000f70353c64a6c2c64ef6cd0252dd8b",
+    "front": [
+      594,
+      964
+    ],
+    "left": [
+      42,
+      702
+    ],
+    "right": [
+      1492,
+      786
+    ],
+    "door": [
+      [
+        1258,
+        826
+      ],
+      [
+        1258,
+        659
+      ]
+    ],
+    "verticalScale": 0.38922155688622756,
+    "planes": [
+      {
+        "lo": 0,
+        "hi": 594,
+        "a": 0.30434782608695654,
+        "b": -0.03256530417426018
+      },
+      {
+        "lo": 594,
+        "hi": 1536,
+        "a": 0.155902004454343,
+        "b": -0.0008001813744448656
+      }
+    ]
+  },
+  "newNavigation": false,
+  "newDoors": false,
+  "creativeAcceptance": false,
+  "physicalPhoneVerified": false
+}

@@ -1,0 +1,185 @@
+{
+  "id": "E045-N568-ORIGINAL-20261107",
+  "status": "ISOLATED_ART_RECEIVER_NOT_LIVE",
+  "base": "d59cb1f9c670349b56ead18f17839e0cd79c3ab8",
+  "classification": "Original unnamed dwelling; no new canonical address, shop, interior or cast",
+  "dimensions": [
+    330,
+    330
+  ],
+  "rect": [
+    54.358,
+    199.502,
+    2.06,
+    2.698
+  ],
+  "worldAnchor": [
+    56.368,
+    202.14
+  ],
+  "anchor": [
+    155.52,
+    282.315
+  ],
+  "scale": 0.2225,
+  "crop": [
+    260,
+    110,
+    640,
+    1160
+  ],
+  "offset": [
+    95,
+    30
+  ],
+  "door": {
+    "topSource": [
+      400,
+      880
+    ],
+    "footSource": [
+      400,
+      1178
+    ],
+    "height": 66.305,
+    "contact": [
+      55.31907142857143,
+      202.14
+    ],
+    "stance": [
+      56,
+      203,
+      "E045"
+    ],
+    "manualUncertaintySourcePx": 4
+  },
+  "foundation": [
+    {
+      "source": [
+        284,
+        1126
+      ],
+      "native": [
+        100.34,
+        256.06
+      ],
+      "world": [
+        54.44496428571429,
+        202.18767857142856
+      ]
+    },
+    {
+      "source": [
+        532,
+        1244
+      ],
+      "native": [
+        155.52,
+        282.315
+      ],
+      "world": [
+        56.368,
+        202.14
+      ]
+    },
+    {
+      "source": [
+        862,
+        1078
+      ],
+      "native": [
+        228.945,
+        245.38
+      ],
+      "world": [
+        56.36005357142857,
+        199.50973214285713
+      ]
+    },
+    {
+      "source": [
+        614,
+        960
+      ],
+      "native": [
+        173.765,
+        219.125
+      ],
+      "world": [
+        54.43701785714286,
+        199.5574107142857
+      ]
+    }
+  ],
+  "windows": [
+    [
+      127.93,
+      138.8025
+    ],
+    [
+      127.485,
+      173.735
+    ],
+    [
+      206.25,
+      149.9275
+    ]
+  ],
+  "parts": [
+    "body-front.png",
+    "body-return.png",
+    "door-contact.png",
+    "threshold-plinth.png",
+    "roof-foreground.png"
+  ],
+  "roofHiddenEnabled": false,
+  "actorHeight": 60,
+  "projection": "[28*(x-y),14*(x+y)]",
+  "source": {
+    "file": "source-door-corrected.png",
+    "sha256": "2d30d53ac6aa6d75efe1f5f5811f0cd1893913ba3ba30cafc9fd87d12b4b784f",
+    "generation": "Built-in image generation, exact geometry guide and retained S569 material reference; one targeted door-height correction",
+    "unique": true,
+    "uniformExport": true
+  },
+  "checks": {
+    "partsReconstructMaster": true,
+    "foundationInsideCapacity": true,
+    "humanDoorScale": true
+  },
+  "limits": [
+    "Rear foundation inferred; painted contacts manually measured",
+    "Candidate source-rendered, not published or device-tested",
+    "Buddy must integrate source geometry, affected-save recovery, exterior contact and both atlas variants"
+  ],
+  "files": [
+    {
+      "file": "body-front.png",
+      "sha256": "08fc2823aafff41554edcac6d717601eb2be0df89d280c35d2f262472359009c"
+    },
+    {
+      "file": "body-return.png",
+      "sha256": "67f4e28c8e270d2395fd6612dee19d0e4629c99da06c165cc4dcbe77dd8374a6"
+    },
+    {
+      "file": "door-contact.png",
+      "sha256": "f57a53b806b3ff18f0526671d9376215eca4975780132f974600646d720178f4"
+    },
+    {
+      "file": "full-day.png",
+      "sha256": "1b759a72c13113149f39ed68c6df8e95ae4124eaedc4f0761b39b90dea7a17b5"
+    },
+    {
+      "file": "roof-foreground.png",
+      "sha256": "8d2e725f59d2d756c507e1392600852ae523eb30813677a0fe470e2600fe8ff3"
+    },
+    {
+      "file": "roof-mask.png",
+      "sha256": "c283dd6aa58ba923147a62efc12d5a2efa7121bf8e1005d332b588353e64cbf0"
+    },
+    {
+      "file": "threshold-plinth.png",
+      "sha256": "943641f9898978b5a0b059c416a9b6774a7314a1c07f5b11c569a1800233cb1a"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "E045-INFILL-002",
+  "classification": "Original unnamed timber/plaster house; not canonical address, business, cast, interior or quest",
+  "asset": {
+    "file": "russet-house.webp",
+    "dimensions": [
+      232,
+      232
+    ],
+    "anchor": [
+      121,
+      218
+    ],
+    "visualDoorHeight": 62,
+    "actorHeight": 60,
+    "uniformMasterScale": 0.185,
+    "sha256": "8820a111a5ab6d7e296e6cd96a40bcb08bd7cae2200d5fbe4866e2d25f1c7e50"
+  },
+  "oldRect": [
+    29.593,
+    211.172,
+    3.663,
+    2.974
+  ],
+  "rect": [
+    29.2,
+    210.45,
+    4.056,
+    3.696
+  ],
+  "p": [
+    32.756,
+    213.646
+  ],
+  "retiredParcels": [
+    658
+  ],
+  "originalGraphChanged": false,
+  "localFootprintChanged": true,
+  "newInteractiveDoors": false,
+  "creativeAcceptance": false,
+  "generation": {
+    "tool": "built-in image generation",
+    "uniqueAsset": true,
+    "noMirrorRecolourOrLegacyReuse": true,
+    "brief": "One unique russet plaster and weathered timber house with deep walls, stone foundation, clay tile roof, loft/dormer, chimney and human-scale plank door. Geometry guide used after two unguided angle corrections failed; fourth and final generation changes only the door height. Final alpha retained, export uniformly0.185 without affine stretching.",
+    "foundationSourceContacts": [
+      [
+        148.29,
+        817.05
+      ],
+      [
+        655.01,
+        1176.47
+      ],
+      [
+        1104.79,
+        952.57
+      ]
+    ],
+    "doorVerticalSourceEndpoints": [
+      707.06,
+      1043.9
+    ],
+    "projectionLimit": "Painterly ground contact deviates from exact guide; conservative fitted rect encloses measured contacts and inferred rear corner. No claim of exact artwork2:1 foundation edges."
+  }
+}

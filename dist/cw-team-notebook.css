@@ -1,0 +1,136 @@
+@font-face{font-family:"CW Notebook Hand";src:url("assets/team-v05/Purisa.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"CW Notebook Hand";src:url("assets/team-v05/Purisa-Bold.woff") format("woff");font-weight:700;font-display:swap}
+/* JIMMY B03-UI v1.0 — scoped ART/FIT RECIPE FOR BUDDY, not deployed.
+ * Target: exact Lab01 v0.4. Load after existing Notebook styles.
+ * No hitbox, dimensions, navigation, data or persistence changes.
+ */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook {
+  --cw-ui-book-art: url('assets/team-v05/notebook-frame.webp');
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button {
+  background: var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center / 100% 100% no-repeat !important;
+  color: #342519 !important;
+  box-shadow: none;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button.selected {
+  background: var(--cw-watch-control-selected,linear-gradient(#70543a,#4e3728)) center / 100% 100% no-repeat !important;
+  color: #fff1cf !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  box-shadow: none;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button:focus-visible {
+  outline: 2px solid #452719 !important;
+  outline-offset: -5px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button.selected:focus-visible {
+  outline-color: #f6dca8 !important;
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+    border-image-source: url('assets/team-v05/cover_landscape_short.exact.webp');
+  }
+}
+
+/* JIMMY / B03-UI / HANDWRITING v1.0 — presentation recipe for Buddy.
+   Mark: "Make the font look more like handwriting but easy to comprehend".
+   Target: Lab01 v0.4 Notebook DOM; load AFTER dynamic cw-lab-notebook.css
+   and the separately delivered B03 art correction stylesheet.
+   FONT DEPENDENCY: acquire Purisa Regular + Bold from the upstream TLWG
+   project and register the web family as "CW Notebook Hand". Font binaries
+   are not included here. "Purisa" is the locally tested equivalent.
+   Production integration, font loading/cache and device QA remain Buddy's.
+*/
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook {
+  --cw-notebook-hand: "CW Notebook Hand", "Purisa", "Segoe Print", "Bradley Hand", sans-serif;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content .lab-nb-entry,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook textarea {
+  font-family: var(--cw-notebook-hand) !important;
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.55 !important;
+  letter-spacing: normal !important;
+  font-synthesis: none;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book h2,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-detail h3,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-entry strong {
+  font-family: var(--cw-notebook-hand) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  line-height: 1.35 !important;
+  letter-spacing: normal !important;
+  overflow-wrap: break-word;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book button,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close {
+  font-family: var(--cw-notebook-hand) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  line-height: 1.35 !important;
+  letter-spacing: normal !important;
+}
+/* No transformed, distressed or artificially slanted live text. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book small,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-read-hint,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-status,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-notes > p {
+  font-family: var(--cw-notebook-hand) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.5 !important;
+}
+/* Font metrics are wider: allow labels/header to grow; never scale text down.
+   Retain the existing horizontal tab strip, its handlers and min 44px targets. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button {
+  width: auto;
+  min-width: 84px;
+  height: auto;
+  min-height: 44px !important;
+  white-space: nowrap;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book.lab-nb-responsive {
+  grid-template-rows: minmax(44px, auto) auto minmax(0, 1fr);
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close {
+  width: auto;
+  min-width: 56px;
+  min-height: 44px !important;
+}
+/* Existing selected artwork, underline and focus rings are intentionally kept.
+   No new controls, wording, handlers, save calls or persistent preferences. */
+/* Allow the title and Close to wrap onto separate rows when enlarged text
+   cannot fit together. The inherited h2 flex box otherwise clips the title. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 5px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header h2 {
+  display: block;
+  flex: 1 1 7.2em;
+  min-width: 0;
+  min-height: 0;
+  overflow-wrap: anywhere;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* Buddy integration: expose every complete label; no clipped neighbouring tabs. */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;overflow:visible;max-width:100%;padding:2px 0 6px}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button{width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;margin:0;padding:8px 5px}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::before,
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-sections::after{display:none!important}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close{background-image:var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22))!important;color:#f6e5c4!important}
+@media(orientation:landscape) and (min-width:650px) and (max-height:550px){body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs{grid-template-columns:repeat(6,minmax(0,1fr))}}

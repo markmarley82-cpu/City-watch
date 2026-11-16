@@ -1,0 +1,247 @@
+/* Jimmy: carry the approved Watch materials through the newer P21 utility UI.
+   Existing Notebook, recruit folio, inventory and combat art remain authoritative. */
+body.cw-phone-map #app{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)!important;box-sizing:border-box}
+body.cw-phone-map #p21-orders-bar{height:auto;min-height:48px;flex:none;overflow:visible}
+body.cw-phone-map #p21-track{min-width:44px;min-height:44px;white-space:normal}
+body.cw-phone-map :is(.city-header,#p21-hud,#p21-orders-bar,.city-dispatch){background-color:#30281f;background-image:linear-gradient(105deg,#493226,#2d241d);color:#f1dfb9;border-color:#937047;font-family:Georgia,'Times New Roman',serif}
+body.cw-phone-map #p21-hud{font-size:12px}
+body.cw-phone-map :is(.city-header button,#p21-track){background:#3d281c var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100%;border:0;border-radius:0;color:#f6e5c4;font-family:Georgia,'Times New Roman',serif;text-shadow:0 1px 2px #1b100a}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog),dialog.cw-music-panel{
+ --watch-ink:#342a20;box-sizing:border-box;max-width:calc(100vw - 12px);max-height:calc(100dvh - max(12px,env(safe-area-inset-top)) - max(12px,env(safe-area-inset-bottom)));
+ border:20px solid transparent;border-image:url('assets/clothing-ui-v12/folio-frame.webp') 210 fill stretch;border-radius:0;padding:10px;
+ background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;color:var(--watch-ink);font:16px/1.4 Georgia,'Times New Roman',serif;overflow:auto;overscroll-behavior:contain;scroll-padding:72px 0 12px
+}
+body.cw-phone-map .cw-phone-menu{width:min(460px,calc(100vw - 12px))}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog)>header,dialog.cw-music-panel>header{position:sticky;top:-10px;z-index:2;align-items:center;gap:8px;background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;padding:6px 0 8px;border-bottom:1px solid #8c674766;min-height:54px}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog) :is(h2,p,strong),dialog.cw-music-panel :is(h2,p,strong){overflow-wrap:anywhere}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog) h2,dialog.cw-music-panel h2{min-width:0;font:italic 700 22px/1.15 Georgia,serif}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog) button,dialog.cw-music-panel button{min-width:44px;min-height:44px;max-width:100%;border:0;border-radius:0;background:transparent var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100%;padding:10px 12px;color:#342a20;font:15px/1.25 Georgia,serif;white-space:normal;text-shadow:none}
+body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog)>header button,dialog.cw-music-panel>header button{flex:none;background-image:var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22));color:#f6e5c4;text-shadow:0 1px 2px #1b100a}
+body.cw-phone-map :is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog) :is(button,select):focus-visible,dialog.cw-music-panel :is(button,select,input,summary):focus-visible{outline:3px solid #315c76;outline-offset:-3px}
+body.cw-phone-map #p21-duty-actions,.cw-phone-extra-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.cw-phone-map #p21-duty-actions>p{grid-column:1/-1;margin:4px 0}
+body.cw-phone-map .cw-phone-menu .city-camera button{min-width:0;white-space:normal}
+body.cw-phone-map :is(#p21-engine-dialog,#p21-combat-dialog,#room-dialog)>header{background:#3d281c url('assets/jimmy-ui-ornate-v1/leather-pad.webp') center/cover;color:#f6e5c4;font:15px/1.2 Georgia,serif;min-height:52px;padding:3px 7px}
+body.cw-phone-map :is(#p21-engine-dialog,#p21-combat-dialog,#room-dialog)>header strong{flex:1;min-width:0;overflow-wrap:anywhere}
+body.cw-phone-map :is(#p21-engine-dialog,#p21-combat-dialog,#room-dialog)>header button{flex:none;max-width:55%;min-height:44px;white-space:normal;font:14px Georgia,serif}
+body.cw-phone-map :is(#p21-engine-dialog,#p21-combat-dialog,#room-dialog){border-radius:0;background:#30251c;border-color:#937047}
+html body #character-studio :is(.kit-inspect,.kit-lore)>summary{display:flex;align-items:center;min-height:44px;cursor:pointer}
+.cw-music-panel summary,.cw-phone-loading summary{min-height:44px;padding:10px 0;cursor:pointer}
+.cw-phone-menu select,dialog.cw-music-panel select,#atlas-dialog select{font-size:16px}
+@media(max-width:359px){
+ body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog),dialog.cw-music-panel{border-width:14px;padding:7px}
+ body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog)>header,dialog.cw-music-panel>header{top:-7px}
+ body.cw-phone-map dialog:is(.cw-phone-menu,#p21-duty-dialog,#atlas-dialog,#place-dialog) h2,dialog.cw-music-panel h2{font-size:20px}
+ body.cw-phone-map #p21-duty-actions button,.cw-phone-extra-actions button{font-size:14px;padding:8px}
+ .shell>.brand{gap:5px;padding-inline:6px}
+ .shell>.brand .cw-training-return{width:44px;min-width:44px;flex:none;justify-content:center}
+ .shell>.brand .cw-training-return span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .shell>.brand .brand-copy{min-width:0;overflow:hidden}
+ .shell>.brand .eyebrow{font-size:clamp(11px,3.8vw,14px);letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .shell>.brand h1{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .shell>.brand button{padding-inline:8px;gap:3px}
+}
+@media(orientation:landscape) and (max-height:550px){body.cw-phone-map #p21-orders-bar{min-height:44px}}
+/* The header labels may be short; their actual hit areas still need 44px. */
+body.cw-phone-map #app>.city-header>button{min-width:44px;flex:none}
+body.cw-phone-map #app>.city-header>div{flex:1;min-width:0}
+body.cw-phone-map #app>.city-header small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+dialog.cw-music-panel a{min-width:44px;min-height:44px}
+
+/* A clasp belongs on its button; header rails use the continuous leather. */
+body.cw-phone-map :is(#p21-engine-dialog,#p21-combat-dialog,#room-dialog)>header button{border:0;border-radius:0;background:transparent var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100% no-repeat;color:#f6e5c4;text-shadow:0 1px 2px #1b100a;padding:8px 12px;min-width:96px}
+
+/* The campaign fallback used a rounded blue system card after the rest of the
+   game had moved to the approved Watch folio. Keep recovery readable, but use
+   the same parchment, leather and type as the Notebook and oath. */
+html body.cw-lab-painted-ui #cw-boot{
+ background:#17130f;
+ color:#342a20;font:16px/1.45 Georgia,'Times New Roman',serif;
+ padding:max(12px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));
+}
+html body.cw-lab-painted-ui #cw-boot .boot-card{
+ box-sizing:border-box;width:min(100%,500px);max-width:500px;max-height:calc(100dvh - max(24px,env(safe-area-inset-top)) - max(24px,env(safe-area-inset-bottom)));
+ overflow:auto;overscroll-behavior:contain;border:20px solid transparent;border-image:url('assets/clothing-ui-v12/folio-frame.webp') 210 fill stretch;border-radius:0;
+ background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;color:#342a20;padding:12px;box-shadow:0 20px 65px #0009;
+}
+html body.cw-lab-painted-ui #cw-boot h1{color:#342317;font:italic 700 27px/1.15 Georgia,'Times New Roman',serif;margin:8px 0 10px}
+html body.cw-lab-painted-ui #cw-boot :is(p,small){color:#4d3b29;overflow-wrap:anywhere}
+html body.cw-lab-painted-ui #cw-boot progress{height:16px;accent-color:#6c4930}
+html body.cw-lab-painted-ui #cw-boot pre{box-sizing:border-box;max-width:100%;color:#f3e4c5;background:#30241d;border:1px solid #8d6635;border-radius:0}
+html body.cw-lab-painted-ui #cw-boot button{
+ box-sizing:border-box;min-width:44px;min-height:48px;max-width:100%;border:0;border-radius:0;
+ background:transparent var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100% no-repeat;color:#f6e5c4;
+ font:700 15px/1.25 Georgia,'Times New Roman',serif;text-shadow:0 1px 2px #1b100a;white-space:normal;
+}
+html body.cw-lab-painted-ui #cw-boot button.secondary{
+ background-image:var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a));color:#342a20;text-shadow:none;
+}
+html body.cw-lab-painted-ui #cw-boot button:focus-visible{outline:3px solid #315c76;outline-offset:-3px}
+@media (orientation:landscape) and (max-height:520px){
+ html body.cw-lab-painted-ui #cw-boot{align-items:flex-start;padding-block:6px}
+ html body.cw-lab-painted-ui #cw-boot .boot-card{max-height:calc(100dvh - 12px);border-width:14px;padding:8px}
+ html body.cw-lab-painted-ui #cw-boot h1{font-size:22px;margin-block:4px 7px}
+ html body.cw-lab-painted-ui #cw-boot :is(p,pre){margin-block:7px}
+}
+
+/* Shared Watch controls. Keep each book, newspaper, counter and encounter's
+   own composition; the same action and dismissal must use the same component. */
+:root {
+ --cw-watch-control-font:Georgia,'Times New Roman',serif;
+ --cw-watch-control-ink:#342a20;
+ --cw-watch-control-paper:url('assets/lab01-notebook/page_portrait.webp');
+ --cw-watch-control-action:linear-gradient(#f3e4c4,#dec59a);
+ --cw-watch-control-selected:linear-gradient(#70543a,#4e3728);
+ --cw-watch-control-close:linear-gradient(#5b4231,#3e2b22);
+ --cw-watch-control-close-pressed:linear-gradient(#3e2b22,#513a2b);
+}
+html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) button {
+ box-sizing:border-box;min-width:44px;min-height:48px;max-width:100%;height:auto;
+ padding:10px 12px;border:1px solid #987b53;border-image:none;border-radius:5px;
+ background:transparent var(--cw-watch-control-action) center/100% 100% no-repeat;
+ color:var(--cw-watch-control-ink);font:15px/1.3 var(--cw-watch-control-font);
+ white-space:normal;overflow-wrap:anywhere;text-align:left;text-shadow:none;touch-action:manipulation;
+}
+html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) button[aria-pressed="true"] {
+ background-image:var(--cw-watch-control-selected);color:#fff1cf;
+}
+html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) button:is(:disabled,[aria-disabled="true"]) {
+ opacity:.55;cursor:default;
+}
+html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) button[hidden] {display:none!important;}
+html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) :is(button,select,input,summary):focus-visible {
+ outline:3px solid #315c76;outline-offset:-3px;
+}
+/* Keep the existing nodes, labels and close callbacks, including both reader
+   Close controls and the combat frame's own Notebook/setup dismissal. */
+html body :is(
+ #watch-notebook #nb-close,#cw-recruit-guide #cw-guide-close,#character-studio .kit-close,
+ .cw-watch-menu>header>button,#p13-menu-panel #p13-menu-close,
+ #cw-dossier-panel :is(#cw-dossier-quick-close,#cw-dossier-close),
+ #cw-npc-dialogue .cw-dialogue-close,.cw-npc-dialogue .cw-dialogue-close,
+ #cw-city-services [data-services-close],
+ .cw-news-dialog .cw-news-close,
+ #p21-duty-dialog [data-close-duty],#atlas-dialog #atlas-close,#place-dialog #place-close,
+ dialog.cw-music-panel>header>button,
+ #p21-engine-dialog #p21-engine-close,#p21-combat-dialog #p21-combat-close,#room-dialog #room-return,
+ #notebook-close,#setup-close,.cw-oath .cw-oath-cancel
+) {
+ box-sizing:border-box;min-width:64px!important;min-height:44px!important;height:auto!important;
+ max-width:100%;padding:8px 12px!important;
+ border:1px solid #745438!important;border-image:none!important;border-radius:5px!important;
+ background:transparent var(--cw-watch-control-close) center/100% 100% no-repeat!important;
+ color:#f6e5c4!important;font:600 15px/1.3 var(--cw-watch-control-font)!important;
+ white-space:normal;overflow-wrap:normal;word-break:normal;flex-shrink:0;text-align:center;text-transform:none;letter-spacing:0;
+ text-shadow:0 1px 2px #1b100a!important;box-shadow:none!important;touch-action:manipulation;
+}
+html body :is(
+ #watch-notebook #nb-close,#cw-recruit-guide #cw-guide-close,#character-studio .kit-close,
+ .cw-watch-menu>header>button,#p13-menu-panel #p13-menu-close,
+ #cw-dossier-panel :is(#cw-dossier-quick-close,#cw-dossier-close),
+ #cw-npc-dialogue .cw-dialogue-close,.cw-npc-dialogue .cw-dialogue-close,
+ #cw-city-services [data-services-close],.cw-news-dialog .cw-news-close,
+ #p21-duty-dialog [data-close-duty],#atlas-dialog #atlas-close,#place-dialog #place-close,
+ dialog.cw-music-panel>header>button,
+ #p21-engine-dialog #p21-engine-close,#p21-combat-dialog #p21-combat-close,#room-dialog #room-return,
+ #notebook-close,#setup-close,.cw-oath .cw-oath-cancel
+):not(:disabled):active {background-image:var(--cw-watch-control-close-pressed)!important;}
+html body :is(
+ #watch-notebook #nb-close,#cw-recruit-guide #cw-guide-close,#character-studio .kit-close,
+ .cw-watch-menu>header>button,#p13-menu-panel #p13-menu-close,
+ #cw-dossier-panel :is(#cw-dossier-quick-close,#cw-dossier-close),
+ #cw-npc-dialogue .cw-dialogue-close,.cw-npc-dialogue .cw-dialogue-close,
+ #cw-city-services [data-services-close],.cw-news-dialog .cw-news-close,
+ #p21-duty-dialog [data-close-duty],#atlas-dialog #atlas-close,#place-dialog #place-close,
+ dialog.cw-music-panel>header>button,
+ #p21-engine-dialog #p21-engine-close,#p21-combat-dialog #p21-combat-close,#room-dialog #room-return,
+ #notebook-close,#setup-close,.cw-oath .cw-oath-cancel
+):focus-visible {outline:3px solid #f0d28c!important;outline-offset:-3px!important;}
+@media(max-width:359px),(orientation:landscape) and (max-height:550px) {
+ html body :is(#p21-duty-dialog,#atlas-dialog,#place-dialog,dialog.cw-music-panel) button {
+  font-size:14px;padding:8px 10px;
+ }
+}
+@media(forced-colors:active) {
+ html body :is(#watch-notebook #nb-close,#cw-recruit-guide #cw-guide-close,#character-studio .kit-close,.cw-watch-menu>header>button,#p13-menu-panel #p13-menu-close,#cw-dossier-panel :is(#cw-dossier-quick-close,#cw-dossier-close),#cw-npc-dialogue .cw-dialogue-close,.cw-npc-dialogue .cw-dialogue-close,#cw-city-services [data-services-close],.cw-news-dialog .cw-news-close,#p21-duty-dialog [data-close-duty],#atlas-dialog #atlas-close,#place-dialog #place-close,dialog.cw-music-panel>header>button,#p21-engine-dialog #p21-engine-close,#p21-combat-dialog #p21-combat-close,#room-dialog #room-return,#notebook-close,#setup-close,.cw-oath .cw-oath-cancel) {
+  background:ButtonFace!important;color:ButtonText!important;border:1px solid ButtonText!important;text-shadow:none!important;
+ }
+}
+
+/* Embedded rooms keep one slim host rail above the room viewport. The former
+   overlaid Return control covered the Notebook Close control on phone screens. */
+body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0!important;border:0!important;background:#101c18!important}
+body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]>header{position:absolute;z-index:6;inset:0 0 auto 0;width:100%!important;height:52px!important;min-height:52px!important;padding:4px max(8px,env(safe-area-inset-right)) 4px max(8px,env(safe-area-inset-left))!important;background:#18251f!important;border-bottom:1px solid #8f744b!important;pointer-events:none}
+body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]>header strong{position:static;width:auto;height:auto;min-width:0;overflow:hidden;clip-path:none;white-space:nowrap;text-overflow:ellipsis}
+body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]>header button{pointer-events:auto;max-width:112px!important;width:112px;height:44px!important;min-height:44px!important;max-height:44px!important;padding:4px 8px!important;font-size:12px!important}
+body.cw-phone-map #p21-engine-dialog[data-cw-service="room"] #p21-engine-frame{display:block;height:calc(100% - 52px)!important;width:100%!important;margin-top:52px!important}
+@media(orientation:landscape) and (max-height:550px){
+ body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]>header{height:44px!important;min-height:44px!important;padding-block:0!important}
+ body.cw-phone-map #p21-engine-dialog[data-cw-service="room"]>header button{min-height:44px!important;height:44px!important;max-height:44px!important}
+ body.cw-phone-map #p21-engine-dialog[data-cw-service="room"] #p21-engine-frame{height:calc(100% - 44px)!important;margin-top:44px!important}
+}
+
+/* A retained service book supplies its own current title and Close control.
+   Keep the parent retry/return rail available while loading or on save failure. */
+body.cw-phone-map #p21-engine-dialog[data-cw-book="true"] {width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0!important;border:0!important;background:#101c18!important;}
+body.cw-phone-map #p21-engine-dialog[data-cw-book="true"]>header {display:none!important;}
+body.cw-phone-map #p21-engine-dialog[data-cw-book="true"] #p21-engine-frame {width:100%!important;height:100%!important;}
+
+/* Keep the street visible while the next screen prepares offscreen. */
+body #p21-engine-dialog[data-loading][open],
+body #cw-guild-interior-host[data-loading][open],
+body dialog.cw-interior-opening[data-loading][open]{
+ position:fixed!important;inset:auto 0 max(94px,calc(env(safe-area-inset-bottom) + 80px))!important;
+ margin:0 auto!important;box-sizing:border-box;width:min(360px,calc(100% - 32px))!important;
+ height:max-content!important;padding:4px 6px 4px 12px!important;
+ border:1px solid #9e8053!important;border-radius:8px!important;
+ background:#18251f!important;color:#f3e3c2;
+ display:flex;align-items:center;justify-content:space-between;gap:8px;
+ animation:cw-opening-status 0s .24s both;
+}
+@keyframes cw-opening-status{from{opacity:0}to{opacity:1}}
+body #p21-engine-dialog[data-loading]::backdrop,
+body #cw-guild-interior-host[data-loading]::backdrop,
+body dialog.cw-interior-opening[data-loading]::backdrop{background:transparent;backdrop-filter:none}
+body #p21-engine-dialog[data-loading]>header,
+body dialog.cw-interior-opening[data-loading]>header{display:contents!important}
+body #p21-engine-dialog[data-loading]>header strong,
+body dialog.cw-interior-opening[data-loading] .cw-opening-title{display:none}
+body #p21-engine-dialog[data-loading] #p21-engine-frame,
+body dialog.cw-interior-opening[data-loading]>iframe{
+ position:absolute;width:min(1200px,99vw)!important;height:calc(97dvh - 54px)!important;
+ visibility:hidden;pointer-events:none;
+}
+body #p21-engine-dialog[data-loading] #p21-engine-loading,
+#cw-guild-interior-host[data-loading] .cw-opening-panel p,
+body dialog.cw-interior-opening[data-loading] :is(.cw-opening-panel p,.cw-opening-status){
+ position:static;order:-1;margin:0;padding:0;background:none;color:inherit;font:15px/1.35 Georgia,serif;
+}
+body #p21-engine-dialog[data-loading] #p21-engine-close,
+body #p21-engine-dialog[data-cw-service="talk"] #p21-engine-close,
+body #cw-guild-interior-host[data-loading] .cw-opening-panel button,
+html body dialog.cw-interior-opening[data-loading] :is(header,.cw-opening-panel) button{
+ width:auto!important;max-width:none!important;min-height:44px;
+ border:1px solid #a68b61!important;border-radius:6px!important;padding:6px 10px!important;
+ background:#29382f!important;color:#f3e3c2!important;font:14px Georgia,serif;text-shadow:none;
+}
+body #p21-engine-dialog[data-cw-service="talk"]:not([data-loading])>header{background:#18251f!important}
+body #p21-engine-dialog[data-cw-service="talk"]:not([data-loading]){
+ padding:0!important;background:#18251f!important;border-radius:10px!important;
+}
+body #p21-engine-dialog[data-cw-dialogue]:not([data-loading])>header{display:none!important}
+body #p21-engine-dialog[data-cw-dialogue]:not([data-loading]) #p21-engine-frame{height:100%!important}
+#cw-guild-interior-host .cw-opening-panel,#cw-palace-host .cw-opening-panel{display:none}
+#cw-guild-interior-host[data-loading] .cw-opening-panel,
+#cw-palace-host[data-loading] .cw-opening-panel{
+ display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;
+}
+#cw-guild-interior-host[data-loading]>div,#cw-palace-host[data-loading]>div{
+ position:absolute;inset:0;visibility:hidden;pointer-events:none;overflow:hidden;
+}
+
+body #cw-university-host[data-loading] .cw-opening-panel{
+ position:static;display:flex;align-items:center;flex-wrap:wrap;gap:6px;
+ order:-1;max-height:none;overflow:visible;
+}
+body #cw-university-host[data-loading] .cw-opening-panel p{border:0;box-shadow:none}
+body #cw-university-host[data-loading] .cw-opening-panel button{pointer-events:auto}

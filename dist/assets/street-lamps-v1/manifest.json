@@ -1,0 +1,25 @@
+{
+  "id": "STREET-LAMP-REVIEW-001",
+  "status": "isolated component review; not city placement",
+  "file": "iron-post-day.webp",
+  "dimensions": [
+    68,
+    102
+  ],
+  "anchor": [
+    28,
+    99
+  ],
+  "light": [
+    44.5,
+    32,
+    44.5,
+    98
+  ],
+  "fixtureHeight": 100,
+  "recruitHeight": 60,
+  "sourceSHA256": "eb58250be6ed385c5c9c2580c81932d4d20a5422e3531dd57c9dc8e1dea76c15",
+  "sha256": "11c58c75a98ff0bdf6d593a83740e78e14c412697df9166ad66bf5b2c2402cfd",
+  "creativeApproval": false,
+  "worldPlacements": []
+}

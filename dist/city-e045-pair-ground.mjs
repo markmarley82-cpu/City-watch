@@ -1,0 +1,9 @@
+import {createMaterialEnvelope} from './city-e045-pair-envelope.mjs?v=p21-b407-s039-reuse';
+// Surface-only, native paving material. Legal point checks remain authoritative.
+export function createE045PairGround({contract,world,clearPoint,texture,createCanvas}){
+ const legalPoint=p=>{const ids=world.members.get([Math.round(p[0]),Math.round(p[1])].join(','));return!!ids?.size&&clearPoint(p)&&world.waterCollision.pointClear(p,[...ids]);};
+ const envelope=createMaterialEnvelope(contract,{legalPoint}),all=contract.union.polygons.flatMap(p=>p.points),project=p=>[28*(p[0]-p[1]),14*(p[0]+p[1])],ps=all.map(project),left=Math.floor(Math.min(...ps.map(p=>p[0])))-1,top=Math.floor(Math.min(...ps.map(p=>p[1])))-1,width=Math.ceil(Math.max(...ps.map(p=>p[0])))-left+2,height=Math.ceil(Math.max(...ps.map(p=>p[1])))-top+2;
+ const canvas=createCanvas(width,height),g=canvas.getContext('2d');g.translate(-left,-top);g.transform(28,14,-28,14,0,0);const pattern=g.createPattern(texture,'repeat');pattern.setTransform(new DOMMatrix().scale(4.8/texture.width,4.8/texture.height));g.fillStyle=pattern;g.fillRect(Math.min(...all.map(p=>p[0]))-1,Math.min(...all.map(p=>p[1]))-1,40,40);g.resetTransform();
+ const image=g.getImageData(0,0,width,height);let painted=0;for(let y=0;y<height;y++)for(let x=0;x<width;x++){const a=(x+left+.5)/28,b=(y+top+.5)/14,p=[(a+b)/2,(b-a)/2],i=(y*width+x)*4;if(!envelope.paintContains(p))image.data[i+3]=0;else painted++;}g.putImageData(image,0,0);
+ return Object.freeze({envelope,canvas,draw(g,view){if(view&&(left+width<view[0]||left>view[2]||top+height<view[1]||top>view[3]))return;g.drawImage(canvas,left,top);},report:()=>({sourceOnly:true,polygons:contract.union.polygons.length,material:'assets/city-paving-v2/cobbles-b.webp',worldClampY:contract.paintClampY,paintedPixels:painted,canvas:[width,height],bytes:width*height*4,navigationChanged:false}),dispose(){canvas.width=canvas.height=1;}});
+}

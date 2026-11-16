@@ -1,0 +1,14 @@
+{
+  "pack_name": "Ankh-Morpork Slaughterhouse District Game-Ready Graphics Pack",
+  "version": 1,
+  "graphics_only": true,
+  "district": "Slaughterhouse District",
+  "asset_count": 3,
+  "format": "PNG sheets + JSON metadata",
+  "default_usage": "Use as source graphics for district-specific environment building, props and street tiles.",
+  "files": [
+    "graphics/isometric_medieval_slaughterhouse_district_assets.webp",
+    "graphics/isometric_slaughterhouse_district_prop_kit.webp",
+    "graphics/grimy_isometric_slaughterhouse_district_tileset.webp"
+  ]
+}

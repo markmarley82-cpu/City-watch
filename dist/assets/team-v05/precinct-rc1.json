@@ -1,0 +1,283 @@
+{
+  "id": "WATCH-PRECINCT-RC1",
+  "status": "BUDDY_ORIGINAL_DESIGN_CANDIDATE_REQUIRES_MARK_LAYOUT_DECISION",
+  "not_a_new_city_parent": true,
+  "not_executable": true,
+  "not_canonical_metric_geometry": true,
+  "scope": "One local Watch/Opera precinct blockout to resolve art registration before new production. Preserve Atlas v0.2.4 whole-city parent and v0.2.5 authority; final world placement and public street bindings remain null.",
+  "coordinate_convention": {
+    "units": "proposed gameplay grid cells, not metres",
+    "origin": "Watch exterior approach cell [0,0]",
+    "rectangles": "xywh of occupied integer cell centres; extent is x-0.5 through x+w-0.5, y-0.5 through y+h-0.5",
+    "positive_u_screen": "down-right",
+    "positive_v_screen": "down-left",
+    "world_origin": null,
+    "automatic_transform_from_city1": false,
+    "legacy_reference_only": {
+      "watch_approach": [
+        67,
+        60
+      ],
+      "fountain": [
+        72,
+        65
+      ],
+      "opera_approach": [
+        86,
+        63
+      ]
+    }
+  },
+  "projection": {
+    "tile_width": 56,
+    "tile_height": 28,
+    "screen_x": "28*(u-v)",
+    "screen_y": "14*(u+v)-height_px",
+    "camera_rotation": 0
+  },
+  "watch": {
+    "place_id": "place:watch-house",
+    "lf_role_id": "LF-01",
+    "game_id": "watch",
+    "solid_cell_rect": [
+      -3,
+      -5,
+      7,
+      5
+    ],
+    "exterior_approach_cell": [
+      0,
+      0
+    ],
+    "facade_threshold_contact": [
+      0,
+      -0.5
+    ],
+    "front_face": "positive v",
+    "front_face_line_v": -0.5,
+    "threshold_contract": "Physical facade threshold [0,-0.5] is separate from approach-cell centre [0,0]. Decorative plinth/stairs do not introduce an implicit elevation or step mechanic.",
+    "proposed_art": "Coherent layered-roof Watch House. Central readable entrance with plinth/stairs drawn within the apron; no new elevation movement mechanic.",
+    "entry_apron_cell_rect": [
+      -2,
+      0,
+      5,
+      2
+    ],
+    "change_from_legacy": "5x5 footprint becomes proposed 7x5; entrance becomes central. This is not a preservation of the legacy solid-cell set."
+  },
+  "opera": {
+    "place_id": "place:opera-house",
+    "lf_role_id": "LF-02",
+    "game_id": "opera",
+    "solid_cell_rect": [
+      -4,
+      9,
+      9,
+      6
+    ],
+    "exterior_approach_cell": [
+      0,
+      8
+    ],
+    "facade_threshold_contact": [
+      0,
+      8.5
+    ],
+    "front_face": "negative v",
+    "front_face_line_v": 8.5,
+    "threshold_contract": "Physical facade threshold [0,8.5] is separate from approach-cell centre [0,8]. No implicit elevation or step mechanic.",
+    "interior_status": "No new interior proposed.",
+    "camera_contract": "Opposite Watch across the shared public street/square, but front faces away from this fixed isometric viewer. Full Opera facade need not appear in the Watch hero crop. Never name unrelated background frontage Opera."
+  },
+  "square": {
+    "base_paved_cell_rect": [
+      -6,
+      0,
+      14,
+      9
+    ],
+    "main_public_street_cell_rect": [
+      -8,
+      2,
+      20,
+      3
+    ],
+    "ingress_port": [
+      -8,
+      3
+    ],
+    "egress_port": [
+      11,
+      3
+    ],
+    "street_identity": "Shared passing street relationship only; local engineering reservation, unnamed GAME-ORIGINAL metric arrangement.",
+    "parent_graph_bindings": {
+      "west": null,
+      "east": null
+    },
+    "new_city_route_approval": false,
+    "minimum_main_clear_width_cells": 3,
+    "no_road_end_is_permission_for_a_new_city_connection": true
+  },
+  "fountain": {
+    "game_key": "pseudopolis_yard_lion_fountain",
+    "proposed_solid_cell_rect": [
+      2,
+      5,
+      2,
+      2
+    ],
+    "ground_contact_centre": [
+      2.5,
+      5.5
+    ],
+    "ground_diamond_logical_pixels": [
+      112,
+      56
+    ],
+    "relative_to_watch_door_screen_pixels": [
+      -84,
+      112
+    ],
+    "clear_ring_outer_cell_rect": [
+      0,
+      3,
+      6,
+      6
+    ],
+    "minimum_clear_ring_width_cells": 2,
+    "change_from_legacy": "Move away from same screen-x as Watch entrance; proposed basin collider closes four cells. Legacy fountain is walkable. This is an explicit future collision change requiring scoped implementation authority and game tests.",
+    "art_contract": "Complete basin/statue objects with ground footprint and depth-aware split; no horizontal screen-line cut presented as actor-safe."
+  },
+  "unnamed_frontage_reservations": [
+    {
+      "id": "west-north",
+      "solid_cell_rect": [
+        -8,
+        -1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "west-south",
+      "solid_cell_rect": [
+        -8,
+        6,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "east-north",
+      "solid_cell_rect": [
+        8,
+        -1,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "east-south",
+      "solid_cell_rect": [
+        8,
+        6,
+        3,
+        3
+      ]
+    }
+  ],
+  "prop_reservations": [
+    {
+      "id": "bench-west",
+      "cell_rect": [
+        -5,
+        6,
+        2,
+        2
+      ],
+      "solid": true,
+      "note": "Complete physical bench/planter group; all four reserved cells are proposed solid. Outside fountain clear ring; no new interactable or canon identity."
+    },
+    {
+      "id": "bench-east",
+      "cell_rect": [
+        6,
+        6,
+        2,
+        2
+      ],
+      "solid": true,
+      "note": "Complete physical bench/planter group; all four reserved cells are proposed solid. Outside fountain clear ring; no new interactable or canon identity."
+    }
+  ],
+  "ground_contract": "Ground is the projected union of square/street/apron polygons clipped against occupied objects and future approved terrain; separate reusable paving, contact shadow and atmospheric layers. Never an opaque rectangular screen-sized background.",
+  "art_registration_fields": [
+    "place_id or unnamed reservation id",
+    "local occupied-cell footprint",
+    "source RGBA dimensions and SHA256",
+    "source ground-contact pixel",
+    "uniform scale",
+    "door-contact pixel if present",
+    "rear/front draw and actor-occlusion rule",
+    "roof/wall overhang vs physical footprint",
+    "ground mask",
+    "light/emissive pass"
+  ],
+  "proof_views": [
+    "top-down cells with all solid and clear areas",
+    "same 56x28 isometric angle with a 60px recruit reference",
+    "matched 90% daylight composition",
+    "390x844 and 320x740 crop/readability checks before artwork acceptance",
+    "Full-height Opera and frontage occlusion check with a moving actor and visible approach/door interaction; the outline diagram does not satisfy this requirement."
+  ],
+  "source_diagnosis": [
+    "Legacy Watch door[67,60] and fountain[72,65] both have x-y=7 and align on identical screen-x; approved VIS-123 shows the fountain offset to the left and forward.",
+    "Legacy Watch and Opera exterior approaches are both on +y faces; they do not encode facing facades across the shared street.",
+    "VIS-123 depends on enclosed coherent paving, deep Watch entrance, layered architecture, substantial fountain, side market/frontage masses and foreground framing.",
+    "Current fixed anchors are rollback evidence, not a final art-production constraint for this proposed metric precinct."
+  ],
+  "review_limits": [
+    "No world placement or migration generated.",
+    "No named road connection, river, crossing or LF identity changes.",
+    "No code, asset, save, NPC, quest, collision or deployment changes performed.",
+    "Cell-diagram checks are not game pathfinding, NPC scheduling, gameplay, renderer or phone QA.",
+    "Full-height Opera and side-frontage occlusion remains untested and required before art-registration acceptance; this diagram omits their heights for readability.",
+    "No Mate/Atlas/Quill review or Mark creative acceptance claimed."
+  ],
+  "static_sketch_checks": {
+    "type": "STATIC_PROPOSED_CELL_SKETCH_ONLY",
+    "road_clear": true,
+    "fountain_two_cell_ring_clear": true,
+    "watch_apron_clear": true,
+    "opera_approach_reachable_in_sketch": true,
+    "west_port_reachable_in_sketch": true,
+    "east_port_reachable_in_sketch": true,
+    "prop_solid_cells": 8,
+    "walk_cells": 132,
+    "connected_walk_cells": 132,
+    "gameplay_test": false
+  },
+  "read_inputs": [
+    {
+      "path": "build_work/city_watch_lab01_b04/dist/cw-city-map.js",
+      "sha256": "5dcb0b2a9276ff1fddc46408dff0c63f2d065f1090753151c44227d3f31b1500"
+    },
+    {
+      "path": "build_work/city_watch_lab01_b04/dist/cw-lab-places.json",
+      "sha256": "137c1f0ad0e380a9fc1016caebfbee62801b2e7a8847ea87ba53ef1bb1919c92"
+    },
+    {
+      "path": "build_work/city_watch_lab01_b04/dist/cw-lab-watch-square.js",
+      "sha256": "2f18d880bd712ea5b130c4b974108cbde82fb1bddb4d8fc3bf03e0c8e2d7d940"
+    },
+    {
+      "path": "art_intake_20261021/VIS123_primary.png",
+      "sha256": "2ed849bca4accc352eaa17d90223d90fcc3e5c2acef23ab0e23bbc178d92536a"
+    },
+    {
+      "path": "build_work/city_watch_lab01_b04/qa/v0.4/art-intake.json",
+      "sha256": "2315d9565e4ff5a84481b363bb66d72d25b13b97b49cd287b9cd5367531ed543"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "district": "Slaughterhouse District",
+  "recommended_groups": {
+    "main_street_frontage": [
+      "slaughterhouse_building_sheet",
+      "slaughterhouse_prop_sheet",
+      "slaughterhouse_tiles_sheet"
+    ],
+    "service_yards": [
+      "slaughterhouse_building_sheet",
+      "slaughterhouse_prop_sheet"
+    ],
+    "alley_and_backlot": [
+      "slaughterhouse_prop_sheet",
+      "slaughterhouse_tiles_sheet"
+    ],
+    "industrial_edges": [
+      "slaughterhouse_building_sheet",
+      "slaughterhouse_tiles_sheet"
+    ]
+  },
+  "theme_notes": [
+    "Industrial and working-district mood",
+    "No gore included",
+    "Use carts, crates, signs, drains, fences, lamps, paving and service buildings to sell the district identity"
+  ]
+}

@@ -1,0 +1,12 @@
+#app #p21-orders-bar.cw-patrol-orders{display:grid;grid-template-columns:minmax(0,1fr) minmax(104px,124px) 60px;gap:6px;height:auto;min-height:66px;padding:5px 7px;box-sizing:border-box;overflow:hidden;align-items:center}
+.cw-patrol-copy{display:grid;gap:3px;min-width:0}.cw-patrol-copy small{font:10px/1.15 Georgia,serif;color:#d2b681;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.cw-patrol-copy #p21-objective{display:block;overflow:hidden;overflow-wrap:anywhere;font-size:12px}.cw-patrol-copy progress{display:block;width:100%;height:4px;accent-color:#bf995a}
+#p21-orders-bar.cw-patrol-orders button{min-height:44px;width:100%;margin:0;padding:4px;font:11px/1.15 Georgia,serif;white-space:normal}.cw-patrol-incident{color:#f6e5c4;border:1px solid #937047;background:#3d281c url('assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100%}.cw-patrol-incident:disabled{opacity:.5}
+.cw-patrol-receipt{position:absolute;top:8px;left:8px;right:8px;z-index:20;display:flex;align-items:center;gap:8px;padding:8px 10px;color:#342a20;background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;border:2px solid #937047;font:14px/1.3 Georgia,serif;box-shadow:0 3px 8px #0005}.cw-patrol-receipt[hidden]{display:none}.cw-patrol-receipt span{flex:1}.cw-patrol-receipt button{min-height:44px;min-width:44px;background:#5c3d29;color:#f6e5c4;border:1px solid #937047}
+@media(max-height:500px){#app #p21-orders-bar.cw-patrol-orders{min-height:50px;padding-block:2px}.cw-patrol-copy{gap:1px}.cw-patrol-copy small{font-size:9px}}
+
+.cw-patrol-copy progress[hidden]{display:none}.cw-patrol-copy progress::-webkit-progress-bar{background:#34271d}.cw-patrol-copy progress::-webkit-progress-value{background:#bf995a}
+.cw-patrol-receipt{flex-wrap:wrap}.cw-patrol-receipt span{flex-basis:calc(100% - 60px);min-width:0;overflow-wrap:anywhere}
+
+.cw-patrol-route-menu{grid-column:1/-1;display:grid;gap:8px;min-width:0}.cw-patrol-route-menu h3,.cw-patrol-route-menu p{margin:0;overflow-wrap:anywhere}.cw-patrol-route-menu button{width:100%;min-height:44px}.cw-patrol-route-menu p+button{margin-bottom:12px}
+
+.cw-patrol-unresolved{grid-column:1/-1}

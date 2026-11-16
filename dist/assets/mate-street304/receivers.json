@@ -1,0 +1,648 @@
+[
+  {
+    "rect": [
+      94.755,
+      59.756,
+      3.6,
+      3.543
+    ],
+    "edge": "E024",
+    "priority": "D1",
+    "id": "MATE-GAP-D1-1",
+    "asset": "F01",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      98,
+      60.5,
+      3.6,
+      3.2
+    ],
+    "adjoins": "roof:354",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D1-1",
+    "sourceAsset": "MATE-GAP-D1-1",
+    "sourceMaster": "../../joined-frontage01-alpha.png",
+    "sourceSHA256": "be793a656cf950e9aa900df61f62d949c1e185e2c916be30ac8c0cf4b0fc3fa7",
+    "p": [
+      94.755,
+      59.756
+    ],
+    "anchor": [
+      150,
+      357
+    ],
+    "scale": 1,
+    "bounds": [
+      829.9719999999999,
+      1806.154,
+      308,
+      501
+    ],
+    "native": [
+      308,
+      501
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        84.49705445616061,
+        203.8437787520721
+      ],
+      [
+        87.74811024978466,
+        276.5515431858084
+      ],
+      [
+        220.1761966481066,
+        225.49068126736498
+      ],
+      [
+        221.00335503849968,
+        287.4060630122557
+      ],
+      [
+        228.66273059320503,
+        351.3890254312927
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": 880.7679999999998,
+        "y": 2198.756
+      },
+      {
+        "x": 981.5679999999999,
+        "y": 2249.156
+      },
+      {
+        "x": 1080.772,
+        "y": 2199.554
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 1222,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "418f5a2c6d3d0efbbc56cf73c913d1d094c7a6c16b2ac4ff5fb2ce5f3b149799",
+      "runtimeSHA256": "3d4fe0a2211723bb1b6f35d023dceaf18c25c5279eb890bf931d88400b3fed8d",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 3.9827872978355554,
+      "quality": 98
+    }
+  },
+  {
+    "rect": [
+      94.755,
+      56.506,
+      3.6,
+      3.2
+    ],
+    "edge": "E024",
+    "priority": "D1",
+    "id": "MATE-GAP-D1-2",
+    "asset": "F02",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      95.5,
+      56,
+      3.6,
+      3.2
+    ],
+    "adjoins": "MATE-GAP-D1-1",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D1-2",
+    "sourceAsset": "MATE-GAP-D1-2",
+    "sourceMaster": "../../F02/master.png",
+    "sourceSHA256": "46b45503524b039a3a4eec3e9d76455dddba6b8f75c568f8944778e12cf33ffd",
+    "p": [
+      94.755,
+      56.506
+    ],
+    "anchor": [
+      107,
+      262
+    ],
+    "scale": 1,
+    "bounds": [
+      963.9719999999998,
+      1855.654,
+      259,
+      349
+    ],
+    "native": [
+      259,
+      349
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        45.198823274125054,
+        190.32799030718002
+      ],
+      [
+        91.33093365117203,
+        211.93636736458353
+      ],
+      [
+        162.17167423810008,
+        133.33440796476617
+      ],
+      [
+        162.73767881426102,
+        199.60497107803613
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": 981.3719999999997,
+        "y": 2148.454
+      },
+      {
+        "x": 1082.1719999999998,
+        "y": 2198.854
+      },
+      {
+        "x": 1171.7719999999997,
+        "y": 2154.054
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 1862,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "d5126d72a6129b580bb00a44d096c4446842677e883041095ccf53b88de8464a",
+      "runtimeSHA256": "21089da485149a64763db4912c514ab28e3af7a2ff50d47784e3afdc724efadc",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 3.1604695910942837,
+      "quality": 98
+    }
+  },
+  {
+    "rect": [
+      102.396,
+      71.126,
+      4.563,
+      3.15
+    ],
+    "edge": "E024",
+    "priority": "D1",
+    "id": "MATE-GAP-D1-3",
+    "asset": "F03",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      102,
+      70,
+      3.6,
+      3.2
+    ],
+    "adjoins": "roof:330",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D1-3",
+    "sourceAsset": "MATE-GAP-D1-3",
+    "sourceMaster": "../../F03/master.png",
+    "sourceSHA256": "b29cc06976dd86a92ac7b7bca3a94e3c9ab05e74d79a777a3f62c8f8ee40124e",
+    "p": [
+      102.396,
+      71.126
+    ],
+    "anchor": [
+      155,
+      471
+    ],
+    "scale": 1,
+    "bounds": [
+      720.56,
+      1958.308,
+      325,
+      654
+    ],
+    "native": [
+      325,
+      654
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        90.17406384641143,
+        268.2748372021135
+      ],
+      [
+        155.83634665220927,
+        297.01190059629965
+      ],
+      [
+        90.13758499797544,
+        364.42642089506677
+      ],
+      [
+        156.61007602841076,
+        389.91178674086075
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": 787.3599999999999,
+        "y": 2459.408
+      },
+      {
+        "x": 915.1239999999999,
+        "y": 2523.29
+      },
+      {
+        "x": 1003.324,
+        "y": 2479.19
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 2388,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "52cc21b822814a3c47857c0c061ef160b331694d38f497fd1b63a8b7793dfc2e",
+      "runtimeSHA256": "a8a67cbf9622b420cf2ac9c07c32750c315c53d51bc4653835822bfab1b9d8a7",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 2.7776046715598026,
+      "quality": 98
+    }
+  },
+  {
+    "rect": [
+      98.88127880184332,
+      248.725,
+      3.2,
+      3.1921082949308754
+    ],
+    "edge": "E064",
+    "priority": "D2",
+    "id": "MATE-GAP-D2-1",
+    "asset": "F04",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      104,
+      250,
+      3.2,
+      3.6
+    ],
+    "adjoins": "SHADES-005:brick-bow-home",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D2-1",
+    "sourceAsset": "MATE-GAP-D2-1",
+    "sourceMaster": "../../F04/master.png",
+    "sourceSHA256": "b0de0bb4423d2ff6b1ca1e8adaeb1d528a89090547a1480779b827efd106e761",
+    "p": [
+      98.88127880184332,
+      248.725
+    ],
+    "anchor": [
+      139,
+      354
+    ],
+    "scale": 1,
+    "bounds": [
+      -4334.624193548387,
+      4512.487903225806,
+      248,
+      446
+    ],
+    "native": [
+      248,
+      446
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        168.23154786993868,
+        201.36044403027879
+      ],
+      [
+        203.73773847293995,
+        186.05061526893314
+      ],
+      [
+        166.49649483966817,
+        278.4118882519364
+      ],
+      [
+        201.7376931295629,
+        262.54879463268253
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": -4285.003225806451,
+        "y": 4897.177419354838
+      },
+      {
+        "x": -4195.403225806452,
+        "y": 4941.977419354838
+      },
+      {
+        "x": -4106.024193548386,
+        "y": 4897.287903225806
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 2429,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "73720edaa9c479b5f71bbeded07bf4b45872cba7485c5dc688ef83257405ad9d",
+      "runtimeSHA256": "f580788878f78a9ce532e85d4aebeb73b23eb57ddc3f7d6dca2c12b8c32de255",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 2.9890352731598147,
+      "quality": 98
+    }
+  },
+  {
+    "rect": [
+      61.079,
+      69.576,
+      2.603,
+      3.6
+    ],
+    "edge": "E043",
+    "priority": "D3",
+    "id": "MATE-GAP-D3-1",
+    "asset": "F05",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      61.5,
+      70.5,
+      3.2,
+      3.6
+    ],
+    "adjoins": "e043-premise:service-house-painted",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D3-1",
+    "sourceAsset": "MATE-GAP-D3-1",
+    "sourceMaster": "../../F05/master.png",
+    "sourceSHA256": "e4dc84191a05416720c64abd4bccd02c61fc8f7b77860879af614331fbd31ef2",
+    "p": [
+      61.079,
+      69.576
+    ],
+    "anchor": [
+      156,
+      319
+    ],
+    "scale": 1,
+    "bounds": [
+      -393.9159999999998,
+      1510.17,
+      249,
+      418
+    ],
+    "native": [
+      249,
+      418
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        143.8836314020054,
+        239.26820170326843
+      ],
+      [
+        159.88751325477364,
+        228.1492480718747
+      ],
+      [
+        193.9102061429831,
+        221.5858017077931
+      ],
+      [
+        215.08768352958643,
+        207.93743878505435
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": -338.7159999999998,
+        "y": 1865.5700000000002
+      },
+      {
+        "x": -265.83199999999977,
+        "y": 1902.0120000000002
+      },
+      {
+        "x": -165.03199999999978,
+        "y": 1851.612
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 1309,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "02c8bc00e95d7a9f5fdef763c8714af68ae19011ef61d76c79de6f72b33ea388",
+      "runtimeSHA256": "1a27e0f14c764a2bcf91bfbc262be44d0a96e49e711e401d7f884ab385018eb0",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 2.7190533440199482,
+      "quality": 98
+    }
+  },
+  {
+    "rect": [
+      78.41,
+      71.015,
+      3.704,
+      2.962
+    ],
+    "edge": "E043",
+    "priority": "D3",
+    "id": "MATE-GAP-D3-2",
+    "asset": "F06",
+    "doorPolicy": "painted closed frontage only; no new public interior/door identity",
+    "protectedRouteCellHits": 0,
+    "rejectedRect": [
+      70.5,
+      83.5,
+      3.6,
+      3.2
+    ],
+    "adjoins": "roof:401",
+    "jointGap": 0.05,
+    "status": "ATTACHED FRONTAGE REWORK; no integration or deployment",
+    "base": "1921fdc04916d9cea8248642c4dc769fbe690319",
+    "directory": "street304/MATE-GAP-D3-2",
+    "sourceAsset": "MATE-GAP-D3-2",
+    "sourceMaster": "../../F06/master.png",
+    "sourceSHA256": "57a2e92887b1ace7d58f7f09168e2cfe524a0d500de1e0233d609c422379560f",
+    "p": [
+      78.41,
+      71.015
+    ],
+    "anchor": [
+      115,
+      418
+    ],
+    "scale": 1,
+    "bounds": [
+      92.05999999999989,
+      1673.9500000000003,
+      240,
+      538
+    ],
+    "native": [
+      240,
+      538
+    ],
+    "day": "day.webp",
+    "nightEmission": "night-emission.png",
+    "lightAnchors": [
+      [
+        58.577555020051875,
+        231.01431760325772
+      ],
+      [
+        63.837765766967294,
+        326.0747471624897
+      ],
+      [
+        113.52813112240713,
+        348.7872849269507
+      ],
+      [
+        194.64878923203295,
+        258.0078125027108
+      ]
+    ],
+    "doorHeight": 65,
+    "registeredFoundation": [
+      {
+        "x": 124.12399999999988,
+        "y": 2119.418
+      },
+      {
+        "x": 227.8359999999999,
+        "y": 2171.2740000000003
+      },
+      {
+        "x": 310.7719999999999,
+        "y": 2129.8060000000005
+      }
+    ],
+    "actorFootCutaway": {
+      "centerHeight": 0.43,
+      "width": 48,
+      "heightFactor": 0.86,
+      "opacity": 0.04,
+      "toFoundation": true,
+      "groundOnly": true
+    },
+    "checks": {
+      "emissionOutsideAlpha": 0,
+      "litPixels": 2303,
+      "foundationControlsExact": true
+    },
+    "limits": [
+      "Reused recovered uninstalled master once only, no duplicate active source instance",
+      "No public door/interior or canonical premise",
+      "Buddy/Atlas receives placement, native/player/device/creative stages separate"
+    ],
+    "runtimeEncoding": {
+      "sourceSHA256": "d69a3c0f5ef64e95a0cc59fb43085ffbf400c0087ca35aefa450d308dc2be38a",
+      "runtimeSHA256": "148299245c8bddeaa7c7455b09eb94f700a0298c7c24e271794d85d3d54c18fa",
+      "alphaExact": true,
+      "opaqueRGBMeanError": 2.746542749041416,
+      "quality": 98
+    }
+  }
+]

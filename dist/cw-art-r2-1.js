@@ -1,0 +1,5 @@
+'use strict';
+// City Watch HUB-R2. Original painted artwork, no recompression.
+window.CW_ART_R2=window.CW_ART_R2||Object.create(null);
+Object.assign(window.CW_ART_R2,{"image00":"/assets/embedded-originals-v1/42d54046852dca984acd750ea8ceac9ca8455327647acce95bb733e2fc22c2fa.webp","image01":"/assets/embedded-originals-v1/f97d0559ffecb43fa78b8f2b9b93e20cf6e113f0327df1792411c7ebcc6f60f4.webp","image02":"/assets/embedded-originals-v1/2353532470cf3b05f5781889ba1d9332067e515c0d5509eba972ac9d7783812d.webp","image03":"/assets/embedded-originals-v1/940616c967aa8c4d5aa17bd15e2ebd9cf5d91e06b789c15a6c634fdb5b2a3c45.webp","image04":"/assets/embedded-originals-v1/1c0a35f90061df39d5fcea5548beac3c56b7037a038da9b93e401211fc24c44d.webp","image05":"/assets/embedded-originals-v1/ad409f6973a5f9560e9b55d4b081b2875d6d5c37f15f044e9e65a158fd8a24e6.webp","image06":"/assets/embedded-originals-v1/e64f57cc78e4bd4ec43dcb77704d2565f453bb28247797733fa5a7ffa1cf1dc2.webp","image07":"/assets/embedded-originals-v1/187fad01669288630ba653fb0fff8e2379cd33e4cecb29b6bd9ff32b0100eea4.webp"});
+window.CW_R2_PARTS=window.CW_R2_PARTS||[];window.CW_R2_PARTS.push("cw-art-r2-1.js");

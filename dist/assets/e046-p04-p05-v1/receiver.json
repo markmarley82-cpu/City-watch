@@ -1,0 +1,569 @@
+{
+  "schema": 1,
+  "id": "E046-P04-P05-RUNTIME-433",
+  "status": "RUNTIME_INTEGRATION_CANDIDATE",
+  "runtimeBase": "506df1398b068ea72110d2259f02f7daccbdaf07",
+  "artReturn": "57c140e3dba7688009e99d97ec766b14e66391eb",
+  "scope": {
+    "edgeID": "E046",
+    "section": [
+      31,
+      223,
+      53,
+      249
+    ],
+    "newPublicRoutes": 0,
+    "newInterior": false
+  },
+  "boundary": {
+    "epsilonWorldUnits": 1e-09
+  },
+  "foot": {
+    "probes": [
+      [
+        0,
+        0
+      ],
+      [
+        -0.12,
+        -0.12
+      ],
+      [
+        -0.12,
+        0.12
+      ],
+      [
+        0.12,
+        -0.12
+      ],
+      [
+        0.12,
+        0.12
+      ]
+    ],
+    "maxSavedFootDistanceFromAnchor": 1.5
+  },
+  "regions": [
+    {
+      "id": "E046-WEST-COMPOSITION-P04",
+      "worldPolygon": [
+        [
+          37.06211504092027,
+          228.49425980347138
+        ],
+        [
+          36.6999720567502,
+          232.4778326293422
+        ],
+        [
+          32.51722058958585,
+          232.09758249596362
+        ],
+        [
+          32.87936357375592,
+          228.1140096700928
+        ]
+      ]
+    },
+    {
+      "id": "E046-WEST-COMPOSITION-P05",
+      "worldPolygon": [
+        [
+          36.58680237419705,
+          233.72269913742682
+        ],
+        [
+          36.17939151700571,
+          238.2042185665315
+        ],
+        [
+          31.996640049841357,
+          237.8239684331529
+        ],
+        [
+          32.4040509070327,
+          233.34244900404823
+        ]
+      ]
+    }
+  ],
+  "premises": [
+    {
+      "id": "E046-WEST-COMPOSITION-P04",
+      "role": "locked fitted joined frontage",
+      "worldPolygon": [
+        [
+          37.06211504092027,
+          228.49425980347138
+        ],
+        [
+          36.6999720567502,
+          232.4778326293422
+        ],
+        [
+          32.51722058958585,
+          232.09758249596362
+        ],
+        [
+          32.87936357375592,
+          228.1140096700928
+        ]
+      ],
+      "art": {
+        "canvas": [
+          293,
+          436
+        ],
+        "projectedOrigin": [
+          -5621,
+          3397
+        ],
+        "worldPivot": [
+          37.06211504092027,
+          228.49425980347138
+        ],
+        "anchor": [
+          260.8999466485693,
+          320.78924782148306
+        ],
+        "uniformScale": 1,
+        "maxFoundationResidualNativePixels": 0.5775902761719766,
+        "thresholdResidualNativePixels": 0.4426774380888568,
+        "layers": {
+          "body": "p04-body.webp",
+          "roofHidden": "p04-roof-hidden.webp",
+          "foreground": "p04-foreground.webp",
+          "nightEmission": "p04-night-emission.webp"
+        },
+        "sourceSHA256": {
+          "body": "e6417eb98f5245973a20adc2d52f841e9a89296aee0aac9d43efab1e80064dfd",
+          "roofHidden": "f6c4f7e2bca534315169ff1df2fac0ad7ae990426835fe61db859b065ff0488c",
+          "foreground": "60472c6abcbf1fba2a46ca30a89579a6745bfe930c03fd38d235e6f05bd3a030",
+          "nightEmission": "379e4fcf74c8941f5edd3f9726b8580c12f36c991c6c8e36b3a82700b21a2009"
+        },
+        "runtimeSHA256": {
+          "body": "1c477d5be733b87fd1f90e436e855fb6f1cea491c00fa993ced2aa10b35e7fd0",
+          "roofHidden": "1bc02be51dd86c5727a40c158ee112a444ce267133cf923d68191fd32e9602ec",
+          "foreground": "04b4be7391fdb73daf905e3e4b1853b0ab9079348ad6ac668a86a07494ffc269",
+          "nightEmission": "75a873987a17f521bdea1b1e9a7856f05debff5e3d90d3f8d4a1c6941706a2ff"
+        }
+      },
+      "renderer": {
+        "sourceAsset": "E046-WEST-COMPOSITION-P04",
+        "lightAnchors": [],
+        "doorHeightPixels": 66
+      },
+      "door": {
+        "gameID": "original:e046-p04-frontage",
+        "name": "Unnamed infill premises",
+        "stance": [
+          37,
+          231,
+          "E046"
+        ],
+        "thresholdWorld": [
+          37.030427529805394,
+          230.49962657831318
+        ],
+        "thresholdPixels": [
+          203.8624266417819,
+          348.4207575136602
+        ],
+        "exteriorOnly": true
+      },
+      "depth": {
+        "schema": 1,
+        "id": "E046-WEST-COMPOSITION-P04",
+        "worldPolygon": [
+          [
+            37.06211504092027,
+            228.49425980347138
+          ],
+          [
+            36.6999720567502,
+            232.4778326293422
+          ],
+          [
+            32.51722058958585,
+            232.09758249596362
+          ],
+          [
+            32.87936357375592,
+            228.1140096700928
+          ]
+        ],
+        "sortPivot": [
+          37.030427529805394,
+          230.49962657831318
+        ],
+        "roofPlane": "p04-roof-hidden.webp",
+        "foregroundPlane": "p04-foreground.webp",
+        "nativeOrderDisjointIDs": []
+      }
+    },
+    {
+      "id": "E046-WEST-COMPOSITION-P05",
+      "role": "locked fitted joined frontage",
+      "worldPolygon": [
+        [
+          36.58680237419705,
+          233.72269913742682
+        ],
+        [
+          36.17939151700571,
+          238.2042185665315
+        ],
+        [
+          31.996640049841357,
+          237.8239684331529
+        ],
+        [
+          32.4040509070327,
+          233.34244900404823
+        ]
+      ],
+      "art": {
+        "canvas": [
+          309,
+          442
+        ],
+        "projectedOrigin": [
+          -5796,
+          3464
+        ],
+        "worldPivot": [
+          36.58680237419705,
+          233.72269913742682
+        ],
+        "anchor": [
+          276.19489062956654,
+          320.333021162734
+        ],
+        "uniformScale": 1,
+        "maxFoundationResidualNativePixels": 0.5283044507633466,
+        "thresholdResidualNativePixels": 0.46705302706652047,
+        "layers": {
+          "body": "p05-body.webp",
+          "roofHidden": "p05-roof-hidden.webp",
+          "foreground": "p05-foreground.webp",
+          "nightEmission": "p05-night-emission.webp"
+        },
+        "sourceSHA256": {
+          "body": "6bc910ec35f49a287101560816acbeafe42e05af2c9b98fb532cc7444b94a94d",
+          "roofHidden": "6faca195ef7c6b85ffb767bf5d7e4e56620f7bc77bb170d953224ee03b6ff461",
+          "foreground": "4583e121adce6d6755520e6c73a1babffe1adf7a4fa9db3982e1f39ae8d201b7",
+          "nightEmission": "577e27f39cb68f95c730017fd6dcb409127f0e450e658b338449c7cb55157ab3"
+        },
+        "runtimeSHA256": {
+          "body": "ce2b9d140545803041987dfc5dab99ca2de9864fbc1964dc1a9876d19decd5f6",
+          "roofHidden": "b837daf01865e678e64a4c8326ff5293f6864e626608667556715d286da13e7d",
+          "foreground": "47c806257df820a018ac46a3a308b84fdda148554000e5459316c9b5268d6539",
+          "nightEmission": "c7fe1eb50b1d03e5dc0728c565a8e2b523ebbfae2cce83fec0ef841cb881fa65"
+        }
+      },
+      "renderer": {
+        "sourceAsset": "E046-WEST-COMPOSITION-P05",
+        "lightAnchors": [],
+        "doorHeightPixels": 66
+      },
+      "door": {
+        "gameID": "original:e046-p05-frontage",
+        "name": "Unnamed infill premises",
+        "stance": [
+          37,
+          236,
+          "E046"
+        ],
+        "thresholdWorld": [
+          36.53248092657154,
+          235.97703921388555
+        ],
+        "thresholdPixels": [
+          211.55236795520796,
+          351.1332819663994
+        ],
+        "exteriorOnly": true
+      },
+      "depth": {
+        "schema": 1,
+        "id": "E046-WEST-COMPOSITION-P05",
+        "worldPolygon": [
+          [
+            36.58680237419705,
+            233.72269913742682
+          ],
+          [
+            36.17939151700571,
+            238.2042185665315
+          ],
+          [
+            31.996640049841357,
+            237.8239684331529
+          ],
+          [
+            32.4040509070327,
+            233.34244900404823
+          ]
+        ],
+        "sortPivot": [
+          36.53248092657154,
+          235.97703921388555
+        ],
+        "roofPlane": "p05-roof-hidden.webp",
+        "foregroundPlane": "p05-foreground.webp",
+        "nativeOrderDisjointIDs": []
+      }
+    }
+  ],
+  "expectedRemoval": [
+    {
+      "key": "32,237",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "footOnly"
+    },
+    {
+      "key": "33,229",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "33,230",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "33,236",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "33,237",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "33,238",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "footOnly"
+    },
+    {
+      "key": "34,229",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "34,230",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "34,236",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "34,237",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "34,238",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,229",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,230",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,231",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,232",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,234",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,235",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,236",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,237",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "35,238",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,229",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,230",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,231",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,232",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,234",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,235",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,236",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,237",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "36,238",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "37,229",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "centres"
+    },
+    {
+      "key": "37,230",
+      "edges": [
+        "E046"
+      ],
+      "restriction": "footOnly"
+    }
+  ],
+  "retireLegacy": [
+    {
+      "id": "roof:563",
+      "rect": [
+        30.314,
+        224.769,
+        4.644,
+        3.619
+      ],
+      "source": "qa/joins325/current-plan.json"
+    },
+    {
+      "id": "roof:564",
+      "rect": [
+        32.13000000000001,
+        231.327,
+        2.605,
+        4.684
+      ],
+      "source": "qa/joins325/current-plan.json"
+    }
+  ],
+  "preserve": {
+    "routesChanged": false,
+    "approvedBuildingsMoved": false,
+    "saveSchemaChanged": false,
+    "physicalPhoneVerified": false,
+    "neighbourRuntimeIDs": [
+      "E046-WEST-COMPOSITION-P03",
+      "E046-SOUTH-RETURN-P06-R2"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "asset": {
+    "asset_id": "UU-CLOISTER-GARDEN-WHOLE_GARDEN_ALTERNATIVE",
+    "file": "runtime_1x/uu_cloister_garden_whole_garden_alternative.png",
+    "width": 372,
+    "height": 283,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      4,
+      4,
+      368,
+      279
+    ],
+    "native_crop_box": [
+      71,
+      20,
+      443,
+      303
+    ],
+    "native_centre_anchor_px": [
+      178.0,
+      273.0
+    ],
+    "native_visual_threshold_px": [
+      178.0,
+      273.0
+    ],
+    "native_visual_approach_px": [
+      178.0,
+      295.0
+    ],
+    "render_scale": 1,
+    "source_density": 2,
+    "export_2x": "exports_2x/uu_cloister_garden_whole_garden_alternative.png",
+    "depth_role": "WHOLE_OBJECT_ALTERNATIVE",
+    "world_footprint": null,
+    "collision_state": "UNPLACED_NOT_IMPLEMENTED",
+    "interactive_entrance": false,
+    "threshold_role": "garden edge art reference; not a game door",
+    "bytes": 197882,
+    "sha256": "8b1c7ad2516263c7f7a14bb4f0bc207de81d6f06f5dd86538331f49416e2be2a"
+  },
+  "registration": {
+    "source_canvas": [
+      1010,
+      656
+    ],
+    "native_canvas": [
+      505,
+      328
+    ],
+    "origin_source_2x": [
+      498.0,
+      586.0
+    ],
+    "projection": [
+      56,
+      28
+    ],
+    "matrix": [
+      [
+        0.5324811140500588,
+        0.0,
+        33.14398743429865
+      ],
+      [
+        -0.012811575676392406,
+        0.64,
+        55.7445055654905
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "raw_ground_controls": [
+      [
+        240.0,
+        570.0
+      ],
+      [
+        873.0,
+        846.0
+      ],
+      [
+        1570.0,
+        570.0
+      ]
+    ],
+    "registered_ground_controls_source_2x": [
+      [
+        160.93945480631277,
+        417.46972740315636
+      ],
+      [
+        498.0,
+        586.0
+      ],
+      [
+        869.139336492891,
+        400.4303317535544
+      ]
+    ],
+    "world_origin": null,
+    "world_footprint": null,
+    "scope": "ORIGINAL source-art lawn/cloister module. Arch count, planting, bench model and dimensions are original choices."
+  }
+}

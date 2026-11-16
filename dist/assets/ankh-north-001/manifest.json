@@ -1,0 +1,464 @@
+{
+  "id": "ANKH-NORTH-001",
+  "bounds": [
+    189,
+    25,
+    204,
+    39
+  ],
+  "scope": "Four distinct premises on both sides of one connected residential lane, northern Ankh-side housing; original unnamed premises",
+  "buildings": [
+    {
+      "id": "limewashed-mender",
+      "parcel": 37,
+      "rect": [
+        198.397,
+        27.043,
+        4.084,
+        3.373
+      ],
+      "anchor": [
+        200,
+        320
+      ],
+      "dimensions": [
+        400,
+        420
+      ],
+      "doorHeight": 64,
+      "storeyHeight": 132,
+      "brief": "Weathered pale warm limewash dwelling with a small downstairs mending workshop; simple shallow dark slate hipped roof, one squat brick chimney, uneven small wooden sash windows, restrained faded blue window shutters; two storeys.",
+      "doorMidpoint": [
+        152.778,
+        343.611
+      ],
+      "doorFace": "+Y",
+      "file": "limewashed-mender.webp",
+      "sha256": "8ae5f143428669314e4e80c1d27213d5b7bbc7583e5dfe6ebf3b720ba375d0af",
+      "p": [
+        199.939,
+        28.229499999999998
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "measuredDoorHeight": 61.66333369869832,
+      "windowCentres": [
+        [
+          128.56473055122711,
+          226.94657244496327,
+          128.56473055122711,
+          331.50436527561357
+        ],
+        [
+          183.4126431569114,
+          244.79648483142856,
+          183.4126431569114,
+          358.9283215784557
+        ],
+        [
+          264.8731524115076,
+          239.27923918470293,
+          264.8731524115076,
+          344.7394237942462
+        ],
+        [
+          115.25843222677115,
+          287.9608184205174,
+          115.25843222677115,
+          324.8512161133856
+        ],
+        [
+          178.54448523332997,
+          310.67888873056415,
+          178.54448523332997,
+          356.494242616665
+        ],
+        [
+          280.4512577669682,
+          303.2143799144059,
+          280.4512577669682,
+          336.9503711165159
+        ]
+      ],
+      "registration": {
+        "method": "uniform scale and translation from three foundation contacts",
+        "sourceContacts": [
+          [
+            283,
+            979
+          ],
+          [
+            634,
+            1138
+          ],
+          [
+            929,
+            989
+          ]
+        ],
+        "targetContacts": [
+          [
+            95.602,
+            315.023
+          ],
+          [
+            209.95399999999998,
+            372.199
+          ],
+          [
+            304.398,
+            324.977
+          ]
+        ],
+        "scale": 0.3245438615720964,
+        "offset": [
+          3.6153438459699885,
+          1.3885886523562476
+        ],
+        "residuals": [
+          4.096447633469969,
+          1.5883385121986733,
+          2.7114852536227465
+        ],
+        "maxContactResidualPx": 4.096447633469969
+      },
+      "bytes": 27782
+    },
+    {
+      "id": "brick-bakehouse",
+      "parcel": 38,
+      "rect": [
+        199.81,
+        33.877,
+        3.159,
+        3.067
+      ],
+      "anchor": [
+        200,
+        320
+      ],
+      "dimensions": [
+        400,
+        420
+      ],
+      "doorHeight": 64,
+      "storeyHeight": 132,
+      "brief": "Small warm soot-darkened russet brick bakehouse dwelling; low two-storey body, patched brown clay pantile gable roof, chunky offset flue, modest deep bread hatch beside a plain boarded door, no signs or writing.",
+      "doorMidpoint": [
+        157.06199999999998,
+        341.469
+      ],
+      "doorFace": "+Y",
+      "file": "brick-bakehouse.webp",
+      "sha256": "9fcd3d1e194753218f69f8fe83aca926f57afd0569a4f0aacf3df735a06ad4f1",
+      "p": [
+        200.8895,
+        34.9105
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "measuredDoorHeight": 62.87719268743843,
+      "windowCentres": [
+        [
+          142.58231606088998,
+          234.8669829237434,
+          142.58231606088998,
+          334.229158030445
+        ],
+        [
+          185.6531930517853,
+          252.47259687622616,
+          185.6531930517853,
+          355.76459652589267
+        ],
+        [
+          259.84828042296266,
+          241.46908815592442,
+          259.84828042296266,
+          334.30185978851864
+        ],
+        [
+          260.16266638639985,
+          300.88803524555374,
+          260.16266638639985,
+          334.14466680680005
+        ]
+      ],
+      "registration": {
+        "method": "uniform scale and translation from three foundation contacts",
+        "sourceContacts": [
+          [
+            323,
+            974
+          ],
+          [
+            610,
+            1106
+          ],
+          [
+            879,
+            971
+          ]
+        ],
+        "targetContacts": [
+          [
+            112.836,
+            319.356
+          ],
+          [
+            201.28799999999998,
+            363.582
+          ],
+          [
+            287.164,
+            320.644
+          ]
+        ],
+        "scale": 0.31438596343719216,
+        "offset": [
+          10.540211417269262,
+          14.796808517708882
+        ],
+        "residuals": [
+          1.8145863544856662,
+          1.4866799921323544,
+          0.6419875156001559
+        ],
+        "maxContactResidualPx": 1.8145863544856662
+      },
+      "bytes": 24256
+    },
+    {
+      "id": "timber-lodging",
+      "parcel": 70,
+      "rect": [
+        190.653,
+        27.039,
+        4.704,
+        3.64
+      ],
+      "anchor": [
+        200,
+        320
+      ],
+      "dimensions": [
+        400,
+        420
+      ],
+      "doorHeight": 64,
+      "storeyHeight": 184,
+      "brief": "Narrow three-storey poor but maintained lodging; restrained dark timber frame, dull ochre plaster panels, steep grey slate gable roof with tiny attic dormer, a long narrow chimney, projecting upper bay supported entirely within building footprint.",
+      "doorMidpoint": [
+        265.856,
+        352.928
+      ],
+      "doorFace": "+X",
+      "file": "timber-lodging.webp",
+      "sha256": "7a91fd51eddb06dcfca9dc30e662f5131beda261711dc01447ebb3f812d6950f",
+      "p": [
+        192.505,
+        28.359
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "measuredDoorHeight": 66.49480859047947,
+      "windowCentres": [
+        [
+          119.3280798455946,
+          164.61261444725776,
+          119.3280798455946,
+          330.6240399227973
+        ],
+        [
+          180.78540293679532,
+          189.46420957703293,
+          180.78540293679532,
+          361.3527014683977
+        ],
+        [
+          119.99974457883177,
+          224.72660807198415,
+          119.99974457883177,
+          330.9598722894159
+        ],
+        [
+          181.4570676700325,
+          250.58570030161508,
+          181.4570676700325,
+          361.68853383501624
+        ],
+        [
+          117.3130856458831,
+          288.1989253628964,
+          117.3130856458831,
+          329.6165428229416
+        ],
+        [
+          180.11373820355817,
+          309.3563644598671,
+          180.11373820355817,
+          361.0168691017791
+        ],
+        [
+          265.0793269580597,
+          182.74756224466125,
+          265.0793269580597,
+          353.31633652097014
+        ],
+        [
+          265.0793269580597,
+          246.89154426881066,
+          265.0793269580597,
+          353.31633652097014
+        ]
+      ],
+      "registration": {
+        "method": "uniform scale and translation from three foundation contacts",
+        "sourceContacts": [
+          [
+            244,
+            981
+          ],
+          [
+            645,
+            1168
+          ],
+          [
+            941,
+            1018
+          ]
+        ],
+        "targetContacts": [
+          [
+            83.18400000000001,
+            312.552
+          ],
+          [
+            214.896,
+            378.408
+          ],
+          [
+            316.816,
+            327.448
+          ]
+        ],
+        "scale": 0.3358323666185832,
+        "offset": [
+          0.10758969599757506,
+          -15.057701693684237
+        ],
+        "residuals": [
+          2.1625931854763096,
+          2.1903435795606208,
+          0.9333479702247622
+        ],
+        "maxContactResidualPx": 2.1903435795606208
+      },
+      "bytes": 39260
+    },
+    {
+      "id": "stone-toolmaker",
+      "parcel": 71,
+      "rect": [
+        191.494,
+        34.325,
+        3.979,
+        3.374
+      ],
+      "anchor": [
+        200,
+        320
+      ],
+      "dimensions": [
+        400,
+        420
+      ],
+      "doorHeight": 64,
+      "storeyHeight": 132,
+      "brief": "Low two-storey irregular grey rubble-stone tool repair workshop and home; asymmetrical near-flat pitched weathered brown shingle roof, one stout corner chimney, small deep-set square windows, broad solid plain timber workshop door.",
+      "doorMidpoint": [
+        255.70600000000002,
+        347.853
+      ],
+      "doorFace": "+X",
+      "file": "stone-toolmaker.webp",
+      "sha256": "347b97a47f11d72d04cca62ee8eb0d1893056a82230e06c660a4b5b6ab6c98eb",
+      "p": [
+        192.9835,
+        35.512
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "measuredDoorHeight": 64.82407747570885,
+      "windowCentres": [
+        [
+          127.89400994930503,
+          236.31954614889733,
+          127.89400994930503,
+          331.1830049746525
+        ],
+        [
+          152.08209855964415,
+          295.9834980544005,
+          152.08209855964415,
+          343.27704927982205
+        ],
+        [
+          256.89714920444703,
+          244.70475020048156,
+          256.89714920444703,
+          347.2574253977765
+        ]
+      ],
+      "registration": {
+        "method": "uniform scale and translation from three foundation contacts",
+        "sourceContacts": [
+          [
+            278,
+            971
+          ],
+          [
+            614,
+            1135
+          ],
+          [
+            918,
+            986
+          ]
+        ],
+        "targetContacts": [
+          [
+            97.058,
+            315.765
+          ],
+          [
+            208.47,
+            371.471
+          ],
+          [
+            302.942,
+            324.235
+          ]
+        ],
+        "scale": 0.322507848137855,
+        "offset": [
+          8.243598290160833,
+          4.758911185917441
+        ],
+        "residuals": [
+          2.308379435352647,
+          2.304807965876951,
+          2.015015422295871
+        ],
+        "maxContactResidualPx": 2.308379435352647
+      },
+      "bytes": 28802
+    }
+  ],
+  "navigationChanged": false,
+  "creativeAcceptance": false
+}

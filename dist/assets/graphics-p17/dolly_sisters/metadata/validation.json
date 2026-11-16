@@ -1,0 +1,18 @@
+{
+  "assets_count": 87,
+  "categories": {
+    "buildings": 12,
+    "furniture": 21,
+    "terrain": 18,
+    "overlays": 4,
+    "effects": 32
+  },
+  "building_source_reconstructs_exactly": true,
+  "all_pngs_have_real_transparency": true,
+  "all_png_dimensions_match_json": true,
+  "optional_atlas_crops_match_source_pngs": true,
+  "all_spawn_references_resolve": true,
+  "engine_collision_tested": false,
+  "seamless_world_tiles_tested": false,
+  "reference_art_engine_compatibility_tested": false
+}

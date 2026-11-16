@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="City Watch street encounters with a worn leather and parchment battle notebook. Move, negotiate, guard and make arrests."><meta name="theme-color" content="#261b15"><title>City Watch — Bastion’s Street Encounter</title><style>:root{color-scheme:dark;--ink:#342a20;--paper:#e1c797;--blue:#688196;font:16px/1.3 'Iowan Old Style',Baskerville,Georgia,serif}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none}body{color:var(--paper);background:#151d20}button{font:inherit;min-height:44px;min-width:44px;cursor:pointer;touch-action:manipulation;color:#f3e0ba;background:transparent url('../assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat;border:0;padding:7px 14px;text-shadow:0 1px 2px #100c08}button:hover:not(:disabled){filter:brightness(1.1)}button:focus-visible,canvas:focus-visible{outline:3px solid #a1d0dc;outline-offset:-4px}button:disabled{opacity:.45;cursor:not-allowed}button[aria-pressed=true]{position:relative}[hidden]{display:none!important}svg.ink-icon{display:block;width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}button>span[data-icon]{display:flex;align-items:center;justify-content:center}
+.shell{height:100vh;height:100dvh;width:min(100%,1080px);margin:auto;padding:env(safe-area-inset-top) env(safe-area-inset-right) max(3px,env(safe-area-inset-bottom)) env(safe-area-inset-left);display:grid;grid-template-rows:64px minmax(0,1fr) auto;gap:0;overflow:hidden;background:#271a13 url('assets/field-orders-folio-v03.webp') center/100% 100%}.brand{display:flex;align-items:center;gap:8px;padding:6px 10px;border:2px solid #8c613d;box-shadow:inset 0 0 0 2px #281b13,0 3px 9px #0009;background:#342217 url('../assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 150% no-repeat;z-index:2}.watch-mark{display:grid;place-items:center;width:34px;height:43px;color:#d5b575;filter:drop-shadow(0 2px 1px #000)}.watch-mark svg{height:36px;width:30px}.brand-copy{min-width:0;flex:1}.eyebrow{display:block;font-weight:bold;font-size:19px;line-height:1.1;letter-spacing:.1em}.brand h1{font-weight:normal;font-size:15px;letter-spacing:.04em;margin:4px 0 0;white-space:nowrap}.brand button{display:flex;align-items:center;gap:5px;font-size:15px;padding:6px 15px;flex:none}.brand button svg{width:21px;height:24px}.battle-view{min-height:0;display:grid;grid-template-rows:minmax(0,1fr) 58px;background:#2e2017}.stage-wrap{position:relative;min-height:0;overflow:hidden;border-left:3px solid #503722;border-right:3px solid #503722;background:#363b32}.stage-wrap:after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 16px #17100b66;pointer-events:none}canvas{display:block;width:100%;height:100%;touch-action:manipulation}.scene-label,.round-label{position:absolute;top:5px;font-size:11px;line-height:1.3;letter-spacing:.03em;background:transparent url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100%;color:#33261c;padding:7px 12px 9px;pointer-events:none;text-shadow:0 1px #f9e3ba77}.scene-label{left:5px}.round-label{right:5px;font-size:12px}.actor-tabs{display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:1px 4px 4px;min-width:0}.actor-card{display:flex;align-items:center;gap:6px;min-width:0;min-height:52px;padding:7px 10px 7px 9px;text-align:left;background:url('../assets/lab01-notebook/page_portrait.webp') center/100% 100%;color:var(--ink);text-shadow:none;position:relative;border:2px solid #5b3823;box-shadow:inset 0 0 0 1px #ad8b54}.actor-card[aria-pressed=true]{border-color:#8eafbd;box-shadow:inset 0 0 0 2px #688196}.actor-card[aria-pressed=true]:after{content:'◆';position:absolute;right:5px;bottom:5px;font-size:8px;color:#38525b}.portrait{width:31px;height:36px;object-fit:contain;flex:none;filter:drop-shadow(1px 1px 1px #35241c66)}.actor-copy{display:block;min-width:0;flex:1}.actor-name{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.actor-stat{display:block;font-size:10px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bar{display:block;height:4px;border:1px solid #5a3c2c;margin:2px 0;background:#3e281f}.bar i{display:block;height:100%;background:#a45b41;transition:width .2s}
+.sheet{min-width:0;color:var(--ink);position:relative;padding:0 3px;background:transparent}.command-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0 12px 0 26px;align-items:end;position:relative;z-index:2;gap:0}.command-tabs button{display:flex;align-items:center;justify-content:center;gap:4px;min-width:0;height:44px;min-height:44px;padding:5px 4px 6px;font-size:16px;font-weight:normal;color:var(--ink);text-shadow:none;background:url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100% no-repeat;transform:translateY(3px)}.command-tabs button[aria-pressed=true]{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');color:#f4e6c9;text-shadow:0 1px 2px #000}.command-tabs button[aria-pressed=true]:after{content:'';position:absolute;bottom:7px;left:23%;right:15%;border-bottom:2px solid #d6c7a1}.command-tabs svg{height:20px;width:20px}.folio-page{background:#e1c797 url('assets/field-orders-folio-v03.webp') center/100% 100%;padding:12px 19px 14px 34px;display:grid;grid-template-rows:44px 30px 24px 94px 28px 44px;gap:1px;position:relative;box-shadow:0 -2px 8px #1c100d66}.command-title{display:flex;align-items:center;gap:5px;justify-content:space-between;border-bottom:1px solid #6d4c35aa}.command-title>div{min-width:0}.command-title h2{font-size:23px;font-weight:normal;font-style:italic;margin:0;line-height:1}.command-title #active-name{font-size:11px;font-style:italic;line-height:1.1;display:block;margin-top:2px}#menu-back{color:var(--ink);text-shadow:none;min-width:62px;background:none;font-size:13px;padding:5px 0 5px 6px}.officer-strip{display:flex;align-items:center;justify-content:space-between;gap:10px}.stamina{width:47%;font-size:14px;line-height:1.2}.stamina-bar{display:block;height:5px;width:100%;background:#594730;border:1px solid #4b3927;transform:rotate(-.25deg);margin-top:2px}.stamina-bar i{display:block;height:100%;width:100%;background:#526b50;transition:width .2s}#budget{font-size:12px;white-space:pre-line;text-align:right}.equipment{display:flex;align-items:center;gap:5px;font-size:12px;font-style:italic;border-bottom:1px solid #88674966;min-width:0}.equipment img{width:29px;height:23px;object-fit:contain;filter:sepia(.5)}#strength{white-space:nowrap}#kit-count{font-size:10px;margin-left:auto;white-space:nowrap;font-style:normal}.menu-grid{display:grid;grid-template-rows:44px 44px;gap:5px;height:94px}.menu-grid button{display:flex;align-items:center;gap:9px;min-width:0;text-align:left;min-height:44px;padding:4px 12px;color:var(--ink);text-shadow:none;background:url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100%;border:0;font-size:17px}.menu-grid button>span:nth-child(2){flex:1;min-width:0}.menu-grid strong{display:block;font-weight:normal;line-height:1.1}.menu-grid small{font-size:10px;line-height:1.25;display:block;margin-top:2px}.menu-grid button:not(:disabled):first-child{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');color:#f4e4c6;text-shadow:0 1px #1c293966}.menu-grid button:disabled{opacity:.63;filter:saturate(.55)}.menu-grid button svg{width:26px;height:26px}.menu-grid button .chevron{font-size:23px;flex:none}.menu-grid.directions{grid-template-columns:1fr 1fr}.directions button{justify-content:center;font-size:15px;padding:5px}#feedback{margin:0;align-self:center;font-size:10px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:26px}#feedback.error{color:#7f2c20;font-weight:bold}.end{width:100%;font-size:19px;min-height:44px;padding:5px 20px;background-image:url('../assets/jimmy-b03-v13/close-strap.exact.webp');letter-spacing:.02em}.end>span{margin-left:9px}.result{grid-row:3/6;align-self:center;font-size:15px;line-height:1.5}.result h3{font-size:24px;margin:0 0 10px;font-weight:normal}.result p{margin:0}.folio-page.is-resolved .command-title{grid-row:1}.folio-page.is-resolved .officer-strip{grid-row:2}.folio-page.is-resolved .end{grid-row:6}
+.notebook{width:min(95vw,520px);height:min(600px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);margin:auto;padding:25px 25px 24px 42px;border:0;background:#d7be95 url('assets/field-orders-folio-v03.webp') center/100% 100%;color:var(--ink);overflow:hidden;box-shadow:0 9px 50px #000c}.notebook[open]{display:grid;grid-template-rows:48px 44px minmax(0,1fr) 44px;gap:9px}.notebook::backdrop{background:#081315d9;backdrop-filter:blur(2px)}.notebook .eyebrow{font-size:10px;color:#6a5234}.notebook h2{font-size:22px;margin:4px 0 0;font-weight:normal;font-style:italic}.notebook-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}.notebook-heading button{font-size:14px;flex:none}.book-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:0}.book-tabs button{font-size:13px;padding:4px 2px;background-image:url('../assets/jimmy-b03-v13/tab_normal.exact.webp');color:var(--ink);text-shadow:none;min-width:0}.book-tabs button[aria-pressed=true]{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');color:#f3e2c0;border-bottom:2px solid #d2bd97}.book-content{min-height:0;overflow:hidden;font-size:15px;line-height:1.45}.book-content h3{font-size:22px;font-weight:normal;font-style:italic;margin:5px 0 8px}.book-content p{margin:8px 0}.book-content .party-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #80644755}.party-row img{width:46px;height:62px;object-fit:contain}.party-row p{margin:2px 0}.book-content .mode-list{display:grid;gap:7px;margin:9px 0}.mode-list button{text-align:left;font-size:14px}.book-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}.book-footer button{font-size:13px}.book-footer span{font-size:12px}.book-content .fine{font-size:12px;line-height:1.4}.book-content .hint{background:#8c72451a;border-top:1px solid #96774777;border-bottom:1px solid #96774777;padding:10px 0}.book-content button{max-width:100%}
+@media(max-width:359px){.brand{padding:5px 7px;gap:4px}.brand .eyebrow{font-size:16px}.brand h1{font-size:14px}.watch-mark{width:27px}.brand button{font-size:13px;padding:6px 11px;gap:3px}.brand button svg{width:18px}.folio-page{padding-left:29px;padding-right:15px}.command-tabs{padding-left:23px;padding-right:10px}.command-tabs button{font-size:14px;gap:2px}.command-tabs svg{width:17px;height:17px}.actor-card{gap:4px;padding:6px}.actor-name{font-size:11px}.actor-stat{font-size:9px}.portrait{width:24px;height:32px}.stamina{font-size:13px}.command-title h2{font-size:21px}.menu-grid button{font-size:16px;padding-left:10px;gap:6px}.menu-grid small{font-size:9px}.equipment{font-size:11px}.equipment img{width:22px}#kit-count{font-size:9px}.notebook{padding-left:30px;padding-right:18px}.book-content{font-size:13px;line-height:1.4}.book-content h3{font-size:19px}}
+@media(max-height:720px) and (orientation:portrait){.shell{grid-template-rows:54px minmax(0,1fr) auto}.brand .eyebrow{font-size:17px}.brand h1{font-size:14px;margin-top:2px}.battle-view{grid-template-rows:minmax(0,1fr) 52px}.actor-card{min-height:48px;padding-top:4px;padding-bottom:4px}.folio-page{grid-template-rows:44px 28px 94px 28px 44px;padding-top:8px;padding-bottom:11px}.equipment{display:none}.menu-grid small{font-size:10px}.notebook[open]{gap:6px}.book-content{font-size:13px;line-height:1.4}.book-content .fine{font-size:11px}}
+@media(max-height:570px) and (orientation:portrait){.shell{grid-template-rows:48px minmax(0,1fr) auto}.watch-mark{height:35px}.watch-mark svg{height:30px}.brand .eyebrow{font-size:15px}.brand h1{font-size:12px}.brand button{font-size:13px}.folio-page{grid-template-rows:44px 25px 90px 44px;padding-top:5px;padding-bottom:8px;gap:0}.menu-grid{gap:2px;height:90px}.menu-grid small{display:none}#feedback{position:fixed;z-index:4;top:calc(env(safe-area-inset-top) + 83px);left:10%;right:10%;background:#e1c797ef;padding:4px 7px;max-height:35px;border:1px solid #8e6c44;box-shadow:0 1px 5px #0006;font-size:10px}.command-title #active-name{font-size:10px}.command-title h2{font-size:20px}.notebook{padding-top:13px;padding-bottom:16px}.notebook[open]{grid-template-rows:44px 44px minmax(0,1fr) 44px;gap:5px}.book-content{font-size:12px;line-height:1.35}.book-content h3{font-size:17px}.book-content p{margin:5px 0}.book-content .fine{font-size:10px}}
+@media(min-width:750px),(orientation:landscape) and (min-width:560px){.shell{grid-template-columns:minmax(0,1fr) 340px;grid-template-rows:64px minmax(0,1fr)}.brand{grid-column:1/-1}.battle-view{grid-column:1;grid-row:2}.sheet{grid-column:2;grid-row:2;display:flex;flex-direction:column;justify-content:end}.folio-page{flex:1;grid-template-rows:44px 30px 24px minmax(94px,1fr) 36px 48px;padding:16px 21px 24px 35px;gap:4px}.menu-grid{align-self:end}.equipment{align-self:center}.command-tabs{flex:none;padding-top:2px}#feedback{font-size:11px;max-height:34px}.notebook{width:min(94vw,560px)}}
+@media(orientation:landscape) and (max-height:500px){.shell{grid-template-columns:minmax(0,1fr) 310px;grid-template-rows:48px minmax(0,1fr);padding-bottom:0}.brand{padding:2px 12px}.watch-mark{height:38px}.brand .eyebrow{font-size:17px}.brand h1{font-size:13px;margin-top:1px}.brand button{font-size:14px}.battle-view{grid-template-rows:minmax(0,1fr) 50px}.actor-card{min-height:46px}.sheet{justify-content:start}.folio-page{flex:1;grid-template-rows:44px 26px minmax(90px,1fr) 27px 44px;padding:5px 15px 10px 29px;gap:0}.equipment{display:none}.menu-grid{height:90px;gap:2px}.menu-grid small{font-size:9px}.command-title h2{font-size:20px}.command-tabs{height:44px;padding-left:22px;padding-right:10px}.command-tabs button{font-size:14px;gap:3px}.command-tabs svg{width:17px;height:17px}.notebook{height:calc(100dvh - 12px);width:min(94vw,650px);padding:12px 25px 15px 40px}.notebook[open]{grid-template-rows:44px 44px minmax(0,1fr) 44px;gap:4px}.notebook-heading h2{font-size:20px}.book-content{font-size:12px;line-height:1.3}.book-content h3{font-size:17px;margin:3px 0}.book-content p{margin:4px 0}.book-content .hint{padding:6px 0}.book-content .fine{font-size:10px}.book-content .mode-list{grid-template-columns:repeat(3,1fr);gap:3px;margin:6px 0}.mode-list button{font-size:12px;padding:4px 8px}.book-content .party-row{padding:3px 0}.party-row img{height:42px;width:32px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+@media(orientation:landscape) and (max-height:350px){.folio-page{grid-template-rows:44px 24px minmax(90px,1fr) 44px;padding-top:4px;padding-bottom:7px}#feedback{position:fixed;top:83px;left:9px;right:319px;background:#ead4aff0;border:1px solid #926f4b;padding:4px 6px;max-height:34px;font-size:10px;z-index:4}.menu-grid small{display:none}.command-title #active-name{font-size:10px}}
+/* v0.3.1: reuse the issued Watch badge; make every command acknowledge its result. */
+img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 2px #0009)}
+.scene-feedback{position:absolute;top:42px;left:9px;right:9px;z-index:3;pointer-events:none;color:#30271e;background:#ead4afef;border:1px solid #7e5b36;border-left:4px solid #597467;box-shadow:0 3px 8px #0006;padding:6px 9px;line-height:1.25;max-height:104px;overflow:hidden}
+.scene-feedback .report-caption{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#68513a;margin-bottom:2px}
+.scene-feedback strong{display:block;font-size:14px;font-weight:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#feedback-detail{display:block;font-size:11px;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.scene-feedback[data-tone=error]{border-left-color:#9e4936;background:#f1d5b5f5}
+.scene-feedback[data-tone=error] strong{color:#7e281e}
+.menu-grid button.is-unavailable{opacity:.8;filter:saturate(.45);background-image:url('../assets/jimmy-b03-v13/tab_normal.exact.webp');color:var(--ink);text-shadow:none}
+.menu-grid small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#commands.has-watch-skill{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:44px 44px;gap:5px;height:94px}
+#commands.has-watch-skill>#watch-skill,#commands.has-watch-skill>#menu-fight{display:contents}
+#commands.has-watch-skill>#watch-skill>button{grid-column:1/-1;order:3}
+#commands.has-watch-skill>#menu-fight>button{font-size:15px;padding-left:8px;padding-right:8px;gap:5px}
+#commands.has-watch-skill>#menu-fight>button svg{width:20px;height:20px}
+#commands.has-watch-skill>#menu-fight>button small{display:none}
+@media(max-width:359px){img.watch-mark{width:34px;height:40px}.scene-feedback strong{font-size:13px}}
+@media(max-height:570px) and (orientation:portrait){.scene-feedback{top:34px;padding:4px 7px}.scene-feedback .report-caption{display:none}#feedback-detail{-webkit-line-clamp:1;margin-top:2px}.scene-feedback strong{font-size:12px}img.watch-mark{width:30px;height:36px}}
+@media(orientation:landscape) and (max-height:500px){.scene-feedback{top:40px;padding:5px 7px}.scene-feedback strong{font-size:13px}.scene-feedback .report-caption{display:none}}
+/* v0.4: selected target's intention is visible without opening the incident book. */
+.target-intent{position:absolute;bottom:5px;left:7px;right:7px;z-index:2;padding:4px 7px;color:#f3e2c0;background:#251e17eb;border:1px solid #9c7951;pointer-events:none;font-size:11px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#end-turn.action-spent{box-shadow:inset 0 0 0 2px #95a9a2}
+.target-intent.is-danger{border-color:#b47b64;box-shadow:inset 3px 0 #a25a40}
+.scene-feedback.compact{padding:4px 7px}.scene-feedback.compact .report-caption,.scene-feedback.compact #feedback-detail{display:none}.scene-feedback.compact strong{-webkit-line-clamp:1;font-size:12px}
+/* v0.6: concise reactions and replayable case reports, without another HUD row. */
+.target-intent.is-remark{font-style:italic;border-color:#d1af6c;color:#f4dba7}
+.folio-page.is-resolved{grid-template-rows:44px 26px minmax(0,1fr) 48px;height:330px;max-height:calc(100dvh - 150px)}
+.folio-page.is-resolved .result{grid-row:3;align-self:stretch;overflow:auto;min-height:0;padding:5px 0;font-size:13px;line-height:1.35}
+.result h3{font-size:21px;margin:0 0 4px}.result strong{display:block;margin:7px 0 3px}.result .fine{font-size:11px}
+.commendations{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}.commendations span{border:1px dashed #967e60;padding:3px 5px;font-size:11px;opacity:.7}.commendations .earned{border:1px solid #516747;color:#32482f;opacity:1;background:#aabb8b44}
+.post-case{grid-row:4;display:flex;gap:3px;align-items:stretch}.folio-page.is-resolved .post-case .end{flex:1;width:auto;min-width:0;font-size:12px;line-height:1.1;padding:4px 5px;letter-spacing:0}
+@media(orientation:landscape) and (max-height:500px){.folio-page.is-resolved{height:100%;max-height:none;grid-template-rows:44px 22px minmax(0,1fr) 44px}}
+/* v0.7: restore the six-section Watch Notebook, separate from demo setup. */
+#setup-open{padding:4px;width:44px;font-size:25px;justify-content:center}
+.notebook{isolation:isolate;width:min(96vw,1040px);height:min(88dvh,800px);max-width:calc(100vw - 12px);max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 20px);padding:16px 20px 18px 24px;margin:auto;background:none;overflow:hidden;box-shadow:0 12px 35px #000b;color:#302217;font-family:'Iowan Old Style',Baskerville,Georgia,serif;font-size:16px;line-height:1.45}
+.notebook:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border:solid transparent;border-width:36px 20px 28px;border-image:url('../assets/lab01-notebook/cover_portrait.webp') 150 76 107 fill stretch}
+.notebook[open]{display:grid;grid-template-rows:66px 48px minmax(0,1fr) 44px;gap:0}
+.notebook-heading{align-items:center;padding:0 5px;min-width:0}.notebook-heading button{min-height:44px;min-width:74px;font-size:16px;background-image:url('../assets/jimmy-b03-v13/close-strap.exact.webp')}
+.notebook-title-slip{display:flex;align-items:center;gap:7px;background:url('../assets/lab01-notebook/page_portrait.webp') center/100% 100%;padding:6px 12px;transform:rotate(-2deg);max-width:65%}
+.notebook-title-slip img{height:36px;width:30px;object-fit:contain}.notebook h2{font-weight:600;font-size:19px;line-height:1.1;margin:0;font-style:italic}
+.book-tabs{display:flex;overflow-x:auto;overflow-y:hidden;overscroll-behavior:contain;scrollbar-width:thin;gap:1px;align-items:stretch;position:relative;z-index:2;min-width:0;padding:0 3px}
+.book-tabs button{flex:1 0 96px;min-width:96px;min-height:44px;white-space:nowrap;font-size:16px;padding:5px 9px 6px;background-image:url('../assets/jimmy-b03-v13/tab_normal.exact.webp');color:#302217;font-style:italic}.book-tabs button[aria-pressed=true]{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');text-decoration:underline;text-underline-offset:5px;border-bottom:3px solid #b6a37d;color:#fff0d0}
+.book-content{display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:hidden;font-size:16px;line-height:1.45;background:none;min-width:0;position:relative}
+.book-content:before{content:'';position:absolute;z-index:1;left:calc(50% - 9px);width:18px;top:0;bottom:0;background:url('assets/notebook-binding_spine.webp') center/100% 100%;pointer-events:none}
+.book-leaf{position:relative;isolation:isolate;min-width:0;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:16px 18px 22px}
+.book-leaf:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border:solid transparent;border-width:19px 16px 20px;border-image:url('assets/notebook-page_left.webp') 70 65 75 fill stretch}
+#book-detail:before{border-image-source:url('assets/notebook-page_right.webp')}
+.book-content h3{font-size:25px;font-style:italic;font-weight:600;margin:0 0 16px;padding-bottom:8px;border-bottom:2px solid #71543b;display:flex;gap:10px;align-items:center;line-height:1.2;overflow-wrap:anywhere}.book-content h3 img{width:34px;height:34px;object-fit:contain;flex:none}
+.record-rows{display:grid;gap:5px}.book-content .record-row{display:flex;align-items:center;gap:10px;min-height:74px;width:100%;padding:8px 13px;background:url('assets/notebook-entry_normal.webp') center/100% 100%;color:#302217;text-shadow:none;text-align:left;font-size:16px}
+.book-content .record-row[aria-pressed=true]{background-image:url('assets/notebook-entry_selected.webp');color:#f4e6cb}.record-row img{height:45px;width:42px;object-fit:contain;flex:none}.record-row>span:nth-child(2){flex:1;min-width:0}.record-row strong{display:block;font-size:18px;line-height:1.2;font-style:italic;font-weight:600;overflow-wrap:anywhere}.record-row small{display:block;font-size:14px;margin-top:4px;line-height:1.3}.record-row>span:last-child{font-size:24px}
+.record-sketch{display:block;width:90px;height:90px;object-fit:contain;margin:3px auto 15px;filter:sepia(.5)}.record-status{font-style:italic}.book-leaf dl{border-top:1px solid #947b5d;border-bottom:1px solid #947b5d;padding:8px 0}.book-leaf dl>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;margin:6px 0}.book-leaf dt{font-weight:600}.book-leaf dd{margin:0;overflow-wrap:anywhere}.book-content p{margin:12px 0}.empty-record{padding:20px 5px;border-bottom:1px solid #997b5c;font-style:italic}.book-idle{margin:60px auto;text-align:center;font-style:italic;color:#6d563d}.book-idle img{height:75px;width:60px;object-fit:contain;opacity:.65}
+.book-footer{justify-content:space-between;gap:8px;color:#eedcbb;padding:0 4px;min-width:0}.book-footer button{font-size:16px;min-height:44px}.book-footer span{font-size:13px}#notes-status{margin-left:auto;text-align:right;font-style:italic}
+.notes-page{grid-template-columns:1fr}.notes-page:before,.notes-page #book-detail{display:none}.notes-page #book-list{padding-right:24px}.book-caption{font-size:14px;font-style:italic}.sr-label{display:block;font-weight:600}#watch-note-draft{display:block;width:100%;min-height:190px;height:30dvh;max-height:360px;resize:vertical;border:1px solid #927756;background:#f5e9c755;color:#302217;font:inherit;padding:12px;margin:7px 0}#save-notes{font-size:16px;min-height:44px}
+.demo-setup{width:min(94vw,520px);max-height:85dvh;border:5px solid #735030;padding:18px;background:#ddc49a url('../assets/lab01-notebook/page_portrait.webp') center/cover;color:#302217;overflow:auto;font:16px/1.4 Georgia,serif}.demo-setup::backdrop{background:#081315d9}.demo-setup h2{font-size:23px;margin:0}.setup-cases{display:grid;gap:6px}.setup-cases button{display:block;text-align:left;padding:12px;background-image:url('../assets/jimmy-b03-v13/tab_normal.exact.webp');color:#302217;text-shadow:none}.setup-cases strong,.setup-cases small{display:block}.setup-cases small{font-size:13px;margin-top:3px}.demo-setup details{margin:15px 0}.demo-setup summary{min-height:44px;padding:10px 0;cursor:pointer}.demo-setup .mode-list{display:grid;gap:4px;margin:10px 0}
+@media(max-width:679px){.notebook{height:min(88dvh,760px);padding:10px 12px 12px 16px}.notebook[open]{grid-template-rows:60px 48px minmax(0,1fr) 44px}.notebook-title-slip{padding:7px;max-width:66%;gap:5px}.notebook h2{font-size:18px}.notebook-title-slip img{height:30px;width:25px}.book-tabs button{flex:0 0 96px}.book-content{display:block}.book-content:before{display:none}.book-leaf{height:100%;padding:16px 14px 20px}.book-content #book-detail{display:none}.book-content[data-detail=true] #book-list{display:none}.book-content[data-detail=true] #book-detail{display:block}.book-content.notes-page #book-list{display:block}.book-content h3{font-size:24px}.book-content,.book-content p{font-size:16px;line-height:1.45}.book-content .record-row{min-height:78px;padding:9px 12px}.book-footer span{font-size:12px}#notes-status{max-width:48%}}
+@media(orientation:landscape) and (min-width:680px){.notebook{height:calc(100dvh - 14px);padding:10px 18px 10px 22px}.notebook:before{border-width:20px 22px 20px;border-image-source:url('../assets/lab01-notebook/cover_landscape_short.exact.webp');border-image-slice:64 105 72 fill}.notebook[open]{grid-template-rows:48px 44px minmax(0,1fr) 44px}.notebook-title-slip{padding:2px 10px}.notebook h2{font-size:19px}.notebook-title-slip img{height:28px}.book-leaf{padding:12px 15px 20px}.book-content h3{font-size:22px}.book-content .record-row{min-height:64px}.record-sketch{height:60px;width:60px;margin:0 auto 10px}}
+/* Keep paper behind long scrollable records without stretching painted corners. */
+.book-leaf{border:solid transparent;border-width:16px 12px;border-image:url('assets/notebook-page_left.webp') 70 65 75 fill stretch;padding:8px 8px 14px;background-color:#e3cfa8;background-clip:padding-box}
+.book-leaf:before{display:none}#book-detail{border-image-source:url('assets/notebook-page_right.webp')}
+.book-footer>span{min-width:0;overflow-wrap:anywhere}.book-footer #page-number{flex:1}.book-footer #notes-status{flex:1;max-width:42%}.book-footer>button{flex:none}
+
+/* Combat receiving294: readable parchment inset, natural text flow, plain labelled tabs. */
+.sheet{min-height:0;min-width:0;overflow:hidden}.command-tabs{padding:0 12px 0 36px;gap:2px}.command-tabs button{font-size:16px;white-space:normal}.command-tabs [data-icon],.menu-grid [data-icon]{display:none!important}
+.folio-page{display:flex;flex-direction:column;gap:8px;padding:34px 24px 20px 48px;min-width:0;min-height:0;max-height:52dvh;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}.command-title{flex:none;align-items:flex-start;min-height:48px;padding:0 0 8px;gap:8px}.command-title h2{font-size:23px;line-height:1.2;overflow-wrap:anywhere}.command-title #active-name{font-size:13px;line-height:1.3;margin-top:4px;overflow-wrap:anywhere}#menu-back{flex:none;align-self:center;min-width:52px;font-size:13px}
+.officer-strip{flex:none;flex-wrap:wrap;gap:6px;min-height:30px}.stamina{flex:1;min-width:110px;width:auto;font-size:14px}#budget{max-width:100%;font-size:12px;overflow-wrap:anywhere;white-space:normal}.equipment{display:flex;flex:none;flex-wrap:wrap;gap:5px;font-size:13px;min-height:30px;padding-bottom:6px}#kit-count{white-space:normal;font-size:12px;line-height:1.3}#strength{white-space:normal}
+#commands{flex:none;min-width:0}.menu-grid,#commands.has-watch-skill{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-rows:auto;height:auto;gap:7px;min-width:0}.menu-grid button,#commands.has-watch-skill>#menu-fight>button{min-height:58px;height:auto;padding:10px 13px;font-size:17px;gap:5px;align-items:center}.menu-grid strong{line-height:1.2;white-space:normal;overflow-wrap:anywhere}.menu-grid small,#commands.has-watch-skill>#menu-fight>button small{display:block;font-size:12px;line-height:1.35;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;margin-top:4px}.menu-grid button>span:nth-child(2){min-width:0}.menu-grid.directions{grid-template-columns:1fr 1fr}#commands.has-watch-skill>#watch-skill>button{grid-column:auto;order:0}#commands.has-watch-skill>#watch-skill,#commands.has-watch-skill>#menu-fight{display:contents}
+#feedback{display:block;position:static;flex:none;overflow:visible;max-height:none;-webkit-line-clamp:unset;font-size:12px;line-height:1.35;align-self:stretch;margin:2px 0;overflow-wrap:anywhere;background:none;padding:0;box-shadow:none;border:0}.end{flex:none;min-height:46px;line-height:1.2;margin-top:4px;font-size:18px}.folio-page.is-resolved{display:flex;height:auto;max-height:52dvh}.folio-page.is-resolved .result{flex:1;min-height:100px;overflow:auto}.post-case{flex:none;flex-wrap:wrap}.folio-page.is-resolved .post-case .end{min-width:100px}
+.battle-view{grid-template-rows:minmax(0,1fr) auto}.actor-card{min-height:64px;height:auto}.actor-name{white-space:normal;overflow:visible;font-size:12px;line-height:1.2;overflow-wrap:anywhere}.actor-stat{font-size:11px}.brand h1{white-space:normal;overflow-wrap:anywhere}
+@media(min-width:750px),(orientation:landscape) and (min-width:560px){.folio-page,.folio-page.is-resolved{max-height:none;flex:1;padding-top:38px}.sheet{overflow:hidden}.end{margin-top:auto}.command-tabs button{font-size:16px}.actor-card{min-height:64px}}
+@media(max-width:359px){.folio-page{padding:28px 17px 16px 38px}.command-tabs{padding-left:29px;padding-right:10px}.command-tabs button{font-size:14px}.command-title h2{font-size:21px}.command-title #active-name{font-size:12px}.menu-grid button{font-size:16px}.menu-grid small{font-size:12px}.actor-name{font-size:11px}.actor-stat{font-size:10px}}
+@media(orientation:landscape) and (max-height:500px){.folio-page{padding:28px 17px 15px 38px;gap:7px}.equipment{display:none}.command-title{min-height:46px}.command-title h2{font-size:21px}.menu-grid button{min-height:54px}.actor-card{min-height:58px}}
+
+
+.menu-grid button.is-unavailable,.menu-grid button.is-unavailable:not(:disabled):first-child{background-image:url('../assets/jimmy-b03-v13/tab_normal.exact.webp');color:#4c3b27;text-shadow:none;opacity:1;filter:none}.menu-grid button{padding-left:18px;padding-right:18px}
+@media(max-height:720px) and (orientation:portrait){.equipment{display:none}.folio-page{gap:6px}.command-title{min-height:42px}}
+
+
+.menu-grid button,.menu-grid button:not(:disabled):first-child,.menu-grid button.is-unavailable:not(:disabled):first-child{background:#e4cda2 url('../assets/lab01-notebook/page_portrait.webp') center/cover;color:#342719;text-shadow:none;border:1px solid #8d704d;box-shadow:inset 0 0 0 2px #efdfbf;border-radius:3px;opacity:1;filter:none}.menu-grid strong{font-weight:600}.menu-grid button.is-unavailable{color:#5c4a34}
+
+
+#commands-close{display:none}
+@media(max-width:749px) and (orientation:portrait){
+.shell{position:relative;grid-template-rows:54px minmax(0,1fr);padding-bottom:48px}.battle-view{grid-row:2;min-height:0}.sheet{position:absolute;left:0;right:0;bottom:env(safe-area-inset-bottom,0px);z-index:5;overflow:visible;background:none}.command-tabs{height:48px;padding:0 8px;gap:3px;background:#38291e url('../assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100%;align-items:center}.command-tabs button{transform:none;height:44px;font-size:16px}.folio-page,.folio-page.is-resolved{display:none;position:absolute;bottom:48px;left:0;right:0;max-height:min(48dvh,360px);height:auto;padding:28px 20px 16px 40px;box-shadow:0 -7px 24px #0009}.sheet.is-open .folio-page{display:flex}.sheet.is-open .command-tabs button[aria-pressed=true]:after{border-bottom-color:#f4e6c9}.command-title{gap:5px}.command-title h2{font-size:21px}.command-title #active-name{font-size:12px}#commands-close{display:block;min-width:44px;min-height:44px;padding:4px;color:#342719;background:none;text-shadow:none;font-size:12px;align-self:center}#menu-back{min-width:46px;font-size:12px}.equipment{display:none}.actor-card{min-height:62px}.actor-name{font-size:12px}.end{margin-top:6px}
+}
+
+</style><script src="../cw-chase.js?v=p21-b407-s039-reuse"></script><script src="../cw-lab-release.js?v=p21-b407-s039-reuse"></script><script src="../cw-lab-isolation.js?v=p21-b407-s039-reuse"></script><script src="../cw-action-frames.js?v=p21-b407-s039-reuse"></script><script src="../cw-action-rigs-data.js?v=p21-b407-s039-reuse"></script><script src="../cw-character-runtime.js?v=p21-b498-appearance-recovery"></script><script src="../cw-clothing.js?v=p21-b407-s039-reuse"></script><script src="../cw-heads.js?v=p21-b407-s039-reuse"></script><script src="../cw-patrol-mentors.js?v=p21-b407-s039-reuse"></script><script src="../cw-patrol-partner.js?v=p21-b407-s039-reuse"></script><script src="../cw-opening-suspect.js?v=p21-b499-purse-appearances"></script><script src="cw-training-character.js?v=p21-b499-purse-appearances"></script><style>.cw-training-return{color:#f4e4c0;min-width:44px;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;font:10px Georgia}.cw-training-return img{width:28px;height:28px;object-fit:contain}.cw-training-return:focus-visible{outline:2px solid #f4e4c0}</style><link rel="stylesheet" href="../cw-ui-continuity.css?v=p21-b407-s039-reuse"><style>.weapon-kit{grid-template-columns:repeat(2,minmax(0,1fr));overflow-y:auto;align-content:start;grid-auto-rows:44px}.weapon-kit button{font-size:13px;padding:4px 6px;gap:4px}.weapon-kit button svg{width:20px;height:20px}.weapon-kit small{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.weapon-kit button>span{min-width:0;max-width:100%}.weapon-kit strong{overflow-wrap:anywhere}.weapon-kit{overflow-x:hidden}</style><script src="../cw-dibbler-goods.js?v=p21-b407-s039-reuse"></script><script src="../cw-supplies.js?v=p21-b407-s039-reuse"></script><script src="../city-services/shop-preparations.js?v=p21-b407-s039-reuse"></script><script src="../cw-weapons.js?v=p21-b429-patrol-kit"></script><script src="../cw-weapon-grips.js?v=p21-b407-s039-reuse"></script><script src="../cw-weapon-art.js?v=p21-b407-s039-reuse"></script><link rel="stylesheet" href="cw-encounter-feel.css?v=p21-b407-s039-reuse"><script src="cw-encounter-feel.js?v=p21-b407-s039-reuse"></script></head>
+<body><main class="shell">
+<header class="brand"><a class="cw-training-return" href="../index.html" aria-label="Return to patrol"><img src="../watch-oath/assets/watch-badge-star.webp" alt=""><span>← Patrol</span></a><div class="brand-copy"><span class="eyebrow">CITY WATCH</span><h1 id="case-title">Taproom yard</h1></div><button id="notebook-open" aria-haspopup="dialog"><span data-icon="book" aria-hidden="true"></span><span>Notebook</span></button><button id="setup-open" aria-label="Demo setup" aria-haspopup="dialog">⋯</button></header>
+<section class="battle-view" aria-label="Battle scene and targets"><section id="incident-brief" class="incident-brief" aria-label="Incident objective"><div class="incident-brief-line"><strong id="incident-goal"></strong><span id="incident-progress"></span></div><div id="incident-gauge" class="incident-gauge" role="progressbar" aria-label="Suspects in custody" aria-valuemin="0" aria-valuemax="2" aria-valuenow="0"><i id="incident-gauge-fill"></i></div><span id="incident-danger" class="incident-danger" hidden></span></section><div class="stage-wrap"><canvas id="scene" width="900" height="720" tabindex="0" role="img" aria-label="Taproom-yard battle. Select an opponent with the target buttons, then choose a command. Tap a highlighted space to move one step. The Move tab has four direct controls."></canvas><span class="scene-label" id="scene-label"></span><span class="round-label" id="turn-status"></span><div id="target-intent" class="target-intent"></div><div id="scene-feedback" class="scene-feedback" role="status" aria-live="polite" aria-atomic="true" hidden><span class="report-caption" id="event-number"></span><strong id="feedback-summary"></strong><span id="feedback-detail"></span><span id="patrol-remark" class="patrol-remark" hidden></span></div></div><div class="actor-tabs" id="actors" aria-label="Select opponent"></div></section>
+<section class="sheet" aria-label="Battle commands">
+<nav id="command-tabs" class="command-tabs" aria-label="Battle command menus"><button data-menu="fight" aria-pressed="true"><span data-icon="club" aria-hidden="true"></span>Fight</button><button data-menu="talk" aria-pressed="false"><span data-icon="talk" aria-hidden="true"></span>Talk</button><button data-menu="move" aria-pressed="false"><span data-icon="boot" aria-hidden="true"></span>Move</button><button data-menu="kit" aria-pressed="false"><span data-icon="bag" aria-hidden="true"></span>Kit</button></nav>
+<div class="folio-page">
+<div class="command-title"><div><h2 id="menu-title">Field orders</h2><span id="active-name"></span></div><button id="menu-back">More ›</button><button id="commands-close" aria-label="Close combat commands">Close</button></div>
+<div class="officer-strip"><div class="stamina"><span id="health"></span><span class="stamina-bar"><i id="stamina-fill"></i></span></div><span id="budget"></span></div>
+<div class="equipment"><img src="../assets/p20-base-03/inventory-v06/item-good-truncheon.exact.webp" alt=""><span>Oak truncheon</span><span id="strength"></span><span id="kit-count"></span></div>
+<div id="commands"><div id="watch-skill" class="menu-grid" hidden><button data-action="skill"><span data-icon="shield" aria-hidden="true"></span><span><strong>Specialist action</strong><small>One action · once per encounter</small></span></button></div>
+<div id="menu-fight" class="menu-grid" aria-label="Fight commands"><button data-action="strike"><span data-icon="club" aria-hidden="true"></span><span><strong>Truncheon strike</strong><small>A solid blow · 5 stamina</small></span><span class="chevron" aria-hidden="true">›</span></button><button data-action="defend"><span data-icon="shield" aria-hidden="true"></span><span><strong>Guard</strong><small>Brace against the next attack</small></span><span class="chevron" aria-hidden="true">›</span></button></div>
+<div id="menu-tactics" class="menu-grid" aria-label="More fight commands" hidden><button data-action="shove"><span data-icon="push" aria-hidden="true"></span><span><strong>Shove</strong><small>Shake the target; set up an arrest</small></span><span class="chevron" aria-hidden="true">›</span></button><button data-action="restrain"><span data-icon="cuffs" aria-hidden="true"></span><span><strong>Restrain</strong><small>Bring a vulnerable target into custody</small></span><span class="chevron" aria-hidden="true">›</span></button></div>
+<div id="menu-talk" class="menu-grid" aria-label="Talk commands" hidden><button data-action="talk"><span data-icon="talk" aria-hidden="true"></span><span><strong>Talk down</strong><small>Calm the target · reduce resolve</small></span><span class="chevron" aria-hidden="true">›</span></button><button data-action="bargain"><span data-icon="exit" aria-hidden="true"></span><span><strong>Offer a way out</strong><small>A peaceful exit; no arrest</small></span><span class="chevron" aria-hidden="true">›</span></button></div>
+<div id="menu-move" class="menu-grid directions" aria-label="Direct movement controls" hidden><button data-step="-1,0" aria-label="Step up-left">↖ Up-left</button><button data-step="0,-1" aria-label="Step up-right">↗ Up-right</button><button data-step="0,1" aria-label="Step down-left">↙ Down-left</button><button data-step="1,0" aria-label="Step down-right">↘ Down-right</button></div>
+<div id="menu-kit" class="menu-grid weapon-kit" aria-label="Kit commands" hidden><button data-action="item"><span data-icon="bandage" aria-hidden="true"></span><span><strong>Bandage self</strong><small>Recover up to 6 stamina</small></span><span class="chevron" aria-hidden="true">›</span></button><button data-action="revive"><span><strong>Coffee for partner</strong><small>Rouse a downed partner</small></span></button><button data-action="reload"><span><strong>Load crossbow</strong><small>One action</small></span></button><button data-action="stow"><span><strong>Ready truncheon</strong><small>One action</small></span></button><button data-action="escape"><span data-icon="exit" aria-hidden="true"></span><span><strong>Withdraw</strong><small>Reach an edge of the encounter</small></span><span class="chevron" aria-hidden="true">›</span></button></div>
+</div>
+<p id="feedback"></p><button id="end-turn" class="end">End turn <span aria-hidden="true">→</span></button>
+<div id="result" class="result" hidden></div><p id="incident-next" class="incident-next" hidden></p><div id="post-case" class="post-case" hidden><button id="return" class="end" hidden>Return to patrol →</button><button id="next-case" class="end" hidden>Next patrol case →</button><button id="replay" class="end" hidden>Retry case</button></div>
+</div></section>
+<dialog id="notebook" class="notebook" aria-labelledby="notebook-title">
+<div class="notebook-heading"><div class="notebook-title-slip"><img src="../watch-oath/assets/watch-badge-star.webp" alt=""><h2 id="notebook-title">The Watch Notebook</h2></div><button id="notebook-close">× Close</button></div>
+<nav class="book-tabs" aria-label="Notebook sections"><button data-page="cases" aria-pressed="true">Cases</button><button data-page="evidence" aria-pressed="false">Evidence</button><button data-page="suspects" aria-pressed="false">Suspects</button><button data-page="witnesses" aria-pressed="false">Witnesses</button><button data-page="timeline" aria-pressed="false">Timeline</button><button data-page="my_notes" aria-pressed="false">My Notes</button></nav>
+<div id="book-content" class="book-content" data-detail="false"><section id="book-list" class="book-leaf"></section><section id="book-detail" class="book-leaf" aria-label="Record detail"></section></div>
+<div class="book-footer"><button id="book-back" hidden>‹ Back</button><span id="page-number"></span><span id="notes-status" role="status" aria-live="polite"></span></div>
+</dialog>
+<dialog id="demo-setup" class="demo-setup" aria-labelledby="setup-title"><div class="notebook-heading"><h2 id="setup-title">Demo setup</h2><button id="setup-close">Close</button></div><p>Choose a patrol exercise. Starting one resets the encounter.</p><div id="setup-content"></div></dialog>
+</main><script src="../cw-battle-scenes.js?v=p21-b407-s039-reuse"></script><script src="../city-services/shop-preparations.js?v=p21-b407-s039-reuse"></script><script>const ASSETS={"nbCoverPortrait": "../assets/lab01-notebook/cover_portrait.webp", "nbCoverLandscapeShort": "../assets/lab01-notebook/cover_landscape_short.exact.webp", "nbPageLeft": "assets/notebook-page_left.webp", "nbPageRight": "assets/notebook-page_right.webp", "nbEntryNormal": "assets/notebook-entry_normal.webp", "nbEntrySelected": "assets/notebook-entry_selected.webp", "nbBindingSpine": "assets/notebook-binding_spine.webp", "nbIconCases": "assets/notebook-icon_cases.webp", "nbIconEvidence": "assets/notebook-icon_evidence.webp", "nbIconSuspects": "assets/notebook-icon_suspects.webp", "nbIconWitnesses": "assets/notebook-icon_witnesses.webp", "nbIconTimeline": "assets/notebook-icon_timeline.webp", "nbIconMyNotes": "assets/notebook-icon_my_notes.webp", "watchBadge": "../watch-oath/assets/watch-badge-star.webp", "button": "../assets/lab01-notebook/button_normal.exact.webp", "paper": "../assets/lab01-notebook/page_portrait.webp", "strap": "../assets/jimmy-b03-v13/close-strap.exact.webp", "tabNormal": "../assets/jimmy-b03-v13/tab_normal.exact.webp", "tabSelected": "../assets/jimmy-b03-v13/tab_selected.exact.webp", "folio": "assets/field-orders-folio-v03.webp", "truncheon": "../assets/p20-base-03/inventory-v06/item-good-truncheon.exact.webp", "courtyard": "assets/taproom-courtyard-v03.webp", "obstacle": "../assets/graphics-p17/shades/sprites/props/small_closed_storage_crate.exact.webp", "officer": "../assets/characters/original/watch-recruit-atlas.webp", "officerPortrait": "../assets/characters/original/watch-recruit-portrait.webp", "partner": "../assets/characters/original/watch-recruit-female-atlas.webp", "partnerPortrait": "../assets/characters/original/watch-recruit-female-portrait.webp", "patron": "../assets/characters/original/dockworker-atlas.webp", "patronPortrait": "../assets/characters/original/dockworker-portrait.webp", "lookout": "../assets/characters/original/cutpurse-atlas.webp", "lookoutPortrait": "../assets/characters/original/cutpurse-portrait.webp"}; const ACTOR_META={"officer": {"atlas": "assets/characters/original/watch-recruit-atlas.webp", "portrait": "assets/characters/original/watch-recruit-portrait.webp", "cellWidth": 128, "cellHeight": 176, "footX": 64, "footY": 168, "visibleHeight": 157, "nativeFacing": {"idle": "left", "walk": "left"}}, "partner": {"atlas": "assets/characters/original/watch-recruit-female-atlas.webp", "portrait": "assets/characters/original/watch-recruit-female-portrait.webp", "cellWidth": 128, "cellHeight": 176, "footX": 64, "footY": 168, "visibleHeight": 157, "nativeFacing": {"idle": "left", "walk": "left"}}, "patron": {"atlas": "assets/characters/original/dockworker-atlas.webp", "portrait": "assets/characters/original/dockworker-portrait.webp", "cellWidth": 128, "cellHeight": 176, "footX": 64, "footY": 168, "visibleHeight": 157, "nativeFacing": {"idle": "left", "walk": "right"}}, "lookout": {"atlas": "assets/characters/original/cutpurse-atlas.webp", "portrait": "assets/characters/original/cutpurse-portrait.webp", "cellWidth": 128, "cellHeight": 176, "footX": 64, "footY": 168, "visibleHeight": 157, "nativeFacing": {"idle": "left", "walk": "left"}}};</script><script>/* Bastion combat decision prototype v0.1. No host game globals or save writes. */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.BastionCombat = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const W=globalThis.CWWeapons,Supplies=globalThis.CWSupplies;
+  const MODES = {
+    classic: {label:'Classic party battle', move:0, detail:'Fixed formations. Choose a command and target; no walking between turns.'},
+    grid: {label:'Tactical grid', move:3, detail:'A full 8 × 6 board. Move up to 3 squares, then take one action.'},
+    hybrid: {label:'Street encounter', move:2, detail:'The scene stays in place. Reveal nearby movement spaces only when needed.'}
+  };
+  const RESOLVED = new Set(['arrested','incapacitated','released','escaped']);
+  const DIRECTIONS = [[1,0],[0,1],[-1,0],[0,-1]];
+  const clone = x => JSON.parse(JSON.stringify(x));
+  const distance = (a,b) => Math.abs(a.x-b.x)+Math.abs(a.y-b.y);
+  const current = s => s.actors[s.turn];
+  const enemy = a => a.team === 'opposition';
+  const live = a => !RESOLVED.has(a.status);
+  const canAct = a => a.status === 'active';
+  function log(s,t) { s.log.push(t); if(s.log.length>80)s.log.shift(); }
+  function create(mode='hybrid') {
+    if(!MODES[mode]) throw new Error('Unknown combat mode');
+    const s = {version:1, mode, phase:'battle', round:1, turn:0, width:8, height:6,
+      obstacles:[[3,1],[4,1],[6,4],[6,5]], items:2, supplies:{schema:1,coffee:1,revived:[]}, budget:{move:MODES[mode].move, action:1},
+      actors:[
+        {id:'officer',name:'Your recruit',team:'watch',strength:2,weapon:'oak-truncheon',art:'officer',x:1,y:3,hp:22,maxHp:22,morale:0,status:'active',guard:false,shaken:false},
+        {id:'patron',name:'Angry patron',team:'opposition',art:'patron',x:3,y:3,hp:14,maxHp:14,morale:8,status:'active',guard:false,shaken:false},
+        {id:'partner',name:'Watch partner',team:'watch',strength:2,weapon:'oak-truncheon',art:'partner',x:1,y:5,hp:20,maxHp:20,morale:0,status:'active',guard:false,shaken:false},
+        {id:'lookout',name:'Nervous accomplice',team:'opposition',art:'lookout',x:5,y:2,hp:10,maxHp:10,morale:4,status:'active',guard:false,shaken:false}
+      ], log:[], result:null, claimed:false};
+    log(s,'A dispute outside the taproom has become a brawl. Keep everyone alive; bring it to a lawful end.');
+    log(s,'Prototype encounter and dialogue. Balance and art placement await your choice.');
+    return s;
+  }
+  function legal(s,x,y,ignoreId) {
+    return Number.isInteger(x)&&Number.isInteger(y)&&x>=0&&y>=0&&x<s.width&&y<s.height &&
+      !s.obstacles.some(p=>p[0]===x&&p[1]===y) &&
+      !s.actors.some(a=>a.id!==ignoreId&&live(a)&&a.x===x&&a.y===y);
+  }
+  function reachable(s, actor=current(s), limit=s.budget.move) {
+    if(s.mode==='classic'||!canAct(actor)||limit<=0)return [];
+    const queue=[{x:actor.x,y:actor.y,cost:0,path:[]}], seen=new Set([`${actor.x},${actor.y}`]), out=[];
+    for(let i=0;i<queue.length;i++){
+      const p=queue[i]; if(p.cost>=limit)continue;
+      for(const [dx,dy] of DIRECTIONS){
+        const x=p.x+dx,y=p.y+dy,k=`${x},${y}`;
+        if(!seen.has(k)&&legal(s,x,y,actor.id)){
+          seen.add(k);const next={x,y,cost:p.cost+1,path:p.path.concat([{x,y}])};queue.push(next);out.push(next);
+        }
+      }
+    }
+    return out;
+  }
+  function planMove(s,x,y) {
+    if(s.phase!=='battle'||current(s).team!=='watch'||!canAct(current(s)))return {ok:false,reason:'It is not a Watch turn.'};
+    if(s.mode==='classic')return {ok:false,reason:'Classic battles use fixed formations.'};
+    const tile=reachable(s).find(p=>p.x===x&&p.y===y);
+    if(!tile)return {ok:false,reason:s.budget.move<1?'No moves left. Take an action or end your turn.':'That space is blocked or beyond your remaining movement.'};
+    const a=current(s);return {ok:true,actor:a.id,from:{x:a.x,y:a.y},to:{x,y},cost:tile.cost,remaining:s.budget.move-tile.cost,path:tile.path.map(p=>({...p}))};
+  }
+  function approach(s,targetId) {
+    const a=current(s),b=s.actors.find(x=>x.id===targetId);
+    if(s.phase!=='battle'||a.team!=='watch'||!canAct(a))return {ok:false,reason:'It is not a Watch turn.'};
+    if(!b||!enemy(b)||!live(b))return {ok:false,reason:'Select an unresolved opponent.'};
+    if(inReach(s,a,b))return {ok:false,reason:'Already beside this target. Choose Fight or Talk.'};
+    const tile=reachable(s).filter(p=>distance(p,b)<distance(a,b)).sort((p,q)=>distance(p,b)-distance(q,b)||p.cost-q.cost)[0];
+    if(!tile)return {ok:false,reason:s.budget.move<1?'No moves left. End your turn to move again.':'No clear route toward this target within your movement.'};
+    return {...planMove(s,tile.x,tile.y),adjacent:distance(tile,b)===1};
+  }
+  function move(s,x,y) {
+    const plan=planMove(s,x,y);if(!plan.ok)return plan;
+    const a=current(s);a.x=x;a.y=y;s.budget.move-=plan.cost;
+    log(s,`${a.name} moves ${plan.cost} square${plan.cost===1?'':'s'}.`);return {ok:true,movement:plan};
+  }
+  const skillFor=a=>globalThis.BastionMentors?.skill(a);
+  function skillRoute(s,a,b){
+    if(s.mode==='classic'||inReach(s,a,b))return {cost:0,x:a.x,y:a.y};
+    return reachable(s,a,s.budget.move).filter(p=>distance(p,b)===1).sort((p,q)=>p.cost-q.cost||p.y-q.y||p.x-q.x)[0]||null;
+  }
+  function skillReason(s,a,b){
+    const k=skillFor(a);if(!k)return 'This officer has no specialist action.';
+    if(a.watchSkillUsed)return 'Specialist action already used this encounter.';
+    if(k.effect==='cover')return s.actors.some(x=>x.id!==a.id&&x.team==='watch'&&canAct(x)&&inReach(s,a,x))?'':'Move beside an active colleague first.';
+    if(!b||!enemy(b)||!canAct(b)||b.morale<=0)return 'Choose an active suspect who has not surrendered.';
+    if(['pin','read'].includes(k.effect)&&!inReach(s,a,b))return 'Move beside the target first.';
+    if(k.effect==='intercept'&&!skillRoute(s,a,b))return 'No legal route beside this suspect within remaining movement.';
+    return '';
+  }
+  function useSkill(s,a,b){
+    const k=skillFor(a),allies=s.actors.filter(x=>x.id!==a.id&&x.team==='watch'&&canAct(x)&&inReach(s,a,x));
+    const lower=(x,n)=>{x.morale=Math.max(0,x.morale-n);if(!x.morale)x.status='surrendered';};
+    if(['warning','appeal'].includes(k.effect)){
+      const foes=s.actors.filter(x=>enemy(x)&&canAct(x)),ordered=[b,...foes.filter(x=>x.id!==b.id)],total=4+(a.talkBonus||0);
+      ordered.forEach((x,i)=>lower(x,Math.floor(total/ordered.length)+(i<total%ordered.length?1:0)));
+    }else if(k.effect==='cover'){a.guard=true;allies.forEach(x=>x.guard=true);}
+    else if(k.effect==='distract'){b.shaken=true;lower(b,1);}
+    else if(k.effect==='stand'){a.guard=true;lower(b,2);}
+    else if(k.effect==='opening'){b.guard=false;b.shaken=true;}
+    else if(k.effect==='pin'){b.shaken=true;a.guard=true;}
+    else if(k.effect==='intercept'){const p=skillRoute(s,a,b);a.x=p.x;a.y=p.y;s.budget.move-=p.cost;b.shaken=true;}
+    else if(k.effect==='read'){b.guard=false;a.guard=true;lower(b,1);}
+    else if(k.effect==='command'){lower(b,4+(a.talkBonus||0));allies.forEach(x=>x.guard=true);}
+    a.watchSkillUsed=true;
+    log(s,a.name+' · '+k.name+'. '+k.detail);
+  }
+  function previewAction(s,type,targetId) {
+    const reason=availability(s,type,targetId);if(reason)return {available:false,text:reason};
+    const a=current(s),b=s.actors.find(x=>x.id===targetId);let text='';
+    if(type==='skill')text=skillFor(a).detail+' One action · once per encounter.';
+    if(type==='revive')text='Partner: 0 → 4 stamina · one action';
+    if(type==='strike'){const raw=W?W.damage(a):3+a.strength,damage=globalThis.CWOpponents?.mitigate(b,raw)??raw;text=b.name+': stamina '+b.hp+' → '+Math.max(0,b.hp-damage)+(b.guard?' · guarded':'');}
+    if(type==='reload')text='Load one bolt · one action · '+a.bolts+' bolts available';
+    if(type==='stow')text='Ready your Watch truncheon · one action';
+    if(type==='talk'){
+      if(a.specialAction==='piecemaker-warning'){const foes=s.actors.filter(x=>enemy(x)&&x.status==='active'),total=4+(a.talkBonus||0);text='Area warning: '+foes.length+' active suspect'+(foes.length===1?'':'s')+' share '+total+' resolve · no shot fired';}
+      else text=b.morale<=4+(a.talkBonus||0)?'Target will surrender':'Resolve '+b.morale+' → '+Math.max(0,b.morale-4-(a.talkBonus||0));
+    }
+    if(type==='defend')text='Reduce each incoming hit by '+(W?W.guardReduction(a):a.guardReduction||2)+' until next turn';
+    if(type==='shove')text='Shake the target; opens a later restraint';
+    if(type==='restrain')text='Ready to arrest '+b.name;
+    if(type==='bargain')text=b.status==='surrendered'||b.morale<=4?'Target will leave peacefully':'Resolve '+b.morale+' → '+Math.max(0,b.morale-2);
+    if(type==='item')text='Recover '+Math.min(6,a.maxHp-a.hp)+' stamina · '+s.items+' bandage'+(s.items===1?'':'s')+' left';
+    if(type==='escape')text='This officer leaves the encounter';
+    return {available:true,text};
+  }
+  function resolution(s,targetId) {
+    const b=s.actors.find(x=>x.id===targetId),surrendered=!!b&&enemy(b)&&live(b)&&(b.status==='surrendered'||b.morale<=0);
+    if(!surrendered)return {surrendered:false};
+    const adjacent=inReach(s,current(s),b),route=adjacent?null:approach(s,targetId),reason=availability(s,'restrain',targetId);
+    return {surrendered:true,adjacent,canArrest:!reason,reason,canApproach:!!route&&route.ok,route:route&&route.ok?route:null};
+  }
+  function inReach(s,a,b) {return s.mode==='classic'||distance(a,b)===1;}
+  function availability(s,type,targetId) {
+    if(s.phase!=='battle'||current(s).team!=='watch'||!canAct(current(s)))return 'It is not a Watch turn.';
+    if(s.budget.action<1)return 'Your main action is spent. Move or end your turn.';
+    const a=current(s), b=s.actors.find(x=>x.id===targetId);
+    if(type==='skill')return skillReason(s,a,b);
+    if(type==='revive')return Supplies?Supplies.reason(s):'Coffee is unavailable.';
+    const weaponReason=W?.availability(s,a,type,b);if(weaponReason)return weaponReason;
+    if(['reload','stow'].includes(type)&&W?.profile(a))return '';
+    if(type==='defend')return '';
+    if(type==='item')return s.items<1?'No bandages remain.':a.hp===a.maxHp?'You are already at full stamina.':'';
+    if(type==='escape')return s.mode!=='classic'&&a.x!==0&&a.y!==0&&a.x!==s.width-1&&a.y!==s.height-1?'Reach an edge of the encounter to withdraw.':'';
+    if(!['strike','shove','restrain','talk','bargain'].includes(type))return 'Unknown action.';
+    if(!b||!enemy(b)||!live(b))return 'Choose an unresolved opponent.';
+    if(['strike','shove','restrain'].includes(type)&&!(type==='strike'&&W?.profile(a)?.range)&&!inReach(s,a,b))return 'Move beside the target first.';
+    if(type==='talk'&&(b.status==='surrendered'||b.morale<=0))return 'The target has already surrendered. Restrain or offer a way out.';
+    if(['strike','shove'].includes(type)&&(b.status==='surrendered'||b.morale<=0))return 'The target has surrendered. Restrain or offer a way out.';
+    if(type==='restrain'&&!(b.status==='surrendered'||b.morale<=0||b.hp<=6||b.shaken))return 'First shake the target, reduce stamina to 6, or gain surrender.';
+    return '';
+  }
+  function finish(s,outcome) {
+    if(s.result)return;
+    s.phase='result';s.result={encounter:'bastion-pub-brawl-v01',outcome,rounds:s.round,
+      arrested:s.actors.filter(a=>a.status==='arrested').length,
+      surrendered:s.actors.filter(a=>a.status==='surrendered').length,
+      incapacitated:s.actors.filter(a=>enemy(a)&&a.status==='incapacitated').length,
+      released:s.actors.filter(a=>a.status==='released').length,
+      escaped:s.actors.filter(a=>enemy(a)&&a.status==='escaped').length,
+      watch:s.actors.filter(a=>!enemy(a)).map(a=>({id:a.id,stamina:a.hp,status:a.status}))};
+    log(s,`Encounter ended: ${outcome}. This review does not award campaign rewards.`);
+  }
+  function check(s) {
+    if(s.phase!=='battle')return;
+    const watch=s.actors.filter(a=>!enemy(a)), foes=s.actors.filter(enemy);
+    if(watch.every(a=>!canAct(a))){finish(s,watch.some(a=>a.status==='escaped')?'withdrawn':'defeat');return;}
+    if(foes.every(a=>RESOLVED.has(a.status))){
+      finish(s,foes.every(a=>a.status==='arrested')?'arrest':foes.some(a=>a.status==='incapacitated')?'subdued':'peaceful resolution');
+    }
+  }
+  function act(s,type,targetId) {
+    const reason=availability(s,type,targetId);if(reason)return {ok:false,reason};
+    if(type==='revive')return Supplies.revive(s);
+    const a=current(s),b=s.actors.find(x=>x.id===targetId);s.budget.action=0;
+    if(type==='skill'){useSkill(s,a,b);
+    }else if(type==='reload'){a.loaded=true;log(s,a.name+' loads the crossbow.');
+    }else if(type==='stow'){a.weaponProfile='issued-truncheon';a.weapon='issued-truncheon';a.weaponName='Watch truncheon';a.loaded=false;log(s,a.name+' stows the weapon and readies a truncheon.');
+    }else if(type==='strike'){
+      const raw=W?W.damage(a):3+a.strength,damage=globalThis.CWOpponents?.mitigate(b,raw)??raw;
+      if(W?.profile(a)?.range){a.bolts--;a.loaded=false;}
+      b.hp=Math.max(0,b.hp-damage);b.morale=Math.max(0,b.morale-(W?W.resolveDamage(a):2));
+      log(s,`${a.name} uses ${a.weapon==='restraint'||a.weapon==='plain-sword'?'controlled empty-hand force':a.weaponName||'an oak truncheon'} against ${b.name}: ${damage} stamina.`);
+      if(!b.hp){b.status='incapacitated';log(s,`${b.name} is incapacitated.`);}
+      globalThis.CWOpponents?.afterStrike(s,b,a,{reachable});
+    }else if(type==='shove'){
+      let dx=Math.sign(b.x-a.x),dy=Math.sign(b.y-a.y);if(s.mode==='classic'){dx=1;dy=0;}
+      if(dx&&dy)dy=0;
+      const shifted=s.mode!=='classic'&&!globalThis.CWOpponents?.holdsGround(b)&&legal(s,b.x+dx,b.y+dy,b.id);
+      if(shifted){b.x+=dx;b.y+=dy;}
+      b.shaken=true;b.morale=Math.max(0,b.morale-2);
+      log(s,`${a.name} shoves ${b.name}${shifted?' back one square':'; the target holds position'}. Target is shaken and may be restrained.`);
+    }else if(type==='restrain'){
+      b.status='arrested';log(s,`${a.name} restrains ${b.name}. One arrest secured.`);
+    }else if(type==='talk'){
+      const resolve=4+(a.talkBonus||0);
+      if(a.specialAction==='piecemaker-warning'){
+        const foes=s.actors.filter(x=>enemy(x)&&x.status==='active'),ordered=[b,...foes.filter(x=>x.id!==b.id)],share=Math.floor(resolve/foes.length),extra=resolve%foes.length,changed=[];
+        ordered.forEach((foe,i)=>{const amount=share+(i<extra?1:0);if(amount){foe.morale=Math.max(0,foe.morale-amount);changed.push(foe.name+' −'+amount);}});
+        log(s,`${a.name} shoulders the Piecemaker but does not fire. ${changed.join(', ')} resolve.`);
+        ordered.forEach(foe=>{if(!foe.morale){foe.status='surrendered';log(s,`${foe.name} surrenders. Restrain, or offer a way out.`);}});
+      }else{
+        b.morale=Math.max(0,b.morale-resolve);
+        log(s,`${a.name}: “Set it down. We can sort this without anyone getting hurt.”`);
+        if(!b.morale){b.status='surrendered';log(s,`${b.name} surrenders. Restrain, or offer a way out.`);}
+        else log(s,`${b.name} hesitates. Resolve ${b.morale}/8.`);
+      }
+    }else if(type==='bargain'){
+      if(b.status==='surrendered'||b.morale<=4){b.status='released';log(s,`${b.name} accepts a peaceful exit. No arrest is recorded.`);}
+      else {b.morale=Math.max(0,b.morale-2);log(s,`${b.name} is not ready to leave, but is less determined to fight.`);}
+    }else if(type==='defend'){a.guard=true;log(s,`${a.name} braces. Each incoming hit is reduced by ${W?W.guardReduction(a):a.guardReduction||2} until their next turn.`);
+    }else if(type==='item'){s.items--;a.hp=Math.min(a.maxHp,a.hp+6);log(s,`${a.name} uses a bandage: recover up to 6 stamina.`);
+    }else if(type==='escape'){a.status='escaped';log(s,`${a.name} withdraws from the encounter.`);}
+    const skill=type==='skill'?skillFor(a):null;
+    if(b&&enemy(b)&&skill?.effect!=='cover')globalThis.CWOpponents?.interrupt(s,b,type);
+    if(['warning','appeal'].includes(skill?.effect)||type==='talk'&&a.specialAction==='piecemaker-warning')for(const foe of s.actors.filter(x=>enemy(x)&&x!==b&&['active','surrendered'].includes(x.status)))globalThis.CWOpponents?.interrupt(s,foe,'talk');
+    if(b&&enemy(b)&&b.status==='active'&&b.morale<=0){b.status='surrendered';log(s,`${b.name} surrenders. Arrest or offer a way out.`);}
+    check(s);if(s.phase==='battle'&&!canAct(a))endTurn(s);
+    return {ok:true};
+  }
+  const fleeAt=(s,a)=>Number.isInteger(a.escapeAfter)?a.escapeAfter:a.id==='lookout'?(s.fleeRound||4):Infinity;
+  function intent(s,a) {
+    if(!live(a))return a.status;
+    if(a.status==='surrendered')return 'Surrendered — waiting for your decision';
+    if(s.round>=fleeAt(s,a))return s.mode==='classic'||a.x===7?'Will flee':'Will move toward the exit';
+    if(globalThis.CWOpponents?.spec(a))return globalThis.CWOpponents.intent(s,a);
+    const target=s.actors.find(x=>x.id===(a.id==='patron'?'officer':'partner')&&canAct(x))||s.actors.find(x=>x.team==='watch'&&canAct(x));
+    if(!target)return 'No target';
+    return (a.escapeAfter?'May flee from round '+a.escapeAfter+' · ':'')+`${s.mode==='classic'||distance(a,target)===1?'Strike':'Approach, then strike'} ${target.name} · ${target.guard?Math.max(1,4-(W?W.guardReduction(target):target.guardReduction||2)):4} stamina if in reach`;
+  }
+  function opponentTurn(s,a) {
+    if(s.round>=fleeAt(s,a)){
+      if(s.mode==='classic'||a.x===7){a.status='escaped';log(s,`${a.name} flees. No arrest is recorded.`);return;}
+      const options=reachable(s,a,2).sort((p,q)=>Math.abs(p.x-7)-Math.abs(q.x-7)||p.cost-q.cost);
+      if(options[0]){a.x=options[0].x;a.y=options[0].y;}
+      if(a.x===7){a.status='escaped';log(s,`${a.name} reaches the exit and flees.`);}else log(s,`${a.name} moves toward the exit.`);
+      return;
+    }
+    if(globalThis.CWOpponents?.turn(s,a,{reachable,inReach,guardReduction:b=>W?W.guardReduction(b):b.guardReduction||2}))return;
+    const b=s.actors.find(x=>x.id===(a.id==='patron'?'officer':'partner')&&canAct(x))||s.actors.find(x=>x.team==='watch'&&canAct(x));
+    if(!b)return;
+    if(s.mode!=='classic'&&!inReach(s,a,b)){
+      const opts=reachable(s,a,2).sort((p,q)=>distance(p,b)-distance(q,b)||p.cost-q.cost);
+      if(opts[0]&&distance(opts[0],b)<distance(a,b)){a.x=opts[0].x;a.y=opts[0].y;}
+    }
+    if(inReach(s,a,b)){
+      const damage=b.guard?Math.max(1,4-(W?W.guardReduction(b):b.guardReduction||2)):4;b.hp=Math.max(0,b.hp-damage);
+      log(s,`${a.name} strikes ${b.name}: ${damage} stamina${b.guard?' (defended)':''}.`);
+      if(!b.hp){b.status='incapacitated';log(s,`${b.name} cannot continue.`);}
+    }else log(s,`${a.name} approaches but cannot reach ${b.name}.`);
+  }
+  function endTurn(s) {
+    if(s.phase!=='battle'||current(s).team!=='watch')return {ok:false,reason:'No Watch turn to end.'};
+    for(let step=0;step<24;step++){
+      s.turn=(s.turn+1)%s.actors.length;if(s.turn===0)s.round++;
+      const a=current(s);if(!canAct(a)){check(s);if(s.phase!=='battle')return {ok:true};continue;}
+      a.guard=false;
+      if(enemy(a)){log(s,`${a.name}: ${intent(s,a)}.`);opponentTurn(s,a);check(s);if(s.phase!=='battle')return {ok:true};continue;}
+      s.budget={move:MODES[s.mode].move+(s.mode==='classic'?0:a.moveBonus||0),action:1};return {ok:true};
+    }
+    throw new Error('No active turn could be selected');
+  }
+  function claimResult(s) {if(!s.result||s.claimed)return null;s.claimed=true;return clone(s.result);}
+  return {guardReduction:a=>W?W.guardReduction(a):a.guardReduction||2,MODES,create,current,legal,reachable,planMove,approach,previewAction,resolution,move,act,availability,endTurn,intent,claimResult,distance,clone};
+});
+</script><script>/* One tap = one legal step. Uses the same isometric camera as the scene renderer. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BastionInput=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  const project=(x,y)=>({x:405+(x-y)*43,y:360+(x+y)*24});
+  function camera(w,h){const left=project(0,5).x-68,right=project(7,0).x+68,top=project(0,0).y-155,bottom=project(7,5).y+32,scale=Math.min(w/(right-left),Math.max(1,h-62)/(bottom-top));return {scale,x:(w-(right+left)*scale)/2,y:h-bottom*scale-35};}
+  function pickStep(reachable,screenX,screenY,w,h){
+    const view=camera(w,h),x=(screenX-view.x)/view.scale,y=(screenY-view.y)/view.scale;
+    return reachable.filter(p=>p.cost===1).map(p=>{const q=project(p.x,p.y);return {p,dx:x-q.x,dy:y-q.y};}).filter(q=>Math.abs(q.dx)/43+Math.abs(q.dy)/24<=1.45).sort((a,b)=>a.dx*a.dx+a.dy*a.dy-b.dx*b.dx-b.dy*b.dy)[0]?.p||null;
+  }
+  return {project,camera,pickStep};
+});
+</script><script>/* Battle feedback is derived from real state changes; it never changes combat state. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BastionFeedback=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const labels={revive:'Coffee used',move:'move',strike:'Truncheon strike',defend:'Guard',shove:'Shove',restrain:'Arrest',talk:'Talk down',bargain:'Offer a way out',item:'Bandage',escape:'Withdraw',endTurn:'End turn'};
+  // Match the existing Fight command and actual carried weapon; presentation only.
+  function strikeLabel(actor,hit=false){const weapon=globalThis.CWWeapons?.profile(actor);return weapon?.range?'Crossbow shot':weapon?.art==='sword'?'Sword strike':actor.weapon==='restraint'||actor.weapon==='plain-sword'?'Controlled strike':hit?(actor.weaponName||'Truncheon')+' hit':'Truncheon strike';}
+  const left=n=>n+' move'+(n===1?'':'s')+' left';
+  function logDelta(before,after){
+    let overlap=Math.min(before.length,after.length);
+    while(overlap&&!before.slice(-overlap).every((v,i)=>v===after[i]))overlap--;
+    return after.slice(overlap);
+  }
+  function make(before,after,command,result){
+    const type=command.type,actor=before.actors[before.turn],target=after.actors.find(a=>a.id===command.target),effects=[],changes=[];
+    if(!result.ok)return {summary:type==='move'?'Cannot move there':'Cannot use '+(type==='strike'?strikeLabel(actor):labels[type]||'that command'),detail:result.reason||'That command is not available.',tone:'error',effects,entries:[]};
+    for(const a of after.actors){
+      const old=before.actors.find(x=>x.id===a.id);if(!old)continue;
+      if(a.hp!==old.hp){const delta=a.hp-old.hp;effects.push({id:a.id,text:(delta>0?'+':'−')+Math.abs(delta)+' stamina',tone:delta>0?'heal':'damage',amount:delta,stat:'stamina'});changes.push(a.name+' '+(delta>0?'+':'−')+Math.abs(delta)+' stamina');}
+      if(a.morale!==old.morale){const delta=a.morale-old.morale;effects.push({id:a.id,text:'Resolve '+(delta>0?'+':'−')+Math.abs(delta),tone:'resolve',amount:delta,stat:'resolve'});changes.push(a.name+': resolve '+a.morale);}
+      if(a.status!==old.status){effects.push({id:a.id,text:a.status[0].toUpperCase()+a.status.slice(1),tone:'status',status:a.status});changes.push(a.name+' '+a.status);}
+      if(a.shaken&&!old.shaken)effects.push({id:a.id,text:'Shaken',tone:'status',status:'shaken'});
+      if(old.guard&&!a.guard)effects.push({id:a.id,text:'Guard opened',tone:'status',status:'exposed'});
+      if(a.guard&&!old.guard)effects.push({id:a.id,text:'Guarding',tone:'status',status:'guarding'});
+    }
+    let summary=labels[type]||'Command completed';
+    if(type==='move'){
+      const moved=after.actors.find(a=>a.id===actor.id),dx=moved.x-actor.x,dy=moved.y-actor.y,cost=before.budget.move-after.budget.move;
+      const direction=dy===0&&dx!==0?(dx>0?'east':'west'):dx===0&&dy!==0?(dy>0?'south':'north'):cost+' spaces';
+      summary=actor.name+' moved '+direction+' · '+left(after.budget.move);
+    }else if(type==='endTurn')summary=after.phase==='battle'?after.actors[after.turn].name+'’s turn · Round '+after.round:'Encounter concluded';
+    else if(type==='strike'){const old=before.actors.find(a=>a.id===command.target);summary=strikeLabel(actor,true)+' · '+target.name+' −'+(old.hp-target.hp)+' stamina';}
+    else if(type==='skill')summary=(globalThis.BastionMentors?.skill(actor)?.name||'Specialist action')+' · '+actor.name;
+    else if(type==='defend')summary=actor.name+' is guarding';
+    else if(type==='shove')summary=target.name+' is shaken';
+    else if(type==='restrain')summary=target.name+' arrested';
+    else if(type==='talk'){
+      if(actor.specialAction==='piecemaker-warning'){
+        const affected=after.actors.filter(a=>a.team==='opposition'&&a.morale!==before.actors.find(b=>b.id===a.id)?.morale),yielded=affected.filter(a=>a.status==='surrendered').length;
+        summary='Piecemaker warning · '+affected.length+' suspect'+(affected.length===1?'':'s')+' affected'+(yielded?' · '+yielded+' surrendered':'');
+      }else summary=target.status==='surrendered'?target.name+' surrendered':target.name+' hesitates · resolve '+target.morale;
+    }
+    else if(type==='bargain')summary=target.status==='released'?target.name+' accepted a peaceful exit':target.name+' is not ready to leave';
+    else if(type==='item'){const healed=after.actors.find(a=>a.id===actor.id).hp-actor.hp;summary='Bandage used · '+actor.name+' +'+healed+' stamina';}
+    else if(type==='escape')summary=actor.name+' withdrew';
+    if(after.phase==='result')summary+=' · '+after.result.outcome;
+    const detail=type==='move'?(after.budget.action?'One main action available.':'Main action spent. End turn when ready.'):(changes.join(' · ')||(type==='defend'?'Incoming damage is reduced until this officer’s next turn.':left(after.budget.move)+' · '+after.budget.action+' action'));
+    return {summary,detail:detail+(effects.some(e=>e.text==='Surrendered')?' · Choose Arrest or Let them go; arrest on your next available action.':''),tone:'success',effects,entries:logDelta(before.log,after.log)};
+  }
+  return {make,logDelta};
+});
+</script><script>/* Small, deterministic canvas effects. Presentation only: no combat or input writes. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BastionVFX=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const durations={hit:1500,resolve:1600,arrest:1900,surrender:1700,guard:1300,heal:1500,shaken:1200,status:1500};
+  function kind(e){
+    const status=e.status||String(e.text||'').toLowerCase();
+    if(status==='arrested')return 'arrest';if(status==='surrendered')return 'surrender';if(status==='guarding')return 'guard';if(status==='shaken')return 'shaken';
+    return e.tone==='damage'?'hit':e.tone==='resolve'?'resolve':e.tone==='heal'?'heal':'status';
+  }
+  function create(effects,now=0,reduced=false){
+    const slots=new Map();return effects.map(e=>{const slot=slots.get(e.id)||0;slots.set(e.id,slot+1);const type=kind(e);return {id:e.id,type,text:e.text,amount:Number.isFinite(e.amount)?e.amount:null,status:e.status||'',start:now,life:durations[type],slot,reduced:!!reduced};});
+  }
+  const alive=(e,now)=>now>=e.start&&now<e.start+e.life;
+  function reaction(events,id,now){
+    const hit=events.findLast(e=>e.id===id&&e.type==='hit'&&!e.reduced&&now>=e.start&&now-e.start<320);
+    if(!hit)return {dx:0,dy:0,flash:0};
+    const age=now-hit.start,u=age/320;
+    return {dx:Math.sin(u*Math.PI*2)*4*(1-u),dy:-Math.sin(u*Math.PI)*2,flash:age<130?1-age/130:0};
+  }
+  function cuffs(ctx,x,y,scale=1){
+    ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ctx.lineWidth=2.5;ctx.strokeStyle='#e2bd70';ctx.shadowColor='#1d1712';ctx.shadowBlur=2;
+    for(const dx of [-10,10]){ctx.beginPath();ctx.ellipse(dx,0,8,10,dx<0?-.2:.2,0,Math.PI*2);ctx.stroke();}
+    ctx.beginPath();ctx.moveTo(-2,-2);ctx.lineTo(2,2);ctx.moveTo(-2,2);ctx.lineTo(2,-2);ctx.stroke();ctx.restore();
+  }
+  function shield(ctx,x,y,scale=1){
+    ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ctx.beginPath();ctx.moveTo(0,-18);ctx.lineTo(15,-12);ctx.lineTo(13,4);ctx.quadraticCurveTo(10,14,0,19);ctx.quadraticCurveTo(-10,14,-13,4);ctx.lineTo(-15,-12);ctx.closePath();ctx.fillStyle='#385664c9';ctx.fill();ctx.strokeStyle='#e2d2a8';ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.moveTo(-7,-1);ctx.lineTo(-1,6);ctx.lineTo(9,-8);ctx.stroke();ctx.restore();
+  }
+  function label(ctx,text,x,y,color,viewport,{large=false,sub='',stamp=false}={}){
+    ctx.save();ctx.font=(large?'bold 24px':'bold 13px')+' Georgia';let width=ctx.measureText(text).width+18;
+    width=Math.min(viewport.width-12,width);x=clamp(x,width/2+6,viewport.width-width/2-6);y=clamp(y,viewport.height<220?68:85,Math.max(viewport.height<220?68:85,viewport.height-44));
+    if(stamp){ctx.translate(x,y);ctx.rotate(-.075);ctx.fillStyle='#ead4afef';ctx.fillRect(-width/2,-19,width,30);ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.strokeRect(-width/2,-19,width,30);ctx.lineWidth=.8;ctx.strokeRect(-width/2+4,-15,width-8,22);ctx.fillStyle=color;ctx.textAlign='center';ctx.fillText(text,0,2);}
+    else if(large){ctx.textAlign='center';ctx.lineWidth=3;ctx.strokeStyle='#f3e4bf';ctx.strokeText(text,x,y);ctx.fillStyle=color;ctx.fillText(text,x,y);if(sub){ctx.font='bold 9px Georgia';ctx.lineWidth=2;ctx.strokeText(sub,x,y+12);ctx.fillText(sub,x,y+12);}}
+    else{ctx.fillStyle='#e7d1a8f2';ctx.fillRect(x-width/2,y-14,width,21);ctx.strokeStyle=color;ctx.lineWidth=1;ctx.strokeRect(x-width/2,y-14,width,21);ctx.fillStyle=color;ctx.textAlign='center';ctx.fillText(text,x,y+1);}
+    ctx.restore();
+  }
+  function draw(ctx,events,anchorFor,now,viewport){
+    for(const e of events){
+      if(!alive(e,now))continue;const a=anchorFor(e.id);if(!a)continue;
+      const age=now-e.start,t=age/e.life,u=clamp(age/440,0,1),alpha=e.reduced?1:clamp((1-t)*4,0,1),rise=e.reduced?0:Math.min(20,age/55),x=a.x,y=a.chestY,head=a.headY;
+      ctx.save();ctx.globalAlpha=alpha;
+      if(e.type==='hit'){
+        if(!e.reduced&&age<450){
+          ctx.save();ctx.globalAlpha*=1-u;ctx.strokeStyle='#f3ddb1';ctx.lineWidth=2.3;
+          for(let i=0;i<8;i++){const angle=i*Math.PI/4+.15,r=4+u*15,len=8+(i%3)*3;ctx.beginPath();ctx.moveTo(x+Math.cos(angle)*r,y+Math.sin(angle)*r);ctx.lineTo(x+Math.cos(angle)*(r+len),y+Math.sin(angle)*(r+len));ctx.stroke();}
+          ctx.strokeStyle='#9b4833';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x-18*(1-u),y+12);ctx.quadraticCurveTo(x,y-15,x+20,y-10);ctx.stroke();ctx.restore();
+        }
+        label(ctx,e.amount===null?e.text:String(e.amount).replace('-','−'),x,head-4-rise+e.slot*26,'#8e3526',viewport,{large:true,sub:'STAMINA'});
+      }else if(e.type==='resolve'){
+        if(!e.reduced&&age<850){
+          ctx.save();ctx.globalAlpha*=Math.max(0,1-age/850);ctx.strokeStyle='#a9c2cf';ctx.lineWidth=1.8;ctx.setLineDash([4,4]);
+          for(let i=0;i<3;i++){const r=9+i*5+age/55;ctx.beginPath();ctx.ellipse(x,head+8,r,r*.42,.1*i,0,Math.PI*2);ctx.stroke();}
+          ctx.setLineDash([]);ctx.strokeStyle='#49687c';for(let i=0;i<5;i++){const angle=i*1.25,r=12+age/35,px=x+Math.cos(angle)*r,py=head+8+Math.sin(angle)*r*.6;ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px-3,py+5);ctx.stroke();}ctx.restore();
+        }
+        const text=e.amount===null?e.text:(e.amount>0?'+':'−')+Math.abs(e.amount)+' RESOLVE';label(ctx,text,x,head-5-rise+e.slot*26,'#344f69',viewport);
+      }else if(e.type==='arrest'){
+        const pop=e.reduced?1:1+.35*Math.exp(-age/180)*Math.cos(age/70);cuffs(ctx,x,y-3,pop);
+        if(e.reduced||age>130)label(ctx,'ARRESTED',x,y+35,'#684623',viewport,{stamp:true});
+      }else if(e.type==='surrender'){
+        ctx.save();ctx.strokeStyle='#e6dfc7';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x+15,y-14);ctx.lineTo(x+15,y+12);ctx.stroke();ctx.fillStyle='#eee2c4';ctx.beginPath();ctx.moveTo(x+15,y-14);ctx.lineTo(x+34,y-10);ctx.lineTo(x+15,y-4);ctx.closePath();ctx.fill();ctx.restore();label(ctx,'SURRENDERED',x,y+30,'#3c5360',viewport);
+      }else if(e.type==='guard'){
+        shield(ctx,x,y,e.reduced?1:.85+.15*Math.min(1,age/180));label(ctx,'GUARD',x,y+34,'#3f5a64',viewport);
+      }else if(e.type==='heal'){
+        ctx.strokeStyle='#91a982';ctx.lineWidth=3;for(let i=0;i<(e.reduced?1:3);i++){const dx=(i-1)*13,dy=e.reduced?0:Math.sin(age/200+i)*4;ctx.beginPath();ctx.moveTo(x+dx-4,y+dy);ctx.lineTo(x+dx+4,y+dy);ctx.moveTo(x+dx,y+dy-4);ctx.lineTo(x+dx,y+dy+4);ctx.stroke();}
+        label(ctx,e.amount===null?e.text:'+'+e.amount,x,head-rise,'#366548',viewport,{large:true,sub:'STAMINA'});
+      }else if(e.type==='shaken'){
+        ctx.font='bold 21px Georgia';ctx.fillStyle='#e0c18b';ctx.textAlign='center';const wobble=e.reduced?0:Math.sin(age/80)*3;ctx.fillText('!',x-20+wobble,head+4);ctx.fillText('!',x+20-wobble,head-1);label(ctx,'SHAKEN',x,y+28,'#74522d',viewport);
+      }else label(ctx,e.text.toUpperCase(),x,head-rise,'#4b5c4f',viewport);
+      ctx.restore();
+    }
+  }
+  return {create,alive,reaction,draw,kind,durations};
+});
+</script><script src="../cw-combat-opponents.js?v=p21-b407-s039-reuse"></script><script src="../cw-death-spectator.js?v=p21-b407-s039-reuse"></script><script>/* Encounter variety and local commendations. No campaign state or storage. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BastionPatrol=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+ 'use strict';
+ const cases=[
+  {id:'taproom',title:'Taproom yard',brief:'A dispute over whose round it is. Neither party accepts the evidence.',goal:'Bring both suspects into custody.',fleeRound:4},
+  {id:'last-orders',title:'Last orders',brief:'The bell has rung. So has somebody’s head. The accomplice is eyeing the gate.',goal:'Resolve both suspects before anyone escapes.',fleeRound:3},
+  {id:'quiet-word',title:'A quiet word',brief:'A missing pie has become a matter of honour. The pie has declined to comment.',goal:'End the dispute without truncheon strikes or knockouts.',fleeRound:5},
+  ...Object.entries(globalThis.CWOpponents?.rosters||{}).map(([id,r])=>({id,title:r.title,brief:r.brief,goal:'Take both suspects into custody.',custody:true,fleeRound:5}))
+ ];
+ function info(s){return cases.find(c=>c.id===s.patrol?.id)||cases[0];}
+ function create(C,mode='hybrid',id='taproom'){
+  const c=cases.find(c=>c.id===id)||cases[0],s=C.create(mode);s.fleeRound=c.fleeRound;
+  s.patrol={id:c.id,strikes:0,actions:0,damageTaken:0};s.log=[c.brief,c.goal];
+  const patron=s.actors.find(a=>a.id==='patron'),lookout=s.actors.find(a=>a.id==='lookout');
+  if(c.id==='last-orders'){patron.x=2;patron.y=3;patron.morale=6;lookout.x=4;lookout.y=4;lookout.morale=4;}
+  if(c.id==='quiet-word'){patron.morale=4;lookout.morale=8;lookout.x=3;lookout.y=5;}
+  globalThis.CWOpponents?.apply(s,c.id);
+  return s;
+ }
+ function record(before,after,command,result){
+  if(!result.ok||!after.patrol)return;
+  const p=after.patrol;if(command.type==='strike')p.strikes++;
+  if(!['move','endTurn'].includes(command.type))p.actions++;
+  p.damageTaken+=after.actors.filter(a=>a.team==='watch').reduce((n,a)=>n+Math.max(0,before.actors.find(b=>b.id===a.id).hp-a.hp),0);
+ }
+ const lines={
+  strike:['Partner: “That should settle the percussion section.”','Patron: “I was using that stamina.”','Partner: “A firm point. Oak, I believe.”'],
+  talk:['Partner: “Words. Cheaper than bandages.”','Patron: “I demand a less reasonable officer.”','Partner: “Careful. He’s beginning to think.”'],
+  shove:['Partner: “Making room for the law.”','Patron: “That was my standing place.”','Partner: “An arrest opportunity. With elbows.”'],
+  restrain:['Partner: “Mind your head. And your excuses.”','Partner: “One for the cells. Three forms for us.”','Partner: “The bracelets are compulsory.”'],
+  bargain:['Partner: “Go home. Preferably your own.”','Partner: “Peace restored. Paperwork narrowly avoided.”'],
+  defend:['Partner: “Let his fist do the regretting.”','Partner: “A sensible use of being difficult to hit.”'],
+  item:['Partner: “Official Watch tailoring. Applied to people.”','Partner: “Try keeping the next bandage clean.”']
+ };
+ function quip(before,after,command,result,index=0){
+  if(!result.ok)return '';
+  const target=after.actors.find(a=>a.id===command.target);
+  const actor=before.actors?.[before.turn];
+  if(command.type==='talk'&&actor?.specialAction==='piecemaker-warning')return 'Detritus: “Piecemaker stays loaded. Dat was the warning.”';
+  if(target?.status==='surrendered'&&command.type!=='endTurn'&&command.type!=='move')return 'Suspect: “All right! Is surrender supposed to involve this much paperwork?”';
+  if(command.type==='bargain'&&target?.status!=='released')return 'Patron: “I’m considering it. Angrily.”';
+  let options=lines[command.type];
+  if(command.type==='strike'){const actor=before.actors?.[before.turn],profile=actor&&globalThis.CWWeapons?.profile(actor),truncheon=profile?profile.art==='truncheon':['oak-truncheon','issued-truncheon','balanced-truncheon'].includes(actor?.weapon);if(!truncheon)options=options.filter(line=>line!==lines.strike[2]);}
+  return options?options[index%options.length]:'';
+ }
+ function debrief(s){
+  if(!s.result)return null;const r=s.result,p=s.patrol||{strikes:0,damageTaken:0},complete=['arrest','peaceful resolution','subdued'].includes(r.outcome)&&!r.escaped;
+  const objective=info(s).id==='taproom'||info(s).custody?r.arrested===2:info(s).id==='quiet-word'?complete&&!p.strikes&&!r.incapacitated:complete;
+  const safe=r.watch.every(a=>a.status==='active'),measured=!p.strikes&&!r.incapacitated;
+  const stamps=[{label:'Case objective',earned:objective},{label:'Both officers standing',earned:safe},{label:'No truncheon needed',earned:measured&&complete}];
+  const count=stamps.filter(x=>x.earned).length;
+  return {title:count===3?'A tidy bit of Watch work':count===2?'Job done. Mostly.':'An educational patrol',stamps,objective,remark:count===3?'The sergeant finds nothing to complain about. This is entered as a suspicious occurrence.':'The sergeant requests a full report. Mercifully, there is no space for illustrations.',damageTaken:p.damageTaken};
+ }
+ function next(s){return cases[(cases.findIndex(c=>c.id===info(s).id)+1)%cases.length].id;}
+ return {cases,info,create,record,quip,debrief,next};
+});
+</script><script>/* Read-only encounter records; this demo keeps explicit notes in session memory.
+   A campaign host must supply its existing notes save adapter, never new save keys. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BastionNotebook=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+ 'use strict';
+ const sections=[['cases','Cases'],['evidence','Evidence'],['suspects','Suspects'],['witnesses','Witnesses'],['timeline','Timeline'],['my_notes','My Notes']];
+ const escape=t=>String(t).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+ function textId(text){let h=2166136261;for(const c of text)h=Math.imul(h^c.charCodeAt(0),16777619);return (h>>>0).toString(36);}
+ function records(s,P){const c=P.info(s);return {
+  cases:[{id:c.id,title:c.title,status:s.phase==='battle'?'Open incident':'Concluded',text:c.brief,fields:[['Patrol partner',s.actors.find(a=>a.id==='partner')?.name||'Watch partner'],['Combat skill',globalThis.BastionMentors?.skill(s.actors.find(a=>a.id==='partner'))?.name||'None'],['Partner kit',s.actors.find(a=>a.id==='partner')?.signatureEquipment||s.actors.find(a=>a.id==='partner')?.weaponName||'Oak truncheon'],['Assignment',c.goal],['Round',String(s.round)],['Outcome',s.result?.outcome||'Not yet resolved']]}],
+  evidence:[],
+  suspects:s.actors.filter(a=>a.team==='opposition').map(a=>({id:a.id,title:a.name,status:a.status,text:globalThis.CWOpponents?.spec(a)?.tip||'Recorded during this incident. Custody status and condition reflect the current encounter.',art:a.art,appearance:a.appearance,fields:[['Status',a.status],['Stamina',a.hp+' / '+a.maxHp],['Resolve',String(a.morale)],['Equipment',globalThis.CWOpponents?.spec(a)?.kit||'No further equipment recorded'],['Condition',a.shaken?'Shaken':'No further condition recorded']]})),
+  witnesses:[],
+  timeline:s.log.slice(-40).map((text,i)=>({id:'entry-'+textId(text)+'-'+(s.log.length-Math.min(40,s.log.length)+i),title:'Incident entry '+(s.log.length-Math.min(40,s.log.length)+i+1),status:'Recorded this patrol',text,fields:[]})).reverse()
+ };}
+ const empty={evidence:'No evidence has been collected in this incident.',suspects:'No people have been recorded for this incident.',witnesses:'No witness statements have been taken in this incident.',timeline:'No events have been recorded.'};
+ function createNotes(saveAdapter){let draft='',saved='';return {get draft(){return draft;},get dirty(){return draft!==saved;},set(value){draft=String(value);},async save(){const text=draft;if(saveAdapter)await saveAdapter(text);saved=text;return {dirty:draft!==saved};}};}
+ function mount({document:d,getState,P,assets,onClose,saveNotes}){
+  const $=id=>d.getElementById(id),book=$('notebook');let section='cases',selected=null,status='',positions={},origin=null;const notes=createNotes(saveNotes);
+  const icon=k=>assets['nbIcon'+k.split('_').map(w=>w[0].toUpperCase()+w.slice(1)).join('')];
+  const picture=r=>globalThis.CWOpponents?.portrait(r)||(r.art?assets[r.art+'Portrait']:icon(section));
+  function render(){
+   const all=records(getState(),P),items=all[section]||[],label=sections.find(x=>x[0]===section)[1];
+   $('book-content').dataset.detail=String(!!selected);$('book-content').classList.toggle('notes-page',section==='my_notes');
+   d.querySelectorAll('[data-page]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.page===section)));
+   $('book-back').hidden=!selected;$('page-number').textContent=label+(section==='my_notes'?'': ' · '+items.length+' record'+(items.length===1?'':'s'));$('notes-status').textContent=status;
+   if(section==='my_notes'){
+    $('book-list').innerHTML='<h3><img src="'+icon(section)+'" alt="">My Notes</h3><p class="book-caption">Your own observations</p><label for="watch-note-draft" class="sr-label">Patrol notes</label><textarea id="watch-note-draft" placeholder="Put it in writing. The sergeant likes that."></textarea><button id="save-notes">Save notes</button><p class="book-caption">Notes are kept for this demo session. Save explicitly; unsaved drafts stay available while you switch sections or close the book.</p>';
+    $('watch-note-draft').value=notes.draft;$('watch-note-draft').addEventListener('input',e=>{notes.set(e.target.value);status=notes.dirty?'Unsaved draft':'Saved notes';$('notes-status').textContent=status;});$('book-detail').innerHTML='';return;
+   }
+   $('book-list').innerHTML='<h3><img src="'+icon(section)+'" alt="">'+label+'</h3>'+(items.length?'<div class="record-rows">'+items.map(r=>'<button class="record-row" data-record="'+escape(r.id)+'" aria-pressed="'+(r.id===selected)+'"><img src="'+picture(r)+'" alt=""><span><strong>'+escape(r.title)+'</strong><small>'+escape(r.status)+'</small></span><span aria-hidden="true">›</span></button>').join('')+'</div>':'<p class="empty-record">'+empty[section]+'</p>');
+   $('book-list').scrollTop=positions[section]||0;
+   const r=items.find(x=>x.id===selected);
+   $('book-detail').innerHTML=!selected?'<div class="book-idle"><img src="'+assets.watchBadge+'" alt=""><p>Select a record to read it.</p></div>':!r?'<h3>Record unavailable</h3><p>This record is no longer available. Return to the list.</p>':'<img class="record-sketch" src="'+picture(r)+'" alt=""><h3>'+escape(r.title)+'</h3><p class="record-status">'+escape(r.status)+'</p><dl>'+r.fields.map(([k,v])=>'<div><dt>'+escape(k)+'</dt><dd>'+escape(v)+'</dd></div>').join('')+'</dl><p>'+escape(r.text)+'</p>';
+  }
+  function choose(next){positions[section]=$('book-list').scrollTop;section=next;selected=null;status=notes.dirty?'Unsaved draft kept':'';render();}
+  function back(){selected=null;render();if(origin){const row=Array.from(d.querySelectorAll('[data-record]')).find(x=>x.dataset.record===origin);row?.focus({preventScroll:true});}}
+  function open(){section='cases';selected=null;status=notes.dirty?'Unsaved draft kept':'';render();book.showModal();$('notebook-close').focus({preventScroll:true});}
+  function close(){book.close();onClose?.();$('notebook-open').focus({preventScroll:true});}
+  async function save(){try{const result=await notes.save();status=result.dirty?'Saved. New edits are unsaved.':'Saved for this demo session';$('notes-status').textContent=status;}catch{status='Could not save. Your draft is still here.';$('notes-status').textContent=status;}}
+  d.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.page)));
+  $('book-content').addEventListener('click',e=>{const b=e.target.closest('[data-record]');if(b){positions[section]=$('book-list').scrollTop;origin=selected=b.dataset.record;render();$('book-back').focus({preventScroll:true});}if(e.target.closest('#save-notes'))save();});
+  $('book-back').addEventListener('click',back);$('notebook-close').addEventListener('click',close);
+  book.addEventListener('cancel',e=>{e.preventDefault();close();});
+  return {open,close,render};
+ }
+ return {sections,records,createNotes,mount};
+});
+</script><script>(function(){
+  'use strict';
+
+  const iconPaths={
+    shield:'M16 3 27 7v9c0 7-5 12-11 15C10 28 5 23 5 16V7Z M16 9v15 M10 15h12',
+    club:'M7 24 22 5c2-2 6 1 4 4L11 28Z M6 23l6 5 M5 26l4 4',
+    talk:'M27 14c0 7-6 11-13 10l-8 5 2-8C-1 12 5 4 16 4c6 0 11 4 11 10Z M10 13h1 M15 13h1 M20 13h1',
+    boot:'M12 3h11l-1 14c0 4 4 6 7 7v5H4v-7l7-6Z M12 8h7 M12 12h7 M8 23h11',
+    bag:'M12 8V5c0-6 10-6 10 0v3 M7 7h20l2 22H4Z M10 13c0 8 13 8 13 0 M15 18v5',
+    book:'M16 8C11 4 5 4 2 5v22c5-2 10-1 14 2 4-3 9-4 14-2V5c-4-1-9 0-14 3Z M16 8v21 M6 10l6 2 M6 15l6 2 M6 20l6 2 M20 12l6-2 M20 17l6-2 M20 22l6-2',
+    cuffs:'M14 18c0 4-3 7-7 7s-6-3-6-7 2-7 6-7 7 3 7 7Z M31 18c0 4-3 7-7 7s-7-3-7-7 3-7 7-7 7 3 7 7Z M13 17h5 M4 11l3-5 M25 11l-1-5',
+    push:'M11 28 5 18c-1-3 2-4 4-1l3 3V7c0-3 4-3 4 0v8 M16 13V5c0-3 4-3 4 0v10 M20 13V7c0-3 4-3 4 0v10 M24 15v-3c0-3 4-3 4 0v9l-5 8Z',
+    bandage:'m7 3 22 20-6 7L1 10Z M10 8 23 20 17 26 4 14Z M13 16h1 M17 20h1 M16 13h1 M20 17h1',
+    exit:'M17 3H4v26h13 M12 16h18 M23 9l7 7-7 7'
+  };
+  document.querySelectorAll('[data-icon]').forEach(e=>{e.innerHTML='<svg class="ink-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="'+iconPaths[e.dataset.icon]+'"/></svg>';});
+  const campaignMode=new URLSearchParams(location.search).has('campaign')&&parent!==window;
+  const Combat=BastionCombat,PrepBridge=campaignMode&&window.QuillShopPreparations?window.QuillShopPreparations.bridge(Combat):null;
+  const C=PrepBridge?Object.freeze(Object.assign({},Combat,PrepBridge)):Combat,F=BastionFeedback,I=BastionInput,V=BastionVFX,P=BastionPatrol, $=id=>document.getElementById(id), canvas=$('scene'), ctx=canvas.getContext('2d');
+  const deathSpectator=window.CWDeathSpectator.mount({document,stage:canvas.parentElement});
+  let campaignContext=null;
+  const campaignIncidentTitles=Object.freeze({'yard-purse-suspect':'Watch Square purse suspect','shift-disturbance':'Street disturbance',smuggler:'Delivery suspect','crypt-raider':'Crypt encounter','cutpurse-0':'Market assault report','cutpurse-1':'Shades assault report'});
+  function incidentTitle(){
+    const binding=campaignMode&&campaignContext?.pending?.binding;
+    return Object.prototype.hasOwnProperty.call(campaignIncidentTitles,binding)?campaignIncidentTitles[binding]:P.info(state).title;
+  }
+  function campaignPresentationProfile(battle=state){
+    const binding=campaignMode&&campaignContext?.pending?.binding;
+    if(!Object.prototype.hasOwnProperty.call(campaignIncidentTitles,binding))return null;
+    const profile=window.CWChase.profile(binding),primary=battle.actors.find(a=>a.id===(['yard-purse-suspect','shift-disturbance'].includes(binding)?'patron':profile?.primary));
+    return primary?{binding,primary}:null;
+  }
+  function incidentInfo(battle=state){
+    const info=P.info(battle),profile=campaignPresentationProfile(battle);
+    if(!profile)return info;
+    const goal='Take '+profile.primary.name+' into custody.';
+    return {...info,id:'campaign:'+profile.binding,title:campaignIncidentTitles[profile.binding],goal,brief:goal};
+  }
+  function incidentDebrief(battle=state){
+    const debrief=P.debrief(battle),profile=campaignPresentationProfile(battle);
+    if(!debrief||!profile)return debrief;
+    const objective=profile.primary.status==='arrested',stamps=debrief.stamps.map(s=>s.label==='Case objective'?{...s,earned:objective}:s),count=stamps.filter(s=>s.earned).length;
+    return {...debrief,objective,stamps,title:count===3?'A tidy bit of Watch work':count===2?'Job done. Mostly.':'An educational patrol',remark:count===3?'The sergeant finds nothing to complain about. This is entered as a suspicious occurrence.':'The sergeant requests a full report. Mercifully, there is no space for illustrations.'};
+  }
+  const incidentPresentation=Object.freeze(Object.assign({},P,{info:incidentInfo,debrief:incidentDebrief}));
+  let state=window.CWTrainingCharacter.nameState(P.create(C,'hybrid')),target='patron',showMoves=false,images={},error='',notice='',menu='fight';
+  let view={x:0,y:0,scale:1},reportNumber=0,animationFrame=0,reportTimer=0,quipTimer=0,remark='';
+  const motions=new Map();let effects=[],projectiles=[];
+  const portrait=a=>window.CWOpponents?.portrait(a)||ASSETS[a.art+'Portrait'];
+  const escape=t=>String(t).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+  const active=()=>C.current(state);
+  const project=I.project;
+  function position(a){
+    const base=state.mode!=='classic'?project(a.x,a.y):{officer:{x:235,y:540},partner:{x:320,y:620},patron:{x:630,y:530},lookout:{x:710,y:610}}[a.id];
+    const m=motions.get(a.id);if(!m)return base;
+    const points=m.points||[m.from,base],segments=points.length-1,progress=Math.min(segments,Math.max(0,(performance.now()-m.start)/(m.duration||260)*segments));
+    const index=Math.min(segments-1,Math.floor(progress)),t=Math.min(1,progress-index),ease=t*t*(3-2*t),from=points[index],to=points[index+1];
+    return {x:from.x+(to.x-from.x)*ease,y:from.y+(to.y-from.y)*ease};
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(animationFrame);animationFrame=0;window.CWActionFrames?.clear?.();}else if(!animationFrame)animationFrame=requestAnimationFrame(animate);});
+  function animate(){
+    animationFrame=0;const now=performance.now();
+    for(const [id,m] of motions)if(now-m.start>=(m.duration||260))motions.delete(id);
+    effects=effects.filter(e=>V.alive(e,now));projectiles=projectiles.filter(p=>now-p.start<350);draw();
+    if(!document.hidden)animationFrame=requestAnimationFrame(animate);
+  }
+  function showReport(report){
+    clearTimeout(reportTimer);$('scene-feedback').classList.remove('compact');
+    $('scene-feedback').hidden=false;$('scene-feedback').dataset.tone=report.tone;
+    reportTimer=setTimeout(()=>$('scene-feedback').classList.add('compact'),3000);
+    $('event-number').textContent='Watch report · '+(++reportNumber);
+    $('feedback-summary').textContent=report.summary;$('feedback-detail').textContent=report.detail;
+    window.CWEncounterFeel.pulse($('scene-feedback'),matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  function diamond(p,fill,stroke){ctx.beginPath();ctx.moveTo(p.x,p.y-24);ctx.lineTo(p.x+43,p.y);ctx.lineTo(p.x,p.y+24);ctx.lineTo(p.x-43,p.y);ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=1.4;ctx.stroke();}
+  function badge(x,y,text,fill){ctx.font='17px Georgia';const w=ctx.measureText(text).width+25;if(images.tabNormal)ctx.drawImage(images.tabNormal,x-w/2,y-24,w,33);else{ctx.fillStyle='#dfc398';ctx.fillRect(x-w/2,y-24,w,33);}ctx.fillStyle='#35271c';ctx.textAlign='center';ctx.fillText(text,x,y-2);}
+  const scenePaintings=new Map(),sceneRequests=new Set();
+  function battlePainting(scene){if(scenePaintings.has(scene.id)){const im=scenePaintings.get(scene.id);scenePaintings.delete(scene.id);scenePaintings.set(scene.id,im);return im;}if(!sceneRequests.has(scene.id)){sceneRequests.add(scene.id);const im=new Image();im.onload=()=>{sceneRequests.delete(scene.id);scenePaintings.set(scene.id,im);while(scenePaintings.size>3)scenePaintings.delete(scenePaintings.keys().next().value);draw();};im.onerror=()=>{sceneRequests.delete(scene.id);error='Battle scenery could not be loaded for '+scene.label+'.';};im.src=new URL('../assets/battle-scenes-v015/'+scene.file,location.href).href;}return null;}
+  const backdropPainter=window.BastionLocations.createBackdropPainter(()=>document.createElement('canvas'));
+  function draw(){
+    const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height,dpr=Math.min(window.devicePixelRatio||1,2);
+    if(w<1||h<1)return;
+    canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#353a30';ctx.fillRect(0,0,w,h);
+    view=I.camera(w,h);
+    const battleScene=window.BastionLocations.resolve(state);canvas.dataset.district=battleScene.id;canvas.dataset.battlePlace=state.location?.placeLabel||battleScene.label;const sceneLabel=document.querySelector('.scene-label');if(sceneLabel)sceneLabel.textContent=(state.location?.placeLabel||battleScene.label)+(window.BastionLocations.lightingCopy(state.location?.lighting)?' · '+state.location.lighting.phase:'');
+    const background=battlePainting(battleScene)||(battleScene.id==='tavern'?images.courtyard:null);
+    if(background){canvas.dataset.backdropLighting=JSON.stringify(backdropPainter.paint(ctx,background,w,h,state.location,battleScene.cropTop||0,dpr));}
+    else window.BastionLocations.shadeBackground(ctx,w,h,state.location);
+    ctx.save();ctx.translate(view.x,view.y);ctx.scale(view.scale,view.scale);
+    if(state.mode!=='classic'&&state.phase==='battle'){
+      const moves=new Map(C.reachable(state).filter(p=>p.cost===1).map(p=>[`${p.x},${p.y}`,p]));
+      if(state.mode==='grid'||(showMoves&&state.budget.move>0)){
+        for(let y=0;y<state.height;y++)for(let x=0;x<state.width;x++){
+          const blocked=state.obstacles.some(q=>q[0]===x&&q[1]===y),reach=moves.has(`${x},${y}`);
+          if(state.mode==='grid'||(!blocked&&reach)){const p=project(x,y);diamond(p,blocked?'#27221ddd':reach?'#9bbbc77d':'#352a1925',blocked?'#b19b74':'#d9c29099');
+            if(state.mode==='grid'){ctx.fillStyle=blocked?'#d6baa1':'#f6e4b4aa';ctx.textAlign='center';ctx.font='12px system-ui';ctx.fillText(blocked?'BLOCK':String.fromCharCode(65+x)+(y+1),p.x,p.y+4);}
+          }
+        }
+      }
+      
+    }
+    if(state.mode==='classic'&&state.phase==='battle'){
+      badge(270,407,'THE WATCH','#34464bdf');badge(665,407,'OPPOSITION','#653f31df');
+    }
+    // Logical blocked cells are occupied by visible props, never opaque floor patches.
+    if(state.mode!=='classic'&&images.obstacle)state.obstacles.forEach(([x,y])=>{
+      const p=project(x,y);ctx.fillStyle='#171a1644';ctx.beginPath();ctx.ellipse(p.x,p.y,25,9,0,0,Math.PI*2);ctx.fill();
+      const im=images.obstacle,h=48,w=h*93/70;
+      ctx.drawImage(im,15,15,93,70,p.x-w/2,p.y-h+3,w,h);
+    });
+    canvas.dataset.movementHighlights=String(state.phase==='battle'&&state.mode!=='classic'&&(state.mode==='grid'||(showMoves&&state.budget.move>0)));
+    canvas.dataset.blockedProps=String(state.mode==='classic'?0:state.obstacles.length);
+    [...state.actors].sort((a,b)=>position(a).y-position(b).y).forEach(a=>{
+      if(a.status==='released'||a.status==='escaped')return;
+      const p=position(a),im=images[a.art],info=ACTOR_META[a.art];
+      ctx.save();ctx.globalAlpha=['arrested','incapacitated'].includes(a.status)?.45:1;
+      ctx.fillStyle='#0c121055';ctx.beginPath();ctx.ellipse(p.x,p.y,32,11,0,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle=a.id===target?'#c5826c':a.id===active().id?'#f3e6c5':'#c8b48588';ctx.lineWidth=a.id===target||a.id===active().id?3:1.2;
+      ctx.beginPath();ctx.ellipse(p.x,p.y,35,16,0,0,Math.PI*2);ctx.stroke();
+      const reaction=V.reaction(effects,a.id,performance.now());
+      if(im){ctx.save();ctx.translate(reaction.dx/view.scale,reaction.dy/view.scale);if(reaction.flash>0)ctx.filter='brightness('+(1+reaction.flash*.7)+')';const h=108,pose=window.CWActionFrames.poseFor('battle:'+a.id,{clip:motions.has(a.id)?'walk':'idle',elapsed:performance.now(),facing:a.team==='watch'?1:-1,reduced:matchMedia('(prefers-reduced-motion: reduce)').matches,weapon:a.team==='watch'?'truncheon':null});if(!window.CWTrainingCharacter.draw(ctx,a,pose,p.x,p.y)){const sw=info.cellWidth,sh=info.cellHeight,id={officer:'watch-recruit',partner:'watch-recruit-female',patron:'dockworker',lookout:'cutpurse'}[a.art],meta={...info,id,cols:Math.round(im.width/sw),frames:Math.round(im.width/sw)*Math.round(im.height/sh)};if(!window.CWActionFrames.render(ctx,meta,im,pose,p.x,p.y,h)){const scale=h/info.visibleHeight,index=(motions.has(a.id)?4:0)+(pose.reduced?0:Math.floor(pose.elapsed/125)%4);ctx.save();ctx.translate(p.x,p.y);if(pose.facing>0)ctx.scale(-1,1);ctx.drawImage(im,index%meta.cols*sw,Math.floor(index/meta.cols)*sh,sw,sh,-info.footX*scale,-info.footY*scale,sw*scale,sh*scale);ctx.restore();}}ctx.restore();}
+      else{ctx.fillStyle='#a78c65';ctx.fillRect(p.x-17,p.y-65,34,60);}
+      const openingBadge=campaignContext?.pending.binding==='yard-purse-suspect'&&a.id==='patron'?window.CWOpeningSuspect.look(campaignContext.state.flags.p21PatrolRounds?.active?.enquiry?.variantId)?.badge:null;
+      const label=a.status==='active'?a.team==='watch'?a.name:openingBadge||window.CWOpponents?.spec(a)?.name||(a.id==='patron'?'Patron':'Accomplice'):a.status.toUpperCase();
+      badge(p.x,p.y-window.CWTrainingCharacter.height(a)-9,label,a.team==='watch'?'#283d43ed':'#573c30ed');
+      ctx.restore();
+    });
+    for(const bolt of projectiles){const t=Math.min(1,(performance.now()-bolt.start)/350),x=bolt.from.x+(bolt.to.x-bolt.from.x)*t,y=bolt.from.y+(bolt.to.y-bolt.from.y)*t-55;ctx.strokeStyle='#d6c59a';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-(bolt.to.x-bolt.from.x)*.04,y-(bolt.to.y-bolt.from.y)*.04);ctx.stroke();}
+    if(state.phase==='patrol'){ctx.fillStyle='#191e1cce';ctx.fillRect(180,190,540,116);badge(450,235,'PATROL RESUMED','#1e302ae8');ctx.fillStyle='#e2d3b3';ctx.font='18px Georgia';ctx.textAlign='center';ctx.fillText('Restart the brawl or try another battle option.',450,278);}
+    ctx.restore();
+    const now=performance.now();
+    V.draw(ctx,effects,id=>{const a=state.actors.find(a=>a.id===id);if(!a)return null;const p=position(a),x=view.x+p.x*view.scale,foot=view.y+p.y*view.scale;return {x,chestY:foot-62*view.scale,headY:foot-108*view.scale};},now,{width:w,height:h});
+  }
+  const titles={fight:'Field orders',tactics:'Bring them in',talk:'Talk',move:'Move',kit:'Kit'};
+  const book=$('notebook'),setup=$('demo-setup');
+  const notebook=BastionNotebook.mount({document,getState:()=>state,P:incidentPresentation,assets:ASSETS,onClose:()=>{}});
+  document.addEventListener('cw:training-character-ready',()=>render());
+  function setMenu(next,focus=true){
+    menu=next;showMoves=menu==='move';error='';notice='';render();
+    if(focus){const first=$('menu-'+menu).querySelector('button:not(:disabled)');if(first)first.focus({preventScroll:true});}
+  }
+  function render(){
+    deathSpectator.update(state);
+    window.CWTrainingCharacter.nameState(state);
+    if(campaignMode&&campaignContext)$('return').textContent=window.CWChase.eligible(campaignContext.pending,state)?'Return to city · pursue suspect':'Record outcome & return to city';
+    if(!animationFrame&&!document.hidden)animationFrame=requestAnimationFrame(animate);
+    const a=active(),isBattle=state.phase==='battle';canvas.dataset.partnerName=state.actors.find(a=>a.id==='partner').name;
+    let foe=state.actors.find(b=>b.id===target);
+    if(isBattle&&['arrested','incapacitated','released','escaped'].includes(foe.status)){foe=state.actors.find(b=>b.team==='opposition'&&!['arrested','incapacitated','released','escaped'].includes(b.status))||foe;target=foe.id;}
+    document.querySelector('.shell').dataset.phase=state.phase;
+    document.querySelector('.shell').dataset.menu=menu;
+    document.querySelector('.folio-page').classList.toggle('is-resolved',!isBattle);if(!isBattle)document.querySelector('.sheet').classList.add('is-open');
+    $('case-title').textContent=incidentTitle();
+    $('scene').setAttribute('aria-label',incidentTitle()+' battle. Select an opponent with the target buttons, then choose a command. Tap a highlighted space to move one step. The Move tab has four direct controls.');
+    $('scene-label').textContent=(state.mode==='hybrid'?'STREET ENCOUNTER':state.mode==='grid'?'TACTICAL BOARD':'CLASSIC PARTY')+(state.assignment?' · '+state.actors.find(a=>a.id==='partner').name:'');
+    $('turn-status').textContent=isBattle?'Round '+state.round:state.phase==='result'?'Concluded':'Patrol';
+    $('active-name').textContent=isBattle?a.name+'’s turn':'Encounter report';
+    document.querySelector('.equipment>span').textContent=a.signatureEquipment||a.weaponName||'Oak truncheon';document.querySelector('.equipment img').hidden=!!a.mentorId;
+    const specialist=window.BastionMentors.skill(a),skillButton=document.querySelector('[data-action="skill"]');
+    const showWatchSkill=isBattle&&!!specialist&&menu==='fight';
+    $('watch-skill').hidden=!showWatchSkill;
+    $('commands').classList.toggle('has-watch-skill',showWatchSkill);
+    skillButton.querySelector('strong').textContent=specialist?.name||'Specialist action';
+    let goodsHost=document.getElementById('dibbler-kit');if(!goodsHost){goodsHost=document.createElement('div');goodsHost.id='dibbler-kit';goodsHost.style.cssText='display:contents;';$('menu-kit').append(goodsHost);}goodsHost.replaceChildren();$('menu-kit').style.gridAutoRows='minmax(48px,auto)';
+    for(const entry of state.supplies?.dibbler||[]){if(entry.used)continue;const item=window.CWDibblerGoods.spec(entry.item);if(!item)continue;const button=document.createElement('button');button.textContent='Use '+item.name;button.style.cssText='min-height:44px;white-space:normal;';const why=window.CWDibblerGoods.reason(state,entry.id);button.disabled=!!why;button.title=why||'One action. Usually useless; does not solve a case.';button.onclick=()=>perform(()=>window.CWDibblerGoods.use(state,entry.id),false,{type:'item'});goodsHost.append(button);}
+    const unarmed=a.weapon==='restraint'||a.weapon==='plain-sword',weapon=window.CWWeapons.profile(a);document.querySelector('[data-action="strike"] strong').textContent=weapon?.range?'Crossbow shot':weapon?.art==='sword'?'Sword strike':unarmed?'Controlled strike':'Truncheon strike';document.querySelector('[data-action="strike"] svg path').setAttribute('d',iconPaths[unarmed?'push':'club']);
+    $('strength').textContent='· STR '+(a.strength||2);
+    $('stamina-fill').style.width=(100*a.hp/a.maxHp)+'%';
+    $('health').textContent=isBattle?'Stamina '+a.hp+'/'+a.maxHp:state.phase==='patrol'?'Patrol resumed':'Encounter concluded';
+    $('budget').textContent=isBattle?(state.mode==='classic'?'Fixed formation':state.budget.move+' moves')+' · '+state.budget.action+' action':state.mode==='hybrid'?'Street hybrid':'Review encounter';
+    $('kit-count').textContent=weapon?.range?a.bolts+' bolts · '+(a.loaded?'loaded':'unloaded'):state.items+' bandages · '+(state.supplies?.coffee||0)+' coffee';
+    $('actors').innerHTML=state.actors.filter(b=>b.team==='opposition').map(b=>`<button class="actor-card" data-target="${b.id}" aria-pressed="${target===b.id}" aria-label="Select ${escape(b.name)}, stamina ${b.hp} of ${b.maxHp}, resolve ${b.morale}, ${b.status}"><img class="portrait" src="${portrait(b)}" alt=""><span class="actor-copy"><span class="actor-name">${escape(b.name)}</span><span class="actor-stat">${b.hp}/${b.maxHp} · ${b.status==='active'?'Resolve '+b.morale:b.status}${b.shaken?' · shaken':''}</span><span class="bar"><i style="width:${100*b.hp/b.maxHp}%"></i></span></span></button>`).join('');
+    const surrender=C.resolution(state,target),talkButton=$('menu-talk').querySelector('button'),exitButton=$('menu-talk').querySelectorAll('button')[1];
+    talkButton.dataset.action=surrender.surrendered?'restrain':'talk';
+    talkButton.dataset.resolution=surrender.surrendered&&!surrender.adjacent?'approach':'';
+    talkButton.querySelector('strong').textContent=surrender.surrendered?(surrender.adjacent?'Arrest':'Approach to arrest'):a.specialAction==='piecemaker-warning'?'Piecemaker warning':'Talk down';
+    talkButton.querySelector('[data-icon]').innerHTML='<svg class="ink-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="'+iconPaths[surrender.surrendered?'cuffs':'talk']+'"/></svg>';
+    exitButton.querySelector('strong').textContent=surrender.surrendered?'Let them go':'Offer a way out';
+    $('menu-tactics').querySelector('[data-action="restrain"] strong').textContent='Arrest';
+    document.querySelectorAll('[data-action]').forEach(b=>{
+      b.hidden=b.dataset.action==='reload'&&!weapon?.range||b.dataset.action==='stow'&&(!weapon||weapon.control);
+      const why=C.availability(state,b.dataset.action,target);b.disabled=!isBattle;b.setAttribute('aria-disabled',String(!!why));b.classList.toggle('is-unavailable',!!why);b.title=why||actionHelp[b.dataset.action];
+      const caption=b.querySelector('small');if(caption)caption.textContent=C.previewAction(state,b.dataset.action,target).text;if(!why&&b.dataset.action==='talk'&&a.specialAction==='piecemaker-warning')b.title='Show the Piecemaker without firing; spread the existing talk-down resolve effect across active suspects.';
+      if(b.dataset.resolution==='approach'){b.setAttribute('aria-disabled',String(!surrender.canApproach));b.classList.toggle('is-unavailable',!surrender.canApproach);if(caption)caption.textContent=surrender.canApproach?surrender.route.cost+' moves · step closer, then arrest':surrender.reason;}
+    });
+    document.querySelector('[data-menu="move"]').disabled=state.mode==='classic';
+    document.querySelectorAll('[data-step]').forEach(b=>{const [dx,dy]=b.dataset.step.split(',').map(Number);const blocked=!C.reachable(state).some(p=>p.x===a.x+dx&&p.y===a.y+dy);b.disabled=!isBattle;b.setAttribute('aria-disabled',String(blocked));b.classList.toggle('is-unavailable',blocked);});
+    ['fight','tactics','talk','move','kit'].forEach(m=>$('menu-'+m).hidden=m!==menu);
+    document.querySelectorAll('[data-menu]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.menu===(menu==='tactics'?'fight':menu))));
+    $('target-intent').hidden=!isBattle;
+    $('target-intent').textContent=isBattle?foe.name+': '+C.intent(state,foe):'';
+    $('patrol-remark').textContent=remark;$('patrol-remark').hidden=!remark;
+    window.CWEncounterFeel.paint(document,state,incidentInfo(state),state.result?incidentDebrief(state):null,campaignMode);
+    $('command-tabs').hidden=!isBattle;
+    document.querySelector('.equipment').hidden=!isBattle;
+    $('menu-title').textContent=isBattle?(menu==='talk'&&surrender.surrendered?'Surrendered':titles[menu]):'Incident report';$('menu-back').hidden=!isBattle;
+    $('menu-back').textContent=menu==='fight'?'More ›':menu==='move'?'Move closer':'‹ Back';
+    $('menu-back').setAttribute('aria-label',menu==='fight'?'More fight commands':menu==='move'?'Move closer to selected target':'Back to Fight');
+    $('end-turn').classList.toggle('action-spent',isBattle&&state.budget.action===0);
+    $('target-intent').classList.toggle('is-danger',isBattle&&C.intent(state,foe).includes('flee')&&foe.status==='active');
+    $('commands').hidden=!isBattle;$('end-turn').hidden=!isBattle;$('end-turn').disabled=!isBattle;
+    
+    let hint='';
+    if(isBattle){
+      if(menu==='move')hint='Tap a highlighted space or an arrow: one move. Move closer approaches the selected target.';
+      else if(menu==='fight')hint=C.availability(state,'strike',target)||'Select an opponent. Use controlled force, or Guard.';
+      else if(menu==='tactics')hint=foe.shaken?'Shaken: either officer can arrest when adjacent with an action.':'Shove sets up an arrest. Your partner can finish the job if in reach.';
+      else if(menu==='kit')hint=[a.weaponName||'Oak truncheon',window.CWWeapons.gear[a.armour]?.name,window.CWWeapons.gear[a.boots]?.name,state.items+' bandages (restore up to 6 stamina each)'].filter(Boolean).join(' · ');
+      else hint=surrender.surrendered?'Resolve 0: arrest or let them go. Arrest needs an adjacent officer and an available action.':a.specialAction==='piecemaker-warning'?'The Piecemaker stays loaded; its warning spreads the normal talk-down effect across all active suspects.':foe.name+': '+C.intent(state,foe);
+    }
+    $('feedback').textContent=error||notice||hint;$('feedback').classList.toggle('error',!!error);$('feedback').hidden=!isBattle;
+    $('post-case').hidden=isBattle;if(campaignMode){$('next-case').hidden=true;$('replay').hidden=true;}$('return').hidden=state.phase!=='result';$('next-case').hidden=isBattle;$('replay').hidden=isBattle;$('result').hidden=state.phase!=='result';
+    if(state.result&&state.phase==='result'){
+      const r=state.result,d=incidentDebrief(state);$('result').innerHTML=`<h3>${escape(r.outcome[0].toUpperCase()+r.outcome.slice(1))}</h3><p>${r.arrested} arrested · ${r.incapacitated} subdued<br>${r.released} released · ${r.escaped} escaped</p><strong>${escape(d.title)}</strong><div class="commendations">${d.stamps.map(x=>`<span class="${x.earned?'earned':''}">${x.earned?'✓':'○'} ${escape(x.label)}</span>`).join('')}</div><p class="fine">${escape(d.remark)}</p>`;
+    }
+    if(campaignMode){$('next-case').hidden=true;$('replay').hidden=true;}
+    draw();
+  }
+  const actionHelp={skill:'Character-specific action. One main action, once per encounter.',revive:'One action to rouse an adjacent, compatible downed partner with 4 stamina. Once per incident.',reload:'Load the crossbow using one action.',stow:'Ready your truncheon using one action, preserving its close-control actions.',strike:'Use controlled force; damage depends on the acting officer’s strength.',shove:'Shake an adjacent target; push one clear space.',defend:'Reduce incoming stamina damage until your next turn.',restrain:'Arrest an adjacent shaken, surrendered or low-stamina target.',talk:'Reduce resolve by 4. At zero the target surrenders.',bargain:'Offer a peaceful exit. No arrest is recorded.',item:'Recover up to 6 stamina using one bandage.',escape:'Withdraw from a board edge.'};
+  function perform(fn,goHome=false,command={type:'action'}){
+    if(campaignMode&&!campaignContext)return;const before=C.clone(state),origins=new Map(state.actors.map(a=>[a.id,position(a)])),result=fn();
+    if(result.ok&&state.phase==='result'&&PrepBridge)PrepBridge.finish(state);
+
+    P.record(before,state,command,result);
+    if(campaignMode&&campaignContext){parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);if(result.ok){const hurt=state.actors.some(a=>a.hp<before.actors.find(b=>b.id===a.id).hp);if(hurt)parent.CWTeamAudio?.cue('hit');}}
+    window.CWTrainingCharacter.outcomes(before,state,command,result);
+    if(result.ok&&command.type==='strike'&&C.current(before).weaponProfile==='service-crossbow'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)projectiles.push({from:origins.get(C.current(before).id),to:origins.get(command.target),start:performance.now()});
+    clearTimeout(quipTimer);remark=P.quip(before,state,command,result,reportNumber).replace(/^Partner:/,state.actors.find(a=>a.id==='partner').name+':');if(remark)quipTimer=setTimeout(()=>{remark='';render();},3000);
+    const report=F.make(before,state,command,result);error=result.ok?'':result.reason;notice=report.summary;
+    if(goHome&&result.ok){menu='fight';showMoves=false;}
+    const vulnerable=state.actors.find(a=>a.id===target);if(result.ok&&state.phase==='battle'&&vulnerable?.shaken&&vulnerable.status==='active'&&(goHome||command.type==='endTurn')){menu='tactics';showMoves=false;}
+    const surrendered=C.resolution(state,target);if(result.ok&&state.phase==='battle'&&surrendered.surrendered&&(goHome||command.type==='endTurn'||(command.type==='move'&&surrendered.adjacent))){menu='talk';showMoves=false;}
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,now=performance.now();
+    if(!reduced&&result.ok){
+      state.actors.forEach(a=>{const old=before.actors.find(b=>b.id===a.id);if(old&&(a.x!==old.x||a.y!==old.y))motions.set(a.id,result.movement&&result.movement.actor===a.id?{from:origins.get(a.id),start:now,duration:260*result.movement.path.length,points:[origins.get(a.id),...result.movement.path.map(p=>project(p.x,p.y))]}:{from:origins.get(a.id),start:now,duration:260});});
+    }
+    if(result.ok)effects=effects.filter(e=>V.alive(e,now)).concat(V.create(report.effects,now,reduced)).slice(-24);
+    showReport(report);if(report.effects.length)$('scene-feedback').classList.add('compact');render();
+    if(!animationFrame&&(motions.size||effects.length))animationFrame=requestAnimationFrame(animate);
+    if(state.phase==='result')$('return').focus({preventScroll:true});
+    else if(goHome&&result.ok)$('end-turn').focus({preventScroll:true});
+  }
+  function moveCloser(){
+    const plan=C.approach(state,target);
+    if(!plan.ok){showReport({summary:'Cannot move closer',detail:plan.reason,tone:'error'});return;}
+    perform(()=>C.move(state,plan.to.x,plan.to.y),false,{type:'move'});
+  }
+  function bindPracticePartner(){if(!campaignMode){const requested=new URLSearchParams(location.search).get('mentor');if(requested){try{window.CWPatrolPartner.bind(state,{flags:{patrolMentorAssignment:window.BastionMentors.assignment(requested)}});}catch(e){error=e.message;}}}}
+  function restart(mode=state.mode,caseId=P.info(state).id){clearTimeout(quipTimer);remark='';motions.clear();effects=[];clearTimeout(reportTimer);$('scene-feedback').hidden=true;reportNumber=0;state=window.CWTrainingCharacter.nameState(P.create(C,mode,caseId));target='patron';showMoves=false;error='';notice='';menu='fight';bindPracticePartner();book.close();showReport({summary:P.info(state).title,detail:P.info(state).goal+' Accomplice attempts escape from round '+state.fleeRound+'.',tone:'info'});render();}
+  function renderSetup(){
+    $('setup-content').innerHTML='<div class="setup-cases">'+P.cases.map(c=>`<button data-case="${c.id}"><strong>${escape(c.title)}</strong><small>${escape(c.goal)} Escape pressure: round ${c.fleeRound}.</small></button>`).join('')+'</div><h3>Battle system</h3><div class="mode-list">'+Object.entries(C.MODES).map(([id,m])=>`<button data-mode="${id}" aria-pressed="${state.mode===id}">${escape(m.label)}</button>`).join('')+'</div><button id="reset">Restart this case</button><details><summary>How to play</summary><p>Choose a target and Fight, Talk, Move or Kit. Tap a highlighted neighbour to move one step. You have one main action per officer’s turn. End turn lets the opposition respond.</p><p>Talk lowers resolve by 4. At zero, choose Arrest or Let them go. Arrest needs adjacency and one action. Shove also opens an arrest opportunity for either officer. Guard reduces incoming damage; bandages recover up to 6 stamina. Watch each suspect’s intent: a prepared counter, heavy swing or spell can be interrupted.</p></details>';
+  }
+  document.querySelectorAll('[data-menu]').forEach(b=>b.addEventListener('click',()=>setMenu(b.dataset.menu)));
+  const commandSheet=document.querySelector('.sheet'),portraitCommands=()=>matchMedia('(max-width:749px) and (orientation:portrait)').matches;
+  function closeCommands(){commandSheet.classList.remove('is-open');document.querySelectorAll('[data-menu]').forEach(b=>b.setAttribute('aria-expanded','false'));if(portraitCommands())document.querySelector('[data-menu][aria-pressed=true]')?.focus({preventScroll:true});}
+  $('commands-close').addEventListener('click',closeCommands);
+  document.querySelectorAll('[data-menu]').forEach(b=>b.addEventListener('click',()=>{if(portraitCommands()){commandSheet.classList.add('is-open');b.setAttribute('aria-expanded','true');}}));
+  document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{if(portraitCommands()&&b.getAttribute('aria-disabled')!=='true'&&!b.disabled)closeCommands();}));
+  $('end-turn').addEventListener('click',()=>{if(portraitCommands()&&!document.querySelector('.folio-page').classList.contains('is-resolved'))closeCommands();});
+
+  $('menu-back').addEventListener('click',()=>{if(menu==='move'){moveCloser();return;}setMenu(menu==='fight'?'tactics':'fight');});
+  document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.resolution==='approach'){moveCloser();return;}perform(()=>C.act(state,b.dataset.action,target),true,{type:b.dataset.action,target});}));
+  document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>{const [dx,dy]=b.dataset.step.split(',').map(Number);perform(()=>C.move(state,active().x+dx,active().y+dy),false,{type:'move'});}));
+  $('actors').addEventListener('click',e=>{const b=e.target.closest('[data-target]');if(b){target=b.dataset.target;clearTimeout(quipTimer);remark='';error='';notice='';if(C.resolution(state,target).surrendered){menu='talk';showMoves=false;}render();document.querySelector('[data-target="'+target+'"]').focus({preventScroll:true});}});
+  $('end-turn').addEventListener('click',()=>{menu='fight';showMoves=false;perform(()=>C.endTurn(state),false,{type:'endTurn'});});
+  $('next-case').addEventListener('click',()=>restart(state.mode,P.next(state)));
+  $('replay').addEventListener('click',()=>restart());
+  $('return').addEventListener('click',()=>{if(campaignMode){if(state.result)parent.postMessage({type:'cw-p21-battle-result',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);return;}C.claimResult(state);state.phase='patrol';showMoves=false;error='';render();$('replay').focus({preventScroll:true});});
+  $('notebook-open').addEventListener('click',()=>notebook.open());
+  $('setup-open').addEventListener('click',()=>{renderSetup();if(!campaignMode){const box=document.createElement('div'),heading=document.createElement('h3');heading.textContent='Practise with equipment';box.append(heading);for(const d of Object.values(window.CWWeapons.definitions)){const button=document.createElement('button');button.textContent='Practise: '+d.name;button.dataset.practiceWeapon=d.id;box.append(button);}const rescue=document.createElement('button');rescue.textContent='Practise: coffee rescue';rescue.onclick=()=>{restart('hybrid');state.actors[2].hp=0;state.actors[2].status='incapacitated';state.actors[2].y=4;state.supplies={schema:1,coffee:1,revived:[]};menu='kit';setup.close();render();};box.append(rescue);const note=document.createElement('p');note.textContent='Practice supplies are free and do not change your campaign equipment.';box.append(note);$('setup-content').append(box);}setup.showModal();});
+  $('setup-close').addEventListener('click',()=>{setup.close();$('setup-open').focus({preventScroll:true});});
+  $('setup-content').addEventListener('click',e=>{const weapon=e.target.closest('[data-practice-weapon]');if(weapon&&!campaignMode){setup.close();restart('hybrid');const d=window.CWWeapons.get(weapon.dataset.practiceWeapon),a=state.actors.find(a=>a.id==='officer');Object.assign(a,{weaponProfile:d.id,weapon:d.id,weaponName:d.name,bolts:6,loaded:false});render();return;}const c=e.target.closest('[data-case]'),m=e.target.closest('[data-mode]');if(c||m||e.target.closest('#reset')){setup.close();restart(m?m.dataset.mode:state.mode,c?c.dataset.case:P.info(state).id);}});
+  canvas.addEventListener('click',e=>{
+    if(state.phase!=='battle'||book.open||setup.open)return;
+    const rect=canvas.getBoundingClientRect(),sx=e.clientX-rect.left,sy=e.clientY-rect.top;
+    const tile=state.mode==='classic'||(!showMoves&&state.mode!=='grid')?null:I.pickStep(C.reachable(state),sx,sy,rect.width,rect.height);
+    if(tile){perform(()=>C.move(state,tile.x,tile.y),false,{type:'move'});return;}
+    const x=(sx-view.x)/view.scale,y=(sy-view.y)/view.scale;
+    const foe=state.actors.filter(a=>a.team==='opposition'&&!['released','escaped'].includes(a.status)).find(a=>{const p=position(a);return Math.abs(x-p.x)<40&&y<p.y+15&&y>p.y-110;});
+    if(foe){target=foe.id;clearTimeout(quipTimer);remark='';error='';notice='';if(C.resolution(state,target).surrendered){menu='talk';showMoves=false;}render();return;}
+    if(state.mode!=='classic'){if(state.budget.move&&!showMoves)setMenu('move',false);showReport({summary:state.budget.move?'Tap a highlighted space':'No moves left',detail:state.budget.move?'Each highlighted space costs one move. The Move tab also has four direct arrows.':'Take your action or End turn. Movement returns on the officer’s next turn.',tone:'info'});}
+  });
+  document.addEventListener('keydown',e=>{
+    if(book.open||setup.open)return;
+    if(e.key==='Escape'&&menu!=='fight'){setMenu('fight');return;}
+    if(state.phase!=='battle'||state.mode==='classic'||e.altKey||e.metaKey||e.ctrlKey)return;
+    const dirs={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};
+    if(dirs[e.key]){e.preventDefault();const [dx,dy]=dirs[e.key];perform(()=>C.move(state,active().x+dx,active().y+dy),false,{type:'move'});}
+  });
+  Promise.all(Object.entries(ASSETS).map(([key,src])=>new Promise(resolve=>{const im=new Image();im.onload=()=>{images[key]=im;resolve();};im.onerror=()=>{error='A scene asset could not be loaded.';resolve();};im.src=src;}))).then(()=>{canvas.dataset.assetsLoaded=String(Object.keys(images).length);canvas.dataset.assetErrors=String(Object.keys(ASSETS).length-Object.keys(images).length);render();});
+  new ResizeObserver(draw).observe(canvas.parentElement);
+  if(!campaignMode)showReport({summary:P.info(state).title,detail:P.info(state).goal+' Accomplice attempts escape from round '+state.fleeRound+'.',tone:'info'});
+
+  if(campaignMode){
+    $('setup-open').hidden=true;
+    document.querySelector('.cw-training-return').onclick=e=>{e.preventDefault();parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);parent.postMessage({type:'cw-p21-battle-exit',encounterId:campaignContext?.pending.id},location.origin);};
+    $('return').textContent='Record outcome & return to city';
+    window.addEventListener('message',e=>{
+      if(e.origin!==location.origin||e.source!==parent)return;
+      if(e.data?.type==='cw-p21-battle-save-failed'&&campaignContext&&e.data.encounterId===campaignContext.pending.id){error='The report could not be fully saved. Keep this encounter open and retry Record outcome.';render();return;}
+      if(e.data?.type!=='cw-p21-battle-init'||campaignContext)return;
+      const incoming=e.data;const old=incoming.pending.battle;
+      if(old?.actors?.length&&['battle','result'].includes(old.phase))state=C.clone(old);
+      else{const officer=state.actors.find(a=>a.id==='officer'),s=incoming.state;officer.hp=Math.max(1,Math.ceil(s.hp/s.maxhp*officer.maxHp));officer.campaignHpOffset=s.hp-Math.ceil(officer.hp/officer.maxHp*s.maxhp);if(s.flags.recruitName)officer.name=s.flags.recruitName;
+        const binding=e.data.pending.binding;
+        window.CWChase.configure(state,binding);
+        if(binding==='shift-disturbance')state.actors.find(a=>a.id==='patron').name='Aggressive patron';
+        if(binding==='smuggler')state.actors.find(a=>a.id==='patron').name='Delivery suspect';
+        if(binding==='crypt-raider')state.actors.find(a=>a.id==='patron').name='Crypt raider';
+        if(/^cutpurse/.test(binding))state.actors.find(a=>a.id==='patron').name='Reported assault suspect';
+        window.CWOpponents.bind(state,incoming.pending,incoming.record);
+      }
+      window.CWOpeningSuspect.bindBattle(state,incoming.pending.binding,incoming.state.flags.p21PatrolRounds?.active?.enquiry?.variantId);
+      try{window.CWPatrolPartner.bind(state,incoming.state,incoming.pending);window.CWWeapons.bind(state,incoming.state,incoming.pending);if(!old)delete state.supplies;window.CWSupplies.bind(state,incoming.state,incoming.pending);const captured=window.BastionLocations.copy(incoming.pending.location);if(captured)state.location=captured;
+        if(!old&&window.QuillShopPreparations&&incoming.record){const bound=window.QuillShopPreparations.bind(incoming.record,state);if(bound.ok){state=bound.battle;parent.postMessage({type:'cw-p21-preparation-bind',encounterId:incoming.pending.id,expectedRevision:incoming.record.revision,record:bound.record},location.origin);}}
+        campaignContext=incoming;}catch(e){parent.postMessage({type:'cw-p21-battle-load-error',encounterId:incoming.pending.id},location.origin);return;}
+      const view=window.CWEncounterFeel.view(state,incidentInfo(state),state.result?incidentDebrief(state):null,campaignMode);
+      if(old){
+        const surrender=state.actors.find(a=>a.team==='opposition'&&a.status==='surrendered');
+        if(state.phase==='battle'&&surrender){target=surrender.id;menu='talk';showMoves=false;}
+        showReport({summary:state.phase==='result'?'Incident report restored':'Incident resumed',detail:[view.progress,view.danger].filter(Boolean).join(' · '),tone:'info'});
+      }else{
+        const p=window.CWChase.profile(incoming.pending.binding);
+        showReport({summary:p?.fleeRound?'Watch the exits':incidentInfo(state).title,detail:p?.fleeRound?state.actors.find(a=>a.id===p.primary).name+' may attempt escape from round '+p.fleeRound+'. Catching an accomplice alone does not complete this assignment.':[view.goal,view.danger].filter(Boolean).join(' · '),tone:'info'});
+      }
+      parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);render();
+      parent.postMessage({type:'cw-p21-battle-presented',encounterId:campaignContext.pending.id},location.origin);
+    });
+    parent.postMessage({type:'cw-p21-battle-ready'},location.origin);
+  }
+  bindPracticePartner();
+  render();
+})();
+</script></body></html>

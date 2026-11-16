@@ -1,0 +1,175 @@
+/* Scoped newspaper document. Host notebook chrome and game HUD are untouched. */
+@font-face{font-family:'CW Inquirer Headline';src:url('assets/anton-latin-400-normal.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+.cw-news-dialog{box-sizing:border-box;width:min(970px,calc(100vw - 16px));height:min(950px,calc(100dvh - 16px));max-width:none;max-height:none;margin:auto;padding:0;border:1px solid #7c7059;border-radius:2px;background:#f0e7d2;color:#241f19;box-shadow:0 12px 60px #0009;overflow:hidden;font:17px/1.5 Georgia,'Times New Roman',serif}
+.cw-news-dialog::backdrop{background:#090d13df}
+.cw-news-dialog *{box-sizing:border-box}
+.cw-news-dialog .cw-news-frame{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-height:0;padding:18px 20px;background-image:var(--cw-news-paper);background-repeat:no-repeat;background-size:100% 100%}
+.cw-news-dialog{border:0;background:transparent;box-shadow:none}
+.cw-news-dialog .cw-news-header{display:block;padding:10px 18px 0;border-bottom:3px double #514632}
+.cw-news-dialog .cw-news-toolbar{display:flex;align-items:center;gap:6px;margin-bottom:5px;font:600 14px/1.25 Georgia,serif}
+.cw-news-dialog button,.cw-news-clippings button{font:inherit;min-height:44px;min-width:44px;cursor:pointer;touch-action:manipulation;border:1px solid #887552;border-radius:3px;background:var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a));color:#2e2418;padding:8px 12px}
+.cw-news-dialog button:disabled{opacity:.5;cursor:default}
+.cw-news-dialog button:focus-visible,.cw-news-clippings button:focus-visible{outline:3px solid #714c1d;outline-offset:2px}
+.cw-news-dialog button[aria-pressed=true]{background:var(--cw-watch-control-selected,linear-gradient(#70543a,#4e3728));color:#fff2d3;text-decoration:underline;text-underline-offset:3px}
+.cw-news-dialog .cw-news-close{margin-left:auto}
+.cw-news-dialog .cw-news-masthead{display:block;width:min(100%,720px);height:auto;max-height:150px;object-fit:contain;margin:0 auto;mix-blend-mode:multiply}
+.cw-news-dialog .cw-news-wordmark{margin:5px 0 8px;padding:9px 12px 11px;text-align:center;background:#b51f24;color:#fffdf5;border-bottom:3px solid #7c1017;text-transform:uppercase}
+.cw-news-dialog .cw-news-redtop{display:grid;grid-template-columns:minmax(0,1fr) 90px;align-items:center;margin:5px 0 8px;background:#b51f24;color:#fffdf5;border-bottom:3px solid #7c1017}
+.cw-news-dialog .cw-news-redtop .cw-news-wordmark{margin:0;border:0;background:transparent}
+.cw-news-dialog .cw-news-slogan{white-space:pre-line;text-transform:uppercase;font:12px/1.2 Georgia,serif;text-align:center;border-left:1px solid #f4d4b07a;padding:5px 8px;margin:6px 0}
+.cw-news-dialog .cw-news-title-city{display:block;font:700 12px/1.2 Arial,sans-serif;letter-spacing:.15em}
+.cw-news-dialog .cw-news-title-main{display:block;font:italic 400 clamp(44px,11vw,80px)/.95 'CW Inquirer Headline',Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:-.035em;margin-top:3px}
+.cw-news-dialog .cw-news-motto{text-align:center;font-size:12px;letter-spacing:.13em;margin:4px 0 7px}
+.cw-news-dialog .cw-news-edition{display:flex;justify-content:space-between;gap:8px;font-size:11px;line-height:1.3;letter-spacing:.04em;text-transform:uppercase;border-top:1px solid #514632;padding:5px 0}
+.cw-news-dialog .cw-news-body{min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px 30px 24px;scrollbar-color:#a28b62 #eee5cf;outline-offset:-4px}
+.cw-news-dialog .cw-news-headline{font:bold clamp(27px,4.3vw,43px)/1.06 Georgia,serif;text-align:center;margin:0 0 12px;overflow-wrap:break-word}
+.cw-news-dialog .cw-news-kicker{text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.15em;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid #877959}
+.cw-news-dialog .cw-news-vignette{float:left;width:43%;max-height:220px;object-fit:contain;margin:4px 24px 12px 0;mix-blend-mode:multiply}
+.cw-news-dialog .cw-news-copy{margin:0 0 15px;white-space:pre-line;hyphens:auto}
+.cw-news-dialog .cw-news-copy::first-letter{float:left;font-size:3em;line-height:.85;padding:5px 6px 0 0}
+.cw-news-dialog .cw-news-source{clear:both;font-size:13px;border-top:1px solid #877959;padding-top:9px;margin:18px 0 0;font-style:italic}
+.cw-news-dialog .cw-news-footer{padding:8px 18px 10px;border-top:3px double #514632;background:transparent;display:grid;gap:6px}
+.cw-news-dialog .cw-news-paging{display:grid;grid-template-columns:1fr auto auto 1fr;align-items:center;gap:6px;font-size:13px}
+.cw-news-dialog .cw-news-paging button:last-child{justify-self:end}
+.cw-news-dialog .cw-news-paging span{font-size:13px}
+.cw-news-dialog .cw-news-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cw-news-dialog .cw-news-actions button{text-transform:uppercase;border:3px double #7f6747;background:#e8d6b354;letter-spacing:.07em;font-weight:bold}
+.cw-news-dialog .cw-news-actions .cw-news-close{width:100%;margin:0}
+.cw-news-dialog .cw-news-status{min-height:1.4em;line-height:1.3;font-size:13px;text-align:center;margin:0}
+.cw-news-dialog .cw-news-empty{text-align:center;padding:25px 0}
+.cw-news-dialog[data-paper=inquirer] .cw-news-headline{font-family:'CW Inquirer Headline',Impact,'Arial Narrow',Arial,sans-serif;font-weight:400;font-size:clamp(34px,5.8vw,62px);letter-spacing:-.025em;text-transform:uppercase}
+.cw-news-dialog[data-paper=inquirer] .cw-news-kicker{font-family:'CW Inquirer Headline',Impact,sans-serif;font-size:clamp(17px,2.4vw,25px);line-height:1.15;letter-spacing:0}
+.cw-news-dialog[data-paper=inquirer] .cw-news-vignette{display:block;float:none;width:100%;max-height:none;height:auto;aspect-ratio:3/1;object-fit:contain;margin:0 0 14px;mix-blend-mode:multiply}
+.cw-news-dialog[data-paper=inquirer] .cw-news-column-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
+.cw-news-dialog[data-paper=inquirer] .cw-news-main-copy{column-count:2;column-gap:16px;column-rule:1px solid #8a7350}
+.cw-news-dialog[data-paper=inquirer] .cw-news-copy::first-letter{float:none;font-size:inherit;line-height:inherit;padding:0}
+.cw-news-dialog .cw-news-advisory{margin:10px 0 0}
+.cw-news-dialog .cw-news-gossip{border-left:1px solid #8a7350;padding-left:14px;min-width:0}
+.cw-news-dialog .cw-news-gossip h3{font:400 clamp(19px,3vw,28px)/1.1 'CW Inquirer Headline',Impact,sans-serif;text-transform:uppercase;margin:0 0 10px}
+.cw-news-dialog .cw-news-gossip p{font-size:15px;line-height:1.4;margin:0 0 10px}
+.cw-news-dialog .cw-news-gossip-image{display:block;width:100%;height:auto;mix-blend-mode:multiply;margin:0 0 8px}
+.cw-news-dialog .cw-news-gossip small{font-size:12px;font-style:italic}
+.cw-news-clippings article{padding:12px 0;border-bottom:1px solid #9c7d4c75}
+.cw-news-clippings h3{margin:0 0 6px}
+.cw-news-clippings p{margin:4px 0 10px}
+.cw-news-clippings .cw-news-clipping-actions{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:520px){
+ .cw-news-dialog .cw-news-frame{padding:12px 8px}
+ .cw-news-dialog .cw-news-redtop{grid-template-columns:1fr}
+ .cw-news-dialog .cw-news-slogan{display:none}
+ .cw-news-dialog[data-paper=inquirer] .cw-news-column-grid{grid-template-columns:1fr;gap:14px}
+ .cw-news-dialog[data-paper=inquirer] .cw-news-main-copy{column-count:1}
+ .cw-news-dialog .cw-news-gossip{border-left:0;border-top:1px solid #8a7350;padding:12px 0 0}
+ .cw-news-dialog{font-size:17px;width:calc(100vw - 12px);height:calc(100dvh - 12px)}
+ .cw-news-dialog .cw-news-header{padding:7px 10px 0}
+ .cw-news-dialog .cw-news-toolbar{font-size:13px}
+ .cw-news-dialog button{padding:7px 9px}
+ .cw-news-dialog .cw-news-motto{font-size:10px;letter-spacing:.06em}
+ .cw-news-dialog .cw-news-body{padding:14px 16px 18px}
+ .cw-news-dialog .cw-news-footer{padding:7px 10px}
+ .cw-news-dialog .cw-news-vignette{display:block;float:none;width:100%;height:110px;margin:0 auto 12px}
+}
+@media(max-height:620px){
+ .cw-news-dialog .cw-news-masthead{max-height:86px}
+ .cw-news-dialog .cw-news-vignette{height:72px}
+ .cw-news-dialog .cw-news-header{padding-top:5px}
+ .cw-news-dialog .cw-news-footer{gap:2px;padding-top:4px;padding-bottom:4px}
+}
+@media(orientation:landscape) and (max-height:500px){
+ .cw-news-dialog .cw-news-frame{padding:8px 14px}
+ .cw-news-dialog .cw-news-redtop{grid-template-columns:1fr;margin:0 0 3px}
+ .cw-news-dialog .cw-news-slogan{display:none}
+ .cw-news-dialog{width:calc(100vw - 12px)}
+ .cw-news-dialog .cw-news-header{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:0 12px}
+ .cw-news-dialog .cw-news-toolbar{grid-column:1;grid-row:1 / span 2;margin:0}
+ .cw-news-dialog .cw-news-brand{grid-column:2;grid-row:1}
+ .cw-news-dialog .cw-news-masthead{max-height:56px}
+ .cw-news-dialog .cw-news-wordmark{margin:0 0 3px;padding:3px 8px 5px;border-bottom-width:2px}
+ .cw-news-dialog .cw-news-title-city{font-size:9px}
+ .cw-news-dialog .cw-news-title-main{font-size:32px}
+ .cw-news-dialog .cw-news-motto{font-size:9px;margin:0 0 3px}
+ .cw-news-dialog .cw-news-edition{grid-column:1 / -1}
+ .cw-news-dialog .cw-news-footer{grid-template-columns:1fr 1fr;gap:3px 14px}
+ .cw-news-dialog .cw-news-status{grid-column:1 / -1}
+ .cw-news-dialog .cw-news-vignette{float:left;width:32%;height:95px;margin:0 18px 8px 0}
+}
+/* Filled editions: readable city columns and compact classifieds. */
+.cw-news-dialog .cw-news-column-grid{display:block!important}
+.cw-news-dialog .cw-news-main-copy{column-count:2;column-gap:20px;column-rule:1px solid #8a735066}
+.cw-news-dialog .cw-news-section{clear:both;border-top:3px double #66543d;margin-top:20px;padding-top:10px}
+.cw-news-dialog .cw-news-section-title{font:700 15px/1.3 Georgia,serif;text-transform:uppercase;letter-spacing:.13em;text-align:center;margin:0 0 14px}
+.cw-news-dialog .cw-news-editorial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px}
+.cw-news-dialog .cw-news-editorial-card{min-width:0;overflow-wrap:anywhere;border-bottom:1px solid #8a735066;padding-bottom:10px}
+.cw-news-dialog .cw-news-editorial-card h3{font:700 22px/1.12 Georgia,serif;margin:0 0 8px}
+.cw-news-dialog .cw-news-editorial-card p{font-size:16px;line-height:1.45;margin:0}
+.cw-news-dialog[data-paper=inquirer] .cw-news-city h3{font:400 27px/1.1 'CW Inquirer Headline',Impact,sans-serif;text-transform:uppercase}
+.cw-news-dialog .cw-news-classifieds .cw-news-editorial-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px}
+.cw-news-dialog .cw-news-classifieds h3,.cw-news-dialog .cw-news-notices h3{font-size:16px}
+.cw-news-dialog .cw-news-classifieds p,.cw-news-dialog .cw-news-notices p{font-size:14px}
+.cw-news-dialog .cw-news-letters .cw-news-editorial-grid{grid-template-columns:1fr}
+.cw-news-dialog .cw-news-letters p{font-style:italic}
+.cw-news-dialog .cw-news-vegetable{clear:both;display:grid;grid-template-columns:minmax(120px,1fr) 2fr;gap:20px;align-items:center;border-block:3px double #66543d;padding:12px 0;margin:20px 0}
+.cw-news-dialog .cw-news-vegetable img{display:block;width:100%;height:auto;max-height:220px;object-fit:contain;mix-blend-mode:multiply}
+.cw-news-dialog .cw-news-vegetable h3{margin:0 0 8px;font-size:22px}
+.cw-news-dialog .cw-news-vegetable p{margin:0;font-size:16px}
+@media(max-width:520px){
+ .cw-news-dialog .cw-news-main-copy{column-count:1}
+ .cw-news-dialog .cw-news-editorial-grid{grid-template-columns:1fr;gap:14px}
+ .cw-news-dialog .cw-news-classifieds .cw-news-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cw-news-dialog .cw-news-classifieds h3{font-size:16px}
+ .cw-news-dialog .cw-news-vegetable{grid-template-columns:100px minmax(0,1fr);gap:12px}
+ .cw-news-dialog .cw-news-vegetable h3{font-size:18px}
+ .cw-news-dialog .cw-news-vegetable p{font-size:15px}
+}
+
+/* Mixed editions: illustrated reports share each spread with small ads and correspondence. */
+.cw-news-dialog .cw-news-mixed{clear:both;border-top:3px double #66543d;margin-top:16px}
+.cw-news-dialog .cw-news-spread{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:3px double #66543d;align-items:start}
+.cw-news-dialog .cw-news-spread-reverse{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+.cw-news-dialog .cw-news-spread-reverse>.cw-news-kind-news{grid-column:2;grid-row:1}
+.cw-news-dialog .cw-news-spread-reverse>.cw-news-small-column{grid-column:1;grid-row:1}
+.cw-news-dialog .cw-news-small-column{border-left:1px solid #8a735088;padding-left:16px;min-width:0}
+.cw-news-dialog .cw-news-spread-reverse>.cw-news-small-column{border-left:0;border-right:1px solid #8a735088;padding-left:0;padding-right:16px}
+.cw-news-dialog .cw-news-small-column .cw-news-editorial-card{margin-bottom:14px;padding-bottom:12px}
+.cw-news-dialog .cw-news-eyebrow{font:700 10px/1.3 Georgia,serif;letter-spacing:.12em;text-transform:uppercase;margin:0 0 7px!important}
+.cw-news-dialog .cw-news-kind-advert{border:1px solid #8a735088;padding:9px;background:#dfca9e22}
+.cw-news-dialog .cw-news-small-column h3{font:bold 18px/1.13 Georgia,serif;margin:0 0 7px}
+.cw-news-dialog .cw-news-small-column .cw-news-story-text{font-size:14px;line-height:1.45}
+.cw-news-dialog .cw-news-kind-letter .cw-news-story-text{font-style:italic}
+.cw-news-dialog .cw-news-kind-news h3{font:bold 25px/1.1 Georgia,serif;margin:0 0 10px}
+.cw-news-dialog[data-paper=inquirer] .cw-news-kind-news h3{font:400 30px/1.08 'CW Inquirer Headline',Impact,sans-serif;text-transform:uppercase}
+.cw-news-dialog .cw-news-story-figure{margin:0 0 10px}
+.cw-news-dialog .cw-news-story-image{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.cw-news-dialog .cw-news-story-figure figcaption{font:italic 11px/1.35 Georgia,serif;border-bottom:1px solid #8a735066;padding:4px 0 5px}
+.cw-news-dialog .cw-news-main-copy{column-count:1}
+.cw-news-dialog .cw-news-vignette{width:32%;max-height:125px;margin-right:18px}
+.cw-news-dialog[data-paper=inquirer] .cw-news-vignette{max-height:165px;width:100%;object-fit:contain}
+@media(max-width:520px){
+ .cw-news-dialog .cw-news-spread,.cw-news-dialog .cw-news-spread-reverse{display:block;padding:14px 0}
+ .cw-news-dialog .cw-news-small-column,.cw-news-dialog .cw-news-spread-reverse>.cw-news-small-column{border:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+ .cw-news-dialog .cw-news-small-column .cw-news-kind-letter{grid-column:1 / -1}
+ .cw-news-dialog .cw-news-small-column .cw-news-editorial-card{margin:0;min-width:0}
+ .cw-news-dialog .cw-news-small-column h3{font-size:16px}
+ .cw-news-dialog .cw-news-small-column .cw-news-story-text{font-size:14px}
+ .cw-news-dialog .cw-news-kind-news h3{font-size:23px}
+ .cw-news-dialog[data-paper=inquirer] .cw-news-kind-news h3{font-size:28px}
+ .cw-news-dialog .cw-news-vignette{width:100%;max-height:100px;margin:0 0 10px}
+}
+.cw-news-dialog .cw-news-story-figure{float:left;width:48%;margin:0 14px 8px 0}
+.cw-news-dialog .cw-news-spread-reverse .cw-news-story-figure{float:right;margin:0 0 8px 14px}
+.cw-news-dialog .cw-news-kind-news::after{content:'';display:block;clear:both}
+@media(max-width:520px){
+ .cw-news-dialog .cw-news-story-figure,.cw-news-dialog .cw-news-spread-reverse .cw-news-story-figure{width:46%;float:left;margin:0 10px 7px 0}
+}
+
+.cw-news-dialog .cw-news-editorial-card .cw-news-eyebrow{font:700 10px/1.3 Georgia,serif;letter-spacing:.12em}
+
+.cw-news-dialog .cw-news-keep-story{margin-top:8px;font-size:14px}.cw-news-clippings summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:bold}
+
+/* Display original reference pixels; crop only the document viewport in CSS.
+   Times annotations and historical headline remain outside the visible crop. */
+.cw-news-dialog .cw-news-times-reference{width:100%;aspect-ratio:661/198;overflow:hidden;mix-blend-mode:multiply;margin:4px auto;}
+.cw-news-dialog .cw-news-times-reference .cw-news-masthead{display:block;width:100%;height:auto;max-height:none;max-width:none;margin:0;object-fit:initial;}
+.cw-news-dialog .cw-news-approved-header{position:relative;display:block;aspect-ratio:932/222;overflow:hidden;background:none;border:0;margin:5px 0 8px;}
+.cw-news-dialog .cw-news-approved-header .cw-news-approved-redtop{display:block;position:absolute;width:109.8712446%;height:auto;max-width:none;left:-5.1502146%;top:-19.3693694%;}
+.cw-news-dialog[data-paper=inquirer] .cw-news-headline,.cw-news-dialog[data-paper=inquirer] .cw-news-editorial-card h3{font-family:Georgia,'Times New Roman',serif;font-weight:900;letter-spacing:-.025em;text-transform:uppercase;}

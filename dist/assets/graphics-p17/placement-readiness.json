@@ -1,0 +1,135 @@
+{
+  "audit": "GF-01",
+  "baseline": "d332831e92db45f87892515d7c55d4002e3b65a3",
+  "status": "HOLD",
+  "warning": "Metadata only. Does not remove or repair the 12 existing campaign placements. No collision, route or source pixel change.",
+  "held_paths": [
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_0_5.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_1_5.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_2_5.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_3_5.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/props_4_5.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_0_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_0_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_0_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_0_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_0_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_1_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_1_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_1_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_1_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_1_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_2_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_2_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_2_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_2_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_2_4.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_3_0.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_3_1.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_3_2.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_3_3.webp",
+    "assets/graphics-p17/slaughterhouse/cutouts/structures_3_4.webp"
+  ],
+  "existing_campaign_buildings": [
+    {
+      "coordinate": "122,104",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_0.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "118,106",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_1.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "116,93",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_2.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "120,92",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_3.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "123,99",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_0_4.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "115,98",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_0.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "126,93",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_1.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "130,94",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_2.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "133,92",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_3.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "119,98",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_1_4.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "119,103",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_0.webp",
+      "zone": "slaughterhouse"
+    },
+    {
+      "coordinate": "116,102",
+      "path": "assets/graphics-p17/slaughterhouse/cutouts/buildings_2_1.webp",
+      "zone": "slaughterhouse"
+    }
+  ]
+}

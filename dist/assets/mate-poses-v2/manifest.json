@@ -1,0 +1,23 @@
+{
+  "character": "watch-recruit",
+  "status": "ART_REVIEW_ONLY",
+  "walk": {
+    "file": "recruit-walk-left.webp",
+    "sha256": "27e377d4759f303c10af0be6f651c79d43f3aaf7d7e168d7aa81e16f202564df",
+    "count": 8,
+    "frameMS": 100,
+    "cellWidth": 256,
+    "cellHeight": 288,
+    "cols": 8,
+    "pivot": [
+      128,
+      274
+    ],
+    "visibleHeight": 234,
+    "facing": -1,
+    "fullBody": true,
+    "source": "art-source/mate-modular-overhaul/walking/manifest.json"
+  },
+  "actions": "actions/manifest.json",
+  "productionRegistered": false
+}

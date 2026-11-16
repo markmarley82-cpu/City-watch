@@ -1,0 +1,13 @@
+import {universitySnapshot} from './core.mjs?v=p21-b407-s039-reuse';
+export function createUniversityBridge({graph,snapshot,restore,startReturn,cancelReturn,atGate,notify,onCaseArt=()=>{},host=window}){
+ const params=new URLSearchParams(host.location.search),session=params.get('session'),campaign=params.get('campaign')==='1'&&host.parent!==host&&!!session;
+ let ready=!campaign,pending=null,sequence=0,returning=false,returnStarted=false,loaded=false;
+ const send=(type,extra={})=>{if(campaign)host.parent.postMessage({protocol:'cw-university-1',session,type,...extra},host.location.origin);};
+ function checkpoint(){if(!campaign||!ready)return;const value=universitySnapshot(snapshot(),graph);if(pending){send('checkpoint',pending);return;}pending={sequence:++sequence,snapshot:value};send('checkpoint',pending);}
+ function completeReturn(){if(campaign&&ready&&returning&&!pending&&atGate())send('leave',{snapshot:universitySnapshot(snapshot(),graph)});}
+ host.addEventListener('message',event=>{if(!campaign||event.origin!==host.location.origin||event.source!==host.parent||event.data?.protocol!=='cw-university-1'||event.data.session!==session)return;const packet=event.data;switch(packet.type){case'init':try{const value=universitySnapshot(packet.snapshot,graph);restore(value);onCaseArt(packet.art);ready=true;pending=null;returning=packet.returning===true;returnStarted=false;
+ if(returning){if(atGate())checkpoint();else{returnStarted=true;startReturn();}}
+ else notify('Your University visit is ready.');
+ send('presented');}catch(e){notify(e.message);send('load-error');}break;case'case-art':onCaseArt(packet.art);break;case'saved':if(pending&&packet.sequence===pending.sequence){pending=null;notify(returning?'Returning to the Great Gates…':'Progress saved.');if(returning&&!atGate()&&!returnStarted){returnStarted=true;startReturn();}completeReturn();}break;case'save-failed':if(pending&&packet.sequence===pending.sequence)notify(packet.message);break;case'return':if(!ready)return;returning=true;returnStarted=false;if(pending)break;if(atGate())checkpoint();else{returnStarted=true;startReturn();}break;case'cancel-return':returning=false;returnStarted=false;cancelReturn();break;}});
+ return Object.freeze({campaign,get blocked(){return campaign&&(!ready||!!pending);},get returning(){return returning;},changed(){if(campaign&&ready&&!pending)checkpoint();},save:checkpoint,ready(){loaded=true;if(campaign)send('ready');},error(){if(campaign)send('load-error');},cancelReturn(){if(returning){returning=false;returnStarted=false;send('cancel-return');}},completeReturn});
+}

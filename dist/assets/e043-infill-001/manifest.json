@@ -1,0 +1,58 @@
+{
+  "id": "E043-INFILL-001",
+  "classification": "Original unnamed infill; not a canonical address, cast member or quest location",
+  "scope": "Painted production correction of the unique narrow-fronted deep service house on parcel 540 beside the fitted Dimwell workshop.",
+  "asset": {
+    "id": "E043-INFILL-001:service-house-painted",
+    "file": "service-house-painted.webp",
+    "source": "art-source/street-by-street/e043-infill-001/e043_service_house_painted.png",
+    "master": "art-source/street-by-street/e043-infill-001/e043_service_house_painted_master.png",
+    "dimensions": [
+      440,
+      520
+    ],
+    "visibleBounds": [
+      91,
+      143,
+      279,
+      363
+    ],
+    "anchor": [
+      220,
+      510
+    ],
+    "render_scale": 1,
+    "sha256": "68e69d19468a0bc26c2f5e4fd9063c7b1cf40cd8e3e53ac02dbefe9e68269b32"
+  },
+  "instance": {
+    "id": "E043-INFILL-001:service-house-painted",
+    "p": [
+      62.682,
+      68.526
+    ],
+    "rect": [
+      61.079,
+      65.598,
+      2.603,
+      3.928
+    ],
+    "kind": "building",
+    "sourceParcel": 540,
+    "visualDoorHeight": 62,
+    "referenceActorHeight": 60,
+    "publicThresholdOnly": true
+  },
+  "retiredParcels": [
+    540
+  ],
+  "newNavigation": false,
+  "newInteractiveDoors": false,
+  "creativeAcceptance": false,
+  "generation": {
+    "script": "scripts/generate-e043-premise.py",
+    "method": "painted master fitted to production canvas",
+    "noMirror": true,
+    "noLegacyCrop": true,
+    "noRecolour": true
+  }
+}

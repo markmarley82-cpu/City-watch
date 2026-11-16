@@ -1,0 +1,216 @@
+/* B03 team integration. Campaign state/geometry and save identities stay unchanged. */
+(() => {
+  'use strict';
+  function createAudio() {
+    const sources={
+      'paper-open':'echo-effects-v2/book-open.mp3','paper-close':'echo-effects-v2/book-close.mp3',
+      'page-turn':['echo-effects-v2/page-turn-1.mp3','echo-effects-v2/page-turn-2.mp3'],'bag-open':['echo-atmosphere-v3/cloth-1.mp3','echo-atmosphere-v3/cloth-2.mp3'],
+      'door-open':'echo-all-v012/B03_door-02.mp3','door-close':'echo-all-v012/B03_door-01.mp3',
+      'step-stone':['echo-effects-v2/step-stone-1.mp3','echo-effects-v2/step-stone-2.mp3','echo-effects-v2/step-stone-3.mp3','echo-effects-v2/step-stone-4.mp3'],
+      'step-wood':['echo-effects-v2/step-wood-1.mp3','echo-effects-v2/step-wood-2.mp3','echo-effects-v2/step-wood-3.mp3','echo-effects-v2/step-wood-4.mp3'],
+      'step-bridge':['echo-effects-v2/step-bridge-1.mp3','echo-effects-v2/step-bridge-2.mp3','echo-effects-v2/step-bridge-3.mp3','echo-effects-v2/step-bridge-4.mp3'],'hit':'echo-all-v012/F10-06.mp3',
+      'reward':'echo-all-v012/F11-08.mp3','write':'echo-all-v012/F10-01.mp3','ui':'echo-all-v012/B03_paper-01.mp3'
+    };
+    const themes={
+      patrol:{id:'U02',title:'Medieval: The Bard’s Tale',sample_file:'CW_MUSIC_U02_The_Bards_Tale_30s.mp3'},
+      night:{id:'U06',title:'Fantasy: Rising Moon',sample_file:'CW_MUSIC_U06_Rising_Moon_30s.mp3'},
+      interior:{id:'U03',title:'Meadow Thoughts',sample_file:'CW_MUSIC_U03_Meadow_Thoughts_30s.mp3'}
+    };
+    const counts={played:0,blocked:0,failed:0},pool=new Map(),recent=new Map(),variants=new Map();
+    let enabled=false,effects=true,musicWanted=true,effectsVolume=.65,musicVolume=.20,ambienceWanted=true,ambienceVolume=.25;
+    let ambience=null,ambienceZone=null,ambientGeneration=0,atmosphereContext=null,atmosphereSceneKey=null;
+    const beds=new Map(),details=new Map(),detailTimes=new Map();let detailSequence=0;
+    const isAmbient=a=>a.dataset.cueId==='ambience';
+    let music=null,track=null,manualTrack=false,suspended=false,generation=0,scene='patrol',lastPosition=null,lastCoordinates=null,lastRoom=null,lastSceneAt=0,lastInside=null;
+    const finiteVolume=v=>Number.isFinite(Number(v))?Math.max(0,Math.min(1,Number(v))):0;
+    function changed(){window.dispatchEvent(new CustomEvent('cw:audio-state'));}
+    function makeAudio(src,id){
+      const a=new Audio(src);a.preload='none';a.hidden=true;a.setAttribute('aria-hidden','true');a.dataset.cueId=id;a.dataset.playback='idle';
+      a.addEventListener('playing',()=>{a.dataset.playback='playing';changed();});
+      a.addEventListener('ended',()=>a.dataset.playback='ended');
+      a.addEventListener('error',()=>{a.dataset.playback='failed';counts.failed++;changed();});
+      document.body.appendChild(a);return a;
+    }
+    function play(a){
+      const epoch=generation;
+      const request={epoch,ambientToken:ambientGeneration};a._cwPlayRequest=request;a._cwWanted=true;
+      try{Promise.resolve(a.play()).then(()=>{
+        if(a._cwPlayRequest!==request)return;
+        if(!a._cwWanted||!enabled||document.hidden||suspended||epoch!==generation||(isAmbient(a)&&request.ambientToken!==ambientGeneration)||(a===music?!musicWanted:isAmbient(a)?!ambienceWanted:!effects)){a.pause();return;}
+        counts.played++;changed();
+      }).catch(error=>{
+        if(a._cwPlayRequest!==request)return;
+        if(error?.name==='AbortError'&&!a._cwWanted){a.dataset.playback='stopped';return;}
+        const failed=error?.name==='NotSupportedError';if(failed)counts.failed++;else counts.blocked++;
+        a.dataset.playback=failed?'failed':'blocked';a.dataset.playbackError=String(error?.name||'Error')+': '+String(error?.message||error);changed();});}
+      catch{counts.failed++;a.dataset.playback='failed';changed();}
+    }
+    function stopEffects(){for(const a of pool.values()){a._cwWanted=false;a.pause();try{a.currentTime=0;}catch{}}}
+    function stopAmbientSource(a){a._cwWanted=false;a.pause();try{a.currentTime=0;}catch{}}
+    function stopAmbience(){ambientGeneration++;for(const b of beds.values())if(b.audio)stopAmbientSource(b.audio);for(const a of details.values())stopAmbientSource(a);}
+    function atmosphereDetail(id,gain){
+      if(!enabled||!ambienceWanted||document.hidden||suspended||gain<=0)return;
+      const files=id==='fountain'?['fountain-1.mp3','fountain-2.mp3','fountain-3.mp3']:['timber-1.mp3','timber-2.mp3'];
+      let a=details.get(id);if(!a){a=makeAudio('', 'ambience');a.dataset.layer=id;details.set(id,a);}
+      for(const other of details.values())if(other!==a)stopAmbientSource(other);
+      a._cwAmbientGain=gain;a.src='assets/echo-atmosphere-v3/'+files[(detailSequence++)%files.length];a.volume=finiteVolume(ambienceVolume*gain);a.loop=false;play(a);
+    }
+    function sampleAmbience(zone,context={},duck=1){
+      const now=Date.now(),sceneKey=context.sceneKey||zone;
+      ambienceZone=zone;
+      if(sceneKey!==atmosphereSceneKey){stopAmbience();atmosphereSceneKey=sceneKey;for(const b of beds.values())b.due=now+1500;detailTimes.clear();}
+      atmosphereContext={...context,duck};
+      for(const a of details.values())a.volume=finiteVolume(ambienceVolume*(a._cwAmbientGain||0)*duck);
+      if(!enabled||!ambienceWanted||document.hidden||suspended||context.paused){stopAmbience();return;}
+      const weights={city:zone==='city'?(scene==='night'?.32:.75):0,water:zone==='water'?.65:Number(context.waterGain)||0,
+        rain:context.weather==='rain'&&!context.inside?.48:0,hearth:Number(context.hearthGain)||0};
+      const wanted=Object.entries(weights).filter(([,v])=>v>.025).sort((a,b)=>b[1]-a[1]).slice(0,2);
+      const active=new Set(wanted.map(([id])=>id));
+      for(const [id,b] of beds)if(!active.has(id)){if(b.audio)stopAmbientSource(b.audio);b.due=now+1500;}
+      for(const [id,weight] of wanted){
+        let b=beds.get(id);if(!b){b={audio:null,due:now+1500,sequence:0};beds.set(id,b);}
+        const target=finiteVolume(ambienceVolume*weight*duck);
+        if(b.audio)b.audio.volume=finiteVolume(b.audio.volume+(target-b.audio.volume)*.25);
+        if(now<b.due)continue;
+        if(!b.audio){b.audio=makeAudio('', 'ambience');b.audio.dataset.layer=id;}
+        const variant=(b.sequence++%2)?'b':'a';b.audio.src='assets/echo-atmosphere-v3/'+id+'-'+variant+'.mp3';
+        b.audio.dataset.zone=id;b.audio.volume=target;b.audio.loop=false;ambience=b.audio;
+        b.due=now+(id==='rain'?24000:id==='hearth'?26000:40000);play(b.audio);
+      }
+      const nearFountain=(Number(context.fountainGain)||0)>.05;
+      for(const [id,available,gap,gain] of [['fountain',nearFountain,7000,(Number(context.fountainGain)||0)*.70],['timber',!!context.woodenInterior,32000,.32]]){
+        if(!available){detailTimes.delete(id);const a=details.get(id);if(a)stopAmbientSource(a);continue;}
+        if(!detailTimes.has(id))detailTimes.set(id,now+(id==='fountain'?2500:12000));
+        if(now>=detailTimes.get(id)&&duck>=1){atmosphereDetail(id,gain);detailTimes.set(id,now+gap+(detailSequence%3)*1100);}
+      }
+    }
+    function cue(id){
+      if(!enabled||!effects||document.hidden||suspended||!sources[id])return false;
+      const now=Date.now(),limit=id.startsWith('step-')?120:id==='reward'||id.startsWith('door-')?650:90;
+      if(now-(recent.get(id)??-Infinity)<limit)return true;
+      recent.set(id,now);
+      try{
+        const options=Array.isArray(sources[id])?sources[id]:[sources[id]],cursor=variants.get(id)||0;
+        const file=options[cursor%options.length];variants.set(id,cursor+1);
+        let a=pool.get(file);if(!a){a=makeAudio('assets/'+file,id);pool.set(file,a);}
+        if(id.startsWith('step-'))for(const other of pool.values())if(other!==a&&other.dataset.cueId?.startsWith('step-')){other._cwWanted=false;other.pause();}
+        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:.80);
+        a.currentTime=0;play(a);return true;
+      }catch{counts.failed++;changed();return false;}
+    }
+    function startMusic(){
+      if(!enabled||!musicWanted||document.hidden||suspended)return;
+      const desired=manualTrack?track:themes[scene];
+      if(!desired)return;
+      if(!music)music=makeAudio('', 'background-music');
+      if(music.dataset.track!==desired.id){music.pause();music.src='assets/echo-all-v012/'+desired.sample_file;music.dataset.track=desired.id;music.dataset.title=desired.title;music.dataset.playback='ready';}
+      music.loop=true;music.volume=musicVolume;
+      if(music.paused!==false)play(music);
+    }
+    function sync(){
+      for(const id of ['sound','city-sound','bridge-sound']){
+        const b=document.getElementById(id);if(!b)continue;
+        b.textContent=(id==='sound'?'♫ SOUND ':'Sound ')+(enabled?'ON':'OFF');b.classList.toggle('active',enabled);b.setAttribute('aria-pressed',String(enabled));
+      }
+      changed();
+    }
+    function setEnabled(value){
+      enabled=!!value;generation++;lastPosition=null;lastCoordinates=null;lastInside=null;recent.clear();ambienceZone=null;atmosphereSceneKey=null;stopAmbience();
+      if(!enabled){stopAmbience();stopEffects();music?.pause();}else{startMusic();sampleScene();}sync();
+    }
+    function sampleScene(){
+      if(!enabled||document.hidden||suspended)return;
+      let owner=window,doc=document;
+      try{const frame=document.getElementById('p21-engine-dialog')?.open?document.getElementById('p21-engine-frame'):document.getElementById('room-frame');if(frame&&frame.getAttribute('src')!=='about:blank'&&(document.getElementById('room-dialog')?.open||document.getElementById('p21-engine-dialog')?.open)&&frame.contentWindow?.CW_PATROL_DESCRIPTION){owner=frame.contentWindow;doc=frame.contentDocument;}}catch{}
+      const state=owner.CW_PATROL_DESCRIPTION?.();if(!state){sampleAmbience(null);return;}
+      // The text view exposes the real recruit coordinates without running the
+      // expensive interior path/reachability diagnostic on every audio tick.
+      const inside=/room coordinates/.test(state.position||'');
+      const room={room:/crypt/i.test(state.location||'')?'crypt':state.location};
+      const next=inside?'interior':/NIGHT|EVENING/i.test(doc.getElementById('time')?.textContent||'')?'night':'patrol';
+      if(next!==scene){scene=next;if(!manualTrack)startMusic();}
+      const bridge=doc.getElementById('bridge-scene'),city=doc.getElementById('city-scene');
+      const current=String(bridge?.dataset.position||city?.dataset.position||state.position||'');
+      const coordinates=(current.match(/-?\d+(?:\.\d+)?/g)||[]).slice(0,2).map(Number);
+      const place=inside?'room:'+state.location:bridge?'bridge':city?'rebuilt-city':'campaign-city';
+      const modal=!!doc.querySelector('dialog[open],#watch-notebook.open,#p13-menu.open,.overlay.show')||!!owner.CW_P20_INPUT_BLOCKED;
+      const delta=coordinates.length===2&&lastCoordinates?.length===2?Math.abs(coordinates[0]-lastCoordinates[0])+Math.abs(coordinates[1]-lastCoordinates[1]):Infinity;
+      const now=Date.now(),moved=lastPosition!==null&&current!==lastPosition&&place===lastRoom&&now-lastSceneAt<1200&&delta>0&&delta<=(inside?120:3);
+      if(lastInside!==null&&inside!==lastInside&&!document.getElementById('room-frame'))cue(inside?'door-open':'door-close');
+      lastInside=inside;
+      const talking=!!doc.getElementById('cw-npc-dialogue')?.open;
+      if(music)music.volume=musicVolume*(talking?.45:1);
+      const provided=owner.CW_AUDIO_CONTEXT?.()||{};
+      sampleAmbience(inside?null:bridge||/bridge|crossing/i.test(state.location||'')?'water':'city',{...provided,inside,sceneKey:provided.sceneKey||place,paused:modal&&!talking},talking?.28:1);
+      if(!modal&&moved)cue(inside&&room?.room!=='crypt'?'step-wood':doc.getElementById('bridge-scene')||/bridge|crossing/i.test(state.location||'')?'step-bridge':'step-stone');
+      lastPosition=current;lastCoordinates=coordinates;lastRoom=place;lastSceneAt=now;
+    }
+    const api=Object.freeze({
+      cue,setEnabled,
+      setAmbience(value){ambienceWanted=!!value;if(!ambienceWanted)stopAmbience();else{ambienceZone=null;atmosphereSceneKey=null;sampleScene();}changed();},
+      setEffects(value){effects=!!value;if(!effects)stopEffects();changed();},
+      setMusic(value){musicWanted=!!value;if(musicWanted)startMusic();else music?.pause();changed();},
+      setVolume(kind,value){if(kind==='ambience'){const previous=ambienceVolume;ambienceVolume=finiteVolume(value);for(const b of beds.values())if(b.audio){b.audio.volume=previous?b.audio.volume*ambienceVolume/previous:0;if(!previous)b.due=Date.now();}for(const a of details.values())a.volume=finiteVolume(ambienceVolume*(a._cwAmbientGain||0));if(!ambienceVolume)stopAmbience();else sampleScene();}else if(kind==='music'){musicVolume=finiteVolume(value);if(music)music.volume=musicVolume;}else{effectsVolume=finiteVolume(value);for(const a of pool.values())a.volume=effectsVolume*(a.dataset.cueId.startsWith('step-')?.65:a.dataset.cueId==='reward'?.55:.80);}changed();},
+      selectMusic(value){if(!value||!/^[-\w]+\.mp3$/.test(value.sample_file)||!value.id)return false;track={id:value.id,title:String(value.title||value.id),sample_file:value.sample_file};manualTrack=true;musicWanted=true;if(enabled)startMusic();changed();return true;},
+      useSceneMusic(){manualTrack=false;startMusic();changed();},
+      suspendMusic(value){const next=!!value;if(next===suspended){if(!next)startMusic();return;}suspended=next;generation++;if(suspended){stopAmbience();stopEffects();music?.pause();}else startMusic();changed();},
+      sampleScene,
+      report:()=>({enabled,effects,music:musicWanted,ambience:ambienceWanted,ambienceVolume,ambienceZone,atmosphereContext,ambientLayers:[...beds].map(([id,b])=>({id,playing:!!b.audio&&!b.audio.paused,volume:b.audio?.volume||0,file:b.audio?.src||null})),ambientDetails:[...details].map(([id,a])=>({id,playing:!a.paused,volume:a.volume})),ambiencePlayback:ambience?.dataset.playback||'idle',ambiencePaused:ambience?.paused??true,musicVolume,effectsVolume,scene,automaticMusic:!manualTrack,track:music?.dataset.track||null,musicPlayback:music?.dataset.playback||'idle',musicPaused:music?.paused??true,poolSize:pool.size,...counts,source:'Echo atmosphere v3; retained recordings, scene-driven candidate layers'})
+    });
+    let timer=null;
+    const startSampling=()=>{if(timer===null)timer=setInterval(sampleScene,80);};
+    const stopSampling=()=>{if(timer!==null){clearInterval(timer);timer=null;}};
+    const quiesce=()=>{generation++;lastPosition=null;lastCoordinates=null;ambienceZone=null;atmosphereSceneKey=null;stopAmbience();stopEffects();music?.pause();};
+    const resume=()=>{if(enabled&&!document.hidden&&!suspended){startMusic();sampleScene();}};
+    startSampling();
+    document.addEventListener('visibilitychange',()=>{quiesce();if(!document.hidden)resume();});
+    window.addEventListener('pagehide',(event={})=>{quiesce();if(!event.persisted)enabled=false;stopSampling();});
+    window.addEventListener('pageshow',event=>{if(!event.persisted)return;startSampling();resume();});
+    document.addEventListener('pointerdown',resume,{passive:true});document.addEventListener('keydown',resume);
+    return api;
+  }
+  let shared;
+  try{if(['room-frame','p21-engine-frame'].includes(window.frameElement?.id))shared=window.parent.CWTeamAudio;}catch{}
+  const audio=shared||createAudio();window.CWTeamAudio=audio;
+  const cue=id=>audio.cue(id);
+  // Own only the Sound control; all movement/action callbacks are retained.
+  document.addEventListener('click',e=>{
+    const b=e.target.closest?.('#sound,#city-sound,#bridge-sound');if(!b)return;
+    e.preventDefault();e.stopImmediatePropagation();audio.setEnabled(!audio.report().enabled);
+    b.textContent=(b.id==='sound'?'♫ SOUND ':'Sound ')+(audio.report().enabled?'ON':'OFF');b.setAttribute('aria-pressed',String(audio.report().enabled));b.classList.toggle('active',audio.report().enabled);
+  },true);
+  document.addEventListener('click',e=>{if(e.target.closest?.('#nb-save,#lab-notes-save,[data-notes-save],#city-save,#bridge-save,#save'))cue('write');});
+  const book=document.getElementById('watch-notebook');
+  if(book) {
+    let wasOpen=book.classList.contains('open');
+    new MutationObserver(()=>{const open=book.classList.contains('open');if(open!==wasOpen){cue(open?'paper-open':'paper-close');wasOpen=open;}}).observe(book,{attributes:true,attributeFilter:['class']});
+    // Capture runs before P12 draw()/detail callbacks detach the activated node.
+    book.addEventListener('click',e=>{const b=e.target.closest?.('#nb-tabs button,.lab-nb-entry,#lab-nb-back');if(b&&(!b.matches?.('#nb-tabs button')||!b.classList.contains('selected')))cue('page-turn');},true);
+  }
+  const newspaperReaders=new WeakSet();
+  function bindNewspaperAudio(){
+    const reader=document.getElementById('cw-newspaper-reader');
+    if(!reader||newspaperReaders.has(reader))return;
+    newspaperReaders.add(reader);
+    let wasOpen=reader.open;
+    new MutationObserver(()=>{
+      const open=reader.open;
+      if(open!==wasOpen){cue(open?'paper-open':'paper-close');wasOpen=open;}
+    }).observe(reader,{attributes:true,attributeFilter:['open']});
+    reader.addEventListener('click',e=>{
+      const b=e.target.closest?.('.cw-news-toolbar button,.cw-news-paging button');
+      if(!b||b.disabled||b.matches?.('.cw-news-close,[aria-pressed="true"]'))return;
+      const changesPaper=!!b.closest?.('.cw-news-toolbar');
+      const turnsPage=!!b.closest?.('.cw-news-paging')&&/Previous|Next/.test(b.textContent||'');
+      if(changesPaper||turnsPage)cue('page-turn');
+    },true);
+  }
+  bindNewspaperAudio();
+  document.addEventListener('cw:newspapers-ready',bindNewspaperAudio);
+  document.addEventListener('click',e=>{if(e.target.closest?.('#inventory,[data-bag-open]'))cue('bag-open');if(e.target.closest?.('#casebook,#map,#chronicle'))cue('paper-open');},true);
+  const styles=document.createElement('link');styles.rel='stylesheet';styles.href='cw-team-notebook.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE?.version||'0.6');document.head.appendChild(styles);
+  const finalStyles=document.createElement('link');finalStyles.rel='stylesheet';finalStyles.href='cw-jimmy-b03-v13.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE?.version||'0.6');document.head.appendChild(finalStyles);
+  const notesFix=document.createElement('link');notesFix.rel='stylesheet';notesFix.href='cw-jimmy-b03-v131.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE.version);document.head.appendChild(notesFix);
+  const grid=document.getElementById('p13-menu-grid');
+  if(grid){const b=document.createElement('button');b.textContent='◈ Rebuilt city · Watch Square';b.onclick=()=>location.assign('city.html');grid.prepend(b);}
+})();

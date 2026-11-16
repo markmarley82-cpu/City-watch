@@ -1,0 +1,599 @@
+{
+  "schema": 1,
+  "id": "HIDE-PARK-NORTH-CONNECTED-BLOCK-001",
+  "sourceBase": "80a3b36c6a5d84827c1658cc8c54aed7c0a64516",
+  "sourceSheet": "art-source/hide-park-north258/hide-park-north-eight-source.png",
+  "sourceSheetSHA256": "2b539f0039302df046f075952c3042a4e77d7533396b6f8ca67659443567b611",
+  "classification": "Original unnamed infill; no canonical address, cast member or quest invented.",
+  "premises": [
+    {
+      "id": "CW-INFILL-0001",
+      "originalUnnamed": true,
+      "name": "Limewashed courtyard house",
+      "body": "CW-INFILL-0001/body.webp",
+      "roofHidden": "CW-INFILL-0001/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        150,
+        52
+      ],
+      "anchor": [
+        192,
+        481
+      ],
+      "uniformScale": 1,
+      "rect": [
+        150,
+        52,
+        5,
+        5
+      ],
+      "worldPolygon": [
+        [
+          149.5,
+          51.5
+        ],
+        [
+          154.5,
+          51.5
+        ],
+        [
+          154.5,
+          56.5
+        ],
+        [
+          149.5,
+          56.5
+        ]
+      ],
+      "landing": [
+        152,
+        57,
+        "E040"
+      ],
+      "service": "lodging",
+      "serviceValue": 1,
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          281,
+          231
+        ],
+        [
+          150,
+          275
+        ],
+        [
+          218,
+          279
+        ]
+      ],
+      "bodySHA256": "57691bc7a8208e0284f8fb9508a4583f5077970130ad02408c2a9409aca48f0f",
+      "roofHiddenSHA256": "a4f381509407f26e7fc862625dce3e0966fba75150c60ac49f47271610c73362",
+      "sourceCell": [
+        0,
+        0,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0002",
+      "originalUnnamed": true,
+      "name": "Crooked slant-roof dwelling",
+      "body": "CW-INFILL-0002/body.webp",
+      "roofHidden": "CW-INFILL-0002/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        138,
+        61
+      ],
+      "anchor": [
+        192,
+        488
+      ],
+      "uniformScale": 1,
+      "rect": [
+        138,
+        61,
+        5,
+        6
+      ],
+      "worldPolygon": [
+        [
+          137.5,
+          60.5
+        ],
+        [
+          142.5,
+          60.5
+        ],
+        [
+          142.5,
+          66.5
+        ],
+        [
+          137.5,
+          66.5
+        ]
+      ],
+      "landing": [
+        140,
+        67,
+        "E040"
+      ],
+      "service": "lodging",
+      "serviceValue": 2,
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          128,
+          222
+        ],
+        [
+          181,
+          241
+        ],
+        [
+          264,
+          299
+        ]
+      ],
+      "bodySHA256": "ebf0a6073f83cb3cd087a9e715e70da572360fb78a7e7f84744638ef51f71996",
+      "roofHiddenSHA256": "765d29daaf3d0638ea762e66d1e3d4eeaf620000cf5d6470d5ac1efc8bfb521e",
+      "sourceCell": [
+        384,
+        0,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0003",
+      "originalUnnamed": true,
+      "name": "Timber repair workshop",
+      "body": "CW-INFILL-0003/body.webp",
+      "roofHidden": "CW-INFILL-0003/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        132,
+        61
+      ],
+      "anchor": [
+        192,
+        476
+      ],
+      "uniformScale": 1,
+      "rect": [
+        132,
+        61,
+        4,
+        5
+      ],
+      "worldPolygon": [
+        [
+          131.5,
+          60.5
+        ],
+        [
+          135.5,
+          60.5
+        ],
+        [
+          135.5,
+          65.5
+        ],
+        [
+          131.5,
+          65.5
+        ]
+      ],
+      "landing": [
+        133,
+        66,
+        "E039"
+      ],
+      "service": "shop",
+      "serviceValue": "cobbler",
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          252,
+          255
+        ]
+      ],
+      "bodySHA256": "4f1e9a05bad02e0a14d31eb432128f39f9f6821c5c6b4da2f0406af598c68543",
+      "roofHiddenSHA256": "449bc46a56fe73e1897d90bf161ba25ddf6499776472546dcb4bc8f8efdc1e9f",
+      "sourceCell": [
+        768,
+        0,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0004",
+      "originalUnnamed": true,
+      "name": "Upper-room stationer",
+      "body": "CW-INFILL-0004/body.webp",
+      "roofHidden": "CW-INFILL-0004/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        142,
+        73
+      ],
+      "anchor": [
+        192,
+        492
+      ],
+      "uniformScale": 1,
+      "rect": [
+        142,
+        73,
+        7,
+        6
+      ],
+      "worldPolygon": [
+        [
+          141.5,
+          72.5
+        ],
+        [
+          148.5,
+          72.5
+        ],
+        [
+          148.5,
+          78.5
+        ],
+        [
+          141.5,
+          78.5
+        ]
+      ],
+      "landing": [
+        146,
+        79,
+        "E039"
+      ],
+      "service": "shop",
+      "serviceValue": "stationer",
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          83,
+          300
+        ],
+        [
+          219,
+          240
+        ],
+        [
+          242,
+          332
+        ]
+      ],
+      "bodySHA256": "43d53731147332ecafb4f75d271b876fdec4e94b2651d830bbe29c6c76981f9e",
+      "roofHiddenSHA256": "3a87bd2b25428d530377eb176c922654481aef103bbad19b1dbbb100285371aa",
+      "sourceCell": [
+        1152,
+        0,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0005",
+      "originalUnnamed": true,
+      "name": "Corner provision shop",
+      "body": "CW-INFILL-0005/body.webp",
+      "roofHidden": "CW-INFILL-0005/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        116,
+        78
+      ],
+      "anchor": [
+        192,
+        484
+      ],
+      "uniformScale": 1,
+      "rect": [
+        116,
+        78,
+        6,
+        6
+      ],
+      "worldPolygon": [
+        [
+          115.5,
+          77.5
+        ],
+        [
+          121.5,
+          77.5
+        ],
+        [
+          121.5,
+          83.5
+        ],
+        [
+          115.5,
+          83.5
+        ]
+      ],
+      "landing": [
+        119,
+        84,
+        "E023"
+      ],
+      "service": "shop",
+      "serviceValue": "provisions",
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          174,
+          181
+        ],
+        [
+          171,
+          239
+        ],
+        [
+          240,
+          230
+        ]
+      ],
+      "bodySHA256": "5c9d42b8abbf68f51cc115cb42655bbb08b8e9ed3eaccb00eda4d11ad5503a06",
+      "roofHiddenSHA256": "c21e82381db96db6f769caa7126ca9257f776463cc2a4ed69959de3e1e63d1ba",
+      "sourceCell": [
+        0,
+        512,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0006",
+      "originalUnnamed": true,
+      "name": "Brick courtyard lodging",
+      "body": "CW-INFILL-0006/body.webp",
+      "roofHidden": "CW-INFILL-0006/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        173,
+        52
+      ],
+      "anchor": [
+        192,
+        418
+      ],
+      "uniformScale": 1,
+      "rect": [
+        173,
+        52,
+        7,
+        6
+      ],
+      "worldPolygon": [
+        [
+          172.5,
+          51.5
+        ],
+        [
+          179.5,
+          51.5
+        ],
+        [
+          179.5,
+          57.5
+        ],
+        [
+          172.5,
+          57.5
+        ]
+      ],
+      "landing": [
+        176,
+        58,
+        "E040"
+      ],
+      "service": "lodging",
+      "serviceValue": 2,
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          141,
+          221
+        ],
+        [
+          171,
+          270
+        ],
+        [
+          249,
+          261
+        ]
+      ],
+      "bodySHA256": "0dbc2dde01bb4961e8126ef45c74f7d2d96c2c9c65762e9be0932d5a97fee5e9",
+      "roofHiddenSHA256": "239f6d339e69ba7d0a4718870795d26adcd4b5673cd714c18c9525d4714541e0",
+      "sourceCell": [
+        384,
+        512,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0007",
+      "originalUnnamed": true,
+      "name": "Narrow slate-roof lodging",
+      "body": "CW-INFILL-0007/body.webp",
+      "roofHidden": "CW-INFILL-0007/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        158,
+        52
+      ],
+      "anchor": [
+        192,
+        472
+      ],
+      "uniformScale": 1,
+      "rect": [
+        158,
+        52,
+        4,
+        6
+      ],
+      "worldPolygon": [
+        [
+          157.5,
+          51.5
+        ],
+        [
+          161.5,
+          51.5
+        ],
+        [
+          161.5,
+          57.5
+        ],
+        [
+          157.5,
+          57.5
+        ]
+      ],
+      "landing": [
+        159,
+        58,
+        "E040"
+      ],
+      "service": "lodging",
+      "serviceValue": 1,
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          190,
+          210
+        ],
+        [
+          185,
+          270
+        ],
+        [
+          231,
+          290
+        ]
+      ],
+      "bodySHA256": "8edf149c45fc1639998f99c13c55ec67b0c31da2f71a452c37f8c57665b77698",
+      "roofHiddenSHA256": "03f3890402ae3e247ebd5ffbba5cda2a9ee7ecfd035e3992d65e7ba68df5088f",
+      "sourceCell": [
+        768,
+        512,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "CW-INFILL-0008",
+      "originalUnnamed": true,
+      "name": "Low masonry iron workshop",
+      "body": "CW-INFILL-0008/body.webp",
+      "roofHidden": "CW-INFILL-0008/roof-hidden.webp",
+      "canvas": [
+        384,
+        512
+      ],
+      "p": [
+        166,
+        52
+      ],
+      "anchor": [
+        192,
+        474
+      ],
+      "uniformScale": 1,
+      "rect": [
+        166,
+        52,
+        6,
+        6
+      ],
+      "worldPolygon": [
+        [
+          165.5,
+          51.5
+        ],
+        [
+          171.5,
+          51.5
+        ],
+        [
+          171.5,
+          57.5
+        ],
+        [
+          165.5,
+          57.5
+        ]
+      ],
+      "landing": [
+        167,
+        58,
+        "E040"
+      ],
+      "service": "shop",
+      "serviceValue": "ironmonger",
+      "visualDoorHeight": 63,
+      "referenceActorHeight": 60,
+      "windowCentres": [
+        [
+          208,
+          291
+        ]
+      ],
+      "bodySHA256": "a4e5b42935ce47571e909665694e9262366e8ce8a5ccacc162ae9039daaa2ead",
+      "roofHiddenSHA256": "5ecafebdd1d7444d9eb30006ee6692af275963805bf901773145cef5c813f743",
+      "sourceCell": [
+        1152,
+        512,
+        384,
+        512
+      ]
+    }
+  ],
+  "newCanonicalAddresses": 0,
+  "uniquePremises": 8,
+  "repeatedInstances": 0,
+  "creativeAcceptance": false,
+  "relocatedForPark": true
+}

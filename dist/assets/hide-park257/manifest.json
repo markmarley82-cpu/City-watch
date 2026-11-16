@@ -1,0 +1,610 @@
+{
+  "schema": 1,
+  "id": "HIDE-PARK-JOINED-PREMISES-001",
+  "base": "9131a2f55be7e08a0fdaa0ecc03f5b5a87fc4704",
+  "premises": [
+    {
+      "id": "CW-INFILL-0010",
+      "originalUnnamed": true,
+      "name": "Cloth worker\u2019s counter",
+      "shopKey": "hide-park-cloth",
+      "gameId": "service:shop:hide-park-cloth",
+      "body": "A/body.webp",
+      "roofHidden": "A/roof-hidden.webp",
+      "roofMask": "A/roof-mask.webp",
+      "canvas": [
+        322,
+        440
+      ],
+      "worldPivot": [
+        148.5,
+        61.5
+      ],
+      "anchor": [
+        122.1,
+        385.5
+      ],
+      "uniformScale": 1,
+      "sourceUniformScale": 0.3,
+      "sourceMasterSHA256": "b873d60cc71d6aa217f920b67d2ef3d8e6cebb9db08f0e5f6bde3c9843bb1ea1",
+      "rect": [
+        145.175,
+        55.1375,
+        3.8249999999999886,
+        7.24285714285714
+      ],
+      "worldPolygon": [
+        [
+          144.675,
+          55.017857142857146
+        ],
+        [
+          148.24821428571428,
+          54.6375
+        ],
+        [
+          148.5,
+          61.5
+        ],
+        [
+          144.92678571428573,
+          61.88035714285714
+        ]
+      ],
+      "worldBounds": [
+        144.675,
+        54.6375,
+        148.5,
+        61.88035714285714
+      ],
+      "landing": [
+        146,
+        62,
+        "E040"
+      ],
+      "measuredDoorHeight": 66.6,
+      "paintedDoorWorld": [
+        145.90178571428572,
+        61.4625
+      ],
+      "windowCentres": [
+        [
+          49.8,
+          239.1
+        ],
+        [
+          92.7,
+          255
+        ],
+        [
+          186,
+          282.3
+        ]
+      ],
+      "inferredHiddenRear": true,
+      "foundationUncertaintySourcePixels": 3,
+      "frontSlope": 0.4037940379
+    },
+    {
+      "id": "CW-INFILL-0011",
+      "originalUnnamed": true,
+      "name": "Neighbourhood provision storehouse",
+      "shopKey": "hide-park-provisions",
+      "gameId": "service:shop:hide-park-provisions",
+      "body": "B/body.webp",
+      "roofHidden": "B/roof-hidden.webp",
+      "roofMask": "B/roof-mask.webp",
+      "canvas": [
+        519,
+        415
+      ],
+      "worldPivot": [
+        150.5,
+        64.5
+      ],
+      "anchor": [
+        48.839999999999996,
+        286.01
+      ],
+      "uniformScale": 1,
+      "sourceUniformScale": 0.37,
+      "sourceMasterSHA256": "b77cc383ae94c4cd37ebea847b9a52634bbf4ca28344410e56bbc86285cb54fc",
+      "rect": [
+        150.80178571428573,
+        59.48303571428571,
+        8.080535714285702,
+        5.5169642857142875
+      ],
+      "worldPolygon": [
+        [
+          150.30178571428573,
+          59.35964285714286
+        ],
+        [
+          158.18410714285713,
+          58.98303571428571
+        ],
+        [
+          158.38232142857143,
+          64.12339285714286
+        ],
+        [
+          150.5,
+          64.5
+        ]
+      ],
+      "worldBounds": [
+        150.30178571428573,
+        58.98303571428571,
+        158.38232142857143,
+        64.5
+      ],
+      "landing": [
+        157,
+        65,
+        "E040"
+      ],
+      "measuredDoorHeight": 65.86,
+      "paintedDoorWorld": [
+        156.67767857142857,
+        63.89875
+      ],
+      "windowCentres": [
+        [
+          105.82,
+          261.21999999999997
+        ],
+        [
+          191.29,
+          261.96
+        ],
+        [
+          179.82,
+          301.55
+        ],
+        [
+          348.54,
+          305.25
+        ]
+      ],
+      "inferredHiddenRear": true,
+      "foundationUncertaintySourcePixels": 3,
+      "frontSlope": 0.4544
+    }
+  ],
+  "originalUnnamed": true,
+  "newCanonicalAddresses": 0,
+  "newWalkableInteriors": 0,
+  "newFunctionalCounters": 2,
+  "creativeAcceptance": false,
+  "beforeWalkCells": 45657,
+  "previousRemoval": [
+    {
+      "key": "137,40",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,41",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "137,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,40",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,41",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "138,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,40",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,41",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "139,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,40",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,41",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "140,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "141,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "141,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "141,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "141,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "141,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "142,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "142,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "142,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "142,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "142,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "143,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "143,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "143,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "143,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "143,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "144,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "144,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "144,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "144,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "144,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "145,42",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "145,43",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "145,44",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "145,45",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "145,46",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,41",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,42",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,43",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,44",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,45",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "146,46",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "147,41",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "147,42",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "147,43",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "147,44",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "147,45",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "147,46",
+      "edges": [
+        "P015-05"
+      ]
+    },
+    {
+      "key": "148,41",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "148,42",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "148,43",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "148,44",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "148,45",
+      "edges": [
+        "E040"
+      ]
+    },
+    {
+      "key": "148,46",
+      "edges": [
+        "E040"
+      ]
+    }
+  ],
+  "relocatedForPark": true
+}

@@ -1,0 +1,153 @@
+/* The recruit register uses the same painted notebook as the Watch Notebook. */
+#character-studio{--kit-ink:#34271d;--kit-rule:#88633d55;--book-w:min(560px,calc(100vw - 12px));--book-h:min(840px,calc(100dvh - 12px));box-sizing:border-box;display:none;width:var(--book-w);height:var(--book-h);max-width:calc(100vw - 12px);max-height:calc(100dvh - 12px);margin:auto;padding:calc(var(--book-h)*.03) calc(var(--book-w)*.13) calc(var(--book-h)*.065) calc(var(--book-w)*.14);border:0;border-radius:0;background:transparent url('assets/jimmy-b03-v13/notebook-portrait.webp') center/100% 100% no-repeat;color:var(--kit-ink);font:15px/1.35 Georgia,'Times New Roman',serif;overflow:hidden;filter:drop-shadow(0 12px 28px #0008)}
+#character-studio[open]{display:flex;flex-direction:column;gap:0}
+#character-studio *{box-sizing:border-box}
+#character-studio [hidden]{display:none!important}
+#character-studio::backdrop{background:#11150fe8;backdrop-filter:blur(2px)}
+#character-studio :is(button,select,input){font:inherit;color:inherit;border-radius:0;min-width:44px;min-height:44px;max-width:100%;touch-action:manipulation}
+#character-studio button{cursor:pointer;border:0;background:none;padding:5px}
+#character-studio :is(button,select,input):focus-visible{outline:3px solid #395e71!important;outline-offset:-3px!important;box-shadow:none!important}
+#character-studio button:disabled{opacity:.45;cursor:default}
+#character-studio :is(h2,h3):focus-visible{outline:0!important}
+#character-studio .kit-header{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px;padding:0 0 3px;color:#fae7bd}
+#character-studio .kit-brand{display:none}
+#character-studio h2{grid-row:1;grid-column:1;margin:0;font:700 21px/1.05 Georgia,serif;text-shadow:0 1px 2px #171008}
+#character-studio .kit-close{grid-row:1;grid-column:2;min-width:52px;padding:3px;font-size:12px;color:#ffebc7}
+#character-studio .kit-leather{border:1px solid #8f6b42;background:#453025 var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100% no-repeat;color:#ffe9be;text-shadow:0 1px #20160f;box-shadow:0 1px 2px #1a120a66}
+#character-studio .kit-leather:active{background-image:var(--cw-watch-control-close-pressed,linear-gradient(#3e2b22,#513a2b))}
+#character-studio .kit-book-tabs{flex:none;display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;margin:-24px -1px 0;padding:0;min-width:0;position:relative;z-index:1}
+#character-studio .kit-book-tabs::after{content:'';position:absolute;inset:auto 0 0;height:1px;background:#88633d66;pointer-events:none}
+#character-studio .kit-book-tabs button{position:relative;min-width:44px;min-height:48px;font:italic 14px Georgia,serif;background:var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center top/100% calc(100% + 12px) no-repeat;border:0;padding:7px 2px 11px;color:#39281b}
+#character-studio .kit-book-tabs button[aria-selected=true]{z-index:1;background-image:var(--cw-watch-control-selected,linear-gradient(#70543a,#4e3728));color:#fff0c7;text-shadow:0 1px #191919}
+#character-studio .kit-page{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#8b6a43 #e5cda4;padding:0 5px 5px;position:relative}
+#character-studio .kit-page::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(90deg,#59402433,transparent);pointer-events:none}
+#character-studio .kit-leaf{min-width:0;padding:8px 0 4px;border-top:1px solid var(--kit-rule);animation:register-ink .12s ease-out}
+#character-studio .kit-leaf>h3{margin:0 0 3px;font:italic 700 21px/1.15 Georgia,serif}
+#character-studio .kit-page-intro{margin:0 0 7px;font:italic 12px/1.3 Georgia,serif;color:#705539}
+#character-studio .kit-preview{padding:0;min-width:0}
+#character-studio .kit-stage{position:relative;border-bottom:1px solid var(--kit-rule);margin:0 6px;background:none}
+#character-studio #character-canvas{display:block;width:100%;height:clamp(160px,23dvh,205px);background:none;border:0;filter:drop-shadow(0 2px 1px #63432c22)}
+#character-studio[data-page="1"] #character-canvas,#character-studio[data-page="2"] #character-canvas,#character-studio[data-page="3"] #character-canvas{height:clamp(110px,17dvh,152px)}
+#character-studio .kit-caption{margin:3px 0;text-align:center;font:italic 700 14px/1.2 Georgia,serif}
+#character-studio .kit-inspect{font-size:12px;margin:0 0 4px}
+#character-studio .kit-inspect>summary{cursor:pointer;min-height:32px;display:flex;align-items:center;justify-content:center;gap:6px;color:#725637;font:italic 12px Georgia,serif}
+#character-studio .kit-inspect>summary::before{content:'›';font-size:19px;transform:rotate(90deg)}
+#character-studio .kit-inspect[open]>summary::before{transform:rotate(-90deg)}
+#character-studio .character-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-block:1px solid var(--kit-rule);min-width:0}
+#character-studio .character-controls label{display:grid;grid-template-rows:auto 1fr;align-items:center;font-size:11px;padding:3px 4px 0;min-width:0}
+#character-studio .character-controls :is(button,select){width:100%;min-width:44px;padding:3px;font-size:12px;border:0;background:transparent}
+#character-studio .character-controls button{border-left:1px solid var(--kit-rule)}
+#character-studio .kit-motion-tools{display:grid;grid-template-columns:1.3fr 1fr 1fr;min-width:0;gap:0;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-motion-tools label{display:flex;align-items:center;font-size:11px;min-width:0}
+#character-studio .kit-motion-tools :is(button,select){background:none;border:0;min-width:44px;min-height:44px;font-size:11px;width:100%;padding:3px}
+#character-studio .kit-motion-tools output{grid-column:1/-1;text-align:center;font:italic 11px Georgia,serif;padding:4px}
+#character-studio .kit-motion-note{font:italic 11px/1.3 Georgia,serif;margin:5px 0;color:#71563a}
+#character-studio .kit-compare{display:flex;gap:6px;align-items:center;min-height:36px;font-size:11px}
+#character-studio .kit-compare input{min-width:17px;min-height:17px;width:17px;height:17px;margin:0;accent-color:#426177}
+#character-studio .kit-races{display:flex;align-items:center;gap:4px;border-block:1px solid var(--kit-rule);margin:5px 0}
+#character-studio .kit-section-label{font:italic 700 14px Georgia,serif}
+#character-studio #character-race-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));flex:1;min-width:0}
+#character-studio #character-race-shortcuts button{display:flex;align-items:center;justify-content:center;gap:3px;font-size:13px;min-width:44px;border-left:1px solid var(--kit-rule);padding:2px}
+#character-studio #character-race-shortcuts canvas{display:block;width:28px;height:30px;object-fit:contain}
+#character-studio :is(.head-option,.finish-option,[data-race])[aria-checked=true],#character-studio .clothing-slot[aria-selected=true]{background:linear-gradient(100deg,#69839433,#617e8f55);box-shadow:inset 0 -2px #3a5969}
+#character-studio .kit-identity{display:grid;gap:0}
+#character-studio .kit-picker{display:grid;grid-template-columns:42px minmax(0,1fr);gap:4px;align-items:center;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-picker>label{font:italic 13px Georgia,serif}
+#character-studio #character-body-count{display:block;font:10px Georgia,serif;color:#74593d}
+#character-studio .kit-picker-row{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:2px;align-items:center;min-width:0}
+#character-studio .kit-picker-row select{min-width:0;min-height:44px;width:100%;background:transparent;border:0;font-size:13px;text-align:center;text-align-last:center;padding:4px 1px}
+#character-studio .kit-arrow{position:static;transform:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;display:grid;place-items:center;background:none;color:#6e4827;box-shadow:none;text-shadow:none}
+#character-studio .kit-arrow svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#character-studio .kit-arrow:disabled{opacity:.25}
+#character-studio .kit-lore{margin-top:7px;font:12px/1.4 Georgia,serif;color:#6c5138}
+#character-studio .kit-lore summary{cursor:pointer;min-height:32px;padding:6px 0}
+#character-studio .kit-lore p{margin:3px 0 7px}
+#character-studio .kit-finish-heading{display:flex;align-items:baseline;justify-content:space-between;gap:6px;padding:5px 3px}
+#character-studio .kit-heads h3,#character-studio #kit-title{display:none}
+#character-studio h4{font:italic 700 16px Georgia,serif;margin:0}
+#character-studio #head-current,#character-studio #clothing-current{font-size:11px;color:#715539;text-align:right}
+#character-studio #character-heads{display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));gap:0;border:1px solid var(--kit-rule)}
+#character-studio .head-option{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:44px;min-height:104px;padding:4px 2px;font-size:12px;border:0;border-right:1px solid var(--kit-rule);background:none;overflow-wrap:anywhere}
+#character-studio .head-option:last-child{border-right:0}
+#character-studio .head-option canvas{display:block;width:72px;height:72px;max-width:100%;background:none;object-fit:contain}
+#character-studio .head-note{font:italic 11px/1.3 Georgia,serif;margin:7px 0;color:#70583d}
+#character-studio .clothing-slots{display:grid;grid-template-columns:repeat(5,minmax(44px,1fr));gap:0;border:1px solid var(--kit-rule);border-bottom:0;min-width:0}
+#character-studio .clothing-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:100%;min-height:52px;min-width:44px;padding:4px 1px;background:none;border:0;border-right:1px solid var(--kit-rule);font-size:11px}
+#character-studio .clothing-slot:last-child{border-right:0}
+#character-studio .clothing-slot svg{display:block;width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+#character-studio .kit-finishes{border:1px solid var(--kit-rule);margin-top:-1px;min-width:0}
+#character-studio #clothing-finishes{display:grid;grid-template-columns:repeat(4,minmax(44px,1fr));gap:0;border-top:1px solid var(--kit-rule)}
+#character-studio .finish-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:70px;min-width:44px;padding:4px 2px;border:0;border-right:1px solid var(--kit-rule);border-bottom:1px solid var(--kit-rule);background:none;font-size:11px;line-height:1.2;text-align:center;overflow-wrap:anywhere}
+#character-studio .finish-option:nth-child(4n){border-right:0}
+#character-studio .finish-swatch{display:block;width:29px;height:25px;background:repeating-linear-gradient(0deg,#fff1 0 1px,#0001 1px 2px),var(--swatch);border:1px dashed #806447;transform:rotate(-3deg)}
+#character-studio .badge-swatch{clip-path:polygon(50% 0,95% 20%,85% 75%,50% 100%,15% 75%,5% 20%)}
+#character-studio .finish-swatch.garment-swatch{display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:none;border:0;transform:none}
+#character-studio .garment-swatch img{display:block;width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 1px 1px #47321b66)}
+#character-studio #clothing-reset{min-height:44px;background:none;border:0;padding:5px;font:italic 11px Georgia,serif;text-decoration:underline;text-underline-offset:3px}
+#character-studio #clothing-unavailable{margin:0;padding:15px 0;font-size:13px}
+#character-studio .kit-garment-note{display:none}
+#character-studio .kit-tools{margin:5px 0 0;display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));border:0}
+#character-studio .kit-tools button{font-size:11px;line-height:1.2;border:0;background:none;padding:4px;border-right:1px solid var(--kit-rule)}
+#character-studio .kit-tools button:last-child{border-right:0}
+#character-studio .kit-name{display:grid;gap:4px;margin:8px 0 10px}
+#character-studio .kit-name label{font:italic 700 18px Georgia,serif}
+#character-studio #character-name{width:100%;min-width:0;border:0;border-bottom:1px solid #7b553e;background:#efdcad55;padding:6px 4px;font-size:17px}
+#character-studio #character-name:read-only{background:none;color:#735c44}
+#character-studio #character-name[aria-invalid=true]{border-color:#963b2c}
+#character-studio #character-name-help{font-size:11px;color:#72563a}
+#character-studio .kit-review{margin:8px 0 0;border-top:1px solid var(--kit-rule)}
+#character-studio .kit-review>div{display:grid;grid-template-columns:45px minmax(0,1fr);gap:6px;padding:7px 0;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-review dt{font-style:italic;color:#74563a;font-size:12px}
+#character-studio .kit-review dd{margin:0;font-size:13px;overflow-wrap:anywhere}
+#character-studio .kit-register-note{font:italic 12px/1.4 Georgia,serif;margin:9px 0;color:#72573c}
+#character-studio #character-status{margin:4px 0 0;font:italic 11px/1.3 Georgia,serif;color:#6d5338}
+@media(max-width:400px){#character-studio h2{font-size:18px}#character-studio .kit-close{font-size:11px;min-width:45px}#character-studio .kit-book-tabs button{font-size:12px}#character-studio .kit-leaf>h3{font-size:19px}#character-studio .kit-page{padding-inline:2px}#character-studio .kit-section-label{display:none}#character-studio .kit-caption{font-size:12px}#character-studio .kit-picker-row select{font-size:12px}#character-studio .kit-page-intro{font-size:11px}#character-studio .character-footer button{font-size:12px;padding-inline:5px}}
+@media(max-width:340px){#character-studio{padding-left:calc(var(--book-w)*.12);padding-right:calc(var(--book-w)*.11)}#character-studio .kit-book-tabs button{font-size:11px}#character-studio .kit-picker{grid-template-columns:32px minmax(0,1fr)}#character-studio #character-race-shortcuts canvas{width:23px;height:28px}#character-studio .head-option canvas{width:58px;height:58px}#character-studio .head-option{font-size:11px}#character-studio .finish-option{font-size:10px}}
+@media(max-height:650px){#character-studio #character-canvas{height:128px}#character-studio[data-page]:not([data-page="0"]) #character-canvas{height:92px}#character-studio .kit-leaf>h3{font-size:17px}#character-studio .kit-page-intro{display:none}#character-studio .kit-inspect>summary{min-height:28px}}
+@media(orientation:landscape) and (max-height:550px){#character-studio{--book-w:min(780px,calc(100vw - 12px));background-image:url('assets/jimmy-b03-v13/notebook-landscape.webp');padding:12px 5% 20px 7%}#character-studio .kit-page{display:grid;grid-template-columns:minmax(140px,.8fr) minmax(0,1.2fr);column-gap:14px;align-items:start}#character-studio .kit-preview{position:sticky;top:0}#character-studio #character-canvas,#character-studio[data-page] #character-canvas{height:120px}#character-studio .kit-leaf{border-top:0;padding-top:3px}#character-studio #character-status{grid-column:1/-1}#character-studio .kit-review dd{font-size:12px}}
+@keyframes register-ink{from{opacity:.5;transform:translateX(3px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#character-studio .kit-leaf{animation:none}#character-studio::backdrop{backdrop-filter:none}}
+@media(max-height:650px){#character-studio .kit-races{display:none}#character-studio .head-option canvas{width:54px;height:54px}#character-studio .head-option{min-height:80px}}
+#character-studio[data-page="3"] #character-canvas{height:clamp(72px,12dvh,100px)}
+#character-studio .kit-name{gap:2px;margin:5px 0 7px}
+#character-studio #character-name-help{display:none}
+#character-studio #character-name[aria-invalid=true]+#character-name-help{display:block;color:#8b392c;font-size:11px;line-height:1.3}
+
+/* Keep the folio illustration outside the live reading area. */
+#character-studio .kit-reading-sheet{flex:1;min-height:0;display:flex;flex-direction:column;margin-top:28px;padding:0 6px 8px;background:transparent url('assets/lab01-notebook/page_portrait.webp') center/100% 100% no-repeat}
+#character-studio .kit-close{width:86px;min-width:86px;min-height:46px;border:0;background:transparent var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100% no-repeat;padding:8px 8px 10px 14px;font-size:14px;box-shadow:none}
+#character-studio .kit-close:active{background-image:var(--cw-watch-control-close-pressed,linear-gradient(#3e2b22,#513a2b))}
+/* A sewn leather pair belongs to the page; parchment tabs belong to its tabs. */
+#character-studio .character-footer{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:3px 6px;align-self:center;width:100%;max-width:360px;border-top:1px solid var(--kit-rule);padding:4px 0 0;margin-top:3px;min-width:0}
+#character-studio #character-page-number{grid-column:2;grid-row:1;justify-self:center;border:0;background:none;padding:0;font:italic 11px/1.2 Georgia,serif;color:#705638;white-space:nowrap}
+#character-studio .character-footer button{min-height:52px;min-width:0;border:0;box-shadow:none;background:transparent var(--cw-watch-control-close,linear-gradient(#5b4231,#3e2b22)) center/100% 100% no-repeat;color:#f7e7c5;text-shadow:0 1px 1px #1b1009;padding:10px 15px;font:700 14px/1.15 Georgia,serif;overflow-wrap:normal}
+#character-studio .character-footer :is(#character-page-back,#character-page-next,#character-apply){grid-row:1;width:100%;max-width:none;margin:0}
+#character-studio #character-page-back{grid-column:1}
+#character-studio :is(#character-page-next,#character-apply){grid-column:3}
+#character-studio #character-retry{grid-column:1/-1;grid-row:2;font-size:13px}
+#character-studio .character-footer button:active{background-image:var(--cw-watch-control-close-pressed,linear-gradient(#3e2b22,#513a2b))}
+#character-studio .character-footer button:disabled{opacity:.65}
+#character-studio .kit-tools{margin-top:8px;border-block:1px solid var(--kit-rule);background:#8e633c0b}
+#character-studio .kit-tools button{min-height:46px;font:12px/1.2 Georgia,serif;padding:5px 4px;border-right:1px solid var(--kit-rule)}
+#character-studio .kit-tools button:active{background:#88633d22;box-shadow:inset 0 2px 3px #59402422}
+@media(hover:hover){#character-studio .character-footer button:not(:disabled):hover{filter:brightness(1.12)}#character-studio .kit-tools button:not(:disabled):hover{background:#88633d14}}
+@media(max-width:400px){#character-studio .character-footer button{font-size:13px}}
+@media(orientation:landscape) and (max-height:550px){#character-studio .kit-reading-sheet{margin-top:20px}#character-studio .kit-book-tabs{margin-top:-16px}}
+@media(max-width:340px){#character-studio .clothing-slots{grid-template-columns:repeat(3,minmax(44px,1fr))}#character-studio .character-footer{gap:3px 4px}#character-studio .character-footer button{padding-inline:12px}}
+@media(forced-colors:active){#character-studio .character-footer button{border:1px solid ButtonText;background:ButtonFace;color:ButtonText;text-shadow:none}#character-studio .character-footer button:disabled{color:GrayText;opacity:1}}
+
+/* Race is the sole appearance choice. All retained races share one selector. */
+#character-studio.race-only .kit-header{grid-template-columns:minmax(0,1fr) auto;min-height:48px}
+#character-studio.race-only .kit-header h2{grid-column:1;grid-row:1;font-size:21px}
+#character-studio.race-only .kit-reading-sheet{padding-top:8px}
+#character-studio.race-only .kit-stage{margin:0}
+#character-studio.race-only #character-canvas{height:clamp(135px,23dvh,200px)}
+#character-studio.race-only .kit-caption{font-size:18px;margin:6px 0 10px}
+#character-studio.race-only .race-selection>h3{font:italic 700 17px Georgia;margin:10px 0 6px}
+#character-studio.race-only #character-races{display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));border-top:1px solid var(--kit-rule);border-left:1px solid var(--kit-rule)}
+#character-studio.race-only #character-races button{min-height:46px;border-right:1px solid var(--kit-rule);border-bottom:1px solid var(--kit-rule);font-size:13px;padding:6px 3px;overflow-wrap:anywhere}
+#character-studio.race-only #character-races button[aria-checked=true]{background:#627f8c38;box-shadow:inset 0 -3px #385363;font-weight:bold}
+#character-studio.race-only .character-footer{display:flex;gap:8px;justify-content:space-between}
+#character-studio.race-only .character-footer button{flex:1;font-size:14px;min-height:46px}
+#character-studio.race-only #character-status{font-size:12px;line-height:1.4}
+@media(orientation:landscape) and (max-height:560px){#character-studio.race-only #character-canvas{height:110px}#character-studio.race-only #character-races{grid-template-columns:repeat(4,minmax(44px,1fr))}}

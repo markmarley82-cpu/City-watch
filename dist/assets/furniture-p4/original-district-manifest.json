@@ -1,0 +1,111 @@
+{
+  "format": "Discworld Street Furniture Manifest",
+  "version": 1,
+  "usage": {
+    "image_storage": "external_png",
+    "recommended": true,
+    "notes": [
+      "Keep PNG image data outside JSON for smaller files and faster loading.",
+      "Use this manifest to select a district-appropriate sheet.",
+      "Individual prop rectangles are not yet defined in this manifest."
+    ]
+  },
+  "district_groups": {
+    "Pseudopolis Yard": [
+      "isometric_civic_watch_asset_collection.png"
+    ],
+    "Watch House": [
+      "isometric_civic_watch_asset_collection.png"
+    ],
+    "North Quarter": [
+      "north_quarter_isometric_street_props.png"
+    ],
+    "Market": [
+      "ankh_morpork_market_prop_sprite_sheet.png",
+      "isometric_fantasy_market_asset_atlas.png"
+    ],
+    "Docks": [
+      "fantasy_harbor_dock_props_sprite_sheet.png",
+      "isometric_fantasy_market_asset_atlas.png"
+    ],
+    "The Shades": [
+      "grimy_isometric_slum_street_props.png"
+    ]
+  },
+  "assets": [
+    {
+      "file": "ankh_morpork_market_prop_sprite_sheet.png",
+      "districts": [
+        "Market"
+      ],
+      "category": "market_street_furniture",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/ankh_morpork_market_prop_sprite_sheet.png"
+    },
+    {
+      "file": "fantasy_harbor_dock_props_sprite_sheet.png",
+      "districts": [
+        "Docks"
+      ],
+      "category": "dock_street_furniture",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/fantasy_harbor_dock_props_sprite_sheet.png"
+    },
+    {
+      "file": "north_quarter_isometric_street_props.png",
+      "districts": [
+        "North Quarter"
+      ],
+      "category": "north_quarter_street_furniture",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/north_quarter_isometric_street_props.png"
+    },
+    {
+      "file": "grimy_isometric_slum_street_props.png",
+      "districts": [
+        "The Shades"
+      ],
+      "category": "shades_street_furniture",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/grimy_isometric_slum_street_props.png"
+    },
+    {
+      "file": "isometric_civic_watch_asset_collection.png",
+      "districts": [
+        "Pseudopolis Yard",
+        "Watch House"
+      ],
+      "category": "watch_civic_street_furniture",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/isometric_civic_watch_asset_collection.png"
+    },
+    {
+      "file": "isometric_fantasy_market_asset_atlas.png",
+      "districts": [
+        "Market",
+        "Docks"
+      ],
+      "category": "market_and_trade_props",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "has_alpha": true,
+      "path": "graphics/isometric_fantasy_market_asset_atlas.png"
+    }
+  ]
+}

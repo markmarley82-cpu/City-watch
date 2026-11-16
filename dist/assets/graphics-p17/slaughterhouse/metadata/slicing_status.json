@@ -1,0 +1,5 @@
+{
+  "status": "sheet_based",
+  "separated_sprites": false,
+  "notes": "These assets are packaged as game-ready sheets with JSON. If requested, a later pass can separate every object into individual PNG sprites with per-object entries."
+}

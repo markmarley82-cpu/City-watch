@@ -1,0 +1,477 @@
+/* LAB01 visual revision v0.2 — opt in with body.cw-lab-painted-ui.
+ * Presentation only. Original controls, icons, text, focus, scroll and callbacks
+ * remain in their existing DOM. Uses Buddy-prepared painted candidates and retained Jimmy v1.1 components.
+ * Mark creative acceptance remains open.
+ */
+body.cw-lab-painted-ui {
+  --cw-ui-book-art: url('assets/lab01-artfix-v02/notebook-frame.webp');
+  --cw-ui-button-art: url('assets/lab01-artfix-v02/action-button.webp');
+  --cw-ui-tab-art: url('assets/lab01-notebook/tab_normal.exact.webp');
+  --cw-ui-page-art: url('assets/lab01-notebook/page_portrait.webp');
+  --cw-ui-leather-art: url('assets/lab01-notebook/button_normal.exact.webp');
+  --cw-ui-ink: #302318;
+  --cw-ui-muted: #604c34;
+  --cw-ui-paper: #e5cda0;
+  --cw-ui-brass: #b18a46;
+  --cw-ui-leather: #2b1e16;
+  --cw-ui-cream: #f4dfb5;
+  background: #121611 !important;
+  color: var(--cw-ui-cream);
+}
+
+/* A narrow leather HUD; existing live labels stay live. */
+body.cw-lab-painted-ui #app.cw-clean-play > .top {
+  gap: 8px;
+  padding: 5px 10px !important;
+  border-block: 1px solid #9e783d;
+  background: linear-gradient(100deg, #251d17, #423023 48%, #241c16);
+  box-shadow: inset 0 2px #c69c4a24, inset 0 -3px #07060470, 0 2px 6px #0008;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .top .brand {
+  color: #ead3a4;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(12px, 3.4vw, 16px) !important;
+  letter-spacing: .65px;
+  text-shadow: 0 2px 1px #0f0905;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .stats {
+  gap: 0 !important;
+  align-self: stretch;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .stats > div {
+  min-width: 36px;
+  padding: 2px 7px;
+  border-left: 1px solid #ae88443f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .stats strong {
+  color: #f3dbab;
+  font: 700 16px/1.15 Georgia, serif !important;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .stats span {
+  color: #cbb88f;
+  font-size: 12px !important;
+  letter-spacing: .45px;
+}
+body.cw-lab-painted-ui #app.cw-clean-play :is(.area, .clock) {
+  top: 8px;
+  padding: 5px 8px;
+  border: 1px solid #846135 !important;
+  border-radius: 2px;
+  background: var(--cw-ui-tab-art) center / 100% 100% no-repeat, #d4ba89 !important;
+  box-shadow: 0 2px 5px #0008 !important;
+  color: #30261b;
+  text-shadow: none;
+  font: 700 10px/1.25 Georgia, serif;
+  letter-spacing: .35px;
+}
+body.cw-lab-painted-ui #app.cw-clean-play .area { left: 10px; max-width: 53%; }
+body.cw-lab-painted-ui #app.cw-clean-play .clock { right: 10px; }
+body.cw-lab-painted-ui #app.cw-clean-play .mission b {
+  color: #f7e3b8;
+  text-shadow: 0 1px 2px #0b0805, 0 0 5px #1b130e;
+  font-family: Georgia, serif !important;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #guide {
+  border-radius: 3px !important;
+  background: var(--cw-ui-button-art) center / 100% 100% no-repeat !important;
+  color: var(--cw-ui-ink) !important;
+  text-shadow: 0 1px #f9e6bd70;
+}
+
+/* Reuse all six existing actions and their icons. No painted-in captions. */
+body.cw-lab-painted-ui #cw-p20-dock {
+  grid-template-columns: 136px minmax(0, 1fr);
+  gap: 10px;
+  padding: 8px 10px;
+  border-top: 2px solid #8d6635;
+  background: linear-gradient(110deg, #30241b, #1c1b16 52%, #35271c);
+  box-shadow: inset 0 2px #d1a35529, inset 0 -2px #0a0806b0;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-dock .dpad {
+  grid-template-columns: repeat(3, 44px) !important;
+  grid-template-rows: repeat(3, 44px) !important;
+  gap: 2px !important;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-dock .dpad button {
+  width: 44px;
+  height: 44px;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  background: var(--cw-ui-button-art) center / 100% 100% no-repeat !important;
+  box-shadow: 0 2px 3px #080502b0 !important;
+  color: #39271a !important;
+  font: 700 20px/1 Georgia, serif;
+  text-shadow: 0 1px #ffe8b9a0;
+}
+body.cw-lab-painted-ui #cw-p20-tools {
+  width: 100%;
+  max-width: 240px;
+  justify-self: end;
+  grid-template-columns: repeat(3, minmax(44px, 1fr));
+  gap: 5px;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main {
+  aspect-ratio: 1;
+  height: auto !important;
+  min-height: 50px !important;
+  min-width: 44px !important;
+  padding: 5px 2px !important;
+  gap: 3px;
+  border: 0 !important;
+  border-radius: 3px !important;
+  background: var(--cw-ui-button-art) center / 100% 100% no-repeat !important;
+  box-shadow: 0 2px 4px #0b0704b0 !important;
+  color: #2e251b !important;
+  font: 700 clamp(10px, 2.85vw, 12px)/1.15 Georgia, serif !important;
+  text-shadow: 0 1px #f6dfb47a;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main::before {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  filter: brightness(.23) sepia(.4);
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools #combat { color: #5c2b1c !important; }
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main:hover {
+  background: var(--cw-ui-control-art, var(--cw-ui-button-art)) center / 100% 100% no-repeat !important;
+  filter: brightness(1.08);
+}
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main:active,
+body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-dock .dpad button:active {
+  background: var(--cw-ui-control-art, var(--cw-ui-button-art)) center / 100% 100% no-repeat !important;
+  filter: brightness(.88);
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 3px #21150970 !important;
+}
+
+/* Short screens retain the complete 2:3 silhouette. Portrait screens below
+ * extend only the blank middle with a nine-slice of this same painted asset.
+ * Padding keeps live content inside the art's central blank page and leaves
+ * binding, corners, page stack and leather header visible. The six real index
+ * tabs sit over the painted flap band at the top. They scroll horizontally;
+ * the page content scrolls vertically beneath them.
+ */
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook {
+  --cw-nb-available-height: calc(100dvh - max(8px, env(safe-area-inset-top)) - max(8px, env(safe-area-inset-bottom)));
+  --cw-nb-available-width: calc(100vw - max(8px, env(safe-area-inset-left)) - max(8px, env(safe-area-inset-right)));
+  --cw-nb-width: min(480px, var(--cw-nb-available-width), calc(var(--cw-nb-available-height) * .6666667));
+  padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  background: #11120fce;
+  backdrop-filter: blur(2px);
+  overscroll-behavior: contain;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book {
+  display: grid;
+  grid-template-rows: max(44px, calc(var(--cw-nb-width) * .12)) auto minmax(0, 1fr);
+  gap: 0;
+  width: var(--cw-nb-width);
+  height: calc(var(--cw-nb-width) * 1.5);
+  aspect-ratio: 2 / 3;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: none;
+  flex: none;
+  padding: calc(var(--cw-nb-width) * .045) calc(var(--cw-nb-width) * .13) calc(var(--cw-nb-width) * .115) calc(var(--cw-nb-width) * .14);
+  border: 0;
+  border-image: none;
+  border-radius: 0;
+  background: var(--cw-ui-book-art) center / 100% 100% no-repeat !important;
+  box-shadow: none;
+  filter: drop-shadow(0 12px 16px #000a);
+  overflow: hidden;
+  color: var(--cw-ui-ink) !important;
+  font: 1rem/1.45 Georgia, 'Times New Roman', serif;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0;
+  align-items: start;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book h2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: #f3dfb6 !important;
+  font: 700 clamp(14px, 4vw, 19px)/1.15 Georgia, serif;
+  letter-spacing: .1px;
+  text-shadow: 0 2px 2px #160e09;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book button {
+  min-width: 44px;
+  min-height: 44px !important;
+  border: 0 !important;
+  border-radius: 2px;
+  padding: 8px 10px;
+  background: var(--cw-ui-leather-art) center / 100% 100% no-repeat !important;
+  color: #f7e6c3 !important;
+  box-shadow: none;
+  font: 600 .9rem/1.2 Georgia, serif;
+  touch-action: manipulation;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book button:active {
+  background-image: var(--cw-ui-leather-art) !important;
+  filter: brightness(.88);
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close {
+  width: 56px;
+  min-width: 56px;
+  min-height: 44px !important;
+  padding: 6px 4px;
+  font: 600 .8125rem/1.2 Georgia, serif;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 2px 2px 6px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button {
+  flex: 0 0 auto;
+  min-width: 84px;
+  min-height: 44px !important;
+  padding: 8px 10px;
+  border: 0 !important;
+  border-radius: 2px 3px 0 0;
+  background: var(--cw-ui-tab-art) center / 100% 100% no-repeat !important;
+  color: #342519 !important;
+  box-shadow: inset 0 -1px #6b4a2866;
+  font: 600 .8125rem/1.2 Georgia, serif;
+  white-space: nowrap;
+  touch-action: pan-x;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-tabs button.selected {
+  background: linear-gradient(#f9e9c65c, #ecd5a54d), var(--cw-ui-tab-art) center / 100% 100% no-repeat !important;
+  color: #24180f !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  box-shadow: inset 0 -3px #76502c;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-paper {
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-image: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content {
+  height: 100%;
+  padding: 4px 5px 20px;
+  color: var(--cw-ui-ink);
+  background: transparent;
+  font: 1rem/1.45 Georgia, serif;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #86653b #e3c997;
+  scroll-padding-block: 8px 20px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content .entry {
+  margin: 0 0 4px;
+  padding: 0;
+  border-bottom: 1px solid #8a643b68;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content .lab-nb-entry {
+  padding: 9px 2px;
+  min-height: 44px !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #302318 !important;
+  box-shadow: none;
+  font: 1rem/1.4 Georgia, serif;
+  text-align: left;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-entry strong { font-weight: 700; }
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-entry span { margin-top: 3px; }
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book small {
+  color: #5d452c !important;
+  font-size: .8125rem;
+  line-height: 1.45;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-read-hint { margin-top: 5px; }
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-detail h3 {
+  margin: 15px 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #735234;
+  font: 700 1.25rem/1.25 Georgia, serif;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-detail p { line-height: 1.5; }
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook textarea {
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid #9c7b4b;
+  border-radius: 1px;
+  background: #f7e9c890 !important;
+  color: #302318 !important;
+  box-shadow: inset 0 1px 6px #62401915;
+  font: 1rem/1.6 Georgia, serif;
+  resize: vertical;
+  scroll-margin-block: 8px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-save { margin: 10px 0 6px; }
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-status { min-height: 24px; }
+
+/* Paper-and-leather framing for the existing atlas, conversations and tools. */
+body.cw-lab-painted-ui :is(#sheet, #cw-clean-reader, #p13-menu-panel) {
+  border: 5px solid #4b3321 !important;
+  border-radius: 4px;
+  background: var(--cw-ui-page-art) center / 100% 100% no-repeat, #e0c797 !important;
+  color: #302318 !important;
+  box-shadow: 0 0 0 1px #b18a46, 0 8px 30px #0009, inset 0 0 0 1px #a47b40 !important;
+}
+body.cw-lab-painted-ui #sheet::before {
+  inset: 3px;
+  border: 1px solid #6c48273b;
+  border-radius: 1px;
+}
+body.cw-lab-painted-ui :is(#sheet, #cw-clean-reader, #p13-menu-panel) :is(h1, h2, h3) {
+  color: #382719 !important;
+  font-family: Georgia, serif;
+}
+body.cw-lab-painted-ui :is(#sheet, #cw-clean-reader, #p13-menu-panel) :is(p, li, .row) { color: #3d2d1e !important; }
+body.cw-lab-painted-ui :is(#sheet, #cw-clean-reader) :is(small, .kicker, .tip, .atlas-sub) { color: #62492d !important; }
+body.cw-lab-painted-ui #app.cw-clean-play #sheet button,
+body.cw-lab-painted-ui #cw-clean-reader button,
+body.cw-lab-painted-ui #p13-menu-grid button,
+body.cw-lab-painted-ui #p13-menu-close {
+  min-width: 44px;
+  min-height: 44px !important;
+  border: 1px solid #a27b43 !important;
+  border-radius: 3px !important;
+  background: #4d3826 var(--cw-ui-leather-art) center / 100% 100% no-repeat !important;
+  color: #f5e3bb !important;
+  box-shadow: none !important;
+  font-family: Georgia, serif;
+}
+body.cw-lab-painted-ui #p13-menu-grid button {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+body.cw-lab-painted-ui #p13-menu-close { text-align: center; }
+body.cw-lab-painted-ui #sheet .atlas-toolbar select {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #9f7a43;
+  border-radius: 2px;
+  background: #f0ddb3;
+  color: #34271b;
+}
+body.cw-lab-painted-ui #sheet .atlas-toolbar button { width: 44px; min-height: 44px; }
+body.cw-lab-painted-ui #app.cw-clean-play .log.cw-clean-toast {
+  border: 1px solid #92703f !important;
+  border-radius: 3px !important;
+  background: linear-gradient(90deg, #30251bf5, #30251be8) !important;
+  color: #f0ddba;
+  box-shadow: 0 3px 12px #0006 !important;
+}
+body.cw-lab-painted-ui #app.cw-clean-play #city-camera {
+  border: 1px solid #9b7840;
+  border-radius: 3px;
+  background: #34261e;
+  color: #f0d7a4;
+}
+
+/* Visible keyboard focus is retained above the artwork, including the page's
+ * own scroll focus. Minimum hitboxes do not shrink in landscape or at 320px.
+ */
+body.cw-lab-painted-ui :is(button, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #efc05b !important;
+  outline-offset: 2px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook :is(button, select, textarea, #nb-content):focus-visible {
+  outline: 3px solid #5a361b !important;
+  outline-offset: -3px;
+}
+body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close:focus-visible {
+  outline-color: #f1ca71 !important;
+}
+/* The actual frame is 1024 x 1536. Its top 300px contain the leather header,
+ * decorative tabs and upper paper edge; the bottom 520px contain the skyline,
+ * curled page and lower binding. Render those regions at width/1024 scale,
+ * stretching the unlettered middle. A pseudo-element supplies the border image
+ * without adding border widths to the live layout or intercepting input.
+ */
+@media (orientation: portrait) and (min-height: 500px) {
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook {
+    --cw-nb-width: min(480px, var(--cw-nb-available-width));
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book {
+    position: relative;
+    isolation: isolate;
+    height: min(900px, var(--cw-nb-available-height));
+    aspect-ratio: auto;
+    background: none !important;
+    padding-bottom: calc(var(--cw-nb-width) * .5078125 + 6px);
+  }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border: solid transparent;
+    border-width: max(100px, calc(var(--cw-nb-width) * .29296875)) calc(var(--cw-nb-width) * .1416015625) calc(var(--cw-nb-width) * .5078125);
+    border-image-source: var(--cw-ui-book-art);
+    border-image-slice: 300 145 520 145 fill;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+  }
+}
+/* When height is scarce, retain the complete silhouette and scrolling index
+ * tabs. An actual parchment component backs only the scrollable text area;
+ * the surrounding painted binding, header and outer skyline remain visible.
+ */
+@media (orientation: landscape), (max-height: 499px) {
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-paper {
+    background: var(--cw-ui-page-art) center / 100% 100% no-repeat;
+  }
+}
+@media (max-width: 340px) {
+  body.cw-lab-painted-ui #app.cw-clean-play > .top { padding-inline: 7px !important; gap: 4px; }
+  body.cw-lab-painted-ui #app.cw-clean-play .stats > div { padding-inline: 5px; }
+  body.cw-lab-painted-ui #cw-p20-dock { padding: 7px 8px; gap: 8px; }
+  body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main { font-size: 10px !important; }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book h2 { font-size: 14px; }
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  body.cw-lab-painted-ui #cw-p20-dock {
+    width: 220px;
+    padding: 6px;
+    gap: 6px;
+    border-top: 0;
+    border-left: 2px solid #8d6635;
+  }
+  body.cw-lab-painted-ui #cw-p20-tools { max-width: 208px; }
+  body.cw-lab-painted-ui #app.cw-clean-play #cw-p20-tools button.p13-main { aspect-ratio: auto; min-height: 52px !important; }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .lab-nb-header { min-height: 44px; padding-bottom: 2px; }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook .book h2 { font-size: 14px; }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-close { width: 50px; min-width: 50px; }
+  body.cw-lab-painted-ui #watch-notebook.cw-lab-notebook #nb-content { padding-inline: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.cw-lab-painted-ui #cw-p20-dock button { transition: none; }
+}
+
+/* Existing interior navigation shares the same materials as the main dock. */
+body.cw-lab-painted-ui #app.cw-clean-play #room-toolbar button {
+  min-height: 44px;
+  border: 1px solid #9a743e !important;
+  border-radius: 3px !important;
+  background: #4d3826 var(--cw-ui-leather-art) center / 100% 100% no-repeat !important;
+  color: #f5e3bb !important;
+  font-family: Georgia, serif;
+}

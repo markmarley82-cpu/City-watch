@@ -1,0 +1,40 @@
+{
+  "assets": [
+    {
+      "id": "slaughterhouse_building_sheet",
+      "file": "graphics/isometric_medieval_slaughterhouse_district_assets.webp",
+      "district": "Slaughterhouse District",
+      "category": "buildings_and_structures",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "transparent": true,
+      "style": "painted_isometric",
+      "notes": "Transparent source sheet for manual or pipeline-based slicing into individual sprites."
+    },
+    {
+      "id": "slaughterhouse_prop_sheet",
+      "file": "graphics/isometric_slaughterhouse_district_prop_kit.webp",
+      "district": "Slaughterhouse District",
+      "category": "props_and_set_dressing",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "transparent": true,
+      "style": "painted_isometric",
+      "notes": "Transparent source sheet for manual or pipeline-based slicing into individual sprites."
+    },
+    {
+      "id": "slaughterhouse_tiles_sheet",
+      "file": "graphics/grimy_isometric_slaughterhouse_district_tileset.webp",
+      "district": "Slaughterhouse District",
+      "category": "ground_tiles_and_streets",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "transparent": true,
+      "style": "painted_isometric",
+      "notes": "Transparent source sheet for manual or pipeline-based slicing into individual sprites."
+    }
+  ]
+}

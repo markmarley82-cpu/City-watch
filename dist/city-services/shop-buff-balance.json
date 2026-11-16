@@ -1,0 +1,94 @@
+{
+  "schema": "cw.shop.optional-preparations.v1",
+  "date": "2026-10-29",
+  "baseline": "P21 Build 92 / Site173",
+  "status": "source component tested against actual combat; not enabled in shop UI or live game",
+  "intent": "Optional modest advantages may justify useful stock. Need, plausible ordinary use, cost and combat limits precede the item.",
+  "lore": "All three numeric effects and exact products/services are original game design. Ordinary food, voice care and comfortable footwear imply no canonical magic.",
+  "offers": [
+    {
+      "id": "prep-hearty-meal",
+      "shopKey": "provisions",
+      "label": "Hearty meal",
+      "price": 3,
+      "kind": "guard",
+      "benefit": "The first Guard reduces the next opposing response by one extra stamina, until control passes to the next Watch officer. Guard reduction is capped at 3.",
+      "use": "A little extra staying power while bracing; no health recovery is bundled with this option."
+    },
+    {
+      "id": "prep-voice-lozenge",
+      "shopKey": "apothecary",
+      "label": "Soothing lozenge",
+      "price": 2,
+      "kind": "voice",
+      "benefit": "The recruit’s first successful Talk action removes 1 extra resolve.",
+      "use": "Help a recruit who chooses to talk a suspect down. The normal action cost and separate arrest action still apply."
+    },
+    {
+      "id": "prep-boot-fitting",
+      "shopKey": "cobbler",
+      "label": "Boot fitting",
+      "price": 3,
+      "kind": "footwork",
+      "benefit": "One extra legal movement step on the recruit’s opening turn in grid or street combat.",
+      "use": "Reach a speaking or restraint position; no extra action or city/chase speed bonus."
+    }
+  ],
+  "rules": {
+    "activeSlots": 1,
+    "recipient": "recruit only",
+    "duration": "next campaign encounter within the current night; unused effect ends with that incident",
+    "stacking": "blocked across all products; second purchase takes no coins",
+    "refresh": "cannot refresh or swap an active preparation",
+    "actions": "normal one-action budget retained; no rank, merit, evidence, special-access or damage bonus",
+    "resume": "persist remaining uses and first-turn movement in pending.battle; same encounter/chase cannot rearm them",
+    "priceStatus": "initial game tuning, not canonical prices",
+    "optional": "no main case or default encounter requires a purchase"
+  },
+  "economy": {
+    "startingCoins": 5,
+    "ordinaryMeal": {
+      "coins": 2,
+      "health": 8
+    },
+    "bandages": {
+      "coins": 3,
+      "campaignHealth": 12,
+      "battleStamina": 6
+    },
+    "notes": "Campaign health and battle stamina are different scales. Prepared Guard grants at most one extra reduction per incoming hit during the next opposing response, capped at guardReduction 3. It does not heal or increase maximum stamina. Prices require play testing."
+  },
+  "verification": {
+    "date": "2026-10-29",
+    "status": "automated constraints pass; player balance acceptance open",
+    "groups": 13,
+    "sourceBuild": 92,
+    "combatSourceSha256": "93c42bf21a5aec78a843da70f77bbef44030a22e5922812ef490509f13824755",
+    "prices": {
+      "meal": 3,
+      "lozenge": 2,
+      "fitting": 3
+    },
+    "limits": {
+      "activePreparations": 1,
+      "extraOpeningMoves": 1,
+      "extraResolveTotal": 1,
+      "guardReductionCap": 3,
+      "additionalActions": 0
+    },
+    "livePublished": false,
+    "physicalPhoneTest": false
+  },
+  "coffee": {
+    "id": "proposal-klatchian-coffee",
+    "label": "Klatchian coffee",
+    "status": "design proposal only; no revival handler implemented",
+    "source": "https://reactormag.com/terry-pratchett-book-club-men-at-arms-part-iii/",
+    "corroboration": "https://wiki.lspace.org/Knurd",
+    "lore": "A secondary Men at Arms recap records the Watch waking Vimes with Klatchian coffee; its sobering/knurd effect does not establish universal combat healing or resurrection.",
+    "adaptation": "Rouse an incapacitated, living teammate with 4 battle stamina. Require adjacency and the acting officer’s full action. Consumes one dose, initially priced at 6 coins. Each recipient can be roused once per encounter and resumes only on their normal turn. No extra turn, permanent stat increase or resurrection.",
+    "targetPolicy": "Require an explicit coffee-compatible character profile. No automatic effect on trolls, golems or other unsupported physiologies.",
+    "supplier": "unassigned until a suitable supplier and service point are verified; no canonical shop menu claim",
+    "balance": "4 stamina is below the existing 6-stamina battle bandage; coffee is for a downed ally, bandages remain necessary for further recovery. Once-per-recipient flag must persist through saves and pursuit."
+  }
+}

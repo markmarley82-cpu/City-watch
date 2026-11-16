@@ -1,0 +1,122 @@
+{
+  "schema": "quill.lodging-placement-proposal.v1",
+  "created": "2026-10-29",
+  "atlasBase": "ATLAS_Map_Continuity_Site166_v9.zip / Library libfile_68f2e79a675c8191b174ab70bb3dec8e version 9",
+  "constraints": [
+    "proposal only; no live map edit",
+    "preserve routes, bridges, campus, saves and active ownership",
+    "reuse current unique buildings in place",
+    "runtime door/destination IDs remain null until receiving owner binds them"
+  ],
+  "placements": [
+    {
+      "grade": 0,
+      "room": "grade-0-watch-bunk",
+      "exterior": "grade-0-watch-house",
+      "area": "Pseudopolis Yard / current Watch House",
+      "existingAsset": "lab01-artfix-v02/watch-house.webp",
+      "worldRect": null,
+      "mapAction": "Bind an interior hotspot to the existing Watch House only; add no exterior building and move no route.",
+      "loreStatus": "Official Nobby profile supports residential use of the New Watch House; recruit bunk is adaptation, not universal canon entitlement.",
+      "confidence": "high for building/residential precedent; medium for player-bunk adaptation"
+    },
+    {
+      "grade": 1,
+      "room": "grade-1-common-bed",
+      "exterior": "grade-1-shades-lodging",
+      "area": "The Shades",
+      "existingAsset": "SHADES-003:plain-lodging",
+      "instance": "SHADES-003:plain-lodging",
+      "worldP": [
+        63.317460317460316,
+        229.3421746031746
+      ],
+      "worldRect": [
+        60.0,
+        227.139,
+        4.317460317460317,
+        3.203174603174603
+      ],
+      "mapAction": "Reuse existing unnamed infill and its frontage; bind one door/interior only after collision review.",
+      "loreStatus": "Original unnamed lodging in a rough, inexpensive district; no canonical proprietor or address asserted.",
+      "confidence": "high for current asset and district fit; original game assignment"
+    },
+    {
+      "grade": 2,
+      "room": "grade-2-plain-private",
+      "exterior": "grade-2-wharfinger-lodging",
+      "area": "Wharfinger Street working quarter",
+      "existingAsset": "WHARFINGER-002:lodging-house",
+      "instance": "WHARFINGER-002:lodging-house",
+      "worldP": [
+        46.56491596638655,
+        128.83946953781512
+      ],
+      "worldRect": [
+        42.9,
+        125.9,
+        4.1649159663865545,
+        3.439469537815126
+      ],
+      "doorSourcePixels": [
+        [
+          334,
+          932
+        ],
+        [
+          334,
+          660
+        ]
+      ],
+      "mapAction": "Reuse existing unnamed lodging house; retain original parcel and route.",
+      "loreStatus": "Current project asset is explicitly original unnamed premises; suitable working-quarter private rooms without claiming a canon business.",
+      "confidence": "high for asset/placement; original room-grade assignment"
+    },
+    {
+      "grade": 3,
+      "room": "grade-3-respectable-room",
+      "exterior": "grade-3-university-lodging",
+      "area": "University west approach",
+      "existingAsset": "UU-UNIQUE-009:lodging",
+      "instance": "uu18:057:narrow_boarding_house_fitted",
+      "worldRect": [
+        172.11123693379793,
+        255.4133275261324,
+        3.53876306620209,
+        6.086672473867596
+      ],
+      "mapAction": "Reuse the unique existing lodging painting; do not duplicate it elsewhere.",
+      "loreStatus": "Authorised wider-Disc material supports respectable/sanitary lodgings; exact city room and proprietor are original.",
+      "confidence": "high for current unique placement; medium for grade fit"
+    },
+    {
+      "grade": 4,
+      "room": "grade-4-fine-suite",
+      "exterior": "grade-4-arched-townhouse",
+      "area": "Prosperous north side of the University/civic approaches",
+      "existingAsset": "UU-UNIQUE-009:arched-townhouse",
+      "instance": "uu18:050:university_neighbour_townhouse_fitted",
+      "worldP": [
+        187.2061753725468,
+        272.52465634202053
+      ],
+      "worldRect": [
+        179.67906693881184,
+        268.018201953036,
+        8.02710843373494,
+        5.006454388984509
+      ],
+      "entranceClearance": [
+        [
+          182.79595906543724,
+          271.821007033623,
+          1.2,
+          1.1
+        ]
+      ],
+      "mapAction": "Reuse the broad townhouse as an unnamed fine hotel/rooms candidate; no canonical name, proprietor or exact address. Keep the current unique asset in place.",
+      "loreStatus": "Official city guide establishes hotels in Ankh-Morpork. This building identity and suite plan are original artistic licence.",
+      "confidence": "high for current placement and hotel existence; original building-use assignment"
+    }
+  ]
+}

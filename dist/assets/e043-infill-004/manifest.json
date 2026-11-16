@@ -1,0 +1,98 @@
+{
+  "id": "E043-INFILL-004",
+  "classification": "Original unnamed infill; not a canonical address, cast member or quest location",
+  "scope": "One unique narrow-fronted deep ochre lodging house replacing legacy parcel 518 on E043 south of the Dimwell workshop.",
+  "asset": {
+    "id": "E043-INFILL-004:ochre-lodging-house-painted",
+    "file": "ochre-lodging-house-painted.webp",
+    "source": "art-source/street-by-street/e043-infill-004/e043_ochre_lodging_house_painted.png",
+    "master": "art-source/street-by-street/e043-infill-004/e043_ochre_lodging_house_painted_master.png",
+    "dimensions": [
+      480,
+      540
+    ],
+    "visibleBounds": [
+      65,
+      162,
+      350,
+      368
+    ],
+    "anchor": [
+      240,
+      430
+    ],
+    "render_scale": 1,
+    "sha256": "5b8cfb7f4639b54ed363e738ab609c0a8709cdfbf0c729d52e77b2c4ac351170"
+  },
+  "instance": {
+    "id": "E043-INFILL-004:ochre-lodging-house-painted",
+    "p": [
+      66.276,
+      90.179
+    ],
+    "rect": [
+      64.955,
+      86.822,
+      4.553,
+      8.303
+    ],
+    "kind": "building",
+    "sourceParcel": 518,
+    "visualDoorHeight": 68,
+    "referenceActorHeight": 60,
+    "publicThresholdOnly": true,
+    "sourceParcelRect": [
+      68.276,
+      92.179,
+      2.621,
+      3.469
+    ]
+  },
+  "retiredParcels": [
+    518
+  ],
+  "newNavigation": false,
+  "newInteractiveDoors": false,
+  "creativeAcceptance": false,
+  "generation": {
+    "script": "scripts/generate-e043-premise-004.py",
+    "method": "painted master fitted to production canvas at measured door scale",
+    "noMirror": true,
+    "noLegacyCrop": true,
+    "noRecolour": true
+  },
+  "placementCorrection": {
+    "translationWorld": [
+      -2,
+      -2
+    ],
+    "translationPixels": [
+      0,
+      -56
+    ],
+    "sourcePixelsUnchanged": true,
+    "scaleUnchanged": 1,
+    "foundationAndYardEnvelopeBefore": [
+      66.455,
+      88.322,
+      4.553,
+      8.303
+    ],
+    "visibleGroundControls": [
+      [
+        77,
+        473
+      ],
+      [
+        197,
+        528
+      ],
+      [
+        414,
+        409
+      ]
+    ],
+    "rearEnvelopeConservative": true,
+    "newDoorsOrRoutes": false
+  }
+}

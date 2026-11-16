@@ -1,0 +1,45 @@
+{
+  "reference_tile_screen_px": [
+    56,
+    28
+  ],
+  "projection_unit_vectors_px": {
+    "u": [
+      28,
+      14
+    ],
+    "v": [
+      -28,
+      14
+    ],
+    "z": [
+      0,
+      -1
+    ]
+  },
+  "rendering_baseline": "available city-watch-complete-painted-single-file.html, not verified latest P19",
+  "player": {
+    "art": "previews/watchman_scale_reference_only.png",
+    "source": "earlier Watchman sprite artwork",
+    "displayed_character_height_px": 40,
+    "role": "preview only"
+  },
+  "door": {
+    "opening_height_px": 42,
+    "ratio_to_player": 1.05,
+    "door_panel_width_tiles": 1
+  },
+  "storey": {
+    "wall_height_px": 50,
+    "ratio_to_player": 1.25
+  },
+  "roof": {
+    "ridge_rise_px": 18
+  },
+  "lamppost": {
+    "nominal_height_px": 65,
+    "ratio_to_player": 1.625
+  },
+  "comparison_preview": "previews/p20_scale_calibration.png",
+  "p19_revalidation": "Buddy must compare current P19 player pixel height, doorway scale and mapped entrance position before integration."
+}

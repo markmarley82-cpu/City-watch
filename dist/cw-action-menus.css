@@ -1,0 +1,349 @@
+/* One Watch action-menu kit. Retain the approved art and the original controls. */
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu {
+ --cw-menu-ink:var(--cw-watch-control-ink,#342a20);
+ --cw-menu-paper:var(--cw-watch-control-paper,url('assets/lab01-notebook/page_portrait.webp'));
+ --cw-menu-action:var(--cw-watch-control-action,url('assets/lab01-notebook/tab_normal.exact.webp'));
+ --cw-menu-close:var(--cw-watch-control-close,url('assets/jimmy-b03-v13/close-strap.exact.webp'));
+ box-sizing:border-box;width:min(460px,calc(100vw - 12px));max-width:calc(100vw - 12px);
+ max-height:calc(100dvh - max(12px,env(safe-area-inset-top)) - max(12px,env(safe-area-inset-bottom)));
+ min-width:0;min-height:0;margin:auto;padding:10px;overflow:hidden;
+ border:20px solid transparent!important;border-image:url('assets/clothing-ui-v12/folio-frame.webp') 210 fill stretch!important;
+ border-radius:0!important;background:#e1c797 var(--cw-menu-paper) center/cover!important;
+ color:var(--cw-menu-ink)!important;font:16px/1.4 Georgia,'Times New Roman',serif;
+ box-shadow:0 12px 35px #0008;
+}
+html body.cw-lab-painted-ui dialog.cw-watch-menu[open] {
+ display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px;
+}
+dialog.cw-watch-menu::backdrop {background:#0a1714dc;}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu>header {
+ display:flex;align-items:center;justify-content:space-between;gap:8px;position:static;
+ min-width:0;min-height:48px;margin:0;padding:0 0 8px;
+ background:transparent;border:0;border-bottom:1px solid #8c674766;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu h2 {
+ min-width:0;margin:0;color:var(--cw-menu-ink)!important;
+ font:italic 700 22px/1.15 Georgia,'Times New Roman',serif;overflow-wrap:anywhere;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu button {
+ box-sizing:border-box;min-width:44px;min-height:48px!important;max-width:100%;height:auto!important;
+ margin:0!important;padding:10px 12px!important;border:0!important;border-radius:0!important;
+ border:1px solid #987b53!important;border-radius:5px!important;background:transparent var(--cw-menu-action) center/100% 100% no-repeat!important;
+ color:var(--cw-menu-ink)!important;font:15px/1.3 Georgia,'Times New Roman',serif!important;
+ text-align:left;text-transform:none;letter-spacing:0;text-shadow:none!important;box-shadow:none!important;
+ white-space:normal;overflow-wrap:anywhere;word-break:normal;touch-action:manipulation;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu :where(header>button,#p13-menu-close) {
+ flex:none;min-width:64px;min-height:44px!important;max-width:120px;
+ background-image:var(--cw-menu-close)!important;color:#f6e5c4!important;
+ text-align:center;text-shadow:0 1px 2px #1b100a!important;font-weight:600!important;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu :is(button,summary):focus-visible {
+ outline:3px solid #315c76!important;outline-offset:-3px;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu button:is(:disabled,[aria-disabled="true"]) {opacity:.55;cursor:default;}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu button[hidden] {display:none!important;}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu :where(.cw-phone-extra-actions,.cw-menu-content,#p13-menu-grid) {
+ min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;scroll-padding-block:8px;
+ scrollbar-width:thin;scrollbar-color:#86653b #e3c997;-webkit-overflow-scrolling:touch;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu :where(.cw-phone-extra-actions,.cw-room-view-actions,#p13-menu-grid) {
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:8px;
+ margin:0;padding:0;
+}
+html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu :is(.cw-phone-extra-actions,.cw-room-view-actions,#p13-menu-grid)>button {width:100%;}
+/* The live assignment is part of the same parchment menu, with full-width actions. */
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-orders-bar {
+ display:grid!important;grid-template-columns:minmax(0,1fr);grid-column:1/-1;gap:8px;
+ height:auto;min-height:0;margin-top:4px;padding:12px 0 4px;
+ background:transparent!important;color:var(--cw-menu-ink);border:0;border-top:1px solid #8c674766;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-objective {min-width:0;max-width:100%;color:var(--cw-menu-ink);}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-orders-bar button {width:100%;max-width:100%;margin:0;}
+/* The room content has one scroll owner; its retained tool grid scrolls with it. */
+html body.cw-lab-painted-ui #cw-room-actions.cw-watch-menu #p13-menu-grid {overflow:visible;margin-top:8px;}
+html body.cw-lab-painted-ui #cw-room-actions.cw-watch-menu details {margin-top:12px;border-top:1px solid #8c674766;}
+html body.cw-lab-painted-ui #cw-room-actions.cw-watch-menu summary {min-height:44px;padding:10px 0;cursor:pointer;}
+/* Legacy Watch tools: the same Close node stays in a fixed header grid row. */
+html body.cw-lab-painted-ui #p13-menu {box-sizing:border-box;align-items:center!important;padding:6px;}
+html body.cw-lab-painted-ui #p13-menu.open #p13-menu-panel.cw-watch-menu {
+ display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto minmax(0,1fr);gap:8px;
+}
+html body.cw-lab-painted-ui #p13-menu-panel.cw-watch-menu>h2 {grid-area:1/1;align-self:center;}
+html body.cw-lab-painted-ui #p13-menu-panel.cw-watch-menu>#p13-menu-close {grid-area:1/2;align-self:start;}
+html body.cw-lab-painted-ui #p13-menu-panel.cw-watch-menu>p {
+ grid-area:2/1/3/-1;margin:0;padding-bottom:8px;border-bottom:1px solid #8c674766;
+ font:12px/1.35 Georgia,'Times New Roman',serif;color:#62492d!important;overflow-wrap:anywhere;
+}
+html body.cw-lab-painted-ui #p13-menu-panel.cw-watch-menu>#p13-menu-grid {grid-area:3/1/4/-1;}
+@media(max-width:359px),(orientation:landscape) and (max-height:550px) {
+ html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu {border-width:14px!important;padding:7px;}
+ html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu h2 {font-size:20px;}
+ html body.cw-lab-painted-ui :is(#cw-phone-more,#cw-room-actions,#p13-menu-panel,#cw-restart-dialog).cw-watch-menu button {font-size:14px!important;padding:8px 10px!important;}
+}
+
+html body.cw-lab-painted-ui #cw-restart-dialog .cw-phone-extra-actions {grid-template-columns:minmax(0,1fr);}
+html body.cw-lab-painted-ui #cw-restart-dialog p {margin:8px 0 12px;overflow-wrap:anywhere;}
+html body.cw-lab-painted-ui #cw-restart-dialog [data-restart-confirm] {font-weight:700!important;}
+
+/* Patrol actions: the retained Notebook frame, with live controls on its page.
+   Keep these rules scoped to this screen while the other screens are reviewed. */
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu {
+ --cw-patrol-book-width:min(480px,calc(100vw - 16px));
+ width:var(--cw-patrol-book-width);max-width:calc(100vw - 16px);
+ height:min(900px,calc(100dvh - 16px));max-height:calc(100dvh - 16px);
+ padding:calc(var(--cw-patrol-book-width) * .08) calc(var(--cw-patrol-book-width) * .15) calc(var(--cw-patrol-book-width) * .5078125 + 6px) calc(var(--cw-patrol-book-width) * .14);
+ gap:calc(var(--cw-patrol-book-width) * .065);isolation:isolate;
+ border:0!important;border-image:none!important;border-radius:0!important;
+ background:none!important;box-shadow:none;filter:drop-shadow(0 12px 16px #0009);
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu::before {
+ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+ border:solid transparent;
+ border-width:calc(var(--cw-patrol-book-width) * .29296875) calc(var(--cw-patrol-book-width) * .1416015625) calc(var(--cw-patrol-book-width) * .5078125);
+ border-image:url('assets/jimmy-b03-v13/notebook-portrait.webp') 300 145 520 145 fill / 1 stretch;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu>header {
+ position:relative;z-index:1;gap:6px;min-height:48px;padding:0;border:0;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu h2 {
+ flex:1;font:600 19px/1.2 Baskerville,'Iowan Old Style',Georgia,serif;
+ color:#f6e5c3!important;text-shadow:0 1px 2px #120b07;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu button {
+ display:block;min-width:0;min-height:48px!important;max-width:100%;
+ padding:12px!important;border:0!important;border-bottom:1px solid #92724755!important;
+ background:transparent!important;color:#342a20!important;
+ font:15px/1.35 Georgia,'Times New Roman',serif!important;
+ white-space:normal;overflow-wrap:anywhere;word-break:normal;text-shadow:none!important;
+}
+/* Match the legacy two-ID Close selector without changing sibling screens. */
+html body.cw-lab-painted-ui #cw-phone-more#cw-phone-more.cw-watch-menu>header>button {
+ flex:0 0 auto;width:82px;min-width:82px;max-width:42%;min-height:46px!important;
+ padding:7px 7px 8px 15px!important;border:0!important;
+ background:transparent url('assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat!important;
+ color:#fff3d4!important;text-shadow:0 1px 2px #180e07!important;
+ text-align:center;font-size:15px!important;
+}
+html body.cw-lab-painted-ui #cw-phone-more#cw-phone-more.cw-watch-menu>header>button:focus-visible {
+ outline:3px solid #f6df9d!important;outline-offset:-6px;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu button:not(:disabled):is(:hover,:active) {
+ background:#92724718!important;
+}
+html body.cw-lab-painted-ui #cw-phone-more#cw-phone-more.cw-watch-menu .cw-phone-extra-actions {
+ position:relative;z-index:1;
+ grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:max-content;
+ align-items:stretch;gap:0 12px;padding:0;scroll-padding-block:12px;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu .cw-phone-extra-actions>* {
+ box-sizing:border-box;min-width:0;max-width:100%;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-orders-bar {
+ grid-template-columns:minmax(0,1fr);align-content:start;align-items:stretch;gap:8px;
+ margin:14px 0 8px;padding:14px 0 8px;border-block:1px solid #92724788;
+ overflow:visible;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu .cw-patrol-copy {
+ display:grid;gap:6px;min-width:0;padding:0 0 4px;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu .cw-patrol-copy small {
+ display:block;color:#5a4831;font:13px/1.4 Georgia,'Times New Roman',serif;
+ white-space:normal;overflow:visible;overflow-wrap:anywhere;text-overflow:clip;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-objective {
+ display:block;flex:none;font:700 16px/1.4 Georgia,'Times New Roman',serif;
+ white-space:normal;overflow:visible;overflow-wrap:anywhere;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu #p21-orders-bar button {
+ border:1px solid #92724788!important;background:#f7edcf55!important;
+}
+html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu .cw-patrol-copy progress {
+ width:100%;max-width:100%;height:5px;margin:4px 0 0;accent-color:#846234;
+}
+@media(orientation:landscape) and (max-height:550px) {
+ html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu {
+  --cw-patrol-book-width:min(700px,calc(100vw - 16px));
+  padding:calc(var(--cw-patrol-book-width) * .02) calc(var(--cw-patrol-book-width) * .0716145833) calc(var(--cw-patrol-book-width) * .115 + 6px);
+  gap:calc(var(--cw-patrol-book-width) * .02);
+ }
+ html body.cw-lab-painted-ui #cw-phone-more.cw-watch-menu::before {
+  border-width:calc(var(--cw-patrol-book-width) * .09765625) calc(var(--cw-patrol-book-width) * .0716145833) calc(var(--cw-patrol-book-width) * .0651041667);
+  border-image-source:url('assets/jimmy-b03-v13/notebook-landscape.webp');
+  border-image-slice:150 110 100 110 fill;
+ }
+}
+
+/* The same retained book for utility screens; one contained page scrolls while
+   the title and original Close control remain outside that scrolling region. */
+html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu {
+ --cw-book-width:min(480px,calc(100vw - 16px));
+ box-sizing:border-box;position:fixed;inset:0!important;margin:auto!important;
+ width:var(--cw-book-width)!important;max-width:calc(100vw - 16px)!important;
+ height:min(900px,calc(100dvh - 16px))!important;max-height:calc(100dvh - 16px)!important;
+ min-width:0;min-height:0;overflow:hidden!important;isolation:isolate;
+ padding:calc(var(--cw-book-width) * .08) calc(var(--cw-book-width) * .15) calc(var(--cw-book-width) * .5078125 + 6px) calc(var(--cw-book-width) * .14)!important;
+ gap:calc(var(--cw-book-width) * .065)!important;
+ border:0!important;border-image:none!important;border-radius:0!important;
+ background:none!important;box-shadow:none!important;filter:drop-shadow(0 12px 16px #0009);
+ color:#342a20!important;font:16px/1.4 Georgia,'Times New Roman',serif;
+}
+html body.cw-lab-painted-ui :is(dialog[open],#p13-menu.open>#p13-menu-panel,#overlay.show>#sheet).cw-notebook-menu {
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu::before,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu::before {
+ content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+ border:solid transparent;
+ border-width:calc(var(--cw-book-width) * .29296875) calc(var(--cw-book-width) * .1416015625) calc(var(--cw-book-width) * .5078125);
+ border-image:url('assets/jimmy-b03-v13/notebook-portrait.webp') 300 145 520 145 fill / 1 stretch;
+}
+html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu>header,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu>header {
+ grid-area:1/1!important;position:relative!important;inset:auto!important;z-index:1;
+ display:flex;align-items:center;justify-content:space-between;gap:6px!important;
+ min-width:0;min-height:48px;margin:0!important;padding:0!important;border:0!important;background:none!important;
+}
+html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu>header :is(h2,strong),
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu>header :is(h2,strong) {
+ flex:1;min-width:0;margin:0!important;color:#f6e5c3!important;
+ font:600 19px/1.2 Baskerville,'Iowan Old Style',Georgia,serif!important;
+ text-shadow:0 1px 2px #120b07;overflow-wrap:anywhere;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu>header small {display:block;color:#dfc7a2;font:10px/1.3 Georgia,serif;}
+html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu :is(header>button,#p13-menu-close),
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu :is(header>button,#p13-menu-close) {
+ flex:0 0 auto;width:82px;min-width:64px;max-width:42%;min-height:46px!important;
+ margin:0!important;padding:7px 7px 8px 15px!important;border:0!important;border-radius:0!important;
+ background:transparent url('assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat!important;
+ color:#fff3d4!important;font:600 15px/1.2 Georgia,serif!important;text-shadow:0 1px 2px #180e07!important;text-align:center;
+ white-space:normal;overflow-wrap:anywhere;grid-area:auto!important;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page {
+ position:relative;z-index:1;grid-area:2/1!important;display:block;
+ min-width:0;min-height:0;max-width:100%;margin:0!important;padding:0!important;
+ overflow:auto!important;overscroll-behavior:contain;scroll-padding:8px;scrollbar-width:thin;
+ scrollbar-color:#86653b #e3c997;-webkit-overflow-scrolling:touch;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page :is(p,li,label,h3,h4,strong,small) {
+ max-width:100%;color:#342a20;font-family:Georgia,'Times New Roman',serif;white-space:normal;overflow-wrap:anywhere;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page :is(p,ul,details) {margin:8px 0 12px;}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page ul {padding-left:22px;}
+html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu>.cw-notebook-page button,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu>.cw-notebook-page button {
+ box-sizing:border-box;min-width:0;min-height:48px!important;max-width:100%;height:auto!important;
+ margin:0!important;padding:12px!important;border:0!important;border-bottom:1px solid #92724755!important;
+ border-radius:0!important;background:transparent!important;color:#342a20!important;
+ font:15px/1.35 Georgia,'Times New Roman',serif!important;text-shadow:none!important;box-shadow:none!important;
+ white-space:normal;overflow-wrap:anywhere;word-break:normal;text-align:left;
+}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page button[aria-pressed="true"] {background:#92724730!important;}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page button:is(:hover,:active) {background:#92724718!important;}
+html body.cw-lab-painted-ui .cw-notebook-menu [hidden] {display:none!important;}
+html body.cw-lab-painted-ui .cw-notebook-menu button:disabled {opacity:.55;}
+html body.cw-lab-painted-ui .cw-notebook-menu :is(button,input,select,summary,a):focus-visible {outline:3px solid #315c76!important;outline-offset:-3px!important;box-shadow:none!important;}
+html body.cw-lab-painted-ui .cw-notebook-menu>header>button:focus-visible {outline-color:#f6df9d!important;outline-offset:-6px!important;}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page :is(input,select,audio,progress) {box-sizing:border-box;min-width:0;max-width:100%;accent-color:#846234;}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page :is(select,input[type="text"]) {width:100%;font-size:16px;}
+html body.cw-lab-painted-ui .cw-notebook-menu>.cw-notebook-page input[type="range"] {display:block;width:100%;margin-inline:0;}
+html body.cw-lab-painted-ui :is(#cw-room-actions,#p13-menu-panel).cw-notebook-menu #p13-menu-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:max-content;align-content:start;overflow:visible!important;}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu #p21-duty-actions {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:max-content;align-content:start;gap:0 12px;}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu #p21-duty-actions>button[aria-pressed],
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu #p21-duty-actions>p~button {grid-column:1/-1;}
+html body.cw-lab-painted-ui #cw-room-actions.cw-notebook-menu .cw-room-view-actions {grid-auto-rows:max-content;align-items:stretch;}
+html body.cw-lab-painted-ui #cw-restart-dialog.cw-notebook-menu .cw-phone-extra-actions {display:grid;grid-template-columns:minmax(0,1fr);grid-auto-rows:max-content;gap:8px;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-image {height:clamp(140px,24dvh,210px);min-height:0;overflow:hidden;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-image object {width:100%;height:100%;min-height:0;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-image.atlas-zoom-enabled {overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-zoom-enabled object {max-width:none;pointer-events:none;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-zoom-controls {display:flex;align-items:center;gap:4px;min-width:0;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-zoom-controls button {width:auto!important;min-width:44px;min-height:44px!important;text-align:center;flex:1;padding:8px!important;}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu .atlas-zoom-controls output {min-width:32px;text-align:center;color:#342a20;}
+@media(orientation:landscape) and (max-height:550px) {
+ html body.cw-lab-painted-ui :is(#cw-room-actions,#cw-restart-dialog,#p13-menu-panel,#cw-patrol-details,#p21-duty-dialog,#atlas-dialog,#place-dialog,.cw-music-panel,#cw-recruitment-gate,#cw-armoury,#sheet).cw-notebook-menu,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu {
+  --cw-book-width:min(700px,calc(100vw - 16px));
+  padding:calc(var(--cw-book-width) * .02) calc(var(--cw-book-width) * .0716145833) calc(var(--cw-book-width) * .115 + 6px)!important;
+  gap:calc(var(--cw-book-width) * .02)!important;
+ }
+ html body.cw-lab-painted-ui .cw-notebook-menu::before,
+html body.cw-lab-painted-ui #app #sheet.cw-notebook-menu::before {
+  border-width:calc(var(--cw-book-width) * .09765625) calc(var(--cw-book-width) * .0716145833) calc(var(--cw-book-width) * .0651041667);
+  border-image-source:url('assets/jimmy-b03-v13/notebook-landscape.webp');border-image-slice:150 110 100 110 fill;
+ }
+}
+@media(max-width:359px) {
+ html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu #p21-duty-actions {grid-template-columns:minmax(0,1fr);}
+ html body.cw-lab-painted-ui #cw-room-actions.cw-notebook-menu .cw-room-view-actions,
+ html body.cw-lab-painted-ui :is(#cw-room-actions,#p13-menu-panel).cw-notebook-menu #p13-menu-grid {grid-template-columns:minmax(0,1fr);}
+}
+
+/* Current counter277 geometry stays intact. Its reading surface is parchment,
+   rather than stretching the leather border artwork underneath all the copy. */
+html body.cw-lab-painted-ui #cw-city-services {
+ border-image:url('assets/clothing-ui-v12/folio-frame.webp') 210 fill stretch;
+ background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;
+ color:#342a20;
+}
+html body.cw-lab-painted-ui #cw-city-services .services-shell>header {position:sticky;top:0;color:#342a20;background:#e1c797 url('assets/lab01-notebook/page_portrait.webp') center/cover;}
+html body.cw-lab-painted-ui #cw-city-services .services-shell>header h2 {color:#342a20;text-shadow:none;}
+html body.cw-lab-painted-ui #cw-city-services :is(.services-purchase,[data-sale-balance],.services-boundary,.shop-status,.services-options>summary) {color:#342a20;}
+
+/* The embedded campaign's original sheet now receives the same retained book.
+   Its overlay owns visibility; action nodes/callbacks stay in their source order. */
+html.cw-unified-service body.cw-lab-painted-ui #overlay.show {background:rgba(9,18,17,.72)!important;}
+html.cw-unified-service body.cw-lab-painted-ui #sheet.cw-notebook-menu>.cw-notebook-page .kicker {margin:0 0 8px;color:#6d5438;font:11px/1.3 Georgia,serif;letter-spacing:.06em;}
+html.cw-unified-service body.cw-lab-painted-ui #sheet.cw-notebook-menu>.cw-notebook-page>button {display:block!important;width:100%!important;}
+
+/* Watch duty reads directly on one painted parchment sheet. */
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu {
+ width:min(480px,calc(100vw - 24px))!important;
+ height:auto!important;max-height:calc(100dvh - 24px)!important;
+ padding:clamp(22px,6vw,34px)!important;gap:10px!important;
+ border:0!important;border-radius:0!important;
+ background:transparent url('assets/lab01-notebook/page_portrait.webp') center/100% 100% no-repeat!important;
+ filter:drop-shadow(0 12px 16px #0009);
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu::before {display:none}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>header {
+ padding-bottom:10px!important;border-bottom:3px double #8e5a39!important;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>header :is(h2,strong) {
+ color:#3e281d!important;text-shadow:none;
+ font-size:clamp(19px,5.8vw,27px)!important;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>header::before {
+ content:'';flex:0 0 38px;height:42px;
+ background:url('assets/p20-base-03/inventory-v06/item-watch-badge.exact.webp') center/contain no-repeat;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>header>button {
+ width:auto;min-width:54px;border-radius:0!important;background:none!important;
+ color:#652e24!important;text-shadow:none!important;padding:6px 7px!important;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>header>button:focus-visible {
+ outline-color:#315c76!important;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>.cw-notebook-page {
+ background:none!important;padding:0!important;border-radius:0;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu #p21-duty-actions {
+ grid-template-columns:minmax(0,1fr);
+}
+html body.cw-lab-painted-ui #p21-duty-dialog .cw-patrol-route-menu {
+ display:block;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog .cw-patrol-route-menu h3 {
+ margin:6px 0 10px;font-size:1.25em;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>.cw-notebook-page button {
+ position:relative;padding-inline:22px 8px!important;
+ color:#512b20!important;border-bottom-color:#8e5a3966!important;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>.cw-notebook-page button::before {
+ content:'›';position:absolute;inset-inline-start:5px;color:#87502d;font-size:1.1em;
+}
+html body.cw-lab-painted-ui #p21-duty-dialog.cw-notebook-menu>.cw-notebook-page button:is(:hover,:active) {
+ background:#8e5a3918!important;
+}

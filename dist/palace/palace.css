@@ -1,0 +1,62 @@
+#cw-palace-host *{box-sizing:border-box}#cw-palace-host,#cw-palace-host{margin:0;min-height:100%;background:#10140f;color:#ecdcb9;font:16px Georgia,serif}#cw-palace-host button,#cw-palace-host select{font:inherit;min-width:44px;min-height:46px;touch-action:manipulation}#cw-palace-host button{cursor:pointer;border:0;color:#342519;padding:8px 14px;background:transparent var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100% no-repeat}#cw-palace-host button:disabled{opacity:.5;cursor:default}#cw-palace-host button:focus-visible,#cw-palace-host select:focus-visible,#cw-palace-host canvas:focus-visible{outline:3px solid #edd29a;outline-offset:-3px}#cw-palace-host select{max-width:100%;min-width:0;color:#2c2119;background:#e8d6ad;border:1px solid #a17d45;padding:6px}#cw-palace-host #palace-interior-app{width:min(1100px,100%);margin:auto;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}#cw-palace-host .room-header{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(115deg,#36271c,#211b15);border-bottom:2px solid #9e7845;padding:10px 14px}#cw-palace-host .room-header h1{font:600 24px/1.2 Georgia;margin:4px 0}#cw-palace-host .room-header small{font-size:10px;letter-spacing:.1em}#cw-palace-host .room-header label{display:grid;gap:4px;max-width:40%;font-size:13px}#cw-palace-host .preview-note{font-size:12px;margin:0;padding:7px 12px;background:#2e2b22;color:#d2c29f}#cw-palace-host .room-stage{position:relative;background:#000;overflow:hidden}#cw-palace-host #palace-room-canvas{display:block;width:100%;height:min(61dvh,650px);touch-action:none}#cw-palace-host #palace-loading{position:absolute;inset:15px auto auto 15px;background:#221b14e8;padding:10px;border:1px solid #a17d45;font-size:15px}#cw-palace-host #palace-loading[hidden]{display:none}#cw-palace-host #palace-room-status{min-height:42px;padding:8px 12px;background:#2b231b;border-block:1px solid #7e603c;margin:0;font-size:14px;line-height:1.4}#cw-palace-host .room-look{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#38291d}#cw-palace-host .room-look label{display:flex;align-items:center;gap:8px;min-width:0;flex:1}#cw-palace-host .room-look select{width:100%}#cw-palace-host .room-look button{flex:none}#cw-palace-host .room-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 12px;background:#2a2119;border-top:1px solid #917040}#cw-palace-host .room-actions{display:grid;gap:7px;width:min(240px,55%)}#cw-palace-host .cw-joystick-control{width:108px!important}#cw-palace-host .cw-joystick{--stick-size:100px!important;border-width:4px}#cw-palace-host .cw-joystick-help,#cw-palace-host .cw-step-controls{display:none!important}#cw-palace-host .room-actions button{min-height:48px;line-height:1.25}#cw-palace-host #palace-room-inspection{padding:0;width:min(600px,calc(100% - 12px));max-height:calc(100dvh - 12px);border:0;background:transparent;color:#2e2218;font:17px/1.5 Georgia;overflow:auto}#cw-palace-host #palace-room-inspection::backdrop{background:#071018c9;backdrop-filter:blur(4px)}#cw-palace-host .inspection-folio{border:solid transparent;border-width:62px 23px 24px;border-image:url('../assets/jimmy-b03-v13/notebook-landscape.webp') 150 110 100 110 fill /62px 23px 24px stretch;padding:0 10px 14px;position:relative}#cw-palace-host .inspection-folio header{display:flex;align-items:center;gap:10px}#cw-palace-host .inspection-folio h2{font-size:23px;flex:1;margin:5px 0}#cw-palace-host .inspection-folio header button{flex:none}#cw-palace-host .inspection-folio p{white-space:pre-line;overflow-wrap:anywhere}
+@media(max-width:600px){#cw-palace-host .room-header{gap:9px;padding:8px 10px;align-items:start}#cw-palace-host .room-header h1{font-size:19px}#cw-palace-host .room-header label{max-width:43%;font-size:11px}#cw-palace-host .room-header small{font-size:9px;letter-spacing:.025em}#cw-palace-host .room-header select{font-size:14px}#cw-palace-host .room-look{gap:5px;padding:6px}#cw-palace-host .room-look label{display:grid;font-size:12px;gap:3px}#cw-palace-host .room-look button{padding:8px;max-width:26%;font-size:14px}#cw-palace-host #palace-room-canvas{height:49dvh;min-height:260px}#cw-palace-host .room-controls{padding:6px 10px}#cw-palace-host .room-actions{width:calc(100% - 120px)}#cw-palace-host .room-actions button{font-size:15px}}
+@media(orientation:landscape) and (max-height:550px){#cw-palace-host .room-header{padding:4px 9px}#cw-palace-host .room-header h1{font-size:17px}#cw-palace-host .preview-note{padding:3px 8px;font-size:10px}#cw-palace-host #palace-room-canvas{height:64dvh;min-height:200px}#cw-palace-host .room-look{padding:4px 8px}#cw-palace-host .room-controls{padding:4px 10px}#cw-palace-host .cw-joystick{--stick-size:84px!important}#cw-palace-host .room-actions{display:flex;width:auto}#cw-palace-host .room-actions button{max-width:220px}#cw-palace-host .room-header label{display:flex;align-items:center}#cw-palace-host .room-look label{display:flex}}
+
+#cw-palace-host{padding:0;width:min(1100px,calc(100% - 8px));max-height:calc(100dvh - 8px);border:1px solid #a17d45;overflow:auto}#cw-palace-host::backdrop{background:#091014de}#cw-palace-host .room-header label,#cw-palace-host .preview-note{display:none}#cw-palace-host #palace-room-canvas{height:min(61dvh,650px)}
+#cw-palace-host{margin:auto}#cw-palace-host p{max-width:none}#cw-palace-host #palace-room-status{width:100%}
+#cw-palace-host{min-height:0;height:auto}
+#cw-guild-recovery,#cw-guild-recovery *{box-sizing:border-box}#cw-guild-recovery{margin:auto;padding:0;border:0;width:min(560px,calc(100% - 12px));max-height:calc(100dvh - 12px);overflow:auto;background:transparent;color:#302318;font:17px/1.5 Georgia,serif}#cw-guild-recovery::backdrop{background:#071018d9;backdrop-filter:blur(4px)}#cw-guild-recovery .guild-recovery-sheet{border:solid transparent;border-width:62px 23px 24px;border-image:url('../assets/jimmy-b03-v13/notebook-landscape.webp') 150 110 100 110 fill /62px 23px 24px stretch;padding:0 10px 16px}#cw-guild-recovery h2{font-size:24px;line-height:1.2;margin:8px 0 14px}#cw-guild-recovery p{max-width:none;margin:12px 0}#cw-guild-recovery .guild-recovery-actions{display:grid;gap:10px;margin-top:22px}#cw-guild-recovery button{min-width:0;min-height:48px;white-space:normal;color:#302318;font:inherit;border:0;padding:12px 18px;background:transparent var(--cw-watch-control-action,linear-gradient(#f3e4c4,#dec59a)) center/100% 100% no-repeat;cursor:pointer}#cw-guild-recovery button:focus-visible{outline:3px solid #81602d;outline-offset:2px}#cw-guild-recovery button:disabled{opacity:.6}
+
+@media(max-width:600px){#cw-palace-host #palace-room-canvas{height:clamp(230px,43dvh,420px);min-height:230px}}
+
+#cw-palace-host .room-header label[hidden],#cw-palace-host .preview-note[hidden]{display:none!important}
+
+#cw-palace-host .palace-portrait{float:right;width:120px;height:120px}#cw-palace-host .room-header small{display:block}#cw-palace-host #palace-room-canvas{height:clamp(220px,45dvh,610px)}
+
+#cw-palace-host #palace-room-inspection .inspection-folio{display:grid;grid-template-columns:128px minmax(0,1fr);gap:10px;align-items:start}#cw-palace-host #palace-room-inspection header{grid-column:1/-1}#cw-palace-host #palace-room-inspection p{grid-column:2;grid-row:2;margin:0}#cw-palace-host #palace-room-inspection .palace-portrait{float:none;grid-column:1;grid-row:2;width:120px;height:120px;border:1px solid #9d794c;background:#ad8b5e33}#cw-palace-host #palace-room-inspection .palace-portrait[hidden]{display:none}@media(max-width:420px){#cw-palace-host #palace-room-inspection .inspection-folio{grid-template-columns:84px minmax(0,1fr);gap:8px}#cw-palace-host #palace-room-inspection .palace-portrait{width:80px;height:80px}#cw-palace-host #palace-room-inspection p{font-size:15px;line-height:1.4}}
+#cw-palace-host #palace-interior-app{display:block;min-height:0;height:auto}
+@media(orientation:landscape) and (max-height:550px){
+ #cw-palace-host{height:calc(100dvh - 8px);overflow:hidden}
+ #cw-palace-host #palace-interior-app{height:100%;display:grid;grid-template-columns:minmax(0,1fr) 224px;grid-template-rows:40px minmax(0,1fr) 112px 34px}
+ #cw-palace-host .room-header{grid-column:1/-1;grid-row:1;padding:4px 8px}
+ #cw-palace-host .room-stage{grid-column:1;grid-row:2/4;min-height:0}
+ #cw-palace-host #palace-room-canvas{height:100%!important;min-height:0}
+ #cw-palace-host #palace-room-status{grid-column:1/-1;grid-row:4;font-size:12px;min-height:0;padding:5px 8px;line-height:1.2}
+ #cw-palace-host .room-look{grid-column:2;grid-row:2;display:grid;grid-template-columns:1fr 1fr;align-content:start;padding:6px;gap:5px}
+ #cw-palace-host .room-look label{grid-column:1/-1;display:grid;font-size:12px}
+ #cw-palace-host .room-look button{max-width:none;min-width:0;font-size:12px;padding:6px}
+ #cw-palace-host .room-controls{grid-column:2;grid-row:3;gap:5px;padding:5px;align-items:center}
+ #cw-palace-host .room-actions{display:grid;width:114px;gap:3px}
+ #cw-palace-host .room-actions button{max-width:none;min-height:46px;font-size:12px;padding:5px}
+ #cw-palace-host .cw-joystick-control{width:92px!important}
+}
+#cw-palace-host #palace-room-canvas{height:clamp(180px,calc(100dvh - 340px),380px)}
+@media(orientation:landscape) and (max-height:550px){
+ #cw-palace-host #palace-interior-app{height:calc(100dvh - 10px)!important;max-height:calc(100dvh - 10px);overflow:hidden}
+ #cw-palace-host .room-stage{height:calc(100dvh - 84px)!important;min-height:0}
+ #cw-palace-host #palace-room-canvas{height:100%!important;min-height:0}
+ #cw-palace-host .room-look,#cw-palace-host .room-controls{min-height:0;min-width:0}
+}
+
+#cw-palace-host:not([data-loading]){background:#18251f;border-radius:10px}
+#cw-palace-host :is(.room-header,.room-look,.room-controls,#palace-room-status){background:#18251f;border-color:#776747}
+#cw-palace-host :is(.room-actions,.room-look) button,#cw-palace-host .room-look select{
+ background:#29382f;color:#f3e3c2;border:1px solid #a68b61;border-radius:6px;min-height:44px;
+}
+#cw-palace-host [hidden]{display:none!important}
+
+/* Public reception shares the campaign's full viewport and small control tray. */
+#cw-palace-host:not([data-loading]){position:fixed;inset:0;margin:0;padding:0;width:100vw;max-width:none;height:100dvh;max-height:none;overflow:hidden;border:0;border-radius:0}
+#cw-palace-host:not([data-loading]) #palace-interior-app{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);width:100%;height:100dvh!important;max-height:none;padding:0}
+#cw-palace-host:not([data-loading]) .room-header{grid-column:1;grid-row:1;z-index:1;gap:8px;padding:5px max(8px,env(safe-area-inset-right));align-items:center}
+#cw-palace-host:not([data-loading]) .room-header h1{font-size:clamp(16px,3vw,21px)}
+#cw-palace-host #palace-exit{border:1px solid #a68b61;border-radius:6px;background:#29382f;color:#f3e3c2;white-space:nowrap;padding:6px 10px}
+#cw-palace-host:not([data-loading]) .room-stage{grid-column:1;grid-row:2;height:auto!important;min-height:0}
+#cw-palace-host:not([data-loading]) #palace-room-canvas{height:100%!important;min-height:0}
+#cw-palace-host #palace-room-status{position:absolute;z-index:2;top:66px;left:8px;max-width:min(29rem,calc(100vw - 16px));width:auto;min-height:0;padding:6px 9px;pointer-events:none;background:#212f26ed;border:1px solid #917853;border-radius:6px}
+#cw-palace-host .room-look{position:absolute;z-index:4;right:8px;bottom:68px;display:grid;grid-template-columns:minmax(0,1fr) auto;max-width:calc(100vw - 16px);padding:8px;border:1px solid #a08658;border-radius:7px;box-shadow:0 5px 18px #090c08a8}
+#cw-palace-host .room-look label{grid-column:auto;display:grid;gap:3px}#cw-palace-host .room-look button{max-width:none;align-self:end}
+#cw-palace-host .room-controls{position:absolute;z-index:3;bottom:max(8px,env(safe-area-inset-bottom));right:8px;display:block;padding:0;border:0;background:transparent}
+#cw-palace-host #palace-stick{display:none!important}
+#cw-palace-host .room-actions{display:flex;gap:6px;width:auto;flex-wrap:wrap;justify-content:flex-end}
+#cw-palace-host .room-actions button{padding:6px 10px;max-width:none;min-height:44px;font-size:14px}

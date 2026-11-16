@@ -1,0 +1,67 @@
+{
+  "baseline": "ad53eb2b9da7bd7f66d90c1f5f50adabe9ec5024",
+  "status": "approved original game placement, separate public Bank and staff-only Mint",
+  "projection": "x=28*(x-y); y=14*(x+y)",
+  "facades": [
+    {
+      "id": "royal-bank",
+      "bounds": [
+        154.5,
+        292.5,
+        6,
+        5
+      ],
+      "threshold": [
+        160.5,
+        295
+      ],
+      "standing": [
+        161,
+        295,
+        "E008"
+      ],
+      "tieIn": [
+        162,
+        295,
+        "E008"
+      ],
+      "art": "royal-bank.webp",
+      "paintedThresholdPx": [
+        464,
+        469
+      ],
+      "uniformScale": 0.52,
+      "public": true
+    },
+    {
+      "id": "royal-mint",
+      "bounds": [
+        154,
+        298.5,
+        5,
+        5
+      ],
+      "threshold": [
+        159,
+        300
+      ],
+      "standing": [
+        160,
+        300,
+        "E008"
+      ],
+      "tieIn": [
+        162,
+        300,
+        "E008"
+      ],
+      "art": "royal-mint.webp",
+      "paintedThresholdPx": [
+        439,
+        343
+      ],
+      "uniformScale": 0.55,
+      "public": false
+    }
+  ]
+}

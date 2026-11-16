@@ -1,0 +1,58 @@
+{
+  "id": "E043-INFILL-002",
+  "classification": "Original unnamed infill; not a canonical address, cast member or quest location",
+  "scope": "One unique wide-fronted deep brick house replacing legacy parcel 539 immediately north of E043-INFILL-001.",
+  "asset": {
+    "id": "E043-INFILL-002:brick-gabled-house-painted",
+    "file": "brick-gabled-house-painted.webp",
+    "source": "art-source/street-by-street/e043-infill-002/e043_brick_gabled_house_painted.png",
+    "master": "art-source/street-by-street/e043-infill-002/e043_brick_gabled_house_painted_master.png",
+    "dimensions": [
+      480,
+      500
+    ],
+    "visibleBounds": [
+      86,
+      142,
+      316,
+      348
+    ],
+    "anchor": [
+      240,
+      490
+    ],
+    "render_scale": 1,
+    "sha256": "650f7c4e5d4a9d50c59ed6b3895d53abe11369006dc90c1cf20026237e3095dc"
+  },
+  "instance": {
+    "id": "E043-INFILL-002:brick-gabled-house-painted",
+    "p": [
+      61.702,
+      62.757
+    ],
+    "rect": [
+      59.272,
+      59.814,
+      4.248,
+      3.699
+    ],
+    "kind": "building",
+    "sourceParcel": 539,
+    "visualDoorHeight": 63,
+    "referenceActorHeight": 60,
+    "publicThresholdOnly": true
+  },
+  "retiredParcels": [
+    539
+  ],
+  "newNavigation": false,
+  "newInteractiveDoors": false,
+  "creativeAcceptance": false,
+  "generation": {
+    "script": "scripts/generate-e043-premise-002.py",
+    "method": "painted master fitted to production canvas",
+    "noMirror": true,
+    "noLegacyCrop": true,
+    "noRecolour": true
+  }
+}

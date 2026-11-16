@@ -1,0 +1,138 @@
+{
+  "id": "DOCKSIDE-002",
+  "base": "ddfc2b904076281f1b99de2700871501fe288263",
+  "bounds": [
+    60,
+    197,
+    77,
+    204
+  ],
+  "scope": "Three adjacent unique original riverfront premises behind the existing loading key; replaces repeated parcels424,444,462 only",
+  "DimwellExcluded": true,
+  "buildings": [
+    {
+      "id": "ropeworker-lodging",
+      "rect": [
+        71.46400000000001,
+        198.945,
+        4.687,
+        3.677
+      ],
+      "p": [
+        73.30750000000002,
+        200.2835
+      ],
+      "anchor": [
+        160,
+        320
+      ],
+      "dimensions": [
+        320,
+        336
+      ],
+      "file": "ropeworker-lodging.avif",
+      "sha256": "ced86b3c3bdd55d1eef76cf6f4e936abe257ae2b9848f242cce55062206a9d30",
+      "source": "ropeworker-lodging-source.png",
+      "sourceSHA256": "005ab7dc92c0904287cb52a9867f0ae87fb5287db81a9fcbd72cda05ca03bf69",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "trimmedDimensions": [
+        976,
+        993
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "uniquePremise": true,
+      "bytes": 3437,
+      "sourceParcel": 499,
+      "renderId": "roof:424"
+    },
+    {
+      "id": "cooper-workshop",
+      "rect": [
+        66.05799999999999,
+        198.439,
+        3.614,
+        3.906
+      ],
+      "p": [
+        67.365,
+        199.892
+      ],
+      "anchor": [
+        160,
+        320
+      ],
+      "dimensions": [
+        320,
+        336
+      ],
+      "file": "cooper-workshop.avif",
+      "sha256": "eca8676fbd7918d89be34ab5325ffa7219dfee6095d21d8909c595e9d8f2e201",
+      "source": "cooper-workshop-source.png",
+      "sourceSHA256": "eb4fa32d0c77acf1d11da8efb464665ae1edf438b1ca0be4bd572faad9d14214",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "trimmedDimensions": [
+        1261,
+        963
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "uniquePremise": true,
+      "bytes": 2654,
+      "sourceParcel": 524,
+      "renderId": "roof:444"
+    },
+    {
+      "id": "factor-storehouse",
+      "rect": [
+        61.457,
+        198.407,
+        3.424,
+        3.831
+      ],
+      "p": [
+        62.669000000000004,
+        199.82250000000002
+      ],
+      "anchor": [
+        160,
+        320
+      ],
+      "dimensions": [
+        320,
+        336
+      ],
+      "file": "factor-storehouse.avif",
+      "sha256": "4ffd4b779beba825207a0ba105ab32902040c0e42790f832cb66bdc1fa5a16e2",
+      "source": "factor-storehouse-source.png",
+      "sourceSHA256": "c75b5d4d1d1b73be0d62c7b6dd4a4e6d97878e2f4884346820c02387a772fa36",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "trimmedDimensions": [
+        771,
+        1002
+      ],
+      "scale": 1,
+      "mirror": false,
+      "recolour": false,
+      "uniquePremise": true,
+      "bytes": 3704,
+      "sourceParcel": 545,
+      "renderId": "roof:462"
+    }
+  ],
+  "navigationChanged": false,
+  "buildingsMoved": 0,
+  "newInteractiveDoors": 0,
+  "creativeAcceptance": false
+}

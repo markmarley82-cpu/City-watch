@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "id": "E046-P03-RECEIVER-334",
+  "status": "RUNTIME_INTEGRATION_CANDIDATE",
+  "runtimeBase": "0d7bd5c819b2674fd7085e70e27dbcb557388354",
+  "scope": {
+    "edgeID": "E046",
+    "section": [32, 223, 53, 249],
+    "newPublicRoutes": 0,
+    "newInterior": false
+  },
+  "boundary": {
+    "epsilonWorldUnits": 1e-9
+  },
+  "foot": {
+    "probes": [[0, 0], [-0.12, -0.12], [-0.12, 0.12], [0.12, -0.12], [0.12, 0.12]],
+    "maxSavedFootDistanceFromAnchor": 1.5
+  },
+  "regions": [
+    {
+      "id": "E046-WEST-COMPOSITION-P03",
+      "role": "locked fitted foundation",
+      "worldPolygon": [[37.424258025090346, 224.51068697760056], [37.06211504092027, 228.49425980347138], [32.87936357375592, 228.1140096700928], [33.241506557925995, 224.13043684422198]]
+    }
+  ],
+  "expectedRemoval": [
+    {"key": "35,225", "edges": ["E046"]},
+    {"key": "35,226", "edges": ["E046"]},
+    {"key": "35,227", "edges": ["E046"]},
+    {"key": "35,228", "edges": ["E046"]},
+    {"key": "36,225", "edges": ["E046"]},
+    {"key": "36,226", "edges": ["E046"]},
+    {"key": "36,227", "edges": ["E046"]},
+    {"key": "36,228", "edges": ["E046"]},
+    {"key": "37,225", "edges": ["E046"]},
+    {"key": "37,226", "edges": ["E046"]},
+    {"key": "37,227", "edges": ["E046"]},
+    {"key": "37,228", "edges": ["E046"]}
+  ],
+  "art": {
+    "source": "art-source/street-by-street/e046-west-corrected331",
+    "canvas": [293, 435],
+    "worldPivot": [37.424258025090346, 224.51068697760056],
+    "anchor": [260.5799893297144, 320.0892300376722],
+    "uniformScale": 1,
+    "foundationResidualNativePixels": 6.752998160663992e-11,
+    "layers": {
+      "body": "body.png",
+      "roofHidden": "roof-hidden.png",
+      "foreground": "foreground.png",
+      "nightEmission": "night-emission.png"
+    }
+  },
+  "renderer": {
+    "spriteID": "E046-WEST-COMPOSITION-P03",
+    "sourceAsset": "E046-WEST-COMPOSITION-P03",
+    "lightAnchors": [[50, 218], [197, 218]],
+    "doorHeightPixels": 66
+  },
+  "door": {
+    "gameID": "original:e046-p03-workshop",
+    "name": "Workshop dwelling",
+    "stance": [38, 227, "E046"],
+    "thresholdWorld": [37.392570513975464, 226.51605375244236],
+    "thresholdPixels": [203.542469322927, 347.72073972984936],
+    "exteriorOnly": true
+  },
+  "depth": {
+    "schema": 1,
+    "id": "E046-WEST-COMPOSITION-P03",
+    "visibleEdges": [
+      {"id": "front", "origin": [37.424258025090346, 224.51068697760056], "outward": [0.9958932064677039, 0.09053574604251853], "exteriorLimit": 0.25, "behindLimit": 0.20},
+      {"id": "return", "origin": [33.241506557925995, 224.13043684422198], "outward": [0.09053574604251853, -0.9958932064677039], "exteriorLimit": 0.25, "behindLimit": 0.20}
+    ],
+    "worldPolygon": [[37.424258025090346, 224.51068697760056], [37.06211504092027, 228.49425980347138], [32.87936357375592, 228.1140096700928], [33.241506557925995, 224.13043684422198]],
+    "nativeOrderDisjointIDs": []
+  },
+  "preserve": {
+    "routesChanged": false,
+    "approvedBuildingsMoved": false,
+    "saveSchemaChanged": false,
+    "physicalPhoneVerified": false
+  }
+}

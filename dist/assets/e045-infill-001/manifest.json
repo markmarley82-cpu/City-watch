@@ -1,0 +1,48 @@
+{
+  "id": "E045-INFILL-001",
+  "classification": "Original unnamed back-street infill, not canonical address/cast/shop/quest",
+  "asset": {
+    "file": "narrow-stone-house.webp",
+    "dimensions": [
+      236,
+      216
+    ],
+    "anchor": [
+      112,
+      206
+    ],
+    "visualDoorHeight": 64,
+    "actorHeight": 60,
+    "uniformMasterScale": 0.18,
+    "sha256": "505091401a256d4a10eb6bc25f9e59280c5eefe00fd9cf9843df4e64ce74863b"
+  },
+  "oldRect": [
+    36.61000000000001,
+    211.049,
+    2.636,
+    3.151
+  ],
+  "rect": [
+    36.61,
+    212.0,
+    1.8,
+    2.201
+  ],
+  "p": [
+    37.91,
+    213.701
+  ],
+  "retiredParcels": [
+    631
+  ],
+  "originalGraphChanged": false,
+  "localFootprintChanged": true,
+  "newInteractiveDoors": false,
+  "creativeAcceptance": false,
+  "generation": {
+    "tool": "built-in image generation",
+    "uniqueAsset": true,
+    "noMirrorRecolourOrLegacyReuse": true,
+    "brief": "Compact one-storey unnamed artisan house, narrow limewash front nearly door-wide, deep stone side wall, volumetric slate roof/chimney, full foundation, alpha background; final edit requested neutral edge cleanup. Uniform export only; no affine sprite stretching."
+  }
+}

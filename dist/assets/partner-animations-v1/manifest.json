@@ -1,0 +1,65 @@
+{
+  "version": 3,
+  "characters": [
+    {
+      "key": "nobby",
+      "name": "Nobby Nobbs",
+      "mentorId": "WATCH-04",
+      "patrolHeight": 44
+    },
+    {
+      "key": "colon",
+      "name": "Fred Colon",
+      "mentorId": "WATCH-03",
+      "patrolHeight": 60
+    },
+    {
+      "key": "detritus",
+      "name": "Detritus",
+      "mentorId": "WATCH-06",
+      "patrolHeight": 80
+    },
+    {
+      "key": "visit",
+      "name": "Constable Visit",
+      "mentorId": "WATCH-10",
+      "patrolHeight": 60
+    },
+    {
+      "key": "reg",
+      "name": "Reg Shoe",
+      "mentorId": "WATCH-08",
+      "patrolHeight": 60
+    },
+    {
+      "key": "cheery",
+      "name": "Cheery Littlebottom",
+      "mentorId": "WATCH-07",
+      "patrolHeight": 42
+    },
+    {
+      "key": "dorfl",
+      "name": "Dorfl",
+      "mentorId": "WATCH-09",
+      "patrolHeight": 76
+    },
+    {
+      "key": "angua",
+      "name": "Angua von Überwald",
+      "mentorId": "WATCH-05",
+      "patrolHeight": 60
+    },
+    {
+      "key": "sally",
+      "name": "Sally von Humpeding",
+      "mentorId": "WATCH-14",
+      "patrolHeight": 58
+    },
+    {
+      "key": "carrot",
+      "name": "Carrot Ironfoundersson",
+      "mentorId": "WATCH-02",
+      "patrolHeight": 70
+    }
+  ]
+}

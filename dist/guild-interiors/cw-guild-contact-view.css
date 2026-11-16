@@ -1,0 +1,71 @@
+/* NPC conversation presentation. Content remains real, selectable DOM. */
+#cw-guild-contact-dialog,#cw-guild-contact-dialog *{box-sizing:border-box}
+#cw-guild-contact-dialog{width:min(760px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);padding:0;border:0;background:transparent;color:#302318;overflow:auto;overscroll-behavior:contain;box-shadow:0 18px 60px #000b;font:17px/1.5 'Iowan Old Style',Baskerville,Georgia,serif;scrollbar-color:#866439 #ddc397;-webkit-text-size-adjust:100%;}
+#cw-guild-contact-dialog::backdrop{background:#071018c9;backdrop-filter:blur(4px)}
+#cw-guild-contact-dialog .cw-dialogue-folio{position:relative;border:7px solid #3d291b;border-radius:8px;background:#3d291b url('../assets/jimmy-ui-ornate-v1/leather-pad.webp') center/cover;box-shadow:inset 0 0 0 1px #aa7d41,inset 0 0 18px #120b05;}
+#cw-guild-contact-dialog .cw-dialogue-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 8px 8px 12px;color:#ddc49b;background:#302218eF;border-bottom:1px dashed #b28c585e;}
+#cw-guild-contact-dialog .cw-dialogue-top>span{font:700 11px/1.3 Georgia,serif;letter-spacing:.12em;}
+#cw-guild-contact-dialog .cw-dialogue-close{flex:none;min-height:44px;min-width:80px;padding:8px 12px;background:#261e17;border:1px solid #a47c45;border-radius:4px;color:#f2dfba;font:700 15px/1.2 Georgia,serif;box-shadow:inset 0 0 0 3px #5f442633;cursor:pointer;touch-action:manipulation;}
+#cw-guild-contact-dialog .cw-dialogue-close span{margin-left:8px;font-size:22px;font-weight:400;vertical-align:-1px;}
+#cw-guild-contact-dialog .cw-dialogue-spread{display:grid;grid-template-columns:170px minmax(0,1fr);gap:10px;padding:12px;align-items:start;}
+#cw-guild-contact-dialog .cw-dialogue-profile{margin:5px 0 0;padding:10px 10px 6px;border:1px solid #a27a40;border-radius:4px;background:#cdb384 url('../assets/lab01-notebook/page_portrait.webp') center/cover;box-shadow:0 3px 5px #0007;transform:rotate(-1deg);}
+#cw-guild-contact-dialog .cw-dialogue-portrait{width:100%;aspect-ratio:1/1.15;position:relative;display:grid;place-items:center;border:4px solid #654b2d;outline:1px solid #a88448;background:radial-gradient(ellipse at 50% 35%,#7d8276,#3d4b48 75%);overflow:hidden;box-shadow:inset 0 0 18px #0008;}
+#cw-guild-contact-dialog .cw-dialogue-portrait img{width:100%;height:100%;object-fit:contain;object-position:center bottom;image-rendering:auto;filter:drop-shadow(0 2px 3px #1119);}
+#cw-guild-contact-dialog .cw-dialogue-portrait.people-face{border-radius:0;float:none;margin:0;}
+#cw-guild-contact-dialog .cw-dialogue-profile-caption{font:italic 15px/1.3 Georgia,serif;text-align:center;margin:10px 0 2px;color:#36291b;overflow-wrap:anywhere;}
+#cw-guild-contact-dialog .cw-dialogue-initial{font:64px Georgia,serif;color:#e7cda2;}
+#cw-guild-contact-dialog .cw-dialogue-page{min-width:0;border:24px solid transparent;border-image:url('../watch-oath/assets/oath-folio.webp') 150 fill / 24px stretch;padding:0 6px 8px;filter:drop-shadow(0 3px 3px #0006);}
+#cw-guild-contact-dialog .cw-dialogue-heading{border-bottom:1px solid #80623d72;padding:0 0 10px;}
+#cw-guild-contact-dialog h2{font:700 clamp(23px,4vw,29px)/1.16 Georgia,serif;margin:0 0 4px;color:#302217;overflow-wrap:anywhere;}
+#cw-guild-contact-dialog .cw-dialogue-kind{font:italic 13px/1.3 Georgia,serif;color:#5b4b36;margin:0;overflow-wrap:anywhere;}
+#cw-guild-contact-dialog .cw-dialogue-speech{font:17px/1.55 'Iowan Old Style',Baskerville,Georgia,serif;white-space:pre-line;overflow-wrap:break-word;margin:16px 0 18px;color:#302318;}
+#cw-guild-contact-dialog .cw-dialogue-responses{display:grid;gap:8px;border-top:1px solid #92714355;padding-top:12px;}
+#cw-guild-contact-dialog .cw-dialogue-responses button{display:block;position:relative;width:100%;min-width:44px;min-height:48px;margin:0;padding:10px 12px 10px 34px;background:linear-gradient(90deg,#f4e3bdc9,#d2b78350);color:#3a2a1b;border:1px solid #92704480;border-radius:2px;box-shadow:0 2px 1px #6a4a2422;font:600 16px/1.3 'Iowan Old Style',Baskerville,Georgia,serif;text-align:left;overflow-wrap:break-word;cursor:pointer;touch-action:manipulation;}
+#cw-guild-contact-dialog .cw-dialogue-responses button::before{content:'›';position:absolute;left:12px;top:50%;transform:translateY(-50%);font:25px Georgia,serif;}
+#cw-guild-contact-dialog .cw-dialogue-responses button:hover,#cw-guild-contact-dialog .cw-dialogue-responses button:focus-visible{background:#b7c5c8;color:#192d33;border-color:#506d78;}
+#cw-guild-contact-dialog button:active{transform:translateY(1px);}
+#cw-guild-contact-dialog button:focus-visible,#cw-guild-contact-dialog .cw-dialogue-speech:focus-visible{outline:3px solid #304f60;outline-offset:2px;}
+#cw-guild-contact-dialog .cw-dialogue-close:focus-visible{outline-color:#f0d28c;}
+@media(max-width:560px){#cw-guild-contact-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);}#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:minmax(0,1fr);padding:8px;gap:12px;}#cw-guild-contact-dialog .cw-dialogue-profile{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;width:100%;margin:0;padding:8px;transform:none;}#cw-guild-contact-dialog .cw-dialogue-portrait{width:88px;aspect-ratio:1/1;}#cw-guild-contact-dialog .cw-dialogue-profile-caption{font-size:19px;text-align:left;margin:0;}#cw-guild-contact-dialog .cw-dialogue-page{border-width:20px;border-image-width:20px;padding-inline:2px;}#cw-guild-contact-dialog .cw-dialogue-top{padding:4px 4px 7px 8px;}#cw-guild-contact-dialog .cw-dialogue-top>span{font-size:10px;letter-spacing:.07em;}}
+@media(max-width:359px){#cw-guild-contact-dialog{width:calc(100% - 8px);max-height:calc(100dvh - 8px);}#cw-guild-contact-dialog .cw-dialogue-folio{border-width:4px;}#cw-guild-contact-dialog .cw-dialogue-spread{padding:5px;gap:8px;}#cw-guild-contact-dialog .cw-dialogue-page{border-width:15px;border-image-width:15px;padding-inline:1px;}#cw-guild-contact-dialog .cw-dialogue-profile{grid-template-columns:72px minmax(0,1fr);gap:10px;}#cw-guild-contact-dialog .cw-dialogue-portrait{width:72px;}#cw-guild-contact-dialog .cw-dialogue-profile-caption{font-size:17px;}#cw-guild-contact-dialog .cw-dialogue-speech{font-size:16px;}#cw-guild-contact-dialog .cw-dialogue-responses button{font-size:16px;padding-left:28px;}#cw-guild-contact-dialog .cw-dialogue-responses button::before{left:9px;}}
+@media(orientation:landscape) and (max-height:520px){#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:120px minmax(0,1fr);padding:8px;gap:9px;}#cw-guild-contact-dialog .cw-dialogue-profile{display:block;margin:0;padding:7px;}#cw-guild-contact-dialog .cw-dialogue-portrait{width:100%;aspect-ratio:1;}#cw-guild-contact-dialog .cw-dialogue-profile-caption{font-size:14px;text-align:center;margin:8px 0 0;}#cw-guild-contact-dialog .cw-dialogue-page{border-width:18px;border-image-width:18px;}#cw-guild-contact-dialog .cw-dialogue-speech{margin:10px 0 12px;}}
+@media(prefers-reduced-motion:reduce){#cw-guild-contact-dialog *{scroll-behavior:auto;transition:none;}}
+@media(forced-colors:active){#cw-guild-contact-dialog .cw-dialogue-folio,#cw-guild-contact-dialog .cw-dialogue-page,#cw-guild-contact-dialog .cw-dialogue-profile{background:Canvas;color:CanvasText;border:2px solid CanvasText;filter:none;}#cw-guild-contact-dialog button{background:ButtonFace;color:ButtonText;border:2px solid ButtonText;}#cw-guild-contact-dialog p,#cw-guild-contact-dialog h2{color:CanvasText;}}
+
+/* Mark's v0.20 style correction: one continuous existing Jimmy Notebook,
+   an inset portrait and the real Notebook strap/tab components. */
+#cw-guild-contact-dialog{width:min(700px,calc(100% - 24px));color:#2c2018;box-shadow:none;filter:drop-shadow(0 12px 22px #0008)}
+#cw-guild-contact-dialog::backdrop{background:#071018aa;backdrop-filter:blur(2px)}
+#cw-guild-contact-dialog .cw-dialogue-folio{min-height:300px;border:solid transparent;border-width:76px 30px 32px;border-image:url('../assets/jimmy-b03-v13/notebook-landscape.webp') 150 110 100 110 fill / 76px 30px 32px stretch;padding:4px 10px 20px;border-radius:0;background:none;box-shadow:none}
+#cw-guild-contact-dialog .cw-dialogue-top{position:absolute;top:-64px;left:0;right:-8px;min-height:46px;padding:0;color:#f6e5c3;background:none;border:0}
+#cw-guild-contact-dialog .cw-dialogue-top>span{font:600 13px/1.25 Baskerville,'Iowan Old Style',Georgia,serif;letter-spacing:.035em;text-shadow:0 1px 2px #120b07}
+#cw-guild-contact-dialog .cw-dialogue-close{width:96px;min-width:82px;height:46px;min-height:46px;padding:7px 7px 8px 15px;border:0;border-radius:0;background:url('../assets/jimmy-b03-v13/close-strap.exact.webp') center/100% 100% no-repeat;box-shadow:none;color:#fff3d4;font:600 1rem/1.15 Baskerville,'Iowan Old Style',Georgia,serif;text-shadow:0 1px 2px #180e07;white-space:nowrap}
+#cw-guild-contact-dialog .cw-dialogue-close span{margin-left:3px;font-size:16px;vertical-align:0}
+#cw-guild-contact-dialog .cw-dialogue-close:active{background-image:url('../assets/jimmy-b03-v13/close-strap-pressed.exact.webp')}
+#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:116px minmax(0,1fr);column-gap:24px;row-gap:0;padding:0}
+#cw-guild-contact-dialog .cw-dialogue-profile{display:block;grid-column:1;grid-row:1/3;width:auto;min-width:0;margin:2px 0 0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;transform:none}
+#cw-guild-contact-dialog .cw-dialogue-portrait{width:100%;aspect-ratio:1;border:3px double #806b4e;outline:none;background:#9b9d87;box-shadow:inset 0 0 16px #30231855}
+#cw-guild-contact-dialog .cw-dialogue-portrait img{filter:none}
+#cw-guild-contact-dialog .cw-dialogue-profile-caption{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#cw-guild-contact-dialog .cw-dialogue-page{display:contents;border:0;border-image:none;padding:0;background:none;filter:none}
+#cw-guild-contact-dialog .cw-dialogue-heading{grid-column:2;min-width:0;border-bottom-color:#80623d66}
+#cw-guild-contact-dialog h2{font:600 clamp(23px,4vw,28px)/1.2 Baskerville,'Iowan Old Style',Georgia,serif;color:#2c2018}
+#cw-guild-contact-dialog .cw-dialogue-kind{font-size:14px;color:#65513b}
+#cw-guild-contact-dialog .cw-dialogue-content{grid-column:2;min-width:0}
+#cw-guild-contact-dialog .cw-dialogue-speech{line-height:1.5;color:#2c2018}
+#cw-guild-contact-dialog .cw-dialogue-responses{gap:7px}
+#cw-guild-contact-dialog .cw-dialogue-responses button{padding:12px 28px;background:url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100% no-repeat;color:#342519;border:0;border-radius:0;box-shadow:none;font:600 16px/1.35 Baskerville,'Iowan Old Style',Georgia,serif;text-align:center}
+#cw-guild-contact-dialog .cw-dialogue-responses button::before{display:none}
+#cw-guild-contact-dialog .cw-dialogue-responses button:hover{filter:brightness(1.06);background:url('../assets/jimmy-b03-v13/tab_normal.exact.webp') center/100% 100% no-repeat;color:#342519}
+#cw-guild-contact-dialog .cw-dialogue-responses button:focus-visible{background-image:url('../assets/jimmy-b03-v13/tab_selected.exact.webp');color:#fff1cf}
+#cw-guild-contact-dialog button:focus-visible,#cw-guild-contact-dialog .cw-dialogue-speech:focus-visible{outline-offset:-3px}
+#cw-guild-contact-dialog .cw-dialogue-close:focus-visible{outline-color:#f6df9d;outline-offset:-6px}
+@media(max-width:560px){#cw-guild-contact-dialog{width:calc(100% - 12px);max-height:calc(100dvh - 12px)}#cw-guild-contact-dialog .cw-dialogue-folio{border-width:72px 19px 24px;border-image-width:72px 19px 24px;padding:6px 7px 14px}#cw-guild-contact-dialog .cw-dialogue-top{top:-62px;right:-7px;gap:6px}#cw-guild-contact-dialog .cw-dialogue-top>span{font-size:11px;letter-spacing:0}#cw-guild-contact-dialog .cw-dialogue-close{width:86px}#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:78px minmax(0,1fr);gap:14px}#cw-guild-contact-dialog .cw-dialogue-profile{grid-row:1}#cw-guild-contact-dialog .cw-dialogue-heading{align-self:center;padding-bottom:7px}#cw-guild-contact-dialog h2{font-size:23px}#cw-guild-contact-dialog .cw-dialogue-content{grid-column:1/-1}#cw-guild-contact-dialog .cw-dialogue-speech{margin:1px 0 17px}}
+@media(max-width:330px){#cw-guild-contact-dialog .cw-dialogue-folio{border-inline-width:14px;border-image-width:72px 14px 24px;padding-inline:5px}#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:64px minmax(0,1fr);gap:11px}#cw-guild-contact-dialog h2{font-size:21px}#cw-guild-contact-dialog .cw-dialogue-speech{font-size:16px}#cw-guild-contact-dialog .cw-dialogue-top>span{max-width:118px}}
+@media(orientation:landscape) and (max-height:520px){#cw-guild-contact-dialog .cw-dialogue-folio{border-top-width:68px;border-image-width:68px 30px 26px;padding-bottom:10px}#cw-guild-contact-dialog .cw-dialogue-top{top:-58px}#cw-guild-contact-dialog .cw-dialogue-spread{grid-template-columns:88px minmax(0,1fr);column-gap:18px}#cw-guild-contact-dialog .cw-dialogue-profile{grid-row:1/3}#cw-guild-contact-dialog .cw-dialogue-content{grid-column:2}#cw-guild-contact-dialog .cw-dialogue-speech{margin:10px 0 12px}}
+@media(forced-colors:active){#cw-guild-contact-dialog .cw-dialogue-folio{background:Canvas;color:CanvasText;border:2px solid CanvasText;padding:65px 16px 16px}#cw-guild-contact-dialog .cw-dialogue-top{top:8px;left:16px;right:16px;color:CanvasText}#cw-guild-contact-dialog button{background:ButtonFace;color:ButtonText;border:2px solid ButtonText}#cw-guild-contact-dialog p,#cw-guild-contact-dialog h2{color:CanvasText}}
+
+#cw-guild-contact-dialog canvas{display:block;width:100%;height:100%;object-fit:contain}
+#cw-guild-contact-dialog .cw-guild-art-status:empty{display:none}
+#cw-guild-contact-dialog .cw-guild-art-status{font-size:14px;overflow-wrap:anywhere}
+#cw-guild-contact-dialog .cw-guild-art-status button{display:block;min-height:44px;width:100%;margin-top:8px;font:inherit}

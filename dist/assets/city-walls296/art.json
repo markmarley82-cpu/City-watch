@@ -1,0 +1,133 @@
+{
+  "gates": [
+    {
+      "index": 0,
+      "file": "gate-01.webp",
+      "size": [
+        320,
+        312
+      ],
+      "portal": [
+        120,
+        202
+      ],
+      "portalProbeY": 268,
+      "sha256": "a24d9bdaf00b1e8bc323571086dc046040b2e04b5eea704b623696e0c9a662a0"
+    },
+    {
+      "index": 1,
+      "file": "gate-02.webp",
+      "size": [
+        320,
+        302
+      ],
+      "portal": [
+        111,
+        210
+      ],
+      "portalProbeY": 260,
+      "sha256": "d158cf561dc1b89b5f57013f09fceef3b1b3690b80f029de5a4e9ba9c2bf1950"
+    },
+    {
+      "index": 2,
+      "file": "gate-03.webp",
+      "size": [
+        320,
+        322
+      ],
+      "portal": [
+        116,
+        221
+      ],
+      "portalProbeY": 276,
+      "sha256": "cd9d391fd616e3ea5d1f1bb5074b99b86900e3f2dcde3fe2fafc9eefb15c8919"
+    },
+    {
+      "index": 3,
+      "file": "gate-04.webp",
+      "size": [
+        311,
+        350
+      ],
+      "portal": [
+        102,
+        185
+      ],
+      "portalProbeY": 301,
+      "sha256": "e3c03fe184076aeecedc7bf3ea16709bac9016473d9bdf71d0dd96d3ceb92b23"
+    },
+    {
+      "index": 4,
+      "file": "gate-05.webp",
+      "size": [
+        320,
+        308
+      ],
+      "portal": [
+        108,
+        212
+      ],
+      "portalProbeY": 265,
+      "sha256": "58f8b504460376c2ed5810812c77bd8fc72dc769c7726d4b1f88cdc97a11a6c8"
+    },
+    {
+      "index": 5,
+      "file": "gate-06.webp",
+      "size": [
+        320,
+        318
+      ],
+      "portal": [
+        115,
+        208
+      ],
+      "portalProbeY": 273,
+      "sha256": "38e4c3bc925613aff1be7bd9c232da168e43d60bd84ea658a300870c6a75a18d"
+    },
+    {
+      "index": 6,
+      "file": "gate-07.webp",
+      "size": [
+        320,
+        342
+      ],
+      "portal": [
+        108,
+        190
+      ],
+      "portalProbeY": 294,
+      "sha256": "4361958e203eedcb2dd3b88cb345c10fc5e5993701394d0ddbe1ef3cbea53cca"
+    },
+    {
+      "index": 7,
+      "file": "gate-08.webp",
+      "size": [
+        320,
+        290
+      ],
+      "portal": [
+        106,
+        213
+      ],
+      "portalProbeY": 249,
+      "sha256": "1deb3d663117335b97317e63ffc41d288c7f94555b3f86ab93eab3447ae4ff37"
+    },
+    {
+      "index": 8,
+      "file": "gate-09.webp",
+      "size": [
+        320,
+        309
+      ],
+      "portal": [
+        123,
+        212
+      ],
+      "portalProbeY": 266,
+      "sha256": "412e40ae986c773b29603cd586eb5d4661600ca33f310bfc2d91a277cda2dc70"
+    }
+  ],
+  "source": "Original generated handpainted atlas; true alpha and individual open portals verified",
+  "stone": "stone.webp",
+  "export": "WebP quality95 with verified exact alpha; full generated source masters retained"
+}

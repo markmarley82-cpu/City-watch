@@ -1,0 +1,8 @@
+export const E043_PREMISE_004=Object.freeze({id:'E043-INFILL-004',gameId:'scenic:e043-unnamed-ochre-lodging',name:'Unnamed E043 ochre lodging house',locationLabel:'Dimwell · ochre lodging house',sourceRect:[68.276,92.179,2.621,3.469],rect:[64.955,86.822,4.553,8.303],p:[66.276,90.179],anchor:[240,430],dimensions:[480,540],sourceParcel:518,visualDoorHeight:68,actorHeight:60});
+const exact=(a,b)=>a.length===b.length&&a.every((v,i)=>Math.abs(v-b[i])<.001);
+export async function createE043Premise004({load,addSprites}){
+ const im=await load('assets/e043-infill-004/ochre-lodging-house-painted.webp');
+ if((im.cwSourceWidth||im.width)!==E043_PREMISE_004.dimensions[0]||(im.cwSourceHeight||im.height)!==E043_PREMISE_004.dimensions[1])throw Error('E043 premise 004 dimensions changed');
+ const group=addSprites([['e043-premise-004:ochre-lodging-house-painted',im,E043_PREMISE_004.p,E043_PREMISE_004.anchor,1,E043_PREMISE_004.rect,{e043Premise004:true,sceneryKind:'building',sourceAsset:'E043-INFILL-004:ochre-lodging-house-painted',sourceParcel:E043_PREMISE_004.sourceParcel}]]),o=group[0];
+ return Object.freeze({gameId:E043_PREMISE_004.gameId,name:E043_PREMISE_004.name,locationLabel:E043_PREMISE_004.locationLabel,bounds:[o.bounds[0]-35,o.bounds[1]-25,o.bounds[0]+o.bounds[2]+45,o.bounds[1]+o.bounds[3]+35],replaces:r=>exact(r,E043_PREMISE_004.sourceRect),report:()=>({...E043_PREMISE_004,ready:true,parts:1,uniqueBuildingCount:1,geometry:'Dry quay registration with conservative foundation-and-fenced-yard collision; narrow ochre timber street front, deep rear scullery, slate roof, chimney, fenced service yard, full stone foundation and human-scale door',noMirrorsOrRecolours:true,newNavigation:false,newInteractiveDoors:false,creativeAcceptance:false})});
+}

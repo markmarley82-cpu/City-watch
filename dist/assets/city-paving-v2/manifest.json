@@ -1,0 +1,65 @@
+{
+  "id": "CW-CITY-PAVING-v2",
+  "files": [
+    {
+      "file": "cobbles-a.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "26c4ebbfa8148adabac18576b0939195554479aa60a9fbe7faf9dc55d1688fca",
+      "sourceCrop": [
+        0,
+        0,
+        627,
+        627
+      ]
+    },
+    {
+      "file": "cobbles-b.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "f4644820dbfa9b1b1ab7dc1bdb8fc577643820c71703b13505dc4dc82fade4e5",
+      "sourceCrop": [
+        627,
+        0,
+        1254,
+        627
+      ]
+    },
+    {
+      "file": "flags-a.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "9445c4c74c94d0bf88989d9ab462b63a4372003aa4b6b03c0faf66088b772b13",
+      "sourceCrop": [
+        0,
+        627,
+        627,
+        1254
+      ]
+    },
+    {
+      "file": "flags-b.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "43a9b201ac39fc480b637a33ed2220cea20b2fb9decd3751e37b9106ff94bc08",
+      "sourceCrop": [
+        627,
+        627,
+        1254,
+        1254
+      ]
+    }
+  ],
+  "decodedMiB": 4,
+  "approvedDirection": true,
+  "lore": "Quill Street Ground and Cobble Patterns v0.1; mixed surfaces supported, exact allocation original",
+  "navigationChanged": false
+}
