@@ -57,7 +57,11 @@ They are played by `dist/cw-cases.js` from the data in
 
 Progress is saved in the campaign record (`state.flags.cityCasesV1`), each case
 pays once, and reloading resumes the same branch. The briefs these come from are
-in `docs/cases/`. Built so far: CW-NC-01, CW-NC-08, CW-NC-12.
+in `docs/cases/`. Built so far: CW-NC-01 (a replayable partner shift: `shift`,
+`partners`, partner-specific text and outcomes, `derive` rules for evidence that
+needs two clues), CW-NC-08, CW-NC-12. `docs/cases/CASE-REGISTER.md` tracks every
+case in the project and its status; `docs/cases/Bridge-Shift-Playtest.md` is the
+uncoached playtest sheet.
 
 ## Faster loading on phones
 
