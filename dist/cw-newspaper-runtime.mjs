@@ -1,3 +1,4 @@
+import {BRIDGE_CASE,BRIDGE_REPORT,bridgeReportPublished,withBridgeEdition} from './newspapers/bridge-closure-edition.mjs?v=1';
 import {editionFor,ownsNewspaper} from './newspapers/purchases.mjs?v=p21-b407-s039-reuse';
 import {installCityWatchNewspapers} from './newspapers/city-watch-newspaper-bridge.mjs?v=p21-b407-s039-reuse';
 import {campaignNewspaperContext} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
@@ -12,10 +13,12 @@ const read = async name => {
 // Dormant recurring-character cases stay closed. Only actual campaign cases publish.
 export function newspaperContext(snapshot = window.CW_NOTEBOOK_SNAPSHOT?.()) {
   const state = window.CWP21State?.create(localStorage).read().state || snapshot?.state || {};
-  return {
-    ...campaignNewspaperContext(state),
-    editionKey: editionFor(state)
-  };
+  const context=campaignNewspaperContext(state);
+  if(bridgeReportPublished(state)){
+    context.closedCases.push(BRIDGE_CASE);
+    context.publicReports.push(BRIDGE_REPORT);
+  }
+  return {...context,editionKey:editionFor(state)};
 }
 async function ensureNewspaperStyles() {
   const href=new URL('./newspapers/newspaper-reader.css?v=p21-b461-watch-ui',import.meta.url).href;
@@ -33,7 +36,7 @@ async function start() {
   await window.CW_LAB.prepare();
   const [catalog, editorial] = await Promise.all([read('newspapers.json'), read('editorial.json')]);
   const reader = await installCityWatchNewspapers({
-    catalog, editorial, getContext: () => newspaperContext(),
+    catalog:withBridgeEdition(catalog), editorial, getContext: () => newspaperContext(),
     storage: window.CW_LAB.storage, saveKey: window.CW_LAB.keys.newspapers,
     onRefer: lead=>{
       let game=window.CWP21Game;
