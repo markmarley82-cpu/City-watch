@@ -20,7 +20,21 @@ export function createNeighbourhoodStreets({world,ground,objects,images}){
    for(let t=-.1;t<=1.1001;t+=.1)for(let h=-w/2-.1;h<=w/2+.1001;h+=.1)if(!clear([s.a[0]+dx*t+normal[0]*h,s.a[1]+dy*t+normal[1]*h]))return false;
    return true;
   });
-  if(!width){rejected++;continue;}
+  if(!width){
+   // At the existing E035 bend, the symmetric strip crosses a reserved
+   // corner. Fill only the clear side and leave both path memberships intact.
+   const a=[79,246,'E035'],b=[80,246,'E035'];
+   const linked=(p,q)=>world.neighbours(p).some(n=>n.join(',')===q.join(','));
+   const members=[a,b].every(p=>world.members.get(p.slice(0,2).join(','))?.has('E035'));
+   if(s.id==='79,246|80,246'&&members&&linked(a,b)&&linked(b,a)){
+    const outer=[[79,245.44],[80,245.44],[80,246.16],[79,246.16]];
+    const inner=[[79,245.58],[80,245.58],[80,246.10],[79,246.10]];
+    const surveyed=Array.from({length:41},(_,i)=>79+i/40).every(x=>
+     Array.from({length:33},(_,i)=>245.44+.72*i/32).every(y=>clear([x,y])));
+    if(surveyed){finish.push({...s,kind:'shades-footway-seam',width:.72,outer,inner});widths.set(.72,(widths.get(.72)||0)+1);continue;}
+   }
+   rejected++;continue;
+  }
   const polygon=w=>[[-1,0],[-1,1],[1,1],[1,0]].map(([sign,t])=>[s.a[0]+dx*t+normal[0]*w/2*sign,s.a[1]+dy*t+normal[1]*w/2*sign]);
   finish.push({...s,width,outer:polygon(width),inner:polygon(Math.max(.6,width-.5))});widths.set(width,(widths.get(width)||0)+1);
  }
