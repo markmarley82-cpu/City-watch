@@ -41,6 +41,15 @@ cd dist && python3 -m http.server 8000
 Then open http://localhost:8000/. The game must be served over HTTP (not opened
 as a file) because it uses JavaScript modules.
 
+## Faster loading on phones
+
+`dist/cw-prefetch.js` downloads, in the background, the files the city asks
+for later in startup, using the list in `dist/cw-prefetch-list.json`. The list
+uses the exact file names and `?v=` version tags. After a release changes them,
+regenerate it with `node tools/make-prefetch-list.js` (instructions at the top
+of that file). An out-of-date list does no harm beyond some wasted downloads;
+the game still loads every file it needs itself.
+
 ## Notes for contributors
 
 - The game is served from a sub-folder on GitHub Pages (`/City-watch/`), so
