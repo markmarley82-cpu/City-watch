@@ -45,12 +45,15 @@ export function createPatrolLoop({city,game,snapshot,duty,nightDuty=false,primar
   if(disturbance&&!view.incidentChoice)objective.textContent='A disturbance has broken out at this stop.';
   else if(view.round||view.firstReportFiled||view.summary)objective.textContent=view.objective;
   unresolved.hidden=!view.canReportUnresolved;
-  const notice=progressNotice(previous,record);previous=capture(record);if(notice)queued=notice;
+  const firstUpdate=previous===null,notice=progressNotice(previous,record);previous=capture(record);if(notice)queued=notice;
+  // Reopening the game mid-case: offer the same "Next lead" shortcut that follows progress.
+  const st=record.state;
+  if(firstUpdate&&!notice&&!record.pending&&!view.summary&&!view.firstReportFiled&&((Number(st.chapter)||0)>0||(Number(st.stage)||0)>0))queued={title:'Welcome back',detail:'Your patrol is where you left it. Tap Next lead to carry on.',noNext:true};
   if(queued&&!context.blocked){
    const reported=queued.title==='Patrol reported';
    receiptOffersDuty=reported&&nightDuty&&!record.pending&&!view.round;
    continueLead.textContent=receiptOffersDuty?'Choose Night duty':'Next lead';
-   const next=receiptOffersDuty?'Choose Night duty for another assignment.':reported?'':objective.textContent;
+   const next=queued.noNext?'':receiptOffersDuty?'Choose Night duty for another assignment.':reported?'':objective.textContent;
    receiptCopy.textContent=queued.title+' · '+queued.detail+(next?' Next: '+next.replace(/\.?$/,'.'):'');
    queued=null;receipt.hidden=false;timers.clearTimeout(timer);timer=timers.setTimeout(hide,15000);
   }

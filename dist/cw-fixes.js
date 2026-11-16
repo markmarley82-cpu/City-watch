@@ -16,10 +16,13 @@
     if (!message || !objective) return;
     const goal = objective.textContent.trim();
     if (!goal || goal === 'Report to Sergeant Colon') return;
-    if (message.textContent.trim() === DEFAULT_MESSAGE || message.dataset.cwAssignment === 'true') {
-      const text = 'Assignment: ' + goal.replace(/[.\s]+$/, '') + '.';
+    if (message.textContent.trim() === DEFAULT_MESSAGE || message.dataset.cwAssignment === message.textContent) {
+      // A one-line task gets an "Assignment:" label; a fuller instruction
+      // ("Purse report filed. Choose Night duty…") reads better as it is.
+      const trimmed = goal.replace(/[.\s]+$/, '');
+      const text = /\.\s+\S/.test(trimmed) ? trimmed + '.' : 'Assignment: ' + trimmed + '.';
       if (message.textContent !== text) message.textContent = text;
-      message.dataset.cwAssignment = 'true';
+      message.dataset.cwAssignment = text;
     }
   }
   function watchBanner() {
@@ -28,7 +31,7 @@
     if (!message || !objective) return;
     // Once the game writes its own message, stop treating the banner as ours.
     new MutationObserver(() => {
-      if (message.dataset.cwAssignment === 'true' && !message.textContent.startsWith('Assignment: ')) delete message.dataset.cwAssignment;
+      if (message.dataset.cwAssignment && message.dataset.cwAssignment !== message.textContent) delete message.dataset.cwAssignment;
       if (message.textContent.trim() === DEFAULT_MESSAGE) syncBanner();
     }).observe(message, { childList: true, characterData: true, subtree: true });
     new MutationObserver(syncBanner).observe(objective, { childList: true, characterData: true, subtree: true });

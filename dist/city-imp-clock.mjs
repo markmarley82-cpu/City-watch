@@ -19,7 +19,8 @@ export function organiserBriefing(record={},context={}){
   else if(round.enquiry)reminder='Inspect the scene and compare witness accounts before choosing a finding. Collected observations are in the Notebook.';
   else if(round.visits?.some(v=>v.enquiry))reminder='Your enquiry is prepared. Finish the remaining checkpoints, then return to Colon to file it.';
   else reminder='Follow the marked checkpoint and check the area. Return to Colon after completing the round.';
- }else if(s.chapter===0&&s.stage<=1)reminder='Use Walk to current assignment in Duty, then speak to Sergeant Colon outside the Watch House.';
+ }else if(s.chapter===0&&s.stage===0&&/Captain Carrot/.test(lead))reminder='Captain Carrot is waiting outside the Watch House: tap Walk to Captain Carrot. You can also choose Night duty for another shift.';
+ else if(s.chapter===0&&s.stage<=1)reminder='Use Walk to current assignment in Duty, then speak to Sergeant Colon outside the Watch House.';
  else if(s.chapter===0&&s.stage===2)reminder='At the Dock Warehouse, open Room actions and choose False-bottom crate to walk over and inspect it.';
  else if(s.chapter>=2&&s.stage>=4)reminder='Choose Night duty and return to the Watch duty desk to sign on at 21:00.';
  return {lead,reminder};

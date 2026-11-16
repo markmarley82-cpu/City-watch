@@ -394,6 +394,13 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
  function go(){const v=view();if(!v||v.dimwell||v.firstCase||!v.target||blocked())return false;city.stop();return city.nav(v.target.slice(0,2),v.target[2]);}
  // First purse case: walk to the next lead in the same order as the case reminder
  // (stall trace, then witness, then suspect), and to Colon once the case is ready to report.
+ // Between shifts with Carrot's assignment waiting: walk to Carrot, or open his assignment when there.
+ function goCarrot(){
+  const r=makeStore().read();
+  if(r.pending||blocked()||data(r).active||!deliveryAvailable(r))return false;
+  if(atCarrot())return deliveryMenu();
+  city.stop();return city.nav(carrot.slice(0,2),carrot[2]);
+ }
  function goFirstLead(){
   const record=makeStore().read(),a=data(record).active,v=view(record);
   if(record.pending||!v?.firstCase||a?.routeId!==FIRST_CASE_ROUTE||blocked())return false;
@@ -1003,5 +1010,5 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   return !record.pending&&!!a?.shift&&a.routeId!==DIMWELL_BEAT&&(!isChoiceRoute(a.routeId)||a.routeId===DISTURBANCE)&&a.index===a.checkpoints.length-1&&!escort(a)&&
    view(record)?.action==='inspect'&&!record.encounters.slice(a.encounterStart).some(e=>e.binding==='shift-disturbance');
  }
- return {routes:routes.filter(r=>r.id!==DIMWELL_BEAT&&r.id!==FIRST_CASE_ROUTE&&!isChoiceRoute(r.id)),home,view,start,dimwellStop,mapStop,observeDimwell,dimwellRunner,dimwellRunnerClick,dimwellFollowup,handleDimwellFollowup,dimwellPartnerAway,observeDeliveryTail,deliveryRunner,deliveryAvailable,deliveryActive,deliveryContact,deliveryMenu,marketContacts,talkMarket,marketReportUnresolved,openingContacts,openPurse,openingSuspect,shiftDisturbance,inspect,report,abandon,go,goFirstLead,resumeRoute,primary,menu,escortActive:record=>escort(data(record).active),onShift:record=>!!data(record).active?.shift,log:()=>clone(data(makeStore().read()))};
+ return {routes:routes.filter(r=>r.id!==DIMWELL_BEAT&&r.id!==FIRST_CASE_ROUTE&&!isChoiceRoute(r.id)),home,view,start,dimwellStop,mapStop,observeDimwell,dimwellRunner,dimwellRunnerClick,dimwellFollowup,handleDimwellFollowup,dimwellPartnerAway,observeDeliveryTail,deliveryRunner,deliveryAvailable,deliveryActive,deliveryContact,deliveryMenu,marketContacts,talkMarket,marketReportUnresolved,openingContacts,openPurse,openingSuspect,shiftDisturbance,inspect,report,abandon,go,goFirstLead,goCarrot,resumeRoute,primary,menu,escortActive:record=>escort(data(record).active),onShift:record=>!!data(record).active?.shift,log:()=>clone(data(makeStore().read()))};
 }
