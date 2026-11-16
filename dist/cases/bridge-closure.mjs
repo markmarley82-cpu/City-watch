@@ -136,7 +136,7 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
         const place=a.stop==='watch'?'Watch Square':a.stop==='bridge'?'Brass Bridge approach':a.stop==='copy'?'Contract Bridge approach':'Lower Broad Way dispatch contact';
         if(box.querySelector('[data-case-stop="'+a.stop+'"]'))continue;
         button('Walk to '+place,()=>{
-          dialog.close();if(!city.nav(STOPS[a.stop].slice(0,2),STOPS[a.stop][2]))city.tell('The route is blocked. Try from nearby public ground.');else city.tell('On arrival, open Duty → '+TITLE+' to act.');
+          dialog.close();if(!city.nav(STOPS[a.stop].slice(0,2),STOPS[a.stop][2]))city.tell('The route is blocked. Try from nearby public ground.');else city.tell('On arrival, tap the ✦ button, or open Duty → '+TITLE+'.');
         });box.lastElementChild.dataset.caseStop=a.stop;continue;
       }
       button(a.label,()=>{

@@ -313,6 +313,27 @@
     refreshLead();
   }
 
+  // ---------- the team's Bridge pilot (cases/bridge-closure.mjs, played from Duty) ----------
+  // Shows the same street button at a bridge stop when the enquiry has an action there.
+  let bridgeMod = null, bridgeLoading = false;
+  function bridgeModule() {
+    if (bridgeMod) return bridgeMod;
+    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=2').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
+    return null;
+  }
+  function bridgeLead(record) {
+    const c = record.state.flags.bridgeClosurePilot; if (!c) return null;
+    const followup = c.status === 'filed' && !c.followup && Number.isSafeInteger(c.publicReport?.night) && record.state.night > c.publicReport.night;
+    if (c.status !== 'active' && !followup) return null; // never before the enquiry is taken
+    const m = bridgeModule(); if (!m || !window.CWP21Game?.openBridgeCase) return null;
+    const mentor = record.state.flags.patrolMentorAssignment?.mentorId || 'WATCH-04';
+    const pos = city().footPosition?.() || city().position();
+    // Check the stop position directly: the module's follow-up options do not carry a 'here' flag.
+    const here = m.options(record, mentor, pos).filter(x => x.id !== 'stand-down' && m.STOPS[x.stop] && m.standsAt(pos, m.STOPS[x.stop]));
+    if (!here.length) return null;
+    return { bridge: true, label: here.length === 1 ? here[0].label : 'Bridge enquiry: ' + here.length + ' things to do here' };
+  }
+
   // ---------- on-street lead button ----------
   let leadButton = null;
   function ensureButton() {
@@ -321,6 +342,7 @@
     leadButton = document.createElement('button');
     leadButton.type = 'button'; leadButton.id = 'cw-case-lead'; leadButton.hidden = true;
     leadButton.onclick = () => {
+      if (leadButton.dataset.bridge === 'true') { window.CWP21Game?.openBridgeCase?.(); return; }
       const a = casesOf(read()).active, c = a && caseById(a.id), here = c && leadHere(c, a);
       if (!here) return refreshLead();
       return here.file ? fileReport(c) : playScene(c, here.scene);
@@ -333,11 +355,13 @@
     let show = null;
     try {
       const record = read(), a = casesOf(record).active;
-      if (a && data && !record.pending && !city().isNavigating() && !document.querySelector('dialog[open]')) {
-        const c = caseById(a.id); show = c && leadHere(c, a);
+      if (!record.pending && !city().isNavigating() && !document.querySelector('dialog[open]')) {
+        if (a && data) { const c = caseById(a.id); show = c && leadHere(c, a); }
+        if (!show) show = bridgeLead(record);
       }
     } catch (e) { show = null; }
     b.hidden = !show;
+    b.dataset.bridge = show && show.bridge ? 'true' : 'false';
     if (show) { b.textContent = show.label; b.setAttribute('aria-label', 'City case: ' + show.label); }
   }
 

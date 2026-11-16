@@ -398,7 +398,7 @@ async function openBridgeCase(){
  bridgeCaseLoading=true;
  try{
   if(!bridgeCaseHost){
-   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=1'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=2'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
    bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
     partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
     onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});
@@ -533,3 +533,5 @@ createPatrolConversations({city,actors,state,member:()=>patrolMember,contacts:pl
 }).then(runtime=>{conversations=runtime;window.CWPatrolConversations=runtime;}).catch(error=>console.warn('Patrol conversation bank unavailable',error));
 
 if(window.CWP21State.create(localStorage).read().state.flags.royalBankVisitV1?.active)await openRoyalBank().then(host=>host.resume()).catch(e=>city.tell(e.message));
+// Lets the City cases street button open the bridge enquiry at a stop.
+window.CWP21Game.openBridgeCase=openBridgeCase;

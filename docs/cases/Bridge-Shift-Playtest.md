@@ -15,8 +15,9 @@ Bridge, with Times and Inquirer follow-ups.
 - The case appears at the top of **Duty** as **The Bridge That Was Closed**.
   It needs Nobby Nobbs or Sergeant Colon as patrol partner (Colon joins at
   6 merit; change partner in Duty → Patrol partner before taking the case).
-- Walk to a stop with the button in the case screen, then open **Duty →
-  The Bridge That Was Closed** again to act there.
+- Walk to a stop with the button in the case screen. On arrival a **✦ button**
+  appears on the street; tapping it opens the case at that step. (Opening
+  **Duty → The Bridge That Was Closed** there works too.)
 - The case is played once per save. To test both partners, use two fresh
   saves (or two testers).
 - After filing, play on to the next night and buy the Times or the Inquirer:
