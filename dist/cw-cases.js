@@ -11,7 +11,7 @@
    Case data is fetched only when needed, never at cold startup. */
 (function () {
   'use strict';
-  const DATA_URL = 'cases/city-cases.json?v=2';
+  const DATA_URL = 'cases/city-cases.json?v=3';
   const FLAG = 'cityCasesV1';
   const NEAR = 2.2;
   const PARTNERS = { 'WATCH-04': 'nobby', 'WATCH-03': 'colon' };
@@ -117,8 +117,13 @@
   // ---------- case board ----------
   function board(message) {
     loadData().then(() => {
-      const record = read(), cs = casesOf(record), a = cs.active, c = a && caseById(a.id);
+      let record = read(), cs = casesOf(record);
+      // A case that has been retired from the data (e.g. CW-NC-01, now the team's Duty pilot) is stood down quietly.
+      let retired = null;
+      if (cs.active && !caseById(cs.active.id)) { retired = cs.active.id; save(x => { if (!x.active || caseById(x.active.id)) return false; x.active = null; }); record = read(); cs = casesOf(record); }
+      const a = cs.active, c = a && caseById(a.id);
       const ui = sheet('City cases');
+      if (retired) ui.add('p', 'Your earlier bridge case has moved: The Bridge That Was Closed is now in Duty. Nothing you had earned was lost.', 'cw-case-note');
       if (message) ui.add('p', message, 'cw-case-note');
       if (!unlocked(record)) {
         ui.add('p', 'Finish your first patrol case with Sergeant Colon, then come back for street cases.');

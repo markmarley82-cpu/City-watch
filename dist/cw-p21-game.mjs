@@ -68,6 +68,7 @@ const companion={id:'patrol-partner',exactFoot:true,moving:false,p:city.position
 async function syncPartner(){const v=state(),m=Partner.member(v.state,v.pending);await window.CWDrawnCharacters.current.ensureAppearance(Partner.art(m.id),{});patrolMember=m;companion.key=Partner.art(m.id);companion.name=m.name;companion.mentorId=m.id;const condition=v.pending?.battle?.actors?.find(a=>a.id==='partner'&&a.mentorId===m.id)||v.state.flags.patrolPartnerVitals?.[m.id];companion.stoodDown=condition?.hp===0;const start=city.position();companion.p=partnerFeet.reset(city.footPosition?.()||start);partnerTrail=[companion.p.slice()];lastPartnerStep='';}
 function updatePartner(now,visualFoot){moveMarketVisitor(visualFoot);dibbler.update(now);updateChase(now);const p=city.position(),k=p.join(',');if(k!==lastPartnerStep){lastPartnerStep=k;partnerTrail.push(p.slice());if(partnerTrail.length>2)partnerTrail.shift();if(!detainee.stoodDown&&detaineeTrail.at(-1)?.join(',')!==k){detaineeTrail.push(p.slice());if(detaineeTrail.length>3)detainee.p=detaineeTrail.shift();}}const before=companion.p;companion.p=partnerFeet.sample(visualFoot||city.footPosition?.()||p);companion.moving=Math.hypot(companion.p[0]-before[0],companion.p[1]-before[1])>1e-8;partnerDraws++;}
 function partnerMenu(){
+ if(state().state.flags.bridgeClosurePilot?.status==='active'){city.tell('File or stand down the bridge enquiry before changing partners.');return false;}
  if(patrolDuty?.dimwellPartnerAway(state())){city.tell('Meet Nobby at the Park Lane approach before changing partners.');return false;}
  city.stop();const dialog=$('p21-duty-dialog'),box=$('p21-duty-actions');box.replaceChildren();
  const v=state(),eligible=new Set(M.unlocked({xp:v.state.merit}).map(m=>m.id)),current=Partner.member(v.state,v.pending).id;
@@ -383,7 +384,30 @@ function streetIncidents(){
  }
  const back=document.createElement('button');back.textContent='Back to Watch duty';back.onclick=buildDuty;box.append(back);dialog.showModal();
 }
-const duty=[[()=>freePatrolNeedsDuty()?'':'Night duty',()=>patrolDuty.menu()],['Rest & rooms',()=>cityServices.open({grade:0})],['Street incidents & combat',streetIncidents],['City shops & lodging',()=>cityServices.open()],['Find Dibbler',()=>dibbler.find()],[()=>patrolDuty?.deliveryActive(state())||patrolDuty?.deliveryAvailable(state())?'Carrot’s assignment':'',()=>patrolDuty.deliveryMenu()],['Armoury & kit',()=>armoury.open()],['Talk to patrol partner',()=>patrolDuty?.dimwellPartnerAway(state())?city.tell('Nobby is following the runner. Meet him at the Park Lane approach.'):playerContacts.partner()],[()=> 'Conversation hints: '+(conversations?.hintsEnabled()===false?'OFF':'ON'),()=>{if(!conversations)return;const enabled=conversations.setHints(!conversations.hintsEnabled());city.tell('Conversation hints '+(enabled?'on.':'off.'));}],['People & contacts',()=>playerContacts.directory()],['Patrol partner',partnerMenu],[()=>{const v=state();return v.pending?'Current incident':v.state.chapter>=2&&v.state.stage>=quests[2].length-1?'Case history':'Current case';},()=>state().pending?battle():window.CW_NOTEBOOK?.openSection('Cases')],['Casebook',()=>service('casebook')],['Inventory',()=>service('inventory')],['Watch Notebook',()=>window.CW_NOTEBOOK?.open()],['Guildhouses',()=>guildDirectory()],['Walk to University',()=>walkTo('university')],['University people',()=>state().pending?city.tell('Finish the current encounter before visiting the University faculty.'):universityWizards.menu(walkTo)],['Appearance',()=>$('city-appearance').click()],[()=>freePatrolNeedsDuty()?'Choose night duty':'Walk to current assignment',()=>freePatrolNeedsDuty()?patrolDuty.menu():walkToCurrentAssignment()],['Save game',()=>savePatrol('P21 campaign saved.')]];
+const bridgeCaseTitle='The Bridge That Was Closed';
+let bridgeCaseHost=null,bridgeCaseLoading=false;
+function bridgeCaseLabel(){
+ const v=state(),flags=v.state.flags,c=flags.bridgeClosurePilot,mentor=Partner.assignment(v.state,v.pending).mentorId;
+ if(c)return c.status==='active'?'Resume bridge enquiry':'Bridge enquiry report';
+ if(v.pending||flags.p21PatrolRounds?.active||!['WATCH-04','WATCH-03'].includes(mentor))return '';
+ const rounds=flags.p21PatrolRounds;
+ return v.state.chapter>0||rounds?.creditedRoutes?.includes('watch-square-purse')||(rounds?.reports||[]).some(r=>r.routeId==='watch-square-purse')?bridgeCaseTitle:'';
+}
+async function openBridgeCase(){
+ if(bridgeCaseLoading||patrolBlocked())return;
+ bridgeCaseLoading=true;
+ try{
+  if(!bridgeCaseHost){
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=1'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
+    partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
+    onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});
+  }
+  if(!patrolBlocked()){city.stop();bridgeCaseHost.open();}
+ }catch(error){console.warn(error);city.tell('The bridge enquiry could not be opened. Your saved patrol is unchanged; try again from Duty.');}
+ finally{bridgeCaseLoading=false;}
+}
+const duty=[[bridgeCaseLabel,openBridgeCase],[()=>freePatrolNeedsDuty()?'':'Night duty',()=>patrolDuty.menu()],['Rest & rooms',()=>cityServices.open({grade:0})],['Street incidents & combat',streetIncidents],['City shops & lodging',()=>cityServices.open()],['Find Dibbler',()=>dibbler.find()],[()=>patrolDuty?.deliveryActive(state())||patrolDuty?.deliveryAvailable(state())?'Carrot’s assignment':'',()=>patrolDuty.deliveryMenu()],['Armoury & kit',()=>armoury.open()],['Talk to patrol partner',()=>patrolDuty?.dimwellPartnerAway(state())?city.tell('Nobby is following the runner. Meet him at the Park Lane approach.'):playerContacts.partner()],[()=> 'Conversation hints: '+(conversations?.hintsEnabled()===false?'OFF':'ON'),()=>{if(!conversations)return;const enabled=conversations.setHints(!conversations.hintsEnabled());city.tell('Conversation hints '+(enabled?'on.':'off.'));}],['People & contacts',()=>playerContacts.directory()],['Patrol partner',partnerMenu],[()=>{const v=state();return v.pending?'Current incident':v.state.chapter>=2&&v.state.stage>=quests[2].length-1?'Case history':'Current case';},()=>state().pending?battle():window.CW_NOTEBOOK?.openSection('Cases')],['Casebook',()=>service('casebook')],['Inventory',()=>service('inventory')],['Watch Notebook',()=>window.CW_NOTEBOOK?.open()],['Guildhouses',()=>guildDirectory()],['Walk to University',()=>walkTo('university')],['University people',()=>state().pending?city.tell('Finish the current encounter before visiting the University faculty.'):universityWizards.menu(walkTo)],['Appearance',()=>$('city-appearance').click()],[()=>freePatrolNeedsDuty()?'Choose night duty':'Walk to current assignment',()=>freePatrolNeedsDuty()?patrolDuty.menu():walkToCurrentAssignment()],['Save game',()=>savePatrol('P21 campaign saved.')]];
 function buildDuty(){$('p21-duty-actions').replaceChildren();for(const [label,fn] of duty){const text=typeof label==='function'?label():label;if(!text)continue;const b=document.createElement('button');b.textContent=text;b.onclick=()=>{$('p21-duty-dialog').close();fn();};$('p21-duty-actions').append(b);}}
 document.getElementById('p21-orders-bar').append($('p21-encounter'));
 buildDuty();
