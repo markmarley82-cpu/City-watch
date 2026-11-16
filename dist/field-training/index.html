@@ -852,7 +852,7 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     if(campaignMode&&campaignContext){parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);if(result.ok){const hurt=state.actors.some(a=>a.hp<before.actors.find(b=>b.id===a.id).hp);if(hurt)parent.CWTeamAudio?.cue('hit');}}
     window.CWTrainingCharacter.outcomes(before,state,command,result);
     if(result.ok&&command.type==='strike'&&C.current(before).weaponProfile==='service-crossbow'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)projectiles.push({from:origins.get(C.current(before).id),to:origins.get(command.target),start:performance.now()});
-    clearTimeout(quipTimer);remark=P.quip(before,state,command,result,reportNumber).replace(/^Partner:/,state.actors.find(a=>a.id==='partner').name+':');if(remark)quipTimer=setTimeout(()=>{remark='';render();},3000);
+    clearTimeout(quipTimer);remark=P.quip(before,state,command,result,reportNumber).replace(/^Partner:/,state.actors.find(a=>a.id==='partner').name+':').replace(/^Patron:/,()=>{const t=state.actors.find(a=>a.id===command.target);return ((t&&t.name)||'Suspect').split(' · ')[0]+':';});if(remark)quipTimer=setTimeout(()=>{remark='';render();},3000);
     const report=F.make(before,state,command,result);error=result.ok?'':result.reason;notice=report.summary;
     if(goHome&&result.ok){menu='fight';showMoves=false;}
     const vulnerable=state.actors.find(a=>a.id===target);if(result.ok&&state.phase==='battle'&&vulnerable?.shaken&&vulnerable.status==='active'&&(goHome||command.type==='endTurn')){menu='tactics';showMoves=false;}
