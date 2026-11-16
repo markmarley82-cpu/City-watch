@@ -208,6 +208,7 @@ function followNewspaperLead(lead){
 function walkToCurrentAssignment(){
  const record=state(),duty=patrolDuty?.view(record);
  if(!record.pending&&duty?.incidentChoice)return patrolDuty.go();
+ if(!record.pending&&duty?.firstCase&&patrolDuty.goFirstLead?.())return true;
  return walkTo();
 }
 function walkTo(id=target()){

@@ -392,6 +392,16 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   return dimwellStop(record,v);
  }
  function go(){const v=view();if(!v||v.dimwell||v.firstCase||!v.target||blocked())return false;city.stop();return city.nav(v.target.slice(0,2),v.target[2]);}
+ // First purse case: walk to the next lead in the same order as the case reminder
+ // (stall trace, then witness, then suspect), and to Colon once the case is ready to report.
+ function goFirstLead(){
+  const record=makeStore().read(),a=data(record).active,v=view(record);
+  if(record.pending||!v?.firstCase||a?.routeId!==FIRST_CASE_ROUTE||blocked())return false;
+  const clues=a.enquiry?.clueIds||[],ready=a.index===a.checkpoints.length||!!a.enquiry?.interview;
+  const lead=ready?null:!clues.includes('trace')?openingPositions.stall:!clues.includes('witness')?openingPositions.witness:openingPositions.suspect;
+  if(!lead)return false;
+  city.stop();return city.nav(lead.slice(0,2),lead[2]);
+ }
  function continueRoute(){if(view()?.action==='go')try{go();}catch{}}
  let routeResumeChecked=false;
  function resumeRoute(allowed=true){
@@ -884,10 +894,14 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
    d.creditedRoutes=Array.isArray(d.creditedRoutes)?d.creditedRoutes:[];const routeMerit=d.creditedRoutes.includes(a.routeId)?0:2;if(routeMerit){r.state.merit+=routeMerit;d.creditedRoutes.push(a.routeId);}
    d.enquiryCredits=d.enquiryCredits&&typeof d.enquiryCredits==='object'?d.enquiryCredits:{};let enquiryMerit=0;
    for(const check of a.visits)if(check.enquiry){const e=check.enquiry,legacy=(r.state.flags.patrolPool?.reports||[]).filter(p=>p.caseId===e.caseId).reduce((n,p)=>n+(Number(p.meritAwarded)||0),0),credited=Math.min(4,Math.max(0,Number(d.enquiryCredits[e.caseId])||0,legacy)),earned=e.outcome==='supported'?4:e.clueIds.length?1:0;e.meritAwarded=Math.max(0,earned-credited);e.rewardApplied=true;d.enquiryCredits[e.caseId]=Math.max(credited,earned);enquiryMerit+=e.meritAwarded;}
-   let pay=0,shiftMerit=0,promotion=null;
+   let pay=0,shiftMerit=0,promotion=null,lostShift=false;
    if(a.shift){
     pay=before.pay;
     shiftMerit=(a.licence?.outcome==='unsupported'?2:4+(a.licence?.outcome?3:0))+(['helped','nobby-lead'].includes(a.dimwellIncident?.outcome)?1:0);
+    // A disturbance the patrol lost (withdrew or was beaten, nobody arrested) still pays the
+    // wage, but earns no shift merit and does not count towards promotion.
+    lostShift=a.routeId===DISTURBANCE&&r.encounters.slice(a.encounterStart).some(e=>e.binding==='shift-disturbance'&&['withdrawn','defeat'].includes(e.result?.outcome)&&!e.result?.arrested);
+    if(lostShift){shiftMerit=0;d.unsuccessfulShifts=(Number(d.unsuccessfulShifts)||0)+1;}
     r.state.coins+=pay;
     d.paidShifts=(Number(d.paidShifts)||0)+1;
     r.state.flags.watchShiftClock=shiftClock(r.state,false,now());
@@ -900,7 +914,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
     d.dimwellCallsFiled=true;
     d.dimwellCallsSource={dimwellCalls:a.dimwellCalls.status,shift:a.shift};
    }
-   d.completed++;d.reports.push({runId:a.runId,routeId:a.routeId,name:a.name,startedAt:a.startedAt,reportedAt:now(),merit,routeMerit,enquiryMerit,checkpoints:a.visits,incidentIds:r.encounters.slice(a.encounterStart).map(e=>e.id).slice(-20),...(a.shift?{shift:a.shift,pay,promotion,licence:a.licence?.outcome||null,...(a.dimwellIncident?{dimwellIncident:a.dimwellIncident}:{}),...(a.dimwellCalls?{dimwellCalls:a.dimwellCalls.status}:{})}:{})});d.reports=d.reports.slice(-12);d.active=null;});
+   d.completed++;d.reports.push({runId:a.runId,routeId:a.routeId,name:a.name,startedAt:a.startedAt,reportedAt:now(),merit,routeMerit,enquiryMerit,checkpoints:a.visits,incidentIds:r.encounters.slice(a.encounterStart).map(e=>e.id).slice(-20),...(a.shift?{shift:a.shift,pay,promotion,...(lostShift?{unsuccessful:true}:{}),licence:a.licence?.outcome||null,...(a.dimwellIncident?{dimwellIncident:a.dimwellIncident}:{}),...(a.dimwellCalls?{dimwellCalls:a.dimwellCalls.status}:{})}:{})});d.reports=d.reports.slice(-12);d.active=null;});
   if(ok){
    const record=makeStore().read(),filed=data(record).reports.at(-1);
    const finding=filed?.routeId===FIRST_CASE_ROUTE?filed.checkpoints[0]?.enquiry?.reportText:null;
@@ -927,7 +941,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
    if(offer&&preparation.night===record.state.night)text('p','Tonight’s preparation: '+offer.label+'. It will be used in your next encounter.');
    else text('p','Coins buy permanent weapons, armour and boots at the Armoury, plus patrol supplies and one preparation for the next encounter: food for a stronger guard, a lozenge for talking a suspect down, or a boot fitting for the opening move.');
    if(d.active?.shift)text('p','Rank and pay stay fixed for this shift. Any promotion takes effect when you file the shift report.');
-   if(rank.next)text('p',(rank.next.name===rank.name?'Next pay grade: ':'Next rank: ')+rank.next.name+' · '+Math.min(record.state.merit,rank.next.merit)+'/'+rank.next.merit+' merit · '+Math.min(d.paidShifts||0,rank.next.reports)+'/'+rank.next.reports+' filed shifts');
+   if(rank.next)text('p',(rank.next.name===rank.name?'Next pay grade: ':'Next rank: ')+rank.next.name+' · '+Math.min(record.state.merit,rank.next.merit)+'/'+rank.next.merit+' merit · '+Math.min(Math.max(0,(d.paidShifts||0)-(Number(d.unsuccessfulShifts)||0)),rank.next.reports)+'/'+rank.next.reports+' filed shifts');
    text('p','City time '+clock.time+' · '+clock.phase);
   }
   if(!d.active&&deliveryAvailable(record))button('Carrot’s assignment',deliveryMenu);
@@ -989,5 +1003,5 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   return !record.pending&&!!a?.shift&&a.routeId!==DIMWELL_BEAT&&(!isChoiceRoute(a.routeId)||a.routeId===DISTURBANCE)&&a.index===a.checkpoints.length-1&&!escort(a)&&
    view(record)?.action==='inspect'&&!record.encounters.slice(a.encounterStart).some(e=>e.binding==='shift-disturbance');
  }
- return {routes:routes.filter(r=>r.id!==DIMWELL_BEAT&&r.id!==FIRST_CASE_ROUTE&&!isChoiceRoute(r.id)),home,view,start,dimwellStop,mapStop,observeDimwell,dimwellRunner,dimwellRunnerClick,dimwellFollowup,handleDimwellFollowup,dimwellPartnerAway,observeDeliveryTail,deliveryRunner,deliveryAvailable,deliveryActive,deliveryContact,deliveryMenu,marketContacts,talkMarket,marketReportUnresolved,openingContacts,openPurse,openingSuspect,shiftDisturbance,inspect,report,abandon,go,resumeRoute,primary,menu,escortActive:record=>escort(data(record).active),onShift:record=>!!data(record).active?.shift,log:()=>clone(data(makeStore().read()))};
+ return {routes:routes.filter(r=>r.id!==DIMWELL_BEAT&&r.id!==FIRST_CASE_ROUTE&&!isChoiceRoute(r.id)),home,view,start,dimwellStop,mapStop,observeDimwell,dimwellRunner,dimwellRunnerClick,dimwellFollowup,handleDimwellFollowup,dimwellPartnerAway,observeDeliveryTail,deliveryRunner,deliveryAvailable,deliveryActive,deliveryContact,deliveryMenu,marketContacts,talkMarket,marketReportUnresolved,openingContacts,openPurse,openingSuspect,shiftDisturbance,inspect,report,abandon,go,goFirstLead,resumeRoute,primary,menu,escortActive:record=>escort(data(record).active),onShift:record=>!!data(record).active?.shift,log:()=>clone(data(makeStore().read()))};
 }

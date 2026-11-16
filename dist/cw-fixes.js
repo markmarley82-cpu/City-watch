@@ -103,6 +103,25 @@
     addBackupButtons();
   }
 
-  function start() { watchBanner(); watchDuty(); }
+  /* 3. While the game is walking the player to a lead ("Walking…"), the
+     route crosses bridges by itself. The "Cross … Bridge" button that pops
+     up on the way would cancel that route and strand the player on the
+     bridge, so hold it back until the walk ends. Manual walking is unchanged. */
+  function watchCrossing() {
+    const action = document.getElementById('city-use');
+    const position = document.getElementById('city-position');
+    if (!action || !position) return;
+    const sync = () => {
+      const hold = /Walking…/.test(position.textContent) && /^Cross\s/.test(action.textContent.trim());
+      action.classList.toggle('cw-hold-during-route', hold);
+      if (hold) action.setAttribute('aria-hidden', 'true'); else action.removeAttribute('aria-hidden');
+    };
+    const o = new MutationObserver(sync);
+    o.observe(action, { childList: true, characterData: true, subtree: true });
+    o.observe(position, { childList: true, characterData: true, subtree: true });
+    sync();
+  }
+
+  function start() { watchBanner(); watchDuty(); watchCrossing(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

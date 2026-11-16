@@ -19,3 +19,8 @@ html body :is(h1,h2,h3)[tabindex="-1"]:focus-visible {
   line-height: 1.3;
   opacity: .7;
 }
+/* Held back while the game walks the player to a lead (see cw-fixes.js). */
+#city-use.cw-hold-during-route {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

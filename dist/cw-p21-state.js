@@ -12,7 +12,7 @@ const ranks=[
  {name:'Commander',merit:350,reports:16,pay:11}
 ];
 function career(state){
- const merit=Number(state.merit)||0,reports=Number(state.flags?.p21PatrolRounds?.paidShifts)||0;
+ const rounds=state.flags?.p21PatrolRounds,merit=Number(state.merit)||0,reports=Math.max(0,(Number(rounds?.paidShifts)||0)-(Number(rounds?.unsuccessfulShifts)||0));
  const index=ranks.findLastIndex(rank=>merit>=rank.merit&&reports>=rank.reports);
  let current=Math.max(0,index);
  const active=state.flags?.p21PatrolRounds?.active;
