@@ -1,0 +1,129 @@
+CITY WATCH: THE LANTERN FILES
+ECHO — MELODIC MEDIEVAL MUSIC SHORTLIST v1.1
+21 October 2026 — Europe/London
+
+BRIEF
+Mark requested a new selection following the Ultima Online reference: melodic town and night themes, harp, lute, flute/recorder and small ensembles.
+Ultima Online is a mood/instrumentation reference. No Ultima melody, MIDI or recording is included.
+These are six new selections compared with the previous v1.0 reel, by four creators. Earlier samples are retained as research.
+Recommendations are inferred from creator descriptions/tags/instrumentation. Mark chooses by listening; no independent ear approval is claimed.
+
+LISTEN
+The sampler is 3 minutes 5 seconds: six 30-second excerpts separated by one second.
+Separate MP3 excerpts are in samples/. Full publisher tracks are available through the source/download links below.
+
+FIRST COMPARISON
+Try U01 and U04 for the main town identity; U02 for patrol; U03 for a quieter interior; U05 for tavern musicians; U06 for evening.
+Keep future use scene-specific, with space for silence. No track is an approved game binding.
+
+REEL TIMESTAMPS
+0:00 — U01 — Town Theme RPG — cynicmusic — Daytime town / Watch Square
+0:31 — U02 — Medieval: The Bard's Tale — RandomMind — Everyday patrol / quieter streets
+1:02 — U03 — Meadow Thoughts — Écrivain — Quiet interior / reflective moment
+1:33 — U04 — Town Theme RPG — ComposerBeck — Gentle town / civic interior
+2:04 — U05 — Medieval: Minstrel Dance — RandomMind — Tavern / local musicians
+2:35 — U06 — Fantasy: Rising Moon — RandomMind — Evening / quiet night patrol
+
+SOURCES AND CREDITS
+
+U01 — Town Theme RPG — cynicmusic
+Palette: Harps and recorders
+Proposed use: Daytime town / Watch Square
+Reason to compare: The closest instrumentation match in this source-based shortlist for a small, melodic town theme.
+Listening question: Does it feel grounded enough for the Watch Square rather than an idyllic village?
+Source: https://opengameart.org/content/town-theme-rpg
+Publisher download: https://opengameart.org/sites/default/files/TownTheme.mp3
+Licence: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Town Theme RPG — cynicmusic. https://opengameart.org/content/town-theme-rpg. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/; cynicmusic.com; pixelsphere.org
+Changes: 30-second excerpt at source 8–38s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: 2657861d5107d4a3c01ef81cb6a4d61ddd5e7a054b6da57e658373d79d0c3466
+Sample filename: CW_MUSIC_U01_Town_Theme_Cynicmusic_30s.mp3
+Sample SHA256: 1f5927a420f2d59d14fdafe4d9308fced9614fa0fe6517a813c2f169074c1dea
+
+U02 — Medieval: The Bard's Tale — RandomMind
+Palette: Lute and flute; medieval folk
+Proposed use: Everyday patrol / quieter streets
+Reason to compare: A melodic folk alternative for ordinary city life, matching the requested acoustic palette.
+Listening question: Does the melody stay comfortable under repeated patrol and conversation?
+Source: https://opengameart.org/content/medieval-the-bards-tale
+Publisher download: https://opengameart.org/sites/default/files/The_Bards_Tale.mp3
+Licence: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Medieval: The Bard's Tale — RandomMind. https://opengameart.org/content/medieval-the-bards-tale. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Changes: 30-second excerpt at source 10–40s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: 6e93e8e8215bea17a209c321c182111058e024c53e3ad775ce1481ca1d1fcfc2
+Sample filename: CW_MUSIC_U02_The_Bards_Tale_30s.mp3
+Sample SHA256: 553cbb98763ad117333492e5bfaabe7135de5696ab792d2cfbb44f32a4762f9e
+
+U03 — Meadow Thoughts — Écrivain
+Palette: Solo harp
+Proposed use: Quiet interior / reflective moment
+Reason to compare: The smallest ensemble in the shortlist, useful for comparing a restrained reflective direction.
+Listening question: Does the solo harp give enough character without feeling too pastoral?
+Source: https://opengameart.org/content/meadow-thoughts
+Publisher download: https://opengameart.org/sites/default/files/Meadow%20Thoughts.ogg
+Licence: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Meadow Thoughts — Écrivain. https://opengameart.org/content/meadow-thoughts. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Changes: 30-second excerpt at source 20–50s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: 9c55cfadb5acca6ef9ca81bf89d343b13f2b09984d45ae520cf877f1f9ad4404
+Sample filename: CW_MUSIC_U03_Meadow_Thoughts_30s.mp3
+Sample SHA256: 374b7e2d95e7b16d05e95f3911c19d30635fad12741427cbf116c75ba7c37585
+
+U04 — Town Theme RPG — ComposerBeck
+Palette: Flute and harp duet
+Proposed use: Gentle town / civic interior
+Reason to compare: A second town candidate with a specifically documented flute-and-harp arrangement.
+Listening question: Compare this directly with U01 for the preferred town identity.
+Source: https://opengameart.org/content/town-theme-rpg-0
+Publisher download: https://opengameart.org/sites/default/files/Town%20Theme%20wav.wav
+Licence: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+Credit: Town Theme RPG — ComposerBeck. https://opengameart.org/content/town-theme-rpg-0. CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Changes: 30-second excerpt at source 8–38s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: cdd0b06d587475fc69634e27f3c351c3c874585f137063a3b0500ac0abd82918
+Sample filename: CW_MUSIC_U04_Town_Theme_ComposerBeck_30s.mp3
+Sample SHA256: bbdb42ce97254c0f9d9e970facc03bb77d92e1e3899ed283323d4afb7341b946
+
+U05 — Medieval: Minstrel Dance — RandomMind
+Palette: Lute and viola; medieval dance
+Proposed use: Tavern / local musicians
+Reason to compare: A bounded tavern candidate that keeps the acoustic character while adding local activity.
+Listening question: Does it suit musicians in a tavern, and is it too lively for any wider use?
+Source: https://opengameart.org/content/medieval-minstrel-dance
+Publisher download: https://opengameart.org/sites/default/files/Minstrel_Dance_0.mp3
+Licence: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Medieval: Minstrel Dance — RandomMind. https://opengameart.org/content/medieval-minstrel-dance. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Changes: 30-second excerpt at source 16–46s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: b01ff311b30a6cba5c12220d2171d903c73ba463e2ba45400223175ea00b8296
+Sample filename: CW_MUSIC_U05_Minstrel_Dance_30s.mp3
+Sample SHA256: c13ab34f0ab4ab464fcdb0387cc154f5de67af82e3192f54e63c32c8e28358ac
+
+U06 — Fantasy: Rising Moon — RandomMind
+Palette: Calm fantasy night theme; instrumentation not specified by creator
+Proposed use: Evening / quiet night patrol
+Reason to compare: A source-tagged calm night alternative for the quieter side of the reference.
+Listening question: Judge the arrangement and any environmental texture before considering a night loop.
+Source: https://opengameart.org/content/fantasy-rising-moon
+Publisher download: https://opengameart.org/sites/default/files/Rising_Moon_0.mp3
+Licence: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Fantasy: Rising Moon — RandomMind. https://opengameart.org/content/fantasy-rising-moon. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Changes: 30-second excerpt at source 18–48s; loudness adjustment, short fades and MP3 encoding.
+Original byte SHA256: 0e56e864d19ea50cf78851baa2edbeab319fc75527140c7be7ade6ecb4c8f4d2
+Sample filename: CW_MUSIC_U06_Rising_Moon_30s.mp3
+Sample SHA256: d3f458dce906afa65da4aa67deef12bcd5059a284e0d28ea540f543826c75f80
+
+RIGHTS NOTES
+U01/U02/U03/U05/U06 are explicitly published as CC0. U04 is CC BY 4.0: preserve creator/title/source/licence and describe modifications.
+U01 has older comments about CC BY and general catalogue contact requests; the current specific asset explicitly says Now CC0 and carries a CC0 licence badge. This does not license the entire cynicmusic catalogue.
+U03 is titled Meadow Thoughts on its creator page. Any different embedded title in the untouched download is preserved in the technical manifest rather than silently rewritten as source evidence.
+Source/licence statements were checked on 21 October 2026. Creator statements are not a separate audit of every underlying instrument/sample-library right.
+No payment, subscription or purchase was made. Credits are included even where optional. No endorsement is implied.
+
+ACTUAL CHECKS
+Six complete source files downloaded, hashed and fully decoded; six excerpts and the reel fully decoded.
+MP3 exports: 44.1 kHz stereo, 128 kbps; -22 LUFS processing target and -2 dBTP processing ceiling, short fades. Measured decoded peaks are recorded in the manifest.
+The codec container adds small encoder padding to each exact 30-second excerpt.
+Independent human ear, physical iPhone/Safari, loop seams, game integration and Mark acceptance remain open.
+The pack is deliberately compact: review MP3s, credits and source records. It does not bundle full source tracks.
+
+PROJECT STATUS
+Research/listening delivery only. Selection and any later Buddy integration remain separate. B03 sound effects and reserves are retained.
+SIGNED ECHO — Audio Director

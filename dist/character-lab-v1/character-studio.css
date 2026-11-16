@@ -1,0 +1,128 @@
+/* Approved 23 Oct recruit concept: one bound page, ink choices, inset leather. */
+#character-studio .kit-motion-tools{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2px;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-motion-tools label{display:flex;align-items:center;font-size:12px;min-width:0}
+#character-studio .kit-motion-tools :is(button,select){background:none;border:0;min-width:44px;min-height:44px;font-size:12px;width:100%;padding:3px}
+#character-studio .kit-motion-tools output{grid-column:1/-1;text-align:center;font-size:11px;font-style:italic;min-height:18px}
+#character-studio{--kit-ink:#30271e;--kit-rule:#8a674566;--kit-blue:#688196;box-sizing:border-box;display:none;width:min(680px,calc(100vw - 12px));height:min(1160px,calc(100dvh - 12px));max-height:calc(100dvh - 12px);max-width:calc(100vw - 12px);padding:0 8px 5px;border:38px solid transparent;border-image:url('../assets/clothing-ui-v12/folio-frame.webp') 210 fill stretch;background:#ecd5a3 url('../assets/lab01-notebook/page_portrait.webp') center/100% 100%;background-clip:padding-box;color:var(--kit-ink);font:16px/1.35 Georgia,'Times New Roman',serif;overflow:hidden;border-radius:0;filter:drop-shadow(0 12px 24px #0008)}
+#character-studio[open]{display:flex;flex-direction:column}
+#character-studio *{box-sizing:border-box}#character-studio [hidden]{display:none!important}#character-studio::backdrop{background:#11120ff2}
+#character-studio button,#character-studio select,#character-studio input{font:15px/1.25 Georgia,'Times New Roman',serif;color:var(--kit-ink);min-width:44px;min-height:44px;border-radius:0}
+#character-studio button{cursor:pointer;touch-action:manipulation}#character-studio button:disabled{opacity:.45;cursor:default}
+#character-studio :is(button,select,input):focus-visible{outline:3px solid #315c76;outline-offset:-2px}
+#character-studio .kit-header{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 10px;padding:0 0 8px;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-brand{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;text-align:center}
+#character-studio .kit-brand strong{display:block;font-size:22px;letter-spacing:.07em;line-height:1.1;font-weight:700}
+#character-studio .kit-brand small{display:block;font-size:9px;letter-spacing:.2em;margin-top:3px}
+#character-studio .kit-crest{display:flex;width:35px;height:40px;align-items:center;justify-content:center;background:#23323a;border:2px solid #ad803b;clip-path:polygon(5% 0,95% 0,95% 67%,50% 100%,5% 67%);flex:none;color:#d2ae63}
+#character-studio .kit-crest svg{width:26px;height:29px;fill:none;stroke:currentColor;stroke-width:1.3}
+#character-studio h2{grid-column:1/-1;margin:0;text-align:center;font:italic 700 clamp(25px,5.5vw,38px)/1.15 Georgia,serif;outline:none}
+#character-studio .kit-leather{border:12px solid transparent;border-image:url('../assets/jimmy-ui-v014/leather-pad.webp') 300 fill stretch;background:none;padding:1px 5px;color:#f6e2b8;text-shadow:0 1px 1px #000;font-weight:700;line-height:1.2;box-shadow:none;filter:none}
+#character-studio .kit-leather:hover:not(:disabled){filter:brightness(1.12)}#character-studio .kit-leather:active:not(:disabled){filter:brightness(.9)}
+#character-studio .kit-close{font-size:14px;white-space:nowrap;align-self:center}
+#character-studio .kit-page{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#977447 #dcc393;scroll-padding:8px;padding:0 3px}
+#character-studio .kit-races{display:flex;align-items:stretch;min-width:0;border-bottom:1px solid var(--kit-rule)}
+#character-studio .kit-section-label{font:italic 700 20px Georgia,serif;align-self:center;padding:0 10px 0 2px}
+#character-studio #character-race-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1;min-width:0}
+#character-studio #character-race-shortcuts button{display:flex;align-items:center;justify-content:center;gap:4px;min-height:54px;min-width:44px;padding:3px;border:0;border-left:1px solid var(--kit-rule);background:none;font-size:16px}
+#character-studio #character-race-shortcuts canvas{width:38px;height:38px;min-width:0;object-fit:contain}
+#character-studio :is(.head-option,.finish-option,[data-race])[aria-checked=true],#character-studio .clothing-slot[aria-selected=true]{background:linear-gradient(110deg,#d5dfdfb8,#a9bbc38c);box-shadow:inset 0 -3px #3a6078}
+#character-studio .kit-identity{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border-bottom:1px solid var(--kit-rule);gap:9px}
+#character-studio .kit-identity label{display:flex;align-items:center;gap:7px;min-width:0;font-size:12px;font-style:italic}
+#character-studio .kit-identity select{border:0;background:transparent;min-width:0;width:100%;padding:7px 0;font-size:13px}
+#character-studio .kit-preview{padding:0 0 4px;min-width:0}
+#character-studio .kit-stage{position:relative;background:url('../assets/recruit-folio-v1/city-ink.webp') center bottom/100% auto no-repeat;isolation:isolate}
+#character-studio .kit-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#efd9aa20,#efd9aa50);z-index:-1;pointer-events:none}
+#character-studio #character-canvas{display:block;width:100%;height:clamp(290px,35dvh,420px);background:none;border:0;filter:drop-shadow(1px 3px 2px #5b3a2220)}
+#character-studio .kit-arrow{position:absolute;top:48%;transform:translateY(-50%);width:47px;height:49px;padding:0;font-size:17px}
+#character-studio #character-previous{left:2px}#character-studio #character-next{right:2px}
+#character-studio .kit-caption{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 5px;font:italic 700 15px Georgia,serif;text-align:center}
+#character-studio .kit-caption::before,#character-studio .kit-caption::after{content:'';height:1px;width:40px;background:var(--kit-rule)}
+#character-studio .character-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;align-items:stretch;border-top:1px solid var(--kit-rule);border-bottom:1px solid var(--kit-rule)}
+#character-studio .character-controls label{display:flex;align-items:center;gap:3px;font-size:12px;padding-left:4px;min-width:0}
+#character-studio .character-controls :is(button,select){border:0;background:none;min-width:44px;padding:5px;font-size:12px;box-shadow:none;filter:none;width:100%}
+#character-studio .character-controls button{border-left:1px solid var(--kit-rule)}
+#character-studio .character-controls button:hover{background:#68819620}
+#character-studio .kit-compare{display:flex;align-items:center;width:max-content;max-width:100%;gap:5px;min-height:44px;font-size:11px;font-style:italic}
+#character-studio .kit-compare input{appearance:auto;width:17px;height:17px;min-width:17px;min-height:17px;margin:0 4px;accent-color:#37556a}
+#character-studio .kit-finish-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 3px}
+#character-studio h3{font:italic 700 22px Georgia,serif;margin:0}
+#character-studio h4{font:italic 700 16px Georgia,serif;margin:0}
+#character-studio #head-current,#character-studio #clothing-current{font-size:11px;text-align:right}
+#character-studio .kit-heads{border-top:1px solid var(--kit-rule);border-bottom:1px solid var(--kit-rule);padding:7px 0 3px}
+#character-studio #character-heads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--kit-rule)}
+#character-studio .head-option{display:flex;flex-direction:column;align-items:center;justify-content:end;gap:3px;padding:4px 3px 7px;min-width:44px;background:none;border:0;border-right:1px solid var(--kit-rule);font-size:13px;overflow-wrap:anywhere}
+#character-studio .head-option:last-child{border-right:0}
+#character-studio .head-option canvas{display:block;width:80px;height:80px;max-width:100%;background:none;border:0;filter:none;object-fit:contain}
+#character-studio .head-note{font-size:11px;font-style:italic;margin:5px 0;color:#70593d}
+#character-studio .kit-wardrobe{margin:0 0 8px;padding-top:7px}
+#character-studio #kit-title{margin-bottom:4px}
+#character-studio .clothing-slots{display:grid;grid-template-columns:repeat(5,minmax(44px,1fr));gap:0;border:1px solid var(--kit-rule);border-bottom:0;min-width:0;overflow-x:auto;scrollbar-width:thin}
+#character-studio .clothing-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:100%;padding:6px 2px;min-height:65px;min-width:44px;background:none;border:0;border-right:1px solid var(--kit-rule);filter:none;box-shadow:none;font-size:13px}
+#character-studio .clothing-slot:last-child{border-right:0}
+#character-studio .clothing-slot svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+#character-studio .kit-finishes{border:1px solid var(--kit-rule);padding:6px 0 0;margin-top:-1px;min-width:0}
+#character-studio .kit-finishes .kit-finish-heading{padding:0 7px}
+#character-studio #clothing-finishes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--kit-rule)}
+#character-studio .finish-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:83px;min-width:44px;padding:6px 3px;background:none;border:0;border-right:1px solid var(--kit-rule);font-size:12px;text-align:center;overflow-wrap:anywhere}
+#character-studio .finish-option:last-child{border-right:0}
+#character-studio .finish-swatch{display:block;flex:none;width:39px;height:32px;background:repeating-linear-gradient(0deg,#fff1 0 1px,#0001 1px 2px),repeating-linear-gradient(90deg,transparent 0 1px,#0001 1px 2px),var(--swatch);border:1px dashed #a18b65;clip-path:polygon(4% 3%,95% 0,100% 97%,0 100%);transform:rotate(-4deg)}
+#character-studio .badge-swatch{clip-path:polygon(50% 0,95% 20%,85% 75%,50% 100%,15% 75%,5% 20%);width:27px;height:32px}
+#character-studio #clothing-reset{min-height:44px;padding:4px 7px;background:none;border:0;text-decoration:underline;text-underline-offset:3px;font-size:11px}
+#character-studio #clothing-unavailable{font-size:13px;margin:0;padding:12px 0;border-block:1px solid var(--kit-rule)}
+#character-studio .kit-name{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px 10px;border-block:1px solid var(--kit-rule);padding:8px 0}
+#character-studio .kit-name label{font:italic 700 19px Georgia,serif}
+#character-studio #character-name{width:100%;min-width:0;border:1px solid #9a784d99;background:#f8e8c62b;padding:7px 10px;font-size:16px;color:#30271e}
+#character-studio #character-name::placeholder{font-style:italic;color:#796448;opacity:.9}
+#character-studio #character-name[aria-invalid=true]{border-color:#8d392c}
+#character-studio #character-name-help{grid-column:1/-1;font-size:11px;color:#70593d}
+#character-studio #character-status{font-size:12px;min-height:18px;margin:7px 0 4px;color:#604a30}
+#character-studio .character-footer{flex:none;display:flex;justify-content:space-between;gap:8px;align-items:stretch;border-top:1px solid var(--kit-rule);padding-top:6px}
+#character-studio .character-footer button{font-size:16px;min-height:54px;white-space:normal}
+#character-studio #character-apply{flex:1;max-width:70%;font-weight:700}
+@media(max-width:650px){#character-studio{border-width:26px;padding:0 3px 3px;font-size:15px}#character-studio .kit-header{gap:4px;padding-bottom:7px}#character-studio .kit-brand strong{font-size:18px}#character-studio .kit-brand small{font-size:7px;letter-spacing:.13em}#character-studio .kit-crest{width:28px;height:32px}#character-studio .kit-crest svg{width:21px;height:23px}#character-studio .kit-close{font-size:12px;padding-inline:1px;border-width:10px}#character-studio .kit-section-label{font-size:16px;padding-right:6px}#character-studio #character-race-shortcuts button{font-size:14px;gap:1px;padding-inline:1px}#character-studio #character-race-shortcuts canvas{width:26px;height:31px}#character-studio .kit-identity{gap:7px}#character-studio .kit-identity label{font-size:11px;gap:4px}#character-studio .kit-identity select{font-size:12px}#character-studio .head-option canvas{width:72px;height:72px}#character-studio .head-option{font-size:12px}#character-studio .character-footer button{font-size:14px}#character-studio .kit-name label{font-size:16px}}
+@media(max-width:359px){#character-studio{border-width:20px;padding-inline:1px}#character-studio .kit-brand{gap:4px}#character-studio .kit-brand strong{font-size:15px}#character-studio .kit-brand small{font-size:6px}#character-studio h2{font-size:25px}#character-studio #character-race-shortcuts canvas{display:none}#character-studio .kit-identity{grid-template-columns:1fr}#character-studio .kit-identity label{font-size:12px}#character-studio .kit-identity select{font-size:13px}#character-studio .kit-identity label+label{border-top:1px solid var(--kit-rule)}#character-studio #character-canvas{height:290px}#character-studio .head-option canvas{width:58px;height:58px}#character-studio #clothing-finishes{grid-template-columns:repeat(2,minmax(0,1fr))}#character-studio .finish-option{min-height:75px;border-bottom:1px solid var(--kit-rule)}#character-studio .kit-name{grid-template-columns:1fr}#character-studio #head-current{max-width:60%;font-size:10px}#character-studio .character-controls label{display:grid;grid-template-columns:1fr;gap:0}#character-studio .character-controls label select{min-height:29px}#character-studio .character-footer button{font-size:12px;min-height:50px}}
+@media(orientation:landscape) and (max-height:550px){#character-studio{border-width:20px;width:min(780px,calc(100vw - 12px));padding-bottom:0}#character-studio .kit-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:3px}#character-studio h2{font-size:25px;order:1}#character-studio .kit-close{order:2}#character-studio .kit-brand strong{font-size:14px}#character-studio .kit-brand small{font-size:6px}#character-studio .kit-crest{width:24px;height:28px}#character-studio .character-footer button{min-height:44px}#character-studio #character-canvas{height:290px}}
+@media(prefers-reduced-motion:reduce){#character-studio *{scroll-behavior:auto!important}}
+html body #character-studio :is(button,select,input):focus-visible{outline:3px solid #315c76!important;outline-offset:-2px!important;box-shadow:none!important}
+html body #character-studio #character-studio-title:focus-visible{outline:none!important;box-shadow:none!important}
+@media(max-width:359px){#character-studio .character-controls label select{min-height:44px}}
+
+/* Attached folio controls for every existing recruit kind. */
+#character-studio .kit-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0 16px;}
+#character-studio .kit-tools button{min-height:44px;white-space:normal;}
+#character-studio .kit-lore{border-block:1px solid #9d774a55;padding:10px 0;color:#51402d;font:14px/1.45 Georgia,serif;}
+#character-studio .kit-lore summary{min-height:34px;cursor:pointer;}
+#character-studio .kit-lore p{margin:8px 0 2px;}
+#character-studio .kit-garment-note{font:italic 13px/1.4 Georgia,serif;color:#62503a;margin:8px 0;}
+#character-studio .clothing-slot:disabled{opacity:.52;cursor:default;}
+
+/* Finished garment thumbnails retain the approved attached option rows. */
+#character-studio .finish-swatch.garment-swatch{background:none;box-shadow:none;border:0;transform:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+#character-studio .garment-swatch img{display:block;width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 1px 1px #47321b66)}
+
+/* Selection controls belong to the labelled picker rows, never over the sprite. */
+#character-studio .kit-identity{grid-template-columns:1fr;gap:0;padding:4px 0}
+#character-studio .kit-picker{display:grid;grid-template-columns:minmax(48px,.16fr) minmax(0,1fr);align-items:center;gap:6px;min-width:0}
+#character-studio .kit-picker+.kit-picker{border-top:1px solid var(--kit-rule)}
+#character-studio .kit-picker>label{display:block;font-size:12px;font-style:italic;padding-left:2px}
+#character-studio #character-body-count{display:block;font-size:10px;font-style:normal;color:#70593d}
+#character-studio .kit-picker-row{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:stretch;min-width:0;gap:3px}
+#character-studio .kit-picker-row select{display:block;min-height:44px;width:100%;padding:4px;font-size:13px;text-align:center;text-align-last:center}
+#character-studio .kit-arrow{position:static;transform:none;width:44px;height:44px;min-width:44px;min-height:44px;border-width:8px;padding:0;display:grid;place-items:center}
+#character-studio .kit-arrow svg{display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#character-studio .kit-arrow:disabled{opacity:.3}
+@media(min-width:600px) and (min-height:551px){#character-studio .kit-identity{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}#character-studio .kit-picker{grid-template-columns:1fr;gap:0}#character-studio .kit-picker+.kit-picker{border-top:0}#character-studio .kit-picker>label{display:flex;gap:6px;align-items:center}#character-studio #character-body-count{display:inline}}
+
+/* Keep every garment choice legible and attached to the folio on phones. */
+#character-studio .finish-option{border-bottom:1px solid var(--kit-rule)}
+@media(max-width:450px){
+ #character-studio #clothing-finishes{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #character-studio .finish-option{flex-direction:row;justify-content:flex-start;min-height:64px;gap:7px;padding:7px;font-size:13px;text-align:left}
+ #character-studio .finish-option:nth-child(2n){border-right:0}
+ #character-studio .finish-swatch{width:32px;height:30px}
+ #character-studio .finish-swatch.garment-swatch,#character-studio .garment-swatch img{width:36px;height:40px}
+ #character-studio .finish-option>span:last-child{min-width:0;overflow-wrap:anywhere}
+}
+@media(max-width:650px) and (pointer:coarse){
+ #character-studio .kit-picker-row select,#character-studio .character-controls select{font-size:16px}
+}

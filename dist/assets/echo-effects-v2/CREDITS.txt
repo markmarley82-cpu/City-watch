@@ -1,0 +1,15 @@
+Echo effects v2 — source candidate; final listening selection pending.
+
+Cloth movement 4 — OwlishMedia. https://opengameart.org/content/202-more-sound-effects. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Publisher: kmontesdev. CC0 / Public Domain, publisher declaration for collection. Individual recordist not independently identified.
+Publisher: kmontesdev. CC0 / Public Domain, publisher declaration for collection. Individual recordist not independently identified.
+Publisher: kmontesdev. CC0 / Public Domain, publisher declaration for collection. Individual recordist not independently identified.
+Paper handling: Julie Damsgaard / Spring Spring / Spring Enterprises (CC0).
+Paper handling: Julie Damsgaard / Spring Spring / Spring Enterprises (CC0).
+
+Town/calm-water ambience: kmontesdev, Fantasy Ambient Sound Effects Pack.
+https://kmontesdev.itch.io/fantasy-ambient-sound-effects-pack-cc0
+CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Publisher licence confirmed; underlying recordist chain and speech/setting suitability unreviewed.
+Prepared exports use excerpts, level adjustment, tanh soft limiting, fades, mono 22050 Hz and 80kbps MP3.
+Detailed source/prepared hashes and offsets: manifest.json.

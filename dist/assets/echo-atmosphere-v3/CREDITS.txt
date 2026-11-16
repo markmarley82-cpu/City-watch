@@ -1,0 +1,17 @@
+Echo rich atmosphere v3 — credits and transformation record
+
+Timber squeak 1 — rubberduck. https://opengameart.org/content/100-cc0-metal-and-wood-sfx. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Timber squeak 2 — rubberduck. https://opengameart.org/content/100-cc0-metal-and-wood-sfx. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Water splash 1 — rubberduck. https://opengameart.org/content/40-cc0-water-splash-slime-sfx. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Water splash 7 — rubberduck. https://opengameart.org/content/40-cc0-water-splash-slime-sfx. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Water splash 12 — rubberduck. https://opengameart.org/content/40-cc0-water-splash-slime-sfx. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Cloth movement 4 — OwlishMedia. https://opengameart.org/content/202-more-sound-effects. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Cloth movement 5 — OwlishMedia. https://opengameart.org/content/202-more-sound-effects. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Wood-burning fireplace — PagDev. https://opengameart.org/content/fireplace-sound-loop. CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+
+Town, calm river and light rain: kmontesdev, Fantasy Ambient Sound Effects Pack.
+https://kmontesdev.itch.io/fantasy-ambient-sound-effects-pack-cc0
+Publisher CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Existing source originals remain in Echo Drive reserve; exact IDs/hashes are in manifest.json.
+Prepared exports: excerpt, mono22050Hz, RMS gain, tanh soft peak limiting at-8dBFS, fades,80kbpsMP3.
+Field-recording speech/modern-noise/setting fit and underlying original-recordist chain remain unreviewed.
