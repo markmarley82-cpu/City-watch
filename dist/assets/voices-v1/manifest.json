@@ -1,0 +1,123 @@
+{
+ "id": "voices-v1",
+ "groups": {
+  "suspect": [
+   "suspect-1.mp3",
+   "suspect-2.mp3",
+   "suspect-3.mp3",
+   "suspect-4.mp3",
+   "suspect-5.mp3",
+   "suspect-6.mp3",
+   "suspect-7.mp3",
+   "suspect-8.mp3"
+  ],
+  "officer": [
+   "officer-1.mp3",
+   "officer-2.mp3",
+   "officer-3.mp3",
+   "officer-4.mp3",
+   "officer-5.mp3",
+   "officer-6.mp3",
+   "officer-7.mp3"
+  ],
+  "down": [
+   "down-1.mp3",
+   "down-2.mp3"
+  ],
+  "troll": [
+   "troll-1.mp3",
+   "troll-2.mp3",
+   "troll-3.mp3"
+  ],
+  "crowd": [
+   "crowd-loop.mp3"
+  ]
+ },
+ "sources": {
+  "suspect-1.mp3": {
+   "source_file": "hit1.mp3",
+   "pitch": "none"
+  },
+  "suspect-2.mp3": {
+   "source_file": "hit2.mp3",
+   "pitch": "none"
+  },
+  "suspect-3.mp3": {
+   "source_file": "hit3.mp3",
+   "pitch": "none"
+  },
+  "suspect-4.mp3": {
+   "source_file": "hit4.mp3",
+   "pitch": "none"
+  },
+  "suspect-5.mp3": {
+   "source_file": "hit5.mp3",
+   "pitch": "none"
+  },
+  "suspect-6.mp3": {
+   "source_file": "Painsounds v2 - Track 5 - Urggh.ogg",
+   "pitch": "none"
+  },
+  "suspect-7.mp3": {
+   "source_file": "Painsounds v2 - Track 1 - Arrrch.ogg",
+   "pitch": "none"
+  },
+  "suspect-8.mp3": {
+   "source_file": "Painsounds v2 - Track 4 - Arrggh .ogg",
+   "pitch": "none"
+  },
+  "officer-1.mp3": {
+   "source_file": "3grunt3.wav",
+   "pitch": "none"
+  },
+  "officer-2.mp3": {
+   "source_file": "3grunt4.wav",
+   "pitch": "none"
+  },
+  "officer-3.mp3": {
+   "source_file": "3grunt5.wav",
+   "pitch": "none"
+  },
+  "officer-4.mp3": {
+   "source_file": "hurt_03.mp3",
+   "pitch": "none"
+  },
+  "officer-5.mp3": {
+   "source_file": "hurt_05.mp3",
+   "pitch": "none"
+  },
+  "officer-6.mp3": {
+   "source_file": "slightscream-05.flac",
+   "pitch": "none"
+  },
+  "officer-7.mp3": {
+   "source_file": "slightscream-07.flac",
+   "pitch": "none"
+  },
+  "down-1.mp3": {
+   "source_file": "die1.mp3",
+   "pitch": "none"
+  },
+  "down-2.mp3": {
+   "source_file": "slightscream-10.flac",
+   "pitch": "none"
+  },
+  "troll-1.mp3": {
+   "source_file": "Painsounds v2 - Track 1 - Arrrch.ogg",
+   "pitch": "-7 semitones"
+  },
+  "troll-2.mp3": {
+   "source_file": "Painsounds v2 - Track 5 - Urggh.ogg",
+   "pitch": "-7 semitones"
+  },
+  "troll-3.mp3": {
+   "source_file": "hit3.mp3",
+   "pitch": "-8 semitones"
+  },
+  "crowd-loop.mp3": {
+   "source_file": "crowd_shouting_0.ogg",
+   "pitch": "none",
+   "changes": "1.5-26.5 s excerpt, low-pass 2.6 kHz, 1 s loop crossfade"
+  }
+ }
+}

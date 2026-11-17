@@ -1,0 +1,26 @@
+City Watch: The Lantern Files - voices and crowd
+
+All CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/), from OpenGameArt.
+Prepared with tools/make-voice-sounds.py: silence trimmed, levelled, short fades,
+mono MP3. The troll voices are pitched down 7-8 semitones. The crowd is a 25-second
+excerpt, low-passed at 2.6 kHz and crossfaded to loop.
+
+suspect-1..5, down-1   "5 Hit Sounds + Dying" - TinyWorlds
+                       https://opengameart.org/content/5-hit-sounds-dying
+suspect-6..8, troll-1..2  "Pain sounds by EmoPreben" - EmoPreben
+                       https://opengameart.org/content/pain-sounds-by-emopreben
+troll-3                "5 Hit Sounds + Dying" (hit3) - TinyWorlds
+officer-1..3           "Male Grunt/Yelling sounds" (3grunt3-5) - HaelDB
+                       https://opengameart.org/content/male-gruntyelling-sounds
+officer-4..5           "Hurt Sound Effects" (hurt_03, hurt_05) - EZduzziteh
+                       https://opengameart.org/content/hurt-sound-effects
+officer-6..7, down-2   "15 vocal male strain/hurt/pain/jump sounds" (slightscream-05, -07, -10) - qubodup
+                       https://opengameart.org/content/15-vocal-male-strainhurtpainjump-sounds
+crowd-loop             "Crowd Shouting/Speaking Ambience" - StarNinjas
+                       https://opengameart.org/content/crowd-shoutingspeaking-ambience
+
+suspect   a suspect taking a blow
+officer   an officer taking a blow
+troll     a troll taking a blow
+down      someone going down
+crowd     onlookers during a fight

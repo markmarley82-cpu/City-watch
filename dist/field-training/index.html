@@ -766,7 +766,9 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     menu=next;showMoves=menu==='move';error='';notice='';render();
     if(focus){const first=$('menu-'+menu).querySelector('button:not(:disabled)');if(first)first.focus({preventScroll:true});}
   }
+  let crowdOn=null;
   function render(){
+    if(campaignMode){const on=state.phase==='battle';if(on!==crowdOn){crowdOn=on;try{parent.CWTeamAudio?.crowd?.(on);}catch{}}}
     deathSpectator.update(state);
     window.CWTrainingCharacter.nameState(state);
     if(campaignMode&&campaignContext)$('return').textContent=window.CWChase.eligible(campaignContext.pending,state)?'Return to city · pursue suspect':'Record outcome & return to city';
@@ -853,20 +855,21 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     else{let o=0;while(o<old.length&&!old.slice(o).every((t,i)=>now[i]===t))o++;fresh=now.slice(old.length-o);}
     const seq=[],add=(id,gap=280)=>seq.push(seq.length?[id,gap]:id);let m;
     for(const t of fresh.slice(-12)){
-      if((m=/ uses (.+?) against .+: (\d+) stamina/.exec(t))){
-        const w=m[1],d=Number(m[2]);
+      if((m=/ uses (.+?) against (.+): (\d+) stamina/.exec(t))){
+        const w=m[1],d=Number(m[3]);
         if(/crossbow/i.test(w)){add('fight-crossbow');if(d)add('fight-bolt',170);}
         else if(!d)add('fight-block');
         else add(/sword|blade/i.test(w)?'fight-blade':/empty-hand/i.test(w)?'fight-punch':'fight-club');
+        if(d)add(/troll/i.test(m[2])?'voice-troll':'voice-suspect',90);
       }
-      else if(/ casts a dazzling burst at /.test(t))add('fight-spell');
+      else if(/ casts a dazzling burst at /.test(t)){add('fight-spell');add('voice-officer',500);}
       else if(/ swings at .*\((guarded|defended)\)/.test(t)){add('fight-block');add('fight-heavy',110);}
-      else if(/ swings at /.test(t))add('fight-heavy');
+      else if(/ swings at /.test(t)){add('fight-heavy');add('voice-officer',90);}
       else if(/ swings into empty space/.test(t))add('fight-swish');
       else if(/ throws pocket grit/.test(t))add('fight-grit');
       else if(/ strikes( again at)? .*: \d+ stamina \((guarded|defended)\)/.test(t)){add('fight-block');add('fight-punch',110);}
-      else if(/ strikes( again at)? .*: \d+ stamina/.test(t))add('fight-punch');
-      else if(/ is incapacitated\.| cannot continue\./.test(t))add('fight-fall',240);
+      else if(/ strikes( again at)? .*: \d+ stamina/.test(t)){add('fight-punch');add('voice-officer',90);}
+      else if(/ is incapacitated\.| cannot continue\./.test(t)){add('voice-down',200);add('fight-fall',260);}
       else if(/ shoves /.test(t))add('fight-shove');
       else if(/ restrains /.test(t))add('arrest');
       else if(/ braces[. ]/.test(t))add('fight-guard');

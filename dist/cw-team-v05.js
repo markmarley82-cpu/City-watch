@@ -19,6 +19,9 @@
     // Fight sounds (assets/fight-v1, see its CREDITS.txt): fists, truncheon, sword, crossbow, a troll's swing, a wizard's dazzle, grit, guard, shove, falls.
     for(const [kind,n] of Object.entries({punch:4,heavy:2,club:3,blade:2,swish:3,block:2,guard:1,shove:2,fall:2,crossbow:1,bolt:2,spell:1,grit:1,bandage:1}))
       sources['fight-'+kind]=Array.from({length:n},(_,i)=>'fight-v1/'+kind+'-'+(i+1)+'.mp3');
+    // Voices (assets/voices-v1, CC0 recordings, see its CREDITS.txt): a suspect or an officer taking a blow, a troll, someone going down.
+    for(const [kind,n] of Object.entries({suspect:8,officer:7,down:2,troll:3}))
+      sources['voice-'+kind]=Array.from({length:n},(_,i)=>'voices-v1/'+kind+'-'+(i+1)+'.mp3');
     // Street life by district: occasional one-off sounds, at most one at a time (see sampleAmbience).
     const DISTRICT={
       docks:/wharfinger|treacle|dock|quay|warehouse|netmender|misbegot|bridge|cut\b|storehouse|riverside/i,
@@ -135,7 +138,8 @@
         const file=options[cursor%options.length];variants.set(id,cursor+1);
         let a=pool.get(file);if(!a){a=makeAudio('assets/'+file,id);pool.set(file,a);}
         if(id.startsWith('step-'))for(const other of pool.values())if(other!==a&&other.dataset.cueId?.startsWith('step-')){other._cwWanted=false;other.pause();}
-        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:id==='case-closed'?.6:id==='whistle'?.45:id.startsWith('fight-')?.9:.80);
+        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:id==='case-closed'?.6:id==='whistle'?.45:id.startsWith('fight-')?.9:id.startsWith('voice-')?.75:.80);
+        if(crowdWanted&&(id==='fight-fall'||id==='arrest'||id==='voice-down'))swellCrowd();
         a.currentTime=0;play(a);return true;
       }catch{counts.failed++;changed();return false;}
     }
@@ -143,6 +147,26 @@
     function sequence(list){
       let at=0;const epoch=generation;
       (list||[]).forEach((item,i)=>{const [id,gap]=Array.isArray(item)?item:[item,i?220:0];at+=gap;if(!at)cue(id);else setTimeout(()=>{if(epoch===generation)cue(id);},at);});
+    }
+    // Onlookers during a fight (assets/voices-v1/crowd-loop.mp3): the crowd fades in with the fight, swells at a fall or an arrest,
+    // and fades out when the fight ends or its window closes (checked in sampleScene).
+    let crowdAudio=null,crowdWanted=false,crowdFade=null,crowdSwellUntil=0;
+    const crowdLevel=()=>effectsVolume*.35*(scene==='night'?.5:1)*(Date.now()<crowdSwellUntil?1.8:1);
+    function crowdTo(target,ms,done){
+      if(!crowdAudio)return;clearInterval(crowdFade);const from=crowdAudio.volume,start=Date.now();
+      crowdFade=setInterval(()=>{const k=Math.min(1,(Date.now()-start)/ms),to=typeof target==='function'?target():target;crowdAudio.volume=finiteVolume(from+(to-from)*k);if(k>=1){clearInterval(crowdFade);crowdFade=null;done?.();}},60);
+    }
+    function stopCrowd(){if(!crowdAudio)return;clearInterval(crowdFade);crowdFade=null;crowdAudio._cwWanted=false;crowdAudio.pause();}
+    function crowd(on){
+      crowdWanted=!!on;
+      if(crowdWanted&&enabled&&effects&&!document.hidden&&!suspended){
+        if(!crowdAudio){crowdAudio=makeAudio('assets/voices-v1/crowd-loop.mp3','crowd');crowdAudio.loop=true;crowdAudio.volume=0;}
+        if(crowdAudio.paused){crowdAudio.volume=0;play(crowdAudio);}crowdTo(crowdLevel,1500);
+      }else if(crowdAudio&&!crowdAudio.paused){if(crowdWanted)stopCrowd();else crowdTo(0,1800,stopCrowd);}
+    }
+    function swellCrowd(){
+      if(!crowdAudio||crowdAudio.paused)return;crowdSwellUntil=Date.now()+1800;crowdTo(crowdLevel,300);
+      setTimeout(()=>{if(crowdWanted&&crowdAudio&&!crowdAudio.paused)crowdTo(crowdLevel,1200);},1850);
     }
     function fadeMusic(target,ms,done){
       clearInterval(fading);const from=music.volume,start=Date.now();
@@ -179,9 +203,10 @@
     }
     function setEnabled(value){
       enabled=!!value;generation++;lastPosition=null;lastCoordinates=null;lastInside=null;recent.clear();ambienceZone=null;atmosphereSceneKey=null;stopAmbience();
-      if(!enabled){stopAmbience();stopEffects();music?.pause();}else{startMusic();sampleScene();}rememberSound(enabled);sync();
+      if(!enabled){stopAmbience();stopEffects();stopCrowd();music?.pause();}else{startMusic();sampleScene();crowd(crowdWanted);}rememberSound(enabled);sync();
     }
     function sampleScene(){
+      if(crowdWanted&&!document.getElementById('p21-combat-dialog')?.open)crowd(false);
       if(!enabled||document.hidden||suspended)return;
       let owner=window,doc=document;
       try{const frame=document.getElementById('p21-engine-dialog')?.open?document.getElementById('p21-engine-frame'):document.getElementById('room-frame');if(frame&&frame.getAttribute('src')!=='about:blank'&&(document.getElementById('room-dialog')?.open||document.getElementById('p21-engine-dialog')?.open)&&frame.contentWindow?.CW_PATROL_DESCRIPTION){owner=frame.contentWindow;doc=frame.contentDocument;}}catch{}
@@ -214,22 +239,22 @@
       lastPosition=current;lastCoordinates=coordinates;lastRoom=place;lastSceneAt=now;
     }
     const api=Object.freeze({
-      cue,sequence,setEnabled,
+      cue,sequence,crowd,setEnabled,
       setAmbience(value){ambienceWanted=!!value;if(!ambienceWanted)stopAmbience();else{ambienceZone=null;atmosphereSceneKey=null;sampleScene();}changed();},
-      setEffects(value){effects=!!value;if(!effects)stopEffects();changed();},
+      setEffects(value){effects=!!value;if(!effects){stopEffects();stopCrowd();}else crowd(crowdWanted);changed();},
       setMusic(value){musicWanted=!!value;if(musicWanted)startMusic();else music?.pause();changed();},
       setVolume(kind,value){if(kind==='ambience'){const previous=ambienceVolume;ambienceVolume=finiteVolume(value);for(const b of beds.values())if(b.audio){b.audio.volume=previous?b.audio.volume*ambienceVolume/previous:0;if(!previous)b.due=Date.now();}for(const a of details.values())a.volume=finiteVolume(ambienceVolume*(a._cwAmbientGain||0));if(!ambienceVolume)stopAmbience();else sampleScene();}else if(kind==='music'){musicVolume=finiteVolume(value);if(music&&!fading)music.volume=musicVolume;}else{effectsVolume=finiteVolume(value);for(const a of pool.values())a.volume=effectsVolume*(a.dataset.cueId.startsWith('step-')?.65:a.dataset.cueId==='reward'?.55:.80);}changed();},
       selectMusic(value){if(!value||!/^[-\w]+\.mp3$/.test(value.sample_file)||!value.id)return false;track={id:value.id,title:String(value.title||value.id),sample_file:value.sample_file};manualTrack=true;musicWanted=true;if(enabled)startMusic();changed();return true;},
       useSceneMusic(){manualTrack=false;startMusic();changed();},
-      suspendMusic(value){const next=!!value;if(next===suspended){if(!next)startMusic();return;}suspended=next;generation++;if(suspended){stopAmbience();stopEffects();music?.pause();}else startMusic();changed();},
+      suspendMusic(value){const next=!!value;if(next===suspended){if(!next)startMusic();return;}suspended=next;generation++;if(suspended){stopAmbience();stopEffects();stopCrowd();music?.pause();}else{startMusic();crowd(crowdWanted);}changed();},
       sampleScene,
       report:()=>({enabled,effects,music:musicWanted,ambience:ambienceWanted,ambienceVolume,ambienceZone,atmosphereContext,ambientLayers:[...beds].map(([id,b])=>({id,playing:!!b.audio&&!b.audio.paused,volume:b.audio?.volume||0,file:b.audio?.src||null})),ambientDetails:[...details].map(([id,a])=>({id,playing:!a.paused,volume:a.volume})),ambiencePlayback:ambience?.dataset.playback||'idle',ambiencePaused:ambience?.paused??true,musicVolume,effectsVolume,scene,automaticMusic:!manualTrack,track:music?.dataset.track||null,trackTitle:music?.dataset.title||null,musicPlayback:music?.dataset.playback||'idle',musicPaused:music?.paused??true,poolSize:pool.size,...counts,source:'Echo atmosphere v3; retained recordings, scene-driven candidate layers'})
     });
     let timer=null;
     const startSampling=()=>{if(timer===null)timer=setInterval(sampleScene,80);};
     const stopSampling=()=>{if(timer!==null){clearInterval(timer);timer=null;}};
-    const quiesce=()=>{generation++;lastPosition=null;lastCoordinates=null;ambienceZone=null;atmosphereSceneKey=null;stopAmbience();stopEffects();music?.pause();};
-    const resume=()=>{if(enabled&&!document.hidden&&!suspended){startMusic();sampleScene();}};
+    const quiesce=()=>{generation++;lastPosition=null;lastCoordinates=null;ambienceZone=null;atmosphereSceneKey=null;stopAmbience();stopEffects();stopCrowd();music?.pause();};
+    const resume=()=>{if(enabled&&!document.hidden&&!suspended){startMusic();sampleScene();crowd(crowdWanted);}};
     startSampling();
     document.addEventListener('visibilitychange',()=>{quiesce();if(!document.hidden)resume();});
     window.addEventListener('pagehide',(event={})=>{quiesce();if(!event.persisted)enabled=false;stopSampling();});
