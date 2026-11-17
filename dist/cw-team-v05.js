@@ -16,6 +16,9 @@
       'step-gravel':['echo-steps-v1/step-gravel-1.mp3','echo-steps-v1/step-gravel-2.mp3','echo-steps-v1/step-gravel-3.mp3','echo-steps-v1/step-gravel-4.mp3'],
       'step-dirt':['echo-steps-v1/step-dirt-1.mp3','echo-steps-v1/step-dirt-2.mp3','echo-steps-v1/step-dirt-3.mp3','echo-steps-v1/step-dirt-4.mp3']
     };
+    // Fight sounds (assets/fight-v1, see its CREDITS.txt): fists, truncheon, sword, crossbow, a troll's swing, a wizard's dazzle, grit, guard, shove, falls.
+    for(const [kind,n] of Object.entries({punch:4,heavy:2,club:3,blade:2,swish:3,block:2,guard:1,shove:2,fall:2,crossbow:1,bolt:2,spell:1,grit:1,bandage:1}))
+      sources['fight-'+kind]=Array.from({length:n},(_,i)=>'fight-v1/'+kind+'-'+(i+1)+'.mp3');
     // Street life by district: occasional one-off sounds, at most one at a time (see sampleAmbience).
     const DISTRICT={
       docks:/wharfinger|treacle|dock|quay|warehouse|netmender|misbegot|bridge|cut\b|storehouse|riverside/i,
@@ -132,9 +135,14 @@
         const file=options[cursor%options.length];variants.set(id,cursor+1);
         let a=pool.get(file);if(!a){a=makeAudio('assets/'+file,id);pool.set(file,a);}
         if(id.startsWith('step-'))for(const other of pool.values())if(other!==a&&other.dataset.cueId?.startsWith('step-')){other._cwWanted=false;other.pause();}
-        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:id==='case-closed'?.6:id==='whistle'?.45:.80);
+        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:id==='case-closed'?.6:id==='whistle'?.45:id.startsWith('fight-')?.9:.80);
         a.currentTime=0;play(a);return true;
       }catch{counts.failed++;changed();return false;}
+    }
+    // Plays sounds one after another: each item is an id, or [id, milliseconds after the previous one] (default 220).
+    function sequence(list){
+      let at=0;const epoch=generation;
+      (list||[]).forEach((item,i)=>{const [id,gap]=Array.isArray(item)?item:[item,i?220:0];at+=gap;if(!at)cue(id);else setTimeout(()=>{if(epoch===generation)cue(id);},at);});
     }
     function fadeMusic(target,ms,done){
       clearInterval(fading);const from=music.volume,start=Date.now();
@@ -206,7 +214,7 @@
       lastPosition=current;lastCoordinates=coordinates;lastRoom=place;lastSceneAt=now;
     }
     const api=Object.freeze({
-      cue,setEnabled,
+      cue,sequence,setEnabled,
       setAmbience(value){ambienceWanted=!!value;if(!ambienceWanted)stopAmbience();else{ambienceZone=null;atmosphereSceneKey=null;sampleScene();}changed();},
       setEffects(value){effects=!!value;if(!effects)stopEffects();changed();},
       setMusic(value){musicWanted=!!value;if(musicWanted)startMusic();else music?.pause();changed();},

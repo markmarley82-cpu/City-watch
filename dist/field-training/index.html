@@ -844,12 +844,43 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     draw();
   }
   const actionHelp={skill:'Character-specific action. One main action, once per encounter.',revive:'One action to rouse an adjacent, compatible downed partner with 4 stamina. Once per incident.',reload:'Load the crossbow using one action.',stow:'Ready your truncheon using one action, preserving its close-control actions.',strike:'Use controlled force; damage depends on the acting officer’s strength.',shove:'Shake an adjacent target; push one clear space.',defend:'Reduce incoming stamina damage until your next turn.',restrain:'Arrest an adjacent shaken, surrendered or low-stamina target.',talk:'Reduce resolve by 4. At zero the target surrenders.',bargain:'Offer a peaceful exit. No arrest is recorded.',item:'Recover up to 6 stamina using one bandage.',escape:'Withdraw from a board edge.'};
+  // Fight sounds from what actually happened: the new lines of the incident log, in order.
+  function fightSounds(before,after){
+    let A=null;try{A=parent.CWTeamAudio||window.CWTeamAudio;}catch{}
+    if(!A)return;if(!A.sequence){if(after.actors.some(a=>a.hp<(before.actors.find(b=>b.id===a.id)?.hp??a.hp)))A.cue('hit');return;}
+    const old=before.log||[],now=after.log||[];let fresh;
+    if(old.length<80)fresh=now.slice(old.length);
+    else{let o=0;while(o<old.length&&!old.slice(o).every((t,i)=>now[i]===t))o++;fresh=now.slice(old.length-o);}
+    const seq=[],add=(id,gap=280)=>seq.push(seq.length?[id,gap]:id);let m;
+    for(const t of fresh.slice(-12)){
+      if((m=/ uses (.+?) against .+: (\d+) stamina/.exec(t))){
+        const w=m[1],d=Number(m[2]);
+        if(/crossbow/i.test(w)){add('fight-crossbow');if(d)add('fight-bolt',170);}
+        else if(!d)add('fight-block');
+        else add(/sword|blade/i.test(w)?'fight-blade':/empty-hand/i.test(w)?'fight-punch':'fight-club');
+      }
+      else if(/ casts a dazzling burst at /.test(t))add('fight-spell');
+      else if(/ swings at .*\((guarded|defended)\)/.test(t)){add('fight-block');add('fight-heavy',110);}
+      else if(/ swings at /.test(t))add('fight-heavy');
+      else if(/ swings into empty space/.test(t))add('fight-swish');
+      else if(/ throws pocket grit/.test(t))add('fight-grit');
+      else if(/ strikes( again at)? .*: \d+ stamina \((guarded|defended)\)/.test(t)){add('fight-block');add('fight-punch',110);}
+      else if(/ strikes( again at)? .*: \d+ stamina/.test(t))add('fight-punch');
+      else if(/ is incapacitated\.| cannot continue\./.test(t))add('fight-fall',240);
+      else if(/ shoves /.test(t))add('fight-shove');
+      else if(/ restrains /.test(t))add('arrest');
+      else if(/ braces[. ]/.test(t))add('fight-guard');
+      else if(/ uses a bandage/.test(t))add('fight-bandage');
+    }
+    if(seq.length)A.sequence(seq);
+  }
   function perform(fn,goHome=false,command={type:'action'}){
     if(campaignMode&&!campaignContext)return;const before=C.clone(state),origins=new Map(state.actors.map(a=>[a.id,position(a)])),result=fn();
     if(result.ok&&state.phase==='result'&&PrepBridge)PrepBridge.finish(state);
 
     P.record(before,state,command,result);
-    if(campaignMode&&campaignContext){parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);if(result.ok){const hurt=state.actors.some(a=>a.hp<before.actors.find(b=>b.id===a.id).hp);if(hurt)parent.CWTeamAudio?.cue('hit');}}
+    if(campaignMode&&campaignContext){parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);}
+    if(result.ok)fightSounds(before,state);
     window.CWTrainingCharacter.outcomes(before,state,command,result);
     if(result.ok&&command.type==='strike'&&C.current(before).weaponProfile==='service-crossbow'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)projectiles.push({from:origins.get(C.current(before).id),to:origins.get(command.target),start:performance.now()});
     clearTimeout(quipTimer);remark=P.quip(before,state,command,result,reportNumber).replace(/^Partner:/,state.actors.find(a=>a.id==='partner').name+':').replace(/^Patron:/,()=>{const t=state.actors.find(a=>a.id===command.target);return ((t&&t.name)||'Suspect').split(' · ')[0]+':';});if(remark)quipTimer=setTimeout(()=>{remark='';render();},3000);

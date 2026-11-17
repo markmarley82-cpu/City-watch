@@ -1,0 +1,170 @@
+{
+ "id": "fight-v1",
+ "groups": {
+  "punch": [
+   "punch-1.mp3",
+   "punch-2.mp3",
+   "punch-3.mp3",
+   "punch-4.mp3"
+  ],
+  "heavy": [
+   "heavy-1.mp3",
+   "heavy-2.mp3"
+  ],
+  "club": [
+   "club-1.mp3",
+   "club-2.mp3",
+   "club-3.mp3"
+  ],
+  "blade": [
+   "blade-1.mp3",
+   "blade-2.mp3"
+  ],
+  "swish": [
+   "swish-1.mp3",
+   "swish-2.mp3",
+   "swish-3.mp3"
+  ],
+  "block": [
+   "block-1.mp3",
+   "block-2.mp3"
+  ],
+  "guard": [
+   "guard-1.mp3"
+  ],
+  "shove": [
+   "shove-1.mp3",
+   "shove-2.mp3"
+  ],
+  "fall": [
+   "fall-1.mp3",
+   "fall-2.mp3"
+  ],
+  "crossbow": [
+   "crossbow-1.mp3"
+  ],
+  "bolt": [
+   "bolt-1.mp3",
+   "bolt-2.mp3"
+  ],
+  "spell": [
+   "spell-1.mp3"
+  ],
+  "grit": [
+   "grit-1.mp3"
+  ],
+  "bandage": [
+   "bandage-1.mp3"
+  ]
+ },
+ "files": [
+  {
+   "file": "punch-1.mp3",
+   "duration": 0.38
+  },
+  {
+   "file": "punch-2.mp3",
+   "duration": 0.38
+  },
+  {
+   "file": "punch-3.mp3",
+   "duration": 0.38
+  },
+  {
+   "file": "punch-4.mp3",
+   "duration": 0.38
+  },
+  {
+   "file": "heavy-1.mp3",
+   "duration": 0.75
+  },
+  {
+   "file": "heavy-2.mp3",
+   "duration": 0.75
+  },
+  {
+   "file": "club-1.mp3",
+   "duration": 0.4
+  },
+  {
+   "file": "club-2.mp3",
+   "duration": 0.4
+  },
+  {
+   "file": "club-3.mp3",
+   "duration": 0.4
+  },
+  {
+   "file": "blade-1.mp3",
+   "duration": 0.7
+  },
+  {
+   "file": "blade-2.mp3",
+   "duration": 0.7
+  },
+  {
+   "file": "swish-1.mp3",
+   "duration": 0.24
+  },
+  {
+   "file": "swish-2.mp3",
+   "duration": 0.3
+  },
+  {
+   "file": "swish-3.mp3",
+   "duration": 0.2
+  },
+  {
+   "file": "block-1.mp3",
+   "duration": 0.35
+  },
+  {
+   "file": "block-2.mp3",
+   "duration": 0.35
+  },
+  {
+   "file": "guard-1.mp3",
+   "duration": 0.45
+  },
+  {
+   "file": "shove-1.mp3",
+   "duration": 0.55
+  },
+  {
+   "file": "shove-2.mp3",
+   "duration": 0.55
+  },
+  {
+   "file": "fall-1.mp3",
+   "duration": 1.0
+  },
+  {
+   "file": "fall-2.mp3",
+   "duration": 1.0
+  },
+  {
+   "file": "crossbow-1.mp3",
+   "duration": 0.6
+  },
+  {
+   "file": "bolt-1.mp3",
+   "duration": 0.35
+  },
+  {
+   "file": "bolt-2.mp3",
+   "duration": 0.35
+  },
+  {
+   "file": "spell-1.mp3",
+   "duration": 1.0
+  },
+  {
+   "file": "grit-1.mp3",
+   "duration": 0.45
+  },
+  {
+   "file": "bandage-1.mp3",
+   "duration": 0.7
+  }
+ ]
+}
