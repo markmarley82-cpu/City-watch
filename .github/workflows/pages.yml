@@ -51,3 +51,10 @@ jobs:
           path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
+      # Last lines of the log: what the bake produced (the upload step lists
+      # every file, which buries the bake's own output).
+      - name: Report baked startup files
+        if: always()
+        run: |
+          echo "startup-cache.json: $(head -c 300 _site/startup-cache.json)"
+          node -e "const l=require('./_site/cw-prefetch-list.json');console.log('cw-prefetch-list.json:',l.files.length,'files ·',l.note)"
