@@ -25,7 +25,7 @@ export async function createHideParkNorth({read,load,addSprites,lightAnchors}){
  return Object.freeze({data,objects,discard,report:()=>({id:data.id,ready:true,uniqueBuildings:8,repeatedInstances:0,originalUnnamed:true,newCanonicalAddresses:0,creativeAcceptance:false})});
 }
 
-export function activateHideParkNorth({receiver,world,ground,originalMembers,store,Chase}){
+export function activateHideParkNorth({receiver,world,ground,originalMembers,store,Chase,doorCheck=null}){
  if(!receiver)return null;
  const rows=receiver.data.premises,rects=rows.map(r=>[r.rect[0]-.5,r.rect[1]-.5,r.rect[0]+r.rect[2]-.5,r.rect[1]+r.rect[3]-.5]);
  const contract={schema:1,id:receiver.data.id,scope:{edgeID:'E040'},boundary:{epsilonWorldUnits:1e-9},foot:{probes:footProbeOffsets,maxSavedFootDistanceFromAnchor:1.5},regions:rows.map(r=>({id:r.id,worldPolygon:r.worldPolygon}))};
@@ -86,8 +86,13 @@ export function activateHideParkNorth({receiver,world,ground,originalMembers,sto
   doors.push(d);
  }
  for(const d of doors)world.doors.set(d.game_id,d);
- // One search from Watch Square answers the same question as a streetPath to every door (much faster at startup).
- const reach=streetReachable(world,[126,132,'RC1']);
- for(const d of [...world.doors.values()].filter(d=>!d.held))if(!streetReaches(world,reach,d.position,d.edge))throw Error('Hide Park north cut off '+d.game_id);
+ // One search from Watch Square answers the same question as a streetPath to every door.
+ // Skipped only when this exact city (same fingerprint) passed it at deploy time.
+ const doorFingerprint=doorCheck?.fingerprint?.()||null;
+ if(!doorCheck?.verified(doorFingerprint)){
+  const reach=streetReachable(world,[126,132,'RC1']);
+  for(const d of [...world.doors.values()].filter(d=>!d.held))if(!streetReaches(world,reach,d.position,d.edge))throw Error('Hide Park north cut off '+d.game_id);
+  doorCheck?.record(doorFingerprint);
+ }
  return Object.freeze({rows,doors,rects,reservation,removed:plan.centres,fullFootClear:full,affected,persistRecovery,report:()=>({...receiver.report(),active:true,doors:doors.map(d=>d.game_id),newDoors:doors.length,newShops:doors.filter(d=>d.shop_key).length,newLodgings:doors.filter(d=>d.lodging_grade!==undefined).length,geometryChanged:true,originalRouteConflicts:0,removedOpenGroundAnchors:plan.centres.length,walkCells:world.members.size})});
 }

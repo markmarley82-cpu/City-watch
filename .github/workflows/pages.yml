@@ -32,6 +32,20 @@ jobs:
           mkdir _site
           cp -a dist/. _site/
           rm -f _site/play-*.html _site/source-inventory.json
+      # Boot the game once in a headless phone browser to bake startup-cache.json
+      # (expensive startup checks, verified for this exact build) and a fresh
+      # cw-prefetch-list.json. See tools/bake-startup-cache.js. Optional: if it
+      # fails, the site still deploys and phones simply run the checks themselves.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Bake startup files
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          npm install --no-save --no-package-lock playwright@1.63.0
+          npx playwright install --with-deps chromium
+          node tools/bake-startup-cache.js _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

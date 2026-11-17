@@ -66,7 +66,7 @@ import {createE045PairGround} from './city-e045-pair-ground.mjs?v=p21-b407-s039-
 import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-workshop.mjs?v=p21-b407-s039-reuse';
 import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=p21-b473-dock-workshop';
 import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=p21-b407-s039-reuse';
-import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=p21-b407-s039-reuse-reach2';
+import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=p21-b407-s039-reuse-cache1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
 import {approachRoofCutawayMask,walkingCutawayMask,walkingGroundSamples,e045PavingSweep} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
@@ -152,9 +152,11 @@ import {createUniversityStreets} from './university-streets.mjs?v=p21-b407-s039-
 import {createShadesStreets} from './shades-streets.mjs?v=p21-b407-s039-reuse';
 import {createRiverPainter} from './city-river.mjs?v=p21-b407-s039-reuse';
 import {cityLocationLabel} from './city-location-labels.mjs?v=p21-b407-s039-reuse';
+import {loadStartupCache,startupCheck,worldFingerprint} from './city-startup-cache.mjs?v=cw2';
 installCityImageDiagnostics({onFailure:details=>{window.CWCityImageFailure=details;}});
 const $=id=>document.getElementById(id),KEY='city_watch_lab01_v07_city';
 const startupBegan=performance.now(),startupTiming=window.CWStartupTiming=[];function startupMark(id){const ms=Math.round(performance.now()-startupBegan);startupTiming.push({id,ms});console.info('CW-STARTUP',id,ms);}
+const startupCachePromise=loadStartupCache();
 window.CWPhoneBoot?.stage('Checking your patrol');
 await window.CW_LAB.prepare();
 window.CWPhoneBoot?.stage('Loading officers');
@@ -732,7 +734,8 @@ const hideParkState=activateHideParkPremises({receiver:hideParkPremises,world,gr
 const hideParkRecovery=hideParkState?.persistRecovery(window.CWP21State.create(localStorage),window.CWChase);
 if(hideParkRecovery)savedNavigation=hideParkRecovery.record;
 canvas.dataset.hideParkPremises=JSON.stringify(hideParkState?.report()||{ready:false,newBuildings:0});
-let hideParkNorthState=null;try{hideParkNorthState=activateHideParkNorth({receiver:hideParkNorth,world,ground:openGround,originalMembers:streetLifeHomeMembers,store:window.CWP21State.create(localStorage),Chase:window.CWChase});}catch(error){hideParkNorth?.discard(sceneryObjects);hideParkNorth=null;console.error('Hide Park north reservation rejected; current public ground retained',error);}
+const startupCache=await startupCachePromise;
+let hideParkNorthState=null;try{hideParkNorthState=activateHideParkNorth({receiver:hideParkNorth,world,ground:openGround,originalMembers:streetLifeHomeMembers,store:window.CWP21State.create(localStorage),Chase:window.CWChase,doorCheck:{...startupCheck(startupCache,'hide-park-north-doors'),fingerprint:()=>worldFingerprint(world,sceneryObjects)}});}catch(error){hideParkNorth?.discard(sceneryObjects);hideParkNorth=null;console.error('Hide Park north reservation rejected; current public ground retained',error);}
 const hideParkNorthRecovery=hideParkNorthState?.persistRecovery();if(hideParkNorthRecovery)savedNavigation=hideParkNorthRecovery.record;
 canvas.dataset.hideParkNorth=JSON.stringify(hideParkNorthState?.report()||{ready:false,newBuildings:0});
 const parkPropsState=activateParkProps({receiver:hideParkArt,world,ground:openGround,originalMembers:streetLifeHomeMembers});
