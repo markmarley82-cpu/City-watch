@@ -50,11 +50,13 @@ These make what already exists reliable:
 
 ## 4. Finishing Version 1.0
 
-- **Promotion at the commendation** (approved): claiming the commendation also
-  promotes the recruit, so story-only players are not stuck at Lance-Constable.
-- **The ending** (approved design): after the Commander's final choice, a
-  closing scene with Vimes that ties the guild threads together, the promotion,
-  a personal record card, credits and the fan-game note, then free patrol.
+- **Done: promotion.** Claiming the commendation makes you at least Constable,
+  and the Commander's Decision at least Corporal (`career()` in
+  `dist/cw-p21-state.js`); higher ranks earned on Night duty are kept.
+- **Done: the ending** (`dist/cw-ending.js`): Vimes' closing scene, the stripe,
+  your Watch record card, credits with the fan note, then free patrol. The
+  credits say "Made by Mark and the City Watch team"; change that line in
+  `credits()` if the team should be named.
 - **Story gaps:** Vimes has almost no lines in chapter 2; chapters 1 and 2 end
   on the same generic report screen; the ledger case files itself without a
   "who did it?" choice.

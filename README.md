@@ -68,6 +68,15 @@ time, and city cases appear in the Watch Notebook's Cases tab. `docs/cases/CASE-
 case in the project and its status; `docs/cases/Bridge-Shift-Playtest.md` is the
 uncoached playtest sheet.
 
+## The ending
+
+`dist/cw-ending.js` shows the ending once, after the Commander's Decision:
+Vimes' closing scene, the promotion, a Watch record card built from the save,
+and the credits (the music list is read from
+`dist/assets/echo-all-v012/tracks.json`, so it stays in step with the music
+panel). It sets `state.flags.endingV1`; players can see it again from
+Duty → Your Watch record.
+
 ## Faster loading on phones
 
 `dist/cw-prefetch.js` downloads, in the background, the files the city asks

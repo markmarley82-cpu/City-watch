@@ -14,7 +14,10 @@ const ranks=[
 function career(state){
  const rounds=state.flags?.p21PatrolRounds,merit=Number(state.merit)||0,reports=Math.max(0,(Number(rounds?.paidShifts)||0)-(Number(rounds?.unsuccessfulShifts)||0));
  const index=ranks.findLastIndex(rank=>merit>=rank.merit&&reports>=rank.reports);
- let current=Math.max(0,index);
+ // Story promotions, so story-only players are not stuck at Lance-Constable: the commendation
+ // (chapter three, stage 4) makes you at least Constable, the Commander's Decision at least Corporal.
+ const story=(Number(state.chapter)||0)>=2&&(Number(state.stage)||0)>=4?(state.flags?.finalChoice?3:2):0;
+ let current=Math.max(0,index,story);
  const active=state.flags?.p21PatrolRounds?.active;
  if(active?.shift){const signed=active.rankIndexAtSignOn??state.rank;if(Number.isSafeInteger(signed)&&signed>=0&&signed<ranks.length)current=signed;}
  return {index:current,...ranks[current],next:ranks[current+1]?{...ranks[current+1]}:null};
