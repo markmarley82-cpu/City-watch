@@ -991,8 +991,10 @@ function fileFinalRecommendation(choice){
   s=previous;ui();open('Saving could not finish','The patrol could not be fully saved. Keep this tab open and retry Save patrol.',[['Retry your recommendation',()=>fileFinalRecommendation(choice),true]]);return;
  }
  $('speaker').textContent='Vimes';$('message').textContent=choice.reply;$('portrait').textContent=choice.icon;chirp('reward');
+ // Show the reply: in the unified game the message bar is hidden once this screen closes.
+ open('Commander Vimes',choice.reply+' Filed: '+choice.record+' +'+choice.merit+' merit, +'+choice.coins+' coins'+(choice.item?', '+choice.item:'')+'.',[],'CHAPTER THREE · RECOMMENDATION FILED');
 }
-function finalVerdict(){open('The Commander’s Decision','Vimes lays two reports on the desk. One demands swift punishment. The other asks for restitution, testimony, and a chance to repair the damage. “What sort of Watch are you going to be?”',[
+function finalVerdict(){open('The Commander’s Decision','Vimes lays three reports on the desk. One demands swift punishment. Another asks for restitution, testimony, and a chance to repair the damage. The third asks to see the Guild’s accounts. “What sort of Watch are you going to be?”',[
  ['Recommend arrests for review · +12 merit',()=>fileFinalRecommendation({record:'Enforcement recommendation filed: review the grounds for arrest and preserve the evidence.',merit:12,coins:2,reply:'“Right. Now see whether you can make it stick in court.”',icon:'⚔️'}),true],
  ['Seek restitution and protect witnesses · +10 merit',()=>fileFinalRecommendation({record:'Restitution and witness-protection requests filed; follow-through remains to be checked.',merit:10,coins:4,item:'Witness protection order',reply:'“That takes more effort. Make certain you follow through.”',icon:'📜'}),true],
  ['Request a review of the Guild accounts · +8 merit',()=>fileFinalRecommendation({record:'Request filed to examine relevant accounts; no finding against the Guild has been made.',merit:8,coins:5,item:'Audit warrant',reply:'“Now that should make some important people nervous.”',icon:'🔎'}),true]

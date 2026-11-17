@@ -5,13 +5,13 @@ import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
 import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw2';
 import {canFollowNewspaperLead} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
-import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state';
+import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw2';
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
 import {createArmoury} from './cw-armoury.mjs?v=p21-b429-patrol-kit';
 import {createCityPointLookup} from './city-point-lookup.mjs?v=p21-b407-s039-reuse';
 import {createPalaceHost} from './palace/palace-host.mjs?v=b507';
-import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui';
-import {projectCase01Notebook} from './university-case/notebook.mjs';
+import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw1';
+import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
 import {createPlayerContacts} from './cw-player-contacts.mjs?v=p21-b407-s039-reuse';
 import {createUniversityWizards} from './university-wizards.mjs?v=p21-b407-s039-reuse';
@@ -58,7 +58,7 @@ function saveNav(){if(window.CWGameRestarting)throw Error("A new game is startin
 function saveFailure(){if(!saveFailureShown)city.tell('The patrol could not be fully saved. Keep this tab open and retry Save patrol.');saveFailureShown=true;}
 function savePatrol(message){if(window.CWGameRestarting)return false;try{saveNav();saveFailureShown=false;if(message){city.tell(message);try{window.CWRecruitGuide?.event('saved');}catch(error){console.warn('Recruit tips could not update',error);}}return true;}catch{saveFailure();return false;}}
 function state(){return window.CWP21State.create(localStorage).read();}
-function target(record=state()){const s=record.state;return s.chapter===0?['npc:colon','npc:colon','warehouse','npc:palm','npc:witness','npc:colon'][Math.min(s.stage,5)]:s.chapter===1?['npc:vimes','archives','npc:carrot','suspect:smuggler','crypt','npc:vimes'][Math.min(s.stage,5)]:['npc:vimes','suspect:'+(s.flags.lorePatrolArrests?.includes('cutpurse-0')?'cutpurse-1':'cutpurse-0'),'npc:colon','npc:vimes','watch'][Math.min(s.stage,4)];}
+function target(record=state()){const s=record.state;return s.chapter===0?['npc:colon','npc:colon','warehouse','npc:palm','npc:witness','npc:colon'][Math.min(s.stage,5)]:s.chapter===1?['npc:vimes','archives','npc:carrot','suspect:smuggler','crypt','npc:vimes'][Math.min(s.stage,5)]:['npc:vimes','suspect:'+(s.flags.lorePatrolArrests?.includes('cutpurse-0')?'cutpurse-1':'cutpurse-0'),'npc:colon','npc:vimes',s.flags?.finalChoice?'watch':'npc:vimes'][Math.min(s.stage,4)];}
 const Partner=window.CWPatrolPartner,M=window.BastionMentors;
 const partnerFeet=createPartnerTrail();
 const actors=[];let patrolMember=Partner.member(state().state,state().pending),partnerTrail=[],lastPartnerStep='',partnerDraws=0;
@@ -173,7 +173,7 @@ function assignmentContact(record){const current=target(record);if(!current.star
 const DIMWELL_RENDEZVOUS='Meet Nobby at the Park Lane approach before starting another encounter.';
 function dimwellEncounterHold(record){return !record.pending&&patrolDuty?.dimwellPartnerAway(record);}
 function encounterBinding(record=state()){const s=record.state,p=city.position();if(dimwellEncounterHold(record)||patrolDuty?.escortActive(record))return null;if(patrolDuty?.openingSuspect(record))return FIRST_CASE_FIGHT;if(s.chapter===1&&s.stage===3&&distance(p,city.world.doors.get('crypt').position)<5)return 'smuggler';if(s.chapter===1&&s.stage===4&&!s.flags.cryptWon&&distance(p,city.world.doors.get('crypt').position)<5)return 'crypt-raider';if(s.chapter===2&&s.stage===1){for(const [i,id] of ['market','shades'].entries())if(distance(p,nearest(city.world.doors.get(id).position))<5&&!s.flags.lorePatrolArrests?.includes('cutpurse-'+i))return 'cutpurse-'+i;}if(patrolDuty?.shiftDisturbance(record))return 'shift-disturbance';return distance(p,city.world.doors.get('drum').position)<5?'taproom':null;}
-function freePatrolNeedsDuty(record=state()){const s=record.state;return !record.pending&&!patrolDuty?.onShift(record)&&s.chapter>=2&&s.stage>=quests[2].length-1;}
+function freePatrolNeedsDuty(record=state()){const s=record.state;return !record.pending&&!patrolDuty?.onShift(record)&&s.chapter>=2&&s.stage>=quests[2].length-1&&!!s.flags?.finalChoice;}
 // Between shifts in chapter 0, when Captain Carrot's assignment is waiting, point the shortcut at him
 // (the reminder text already names Carrot).
 function carrotWaiting(record){const s=record.state,rounds=s.flags?.p21PatrolRounds;return !record.pending&&s.chapter===0&&s.stage===0&&Number(rounds?.paidShifts)>0&&!rounds?.active&&!!patrolDuty?.deliveryAvailable(record);}
@@ -238,7 +238,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent(window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw1');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{

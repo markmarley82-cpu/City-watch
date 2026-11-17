@@ -31,13 +31,14 @@ Every case and its status is in `docs/cases/CASE-REGISTER.md`.
 
 These make what already exists reliable:
 
-- **Play the untested live content end to end** and fix what breaks: Guild
-  licence check, Market enquiry, Dimwell beat, Carrot's assignment, Mended Drum
-  brawl, the University case, and the Commander's final choice.
+- **Done: played the live content end to end.** Guild licence check, Market
+  enquiry, Dimwell beat, Carrot's assignment, Mended Drum brawl, the University
+  case and the Commander's final choice all play through; the fixes are listed
+  in the register.
 - **Random patrols:** opening the docket showed "The patrol change was not
   saved"; find out why and whether a report ever appears.
-- **The 14 hidden street cases:** test them in the current game; switch on the
-  ones that work.
+- **The 14 hidden street cases** (and the old Thirteenth Chime mystery): test
+  them in the current game; switch on the ones that work.
 
 ## 3. After the playtest
 

@@ -12,7 +12,7 @@ Every mission and case known to the project, from the game files and the design 
 | Chapter 1: The missing ledger | campaign-engine.html chapter 0 | **Live, tested** |
 | Chapter 2: Break-ins and the old crypt | campaign-engine.html chapter 1 | **Live, tested** |
 | Chapter 3: Assaults on patrol | campaign-engine.html chapter 2 | **Live, tested** |
-| Final choice: The Commander's Decision | campaign-engine.html finalVerdict | Live, untested |
+| Final choice: The Commander's Decision | campaign-engine.html finalVerdict | **Live, tested** (Vimes' reply now shown; if the choice is closed unanswered, the objective and Walk to current assignment lead back to Vimes) |
 | Ending (after the final choice) | not built | Design agreed, on hold until the case list is settled |
 
 ## Night duty and side jobs
@@ -20,12 +20,12 @@ Every mission and case known to the project, from the game files and the design 
 | Job | Where it lives | Status |
 |---|---|---|
 | Opera disturbance | cw-patrol-duty.mjs | **Live, tested** (win and loss) |
-| Guild licence check | cw-patrol-duty.mjs | Live, untested |
-| Market enquiry | cw-patrol-duty.mjs | Live, untested |
-| Dimwell beat (with street incidents) | cw-patrol-duty.mjs | Live, untested |
-| Captain Carrot's delivery assignment | cw-patrol-duty.mjs | Live, untested |
-| Mended Drum brawl | Duty → Street incidents | Live, untested |
-| University: Hex Names the Wrong Porter | university-case/ | Live, untested |
+| Guild licence check | cw-patrol-duty.mjs | **Live, tested** |
+| Market enquiry | cw-patrol-duty.mjs | **Live, tested** (escort: wrong resolution rejected, "Clarify the route" accepted; Market & Mended Drum round) |
+| Dimwell beat (with street incidents) | cw-patrol-duty.mjs | **Live, tested** (Walk to current assignment follows the beat; the ✦ button offers the stop's action) |
+| Captain Carrot's delivery assignment | cw-patrol-duty.mjs | **Live, tested** (Walk to buttons for each lead, the yard and Carrot) |
+| Mended Drum brawl | Duty → Street incidents | **Live, tested** (two arrests, +8 merit, report in the Notebook) |
+| University: Hex Names the Wrong Porter | university-case/ | **Live, tested** (Walk to buttons for each contact; filing now pays +10 merit and 3 coins, 6 merit after an early accusation) |
 
 ## City cases (new case player, `dist/cases/city-cases.json`) and design briefs (`docs/cases/`)
 
@@ -139,6 +139,8 @@ Written and complete, but the "Street cases" button is hidden, so players cannot
 | 12 | The Phantom Watchman | Hidden |
 | 13 | An Unfortunate Portrait | Hidden |
 | 14 | The Lantern Tax | Hidden |
+
+Also in the old engine: **The Thirteenth Chime** (mystery case, `mysterySites` in campaign-engine.html, opened from the old engine's Detective Desk). The Watch Notebook lists it as "Not yet opened · Check the Detective Desk", but the Detective Desk is not in the current Duty menu and its clue sites use the old map's coordinates. Status: Hidden; check it with the street cases.
 
 ## Random patrol reports (`dist/cw-patrol-data.js`, 48 cases × 3 variants)
 

@@ -1,7 +1,7 @@
 // University host receiver. All event inputs here
 // come from host-owned controls, never directly from an iframe message.
-import {createUniversityCase01} from './case.mjs';
-import {projectCase01Notebook} from './notebook.mjs';
+import {createUniversityCase01} from './case.mjs?v=cw1';
+import {projectCase01Notebook} from './notebook.mjs?v=cw1';
 import {contactGate,HOST_ONLY_ACTIONS} from './contact-contract.mjs';
 export function createCase01({makeStore,university,isSettled=()=>false}){
  const case01=createUniversityCase01({makeStore,visit:()=>university.active()});

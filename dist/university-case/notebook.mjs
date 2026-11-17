@@ -1,5 +1,5 @@
 // Read-only projection for the existing Patrol Records Notebook row contract.
-import {CASE01_TEXT as text,case01Guidance,readCase} from './case.mjs';
+import {CASE01_TEXT as text,case01Guidance,readCase} from './case.mjs?v=cw1';
 
 export function projectCase01Notebook(state,ordinaryRows={}){
  const rows=Object.fromEntries(['cases','evidence','witnesses','timeline'].map(section=>[

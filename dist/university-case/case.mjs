@@ -79,11 +79,14 @@ export function createUniversityCase01({makeStore,visit}){
   }
   validate(c);
   if(JSON.stringify(c)===before)return {...view(),changed:false};
-  const existing=record.state.flags[CASE01_KEY]||{schema:1,cases:{}};
+  // Filing pays once (complete cannot be set twice); an early accusation against the porter pays less.
+ let paid=null;
+ if(action==='file'&&c.complete){paid={merit:c.accusedEarly?6:10,coins:3};record.state.merit=(record.state.merit||0)+paid.merit;record.state.coins=(record.state.coins||0)+paid.coins;}
+ const existing=record.state.flags[CASE01_KEY]||{schema:1,cases:{}};
   record.state.flags[CASE01_KEY]={...existing,cases:{...existing.cases,[CASE01_ID]:c}};
   // Atomic canonical replacement rejects intervening writers; unrelated campaign data is retained.
   if(!store.replaceRecord(record,revision))throw Error('Case progress changed before saving. Read the current record and retry.');
-  return {...view(),changed:true};
+  return {...view(),changed:true,paid};
  }
  return Object.freeze({view,act});
 }

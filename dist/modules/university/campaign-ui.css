@@ -16,3 +16,5 @@
 .campaign #uu-tools [hidden],.campaign #toast:empty{display:none!important}
 .campaign #toast{bottom:66px;max-width:calc(100vw - 20px)}
 @media(max-height:400px){.campaign #sidebar{top:54px;max-height:calc(100dvh - 116px)}}
+/* The notebook's paper colour made the room name unreadable on the dark campaign bar. */
+html.campaign .pill strong{color:#ffe3a4}

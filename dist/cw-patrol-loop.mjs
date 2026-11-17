@@ -11,6 +11,8 @@ export function patrolView(record,context={},round=null){
  if(!record.pending&&c===0&&stage===0&&Array.isArray(s.flags?.p21PatrolRounds?.creditedRoutes)&&s.flags.p21PatrolRounds.creditedRoutes.includes(FIRST_CASE_ROUTE)){
   return {title:'First patrol filed',done:0,total,label:context.primaryLabel||'Talk to Sergeant Colon',objective:'Purse report filed. Choose Night duty for a paid shift, or ask Colon about the next case.',showProgress:false,firstReportFiled:true,round:false};
  }
+ // The Commander's Decision can be closed unanswered; keep pointing at Vimes until it is made.
+ if(!record.pending&&c===2&&stage>=4&&!s.flags?.finalChoice)return {title:'The Commander’s Decision',done:total,total,label:context.primaryLabel||'Talk to Commander Vimes',objective:'Commander Vimes is waiting in Watch Square for your recommendation.',showProgress:false,summary:true,round:false};
  return {title:record.pending?(record.pending.chase?'Pursuit in progress':'Incident in progress'):c===2&&stage>=4?'Free patrol':c===0&&stage===0?'First case: '+title:title,done:Math.min(stage,total),total,label:context.primaryLabel||'Go to assignment',showProgress:!record.pending,round:false};
 }
 export function progressNotice(before,after){
