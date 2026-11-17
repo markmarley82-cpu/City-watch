@@ -52,7 +52,7 @@
       name: f.recruitName || 'Recruit', rank: rank ? rank.name : 'Corporal', rankIndex: rank ? rank.index : 3,
       merit: Number(s.merit) || 0, nights: Number(s.night) || 1,
       shifts: Math.max(0, (Number(rounds.paidShifts) || 0) - (Number(rounds.unsuccessfulShifts) || 0)),
-      city, patrolReports, arrests, university, bridge, delivery: !!rounds.deliveryReport, closed, choice,
+      city, patrolReports, arrests, university, bridge, delivery: !!rounds.deliveryReport, closed, choice, ledger: f.ledgerFinding || null,
       kind: /^Enforcement/.test(choice) ? 'arrests' : /^Restitution/.test(choice) ? 'restitution' : /^Request filed to examine/.test(choice) ? 'audit' : 'other'
     };
   }
@@ -90,8 +90,10 @@
       { scene: 'square', cast: WATCH, who: 'nobby', text: nobby },
       { scene: 'square', cast: WATCH, who: 'carrot', text: carrot },
       { scene: 'square', cast: all, text: 'The Watch House door opens and the square goes quiet. Commander Vimes walks out with his hands in his pockets, as if he just happened to be passing.' },
-      { scene: 'square', cast: all, who: 'vimes', text: '“A ledger in a false-bottomed crate at the docks. An invoice for a delivery out by the Dimwell burial ground. A signet ring on a smuggler’s finger. Two thugs who thought jumping a Watch patrol was a sensible career move. Every one of them led back to the same guild door.”' },
-      { scene: 'square', cast: all, who: 'vimes', text: '“I’m not saying who’s behind that door. Neither did you. That’s why I trust your report.”' },
+      { scene: 'square', cast: all, who: 'vimes', text: '“A ledger in a false-bottomed crate at the docks. An invoice for a delivery out by the Dimwell burial ground. A smuggler’s signet behind the offering box in the old crypt. Two thugs who thought jumping a Watch patrol was a sensible career move. Every one of them led back to the same guild door.”' },
+      { scene: 'square', cast: all, who: 'vimes', text: x.ledger === 'guild'
+        ? '“I’m not saying who’s behind that door. You did, once, in your first report, before you could prove it. You haven’t done it since. That’s why I trust your reports now.”'
+        : '“I’m not saying who’s behind that door. Neither did you. That’s why I trust your report.”' },
       { scene: 'square', cast: all, who: 'vimes', text: verdict },
       { scene: 'square', cast: all, who: 'vimes', text: stripe, sound: 'case-closed' },
       ...(x.rankIndex > 3 ? [

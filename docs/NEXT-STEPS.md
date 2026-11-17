@@ -57,9 +57,16 @@ These make what already exists reliable:
   with the whole Watch, personal lines from Colon, Nobby and Carrot, Vimes and
   the stripe, the service record, a memorial for Sir Terry Pratchett and the
   dedication, then free patrol.
-- **Story gaps:** Vimes has almost no lines in chapter 2; chapters 1 and 2 end
-  on the same generic report screen; the ledger case files itself without a
-  "who did it?" choice.
+- **Done: story gaps.** Chapter 1 ends with Colon asking who took the ledger:
+  the careful finding (hidden for collection, guild mark unconfirmed, no name)
+  pays full merit, "the guild did it" files as suspected for less, and blaming
+  the urchin is turned down. Each chapter now ends on its own case-filed
+  screen. Vimes briefs chapter 2 (and reacts to your ledger finding), gives a
+  hint at each step, debriefs it, and briefs chapter 3; the ending remembers if
+  you named the guild early (`ledgerFinding` in `campaign-engine.html`).
+- **Done: sound.** Sound comes on with the first tap; street life by district;
+  full-length music by scene with crossfades; fight sounds, voices and a crowd,
+  all real CC0 recordings (credits in each `dist/assets/*/CREDITS.txt`).
 - Final release check on desktop and a physical iPhone.
 
 ## 5. Polish (any time)

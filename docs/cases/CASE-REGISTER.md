@@ -9,9 +9,9 @@ Every mission and case known to the project, from the game files and the design 
 | Case | Where it lives | Status |
 |---|---|---|
 | Opening case: The stolen purse | cw-patrol-duty.mjs (first patrol) | **Live, tested** |
-| Chapter 1: The missing ledger | campaign-engine.html chapter 0 | **Live, tested** |
-| Chapter 2: Break-ins and the old crypt | campaign-engine.html chapter 1 | **Live, tested** |
-| Chapter 3: Assaults on patrol | campaign-engine.html chapter 2 | **Live, tested** |
+| Chapter 1: The missing ledger | campaign-engine.html chapter 0 | **Live, tested**; ends with a "who took the ledger?" finding (`ledgerVerdict`) and its own case-filed screen |
+| Chapter 2: Break-ins and the old crypt | campaign-engine.html chapter 1 | **Live, tested**; Vimes briefs, hints and debriefs it (`vimesBreakIns`, `vimesCryptReport`); own case-filed screen |
+| Chapter 3: Assaults on patrol | campaign-engine.html chapter 2 | **Live, tested**; Vimes briefs it (`vimesAssaults`) |
 | Final choice: The Commander's Decision | campaign-engine.html finalVerdict | **Live, tested** (it now appears straight after the commendation instead of being closed by the conversation screen; Vimes' reply is shown; if it is closed unanswered, the objective leads back to Vimes) |
 | Ending (after the final choice) | cw-ending.js | **Live, tested**: a night ceremony in Watch Square (the Watch recalls cases from your save; Vimes ties the ledger, invoice, signet and patrol assaults together, answers your recommendation and gives the stripe), the service record, a memorial for Sir Terry Pratchett, the dedication, then free patrol. Shown once; again from Duty → Your Watch record |
 
