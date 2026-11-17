@@ -91,7 +91,7 @@
       { scene: 'square', cast: all, who: 'vimes', text: '“A ledger in a false-bottomed crate at the docks. An invoice for a delivery out by the Dimwell burial ground. A signet ring on a smuggler’s finger. Two thugs who thought jumping a Watch patrol was a sensible career move. Every one of them led back to the same guild door.”' },
       { scene: 'square', cast: all, who: 'vimes', text: '“I’m not saying who’s behind that door. Neither did you. That’s why I trust your report.”' },
       { scene: 'square', cast: all, who: 'vimes', text: verdict },
-      { scene: 'square', cast: all, who: 'vimes', text: stripe },
+      { scene: 'square', cast: all, who: 'vimes', text: stripe, sound: 'case-closed' },
       ...(x.rankIndex > 3 ? [
         { scene: 'square', cast: all, who: 'nobby', text: '“' + rankWord + '! Do I have to salute now?”' },
         { scene: 'square', cast: all, who: 'colon', text: '“You don’t salute me, Nobby.”' },
@@ -125,6 +125,7 @@
     clearInterval(clacksTimer); clacksTimer = null;
     const b = beats[at];
     dialog.dataset.scene = b.scene;
+    if (b.sound) window.CWTeamAudio?.cue(b.sound);
     dialog.replaceChildren();
     const stage = el('div', 'cw-end-stage');
     if (b.scene === 'square') square(stage, b);

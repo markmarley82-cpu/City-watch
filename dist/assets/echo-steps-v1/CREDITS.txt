@@ -1,0 +1,4 @@
+Single footsteps cut from the Echo real-world recordings in assets/echo-all-v012 (publisher-declared CC0):
+- step-gravel-1..4: "Gravel / loose stones" (REAL07_03)
+- step-dirt-1..4: "Dirt / packed earth" (REAL07_07): its two steps, plus each with a slight pitch change
+Changes: 0.28 s excerpts at single steps, mono 22050 Hz, short fades, peak matched to echo-effects-v2/step-stone-1.mp3, 64 kbps MP3.

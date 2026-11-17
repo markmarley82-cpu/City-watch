@@ -88,6 +88,7 @@ export function mountCase01Panel({doc,header,case01,university,isSettled,onChang
        if(result.changed)onChange({assistantSpeaking:scripted});
        notice.textContent=scripted?text[result.case.response]:feedback[action];
        if(result.paid){notice.textContent+=' +'+result.paid.merit+' merit, +'+result.paid.coins+' coins.';hud();}
+       if(result.changed){const sound=doc.defaultView.CWTeamAudio;sound?.cue(action==='file'?'case-closed':['receipt','report','crate','buyer','correct'].includes(action)?'clue':'ui');}
       }catch(error){notice.textContent=error.message;}
       render();
       const nextAction=contacts.querySelector('button');

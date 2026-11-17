@@ -238,6 +238,7 @@
     ui.add('p', sceneText(s, a), 'cw-case-speech');
     if (!ok) ui.add('p', 'This could not be saved. Close and try again.', 'cw-case-note');
     else for (const g of gives.concat(derived)) if (c.clues[g]) ui.add('p', 'Noted: ' + c.clues[g], 'cw-case-clue');
+    if (ok && gives.concat(derived).some(g => c.clues[g])) window.CWTeamAudio?.cue('clue');
     const street = pick(s.streetByPartner, a) || s.street;
     if (ok && street) city().tell(street);
     afterStep(c, ui);
@@ -250,6 +251,7 @@
     const ok = save(cs => { const x = cs.active; if (!x || x.id !== c.id || x.done.includes(s.id)) return false; x.done.push(s.id); x.choices[s.id] = o.id; for (const g of gives) if (!x.clues.includes(g)) x.clues.push(g); derived = derive(c, x); });
     const ui = sheet(s.title);
     ui.add('p', ok ? (v.text || o.text) : 'This could not be saved. Close and try again.', 'cw-case-speech');
+    if (ok && gives.concat(derived).some(g => c.clues[g])) window.CWTeamAudio?.cue('clue');
     if (ok) for (const g of gives.concat(derived)) if (c.clues[g]) ui.add('p', 'Noted: ' + c.clues[g], 'cw-case-clue');
     const street = v.street || o.street;
     if (ok && street) city().tell(street);
@@ -305,6 +307,7 @@
     });
     if (!ok) return fileReport(c, 'The report could not be saved. Try again.');
     hud(read());
+    window.CWTeamAudio?.cue(f.outcome === 'full' ? 'case-closed' : 'reward');
     const ui = sheet('Report filed · ' + c.title);
     ui.add('p', c.file.officer, 'cw-case-speaker');
     ui.add('p', reply, 'cw-case-speech');

@@ -9,8 +9,30 @@
       'step-stone':['echo-effects-v2/step-stone-1.mp3','echo-effects-v2/step-stone-2.mp3','echo-effects-v2/step-stone-3.mp3','echo-effects-v2/step-stone-4.mp3'],
       'step-wood':['echo-effects-v2/step-wood-1.mp3','echo-effects-v2/step-wood-2.mp3','echo-effects-v2/step-wood-3.mp3','echo-effects-v2/step-wood-4.mp3'],
       'step-bridge':['echo-effects-v2/step-bridge-1.mp3','echo-effects-v2/step-bridge-2.mp3','echo-effects-v2/step-bridge-3.mp3','echo-effects-v2/step-bridge-4.mp3'],'hit':'echo-all-v012/F10-06.mp3',
-      'reward':'echo-all-v012/F11-08.mp3','write':'echo-all-v012/F10-01.mp3','ui':'echo-all-v012/B03_paper-01.mp3'
+      'reward':'echo-all-v012/F11-08.mp3','write':'echo-all-v012/F10-01.mp3','ui':'echo-all-v012/B03_paper-01.mp3',
+      // Recordings already in the repo, now given game events.
+      'case-closed':'echo-all-v012/F11-10.mp3','clue':'echo-all-v012/F10-01.mp3','whistle':'echo-all-v012/F11-20.mp3',
+      'arrest':['echo-all-v012/F10-07.mp3','echo-all-v012/F10-08.mp3'],
+      'step-gravel':['echo-steps-v1/step-gravel-1.mp3','echo-steps-v1/step-gravel-2.mp3','echo-steps-v1/step-gravel-3.mp3','echo-steps-v1/step-gravel-4.mp3'],
+      'step-dirt':['echo-steps-v1/step-dirt-1.mp3','echo-steps-v1/step-dirt-2.mp3','echo-steps-v1/step-dirt-3.mp3','echo-steps-v1/step-dirt-4.mp3']
     };
+    // Street life by district: occasional one-off sounds, at most one at a time (see sampleAmbience).
+    const DISTRICT={
+      docks:/wharfinger|treacle|dock|quay|warehouse|netmender|misbegot|bridge|cut\b|storehouse|riverside/i,
+      market:/cheapside|market|cattle|trading|filigree|baker|butcher|isle of gods|broad way|plaza|small gods/i,
+      workshop:/artificers|dimwell|workshop|cobbler|joinery|dye|smith|locksmith|ironmonger|polestaff/i,
+      shades:/shades|don.t look back|body street|sheer|alley|tenement/i
+    };
+    const DETAILS={
+      horse:{files:['echo-all-v012/REAL07_04.mp3','echo-all-v012/REAL07_09.mp3','echo-all-v012/REAL07_06.mp3','echo-all-v012/REAL07_05.mp3'],gap:[38000,70000],gain:.30,when:c=>!c.inside&&!c.night&&(c.district==='market'||c.district==='street')},
+      dog:{files:['echo-all-v012/F10-02.mp3','echo-all-v012/F10-03.mp3','echo-all-v012/F10-04.mp3'],gap:[24000,52000],gain:.22,when:c=>!c.inside&&(c.district==='shades'||c.night&&c.district!=='docks')},
+      crows:{files:['echo-all-v012/F10-05.mp3'],gap:[50000,90000],gain:.20,when:c=>!c.inside&&!c.night&&(c.district==='docks'||c.district==='shades'||/crypt|park|temple/i.test(c.location||''))},
+      hammer:{files:['echo-all-v012/F10-09.mp3','echo-all-v012/F10-10.mp3','echo-all-v012/F10-11.mp3','echo-all-v012/F10-16.mp3'],gap:[5000,12000],gain:.18,when:c=>!c.inside&&!c.night&&c.district==='workshop'},
+      splash:{files:['echo-all-v012/F10-17.mp3','echo-all-v012/F10-18.mp3','echo-all-v012/F10-19.mp3','echo-all-v012/F10-20.mp3'],gap:[14000,28000],gain:.22,when:c=>!c.inside&&c.district==='docks'},
+      rigging:{files:['echo-all-v012/F10-12.mp3','echo-all-v012/F10-13.mp3','echo-all-v012/F11-19.mp3'],gap:[18000,34000],gain:.20,when:c=>!c.inside&&c.district==='docks'},
+      tavern:{files:['echo-all-v012/F11-15.mp3','echo-all-v012/F11-11.mp3','echo-all-v012/F11-12.mp3','echo-all-v012/F11-13.mp3'],gap:[12000,26000],gain:.30,when:c=>c.inside&&/mended drum|tavern/i.test(c.location||'')}
+    };
+    const districtOf=location=>Object.keys(DISTRICT).find(k=>DISTRICT[k].test(location||''))||'street';
     const themes={
       patrol:{id:'U02',title:'Medieval: The Bard’s Tale',sample_file:'CW_MUSIC_U02_The_Bards_Tale_30s.mp3'},
       night:{id:'U06',title:'Fantasy: Rising Moon',sample_file:'CW_MUSIC_U06_Rising_Moon_30s.mp3'},
@@ -54,10 +76,10 @@
     function stopAmbience(){ambientGeneration++;for(const b of beds.values())if(b.audio)stopAmbientSource(b.audio);for(const a of details.values())stopAmbientSource(a);}
     function atmosphereDetail(id,gain){
       if(!enabled||!ambienceWanted||document.hidden||suspended||gain<=0)return;
-      const files=id==='fountain'?['fountain-1.mp3','fountain-2.mp3','fountain-3.mp3']:['timber-1.mp3','timber-2.mp3'];
+      const extra=DETAILS[id],files=extra?extra.files:id==='fountain'?['fountain-1.mp3','fountain-2.mp3','fountain-3.mp3']:['timber-1.mp3','timber-2.mp3'];
       let a=details.get(id);if(!a){a=makeAudio('', 'ambience');a.dataset.layer=id;details.set(id,a);}
       for(const other of details.values())if(other!==a)stopAmbientSource(other);
-      a._cwAmbientGain=gain;a.src='assets/echo-atmosphere-v3/'+files[(detailSequence++)%files.length];a.volume=finiteVolume(ambienceVolume*gain);a.loop=false;play(a);
+      a._cwAmbientGain=gain;a.src=extra?'assets/'+files[Math.floor(Math.random()*files.length)]:'assets/echo-atmosphere-v3/'+files[(detailSequence++)%files.length];detailSequence+=extra?1:0;a.volume=finiteVolume(ambienceVolume*gain);a.loop=false;play(a);
     }
     function sampleAmbience(zone,context={},duck=1){
       const now=Date.now(),sceneKey=context.sceneKey||zone;
@@ -87,10 +109,18 @@
         if(!detailTimes.has(id))detailTimes.set(id,now+(id==='fountain'?2500:12000));
         if(now>=detailTimes.get(id)&&duck>=1){atmosphereDetail(id,gain);detailTimes.set(id,now+gap+(detailSequence%3)*1100);}
       }
+      const life={...context,district:districtOf(context.location),night:scene==='night'};
+      for(const [id,d] of Object.entries(DETAILS)){
+        if(!d.when(life)){detailTimes.delete(id);continue;}
+        const between=()=>d.gap[0]+Math.random()*(d.gap[1]-d.gap[0]);
+        if(!detailTimes.has(id))detailTimes.set(id,now+between()*0.4);
+        const busy=[...details.values()].some(a=>!a.paused&&!a.ended);
+        if(now>=detailTimes.get(id)&&duck>=1&&!busy){atmosphereDetail(id,d.gain);detailTimes.set(id,now+between());}
+      }
     }
     function cue(id){
       if(!enabled||!effects||document.hidden||suspended||!sources[id])return false;
-      const now=Date.now(),limit=id.startsWith('step-')?120:id==='reward'||id.startsWith('door-')?650:90;
+      const now=Date.now(),limit=id.startsWith('step-')?120:id==='reward'||id==='case-closed'||id==='whistle'||id.startsWith('door-')?650:90;
       if(now-(recent.get(id)??-Infinity)<limit)return true;
       recent.set(id,now);
       try{
@@ -98,7 +128,7 @@
         const file=options[cursor%options.length];variants.set(id,cursor+1);
         let a=pool.get(file);if(!a){a=makeAudio('assets/'+file,id);pool.set(file,a);}
         if(id.startsWith('step-'))for(const other of pool.values())if(other!==a&&other.dataset.cueId?.startsWith('step-')){other._cwWanted=false;other.pause();}
-        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:.80);
+        a.volume=effectsVolume*(id.startsWith('step-')?.65:id==='reward'?.55:id==='case-closed'?.6:id==='whistle'?.45:.80);
         a.currentTime=0;play(a);return true;
       }catch{counts.failed++;changed();return false;}
     }
@@ -145,8 +175,8 @@
       const talking=!!doc.getElementById('cw-npc-dialogue')?.open;
       if(music)music.volume=musicVolume*(talking?.45:1);
       const provided=owner.CW_AUDIO_CONTEXT?.()||{};
-      sampleAmbience(inside?null:bridge||/bridge|crossing/i.test(state.location||'')?'water':'city',{...provided,inside,sceneKey:provided.sceneKey||place,paused:modal&&!talking},talking?.28:1);
-      if(!modal&&moved)cue(inside&&room?.room!=='crypt'?'step-wood':doc.getElementById('bridge-scene')||/bridge|crossing/i.test(state.location||'')?'step-bridge':'step-stone');
+      sampleAmbience(inside?null:bridge||/bridge|crossing/i.test(state.location||'')?'water':'city',{...provided,inside,location:state.location,sceneKey:provided.sceneKey||place,paused:modal&&!talking},talking?.28:1);
+      if(!modal&&moved)cue(inside&&room?.room!=='crypt'?'step-wood':doc.getElementById('bridge-scene')||/bridge|crossing/i.test(state.location||'')?'step-bridge':/shades|dimwell|don.t look back|body street|cattle|treacle|park lane|hide park/i.test(state.location||'')?'step-dirt':/forecourt|plaza|park|garden/i.test(state.location||'')?'step-gravel':'step-stone');
       lastPosition=current;lastCoordinates=coordinates;lastRoom=place;lastSceneAt=now;
     }
     const api=Object.freeze({

@@ -10,7 +10,7 @@ import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-
 import {createArmoury} from './cw-armoury.mjs?v=p21-b429-patrol-kit';
 import {createCityPointLookup} from './city-point-lookup.mjs?v=p21-b407-s039-reuse';
 import {createPalaceHost} from './palace/palace-host.mjs?v=b507';
-import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw1';
+import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
 import {createPlayerContacts} from './cw-player-contacts.mjs?v=p21-b407-s039-reuse';
@@ -238,7 +238,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw7');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw8');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{
@@ -443,7 +443,7 @@ function chaseRouteValid(id,c){
  lastChaseRoute={id,routeKey,world,neighbours:world.neighbours,traverse:world.canTraverse,cells:world.members.size,valid};
  return valid;
 }
-function startChase(id,battle){const st=saveNav(),pending=st.read().pending;if(!Chase.eligible(pending,battle))return false;const route=Chase.route(city.world,pending.position,pending.binding);if(!route)return false;if(!st.startChase(id,battle,route))return false;st.project();chaseLive=true;lastChaseNow=0;city.restore(pending.position);city.tell(st.read().pending.chase.name+' bolts into the street. Follow them; get close to demand surrender or confront them again.');return true;}
+function startChase(id,battle){const st=saveNav(),pending=st.read().pending;if(!Chase.eligible(pending,battle))return false;const route=Chase.route(city.world,pending.position,pending.binding);if(!route)return false;if(!st.startChase(id,battle,route))return false;st.project();chaseLive=true;lastChaseNow=0;city.restore(pending.position);window.CWTeamAudio?.cue('whistle');city.tell(st.read().pending.chase.name+' bolts into the street. Follow them; get close to demand surrender or confront them again.');return true;}
 function updateChase(now){
  if(!chaseLive||!Number.isFinite(now)||now-lastChaseNow<100)return;
  const dt=lastChaseNow&&now-lastChaseNow<500?now-lastChaseNow:0;
@@ -485,7 +485,7 @@ function updateChase(now){
  }
 }
 function cancelPursuitTracking(){chaseTracking=false;lastChaseTarget='';}
-function finishChase(status){cancelPursuitTracking();const st=saveNav(),p=st.read().pending;if(!p?.chase)return false;if(!Chase.terminal(p.chase)&&!st.chase(p.id,status,{player:city.position()}))return false;const b=st.read().pending.battle;if(!st.resolve(p.id,b))return false;st.project();runner.stoodDown=true;chaseLive=false;syncPartner().catch(e=>city.tell(e.message));refresh();city.update();city.tell(status==='arrested'?'The pursued suspect is in custody. The original incident is recorded once.':status==='released'?'The pursued suspect was allowed to go. The original incident is recorded.':'The search ends; the pursued suspect remains at large. Your existing incident progress is retained.');return true;}
+function finishChase(status){cancelPursuitTracking();const st=saveNav(),p=st.read().pending;if(!p?.chase)return false;if(!Chase.terminal(p.chase)&&!st.chase(p.id,status,{player:city.position()}))return false;const b=st.read().pending.battle;if(!st.resolve(p.id,b))return false;st.project();runner.stoodDown=true;chaseLive=false;if(status==='arrested')window.CWTeamAudio?.cue('arrest');syncPartner().catch(e=>city.tell(e.message));refresh();city.update();city.tell(status==='arrested'?'The pursued suspect is in custody. The original incident is recorded once.':status==='released'?'The pursued suspect was allowed to go. The original incident is recorded.':'The search ends; the pursued suspect remains at large. Your existing incident progress is retained.');return true;}
 // Save the new fight and the current street position together. A paused or
 // unloaded combat frame can then always reopen from the place you caught up.
 function reopenPursuitBattle(id){

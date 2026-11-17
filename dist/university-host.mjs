@@ -1,6 +1,6 @@
 import {createUniversityCampaign,matchesUniversityMessage,universityVisitToken} from './university-campaign.mjs?v=p21-b407-s039-reuse';
 import {createCase01} from "./university-case/candidate-connector.mjs?v=cw1";
-import {mountCase01Panel} from "./university-case/host-panel.mjs?v=cw1";
+import {mountCase01Panel} from "./university-case/host-panel.mjs?v=cw2";
 export function createUniversityHost({city,makeStore,document:doc=document,host=window}){
  const ledger=createUniversityCampaign({makeStore,world:city.world,position:city.position,visits:city.visits,steps:city.steps,stop:city.stop,restore:p=>{city.restore(p);city.update();}});
  const link=doc.createElement('link');link.rel='stylesheet';link.href=new URL('university-host.css?v=p21-b502-university-ui',import.meta.url);doc.head.append(link);
