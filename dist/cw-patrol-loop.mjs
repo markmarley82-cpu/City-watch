@@ -2,6 +2,8 @@ import {FIRST_CASE_FIGHT,FIRST_CASE_ROUTE} from './cw-patrol-enquiries.mjs?v=ope
 const CASES=[['The missing ledger',6],['Break-ins and the old crypt',6],['Assaults on patrol',4]];
 export function patrolView(record,context={},round=null){
  if(round&&!record.pending)return {...round,showProgress:true,round:true};
+ // An open incident (e.g. a brawl left mid-turn) must not hide the active case: say what comes after it.
+ if(round&&record.pending&&round.objective)return {...round,title:record.pending.chase?'Pursuit in progress':'Incident in progress',label:context.primaryLabel||round.label,objective:'Finish the incident first. Then: '+round.objective.charAt(0).toLowerCase()+round.objective.slice(1),showProgress:false,round:true};
  const s=record.state,c=Math.max(0,Math.min(2,Number(s.chapter)||0)),stage=Math.max(0,Number(s.stage)||0),[title,total]=CASES[c];
  const rounds=s.flags?.p21PatrolRounds;
  if(!record.pending&&c===0&&stage===0&&Number(rounds?.paidShifts)>0)
@@ -38,7 +40,10 @@ export function createPatrolLoop({city,game,snapshot,duty,nightDuty=false,primar
  const hide=()=>{receipt.hidden=true;timers.clearTimeout(timer);};dismiss.onclick=hide;
  function update(record,context,dutyView){
   if(!record){const current=snapshot();record=current.record;context=current.context;}
-  const view=patrolView(record,context,dutyView===undefined?duty.view(record):dutyView);
+  let roundView=dutyView===undefined?duty.view(record):dutyView;
+  // duty.view() withholds the active case while an incident is pending; read it as if none were, to keep the case in the objective.
+  if(!roundView&&record.pending){try{roundView=duty.view({...record,pending:null});}catch{roundView=null;}}
+  const view=patrolView(record,context,roundView);
   const disturbance=context.binding==='shift-disturbance'&&!record.pending;
   const purseConfrontation=view.firstCase&&context.binding===FIRST_CASE_FIGHT;
   const secondaryLabel=disturbance?'Intervene':purseConfrontation?'Confront suspect':context.binding&&!record.pending?'Handle incident':nightDuty?'Night duty':'Patrol routes';
