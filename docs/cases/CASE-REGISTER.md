@@ -123,6 +123,8 @@ Every mission and case known to the project, from the game files and the design 
 
 Written and complete, but the "Street cases" button is hidden, so players cannot reach them. Next step: test whether they still work in the current game, then switch them on.
 
+**Checked (step 2):** they cannot simply be switched on. Each case's scene is a position on the old engine's map (for example The Missing Bell at 17, 5), which does not exist in the current city. They need porting: either new positions plus routing in the old engine, or (simpler) rewriting each as a data case in `dist/cases/city-cases.json` for the new case player.
+
 | # | Title | Status |
 |---|---|---|
 | 1 | The Missing Bell | Hidden |
@@ -145,6 +147,8 @@ Also in the old engine: **The Thirteenth Chime** (mystery case, `mysterySites` i
 ## Random patrol reports (`dist/cw-patrol-data.js`, 48 cases × 3 variants)
 
 Offered through Casebook → Random patrols when walking through markets, quays and working streets; the data marks them "authored design data, not integrated". Four are used inside Night duty jobs.
+
+**Checked (step 2):** opening the docket always showed "The patrol change was not saved" because the old engine's save function never reported success; fixed. But no report can be offered in the current game: the eight report sites are the street-case positions on the old engine's small map (x up to 26, y up to 23), while the player now walks the new city (Watch Square is near 130, 135), and a report is only offered within 3 tiles of a site. Making them playable means giving the sites positions on the new map and walking there through the new city, the same work the street cases below need.
 
 | ID | Title | Status |
 |---|---|---|

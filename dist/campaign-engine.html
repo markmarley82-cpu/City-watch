@@ -3271,7 +3271,7 @@ const actionPreviousGuard=guard;guard=function(){const before=guardTurns;actionP
 
 // Optional patrol adapter uses the existing campaign state, public report points and UI.
 const patrolPool=window.CWInstallPatrolPool({
- player:()=>s,restore:value=>{s=value;},save:()=>saved(),update:()=>ui(),
+ player:()=>s,restore:value=>{s=value;},save:()=>{/* saved() returns nothing, so report success here; in the unified game write the campaign directly so a failed save is caught. */if(new URLSearchParams(location.search).has('unified')&&parent!==window)parent.CWP21State.create(localStorage).campaign(s);saved();return true;},update:()=>ui(),
  say:(...args)=>say(...args),open:(title,text,choices,kicker)=>open(title,text,choices.map(([label,action,...metadata])=>[label,['Back to duty','Back to patrol','Return to duty','Return to patrol'].includes(label)?returnCasebookToCity:action,...metadata]),kicker),
  originalInteract:()=>patrolPreviousInteract(),
  desk:()=>({...hubActor('colon')}),
