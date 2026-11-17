@@ -2,7 +2,7 @@
 // The plan supplies placement only; this module owns collision, services and save recovery.
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
 import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
-import {streetPath} from './city-movement.mjs?v=p21-b407-s039-reuse';
+import {streetPath,streetReachable,streetReaches} from './city-movement.mjs?v=p21-b407-s039-reuse-reach2';
 
 const key=p=>p.slice(0,2).join(','),clone=v=>JSON.parse(JSON.stringify(v));
 const finite=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFinite)&&typeof p[2]==='string';
@@ -86,6 +86,8 @@ export function activateHideParkNorth({receiver,world,ground,originalMembers,sto
   doors.push(d);
  }
  for(const d of doors)world.doors.set(d.game_id,d);
- for(const d of [...world.doors.values()].filter(d=>!d.held))if(streetPath(world,[126,132,'RC1'],d.position,d.edge)===null)throw Error('Hide Park north cut off '+d.game_id);
+ // One search from Watch Square answers the same question as a streetPath to every door (much faster at startup).
+ const reach=streetReachable(world,[126,132,'RC1']);
+ for(const d of [...world.doors.values()].filter(d=>!d.held))if(!streetReaches(world,reach,d.position,d.edge))throw Error('Hide Park north cut off '+d.game_id);
  return Object.freeze({rows,doors,rects,reservation,removed:plan.centres,fullFootClear:full,affected,persistRecovery,report:()=>({...receiver.report(),active:true,doors:doors.map(d=>d.game_id),newDoors:doors.length,newShops:doors.filter(d=>d.shop_key).length,newLodgings:doors.filter(d=>d.lodging_grade!==undefined).length,geometryChanged:true,originalRouteConflicts:0,removedOpenGroundAnchors:plan.centres.length,walkCells:world.members.size})});
 }

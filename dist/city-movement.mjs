@@ -31,14 +31,11 @@ export function acceptStreetStep(world,from,to,{occupied=()=>false,stepMS=160,sc
  return {position:next,duration:walkDuration(from,next,stepMS,{screenSpeed}),sliding:false};
 }
 
-// Weighted eight-direction A*: safe diagonals cost their actual travel time.
-// Painting overlaps cannot create links; only the existing graph can transfer edges.
-export function streetPath(world,start,target,targetEdge,{occupied=()=>false}={}){
- const id=p=>p.join(','),cell=p=>p.slice(0,2).join(',');
- if(!world.members.get(cell(start))?.has(start[2])||!world.members.has(cell(target))||targetEdge&&!world.members.get(cell(target))?.has(targetEdge))return null;
- const targetStates=targetEdge?[[target[0],target[1],targetEdge]]:[...world.members.get(cell(target))].map(edge=>[target[0],target[1],edge]);
- if((start[0]!==target[0]||start[1]!==target[1]||targetEdge&&start[2]!==targetEdge)&&targetStates.every(occupied))return null;
- const estimate=p=>{const x=Math.abs(p[0]-target[0]),y=Math.abs(p[1]-target[1]);return Math.max(x,y)+(Math.SQRT2-1)*Math.min(x,y);};
+// Step rules shared by streetPath and streetReachable: a per-request neighbour memo,
+// eight-direction candidates (edge choice at the E001-E007 crossings) and the graph
+// used for bridge-corner checks. One copy, so the two searches cannot drift apart.
+function streetStepRules(world,occupied){
+ const id=p=>p.join(',');
  // Occupancy/topology are stable for this synchronous request. Reuse the
  // same neighbour memo for bridge checks and exact strict direction synthesis.
  // Keep it query-local and bounded; later requests see current NPC positions.
@@ -69,6 +66,36 @@ export function streetPath(world,start,target,targetEdge,{occupied=()=>false}={}
   }
   for(const next of directions[slot(0,0)]||[])if(next[2]!==id)out.push(next);return out;
  }
+ return {neighbourhood,streetCandidates,graph,clear(){neighbours.clear();for(const list of directions)list.length=0;}};
+}
+
+// Every state ("x,y,edge") reachable from start under streetPath's own step rules.
+// For startup checks that would otherwise run one full streetPath per destination.
+export function streetReachable(world,start,{occupied=()=>false}={}){
+ const id=p=>p.join(','),seen=new Set();
+ if(!world.members.get(start.slice(0,2).join(','))?.has(start[2]))return seen;
+ const rules=streetStepRules(world,occupied),stack=[start];seen.add(id(start));
+ try{while(stack.length){const p=stack.pop();for(const next of rules.streetCandidates(p)){const nk=id(next);if(seen.has(nk))continue;if(!bridgeCornerClear(rules.graph,p,next,{occupied}))continue;if(world.canTraverse&&!world.canTraverse(p,next))continue;seen.add(nk);stack.push(next);}}}
+ finally{rules.clear();}
+ return seen;
+}
+// True exactly when streetPath(world,start,target,targetEdge) would find a route, given
+// reachable = streetReachable(world,start) with the same occupancy.
+export function streetReaches(world,reachable,target,targetEdge){
+ const cell=target.slice(0,2).join(','),edges=world.members.get(cell);
+ if(!edges||targetEdge&&!edges.has(targetEdge))return false;
+ return (targetEdge?[targetEdge]:[...edges]).some(edge=>reachable.has(cell+','+edge));
+}
+
+// Weighted eight-direction A*: safe diagonals cost their actual travel time.
+// Painting overlaps cannot create links; only the existing graph can transfer edges.
+export function streetPath(world,start,target,targetEdge,{occupied=()=>false}={}){
+ const id=p=>p.join(','),cell=p=>p.slice(0,2).join(',');
+ if(!world.members.get(cell(start))?.has(start[2])||!world.members.has(cell(target))||targetEdge&&!world.members.get(cell(target))?.has(targetEdge))return null;
+ const targetStates=targetEdge?[[target[0],target[1],targetEdge]]:[...world.members.get(cell(target))].map(edge=>[target[0],target[1],edge]);
+ if((start[0]!==target[0]||start[1]!==target[1]||targetEdge&&start[2]!==targetEdge)&&targetStates.every(occupied))return null;
+ const estimate=p=>{const x=Math.abs(p[0]-target[0]),y=Math.abs(p[1]-target[1]);return Math.max(x,y)+(Math.SQRT2-1)*Math.min(x,y);};
+ const rules=streetStepRules(world,occupied),{streetCandidates,graph}=rules;
  const heap=[],scores=new Map([[id(start),0]]),parents=new Map(),states=new Map([[id(start),start]]);
  function push(item){let i=heap.length;heap.push(item);while(i){const parent=(i-1)>>1;if(heap[parent].f<=item.f)break;heap[i]=heap[parent];i=parent;}heap[i]=item;}
  function pop(){const top=heap[0],last=heap.pop();if(heap.length){let i=0;while(i*2+1<heap.length){let child=i*2+1;if(child+1<heap.length&&heap[child+1].f<heap[child].f)child++;if(heap[child].f>=last.f)break;heap[i]=heap[child];i=child;}heap[i]=last;}return top;}
@@ -82,7 +109,7 @@ export function streetPath(world,start,target,targetEdge,{occupied=()=>false}={}
   // bridge completion and static sweep; improving routes retain both predicates.
   for(const next of candidates){const nk=id(next),cost=g+Math.hypot(next[0]-p[0],next[1]-p[1]);if(cost>=(scores.get(nk)??Infinity))continue;if(!bridgeCornerClear(graph,p,next,{occupied}))continue;if(world.canTraverse&&!world.canTraverse(p,next))continue;scores.set(nk,cost);parents.set(nk,k);states.set(nk,next);push({p:next,g:cost,f:cost+estimate(next)});}
  }
- return null;}finally{neighbours.clear();for(const list of directions)list.length=0;}
+ return null;}finally{rules.clear();}
 }
 
 
