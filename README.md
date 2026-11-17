@@ -70,12 +70,15 @@ uncoached playtest sheet.
 
 ## The ending
 
-`dist/cw-ending.js` shows the ending once, after the Commander's Decision:
-Vimes' closing scene, the promotion, a Watch record card built from the save,
-and the credits (the music list is read from
-`dist/assets/echo-all-v012/tracks.json`, so it stays in step with the music
-panel). It sets `state.flags.endingV1`; players can see it again from
-Duty → Your Watch record.
+`dist/cw-ending.js` shows the ending once, after the Commander's Decision: a
+night ceremony in Watch Square where the Watch gathers and Colon, Nobby and
+Carrot recall things the player actually did (read from the save), Vimes ties
+the story together and hands over the stripe; then the service record, a
+memorial for Sir Terry Pratchett (a clacks tower sending "GNU Terry Pratchett"),
+the dedication, and back to free patrol. It sets `state.flags.endingV1`;
+players can see it again from Duty → Your Watch record. There is no credits
+screen: music and sound attribution (required for the CC BY tracks) stays in the
+music panel's "Credits and excerpt details" and in `dist/assets/echo-*/`.
 
 ## Faster loading on phones
 

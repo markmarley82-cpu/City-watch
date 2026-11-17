@@ -13,7 +13,7 @@ Every mission and case known to the project, from the game files and the design 
 | Chapter 2: Break-ins and the old crypt | campaign-engine.html chapter 1 | **Live, tested** |
 | Chapter 3: Assaults on patrol | campaign-engine.html chapter 2 | **Live, tested** |
 | Final choice: The Commander's Decision | campaign-engine.html finalVerdict | **Live, tested** (it now appears straight after the commendation instead of being closed by the conversation screen; Vimes' reply is shown; if it is closed unanswered, the objective leads back to Vimes) |
-| Ending (after the final choice) | cw-ending.js | **Live, tested**: Vimes' closing scene (tied to the ledger, invoice, signet and patrol assaults, and to your recommendation), the promotion, a Watch record card, credits with the fan note, then free patrol. Shown once; again from Duty → Your Watch record |
+| Ending (after the final choice) | cw-ending.js | **Live, tested**: a night ceremony in Watch Square (the Watch recalls cases from your save; Vimes ties the ledger, invoice, signet and patrol assaults together, answers your recommendation and gives the stripe), the service record, a memorial for Sir Terry Pratchett, the dedication, then free patrol. Shown once; again from Duty → Your Watch record |
 
 ## Night duty and side jobs
 

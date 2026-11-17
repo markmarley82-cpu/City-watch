@@ -53,10 +53,10 @@ These make what already exists reliable:
 - **Done: promotion.** Claiming the commendation makes you at least Constable,
   and the Commander's Decision at least Corporal (`career()` in
   `dist/cw-p21-state.js`); higher ranks earned on Night duty are kept.
-- **Done: the ending** (`dist/cw-ending.js`): Vimes' closing scene, the stripe,
-  your Watch record card, credits with the fan note, then free patrol. The
-  credits say "Made by Mark and the City Watch team"; change that line in
-  `credits()` if the team should be named.
+- **Done: the ending** (`dist/cw-ending.js`): a night ceremony in Watch Square
+  with the whole Watch, personal lines from Colon, Nobby and Carrot, Vimes and
+  the stripe, the service record, a memorial for Sir Terry Pratchett and the
+  dedication, then free patrol.
 - **Story gaps:** Vimes has almost no lines in chapter 2; chapters 1 and 2 end
   on the same generic report screen; the ledger case files itself without a
   "who did it?" choice.
