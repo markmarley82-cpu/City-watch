@@ -18,6 +18,10 @@
     };
     const counts={played:0,blocked:0,failed:0},pool=new Map(),recent=new Map(),variants=new Map();
     let enabled=false,effects=true,musicWanted=true,effectsVolume=.65,musicVolume=.20,ambienceWanted=true,ambienceVolume=.25;
+    // Sound comes on with the player's first tap (browsers allow no sound before one) unless they turned it off; the choice is remembered.
+    const SOUND_PREF='city_watch_sound_v1';
+    let autoOn=(()=>{try{return localStorage.getItem(SOUND_PREF)!=='off';}catch{return true;}})();
+    const rememberSound=on=>{autoOn=on;try{localStorage.setItem(SOUND_PREF,on?'on':'off');}catch{}};
     let ambience=null,ambienceZone=null,ambientGeneration=0,atmosphereContext=null,atmosphereSceneKey=null;
     const beds=new Map(),details=new Map(),detailTimes=new Map();let detailSequence=0;
     const isAmbient=a=>a.dataset.cueId==='ambience';
@@ -116,7 +120,7 @@
     }
     function setEnabled(value){
       enabled=!!value;generation++;lastPosition=null;lastCoordinates=null;lastInside=null;recent.clear();ambienceZone=null;atmosphereSceneKey=null;stopAmbience();
-      if(!enabled){stopAmbience();stopEffects();music?.pause();}else{startMusic();sampleScene();}sync();
+      if(!enabled){stopAmbience();stopEffects();music?.pause();}else{startMusic();sampleScene();}rememberSound(enabled);sync();
     }
     function sampleScene(){
       if(!enabled||document.hidden||suspended)return;
@@ -167,6 +171,9 @@
     window.addEventListener('pagehide',(event={})=>{quiesce();if(!event.persisted)enabled=false;stopSampling();});
     window.addEventListener('pageshow',event=>{if(!event.persisted)return;startSampling();resume();});
     document.addEventListener('pointerdown',resume,{passive:true});document.addEventListener('keydown',resume);
+    // First tap or key: switch sound on if wanted. A tap on a sound switch is left to that switch.
+    const firstGesture=e=>{if(enabled||!autoOn||document.hidden)return;if(e.target?.closest?.('#sound,#city-sound,#bridge-sound,[data-game-audio-master]'))return;setEnabled(true);};
+    for(const type of ['pointerup','touchend','click','keydown'])document.addEventListener(type,firstGesture,{capture:true,passive:true});
     return api;
   }
   let shared;
