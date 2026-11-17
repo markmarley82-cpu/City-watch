@@ -1,32 +1,55 @@
 City Watch: The Lantern Files - fight sounds
 
-Made for this game with tools/make-fight-sounds.py: synthesised layers (body thumps,
-swishes, a plucked crossbow string, a metal ring, a spell shimmer, grit) mixed with
-short slices of recordings already in the game:
+All recordings, all CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/).
+Cut, sometimes layered two at a time, levelled and faded with tools/make-fight-sounds.py
+(crossbow: tools/make-crossbow-sounds.py). A few are pitched down slightly. Nothing is
+synthesised.
 
-Hammer on wood, Timber crack, Timber movement / fall - rubberduck. CC0 1.0
-  (https://creativecommons.org/publicdomain/zero/1.0/). Source: https://opengameart.org/content/100-cc0-metal-and-wood-sfx
-Cloth movement 1-7 - OwlishMedia. CC0 1.0
-  (https://creativecommons.org/publicdomain/zero/1.0/). Source: https://opengameart.org/content/202-more-sound-effects
+punch-1..4     "Punch" (qubodupPunch02-05) - qubodup
+               https://opengameart.org/content/punch
+heavy-1..2     "37 hits/punches" (hit08, hit02; pitched down 3 semitones) - Independent.nu
+               https://opengameart.org/content/37-hitspunches
+               over "12 wet towel hitting/falling/punching floor sounds" (03, 10) - qubodup
+               https://opengameart.org/content/12-wet-towel-hittingfallingpunching-floor-sounds
+club-1..3      "Thwack Sounds" (thwack-02, -05, -06) - AntumDeluge
+               https://opengameart.org/content/thwack-sounds
+               with qubodup's "Punch" under them
+blade-1..2     "Katana Swing" - Still North Media (Ben Jaszczak & Brian Nelson), from
+               "Medieval sound effects - Weapon Textures"
+               https://opengameart.org/content/medieval-sound-effects-weapon-textures
+               then "Thwack Sounds" (thwack-07) / "Punch" (qubodupPunch01)
+swish-1..3     "Katana Swing" - Still North Media
+block-1..2     "Axe Spear Haft on Haft" - Still North Media, from
+               "Medieval sound effects - Weapon Impacts"
+               https://opengameart.org/content/medieval-sound-effects-weapon-impacts
+guard-1        "Cloth movement 2" - OwlishMedia
+               https://opengameart.org/content/202-more-sound-effects
+               and "Hammer on wood" - rubberduck
+               https://opengameart.org/content/100-cc0-metal-and-wood-sfx
+shove-1..2     "Cloth movement 2, 6" - OwlishMedia, with qubodup's wet towel (05, 08)
+fall-1..2      "Cloth movement 6, 3" - OwlishMedia, qubodup's wet towel (10, 07) and
+               Independent.nu's hit02 / hit07 (pitched down 4 semitones, low-passed)
+bolt-1..2      "75 CC0 breaking/falling/hit sfx" (bfh1_hit_07, bfh1_hit_02) - rubberduck
+               https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx
+spell-1        "Magic spell SFX" (magical_3) - JaggedStone
+               https://opengameart.org/content/magic-spell-sfx
+grit-1         "Katana Swing" (quiet) - Still North Media, with rubberduck's
+               bfh1_rock_falling_04 and _07
+bandage-1      "Cloth movement 1" - OwlishMedia
+crossbow-1..3  "Crossbow Shoot", with a faint "Crossbow Bolt Pass" - Still North Media,
+               from "Medieval sound effects - Weapon Textures"
 
-The crossbow shots (crossbow-1..3) are recordings: "Crossbow Shoot" with a faint
-"Crossbow Bolt Pass" behind it, from "Medieval sound effects - Weapon Textures" by
-Still North Media (Ben Jaszczak & Brian Nelson). CC0 1.0.
-  Source: https://opengameart.org/content/medieval-sound-effects-weapon-textures
-  Prepared with tools/make-crossbow-sounds.py.
-
-These sounds are released under CC0 1.0 as well.
-
-punch-1..4     a fist landing (suspects, empty-hand force)
-heavy-1..2     a troll's heavy swing landing
-club-1..3      a truncheon blow
-blade-1..2     a sword strike (flat of the blade)
-swish-1..3     a swing that misses
-block-1..2     a blow taken on Guard
-guard-1        taking up Guard
-shove-1..2     a shove
-fall-1..2      someone going down
-crossbow-1..3  a crossbow shot; bolt-1..2 the bolt landing
-spell-1        a rogue wizard's dazzle
-grit-1         thrown grit
-bandage-1      a bandage
+What plays when:
+punch     a fist landing (suspects, empty-hand force)
+heavy     a troll's heavy swing landing
+club      a truncheon blow
+blade     a sword strike (flat of the blade)
+swish     a swing that misses
+block     a blow taken on Guard
+guard     taking up Guard
+shove     a shove
+fall      someone going down
+crossbow  a crossbow shot; bolt the bolt landing
+spell     a rogue wizard's dazzle
+grit      thrown grit
+bandage   a bandage
