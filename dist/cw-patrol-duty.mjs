@@ -219,6 +219,8 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   const content=doc.createElement('section');content.className='cw-patrol-route-menu';box.replaceChildren();box.append(content);
   const text=(tag,copy)=>{const e=doc.createElement(tag);e.textContent=copy;content.append(e);return e;};
   const button=(label,fn)=>{const b=text('button',label);b.type='button';b.onclick=()=>{dialog.close();return fn();};};
+  // Walking shortcut to a lead the player chose (the leads were only listed, with no way to get there).
+  const walk=(label,target)=>{if(target)button('Walk to '+label,()=>{city.stop();const ok=city.nav(target.slice(0,2),target[2]);if(ok!==false)city.tell('Walking to '+label+'. Open Carrot’s assignment there to continue.');return ok;});};
   text('h3',DELIVERY_TITLE);
   if(d.deliveryReport){
    text('p',d.deliveryReport.text);
@@ -230,7 +232,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   }else if(a.outcome){
    text('p',DELIVERY_OUTCOMES[a.outcome]);
    if(atCarrot())button('File with Carrot',fileDelivery);
-   else text('p','Captain Carrot is on the east side of Watch Square.');
+   else{text('p','Captain Carrot is on the east side of Watch Square.');walk('Captain Carrot',carrot);}
   }else if(tailActor(a)){
    text('p','Follow on foot. Stay about three to six paces behind the runner, then choose Keep watching. Getting too close will spook them.');
    if(canWatch(tailActor(a)))button(a.tail.index===tailStops.length-1?'Watch the exchange':'Keep watching',()=>updateDelivery('watch'));
@@ -239,6 +241,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
    for(const lead of deliveryLeads){
     text('p',lead.location+' · '+(a.evidence.includes(lead.id)?lead.evidence:lead.label));
     if(!a.evidence.includes(lead.id)&&atPoint(lead.position))button(lead.label,()=>updateDelivery(lead.id));
+    else if(!a.evidence.includes(lead.id))walk(lead.location,lead.position);
    }
    if(a.tail?.status==='seen'){
     text('p','You witnessed the W17 handover at the Dock Warehouse.');
@@ -249,6 +252,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
     }
    }else if(a.evidence.includes('carter')||a.evidence.includes('tip')){
     text('p','Netmender’s Shack · Receiving yard');
+    if(!atPoint(deliveryYard))walk('Netmender’s Shack',deliveryYard);
     if(atPoint(deliveryYard)){
      text('p','The bales are marked W17. A runner is loading them while the night factor checks a list.');
      if(tailStops.length)button('Shadow the runner',()=>updateDelivery('tail'));

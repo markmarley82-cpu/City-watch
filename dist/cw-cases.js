@@ -334,6 +334,18 @@
     return { bridge: true, label: here.length === 1 ? here[0].label : 'Bridge enquiry: ' + here.length + ' things to do here' };
   }
 
+  // ---------- Night duty / patrol actions hidden behind a shop door ----------
+  // The street button prefers a shop's entrance, so a shift action at a shop frontage
+  // (e.g. the Dimwell incident by the cobbler's) could only be reached from the imp panel.
+  function dutyLead(record) {
+    const pd = window.CWP21Game?.patrolDuty; if (!pd) return null;
+    let v = null; try { v = pd.view(record); } catch (e) { return null; }
+    if (!v || !['inspect', 'report', 'book'].includes(v.action) || !v.label) return null;
+    const use = $('city-use');
+    if (use && use.offsetParent && use.textContent.trim() === v.label) return null; // already on the street button
+    return { duty: true, label: v.label };
+  }
+
   // ---------- on-street lead button ----------
   let leadButton = null;
   function ensureButton() {
@@ -343,6 +355,7 @@
     leadButton.type = 'button'; leadButton.id = 'cw-case-lead'; leadButton.hidden = true;
     leadButton.onclick = () => {
       if (leadButton.dataset.bridge === 'true') { window.CWP21Game?.openBridgeCase?.(); return; }
+      if (leadButton.dataset.duty === 'true') { window.CWP21Game?.patrolDuty?.primary?.(); return; }
       const a = casesOf(read()).active, c = a && caseById(a.id), here = c && leadHere(c, a);
       if (!here) return refreshLead();
       return here.file ? fileReport(c) : playScene(c, here.scene);
@@ -358,10 +371,12 @@
       if (!record.pending && !city().isNavigating() && !document.querySelector('dialog[open]')) {
         if (a && data) { const c = caseById(a.id); show = c && leadHere(c, a); }
         if (!show) show = bridgeLead(record);
+        if (!show) show = dutyLead(record);
       }
     } catch (e) { show = null; }
     b.hidden = !show;
     b.dataset.bridge = show && show.bridge ? 'true' : 'false';
+    b.dataset.duty = show && show.duty ? 'true' : 'false';
     if (show) { b.textContent = show.label; b.setAttribute('aria-label', 'City case: ' + show.label); }
   }
 
