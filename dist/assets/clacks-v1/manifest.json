@@ -1,0 +1,73 @@
+{
+  "id": "clacks-tower-8-shutter-states",
+  "version": 1,
+  "status": "approved artwork; not integrated into game",
+  "type": "isometric clacks signalling tower 2x4 shutters",
+  "source": "approved 2026-11-17 2x2 art sheet",
+  "image": "clacks-tower-8-shutter-states.png",
+  "width": 1024,
+  "height": 1536,
+  "format": "png",
+  "alpha": true,
+  "layout": {
+    "columns": 2,
+    "rows": 2,
+    "frameWidth": 512,
+    "frameHeight": 768
+  },
+  "frames": [
+    {
+      "name": "alternate",
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 768,
+      "litRows": [
+        "10",
+        "01",
+        "10",
+        "01"
+      ]
+    },
+    {
+      "name": "left-column",
+      "x": 512,
+      "y": 0,
+      "width": 512,
+      "height": 768,
+      "litRows": [
+        "10",
+        "10",
+        "00",
+        "01"
+      ]
+    },
+    {
+      "name": "sparse",
+      "x": 0,
+      "y": 768,
+      "width": 512,
+      "height": 768,
+      "litRows": [
+        "01",
+        "00",
+        "10",
+        "00"
+      ]
+    },
+    {
+      "name": "busy",
+      "x": 512,
+      "y": 768,
+      "width": 512,
+      "height": 768,
+      "litRows": [
+        "11",
+        "10",
+        "01",
+        "11"
+      ]
+    }
+  ],
+  "notes": "Shutter system is the standard Discworld-inspired 8 shutters in 2 columns x 4 rows. Signal frames are static art; do not imply playable animation until implemented and verified. LitRows visual readings are illustrative; independently check against image before encoding clacks messages."
+}
