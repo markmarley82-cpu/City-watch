@@ -58,7 +58,7 @@ function content(){
   const opening=s.flags?.p21PatrolRounds?.active?.routeId==='watch-square-purse';
   return (opening?'':row('Current Watch assignment',d.assignment?.current||'Chapter '+(chapter+1)+' · Step '+(stage+1),
    'Chapter '+(chapter+1)+' · Step '+(stage+1)+(d.assignment?.recruitName?' · '+d.assignment.recruitName:''),['main-ledger','main-delivery','main-patrol'][Math.min(chapter,2)]))+
-  enquiryRows('cases')+(incidents?.active?row(incidents.active.title,incidents.active.description,incidents.active.extra):'')+row('The Thirteenth Chime',s.flags?.mystery?.started?'Investigation opened':'Not yet opened',s.flags?.mystery?.done?'Completed':'Check the Detective Desk for case details','mystery-thirteenth-chime')+streetRows(s)+patrolRows+(incidents?incidentRows():(s.flags?.p21EncounterResults||[]).map(r=>row('Street encounter · '+r.binding,r.outcome,r.arrested+' arrested · '+r.released+' released')).join(''));
+  enquiryRows('cases')+(incidents?.active?row(incidents.active.title,incidents.active.description,incidents.active.extra):'')+(window.CWCityCases?.notebookRows?.(s)||[]).map(r=>row(r.title,r.description,r.extra)).join('')+(s.flags?.mystery?.started?row('The Thirteenth Chime (earlier version)',s.flags.mystery.done?'Completed':'Investigation opened',s.flags.mystery.done?'Completed':'This case is now in Duty → City cases.','mystery-thirteenth-chime'):'')+streetRows(s)+patrolRows+(incidents?incidentRows():(s.flags?.p21EncounterResults||[]).map(r=>row('Street encounter · '+r.binding,r.outcome,r.arrested+' arrested · '+r.released+' released')).join(''));
  }
  if(active==='Evidence'){
   const items=(s.items||[]).filter(x=>/ledger|invoice|signet|testimony|evidence|clue|badge/i.test(x));

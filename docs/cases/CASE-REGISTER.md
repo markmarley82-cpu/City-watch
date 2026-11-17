@@ -119,42 +119,40 @@ Every mission and case known to the project, from the game files and the design 
 | INQ-03 | Our Readers Were Right to Be Worried | Design only |
 | INQ-04 | We Stand by the Question Mark | Design only |
 
-## Street cases (old engine, `streetFiles` in campaign-engine.html)
+## Street cases (ported from the old engine to City cases)
 
-Written and complete, but the "Street cases" button is hidden, so players cannot reach them. Next step: test whether they still work in the current game, then switch them on.
+The old engine's 14 street cases (`streetFiles` in campaign-engine.html) could not be switched on: their scenes were positions on the old engine's small map, which does not exist in the current city. They are now ported to the case player (`dist/cases/city-cases.json`) at real places on the new map. Each keeps its two original approaches as two leads: either one supports a partial report, both together support the full report and the original reward, and one tempting over-claim is turned down by the filing officer. City cases shows five open cases at a time. All 15 were played in a browser to the full report using the street button, with the over-claim turned down each time; partial reports were played for CW-SC-01 and 02. `node tests/cw-city-cases-data.mjs` checks the data.
 
-**Checked (step 2):** they cannot simply be switched on. Each case's scene is a position on the old engine's map (for example The Missing Bell at 17, 5), which does not exist in the current city. They need porting: either new positions plus routing in the old engine, or (simpler) rewriting each as a data case in `dist/cases/city-cases.json` for the new case player.
+| # | Title | Now | Where | Status |
+|---|---|---|---|---|
+| 1 | The Missing Bell | CW-SC-01 | Temple of Small Gods, Shades second-hand counter | **Live, tested** |
+| 2 | A Pie of Questionable Origin | CW-SC-02 | Market Hall | **Live, tested** |
+| 3 | The Forged Permit | CW-SC-03 | Guild Archives | **Live, tested** |
+| 4 | Lights on the River | CW-SC-04 | the quay, Netmender’s Shack | **Live, tested** |
+| 5 | The Unpaid Watchman | CW-SC-05 | the Shades Tenement (files with Carrot) | **Live, tested** |
+| 6 | The Clock That Struck Thirteen | CW-SC-06 | a house by the Old Crypt | **Live, tested** |
+| 7 | The Bookseller’s Secret | CW-SC-07 | Lantern & Quill | **Live, tested** |
+| 8 | The Lost Watch Badge | CW-SC-08 | outside the Opera House, the Watch House desk (files with Carrot) | **Live, tested** |
+| 9 | The Disappearing Door | CW-SC-09 | Crooked Alley House | **Live, tested** |
+| 10 | A Very Expensive Fish | CW-SC-10 | Musicians’ Guild, the quay | **Live, tested** |
+| 11 | The Night-Soil Dispute | CW-SC-11 | Butchers’ Guild yard, Market Hall | **Live, tested** |
+| 12 | The Phantom Watchman | CW-SC-12 | the Watch House desk, Watch Outpost (files with Carrot) | **Live, tested** |
+| 13 | An Unfortunate Portrait | CW-SC-13 | Alchemists’ Guild, Lawyers’ Guild | **Live, tested** |
+| 14 | The Lantern Tax | CW-SC-14 | Lantern Row | **Live, tested** |
 
-| # | Title | Status |
-|---|---|---|
-| 1 | The Missing Bell | Hidden |
-| 2 | A Pie of Questionable Origin | Hidden |
-| 3 | The Forged Permit | Hidden |
-| 4 | Lights on the River | Hidden |
-| 5 | The Unpaid Watchman | Hidden |
-| 6 | The Clock That Struck Thirteen | Hidden |
-| 7 | The Bookseller’s Secret | Hidden |
-| 8 | The Lost Watch Badge | Hidden |
-| 9 | The Disappearing Door | Hidden |
-| 10 | A Very Expensive Fish | Hidden |
-| 11 | The Night-Soil Dispute | Hidden |
-| 12 | The Phantom Watchman | Hidden |
-| 13 | An Unfortunate Portrait | Hidden |
-| 14 | The Lantern Tax | Hidden |
-
-Also in the old engine: **The Thirteenth Chime** (mystery case, `mysterySites` in campaign-engine.html, opened from the old engine's Detective Desk). The Watch Notebook lists it as "Not yet opened · Check the Detective Desk", but the Detective Desk is not in the current Duty menu and its clue sites use the old map's coordinates. Status: Hidden; check it with the street cases.
+**The Thirteenth Chime** (the old engine's Detective Desk mystery, `mysterySites`) is ported as **CW-MY-01**: four clue sites (Temple bell tower, the quay, Market Hall, the Shades workshop) and two witnesses (the bell-ringer at the Watch House desk, the clockmaker at the Guild Archives), filed with Captain Carrot. Status: **Live, tested** (all six steps, the partial report needs the wheel and the docket). Saves that had started the old version keep a Notebook row for it.
 
 ## Random patrol reports (`dist/cw-patrol-data.js`, 48 cases × 3 variants)
 
 Offered through Casebook → Random patrols when walking through markets, quays and working streets; the data marks them "authored design data, not integrated". Four are used inside Night duty jobs.
 
-**Checked (step 2):** opening the docket always showed "The patrol change was not saved" because the old engine's save function never reported success; fixed. But no report can be offered in the current game: the eight report sites are the street-case positions on the old engine's small map (x up to 26, y up to 23), while the player now walks the new city (Watch Square is near 130, 135), and a report is only offered within 3 tiles of a site. Making them playable means giving the sites positions on the new map and walking there through the new city, the same work the street cases below need.
+**Checked (step 2):** opening the docket always showed "The patrol change was not saved" because the old engine's save function never reported success; fixed. The report sites were positions on the old engine's map, so no report could be offered; in the current game they are now at the Market Hall, the quay by the Dock Warehouse, the Temple of Small Gods, the Post Office, the Shades Tenement, the Dimwell workshops, Crooked Alley and the Lantern & Quill. Following a report walks you there through the city; reports are filed beside Sergeant Colon. Status: the docket is **tested** (CW-RP-003 Awnings of Responsibility played at the Market Hall: accepted, both observations, a wrong finding turned down, the supported finding filed with Colon for 4 merit); the individual reports below are still untested one by one.
 
 | ID | Title | Status |
 |---|---|---|
 | CW-RP-001 | Watch-Approved! | Reachable via Random patrols, untested |
 | CW-RP-002 | Short Measure, Long Argument | Live in Night duty · Market enquiry, untested |
-| CW-RP-003 | Awnings of Responsibility | Reachable via Random patrols, untested |
+| CW-RP-003 | Awnings of Responsibility | **Live, tested** (Market Hall) |
 | CW-RP-004 | The Price of a Promise | Reachable via Random patrols, untested |
 | CW-RP-005 | One Stall, Two Breakfasts | Reachable via Random patrols, untested |
 | CW-RP-006 | The Queue That Went Round | Reachable via Random patrols, untested |
@@ -203,11 +201,11 @@ Offered through Casebook → Random patrols when walking through markets, quays 
 
 ## Old-engine mystery sites
 
-The Bell Tower, The Dock Ledger, The Market Stall, The Shades Workshop: from the older version of the game, not connected to the current one. Not planned for 1.0.
+The Bell Tower, The Dock Ledger, The Market Stall and The Shades Workshop were the four clue sites of The Thirteenth Chime. They are now part of CW-MY-01 (see the street cases above), at the Temple of Small Gods, the quay, the Market Hall and the Shades Tenement.
 
 ## Not yet checked
 
 - `City-Watch-Patrol-Cases-v1.zip` and `City-Watch-Quest-Emblems-v1.zip` in the team Google Drive folder.
 
 
-**Total tracked: 151** (including the ending and 4 old mystery sites).
+**Total tracked: 148** (including the ending; the 4 old mystery sites are now one case, CW-MY-01).

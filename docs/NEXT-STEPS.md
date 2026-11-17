@@ -35,14 +35,11 @@ These make what already exists reliable:
   enquiry, Dimwell beat, Carrot's assignment, Mended Drum brawl, the University
   case and the Commander's final choice all play through; the fixes are listed
   in the register.
-- **Random patrols:** the "not saved" message is fixed (the old engine's save
-  never reported success). No report can appear yet: the report sites use the
-  old engine's map positions. Porting them goes with the street cases below.
-- **The 14 hidden street cases** (and the old Thirteenth Chime mystery): none
-  can be switched on as they are, because their scenes are positions on the old
-  engine's map. They need porting to the new city (recommended: rewrite each as
-  a data case for the case player); the Random patrol sites share the same
-  positions.
+- **Done: Random patrols.** The "not saved" message is fixed, and the report
+  sites are now real places on the new map (see the register).
+- **Done: the 14 old street cases and the Thirteenth Chime** are ported to City
+  cases (CW-SC-01 to 14, CW-MY-01) at places on the new map. Check them with
+  `node tests/cw-city-cases-data.mjs` after editing the case data.
 
 ## 3. After the playtest
 

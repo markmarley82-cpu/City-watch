@@ -3270,12 +3270,20 @@ const actionPreviousEnemyTurn=enemyTurn;enemyTurn=function(...args){const before
 const actionPreviousGuard=guard;guard=function(){const before=guardTurns;actionPreviousGuard();if(guardTurns!==before||guardTurns>0)window.CWActionFrames?.play('player','guard');};$('guard').onclick=()=>guard();
 
 // Optional patrol adapter uses the existing campaign state, public report points and UI.
+// In the unified game the player walks the new city, so Random patrol report sites use new-map points
+// (one per report group) instead of the old engine's street-file positions.
+const patrolUnified=new URLSearchParams(location.search).has('unified')&&parent!==window;
+const PATROL_SITES_NEW_MAP={market:[59,273,'E056','the Market Hall'],river:[43,244,'APRON:warehouse','the quay by the Dock Warehouse'],civic:[116,290,'APRON:temple','the Temple of Small Gods'],print_post:[136,222,'E010','the Post Office'],home:[80,241,'APRON:shades','the Shades Tenement'],work:[73,66,'APRON:crypt','the Dimwell workshops'],street:[84,263,'APRON:alley','Crooked Alley'],oddities:[177,237,'APRON:books','the Lantern & Quill']};
+const patrolSiteList=()=>Object.values(PATROL_SITES_NEW_MAP).map(x=>x[3]).join(', ');
+// This engine's own x/y do not move in the unified game; the main page passes the player's city position in.
+const patrolCityPosition=()=>patrolUnified&&Array.isArray(p21ServiceContext?.position)?p21ServiceContext.position.map(Math.round):null;
+const patrolPlayer=()=>{const at=patrolCityPosition();return at?new Proxy(s,{get:(t,k)=>k==='x'?at[0]:k==='y'?at[1]:t[k]}):s;};
 const patrolPool=window.CWInstallPatrolPool({
- player:()=>s,restore:value=>{s=value;},save:()=>{/* saved() returns nothing, so report success here; in the unified game write the campaign directly so a failed save is caught. */if(new URLSearchParams(location.search).has('unified')&&parent!==window)parent.CWP21State.create(localStorage).campaign(s);saved();return true;},update:()=>ui(),
- say:(...args)=>say(...args),open:(title,text,choices,kicker)=>open(title,text,choices.map(([label,action,...metadata])=>[label,['Back to duty','Back to patrol','Return to duty','Return to patrol'].includes(label)?returnCasebookToCity:action,...metadata]),kicker),
+ player:()=>patrolPlayer(),restore:value=>{if(patrolCityPosition()){const x=s.x,y=s.y;s=value;s.x=x;s.y=y;}else s=value;},save:()=>{/* saved() returns nothing, so report success here; in the unified game write the campaign directly so a failed save is caught. */if(new URLSearchParams(location.search).has('unified')&&parent!==window)parent.CWP21State.create(localStorage).campaign(s);saved();return true;},update:()=>ui(),
+ say:(...args)=>say(...args),open:(title,text,choices,kicker)=>open(title,patrolUnified&&/^No eligible report nearby/.test(text)?text.replace('Walk through markets, quays, public courts and working streets.','Reports are offered at: '+patrolSiteList()+'. Open Random patrols when you are there.'):text,choices.map(([label,action,...metadata])=>[label,['Back to duty','Back to patrol','Return to duty','Return to patrol'].includes(label)?returnCasebookToCity:action,...metadata]),kicker),
  originalInteract:()=>patrolPreviousInteract(),
- desk:()=>({...hubActor('colon')}),
- route:(site,label)=>{if(s.place!=='city'){say('Watch Dispatch','Leave the room, then use the patrol docket to follow this report.','▤');return;}const p=hubRouteTo(site,1);if(p===null){say('Watch Dispatch','No public route is available to this report.','▤');return;}route=p;cityFollow=true;say('Watch Dispatch',p.length?'Route set: '+label+'.':'You are at '+label+'. Use TALK / USE, or reopen the patrol docket.','▤');},
+ desk:()=>patrolUnified?{x:121,y:134,edge:'RC1',label:'Sergeant Colon'}:({...hubActor('colon')}),
+ route:(site,label)=>{if(patrolUnified&&Number.isFinite(site?.x)){const host=parent,where=[site.x,site.y],edge=site.edge||null;returnCasebookToCity();host.setTimeout(()=>{host.CWP21City?.stop?.();host.CWP21City?.nav(where,edge);host.CWP21City?.tell('Walking to '+label+'. Open Duty → Casebook → Random patrols when you arrive.');},350);return;}if(s.place!=='city'){say('Watch Dispatch','Leave the room, then use the patrol docket to follow this report.','▤');return;}const p=hubRouteTo(site,1);if(p===null){say('Watch Dispatch','No public route is available to this report.','▤');return;}route=p;cityFollow=true;say('Watch Dispatch',p.length?'Route set: '+label+'.':'You are at '+label+'. Use TALK / USE, or reopen the patrol docket.','▤');},
  context:()=>{
   const living=window.CW_LIVING_P7?.state(),hour=Number((living?.time||'20:00').split(':')[0]);
   const daypart=hour>=6&&hour<18?'day':hour>=18&&hour<22?'evening':'night';
@@ -3283,15 +3291,17 @@ const patrolPool=window.CWInstallPatrolPool({
   // These are existing supplementary report locations, not new doors or character spawns.
   const bindings={market:[1,1],river:[3,0],civic:[0,2],print_post:[2,3],home:[8,11],work:[12,7],street:[10,4],oddities:[6,6]};
   for(const [group,[index,id]]of Object.entries(bindings)){
-   const q=streetFiles[index],actor=agents.find(a=>a.id===id);
-   if(q&&cityWalkable(q.x,q.y))sites[group]={id:'public-report-'+index,x:q.x,y:q.y,label:q.where,respondent:actor?.job||'Local resident',actorId:id,available:!!actor};
+   const q=streetFiles[index],actor=agents.find(a=>a.id===id),u=patrolUnified&&PATROL_SITES_NEW_MAP[group];
+   if(u)sites[group]={id:'public-report-'+index,x:u[0],y:u[1],edge:u[2],label:u[3],respondent:actor?.job||'Local resident',actorId:id,available:!!actor};
+   else if(q&&cityWalkable(q.x,q.y))sites[group]={id:'public-report-'+index,x:q.x,y:q.y,label:q.where,respondent:actor?.job||'Local resident',actorId:id,available:!!actor};
   }
   const colon=hubActor('colon'),deskPoint=i1Inside()&&s.place==='watch'?i1Points().find(h=>h.id==='desk'):null;
-  const atDesk=s.place==='city'&&Math.abs(s.x-colon.x)+Math.abs(s.y-colon.y)<=2||!!(deskPoint&&Math.hypot(deskPoint.at[0]-i1Actor.x,deskPoint.at[1]-i1Actor.y)<100);
+  const here=patrolCityPosition(),atDesk=here&&s.place==='city'&&(Math.abs(here[0]-121)+Math.abs(here[1]-134)<=3||Math.abs(here[0]-126)+Math.abs(here[1]-132)<=3)||s.place==='city'&&Math.abs(s.x-colon.x)+Math.abs(s.y-colon.y)<=2||!!(deskPoint&&Math.hypot(deskPoint.at[0]-i1Actor.x,deskPoint.at[1]-i1Actor.y)<100);
   const main=hubMainObjective(),danger=monsters.some(m=>m.hp>0&&m.place===s.place&&Math.abs(m.x-s.x)+Math.abs(m.y-s.y)<=4);
   return {now:Date.now(),daypart,shift:Number(s.flags.content?.patrols)||0,sites,
    features:s.flags.patrolFeatures||{},atDesk,mainNearby:s.place==='city'&&Math.abs(main.x-s.x)+Math.abs(main.y-s.y)<=3,
-   blocked:mode!=='play'||!!window.CW_P20_INPUT_BLOCKED||root.inert||!!document.querySelector('dialog[open]')||danger,
+   // In the unified game this engine only ever opens as a menu (the docket itself), so a menu being open is not a block.
+   blocked:patrolUnified?false:mode!=='play'||!!window.CW_P20_INPUT_BLOCKED||root.inert||!!document.querySelector('dialog[open]')||danger,
    offerBlocked:sideState().active>=0||!!(s.flags.mystery?.started&&!s.flags.mystery?.done)||Math.abs(main.x-s.x)+Math.abs(main.y-s.y)<=3};
  }
 });

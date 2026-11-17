@@ -57,9 +57,14 @@ They are played by `dist/cw-cases.js` from the data in
 
 Progress is saved in the campaign record (`state.flags.cityCasesV1`), each case
 pays once, and reloading resumes the same branch. The briefs these come from are
-in `docs/cases/`. Built so far: CW-NC-01 (a replayable partner shift: `shift`,
-`partners`, partner-specific text and outcomes, `derive` rules for evidence that
-needs two clues), CW-NC-08, CW-NC-12. `docs/cases/CASE-REGISTER.md` tracks every
+in `docs/cases/`. Built so far: CW-NC-08 and CW-NC-12, plus the old engine's 14
+street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported
+to the current city. (CW-NC-01, the Bridge case, is the team's pilot in
+`dist/cases/bridge-closure.mjs`.) The case player also supports replayable
+partner shifts (`shift`, `partners`, partner-specific text and outcomes) and
+`derive` rules: a clue that follows from others, which can also express "either
+of these clues" with one rule per clue. The board shows five open cases at a
+time, and city cases appear in the Watch Notebook's Cases tab. `docs/cases/CASE-REGISTER.md` tracks every
 case in the project and its status; `docs/cases/Bridge-Shift-Playtest.md` is the
 uncoached playtest sheet.
 

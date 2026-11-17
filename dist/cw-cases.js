@@ -11,7 +11,8 @@
    Case data is fetched only when needed, never at cold startup. */
 (function () {
   'use strict';
-  const DATA_URL = 'cases/city-cases.json?v=3';
+  const DATA_URL = 'cases/city-cases.json?v=4';
+  const BOARD_MAX = 5; // available cases shown at once; more appear as these are closed
   const FLAG = 'cityCasesV1';
   const NEAR = 2.2;
   const PARTNERS = { 'WATCH-04': 'nobby', 'WATCH-03': 'colon' };
@@ -142,11 +143,15 @@
       }
       const list = data.cases.filter(x => x.shift || !cs.completed[x.id]);
       if (list.length) ui.add('h4', c ? 'Waiting' : 'Available');
+      let shown = 0, more = 0;
       for (const x of list) {
         if (c && x.id === c.id) continue;
+        if (!x.shift && shown >= BOARD_MAX) { more++; continue; }
+        if (!x.shift) shown++;
         const runs = cs.completed[x.id] && cs.completed[x.id].runs ? cs.completed[x.id].runs.length : 0;
         ui.button((x.shift ? 'Shift: ' : '') + x.title + ' · ' + x.where + (runs ? ' · worked ' + runs + '×' : ''), () => takeCase(x), { disabled: !!c || blocked(record), keepOpen: true });
       }
+      if (more) ui.add('p', more + ' more case' + (more === 1 ? '' : 's') + ' will appear here as you close these.', 'cw-case-note');
       const done = data.cases.filter(x => !x.shift && cs.completed[x.id]);
       const shiftsDone = data.cases.filter(x => x.shift && cs.completed[x.id]);
       if (done.length || shiftsDone.length) ui.add('h4', 'Filed');
@@ -170,7 +175,7 @@
         return;
       }
     }
-    const ok = save(cs => { if (cs.active) return false; cs.active = { id: c.id, clues: [], done: [], choices: {}, partner, startedAt: Date.now() }; });
+    const ok = save(cs => { if (cs.active) return false; cs.active = { id: c.id, title: c.title, clues: [], done: [], choices: {}, partner, startedAt: Date.now() }; });
     if (!ok) return board('The case could not be saved. Try again.');
     const a = casesOf(read()).active;
     const ui = sheet(c.title);
@@ -293,7 +298,7 @@
       } else {
         if (cs.completed[c.id]) return false;
         paid = { merit: f.merit || 0, coins: f.coins || 0, repeat: false };
-        cs.completed[c.id] = { finding: f.id, outcome: f.outcome, choice: choiceKey, merit: paid.merit, coins: paid.coins, summary: f.summary, at: Date.now() };
+        cs.completed[c.id] = { title: c.title, finding: f.id, outcome: f.outcome, choice: choiceKey, merit: paid.merit, coins: paid.coins, summary: f.summary, at: Date.now() };
       }
       r.state.merit += paid.merit; r.state.coins += paid.coins;
       cs.active = null;
@@ -399,5 +404,28 @@
     setInterval(refreshLead, 700);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
-  window.CWCityCases = { board, refreshLead };
+  // Rows for the Watch Notebook's Cases tab (title, status, detail). Titles come from the save,
+  // or from the case data once it has loaded; opening the Notebook starts that load.
+  function notebookRows(state) {
+    const cs = state && state.flags && state.flags[FLAG];
+    if (!cs || typeof cs !== 'object') return [];
+    // First open after a reload: titles of older records arrive with the case data, then redraw.
+    if (!data) loadData().then(() => { const nb = document.getElementById('watch-notebook'); if (nb && nb.classList.contains('open')) window.CW_NOTEBOOK?.refresh?.(); }).catch(() => {});
+    const titleOf = (id, rec) => (caseById(id) && caseById(id).title) || (rec && rec.title) || id;
+    const rows = [];
+    const a = cs.active;
+    if (a && a.id) {
+      const c = caseById(a.id);
+      rows.push({ title: titleOf(a.id, a), description: 'Investigating · ' + (a.clues || []).filter(k => !c || c.clues[k]).length + ' notes recorded', extra: c ? c.brief + ' Open Duty → City cases to carry on.' : 'Open Duty → City cases to carry on.' });
+    }
+    const done = Object.entries(cs.completed || {}).sort((x, y) => ((y[1] && y[1].at) || 0) - ((x[1] && x[1].at) || 0));
+    for (const [id, rec] of done) {
+      if (!rec || typeof rec !== 'object') continue;
+      const last = Array.isArray(rec.runs) ? rec.runs[rec.runs.length - 1] : rec;
+      if (!last) continue;
+      rows.push({ title: titleOf(id, rec), description: 'Filed · ' + (last.outcome === 'full' ? 'case closed' : 'partial report') + (last.merit ? ' · ' + last.merit + ' merit' : ''), extra: last.summary || '' });
+    }
+    return rows;
+  }
+  window.CWCityCases = { board, refreshLead, notebookRows };
 })();

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-08, CW-NC-12). CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
+ "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-08, CW-NC-12), plus the old engine's 14 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported to the current city. CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
  "places": {
   "colon": {
    "name": "Sergeant Colon, Watch Square",
@@ -64,6 +64,118 @@
     80,
     241,
     "APRON:shades"
+   ]
+  },
+  "temple": {
+   "name": "the Temple of Small Gods",
+   "at": [
+    116,
+    290,
+    "APRON:temple"
+   ]
+  },
+  "dealer": {
+   "name": "the Shades second-hand counter",
+   "at": [
+    82,
+    219,
+    "E034"
+   ]
+  },
+  "archives": {
+   "name": "the Guild Archives",
+   "at": [
+    136,
+    252,
+    "APRON:archives"
+   ]
+  },
+  "netshack": {
+   "name": "Netmender’s Shack",
+   "at": [
+    33,
+    250,
+    "APRON:net"
+   ]
+  },
+  "alley": {
+   "name": "Crooked Alley House, the Shades",
+   "at": [
+    84,
+    263,
+    "APRON:alley"
+   ]
+  },
+  "books": {
+   "name": "the Lantern & Quill bookshop",
+   "at": [
+    177,
+    237,
+    "APRON:books"
+   ]
+  },
+  "crypthouse": {
+   "name": "a house by the Old Crypt",
+   "at": [
+    72,
+    62,
+    "APRON:crypt"
+   ]
+  },
+  "opera": {
+   "name": "the gutter outside the Opera House",
+   "at": [
+    126,
+    140,
+    "RC1"
+   ]
+  },
+  "outpost": {
+   "name": "the corner by the Watch Outpost",
+   "at": [
+    125,
+    164,
+    "APRON:outpost"
+   ]
+  },
+  "musicians": {
+   "name": "the Musicians’ Guild banquet stores",
+   "at": [
+    98,
+    267,
+    "APRON:guild-musicians"
+   ]
+  },
+  "butchers": {
+   "name": "the collection yard by the Butchers’ Guild",
+   "at": [
+    91,
+    304,
+    "APRON:guild-butchers"
+   ]
+  },
+  "lawyers": {
+   "name": "the Lawyers’ Guild",
+   "at": [
+    135,
+    232,
+    "APRON:guild-lawyers"
+   ]
+  },
+  "alchemists": {
+   "name": "the Alchemists’ Guild",
+   "at": [
+    129,
+    250,
+    "APRON:guild-alchemists"
+   ]
+  },
+  "lantern": {
+   "name": "Lantern Row",
+   "at": [
+    85,
+    49,
+    "APRON:lantern"
    ]
   }
  },
@@ -343,6 +455,1453 @@
       "coins": 2,
       "summary": "Collector seen taking money; fraud proven and he can be found.",
       "reply": "“Fake fine, a payment you saw, and a description good enough to find him,” says Carrot. “And you warned the street once you had it. That’s the job done properly.”"
+     }
+    ]
+   }
+  },
+  {
+   "id": "CW-SC-01",
+   "title": "The Missing Bell",
+   "where": "the Temple of Small Gods",
+   "giverLine": "Sergeant Colon: “Temple of Small Gods has lost a bell. Not a small one, either, which you’d think would be the point. There’s a bit of green velvet under the belfry and cart tracks in the mud. Have a look before somebody starts shouting about miracles.”",
+   "brief": "Find out where the bell went and how. Report only what you can show.",
+   "clues": {
+    "ringer": "The bell-ringer says the bell was sold to a scrap dealer as unwanted metal. Who authorised the sale is not known.",
+    "dealer": "The cart tracks lead to a dealer who has the bell. He bought it as unwanted metal and kept the seller’s details."
+   },
+   "scenes": [
+    {
+     "id": "ringer",
+     "place": "temple",
+     "label": "Question the bell-ringer",
+     "hint": "The person who rings it may know where it went.",
+     "title": "The bell-ringer",
+     "speaker": "The bell-ringer",
+     "text": "“Sold, it was. Somebody said it was cracked and unwanted, and a dealer took it away for the metal. I just ring the things. I don’t sign for them.” He does not know who authorised the sale.",
+     "gives": [
+      "ringer"
+     ]
+    },
+    {
+     "id": "dealer",
+     "place": "dealer",
+     "label": "Follow the muddy cart tracks",
+     "hint": "See where the cart went.",
+     "title": "A bell among the scrap",
+     "speaker": "The dealer",
+     "text": "The tracks end behind the Shades second-hand counter. The bell is there, upside down, keeping the rain off a crate of spoons. “Bought it fair, as unwanted metal. I wrote down who sold it me. Somewhere.”",
+     "gives": [
+      "dealer"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Missing Bell",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "The scrap dealer stole the bell",
+      "requires": [
+       "never"
+      ],
+      "reject": "“He bought it and wrote down who from,” says Colon. “That’s a dealer with a receipt, not a thief. Who sold it, though: that’s a question.”"
+     },
+     {
+      "id": "partial",
+      "label": "The bell was sold as scrap (one account only)",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 4,
+      "coins": 1,
+      "summary": "Bell reported sold as scrap; not yet corroborated.",
+      "reply": "“Sold as scrap. Right, that’s a start,” says Colon. “Next time get both ends of it. Temples get funny about bells.”"
+     },
+     {
+      "id": "full",
+      "label": "Sold as unwanted metal: the bell is at the dealer’s and can go back",
+      "requires": [
+       "ringer",
+       "dealer"
+      ],
+      "outcome": "full",
+      "merit": 8,
+      "coins": 3,
+      "summary": "Bell found at the dealer’s; the sale is recorded; who authorised it goes to the temple.",
+      "reply": "“Bell found, sale written down, and the temple can work out who sold their own bell,” says Colon. “Nobody arrested and everything back where it was. That’s the dream.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "ringer"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "dealer"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-02",
+   "title": "A Pie of Questionable Origin",
+   "where": "the Market Hall",
+   "giverLine": "Sergeant Colon: “Pies going missing off a stall by the Market Hall. Nobody’s seen the thief. Now, I’ve eaten from that stall, and I’m not saying the pies want to escape, but I’m not ruling it out.”",
+   "brief": "Find out what is taking the pies. Don’t name a thief you haven’t seen.",
+   "clues": {
+    "decoy": "A stray dog took the decoy pie to a hiding place under the stall.",
+    "tins": "Under the stall: a stray dog’s nest and a pile of empty pie tins."
+   },
+   "scenes": [
+    {
+     "id": "decoy",
+     "place": "market",
+     "label": "Set a decoy pie",
+     "hint": "Leave temptation out and watch.",
+     "title": "A decoy pie",
+     "text": "You set a pie on the corner of the stall and step back. After a while a thin, determined stray dog emerges, takes the pie with great dignity and carries it under the stall.",
+     "gives": [
+      "decoy"
+     ]
+    },
+    {
+     "id": "tins",
+     "place": "market",
+     "label": "Look beneath the stall",
+     "hint": "Where would a thief eat?",
+     "title": "Beneath the stall",
+     "text": "Under the stall you find sacking, a sleepy stray dog and a heap of pie tins licked so clean they could go back on sale. The trader admits that one or two of them have.",
+     "gives": [
+      "tins"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: A Pie of Questionable Origin",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "A rival trader is stealing the pies",
+      "requires": [
+       "never"
+      ],
+      "reject": "“You’ve not seen a trader,” says Colon. “You’ve seen a dog. Dogs don’t have rivals. They have dinner.”"
+     },
+     {
+      "id": "partial",
+      "label": "Something under the stall is taking them: secure the food",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 4,
+      "coins": 1,
+      "summary": "Pies taken from under the stall; culprit not seen.",
+      "reply": "“Well, it’s not the pies escaping, then,” says Colon. “Tell the trader to put a lid on it.”"
+     },
+     {
+      "id": "full",
+      "label": "A stray dog, no human thief: the trader secures the food",
+      "requires": [
+       "decoy",
+       "tins"
+      ],
+      "outcome": "full",
+      "merit": 7,
+      "coins": 2,
+      "summary": "A hungry stray dog; the trader will secure the food.",
+      "reply": "“A dog,” says Colon, deeply relieved. “I’ll tell the trader to put a lid on it. And possibly on the dog.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "decoy"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "tins"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-03",
+   "title": "The Forged Permit",
+   "where": "the Guild Archives",
+   "giverLine": "Sergeant Colon: “Night cart up by the Guild Archives with a city permit that looks a bit… artistic. Driver says a clerk gave it him. Nobody’s checked the issuing book.”",
+   "brief": "Record what can be checked. An odd seal is a reason to look, not proof of forgery.",
+   "clues": {
+    "seal": "You copied the unusual seal and the permit reference for the issuing office to check.",
+    "clerk": "The driver named the clerk who supplied the permit."
+   },
+   "scenes": [
+    {
+     "id": "seal",
+     "place": "archives",
+     "label": "Record the seal for verification",
+     "hint": "What exactly does the permit say?",
+     "title": "The seal",
+     "text": "The seal is pressed slightly crooked and the wax is the wrong red, although you are aware that you have no idea what the right red is. You copy the impression and the permit reference carefully.",
+     "gives": [
+      "seal"
+     ]
+    },
+    {
+     "id": "clerk",
+     "place": "archives",
+     "label": "Ask for the issuing clerk",
+     "hint": "Where did the driver get it?",
+     "title": "The driver",
+     "speaker": "The driver",
+     "text": "“Clerk at the office gave it me. Paid the fee and everything.” He names the clerk, then adds hopefully: “Is that bad for him or bad for me?”",
+     "gives": [
+      "clerk"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Forged Permit",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "The driver forged it: arrest him",
+      "requires": [
+       "never"
+      ],
+      "reject": "“He paid a fee and told you who took it,” says Colon. “Forgers don’t usually volunteer that. Check before you nick.”"
+     },
+     {
+      "id": "partial",
+      "label": "The permit goes to the issuing office for checking",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 1,
+      "summary": "Permit referred to the issuing office.",
+      "reply": "“Fair enough. If the office says it’s wrong, we’ll know more,” says Colon."
+     },
+     {
+      "id": "full",
+      "label": "Seal and supplying clerk referred to the issuing office",
+      "requires": [
+       "seal",
+       "clerk"
+      ],
+      "outcome": "full",
+      "merit": 10,
+      "coins": 3,
+      "summary": "Seal copied and supplying clerk named for the issuing office to check.",
+      "reply": "“Seal copied, clerk named, office asked,” says Colon. “If it’s forged, we know who to ask. If it isn’t, nobody’s been embarrassed. Mostly us.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "seal"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "clerk"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-04",
+   "title": "Lights on the River",
+   "where": "the quay",
+   "giverLine": "Sergeant Colon: “Blue lights on the river after midnight, out past the docks. Half the quay thinks it’s ghosts, the other half thinks it’s the first half. A river worker says there’s a line out near the channel.”",
+   "brief": "Find out what the lights are and whether boats are in danger.",
+   "clues": {
+    "lights": "The lights are lanterns on an unattended salvage rig beside the navigation channel.",
+    "worker": "A river worker identified the rig’s owner and will warn passing boats."
+   },
+   "scenes": [
+    {
+     "id": "lights",
+     "place": "quay",
+     "label": "Follow the lights",
+     "hint": "Get close enough to see what they hang from.",
+     "title": "Blue lights",
+     "text": "From the end of the quay the lights resolve into three blue-glassed lanterns on a salvage rig, bobbing beside the navigation channel. Nobody is aboard. Several things are tied to the rig that probably shouldn’t be.",
+     "gives": [
+      "lights"
+     ]
+    },
+    {
+     "id": "worker",
+     "place": "netshack",
+     "label": "Interview the river worker",
+     "hint": "Someone who works the river will know.",
+     "title": "The river worker",
+     "speaker": "A river worker",
+     "text": "“Salvage rig. Blue glass so the fish don’t notice, apparently. Owner leaves it out all night, and one day a barge’ll find it the hard way.” She knows the owner’s mark and offers to warn boats coming through.",
+     "gives": [
+      "worker"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: Lights on the River",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Ghost lights: nothing to be done",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Ghosts don’t need lanterns,” says Colon. “Well. Most don’t. Something’s floating out there, and boats can hit it.”"
+     },
+     {
+      "id": "partial",
+      "label": "An unattended rig in the channel",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 2,
+      "summary": "An unattended rig near the channel; owner not yet traced.",
+      "reply": "“A rig, not a ghost,” says Colon. “Somebody had better warn the boats.”"
+     },
+     {
+      "id": "full",
+      "label": "Unattended salvage rig: boats warned, owner being contacted",
+      "requires": [
+       "lights",
+       "worker"
+      ],
+      "outcome": "full",
+      "merit": 11,
+      "coins": 4,
+      "summary": "Salvage rig found; boats warned; owner being contacted.",
+      "reply": "“Rig found, boats warned, owner on the list,” says Colon. “And no ghosts. I’ll tell the quay. They’ll be disappointed.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "lights"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "worker"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-05",
+   "title": "The Unpaid Watchman",
+   "where": "the Shades",
+   "giverLine": "Captain Carrot: “A doorman in the Shades says his employer stopped paying him after he reported a break-in. He isn’t one of ours, but he did the right thing reporting it, and he has asked us to write down what he says.”",
+   "brief": "Record his account and what can be checked. His employer hasn’t been heard yet.",
+   "clues": {
+    "statement": "The doorman reported a break-in, and says his wages stopped afterwards.",
+    "wagebook": "The wage book shows three payments marked outstanding, all after the break-in report."
+   },
+   "scenes": [
+    {
+     "id": "statement",
+     "place": "shades",
+     "label": "Take a witness statement",
+     "hint": "Hear it from him, in order.",
+     "title": "The doorman",
+     "speaker": "The doorman",
+     "text": "“I saw them go in the back, I reported it, proper like, and next payday there was nothing. Nor the one after. I’m not asking for trouble. I’m asking for my wages.”",
+     "gives": [
+      "statement"
+     ]
+    },
+    {
+     "id": "wagebook",
+     "place": "shades",
+     "label": "Review the wage book",
+     "hint": "What does the employer’s own book say?",
+     "title": "The wage book",
+     "text": "The landlord’s clerk lets you see the wage book with the air of someone who hopes you can’t read. Three payments to the doorman are marked outstanding, every one of them after the night of the break-in.",
+     "gives": [
+      "wagebook"
+     ]
+    }
+   ],
+   "file": {
+    "place": "carrot",
+    "label": "Report to Captain Carrot",
+    "officer": "Captain Carrot",
+    "title": "Reporting: The Unpaid Watchman",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Carrot shakes his head gently. “Your notes don’t say that yet. What do you actually know?”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "His employer is punishing him: charge the employer",
+      "requires": [
+       "never"
+      ],
+      "reject": "“We haven’t heard the employer yet,” says Carrot gently. “Wages and break-ins are both real problems. Neither is a charge until both sides are heard.”"
+     },
+     {
+      "id": "partial",
+      "label": "His account recorded; the pay dispute referred",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 1,
+      "summary": "Doorman’s account recorded; pay dispute referred.",
+      "reply": "“Written down properly, and passed on,” says Carrot. “That’s what he asked for.”"
+     },
+     {
+      "id": "full",
+      "label": "His word and the wage book: unpaid wages referred with the break-in report",
+      "requires": [
+       "statement",
+       "wagebook"
+      ],
+      "outcome": "full",
+      "merit": 9,
+      "coins": 2,
+      "summary": "Unpaid wages documented and referred with the break-in report.",
+      "reply": "“His word and the employer’s own book,” says Carrot. “That goes to the review with the break-in report. He’ll be heard properly now.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "statement"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "wagebook"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-06",
+   "title": "The Clock That Struck Thirteen",
+   "where": "the Old Crypt corner",
+   "giverLine": "Sergeant Colon: “Lady up by the Old Crypt says her clock struck thirteen. Wants to know if it’s an omen. I said probably not, but I’d send someone who’s good with omens. That’s you.”",
+   "brief": "Find out why it strikes thirteen. Don’t call it sabotage without proof.",
+   "clues": {
+    "pin": "A displaced pin sits beside the striking wheel.",
+    "chime": "On the hour, the striking wheel caught and struck a thirteenth time."
+   },
+   "scenes": [
+    {
+     "id": "pin",
+     "place": "crypthouse",
+     "label": "Inspect the mechanism",
+     "hint": "Open it up.",
+     "title": "Behind the dial",
+     "text": "Behind the dial, among the gears, a pin has worked loose from its proper hole and sits where the striking wheel brushes past it.",
+     "gives": [
+      "pin"
+     ]
+    },
+    {
+     "id": "chime",
+     "place": "crypthouse",
+     "label": "Observe the striking wheel",
+     "hint": "Wait for the hour and watch it happen.",
+     "title": "On the hour",
+     "text": "You wait for the hour with the owner, who offers tea and a running commentary on omens. At the twelfth strike the wheel catches, hesitates and strikes a thirteenth. The owner looks at you as though you did it.",
+     "gives": [
+      "chime"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Clock That Struck Thirteen",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Someone sabotaged the clock",
+      "requires": [
+       "never"
+      ],
+      "reject": "“A loose pin’s not a crime,” says Colon. “Unless you’ve got someone with a screwdriver and a grudge, it’s just a clock having a bad day.”"
+     },
+     {
+      "id": "partial",
+      "label": "A fault in the clock: clockmaker requested",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 1,
+      "summary": "A fault in the striking; clockmaker requested.",
+      "reply": "“Not an omen, then,” says Colon. “I’ll tell her to get it seen to.”"
+     },
+     {
+      "id": "full",
+      "label": "Fault seen and explained: a displaced pin, no culprit",
+      "requires": [
+       "pin",
+       "chime"
+      ],
+      "outcome": "full",
+      "merit": 10,
+      "coins": 3,
+      "summary": "A displaced pin catches the striking wheel; clockmaker requested; no culprit.",
+      "reply": "“Seen it, found it, explained it,” says Colon. “No omen, no saboteur, just a pin. I’ll tell her it’s not the end of the world. She’ll be relieved. Or annoyed.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "pin"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "chime"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-07",
+   "title": "The Bookseller’s Secret",
+   "where": "the Lantern & Quill",
+   "giverLine": "Sergeant Colon: “The Lantern & Quill, by the University. Somebody’s been leaving little notes in the damaged books. Unsigned. The owner wants to know who. I said books aren’t really a Watch matter. He said it’s a mystery, and those are.”",
+   "brief": "Find out who is leaving the notes, and why.",
+   "clues": {
+    "hand": "The apprentice recognised the handwriting: the notes warn readers about loose pages.",
+    "seen": "You saw the apprentice leave a note in a book with a loose binding."
+   },
+   "scenes": [
+    {
+     "id": "hand",
+     "place": "books",
+     "label": "Compare the handwriting",
+     "hint": "Whose hand matches?",
+     "title": "The handwriting",
+     "speaker": "The apprentice",
+     "text": "You set one of the notes beside the shop’s order book. The apprentice goes pink. “That’s mine. They’re warnings. ‘Mind the pages, they come out.’ I didn’t want anyone blaming the shop.”",
+     "gives": [
+      "hand"
+     ]
+    },
+    {
+     "id": "seen",
+     "place": "books",
+     "label": "Watch the bookshop door",
+     "hint": "Catch the next note being left.",
+     "title": "Watching the door",
+     "text": "You loiter near the door, which in a bookshop takes no effort at all. Before long the apprentice slides a slip of paper into a book whose spine has given up, glances round, and sees you seeing them.",
+     "gives": [
+      "seen"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Bookseller’s Secret",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Someone is vandalising the books",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Vandals don’t leave helpful notes,” says Colon. “I’ve met vandals. Their spelling’s worse, for a start.”"
+     },
+     {
+      "id": "partial",
+      "label": "The apprentice is leaving the notes",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 4,
+      "coins": 1,
+      "summary": "The apprentice left the notes; reason not checked.",
+      "reply": "“Mystery solved, more or less,” says Colon. “Did you ask why?”"
+     },
+     {
+      "id": "full",
+      "label": "The apprentice’s warnings about loose pages: the bookseller checks the books",
+      "requires": [
+       "hand",
+       "seen"
+      ],
+      "outcome": "full",
+      "merit": 8,
+      "coins": 2,
+      "summary": "Notes were the apprentice’s warnings; the bookseller will check the books.",
+      "reply": "“Mystery solved, and the shop’s better for it,” says Colon. “The kid should get a raise. Don’t tell the bookseller I said that.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "hand"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "seen"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-08",
+   "title": "The Lost Watch Badge",
+   "where": "Watch Square",
+   "giverLine": "Captain Carrot: “Someone found an old Watch badge in the gutter by the Opera House. The number is nearly worn away. Before anyone claims it, we should know whose it was.”",
+   "brief": "Identify the badge properly. Holding a badge doesn’t make someone its owner.",
+   "clues": {
+    "number": "Cleaned, the badge shows enough of its number for a records check.",
+    "records": "The records match the badge to an officer who reported it lost."
+   },
+   "scenes": [
+    {
+     "id": "number",
+     "place": "opera",
+     "label": "Read the worn badge number",
+     "hint": "Clean it and look closely.",
+     "title": "A badge in the gutter",
+     "text": "In the gutter outside the Opera House lies a badge so worn it could almost be a coin. You polish it on your sleeve until enough of the number shows for the records.",
+     "gives": [
+      "number"
+     ]
+    },
+    {
+     "id": "records",
+     "place": "desk",
+     "label": "Check the duty records",
+     "hint": "The desk keeps every badge number.",
+     "title": "The duty records",
+     "speaker": "The desk officer",
+     "text": "“Badge numbers, badge numbers…” The desk officer runs a finger down a ledger older than some of the constables. “There. Reported lost, years ago. The officer’s still on the books.”",
+     "gives": [
+      "records"
+     ],
+     "requires": [
+      "number"
+     ]
+    }
+   ],
+   "file": {
+    "place": "carrot",
+    "label": "Report to Captain Carrot",
+    "officer": "Captain Carrot",
+    "title": "Reporting: The Lost Watch Badge",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Carrot shakes his head gently. “Your notes don’t say that yet. What do you actually know?”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Give it to the first person who claims it",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Anyone can say a badge is theirs,” says Carrot. “That’s rather the problem with badges.”"
+     },
+     {
+      "id": "partial",
+      "label": "Badge handed to the desk for an identity check",
+      "requires": [
+       "number"
+      ],
+      "outcome": "partial",
+      "merit": 3,
+      "coins": 1,
+      "summary": "Badge left at the desk for an identity check.",
+      "reply": "“Good. It’s safe at the desk until we know whose it is,” says Carrot."
+     },
+     {
+      "id": "full",
+      "label": "Badge matched to the officer who lost it; held at the desk for return",
+      "requires": [
+       "number",
+       "records"
+      ],
+      "outcome": "full",
+      "merit": 6,
+      "coins": 1,
+      "summary": "Badge matched to its officer and held at the desk for return.",
+      "reply": "“Matched to the record and kept safe until the owner comes,” says Carrot. “That’s exactly how it should be done.”"
+     }
+    ]
+   }
+  },
+  {
+   "id": "CW-SC-09",
+   "title": "The Disappearing Door",
+   "where": "Crooked Alley, the Shades",
+   "giverLine": "Sergeant Colon: “Crooked Alley in the Shades. People say there’s a door that moves after dark. Now, in the Shades, things moving after dark is just Tuesday, but this one keeps blocking the alley.”",
+   "brief": "Find out what the door is, and get the alley clear.",
+   "clues": {
+    "hinges": "The ‘door’ is a hinged scenery panel, painted like a door.",
+    "porter": "The night porter says the panel belongs to a theatrical troupe who rehearse at night."
+   },
+   "scenes": [
+    {
+     "id": "hinges",
+     "place": "alley",
+     "label": "Inspect the hinges",
+     "hint": "Doors that move leave marks.",
+     "title": "The hinges",
+     "text": "The door is painted on canvas stretched over a frame, and the frame swings on hinges screwed into the wall. Close up, it is a very good door. It is not, however, a door.",
+     "gives": [
+      "hinges"
+     ]
+    },
+    {
+     "id": "porter",
+     "place": "alley",
+     "label": "Speak to the night porter",
+     "hint": "Who’s about at night?",
+     "title": "The night porter",
+     "speaker": "The night porter",
+     "text": "“That? That’s the players’ door. They rehearse at night and swing it out for the scene. Swing it back, mostly. Sometimes they forget, and people walk into the alley and out again looking puzzled.”",
+     "gives": [
+      "porter"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Disappearing Door",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "A burglar is using a fake door: lie in wait",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Burglars don’t generally paint their own doors,” says Colon. “Well, there was that one. But he was very bad at it.”"
+     },
+     {
+      "id": "partial",
+      "label": "A movable panel is blocking the alley",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 6,
+      "coins": 1,
+      "summary": "A movable panel blocks the alley; owner not traced.",
+      "reply": "“A door that isn’t a door,” says Colon. “Whose is it, though?”"
+     },
+     {
+      "id": "full",
+      "label": "The troupe’s scenery panel: they keep the alley clear",
+      "requires": [
+       "hinges",
+       "porter"
+      ],
+      "outcome": "full",
+      "merit": 12,
+      "coins": 3,
+      "summary": "The troupe’s scenery panel; they will keep the alley clear.",
+      "reply": "“A door that’s not a door, owned by people pretending to be other people,” says Colon. “Only in the Shades. Alley clear, nobody nicked. Lovely.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "hinges"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "porter"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-10",
+   "title": "A Very Expensive Fish",
+   "where": "the quay",
+   "giverLine": "Sergeant Colon: “Fishmonger at the quay says someone’s had away an enormous fish. Very expensive, apparently. I asked how expensive and he cried. Cart ruts head off towards some banquet.”",
+   "brief": "Find the fish and how it got there. A debt claim doesn’t settle whose fish it is.",
+   "clues": {
+    "hold": "The cart ruts lead to the banquet stores, where a very large fish is in the cool hold.",
+    "crews": "The crews carried the fish to the banquet on someone’s claim that the fishmonger owed him."
+   },
+   "scenes": [
+    {
+     "id": "hold",
+     "place": "musicians",
+     "label": "Follow the cart ruts",
+     "hint": "Where does a fish that size go?",
+     "title": "The cool hold",
+     "text": "The ruts lead to the back of the Musicians’ Guild, where a banquet is being prepared on a heroic scale. In the cool hold, under a sheet, is a fish roughly the size of a cellist.",
+     "gives": [
+      "hold"
+     ]
+    },
+    {
+     "id": "crews",
+     "place": "quay",
+     "label": "Question the boat crews",
+     "hint": "Somebody carried it.",
+     "title": "The boat crews",
+     "speaker": "A boat hand",
+     "text": "“Took it up on the handcart, didn’t we. Bloke said the fishmonger owed him and the fish squared it.” He looks shifty. “Is that not how debts work?”",
+     "gives": [
+      "crews"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: A Very Expensive Fish",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "The banquet hosts stole the fish",
+      "requires": [
+       "never"
+      ],
+      "reject": "“They’ve got a fish in a cold room,” says Colon. “That makes them cooks, not crooks. Find out who sent it.”"
+     },
+     {
+      "id": "partial",
+      "label": "The fish went to the banquet stores",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 2,
+      "summary": "Fish traced to the banquet; how it got there not settled.",
+      "reply": "“Found the fish, at least,” says Colon. “The fishmonger will want to know who sent it.”"
+     },
+     {
+      "id": "full",
+      "label": "Taken over a disputed debt: delivery recorded, the fishmonger to identify it",
+      "requires": [
+       "hold",
+       "crews"
+      ],
+      "outcome": "full",
+      "merit": 11,
+      "coins": 4,
+      "summary": "Fish traced; taken over a disputed debt; ownership to be confirmed.",
+      "reply": "“Found, traced, and the debt business goes to someone who likes paperwork,” says Colon. “The fishmonger can stop crying. Probably.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "hold"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "crews"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-11",
+   "title": "The Night-Soil Dispute",
+   "where": "the Market Hall",
+   "giverLine": "Sergeant Colon: “Two businesses by the Market Hall are blaming each other for a pile of… well. Refuse. Both say the same contractor was due to shift it. I said I’d send someone. I didn’t say I’d send someone who wanted to go.”",
+   "brief": "Find out why the refuse wasn’t collected. Nobody is responsible until the records say so.",
+   "clues": {
+    "route": "The contractor’s cart was at its own yard, not at the Market Hall where it was booked.",
+    "receipts": "Both businesses hold receipts naming the same contractor and collection date."
+   },
+   "scenes": [
+    {
+     "id": "route",
+     "place": "butchers",
+     "label": "Follow the cart tracks",
+     "hint": "Where did the collection cart actually go?",
+     "title": "The collection yard",
+     "text": "The cart marks, which are unmistakable in several senses, lead to a collection yard by the Butchers’ Guild. The contractor’s cart is there, not at the Market Hall, where it was booked to be.",
+     "gives": [
+      "route"
+     ]
+    },
+    {
+     "id": "receipts",
+     "place": "market",
+     "label": "Compare collection receipts",
+     "hint": "What did each business pay for?",
+     "title": "Two receipts",
+     "text": "Both shopkeepers produce receipts with the air of people playing a winning card. The receipts name the same contractor, the same date and the same pile. Neither is pleased to find they agree.",
+     "gives": [
+      "receipts"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Night-Soil Dispute",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "One of the businesses dumped it",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Both of them paid to have it taken,” says Colon. “Somebody didn’t take it. That’s not the same as somebody dumping it.”"
+     },
+     {
+      "id": "partial",
+      "label": "A missed collection: clean-up requested",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 4,
+      "coins": 1,
+      "summary": "Missed collection; clean-up requested.",
+      "reply": "“Clean-up requested. I’ll hold my nose and sign it,” says Colon."
+     },
+     {
+      "id": "full",
+      "label": "The contractor missed a paid collection: records requested, clean-up arranged",
+      "requires": [
+       "route",
+       "receipts"
+      ],
+      "outcome": "full",
+      "merit": 9,
+      "coins": 3,
+      "summary": "Contractor missed a booked, paid collection; records requested; clean-up arranged.",
+      "reply": "“Contractor booked, paid, and somewhere else,” says Colon. “He gets a letter. The street gets cleaned. And I never mention this case again.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "route"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "receipts"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-12",
+   "title": "The Phantom Watchman",
+   "where": "the Watch Outpost",
+   "giverLine": "Captain Carrot: “Someone in an old Watch uniform walks the corner by the Watch Outpost every night. The duty sheet has nobody there. People are starting to ask him for help, and he isn’t one of us.”",
+   "brief": "Find out who it is. People mistaking him for an officer could get someone hurt.",
+   "clues": {
+    "roster": "The badge number he wears has no current assignment.",
+    "observed": "He is a delivery runner who wears an old uniform to feel safer."
+   },
+   "scenes": [
+    {
+     "id": "roster",
+     "place": "desk",
+     "label": "Check the badge against the roster",
+     "hint": "Is that number on duty?",
+     "title": "The roster",
+     "speaker": "The desk officer",
+     "text": "“That number? Not on any sheet this year. Or last year.” The desk officer frowns. “Whoever it is, they’re not on my roster, and I don’t like people who aren’t on my roster.”",
+     "gives": [
+      "roster"
+     ]
+    },
+    {
+     "id": "observed",
+     "place": "outpost",
+     "label": "Observe the next patrol",
+     "hint": "Watch where he actually goes.",
+     "title": "The phantom’s round",
+     "text": "At the usual time a figure in an old Watch coat appears by the outpost. Instead of walking a beat he follows a route: a door, a parcel, another door. He is a delivery runner. When he catches your eye he looks mortified. “It’s the coat. Nobody bothers you in the coat.”",
+     "gives": [
+      "observed"
+     ]
+    }
+   ],
+   "file": {
+    "place": "carrot",
+    "label": "Report to Captain Carrot",
+    "officer": "Captain Carrot",
+    "title": "Reporting: The Phantom Watchman",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Carrot shakes his head gently. “Your notes don’t say that yet. What do you actually know?”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Impersonating an officer: arrest him",
+      "requires": [
+       "never"
+      ],
+      "reject": "“He hasn’t claimed any authority,” says Carrot. “He’s frightened, not wicked. We talk to him before we arrest him.”"
+     },
+     {
+      "id": "partial",
+      "label": "Not a Watch officer: the number is unassigned",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 6,
+      "coins": 2,
+      "summary": "Not a Watch officer; who he is not yet known.",
+      "reply": "“So he isn’t ours,” says Carrot. “Then who is he, and why the coat?”"
+     },
+     {
+      "id": "full",
+      "label": "A runner in an old uniform: warned of the danger, safety concern recorded",
+      "requires": [
+       "roster",
+       "observed"
+      ],
+      "outcome": "full",
+      "merit": 13,
+      "coins": 4,
+      "summary": "A delivery runner in an old uniform; warned; safety concern recorded.",
+      "reply": "“He gets to deliver his parcels safely, and people stop asking him to arrest their neighbours,” says Carrot. “And I’ll see about a lamp on that corner.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "roster"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "observed"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-13",
+   "title": "An Unfortunate Portrait",
+   "where": "the Lawyers’ Guild",
+   "giverLine": "Sergeant Colon: “Somebody’s painted a moustache, and other features, on a portrait at the Lawyers’ Guild. They’re calling it treason against good taste. An apprentice painter has also lodged a complaint about not being paid. Funny, that.”",
+   "brief": "Find out who altered the portrait and why. The damage and the pay complaint are separate matters.",
+   "clues": {
+    "paint": "The paint on the portrait was bought by the apprentice who painted it.",
+    "account": "The apprentice admits altering the portrait in protest at unpaid work."
+   },
+   "scenes": [
+    {
+     "id": "paint",
+     "place": "alchemists",
+     "label": "Inspect the paint supply",
+     "hint": "Who bought that particular colour?",
+     "title": "The pigment book",
+     "speaker": "The pigment seller",
+     "text": "“Bilious green? Only sold one pot of that this month, thank goodness.” The supplier’s book shows it went to the apprentice who painted the guild’s portrait in the first place.",
+     "gives": [
+      "paint"
+     ]
+    },
+    {
+     "id": "account",
+     "place": "lawyers",
+     "label": "Hear the apprentice’s account",
+     "hint": "Let the apprentice speak.",
+     "title": "The apprentice",
+     "speaker": "The apprentice",
+     "text": "“I painted that portrait. Six weeks, and not a penny. So I gave him a moustache. And a squint. And possibly a second chin.” A pause. “Was that wrong?”",
+     "gives": [
+      "account"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: An Unfortunate Portrait",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "Treason against good taste: uphold the guild, dismiss the pay complaint",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Painting a moustache on a lawyer isn’t treason,” says Colon. “Tempting, but not treason. And his pay complaint stands on its own.”"
+     },
+     {
+      "id": "partial",
+      "label": "The apprentice altered the portrait",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 5,
+      "coins": 1,
+      "summary": "The apprentice altered the portrait; pay complaint not looked at.",
+      "reply": "“Well, that’s who,” says Colon. “There’s still the matter of his wages.”"
+     },
+     {
+      "id": "full",
+      "label": "Damage admitted and the pay complaint recorded separately: a hearing for both",
+      "requires": [
+       "paint",
+       "account"
+      ],
+      "outcome": "full",
+      "merit": 10,
+      "coins": 3,
+      "summary": "Damage admitted; pay complaint recorded separately; hearing requested.",
+      "reply": "“Damage owned up to, pay complaint written down, both to a hearing,” says Colon. “Fair to everyone. Including the moustache.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "paint"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "account"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-SC-14",
+   "title": "The Lantern Tax",
+   "where": "Lantern Row",
+   "giverLine": "Sergeant Colon: “Lantern Row. Folk are being charged for a streetlight that hasn’t lit for weeks. Lantern Row, no lantern. You couldn’t make it up. Somebody did, though.”",
+   "brief": "Find out what has been charged, and why. Who authorised the charge still needs checking.",
+   "clues": {
+    "ledger": "The ledger records charges throughout the weeks the lamp was out.",
+    "collector": "The collector blames a subcontractor who said the repair was done."
+   },
+   "scenes": [
+    {
+     "id": "ledger",
+     "place": "lantern",
+     "label": "Inspect the lighting ledger",
+     "hint": "What has been charged, and when?",
+     "title": "The lighting ledger",
+     "text": "The lighting ledger is kept in a hut at the end of the row. Charges for the lamp continue week after week, straight through the dates the residents say it was dark.",
+     "gives": [
+      "ledger"
+     ]
+    },
+    {
+     "id": "collector",
+     "place": "lantern",
+     "label": "Record the collector’s account",
+     "hint": "Hear the man who takes the money.",
+     "title": "The collector",
+     "speaker": "The collector",
+     "text": "“Not my fault. The repair’s subcontracted. Bloke said it was done. Charges go on until somebody says it isn’t done.” He looks up at the dark lamp. “I suppose somebody’s saying it now.”",
+     "gives": [
+      "collector"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting: The Lantern Tax",
+    "prompt": "“Go on, then. What have you actually got?”",
+    "reject": "Colon squints at your notes. “That’s not what this says, is it? Have another look.”",
+    "findings": [
+     {
+      "id": "overreach",
+      "label": "The collector is pocketing the money: arrest him",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Charging for a broken lamp is wrong, but it isn’t the same as stealing,” says Colon. “Who said he could charge? That’s the question.”"
+     },
+     {
+      "id": "partial",
+      "label": "Charges during an outage: complaint attached, repair requested",
+      "requires": [
+       "lead"
+      ],
+      "outcome": "partial",
+      "merit": 6,
+      "coins": 2,
+      "summary": "Charges during the outage recorded; repair requested.",
+      "reply": "“Repair requested. With any luck they’ll see their way,” says Colon. “Ha. See their way. Because it’s dark.”"
+     },
+     {
+      "id": "full",
+      "label": "Charged for a dark lamp: repair requested, payments referred for review",
+      "requires": [
+       "ledger",
+       "collector"
+      ],
+      "outcome": "full",
+      "merit": 12,
+      "coins": 4,
+      "summary": "Charges during the outage; repair requested; payments referred for review.",
+      "reply": "“Repair asked for, money questions sent up the line,” says Colon. “And Lantern Row might get its lantern. Imagine.”"
+     }
+    ]
+   },
+   "derive": [
+    {
+     "when": [
+      "ledger"
+     ],
+     "gives": "lead"
+    },
+    {
+     "when": [
+      "collector"
+     ],
+     "gives": "lead"
+    }
+   ]
+  },
+  {
+   "id": "CW-MY-01",
+   "title": "The Thirteenth Chime",
+   "where": "across the city",
+   "giverLine": "Captain Carrot: “Every night a bell rings thirteen times. The guild calls it sabotage, a street prophet calls it the end of the world, and the bell-ringer has left his post and come to us. I’d like this one done properly.”",
+   "brief": "Find the physical clues, take both witnesses’ statements, and report only what the evidence shows. This is a longer case.",
+   "clues": {
+    "shavings": "Brass shavings in the bell tower: freshly filed. Someone worked on the bell mechanism from inside.",
+    "docket": "A midnight delivery docket: a cart of clockwork tools was signed out shortly before the thirteenth chime.",
+    "maker": "A stallholder recognised the tool mark as one used by a local clockwork workshop.",
+    "wheel": "An altered timing wheel, hidden in a Shades workshop. Its extra tooth forces thirteen strikes where twelve should sound.",
+    "ringer": "The bell-ringer heard a click behind the dial before the extra strike: machinery, not footsteps.",
+    "clockmaker": "The clockmaker says he was hired to repair a faulty mechanism and given the wrong drawings.",
+    "mechanism": "The thirteenth strike is mechanical: an altered wheel, with tools delivered just before it began."
+   },
+   "derive": [
+    {
+     "when": [
+      "wheel",
+      "docket"
+     ],
+     "gives": "mechanism"
+    }
+   ],
+   "scenes": [
+    {
+     "id": "tower",
+     "place": "temple",
+     "label": "Search the bell tower",
+     "hint": "Start where the bell is.",
+     "title": "The bell tower",
+     "text": "A thin brass shaving catches the lamplight on the tower stair. The metal is freshly filed. Someone has been working on the bell mechanism from inside.",
+     "gives": [
+      "shavings"
+     ]
+    },
+    {
+     "id": "ledger",
+     "place": "quay",
+     "label": "Check the dock ledger",
+     "hint": "Tools have to arrive somehow.",
+     "title": "The dock ledger",
+     "text": "A delivery receipt bears an oddly precise time. A cart of clockwork tools was signed out shortly before the first thirteenth chime.",
+     "gives": [
+      "docket"
+     ]
+    },
+    {
+     "id": "stall",
+     "place": "market",
+     "label": "Ask at the market stall",
+     "hint": "Someone may know the maker’s mark.",
+     "title": "The market stall",
+     "speaker": "A stallholder",
+     "text": "An anxious stallholder turns the tool over and recognises the maker’s mark. “That’s from a clockwork workshop down the Shades. Rents its tools out, too. Check who had them.”",
+     "gives": [
+      "maker"
+     ]
+    },
+    {
+     "id": "workshop",
+     "place": "shades",
+     "label": "Search the Shades workshop",
+     "requires": [
+      "maker"
+     ],
+     "hint": "The stallholder named a workshop.",
+     "title": "The Shades workshop",
+     "text": "A loose floorboard conceals a tiny timing wheel. It has one tooth more than it should, which is exactly enough to make twelve into thirteen.",
+     "gives": [
+      "wheel"
+     ]
+    },
+    {
+     "id": "ringer",
+     "place": "desk",
+     "label": "Question the bell-ringer",
+     "hint": "He came to the Watch himself.",
+     "title": "Witness: the bell-ringer",
+     "speaker": "The bell-ringer",
+     "text": "“There was a click behind the dial. Then it struck thirteen. I ran because I thought someone had booby-trapped it. I didn’t steal a thing.”",
+     "gives": [
+      "ringer"
+     ]
+    },
+    {
+     "id": "clockmaker",
+     "place": "archives",
+     "label": "Question the clockmaker",
+     "requires": [
+      "maker"
+     ],
+     "hint": "The workshop has an owner.",
+     "title": "Witness: the clockmaker",
+     "speaker": "The clockmaker",
+     "text": "“I was hired to put right a broken mechanism. Whoever signed the work order gave me the wrong drawings. I can prove it.”",
+     "gives": [
+      "clockmaker"
+     ]
+    }
+   ],
+   "file": {
+    "place": "carrot",
+    "label": "Present your report to Captain Carrot",
+    "officer": "Captain Carrot",
+    "title": "The Thirteenth Chime: your report",
+    "prompt": "“The wheel and the docket suggest someone paid for a change to the bell. They don’t say who, or why. What goes in the report?”",
+    "reject": "Carrot shakes his head gently. “Your notes don’t say that yet. What do you actually know?”",
+    "findings": [
+     {
+      "id": "ringer",
+      "label": "Arrest the bell-ringer",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Nothing you’ve found puts the bell-ringer in that workshop,” says Carrot. “He heard machinery and came to us. That isn’t what a saboteur does.”"
+     },
+     {
+      "id": "maker",
+      "label": "Charge the clockmaker",
+      "requires": [
+       "never"
+      ],
+      "reject": "“A tool mark shows whose tools, not whose idea,” says Carrot. “Check the work order and the drawings before anyone is charged.”"
+     },
+     {
+      "id": "mechanism",
+      "label": "The extra strike is mechanical: an altered wheel, delivered at midnight",
+      "requires": [
+       "mechanism"
+      ],
+      "outcome": "partial",
+      "merit": 10,
+      "coins": 3,
+      "summary": "Extra strike explained as an altered wheel; who ordered it not traced.",
+      "reply": "“That explains the thirteenth strike,” says Carrot. “It doesn’t explain who wanted it. Good work, but somebody still has to finish this.”"
+     },
+     {
+      "id": "workorder",
+      "label": "Trace the disputed work order before naming anyone",
+      "requires": [
+       "shavings",
+       "docket",
+       "maker",
+       "wheel",
+       "ringer",
+       "clockmaker"
+      ],
+      "outcome": "full",
+      "merit": 20,
+      "coins": 8,
+      "summary": "Every clue and both witnesses; the disputed work order is to be traced before anyone is named.",
+      "reply": "“Every clue, both witnesses, and a recommendation that doesn’t outrun them,” says Carrot. “Whoever signed that work order has some explaining to do, and now we know where to ask.”"
      }
     ]
    }
