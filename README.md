@@ -74,7 +74,8 @@ uncoached playtest sheet.
 night ceremony in Watch Square where the Watch gathers and Colon, Nobby and
 Carrot recall things the player actually did (read from the save), Vimes ties
 the story together and hands over the stripe; then the service record, a
-memorial for Sir Terry Pratchett (a clacks tower sending "GNU Terry Pratchett"),
+memorial for Sir Terry Pratchett (his portrait, `dist/assets/memorial-v1/`, in front of
+the clacks tower from `dist/assets/clacks-v1/` cycling its signal frames),
 the dedication, and back to free patrol. It sets `state.flags.endingV1`;
 players can see it again from Duty → Your Watch record. There is no credits
 screen: music and sound attribution (required for the CC BY tracks) stays in the

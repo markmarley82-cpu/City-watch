@@ -1,5 +1,7 @@
 # Art brief: clacks tower for the ending's memorial
 
+Done: the approved tower is `dist/assets/clacks-v1/` and is used in the memorial.
+
 The ending's memorial shows a clacks tower at night sending "GNU Terry Pratchett".
 It must match the city's painted isometric art. Generate it with an image model
 (ChatGPT), attaching two reference images from the game:

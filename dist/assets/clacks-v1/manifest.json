@@ -1,7 +1,7 @@
 {
   "id": "clacks-tower-8-shutter-states",
   "version": 1,
-  "status": "approved artwork; not integrated into game",
+  "status": "approved artwork; used in the ending memorial (dist/cw-ending.js) via clacks-tower-8-shutter-states.webp, a smaller copy of the PNG; the four frames are cycled",
   "type": "isometric clacks signalling tower 2x4 shutters",
   "source": "approved 2026-11-17 2x2 art sheet",
   "image": "clacks-tower-8-shutter-states.png",

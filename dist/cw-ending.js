@@ -122,6 +122,7 @@
   function next() { if (at < beats.length - 1) { at++; render(); } }
   function skip() { const m = firstOf('record'); if (at < m) { at = m; render(); } else finish(); }
   function render() {
+    clearInterval(clacksTimer); clacksTimer = null;
     const b = beats[at];
     dialog.dataset.scene = b.scene;
     dialog.replaceChildren();
@@ -172,33 +173,29 @@
     card.append(dl, el('p', 'cw-end-stamp', 'FILED · PSEUDOPOLIS YARD'));
     stage.append(card);
   }
+  // The memorial: Sir Terry (assets/memorial-v1) in front of the clacks tower (assets/clacks-v1,
+  // four frames of lit shutters in a 2 x 2 sheet), which flips between its frames as if sending.
+  const CLACKS = 'assets/clacks-v1/clacks-tower-8-shutter-states.webp';
+  const TERRY = 'assets/memorial-v1/terry-pratchett.webp';
+  let clacksTimer = null;
   function memorial(stage) {
-    const sky = el('div', 'cw-end-sky');
-    sky.innerHTML = '<svg class="cw-end-tower" viewBox="0 0 120 240" aria-hidden="true">' +
-      '<path d="M44 236 L55 72 L65 72 L76 236 Z" fill="#0b0d13"/>' +
-      '<path d="M44 236 L55 72 M76 236 L65 72" stroke="#3a4152" stroke-width="2.5" fill="none"/>' +
-      '<path d="' + lattice() + '" stroke="#2c3240" stroke-width="1.3" fill="none"/>' +
-      '<path d="M40 236 L80 236 L76 228 L44 228 Z" fill="#0d0f16"/>' +
-      '<rect x="30" y="14" width="60" height="58" rx="3" fill="#10131c" stroke="#2a2f3d" stroke-width="1.5"/>' +
-      [0, 1, 2].map(r => [0, 1, 2].map(c => '<rect class="cw-end-shutter" style="animation-delay:' + ((r * 3 + c) * 0.37).toFixed(2) + 's" x="' + (36 + c * 17) + '" y="' + (20 + r * 17) + '" width="13" height="13" rx="1.5"/>').join('')).join('') +
-      '</svg>';
-    stage.append(sky);
+    const night = el('div', 'cw-end-night');
+    const tower = el('div', 'cw-end-clacks'); tower.setAttribute('aria-hidden', 'true');
+    tower.style.backgroundImage = 'url(' + CLACKS + ')';
+    const terry = el('img', 'cw-end-terry'); terry.src = TERRY; terry.alt = 'Sir Terry Pratchett, leaning on his stick';
+    terry.onerror = () => terry.remove();
+    night.append(tower, terry);
+    stage.append(night);
+    let frame = 0;
+    const show = () => { tower.dataset.frame = String(frame); frame = (frame + 1) % 4; };
+    show();
+    if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) clacksTimer = setInterval(show, 1100);
     const t = el('div', 'cw-end-memorial');
     t.append(el('p', 'cw-end-fade d1', 'High above the city, the clacks towers pass their messages through the dark, tower to tower, all the way across the Disc.'));
     t.append(el('p', 'cw-end-fade d2', 'Some messages carry a name in the overhead, a name the operators never take off the line. Because a man is not dead while his name is still spoken.'));
     t.append(el('p', 'cw-end-gnu cw-end-fade d3', 'GNU Terry Pratchett'));
     t.append(el('p', 'cw-end-dates cw-end-fade d4', 'Sir Terry Pratchett · 1948–2015'));
     stage.append(t);
-  }
-  // Cross-bracing between the tower's two legs (left leg x 44->55, right leg x 76->65, y 236->72).
-  function lattice() {
-    const xl = y => 44 + (236 - y) * 11 / 164, xr = y => 76 - (236 - y) * 11 / 164;
-    let d = '';
-    for (let y = 230, left = true; y > 84; y -= 18, left = !left) {
-      const y2 = y - 18;
-      d += 'M' + (left ? xl(y) : xr(y)).toFixed(1) + ' ' + y + ' L' + (left ? xr(y2) : xl(y2)).toFixed(1) + ' ' + y2 + ' ';
-    }
-    return d.trim();
   }
   function dedication(stage) {
     stage.append(el('p', 'cw-end-dedication cw-end-fade d1', 'For Sir Terry, and for everyone who ever walked the streets of Ankh-Morpork with him.'));
@@ -223,12 +220,14 @@
     if (dialog.open) return;
     info = facts(read());
     beats = script(info); at = 0; auto = !!automatic;
+    for (const src of [CLACKS, TERRY]) { const i = new Image(); i.src = src; }
     window.CWP21City?.stop?.();
     render();
     dialog.showModal();
     startMusic();
   }
   function finish() {
+    clearInterval(clacksTimer); clacksTimer = null;
     markSeen();
     stopMusic();
     if (dialog && dialog.open) dialog.close();
