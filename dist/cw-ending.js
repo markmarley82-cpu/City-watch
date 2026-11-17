@@ -21,7 +21,9 @@
     vimes: ['Commander Vimes', 'vimes-portrait.webp', 'Vimes']
   };
   const WATCH = ['colon', 'nobby', 'carrot', 'angua', 'cheery', 'detritus'];
-  const ENDING_MUSIC = { id: 'U06', title: 'Fantasy: Rising Moon', sample_file: 'CW_MUSIC_U06_Rising_Moon_30s.mp3' };
+  // Full-length tracks from assets/music-full-v1 (the audio engine plays the full file for these ids).
+  const ENDING_MUSIC = { id: 'P02', title: 'Medieval: Rejoicing', sample_file: 'CW_MUSIC_P02_Rejoicing_RECOVERED_30s.mp3' };
+  const MEMORIAL_MUSIC = { id: 'P04', title: 'Fantasy: Lament for a Warrior’s Soul', sample_file: 'CW_MUSIC_P04_Lament_30s.mp3' };
 
   function markSeen() {
     for (let i = 0; i < 3; i++) {
@@ -180,6 +182,7 @@
   const TERRY = 'assets/memorial-v1/terry-pratchett.webp';
   let clacksTimer = null;
   function memorial(stage) {
+    try { if (music) music.selectMusic(MEMORIAL_MUSIC); } catch (e) { /* audio is optional */ }
     const night = el('div', 'cw-end-night');
     const tower = el('div', 'cw-end-clacks'); tower.setAttribute('aria-hidden', 'true');
     tower.style.backgroundImage = 'url(' + CLACKS + ')';

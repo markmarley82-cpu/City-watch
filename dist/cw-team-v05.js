@@ -33,11 +33,15 @@
       tavern:{files:['echo-all-v012/F11-15.mp3','echo-all-v012/F11-11.mp3','echo-all-v012/F11-12.mp3','echo-all-v012/F11-13.mp3'],gap:[12000,26000],gain:.30,when:c=>c.inside&&/mended drum|tavern/i.test(c.location||'')}
     };
     const districtOf=location=>Object.keys(DISTRICT).find(k=>DISTRICT[k].test(location||''))||'street';
-    const themes={
-      patrol:{id:'U02',title:'Medieval: The Bard’s Tale',sample_file:'CW_MUSIC_U02_The_Bards_Tale_30s.mp3'},
-      night:{id:'U06',title:'Fantasy: Rising Moon',sample_file:'CW_MUSIC_U06_Rising_Moon_30s.mp3'},
-      interior:{id:'U03',title:'Meadow Thoughts',sample_file:'CW_MUSIC_U03_Meadow_Thoughts_30s.mp3'}
-    };
+    // Full-length music (assets/music-full-v1, see its CREDITS.txt) and a playlist per scene; tracks follow one another.
+    const FULL={N01:'N01-medieval-exploration.mp3',N02:'N02-medieval-harvest-season.mp3',N03:'N03-medieval-king-s-feast.mp3',N04:'N04-evening-fall-harp.mp3',
+      N05:'N05-folk-round.mp3',N06:'N06-fairytale-waltz.mp3',P01:'P01-village-consort.mp3',P02:'P02-medieval-rejoicing.mp3',P03:'P03-celtic-impulse.mp3',
+      P04:'P04-fantasy-lament-for-a-warrior-s-soul.mp3',U01:'U01-town-theme-rpg.mp3'};
+    const TITLES={N01:'Medieval: Exploration',N02:'Medieval: Harvest Season',N03:'Medieval: King’s Feast',N04:'Evening Fall (Harp)',N05:'Folk Round',N06:'Fairytale Waltz',
+      P01:'Village Consort',P02:'Medieval: Rejoicing',P03:'Celtic Impulse',P04:'Fantasy: Lament for a Warrior’s Soul',U01:'Town Theme RPG'};
+    const PLAYLISTS={patrol:['N01','U01','P01','N05'],market:['N02','P02','N05','U01'],night:['N04','N06','P04'],interior:['N06','N04'],tavern:['N03','N05','P02'],pursuit:['P03']};
+    const musicFile=t=>FULL[t.id]?'music-full-v1/'+FULL[t.id]:'echo-all-v012/'+t.sample_file;
+    let recentTracks=[],fading=null,switching=false,pendingScene=null,pendingSince=0,pursuitCheckedAt=0,pursuitNow=false;
     const counts={played:0,blocked:0,failed:0},pool=new Map(),recent=new Map(),variants=new Map();
     let enabled=false,effects=true,musicWanted=true,effectsVolume=.65,musicVolume=.20,ambienceWanted=true,ambienceVolume=.25;
     // Sound comes on with the player's first tap (browsers allow no sound before one) unless they turned it off; the choice is remembered.
@@ -132,13 +136,30 @@
         a.currentTime=0;play(a);return true;
       }catch{counts.failed++;changed();return false;}
     }
+    function fadeMusic(target,ms,done){
+      clearInterval(fading);const from=music.volume,start=Date.now();
+      fading=setInterval(()=>{const k=Math.min(1,(Date.now()-start)/ms),to=typeof target==='function'?target():target;music.volume=finiteVolume(from+(to-from)*k);if(k>=1){clearInterval(fading);fading=null;done?.();}},50);
+    }
+    function nextTrack(name){
+      const list=PLAYLISTS[name]||PLAYLISTS.patrol,fresh=list.filter(id=>!recentTracks.includes(id)),from=fresh.length?fresh:list;
+      const id=from[Math.floor(Math.random()*from.length)];return {id,title:TITLES[id]};
+    }
+    // Scene music: a track plays to its end and the scene's playlist picks the next; a change of scene fades out and the new scene's music fades in.
     function startMusic(){
       if(!enabled||!musicWanted||document.hidden||suspended)return;
-      const desired=manualTrack?track:themes[scene];
-      if(!desired)return;
-      if(!music)music=makeAudio('', 'background-music');
-      if(music.dataset.track!==desired.id){music.pause();music.src='assets/echo-all-v012/'+desired.sample_file;music.dataset.track=desired.id;music.dataset.title=desired.title;music.dataset.playback='ready';}
-      music.loop=true;music.volume=musicVolume;
+      if(!music){music=makeAudio('', 'background-music');music.addEventListener('ended',()=>{if(!manualTrack){music.dataset.track='';startMusic();}});}
+      if(switching)return;
+      const current=music.dataset.track,list=PLAYLISTS[scene]||PLAYLISTS.patrol;
+      const keep=manualTrack?current===track?.id:!!current&&list.includes(current)&&!music.ended;
+      if(!keep){
+        const go=()=>{switching=false;if(!enabled||!musicWanted||document.hidden||suspended)return;
+          const next=manualTrack?track:nextTrack(scene);if(!next)return;
+          music.pause();music.src='assets/'+musicFile(next);music.dataset.track=next.id;music.dataset.title=next.title||next.id;music.dataset.playback='ready';
+          recentTracks=[next.id,...recentTracks.filter(x=>x!==next.id)].slice(0,2);music.loop=!!manualTrack;music.volume=0;play(music);fadeMusic(()=>musicVolume,1800);};
+        if(!music.paused&&music.volume>.01){switching=true;fadeMusic(0,1000,go);}else go();
+        return;
+      }
+      music.loop=!!manualTrack;if(!fading)music.volume=musicVolume;
       if(music.paused!==false)play(music);
     }
     function sync(){
@@ -161,8 +182,13 @@
       // expensive interior path/reachability diagnostic on every audio tick.
       const inside=/room coordinates/.test(state.position||'');
       const room={room:/crypt/i.test(state.location||'')?'crypt':state.location};
-      const next=inside?'interior':/NIGHT|EVENING/i.test(doc.getElementById('time')?.textContent||'')?'night':'patrol';
-      if(next!==scene){scene=next;if(!manualTrack)startMusic();}
+      if(Date.now()-pursuitCheckedAt>1000){pursuitCheckedAt=Date.now();try{pursuitNow=!!window.CWP21State?.create(localStorage).read().pending?.chase;}catch{pursuitNow=false;}}
+      const dark=/NIGHT|EVENING/i.test(doc.getElementById('time')?.textContent||'')||(Number(window.CWP21City?.clock?.()?.darkness)||0)>.5;
+      const next=inside?(/mended drum|tavern/i.test(state.location||'')?'tavern':'interior'):pursuitNow?'pursuit':dark?'night':districtOf(state.location)==='market'?'market':'patrol';
+      if(next!==pendingScene){pendingScene=next;pendingSince=Date.now();}
+      // Going indoors, outdoors or into a chase changes the music at once; street-to-street changes wait 8 seconds so passing corners do not flip it.
+      const settled=[next,scene].some(x=>x==='pursuit'||x==='tavern'||x==='interior')||Date.now()-pendingSince>8000;
+      if(next!==scene&&settled){scene=next;if(!manualTrack)startMusic();}
       const bridge=doc.getElementById('bridge-scene'),city=doc.getElementById('city-scene');
       const current=String(bridge?.dataset.position||city?.dataset.position||state.position||'');
       const coordinates=(current.match(/-?\d+(?:\.\d+)?/g)||[]).slice(0,2).map(Number);
@@ -173,7 +199,7 @@
       if(lastInside!==null&&inside!==lastInside&&!document.getElementById('room-frame'))cue(inside?'door-open':'door-close');
       lastInside=inside;
       const talking=!!doc.getElementById('cw-npc-dialogue')?.open;
-      if(music)music.volume=musicVolume*(talking?.45:1);
+      if(music&&!fading)music.volume=musicVolume*(talking?.45:1);
       const provided=owner.CW_AUDIO_CONTEXT?.()||{};
       sampleAmbience(inside?null:bridge||/bridge|crossing/i.test(state.location||'')?'water':'city',{...provided,inside,location:state.location,sceneKey:provided.sceneKey||place,paused:modal&&!talking},talking?.28:1);
       if(!modal&&moved)cue(inside&&room?.room!=='crypt'?'step-wood':doc.getElementById('bridge-scene')||/bridge|crossing/i.test(state.location||'')?'step-bridge':/shades|dimwell|don.t look back|body street|cattle|treacle|park lane|hide park/i.test(state.location||'')?'step-dirt':/forecourt|plaza|park|garden/i.test(state.location||'')?'step-gravel':'step-stone');
@@ -184,12 +210,12 @@
       setAmbience(value){ambienceWanted=!!value;if(!ambienceWanted)stopAmbience();else{ambienceZone=null;atmosphereSceneKey=null;sampleScene();}changed();},
       setEffects(value){effects=!!value;if(!effects)stopEffects();changed();},
       setMusic(value){musicWanted=!!value;if(musicWanted)startMusic();else music?.pause();changed();},
-      setVolume(kind,value){if(kind==='ambience'){const previous=ambienceVolume;ambienceVolume=finiteVolume(value);for(const b of beds.values())if(b.audio){b.audio.volume=previous?b.audio.volume*ambienceVolume/previous:0;if(!previous)b.due=Date.now();}for(const a of details.values())a.volume=finiteVolume(ambienceVolume*(a._cwAmbientGain||0));if(!ambienceVolume)stopAmbience();else sampleScene();}else if(kind==='music'){musicVolume=finiteVolume(value);if(music)music.volume=musicVolume;}else{effectsVolume=finiteVolume(value);for(const a of pool.values())a.volume=effectsVolume*(a.dataset.cueId.startsWith('step-')?.65:a.dataset.cueId==='reward'?.55:.80);}changed();},
+      setVolume(kind,value){if(kind==='ambience'){const previous=ambienceVolume;ambienceVolume=finiteVolume(value);for(const b of beds.values())if(b.audio){b.audio.volume=previous?b.audio.volume*ambienceVolume/previous:0;if(!previous)b.due=Date.now();}for(const a of details.values())a.volume=finiteVolume(ambienceVolume*(a._cwAmbientGain||0));if(!ambienceVolume)stopAmbience();else sampleScene();}else if(kind==='music'){musicVolume=finiteVolume(value);if(music&&!fading)music.volume=musicVolume;}else{effectsVolume=finiteVolume(value);for(const a of pool.values())a.volume=effectsVolume*(a.dataset.cueId.startsWith('step-')?.65:a.dataset.cueId==='reward'?.55:.80);}changed();},
       selectMusic(value){if(!value||!/^[-\w]+\.mp3$/.test(value.sample_file)||!value.id)return false;track={id:value.id,title:String(value.title||value.id),sample_file:value.sample_file};manualTrack=true;musicWanted=true;if(enabled)startMusic();changed();return true;},
       useSceneMusic(){manualTrack=false;startMusic();changed();},
       suspendMusic(value){const next=!!value;if(next===suspended){if(!next)startMusic();return;}suspended=next;generation++;if(suspended){stopAmbience();stopEffects();music?.pause();}else startMusic();changed();},
       sampleScene,
-      report:()=>({enabled,effects,music:musicWanted,ambience:ambienceWanted,ambienceVolume,ambienceZone,atmosphereContext,ambientLayers:[...beds].map(([id,b])=>({id,playing:!!b.audio&&!b.audio.paused,volume:b.audio?.volume||0,file:b.audio?.src||null})),ambientDetails:[...details].map(([id,a])=>({id,playing:!a.paused,volume:a.volume})),ambiencePlayback:ambience?.dataset.playback||'idle',ambiencePaused:ambience?.paused??true,musicVolume,effectsVolume,scene,automaticMusic:!manualTrack,track:music?.dataset.track||null,musicPlayback:music?.dataset.playback||'idle',musicPaused:music?.paused??true,poolSize:pool.size,...counts,source:'Echo atmosphere v3; retained recordings, scene-driven candidate layers'})
+      report:()=>({enabled,effects,music:musicWanted,ambience:ambienceWanted,ambienceVolume,ambienceZone,atmosphereContext,ambientLayers:[...beds].map(([id,b])=>({id,playing:!!b.audio&&!b.audio.paused,volume:b.audio?.volume||0,file:b.audio?.src||null})),ambientDetails:[...details].map(([id,a])=>({id,playing:!a.paused,volume:a.volume})),ambiencePlayback:ambience?.dataset.playback||'idle',ambiencePaused:ambience?.paused??true,musicVolume,effectsVolume,scene,automaticMusic:!manualTrack,track:music?.dataset.track||null,trackTitle:music?.dataset.title||null,musicPlayback:music?.dataset.playback||'idle',musicPaused:music?.paused??true,poolSize:pool.size,...counts,source:'Echo atmosphere v3; retained recordings, scene-driven candidate layers'})
     });
     let timer=null;
     const startSampling=()=>{if(timer===null)timer=setInterval(sampleScene,80);};

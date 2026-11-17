@@ -1,0 +1,127 @@
+{
+ "id": "CW-MUSIC-FULL-v1",
+ "note": "Full-length versions of the tracks on the Echo music shelf (assets/echo-all-v012/tracks.json), downloaded from the sources listed, loudness-normalised (EBU R128, -20 LUFS) and re-encoded at 80 kbps stereo.",
+ "tracks": [
+  {
+   "id": "N01",
+   "title": "Medieval: Exploration",
+   "author": "RandomMind",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/medieval-exploration",
+   "file": "N01-medieval-exploration.mp3",
+   "duration": 236.4,
+   "bytes": 2364127
+  },
+  {
+   "id": "N02",
+   "title": "Medieval: Harvest Season",
+   "author": "RandomMind",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/medieval-harvest-season",
+   "file": "N02-medieval-harvest-season.mp3",
+   "duration": 214.2,
+   "bytes": 2142683
+  },
+  {
+   "id": "N03",
+   "title": "Medieval: King's Feast",
+   "author": "RandomMind",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/medieval-kings-feast",
+   "file": "N03-medieval-king-s-feast.mp3",
+   "duration": 130.2,
+   "bytes": 1302379
+  },
+  {
+   "id": "N04",
+   "title": "Evening Fall (Harp)",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100236",
+   "file": "N04-evening-fall-harp.mp3",
+   "duration": 145.2,
+   "bytes": 1688817
+  },
+  {
+   "id": "N05",
+   "title": "Folk Round",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100357",
+   "file": "N05-folk-round.mp3",
+   "duration": 183.8,
+   "bytes": 2086871
+  },
+  {
+   "id": "N06",
+   "title": "Fairytale Waltz",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100232",
+   "file": "N06-fairytale-waltz.mp3",
+   "duration": 99.3,
+   "bytes": 1139162
+  },
+  {
+   "id": "P01",
+   "title": "Village Consort",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1700007",
+   "file": "P01-village-consort.mp3",
+   "duration": 214.8,
+   "bytes": 2149093
+  },
+  {
+   "id": "P02",
+   "title": "Medieval: Rejoicing",
+   "author": "RandomMind",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/medieval-rejoicing",
+   "file": "P02-medieval-rejoicing.mp3",
+   "duration": 102.9,
+   "bytes": 1029886
+  },
+  {
+   "id": "P03",
+   "title": "Celtic Impulse",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100297",
+   "file": "P03-celtic-impulse.mp3",
+   "duration": 158.3,
+   "bytes": 1831918
+  },
+  {
+   "id": "P04",
+   "title": "Fantasy: Lament for a Warrior's Soul",
+   "author": "RandomMind",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/fantasy-lament-for-a-warriors-soul",
+   "file": "P04-fantasy-lament-for-a-warrior-s-soul.mp3",
+   "duration": 163.4,
+   "bytes": 1634879
+  },
+  {
+   "id": "U01",
+   "title": "Town Theme RPG",
+   "author": "cynicmusic",
+   "licence": "CC0 1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source": "https://opengameart.org/content/town-theme-rpg",
+   "file": "U01-town-theme-rpg.mp3",
+   "duration": 97.5,
+   "bytes": 975196
+  }
+ ]
+}
