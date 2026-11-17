@@ -17,7 +17,7 @@
       'step-dirt':['echo-steps-v1/step-dirt-1.mp3','echo-steps-v1/step-dirt-2.mp3','echo-steps-v1/step-dirt-3.mp3','echo-steps-v1/step-dirt-4.mp3']
     };
     // Fight sounds (assets/fight-v1, see its CREDITS.txt): fists, truncheon, sword, crossbow, a troll's swing, a wizard's dazzle, grit, guard, shove, falls.
-    for(const [kind,n] of Object.entries({punch:4,heavy:2,club:3,blade:2,swish:3,block:2,guard:1,shove:2,fall:2,crossbow:1,bolt:2,spell:1,grit:1,bandage:1}))
+    for(const [kind,n] of Object.entries({punch:4,heavy:2,club:3,blade:2,swish:3,block:2,guard:1,shove:2,fall:2,crossbow:3,bolt:2,spell:1,grit:1,bandage:1}))
       sources['fight-'+kind]=Array.from({length:n},(_,i)=>'fight-v1/'+kind+'-'+(i+1)+'.mp3');
     // Voices (assets/voices-v1, CC0 recordings, see its CREDITS.txt): a suspect or an officer taking a blow, a troll, someone going down.
     for(const [kind,n] of Object.entries({suspect:8,officer:7,down:2,troll:3}))

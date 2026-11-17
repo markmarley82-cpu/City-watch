@@ -41,7 +41,9 @@
    "fall-2.mp3"
   ],
   "crossbow": [
-   "crossbow-1.mp3"
+   "crossbow-1.mp3",
+   "crossbow-2.mp3",
+   "crossbow-3.mp3"
   ],
   "bolt": [
    "bolt-1.mp3",
@@ -143,10 +145,6 @@
    "duration": 1.0
   },
   {
-   "file": "crossbow-1.mp3",
-   "duration": 0.6
-  },
-  {
    "file": "bolt-1.mp3",
    "duration": 0.35
   },
@@ -165,6 +163,18 @@
   {
    "file": "bandage-1.mp3",
    "duration": 0.7
+  },
+  {
+   "file": "crossbow-1.mp3",
+   "duration": 0.549
+  },
+  {
+   "file": "crossbow-2.mp3",
+   "duration": 0.549
+  },
+  {
+   "file": "crossbow-3.mp3",
+   "duration": 0.549
   }
  ]
 }

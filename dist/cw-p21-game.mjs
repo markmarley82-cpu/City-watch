@@ -238,7 +238,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw11');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw12');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{

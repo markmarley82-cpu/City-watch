@@ -95,11 +95,8 @@ for i in (1,2):
     rng=np.random.default_rng(170+i); d=1.0; n=int(d*SR)
     y=mix(n,(0,biquad(pad(sl(cloth[6],.3,.8),int(.5*SR)),'hp',150),.45),(.12,thump(.6,42+3*i,60,.18,rng),1.0),(.12,biquad(pad(sl(fallrec,0,.68),int(.68*SR)),'lp',2200),.5),(.38,thump(.3,55,40,.06,rng),.35))
     made.append(('fall',finish('fall-%d'%i,y,-2)))
-# Crossbow: release click and a plucked string (Karplus-Strong)
-rng=np.random.default_rng(190); d=.6; n=int(d*SR); N=int(SR/150); buf=rng.uniform(-1,1,N); out=np.zeros(n)
-for j in range(n): out[j]=buf[j%N]; buf[j%N]=.5*(buf[j%N]+buf[(j+1)%N])*.996
-out*=np.exp(-T(d)/.18)
-made.append(('crossbow',finish('crossbow-1',mix(n,(0,biquad(noise(.02,rng),'hp',2500)*env_exp(.02,.003),.8),(0.004,out/np.abs(out).max(),.8),(0,swish(rng,.18,1500,4500),.25)),-5)))
+# Crossbow shots (crossbow-1..3) are real recordings: see tools/make-crossbow-sounds.py.
+made+= [('crossbow',{'file':'crossbow-%d.mp3'%k,'duration':0.549}) for k in (1,2,3)]
 for i in (1,2):
     rng=np.random.default_rng(200+i); d=.35; n=int(d*SR)
     made.append(('bolt',finish('bolt-%d'%i,mix(n,(0,body_hit(rng,d,62,70,.05,2200,.5,.15,(5,.08)),1.0),(0,biquad(pad(sl(wood,0,.08),int(.08*SR)),'hp',1500),.3)))))
