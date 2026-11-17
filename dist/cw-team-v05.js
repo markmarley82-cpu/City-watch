@@ -306,7 +306,7 @@
   document.addEventListener('click',e=>{if(e.target.closest?.('#inventory,[data-bag-open]'))cue('bag-open');if(e.target.closest?.('#casebook,#map,#chronicle'))cue('paper-open');},true);
   const styles=document.createElement('link');styles.rel='stylesheet';styles.href='cw-team-notebook.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE?.version||'0.6');document.head.appendChild(styles);
   const finalStyles=document.createElement('link');finalStyles.rel='stylesheet';finalStyles.href='cw-jimmy-b03-v13.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE?.version||'0.6');document.head.appendChild(finalStyles);
-  const notesFix=document.createElement('link');notesFix.rel='stylesheet';notesFix.href='cw-jimmy-b03-v131.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE.version);document.head.appendChild(notesFix);
+  const notesFix=document.createElement('link');notesFix.rel='stylesheet';notesFix.href='cw-jimmy-b03-v131.css?v=p21-b407-s039-reuse'+encodeURIComponent(window.CW_LAB_RELEASE?.version||'0.6');document.head.appendChild(notesFix);
   const grid=document.getElementById('p13-menu-grid');
   if(grid){const b=document.createElement('button');b.textContent='◈ Rebuilt city · Watch Square';b.onclick=()=>location.assign('city.html');grid.prepend(b);}
 })();

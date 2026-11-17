@@ -74,8 +74,9 @@ These make what already exists reliable:
 - Faster phone loading: load the area around the player first (startup is
   about 69 s on a simulated mid-range phone; 30 s of that is computing).
 - Overlapping labels on the city map (needs the map source).
-- `bridge.html` and `layout.html` show errors; fix or hide the menu links.
-- Night duty uses the older interface; match it to the new one.
+- Done: `bridge.html` and `layout.html` (old test scenes) load without errors again.
+- Night duty runs in the older engine interface inside the new game; matching
+  it is a redesign, not a quick fix.
 
 ## Housekeeping (Mark)
 
