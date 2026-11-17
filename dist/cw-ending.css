@@ -75,8 +75,9 @@ dialog.cw-end .cw-end-quiet { border: 1px solid #f3e7cf55; background: transpare
 /* The memorial: a clacks tower sending a name into the dark. */
 .cw-end-night { position: relative; width: 100%; height: min(46vh, 430px); flex: none; }
 /* The clacks sheet is 2 x 2 frames of 512 x 768; data-frame picks one. */
+.cw-end-clacks-group { position: absolute; left: 50%; bottom: 0; height: 100%; aspect-ratio: 512 / 768; transform: translateX(-50%); }
 .cw-end-clacks {
-  position: absolute; right: -4%; bottom: 0; height: 96%; aspect-ratio: 512 / 768;
+  position: absolute; inset: 0;
   background-size: 200% 200%; background-repeat: no-repeat; background-position: 0 0;
   filter: drop-shadow(0 0 18px #f5b85a22);
 }
@@ -84,8 +85,8 @@ dialog.cw-end .cw-end-quiet { border: 1px solid #f3e7cf55; background: transpare
 .cw-end-clacks[data-frame='2'] { background-position: 0 100%; }
 .cw-end-clacks[data-frame='3'] { background-position: 100% 100%; }
 .cw-end-terry {
-  position: absolute; left: 4%; bottom: 1%; height: 80%; width: auto;
-  filter: brightness(.9) drop-shadow(0 6px 10px #000a);
+  position: absolute; left: 8.6%; bottom: 2.6%; height: 16.3%; width: auto;
+  filter: brightness(.88) drop-shadow(0 2px 3px #000c);
   animation: cw-end-in 1.6s ease-out both;
 }
 .cw-end-memorial { text-align: center; max-width: 30em; }

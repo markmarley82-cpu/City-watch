@@ -184,7 +184,11 @@
     tower.style.backgroundImage = 'url(' + CLACKS + ')';
     const terry = el('img', 'cw-end-terry'); terry.src = TERRY; terry.alt = 'Sir Terry Pratchett, leaning on his stick';
     terry.onerror = () => terry.remove();
-    night.append(tower, terry);
+    // Sir Terry at true scale, standing on the ground in front of the plinth's left corner
+    // (positions are fractions of the 512 x 768 tower frame; a person is about 125 px tall in it).
+    const group = el('div', 'cw-end-clacks-group');
+    group.append(tower, terry);
+    night.append(group);
     stage.append(night);
     let frame = 0;
     const show = () => { tower.dataset.frame = String(frame); frame = (frame + 1) % 4; };
