@@ -84,6 +84,26 @@
     });
     input.click();
   }
+  /* Playtest links: index.html?playtest=bridge starts from a prepared save (playtest/*-start.json),
+     after asking, then reloads without the parameter. Saves in that browser are replaced. */
+  const PLAYTESTS = { bridge: { file: 'playtest/bridge-start.json', name: 'The Bridge That Was Closed' } };
+  function startPlaytest() {
+    let id = null;
+    try { id = new URL(location.href).searchParams.get('playtest'); } catch (e) { return; }
+    const test = id && PLAYTESTS[id];
+    if (!test) return;
+    const clean = () => { const u = new URL(location.href); u.searchParams.delete('playtest'); history.replaceState(null, '', u.href); };
+    if (!confirm('Start the playtest of “' + test.name + '”? This replaces any City Watch progress saved in this browser.')) { clean(); return; }
+    fetch(test.file, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(file => {
+      const data = file && file.format === FORMAT && file.data;
+      const entries = data ? Object.entries(data).filter(([k, v]) => k.startsWith(SAVE_PREFIX) && typeof v === 'string') : [];
+      if (!entries.length) { alert('The playtest save could not be loaded. Check your connection and try the link again.'); clean(); return; }
+      for (const k of saveKeys()) localStorage.removeItem(k);
+      for (const [k, v] of entries) localStorage.setItem(k, v);
+      const u = new URL(location.href); u.searchParams.delete('playtest'); location.replace(u.href);
+    }).catch(() => { alert('The playtest save could not be loaded. Check your connection and try the link again.'); clean(); });
+  }
+  startPlaytest();
   const standalone = () => window.navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
   function addBackupButtons() {
     const actions = document.getElementById('p21-duty-actions');

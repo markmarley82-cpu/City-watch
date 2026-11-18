@@ -10,16 +10,22 @@ Bridge, with Times and Inquirer follow-ups.
 
 ## Setup (for the person running the test)
 
-- Play at https://markmarley82-cpu.github.io/City-watch/ on **desktop** and on
-  an **iPhone** (Safari). Use a player who has finished the opening purse case.
+- Give each tester this link, on **desktop** or an **iPhone** (Safari):
+  **https://markmarley82-cpu.github.io/City-watch/?playtest=bridge**
+  It asks once, then starts from a prepared save: the purse case filed, 17 merit,
+  full health, in Watch Square, the Bridge case not yet played. It replaces any
+  City Watch progress in that browser, so testers should use a browser they don't
+  play in, or back up first (Duty → Back up save to a file). The save is
+  `dist/playtest/bridge-start.json` (copy in `docs/cases/playtest-saves/`).
+  Opening the link again resets the test.
 - The case appears at the top of **Duty** as **The Bridge That Was Closed**.
   It needs Nobby Nobbs or Sergeant Colon as patrol partner (Colon joins at
   6 merit; change partner in Duty → Patrol partner before taking the case).
 - Walk to a stop with the button in the case screen. On arrival a **✦ button**
   appears on the street; tapping it opens the case at that step. (Opening
   **Duty → The Bridge That Was Closed** there works too.)
-- The case is played once per save. To test both partners, use two fresh
-  saves (or two testers).
+- The case is played once per save. To test both partners, open the playtest
+  link again (it resets), or use two testers.
 - After filing, play on to the next night and buy the Times or the Inquirer:
   the case should be reported, and a second notice at Contract Bridge appears
   as a follow-up lead.
