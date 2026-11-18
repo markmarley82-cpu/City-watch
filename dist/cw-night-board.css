@@ -72,21 +72,25 @@ html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-notes {
 }
 html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-notes p { font-size: .92em !important; color: #4a3520 !important; }
 
-/* Actions are notices pinned to the parchment. */
+/* Actions are written on the parchment like the notebook menus: ink, a small arrow and a
+   ruled line, with no boxes of their own. */
 html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button {
-  display: block !important; flex: none; width: 100% !important; min-height: 44px !important; height: auto !important;
-  margin: 0 !important; padding: 8px 10px !important;
-  border: 1px solid #8a6a43 !important; border-radius: 2px !important;
-  background: #f3e6c4 !important; background-image: none !important;
-  box-shadow: 0 2px 3px rgba(40, 24, 10, .35) !important;
-  color: #2b1d12 !important; text-align: left !important; text-shadow: none !important;
+  position: relative; display: block !important; flex: none; width: 100% !important;
+  min-height: 44px !important; height: auto !important; margin: 0 !important;
+  padding: 9px 4px 9px 1.3em !important;
+  border: 0 !important; border-bottom: 1px solid rgba(92, 62, 32, .38) !important; border-radius: 0 !important;
+  background: transparent !important; background-image: none !important; box-shadow: none !important;
+  color: #3a2412 !important; text-align: left !important; text-shadow: none !important;
   font: 700 13px/1.25 Georgia, 'Times New Roman', serif !important; font-size: 3.8cqw !important;
 }
-html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button::before,
+html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button::before {
+  content: '\203A' !important; position: absolute; left: .2em; top: 50%; transform: translateY(-54%);
+  color: #7a5430; font-size: 1.25em; font-weight: 400;
+}
 html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button::after { content: none !important; }
-html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button:is(:hover, :active) { background: #ead8ae !important; }
+html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button:is(:hover, :active) { background: rgba(122, 84, 48, .12) !important; }
 html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button:disabled { opacity: .55; }
-html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button:focus-visible { outline: 3px solid #315c76 !important; outline-offset: 1px !important; }
+html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-parchment button:focus-visible { outline: 3px solid #315c76 !important; outline-offset: -3px !important; }
 
 /* Rank, pay and city time on the three brass plates. */
 html body #p21-duty-dialog#p21-duty-dialog.cw-night-board .cw-board-plates { display: contents; }
