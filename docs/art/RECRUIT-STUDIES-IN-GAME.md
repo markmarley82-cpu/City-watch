@@ -97,8 +97,10 @@ in the git history (commits fd8c6b3 and 52379cf) if they are ever needed again.
   `tools/make-recruit-weapon-points.py`): the middle of the coat for every frame (for the
   troll, his front hand) and the leading fist for the punch frames. Rerun the tool if the
   sheets change. Hand points drawn by the art team would be more exact still.
-- **Rooms in guild interiors.** `guild-interiors/interior-view.mjs` creates its own
-  drawn-character library, so recruits there use the previous art.
+- **Rooms in guild interiors: fine in the game.** The game's guild host passes its own recruit
+  painter (`currentRecruitPainter` in `guild-interiors/guild-host.mjs`, which uses the shared
+  renderer), so the player is drawn with the new art there too. Only the standalone guild
+  test page, with no game host, falls back to the previous art.
 - **Troll armour shoulder (minor).** The armour has a perfectly round cut-out where the
   shoulder sits in front of it. It's barely visible at game size, but a cut-out following
   the shoulder's outline would read better.
