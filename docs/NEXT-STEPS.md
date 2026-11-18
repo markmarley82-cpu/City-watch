@@ -71,14 +71,23 @@ These make what already exists reliable:
 
 ## 5. Polish (any time)
 
-- Faster phone loading. Done so far: startup on a simulated mid-range phone
-  is about 70 s on 4G (was 83 s) and 47 s with instant downloads (was 66 s).
-  The side-street paving, the Atlas map's extra waypoints and the public paving
-  correction now load after the game is playable (same result, checked), and
-  the Hide Park door check runs one search instead of one per door. What is
-  left is mostly computing the walking ground for the whole city before you
-  can move; the next big step would be to work that out ahead of time and ship
-  it as data, which changes how the map is built (a team decision).
+- Faster phone loading. Startup on a simulated mid-range phone is now about
+  58 s on 4G (was 83 s) and 39 s with instant downloads (was 66 s).
+  - Visual layers (side-street paving, the Atlas map's extra waypoints, the
+    public paving correction) load after the game is playable.
+  - Each deploy bakes `startup-cache.json` (tools/bake-startup-cache.js, run by
+    the Pages workflow): expensive startup checks are verified once for that
+    exact build, and phones skip them only when the city they build has the
+    same fingerprint (`city-startup-cache.mjs`). The Hide Park north door check
+    is the first. The same deploy step regenerates `cw-prefetch-list.json`, so
+    it cannot go stale. The last step of each deploy log prints what was baked.
+  - To add another check: give it a name, call `startupCheck(startupCache,
+    name)` with a `fingerprint` of what it reads, skip it when `verified()`,
+    and `record()` after it passes.
+  - What is left: about 32 MB of art downloads before you can move (~30 s on
+    4G alone), and the per-district ground work. Loading distant districts'
+    art later would be the next big step; it touches how each district is
+    installed.
 - Overlapping labels on the city map (needs the map source).
 - Done: `bridge.html` and `layout.html` (old test scenes) load without errors again.
 - Night duty runs in the older engine interface inside the new game; matching
