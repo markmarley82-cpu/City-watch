@@ -12,14 +12,20 @@ function crossbow(g,loaded=false){
  g.fillStyle='#aa925e';g.fillRect(-11,-4,4,4);if(loaded){g.strokeStyle='#c7b384';g.lineWidth=1;g.beginPath();g.moveTo(-5,2);g.lineTo(-25,-14);g.stroke();}
 }
 function icon(g,id,x,y,size=1){g.save();g.translate(x,y);g.scale(size,size);if(id==='service-sword')sword(g);else if(id==='service-crossbow')crossbow(g,true);else{g.rotate(-.6);g.fillStyle=id==='balanced-truncheon'?'#61432d':'#836140';g.strokeStyle='#33241a';g.lineWidth=1.5;g.fillRect(-3,-31,6,42);g.strokeRect(-3,-31,6,42);g.fillStyle='#baa069';g.fillRect(-3,2,6,2);}g.restore();}
+// The art team's recruit sheets (cw-recruit-art-v2.mjs) have their own frames, so the hand
+// is placed from points measured on those sheets (cw-recruit-weapon-points.js); frames are
+// counted the same way as cw-recruit-art-v2.mjs counts them.
+const recruitClips=['idle','walk','attack','guard','hit','shove','restrain','surrender','down'],recruitTimes=[200,100,85,90,75,90,100,110,120],recruitHeld={guard:1,surrender:1,down:1},recruitContact={attack:3,shove:3,restrain:4};
+function recruitFrame(pose){const action=pose.clip||'idle',row=recruitClips.indexOf(action);if(row<0)return null;const tick=pose.reduced?(recruitHeld[action]?5:recruitContact[action]??0):Number.isFinite(pose.frame)?Math.max(0,Math.floor(pose.frame)):Math.floor(Math.max(0,Number(pose.elapsed)||0)/recruitTimes[row]),frame=row<2?tick%6:Math.min(5,tick);return {index:row*6+frame,frame,flip:pose.facing>0};}
 function draw(g,meta,pose,x,y,height,id){
  if(!['service-sword','service-crossbow'].includes(id)||['down','surrender','restrain','shove'].includes(pose.clip))return false;
- const D=root.CWDrawnCharacters,m=D?.current?.entries?.[meta.id];if(!m)return false;
- const f=D.frame(m,pose),E=root.CWFittedEquipment?.current,rig=E?.manifest.rigs[E.canonical(meta.id)],torso=rig?.variants?.base?.poses?.[f?.index];
+ const attack=pose.clip==='attack',points=pose.recruitArt&&root.CWRecruitWeaponPoints,body=points?.bodies?.[meta.id];let f,torso,grip,geo;
+ if(body){f=recruitFrame(pose);torso=f&&body.torso[f.index];grip=attack&&f?body.grip[f.frame]:null;geo={footX:points.footX,footY:points.footY,visibleHeight:body.visibleHeight};}
+ else{const D=root.CWDrawnCharacters,m=D?.current?.entries?.[meta.id];if(!m)return false;f=D.frame(m,pose);const E=root.CWFittedEquipment?.current,rig=E?.manifest.rigs[E.canonical(meta.id)];torso=rig?.variants?.base?.poses?.[f?.index];grip=root.CWWeaponGrips?.[meta.id]?.[f?.index];geo=m;}
  if(!f||!torso)return false;
- const s=height/m.visibleHeight,attack=pose.clip==='attack',phase=f.frame;
+ const s=height/geo.visibleHeight,phase=f.frame;
  g.save();g.translate(x,y);if(f.flip)g.scale(-1,1);
- const grip=root.CWWeaponGrips?.[meta.id]?.[f.index],handX=((attack&&grip?grip[0]:torso[0]-m.visibleHeight*.12)-m.footX)*s,handY=((attack&&grip?grip[1]:torso[1]+m.visibleHeight*.15)-m.footY)*s;
+ const handX=((attack&&grip?grip[0]:torso[0]-geo.visibleHeight*.12)-geo.footX)*s,handY=((attack&&grip?grip[1]:torso[1]+geo.visibleHeight*.15)-geo.footY)*s;
  g.translate(handX,handY);g.scale(height/110,height/110);
  if(id==='service-sword'){g.rotate(attack?[1.25,.65,-.35,-1.1,-.5,.6][phase]:-.45);g.translate(0,-5);sword(g);}
  else{g.rotate(attack?[-.08,-.04,0,.05,.02,0][phase]:-.25);crossbow(g,pose.loaded);}

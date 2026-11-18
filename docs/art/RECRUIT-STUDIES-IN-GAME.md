@@ -92,10 +92,11 @@ in the git history (commits fd8c6b3 and 52379cf) if they are ever needed again.
   atlas and drawn 60 px tall. On a phone, at 2x or 3x, that is softer than the previous
   art, which was about 98 px tall. Packing at 5/6 size (about 98 px tall, 160 px cells)
   would cost roughly 2.8x the decoded memory per layer.
-- **Sword and crossbow.** `cw-weapon-art.js` places these at hand points measured on the
-  previous frames (`CWWeaponGrips` and the fitted-equipment rig), so on the new frames
-  they may sit off the hand (not yet checked in game). Hand points measured on the new
-  sheets would fix it.
+- **Sword and crossbow: fixed.** `cw-weapon-art.js` now places them from points measured on
+  the new sheets (`dist/cw-recruit-weapon-points.js`, made by
+  `tools/make-recruit-weapon-points.py`): the middle of the coat for every frame (for the
+  troll, his front hand) and the leading fist for the punch frames. Rerun the tool if the
+  sheets change. Hand points drawn by the art team would be more exact still.
 - **Rooms in guild interiors.** `guild-interiors/interior-view.mjs` creates its own
   drawn-character library, so recruits there use the previous art.
 - **Troll armour shoulder (minor).** The armour has a perfectly round cut-out where the
