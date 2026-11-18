@@ -1,0 +1,107 @@
+{
+ "watch-recruit": {
+  "atlas": "assets/characters-drawn-v1/fresh/watch-recruit.webp",
+  "sha256": "5273bb091318d3eb1a7571d5308c5e58e5793443545a183ca922cc3013b239e2",
+  "runtimeBytes": 205524,
+  "study": "art-review/player-recruit/watch-recruit.webp",
+  "scale": 0.5765,
+  "studyActions": [
+   "idle",
+   "walk",
+   "attack",
+   "guard"
+  ],
+  "currentActions": [
+   "hit",
+   "shove",
+   "restrain",
+   "surrender",
+   "down"
+  ],
+  "clippedPixels": []
+ },
+ "watch-recruit-female": {
+  "atlas": "assets/characters-drawn-v1/fresh/watch-recruit-female.webp",
+  "sha256": "fc111261b743fb6a4117f69fdab57269653cfc1f4862f980d7bd59f4d3ea28db",
+  "runtimeBytes": 217744,
+  "study": "art-review/player-recruit/watch-recruit-female.webp",
+  "scale": 0.5797,
+  "studyActions": [
+   "idle",
+   "walk",
+   "attack",
+   "guard"
+  ],
+  "currentActions": [
+   "hit",
+   "shove",
+   "restrain",
+   "surrender",
+   "down"
+  ],
+  "clippedPixels": []
+ },
+ "watch-recruit-dark": {
+  "atlas": "assets/characters-drawn-v1/fresh/watch-recruit-dark.webp",
+  "sha256": "725823c5071c1a68143a9a24873c57c417bd216debabd5b391c41763748372d6",
+  "runtimeBytes": 146486,
+  "study": "art-review/player-recruit/watch-recruit-dark.webp",
+  "scale": 0.4503,
+  "studyActions": [
+   "idle",
+   "walk",
+   "attack",
+   "guard"
+  ],
+  "currentActions": [
+   "hit",
+   "shove",
+   "restrain",
+   "surrender",
+   "down"
+  ],
+  "clippedPixels": []
+ },
+ "p3_dwarf_02": {
+  "atlas": "assets/characters-drawn-v1/fresh/p3_dwarf_02.webp",
+  "sha256": "3efa624bca02283d1f257adf4ef2cb2a1742418c81e52adcfea97243aee22037",
+  "runtimeBytes": 116256,
+  "study": "art-review/player-recruit/dwarf-recruit.webp",
+  "scale": 0.3224,
+  "studyActions": [
+   "idle",
+   "walk",
+   "attack",
+   "guard"
+  ],
+  "currentActions": [
+   "hit",
+   "shove",
+   "restrain",
+   "surrender",
+   "down"
+  ],
+  "clippedPixels": []
+ },
+ "p3_troll_01": {
+  "atlas": "assets/characters-drawn-v1/fresh/p3_troll_01.webp",
+  "sha256": "7fd2b77aa3ec3451f0b2d67d3dfa72868cbf655a1f4cc2df26f53d9f45c480ff",
+  "runtimeBytes": 311764,
+  "study": "art-review/player-recruit/troll-recruit.webp",
+  "scale": 0.6528,
+  "studyActions": [
+   "idle",
+   "walk",
+   "attack",
+   "guard"
+  ],
+  "currentActions": [
+   "hit",
+   "shove",
+   "restrain",
+   "surrender",
+   "down"
+  ],
+  "clippedPixels": []
+ }
+}
