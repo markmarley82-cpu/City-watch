@@ -227,6 +227,7 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
    for(const lead of deliveryLeads.filter(l=>d.deliveryReport.evidence.includes(l.id)))text('p',lead.evidence);
   }else if(!a){
    text('p',atCarrot()?DELIVERY_BRIEF:'Captain Carrot is waiting on the east side of Watch Square, outside the Watch House.');
+   if(!atCarrot())walk('Captain Carrot',carrot);
    if(atCarrot()&&!d.active)button('Accept Carrot’s assignment',startDelivery);
    if(d.active)text('p','Finish your current patrol before accepting this case.');
   }else if(a.outcome){
@@ -945,15 +946,15 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   const button=(label,fn)=>{const b=text('button',label);b.type='button';b.onclick=()=>{dialog.close();return fn();};};
   const d=data(record),v=view(record),rank=career?.(record.state);
   text('h3',rank?'Night duty':'Go on patrol');
+  const clock=rank?campaignClock('',record.state,now()):null;let rankLine=null,timeLine=null;
   if(rank){
-   const clock=campaignClock('',record.state,now());
-   text('p',rank.name+' · '+record.state.merit+' merit · '+rank.pay+' coins per completed shift');
+   rankLine=text('p',rank.name+' · '+record.state.merit+' merit · '+rank.pay+' coins per completed shift');
    const preparation=record.state.flags.shopPreparation,offer=globalThis.window?.QuillShopPreparations?.offers?.[preparation?.offerId];
    if(offer&&preparation.night===record.state.night)text('p','Tonight’s preparation: '+offer.label+'. It will be used in your next encounter.');
    else text('p','Coins buy permanent weapons, armour and boots at the Armoury, plus patrol supplies and one preparation for the next encounter: food for a stronger guard, a lozenge for talking a suspect down, or a boot fitting for the opening move.');
    if(d.active?.shift)text('p','Rank and pay stay fixed for this shift. Any promotion takes effect when you file the shift report.');
    if(rank.next)text('p',(rank.next.name===rank.name?'Next pay grade: ':'Next rank: ')+rank.next.name+' · '+Math.min(record.state.merit,rank.next.merit)+'/'+rank.next.merit+' merit · '+Math.min(Math.max(0,(d.paidShifts||0)-(Number(d.unsuccessfulShifts)||0)),rank.next.reports)+'/'+rank.next.reports+' filed shifts');
-   text('p','City time '+clock.time+' · '+clock.phase);
+   timeLine=text('p','City time '+clock.time+' · '+clock.phase);
   }
   if(!d.active&&deliveryAvailable(record))button('Carrot’s assignment',deliveryMenu);
   if(d.active){text('p',v.title+' · '+v.done+'/'+v.total+' · '+v.objective);
@@ -982,7 +983,31 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   else for(const route of routes.filter(route=>route.id!==DIMWELL_BEAT&&route.id!=='watch-precinct'&&route.id!==FIRST_CASE_ROUTE&&!isChoiceRoute(route.id))){text('p',route.name+' · '+route.checkpoints.length+' checkpoints. '+route.description);text('p',route.checkpoints.map(c=>c[0]).concat('Sergeant Colon').join(' → '));button('Begin '+route.name,()=>start(route.id));if(!route.checkpoints.every(c=>point(c[1]))){content.lastChild.disabled=true;text('p','This route has a closed approach.');}}
   if(!rank)text('p','Completed rounds: '+d.completed+'. After your first main case, some checkpoints offer street enquiries. First report on each route earns 2 merit. Later rounds add to your patrol log. Supported enquiry reports earn up to 4 merit per type; useful unresolved reports earn 1. Each type is capped at 4 total. Your case remains in the Notebook.');
   for(const report of d.reports.slice(-3).reverse()){text('p','Filed: '+report.name+' · '+(shiftIncidentSummary(report,record.encounters)||report.checkpoints.length+' checks · '+report.incidentIds.length+' recorded encounters.')+(Number.isFinite(report.merit)?' · '+report.merit+' merit total':'')+(report.pay?' · '+report.pay+' coins paid':''));for(const check of report.checkpoints)if(check.enquiry){const details=doc.createElement('details'),summary=doc.createElement('summary'),body=doc.createElement('p');summary.textContent=check.enquiry.snapshot.title+' · '+check.enquiry.outcome+' · '+(check.enquiry.meritAwarded||0)+' enquiry merit';body.textContent=check.enquiry.reportText+(check.enquiry.requestedAction?' Response requested; follow-up has not been confirmed.':'');details.append(summary,body);content.append(details);}}
-  button('Return to street',()=>{});dialog.showModal();return true;
+  button('Return to street',()=>{});
+  if(rank)nightBoard({dialog,content,plates:[[rank.name,record.state.merit+' merit'],[rank.pay+' coins','per shift'],[clock.time,clock.phase]],drop:[rankLine,timeLine]});
+  dialog.showModal();return true;
+ }
+ // Night duty on the team's notice board (cw-night-board.css): the title on the brass plaque, the
+ // notes and the same action buttons on the parchment, rank/pay/time on the three plates.
+ // Night duty on the team's notice board: the h3 goes on the brass plaque, rank, pay and city time on the
+ // three plates (so their text lines are dropped), the rest on the parchment. General rank notes (from the
+ // first dropped line to the second) move below the actions so the night's choices show without scrolling.
+ function nightBoard({dialog,content,plates,drop}){
+  const [first,last]=drop,notes=[];
+  if(first&&last)for(let node=first.nextSibling;node&&node!==last;node=node.nextSibling)notes.push(node);
+  for(const node of drop)node?.remove();
+  const heading=content.querySelector(':scope > h3'),frame=doc.createElement('div'),parchment=doc.createElement('div'),row=doc.createElement('div');
+  frame.className='cw-night-board-frame';parchment.className='cw-board-parchment';row.className='cw-board-plates';
+  if(heading)heading.className='cw-board-plaque';
+  for(const node of [...content.childNodes])if(node!==heading&&!notes.includes(node))parchment.append(node);
+  if(notes.length){const box=doc.createElement('div');box.className='cw-board-notes';box.append(...notes);const back=parchment.querySelector(':scope > button:last-of-type');parchment.insertBefore(box,back||null);}
+  for(const [big,small] of plates){const plate=doc.createElement('div'),b=doc.createElement('strong'),t=doc.createElement('span');plate.className='cw-board-plate';b.textContent=big;t.textContent=small;plate.append(b,t);row.append(plate);}
+  frame.append(...(heading?[heading]:[]),parchment,row);content.replaceChildren(frame);
+  // Menus reuse this dialog: one closes it and opens the next straight away, and the close event arrives
+  // after the next is showing. Keep the board look only while the dialog is open and still shows the board.
+  dialog.classList.add('cw-night-board');
+  const off=()=>{if(dialog.open&&dialog.querySelector('.cw-night-board-frame'))return;dialog.classList.remove('cw-night-board');dialog.removeEventListener('close',off);};
+  dialog.addEventListener('close',off);
  }
  function shiftIncidentSummary(report,encounters){
   if(report?.routeId===DIMWELL_BEAT){

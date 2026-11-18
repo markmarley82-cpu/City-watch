@@ -90,8 +90,15 @@ These make what already exists reliable:
     installed.
 - Overlapping labels on the city map (needs the map source).
 - Done: `bridge.html` and `layout.html` (old test scenes) load without errors again.
-- Night duty runs in the older engine interface inside the new game; matching
-  it is a redesign, not a quick fix.
+- Done: the Night duty menu sits on the team's Night Duty board
+  (`dist/cw-night-board.css`, built in `nightBoard()` in `dist/cw-patrol-duty.mjs`).
+  The title goes on the plaque, rank, pay and city time go on the three plates, and
+  the night's choices go on the parchment, with the general pay notes below them.
+  Short landscape screens get a plain parchment sheet instead, because the 2:3 board
+  would make the text too small. The other Night duty screens still use the older
+  engine look.
+- Done: the two bugs from the 17 November playtest. "Walk to current assignment" now
+  heads for Carrot when Carrot has the assignment, and Carrot's case has a walk button.
 
 ## Housekeeping (Mark)
 

@@ -3,7 +3,7 @@ import {createPatrolConversations} from './city-conversations.mjs?v=p21-b407-s03
 import {createDibbler} from './cw-dibbler.mjs?v=p21-b461-watch-ui';
 import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
-import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw2';
+import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw6';
 import {canFollowNewspaperLead} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
 import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw4';
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
@@ -217,7 +217,8 @@ function walkToCurrentAssignment(){
  // During a Night duty round, walk to the round's own checkpoint (or back to Colon), not the story target.
  if(!record.pending&&duty&&!duty.firstCase&&patrolDuty.go())return true;
  // Between shifts with Carrot's assignment waiting (the objective names Carrot), walk to Carrot.
- if(!record.pending&&!duty&&carrotWaiting(record)&&patrolDuty.goCarrot?.())return true;
+ // If something on screen makes goCarrot decline, still head for Carrot rather than the story target (Colon).
+ if(!record.pending&&!duty&&carrotWaiting(record))return patrolDuty.goCarrot?.()||walkTo('npc:carrot');
  // Dimwell beat: walk to the same next stop the map marks.
  if(!record.pending&&duty?.dimwell&&!patrolBlocked()){const stop=patrolDuty.mapStop?.();if(stop?.position){city.stop();return city.nav(stop.position.slice(0,2),stop.position[2]);}}
  return walkTo();
