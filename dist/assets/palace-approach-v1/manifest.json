@@ -1,0 +1,69 @@
+{
+ "id": "PALACE-APPROACH-v1",
+ "source": "ART-PALACE-APPROACH-001 + ART-PALACE-DAYLIGHT-002",
+ "storeScale": 0.5,
+ "pieces": {
+  "gateway": {
+   "file": "gateway.webp",
+   "size": [
+    264,
+    260
+   ],
+   "sha256": "fba1d75679bab77e9e2dca03f67f4e6e0c95bfdcff49e904a4f5f34cc2c19cce",
+   "bottom": [
+    195.3,
+    249
+   ],
+   "lights": [
+    [
+     61.7,
+     138.5
+    ]
+   ]
+  },
+  "wall-straight": {
+   "file": "wall-straight.webp",
+   "size": [
+    260,
+    264
+   ],
+   "sha256": "21036890225fa8308a20fb54fc5818c82e5e01512078f1fd3658383abb26483a",
+   "bottom": [
+    48.2,
+    243
+   ],
+   "lights": []
+  },
+  "wall-corner": {
+   "file": "wall-corner.webp",
+   "size": [
+    264,
+    264
+   ],
+   "sha256": "5bfaca30bbf7ce334ac506286c7efaa60140d32fbf1cc64fd287663c8a1ab537",
+   "bottom": [
+    123.5,
+    226
+   ],
+   "lights": []
+  },
+  "lantern-post": {
+   "file": "lantern-post.webp",
+   "size": [
+    258,
+    264
+   ],
+   "sha256": "2190c14a7a09120a68482083f383c0f52871cd26cf8c271b70e5c0ac0d50b027",
+   "bottom": [
+    132.1,
+    252
+   ],
+   "lights": [
+    [
+     132.1,
+     61.5
+    ]
+   ]
+  }
+ }
+}

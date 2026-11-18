@@ -107,6 +107,7 @@ import {bindMapPointer} from './city-pointer.mjs?v=p21-pointer-release-guard';
 import {createStreetStepper,walkDuration,streetPath,acceptStreetStep,streetTapPath,streetTapCellConnected,nextWalkTick} from './city-movement.mjs?v=p21-b444-tap-route-start';
 import {createTapRoutePlanner} from './city-tap-search.mjs?v=p21-b444-tap-route-start';
 import {createPalacePrecinct} from './palace-precinct.mjs?v=p21-b407-s039-reuse';
+import {createPalaceApproach} from './city-palace-approach.mjs?v=1';
 import {mountDwarfMapCulture} from './dwarf-map-culture.mjs?v=p21-b407-s039-reuse';
 import {createStreetLampNetwork} from './city-street-lamps.mjs?v=p21-b482-pons-deck-lamps';
 import {applyCityCutaways,cityCutawayEligible} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
@@ -266,6 +267,7 @@ prop('noticeboard',3,[3,-1],.31,[123,127,7,5].map((v,i)=>i<2?v-base[i]:v));
 prop('barrels-west',4,[-7,7],.29,[-8,6,2,3]);
 // Individual guild receptions use the authored primary doorway at the real saved approach.
 const palacePrecinct=await createPalacePrecinct({read,load,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});
+let palaceApproach=null;try{palaceApproach=await createPalaceApproach({read,load,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});}catch(error){console.warn('Palace approach kit unavailable; the Palace is unchanged',error);}
 const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 // Queue independent paintings together; the shared loader still caps decodes at2/4.
 // Insert only in authored order, regardless of which request finishes first.

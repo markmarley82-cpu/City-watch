@@ -2,7 +2,7 @@
 
 **Prepared:** 17 November 2026  
 **Art owner:** ChatGPT / City Watch art direction  
-**Status:** **Candidate files prepared; NOT creatively approved, NOT integrated, NOT verified at world scale.**  
+**Status:** **Approved by the Creative Director 18 November 2026 and in the game** (see *In the game* below). Original candidate status: candidate files prepared; not creatively approved, not integrated, not verified at world scale.  
 **Source of truth for the current playable game:** [`dist/`](../../../dist/) — **untouched** by this art packet.  
 **Linked art tracker:** [Issue #7](https://github.com/markmarley82-cpu/City-watch/issues/7) · [Quality gate](../ART-QUALITY-GATE.md)
 
@@ -56,3 +56,26 @@ Four separate transparent WebP isometric sprite **candidates** plus the full-res
 ## Change boundary
 
 **This delivery is artwork staging and documentation only.** No gameplay, sprite registration, colliders, art replacement, `dist/` files or live deployment were changed as part of the Palace art packet. The archived source and all four candidates are intentionally separate pending review.
+
+## In the game (18 November 2026)
+
+- **Approval:** the Creative Director approved the kit. `tools/make-palace-approach.py` checks the six
+  source files against the SHA-256 above and in ART-PALACE-DAYLIGHT-002, then writes
+  `dist/assets/palace-approach-v1/` (half size, WebP quality 90, colour cleared under
+  transparent pixels).
+- **Day and night:** the game draws the unlit daytime gateway and lantern. The lantern glass is
+  registered with the game's window lighting (the largest lit-vs-unlit difference in each
+  piece), so the lanterns are dark by day and lit at night like the city's other street
+  lamps.
+- **Placement** (`dist/city-palace-approach.mjs`): the gatehouse spans the Palace approach
+  street (E010) at the forecourt's west corner, with its arch over the walking line, at scale
+  1 (arch about 1.5x a 65 px door). One lantern post stands at the arch's front-left.
+  Screenshots were checked on a phone and a desktop.
+- **Navigation is unchanged:** the pieces are lamp-kind scenery, so no walking, door or route
+  changes.
+- **The wall pieces are prepared but not placed.** Every spot they would fit around the
+  forecourt is walkable street or forecourt, so placing them needs collision and new routes,
+  a separate decision.
+- **Still open from the gate list:**
+  - the daytime gateway's bluish spill on the left pillar;
+  - a check on a physical iPhone.
