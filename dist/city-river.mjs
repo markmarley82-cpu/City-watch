@@ -1,4 +1,4 @@
-import {createRiverCharacter} from './river-character.mjs?v=p21-b407-s039-reuse';
+import {createRiverCharacter} from './river-character.mjs?v=river-sliced-1';
 /* River presentation follows existing bridge landings. Navigation remains in city-core. */
 import {project,pointIn} from './city-core.mjs?v=p21-b407-s039-reuse';
 
@@ -59,7 +59,7 @@ export function createRiverPainter(contract){
  }
  let pattern=null,character=null,appearance=null;
  return{
-  setAppearance(resources){character?.dispose();character=createRiverCharacter(contract);appearance=resources;},
+  setAppearance(resources,plan){character?.dispose();character=createRiverCharacter(contract,plan);appearance=resources;},
   dispose(){character?.dispose();appearance=null;},
   draw(ctx,material,view){
    ctx.save();ctx.clip(water);ctx.clip(dry,'evenodd');if(appearance){character.draw(ctx,appearance,view);ctx.restore();return;}ctx.fillStyle='#3c4938';ctx.fillRect(-20000,-20000,40000,40000);

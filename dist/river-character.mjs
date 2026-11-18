@@ -18,7 +18,9 @@ export function riverPollutionAt(p){
 function random(seed){let n=seed;return()=>{n=(Math.imul(n,1664525)+1013904223)>>>0;return n/4294967296;};}
 const lerp=(a,b,t)=>a.map((n,i)=>n+(b[i]-n)*t);
 export const LITTER_TILE_SIZE=120;
-export function createRiverDetailPlan(contract){
+// The plan is one seeded sequence. riverDetailSteps yields between steps (never inside one), so
+// the sliced and the all-at-once versions produce the same plan.
+function* riverDetailSteps(contract){
  const rng=random(0x414e4b48),walls=compileQuayWalls(contract).walls,wet=p=>wetAt(contract,p),micro=[],patches=[],flow=[],litterFields=[];
  for(const w of walls){
   const length=Math.hypot(w.b[0]-w.a[0],w.b[1]-w.a[1]);
@@ -28,15 +30,18 @@ export function createRiverDetailPlan(contract){
    const depth=.45+rng()*(1.7+density*4.2),at=p.map((v,i)=>v+w.wetNormal[i]*depth);
    if(wet(at))micro.push({p:at,q:project(at),kind:Math.floor(rng()*4),angle:rng()*Math.PI*2,size:.08+rng()*.38*(.4+density),alpha:.35+rng()*.4});
   }
+  yield;
  }
  // Restore readable retained refuse art only in individual soft-edged bank pockets.
  for(const w of walls){const length=Math.hypot(w.b[0]-w.a[0],w.b[1]-w.a[1]),angle=Math.atan2(w.b[1]-w.a[1],w.b[0]-w.a[0]);
   for(let t=2.5;t<length;t+=7+rng()*7){const bank=lerp(w.a,w.b,t/length),pollution=riverPollutionAt(bank);if(rng()>pollution*.94)continue;const p=bank.map((n,i)=>n+w.wetNormal[i]*(1.4+rng()*2.4));if(!wet(p))continue;
    const crop=220+Math.floor(rng()*90);litterFields.push({p,q:project(p),rx:3+pollution*3+rng()*1.5,ry:3+pollution*2+rng(),angle:angle+(rng()-.5)*.4,alpha:.12+pollution*.82,crop:[Math.floor(rng()*(512-crop)),Math.floor(rng()*(512-crop)),crop,crop]});
   }
+  yield;
  }
  const ps=contract.surfaces.flatMap(s=>s.engine_polygon),bounds=[Math.min(...ps.map(p=>p[0])),Math.min(...ps.map(p=>p[1])),Math.max(...ps.map(p=>p[0])),Math.max(...ps.map(p=>p[1]))];
  for(let i=0;i<10000&&(patches.length<180||flow.length<260);i++){
+  if(i%64===63)yield;
   const p=[bounds[0]+rng()*(bounds[2]-bounds[0]),bounds[1]+rng()*(bounds[3]-bounds[1])];if(!wet(p))continue;
   const cut=contract.surfaces.find(s=>s.centreline&&s.engine_polygon.some(q=>Math.hypot(q[0]-p[0],q[1]-p[1])<24));
   let angle=0;if(cut){let d=Infinity;for(let j=1;j<cut.centreline.length;j++){const a=cut.centreline[j-1],b=cut.centreline[j],mid=lerp(a,b,.5),n=Math.hypot(mid[0]-p[0],mid[1]-p[1]);if(n<d){d=n;angle=Math.atan2(b[1]-a[1],b[0]-a[0]);}}}
@@ -49,13 +54,14 @@ export function createRiverDetailPlan(contract){
  const targets=[['timber-pocket','E007','near',1],['household-catch','E004','far',-1],['working-wharf-catch','E007','far',-1],['rope-catch','E005','far',1],['barrel-catch','E006','near',-1],['rag-pocket','E006','far',1],['retained-timber','E003','far',1],['retained-household','E004','near',1]];
  const snags=[];
  for(const [id,edge,end,side] of targets){
+  yield;
   const b=contract.crossings.find(b=>b.edge===edge),interval=b.renderWaterInterval,target=[b.anchor[0]+side*(b.width/2+1.8),end==='near'?interval[0]+3:interval.at(-1)-3];let best=null;
   for(let dx=-3;dx<=3;dx+=.25)for(let dy=-4;dy<=4;dy+=.25){const p=[target[0]+dx,target[1]+dy];if(![-1.25,0,1.25].every(x=>[-1.25,0,1.25].every(y=>wet([p[0]+x,p[1]+y]))))continue;if(Math.abs(p[0]-b.anchor[0])<b.width/2+1.25)continue;if(snags.some(s=>Math.hypot(s.p[0]-p[0],s.p[1]-p[1])<3))continue;const score=Math.hypot(dx,dy);if(!best||score<best.score)best={p,score};}
   if(!best)throw Error('No protected water pocket for '+id);
   snags.push({id,p:best.p,q:project(best.p),edge,end,pollution:riverPollutionAt(best.p)});
  }
  const candidates=[];
- for(const w of walls){const length=Math.hypot(w.b[0]-w.a[0],w.b[1]-w.a[1]);for(let t=1.5+rng()*3;t<length;t+=3.5+rng()*5){const bank=lerp(w.a,w.b,t/length),p=bank.map((v,i)=>v+w.wetNormal[i]*(1.4+rng()*2.6));if(![-.6,0,.6].every(x=>[-.6,0,.6].every(y=>wet([p[0]+x,p[1]+y]))))continue;if(snags.some(s=>Math.hypot(s.p[0]-p[0],s.p[1]-p[1])<2))continue;const pollution=riverPollutionAt(p);candidates.push({p,q:project(p),pollution,score:pollution*.8+rng()*.45});}}
+ for(const w of walls){yield;const length=Math.hypot(w.b[0]-w.a[0],w.b[1]-w.a[1]);for(let t=1.5+rng()*3;t<length;t+=3.5+rng()*5){const bank=lerp(w.a,w.b,t/length),p=bank.map((v,i)=>v+w.wetNormal[i]*(1.4+rng()*2.6));if(![-.6,0,.6].every(x=>[-.6,0,.6].every(y=>wet([p[0]+x,p[1]+y]))))continue;if(snags.some(s=>Math.hypot(s.p[0]-p[0],s.p[1]-p[1])<2))continue;const pollution=riverPollutionAt(p);candidates.push({p,q:project(p),pollution,score:pollution*.8+rng()*.45});}}
  const looseItems=[];
  const choose=list=>{for(const c of list){if(looseItems.length===24)break;if(looseItems.some(s=>Math.hypot(s.p[0]-c.p[0],s.p[1]-c.p[1])<2))continue;looseItems.push({...c,id:'loose-'+String(looseItems.length+1).padStart(2,'0')});}};
  choose(candidates.filter(c=>c.pollution<.4).sort((a,b)=>a.pollution-b.pollution).slice(0,2));choose(openWater.slice(0,6).map(f=>({...f,pollution:riverPollutionAt(f.p),score:1})));choose(candidates.sort((a,b)=>b.score-a.score));if(looseItems.length!==24)throw Error('Insufficient clear water pockets for distinct refuse');
@@ -186,8 +192,14 @@ export function createRiverDetailPlan(contract){
  return {id:'CW-RIVER-CHARACTER-v1',regions:RIVER_REGIONS,walls,micro,patches,flow,litterFields,snags,looseItems,reaches,denseItems,cornerCores,collectionCorners,shadows:contract.crossings.map(b=>({edge:b.edge,x:b.anchor[0]+.8,near:b.renderWaterInterval[0]+.5,far:b.renderWaterInterval.at(-1)-.5,width:b.width})),presentationOnly:true,newNavigation:false};
 }
 const inView=(q,view,pad=260)=>!view||q.x>view[0]-pad&&q.x<view[2]+pad&&q.y>view[1]-pad&&q.y<view[3]+pad;
-export function createRiverCharacter(contract){
- const plan=createRiverDetailPlan(contract),patterns=new WeakMap(),tiles=[],litterTiles=new Map();
+// The river without its scattered detail: same water, banks and bridge shadows, no litter, ripples,
+// snags or loose items. Shown from the start while the full plan is worked out (a few ms).
+export function createRiverOutlinePlan(contract){return {id:'CW-RIVER-CHARACTER-v1',regions:RIVER_REGIONS,walls:compileQuayWalls(contract).walls,micro:[],patches:[],flow:[],litterFields:[],snags:[],looseItems:[],reaches:[],denseItems:[],cornerCores:[],collectionCorners:[],shadows:contract.crossings.map(b=>({edge:b.edge,x:b.anchor[0]+.8,near:b.renderWaterInterval[0]+.5,far:b.renderWaterInterval.at(-1)-.5,width:b.width})),presentationOnly:true,newNavigation:false,outline:true};}
+export function createRiverDetailPlan(contract){const steps=riverDetailSteps(contract);for(;;){const r=steps.next();if(r.done)return r.value;}}
+// Same plan, computed in slices of budgetMS with pause() between them, so walking stays smooth.
+export async function createRiverDetailPlanSliced(contract,{budgetMS=6,pause}={}){const steps=riverDetailSteps(contract);let start=performance.now();for(;;){const r=steps.next();if(r.done)return r.value;if(pause&&performance.now()-start>budgetMS){await pause();start=performance.now();}}}
+export function createRiverCharacter(contract,plan=createRiverDetailPlan(contract)){
+ const patterns=new WeakMap(),tiles=[],litterTiles=new Map();
  function material(ctx,im){
   if(!patterns.has(im)){
    const tile=document.createElement('canvas');tile.width=tile.height=512;const g=tile.getContext('2d');

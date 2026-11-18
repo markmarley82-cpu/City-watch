@@ -19,13 +19,18 @@ export function tintReusePixels(pixels,finish){
  return pixels;
 }
 
+// The same tint as tintReusePixels, done by the canvas: 'source-atop' paints the pigment only where
+// the building already has paint and leaves alpha alone, giving rgb*(1-a)+pigment*a. No pixel
+// read-back, which was the slow part on phones.
 export function createReuseFinishImage(source,finish){
- const image=document.createElement('canvas');
+ const pigment=reuseFinishes[finish];
+ if(!pigment)throw Error('Unknown building finish: '+finish);
+ const [r,gr,b,a]=pigment,image=document.createElement('canvas');
  image.width=source.width;image.height=source.height;
- const g=image.getContext('2d',{willReadFrequently:true});
+ const g=image.getContext('2d');
  g.drawImage(source,0,0,image.width,image.height);
- const data=g.getImageData(0,0,image.width,image.height);
- tintReusePixels(data.data,finish);g.putImageData(data,0,0);
+ g.globalCompositeOperation='source-atop';g.fillStyle=`rgba(${r},${gr},${b},${a})`;g.fillRect(0,0,image.width,image.height);
+ g.globalCompositeOperation='source-over';
  for(const key of ['cwDensity','cwSourceWidth','cwSourceHeight'])
   if(source[key]!==undefined)Object.defineProperty(image,key,{value:source[key]});
  return image;

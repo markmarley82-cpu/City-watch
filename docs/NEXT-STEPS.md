@@ -84,7 +84,17 @@ These make what already exists reliable:
   - To add another check: give it a name, call `startupCheck(startupCache,
     name)` with a `fingerprint` of what it reads, skip it when `verified()`,
     and `record()` after it passes.
-  - What is left: about 32 MB of art downloads before you can move (~30 s on
+  - The river's scattered detail (litter, ripples, snag pockets) is worked out after the game
+    is playable, in slices (`createRiverDetailPlanSliced`, same plan byte for byte); until
+    then the river shows the same water and banks without it. Reused buildings are tinted
+    with canvas blending instead of reading every pixel back (`city-reuse-finish.mjs`;
+    visible difference at most 2/255). Together about 5 s off a slow phone's start
+    (39 s to 34 s with downloads excluded, 4x slowed CPU, deploy-time checks baked).
+  - Measuring locally: GitHub Pages compresses JSON/JS/CSS, so test with compression
+    (about 9 MB of data files shrink several times), and bake `startup-cache.json` first
+    (`node tools/bake-startup-cache.js <copy of dist>`), or the door check runs and adds
+    about 6 s.
+  - What is left: about 24 MB of images before you can move before you can move (~30 s on
     4G alone), and the per-district ground work. Loading distant districts'
     art later would be the next big step; it touches how each district is
     installed.
