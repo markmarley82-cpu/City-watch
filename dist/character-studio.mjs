@@ -2,7 +2,7 @@
 import './cw-recruit-preview.js?v=p21-b407-s039-reuse';
 import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import './cw-action-rigs-data.js?v=p21-b407-s039-reuse';
-if(!window.CWCharacters)await import('./cw-character-runtime.js?v=p21-b498-appearance-recovery');
+if(!window.CWCharacters)await import('./cw-character-runtime.js?v=recruit-art-v2');
 if(!window.CWClothing)await import('./cw-clothing.js?v=p21-b407-s039-reuse');
 if(!window.CWHeads)await import('./cw-heads.js?v=p21-b407-s039-reuse');
 if(!window.CWRecruitChoices)await import('./cw-recruit-choices.js?v=p21-b407-s039-reuse');

@@ -1,6 +1,7 @@
 /* Shared source-faithful character rendering. No navigation or game-state rules. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else{root.CWCharacters=api;(root.CW_R2_PARTS=root.CW_R2_PARTS||[]).push('cw-character-runtime.js');}})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
+ let recruitArt=null,recruitArtOpening=null;
  const preferenceKey='city_watch_lab01_appearance_v1';
  const defaultRecruit='watch-recruit';
  const recruits=["watch-recruit","watch-recruit-dark","watch-recruit-female","p3_human_01","p3_human_02","townswoman","young-citizen","p3_dwarf_01","p3_dwarf_02","dwarf-adventurer","p3_troll_01","p3_troll_02","p3_goblin_01","p3_goblin_02","goblin","p3_gnome_01","p3_gnome_02","gnome","p3_feegle_01","p3_feegle_02","blue-imp","p3_vampire_01","p3_vampire_02","vampire","p3_zombie_01","p3_zombie_02","ghoul","p3_werewolf_human_01","p3_werewolf_human_02","werefolk","p3_igor_01","p3_igor_02","p3_orc_01","p3_orc_02","p3_golem_01","p3_golem_02","p3_gargoyle_01","p3_gargoyle_02","p3_elf_01","p3_elf_02","p3_gnoll_01","p3_gnoll_02"];
@@ -38,6 +39,8 @@
  }
  function draw(g,meta,pose,x,y,drawHeight){
   const actions=globalThis.CWActionFrames,actionPose=actions?.poseFor(pose?.actorId||meta.id,pose,undefined,meta)||pose;
+  const repaint=recruitArt?.draw(g,meta.id,actionPose||{},x,y,drawHeight??height(meta,meta.id));
+  if(repaint)return repaint;
   const playerArt=globalThis.CWRacePlayer?.current;if(playerArt?.supports(meta.id)&&(actionPose?.playerRecruit||['player','battle:officer'].includes(actionPose?.actorId)||String(actionPose?.actorId||'').startsWith('race-folio:'))){playerArt.request(meta.id,actionPose);return playerArt.draw(g,meta,actionPose,x,y,drawHeight??height(meta,meta.id));}
   const actorId=String(actionPose?.actorId||'');
   const streetActor=actorId.startsWith('street-resident-')||actorId.startsWith('uu-')&&meta.id.startsWith('wizard-');
@@ -142,7 +145,15 @@
  async function createLibrary({baseURL,read,load,maxDecodedBytes=24*1024*1024,drawn}={}){
   const base=baseURL||(typeof document!=='undefined'?document.baseURI:'http://localhost/'),url=p=>new URL(p,base).href;
   let drawnLibrary=drawn||null;if(!drawnLibrary&&typeof document!=='undefined'&&!read&&!load){await import(url('cw-drawn-characters.js?v=p21-b407-s039-reuse'));drawnLibrary=await globalThis.CWDrawnCharacters.open(base);}
-  if(typeof document!=='undefined'&&!read&&!load){await import(url('cw-race-player.js?v=p21-b407-s039-reuse'));await globalThis.CWRacePlayer.open(base);}
+  if(typeof document!=='undefined'&&!read&&!load){
+   await import(url('cw-race-player.js?v=p21-b407-s039-reuse'));
+   await globalThis.CWRacePlayer.open(base);
+   recruitArtOpening ||= import(url('cw-recruit-art-v2.mjs')).then(({openRecruitArt})=>
+    openRecruitArt(base,globalThis.CWDrawnCharacters.getImageLoader())).then(value=>{recruitArt=value;})
+    .catch(()=>{recruitArtOpening=null;});
+   await recruitArtOpening;
+  }
+  function ensureRecruitArt(key,pose={},pin=false){return recruitArt?.ensure(key,pose,pin).catch(()=>false)||Promise.resolve(false);}
   const readManifest=read||((p)=>fetch(p).then(r=>{if(!r.ok)throw Error('Character catalogue could not load');return r.json();}));
   const manifest=await readManifest(url('assets/characters/manifest.json?v=p21-b407-s039-reuse')),entries={...manifest.assets,...Object.fromEntries((drawnLibrary?.manifest.expectedWizardIds||[]).map(id=>[id,drawnLibrary.entries[id]]))},cache=new Map(),pending=new Map(),errors=new Map();let decodedBytes=0;const pinned=new Set([defaultRecruit]);
   if(manifest.schemaVersion!==1||!entries||!entries[defaultRecruit])throw Error('Character catalogue is invalid');
@@ -153,11 +164,12 @@
   function get(key){const a=cache.get(key);if(a){cache.delete(key);cache.set(key,a);}return a?.borrowedDrawnAtlas?{...a,atlasImage:drawnLibrary.get(key)?.atlasImage,motionOnly:!!drawnLibrary.get(key)?.motionOnly}:a;}
   function evict(){for(const [key,a]of cache){if(decodedBytes<=maxDecodedBytes)break;if(pinned.has(key))continue;cache.delete(key);decodedBytes-=a.decodedBytes;}}
   async function ensure(key,{motionOnly=false}={}){
+   if(!motionOnly)await ensureRecruitArt(key);
    if(cache.has(key)){if(drawnLibrary)await drawnLibrary.ensure(key,base,{motionOnly});return get(key);}if(pending.has(key)){await pending.get(key);if(drawnLibrary)await drawnLibrary.ensure(key,base,{motionOnly});return get(key);}if(!entries[key])throw Error('Unknown character appearance');
    const p=(async()=>{const drawnReady=drawnLibrary?await drawnLibrary.ensure(key,base,{motionOnly}):null,borrowedDrawnAtlas=!!drawnReady&&(!!globalThis.CWRacePlayer?.current?.supports(key)||!!drawnLibrary.manifest.expectedWizardIds?.includes(key)),meta={...(borrowedDrawnAtlas?drawnLibrary.entries[key]:entries[key])},portraitSource=drawnLibrary?.entries[key],atlasImage=borrowedDrawnAtlas?drawnReady?.atlasImage:await image(url(meta.atlas));if(!atlasImage)throw Error('Character atlas unavailable');if(borrowedDrawnAtlas&&drawnReady.motionOnly){validate(meta);if(atlasImage.width!==meta.cellWidth*meta.cols||atlasImage.height!==meta.cellHeight*2)throw Error('Drawn motion prefix mismatch');}else validate(meta,atlasImage);if(portraitSource?.portrait&&portraitSource.portrait!==meta.portrait){meta.portrait=portraitSource.portrait;meta.portraitCrop=portraitSource.portraitCrop;}let portraitImage=null;try{portraitImage=await image(url(drawnLibrary?.entries[key]?.portrait||meta.portrait)+(drawnLibrary?.entries[key]?.artRevision?'?v='+drawnLibrary.entries[key].sha256.slice(0,12):''));}catch{}const bytes=(borrowedDrawnAtlas?0:atlasImage.width*atlasImage.height*4)+(portraitImage?portraitImage.width*portraitImage.height*4:0),a={...meta,...(borrowedDrawnAtlas?{}:{atlasImage}),portraitImage,decodedBytes:bytes,borrowedDrawnAtlas};cache.set(key,a);decodedBytes+=bytes;errors.delete(key);evict();return borrowedDrawnAtlas?{...a,atlasImage,motionOnly:!!drawnReady.motionOnly}:a;})();pending.set(key,p);
    try{return await p;}catch(e){errors.set(key,String(e.message||e));throw e;}finally{pending.delete(key);}
   }
-  return {manifest,entries,ensure,get,request(key,options={}){if(!cache.has(key)&&!pending.has(key)&&!errors.has(key))ensure(key,options).catch(()=>{});},retry(key){errors.delete(key);return ensure(key);},pin(keys){pinned.clear();pinned.add(defaultRecruit);keys.filter(k=>entries[k]).forEach(k=>pinned.add(k));drawnLibrary?.pin?.([...pinned]);evict();},report:()=>({catalogue:Object.keys(entries).length,decoded:cache.size,decodedBytes,maxDecodedBytes,pinned:pinned.size,imageLoader:image.report?.()||null,drawn:drawnLibrary?.report(),pending:pending.size,errors:[...errors].map(([key,message])=>({key,message}))})};
+  return {manifest,entries,ensure,get,ensureRecruitArt,request(key,options={}){if(!cache.has(key)&&!pending.has(key)&&!errors.has(key))ensure(key,options).catch(()=>{});},retry(key){errors.delete(key);return ensure(key);},pin(keys){pinned.clear();pinned.add(defaultRecruit);keys.filter(k=>entries[k]).forEach(k=>pinned.add(k));drawnLibrary?.pin?.([...pinned]);evict();},report:()=>({catalogue:Object.keys(entries).length,decoded:cache.size,decodedBytes,maxDecodedBytes,pinned:pinned.size,imageLoader:image.report?.()||null,drawn:drawnLibrary?.report(),pending:pending.size,errors:[...errors].map(([key,message])=>({key,message}))})};
  }
  return Object.freeze({version:'2.0-authored-frames',preferenceKey,defaultRecruit,recruits,hash,height,previewLayout,validate,clip,frame,draw,movement,createWalkMotion,selected,saveSelected,motionPreference,createLibrary});
 });

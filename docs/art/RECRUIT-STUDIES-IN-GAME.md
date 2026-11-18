@@ -1,10 +1,26 @@
-# Player recruit studies: what is in the game, and what is still needed
+# Player recruit artwork in the game
+
+## Full recruit sheets
+
+The five bodies in the table below now use the same artwork on the map, in rooms and
+in combat when drawn by the shared character renderer.
+
+- The runtime atlases in `dist/assets/recruit-art-v2/` contain nine body rows plus
+  a tenth truncheon row. The body and kit atlases share the same foot anchor.
+- The fitted breastplate, mail, jerkin, colour regions and alternate heads use
+  the corresponding pose on all ten rows. The stone troll has no coat or painted
+  helmet, trousers or boots to tint.
+- Original-sized review sheets are on `art/player-recruit-full-set` under
+  `art-review/player-recruit/v2/`. Runtime sheets are packed at half resolution
+  for mobile decoding.
+
+## Previous four-row study integration
 
 Added 18 November 2026 at the Creative Director's request. The source sheets are the art
 team's studies in `art-review/player-recruit/`. `tools/make-recruit-atlases.py` turns
 them into game atlases in `dist/assets/characters-drawn-v1/fresh/`.
 
-## What players see now
+### Bodies and first-pass coverage
 
 | Study | Game body | Who sees it |
 |---|---|---|
@@ -25,7 +41,7 @@ them into game atlases in `dist/assets/characters-drawn-v1/fresh/`.
   current atlas, so they don't fit the new frames.
 - **Portraits** are unchanged.
 
-## What the art team needs to supply to finish the job
+### Original follow-up brief
 
 In priority order:
 
@@ -51,7 +67,7 @@ In priority order:
    - If the study was meant to replace the silver-bearded dwarf, say so and it can be
      moved over.
 
-### Delivery format that drops straight in
+#### Review format
 
 - One sheet per body, 6 columns × 9 rows, in this row order: idle, walk, attack, guard,
   hit, shove, restrain, surrender, down.
@@ -60,7 +76,7 @@ In priority order:
   between rows. The build script corrects for this by placing each frame by its feet and
   the middle of its head. A registered sheet avoids that guesswork.
 
-## How it works in the code
+### Historical runtime path
 
 - **Build:** `python3 tools/make-recruit-atlases.py art-review/player-recruit dist` builds
   the five atlases.

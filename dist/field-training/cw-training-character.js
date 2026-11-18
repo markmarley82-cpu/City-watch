@@ -21,6 +21,7 @@
     await Promise.all([recruit, ...Object.values(identities)].map(key => key===recruit&&root.CWRacePlayer.current.supports(key)?root.CWRacePlayer.current.ensure(key):library.ensure(key)));
     const meta = root.CWRacePlayer.current.get(recruit)||library.get(recruit);
     await root.CWHeads.ensure(base);
+    await library.ensureRecruitArt(recruit,{clothing:true,head:true},true);
     if(!root.CWRacePlayer.current.supports(recruit))await root.CWClothing.ensure(meta, root.CWClothing.selected(recruit), root.CWHeads.selected(recruit), base);
     ready = true;
     const scene = root.document.getElementById?.('scene');
@@ -50,7 +51,7 @@
     if(actor.mentorId&&!meta){if(!loading.has(key)&&!failures.has(key)){const pending=root.CWDrawnCharacters.current.ensureAppearance(key,{}).then(()=>{assignedKey=key;root.document.dispatchEvent(new Event('cw:training-character-ready'));}).catch(e=>failures.set(key,String(e.message))).finally(()=>loading.delete(key));loading.set(key,pending);}return true;}
     if(!meta)return !!root.CWDrawnCharacters?.current?.entries?.[key];
     const rendered=C.draw(ctx, meta, {...pose, weapon:actor.weapon, actorId: 'battle:' + actor.id,
-      clothing: actor.id === 'officer', head: actor.id === 'officer'}, x, y, height(actor));if(actor.id==='officer'&&rendered?.drawn){root.CWWeaponArt?.draw(ctx,meta,{...pose,loaded:actor.loaded},x,y,height(actor),actor.weaponProfile);}if(actor.id==='officer'){const scene=root.document.getElementById('scene');scene.dataset.officerDrawn=String(!!rendered?.drawn);scene.dataset.officerWardrobe=String(!!rendered?.drawnWardrobe);scene.dataset.officerClip=rendered?.clip||pose.clip;}if(actor.mentorId){const scene=root.document.getElementById('scene');scene.dataset.partner=actor.mentorId;scene.dataset.partnerArt=key;scene.dataset.partnerDrawn=String(!!rendered?.drawn);scene.dataset.partnerClip=rendered?.clip||pose.clip;scene.dataset.partnerFrame=String(rendered?.index??'');scene.dataset.partnerEquipment=rendered?.equipment||'original';}return !!rendered || !!root.CWDrawnCharacters?.current?.entries?.[key]; // Respect drawn-first suppression while its image loads.
+      clothing: actor.id === 'officer', head: actor.id === 'officer'}, x, y, height(actor));if(actor.id==='officer'&&rendered?.drawn){root.CWWeaponArt?.draw(ctx,meta,{...pose,loaded:actor.loaded},x,y,height(actor),actor.weaponProfile);}if(actor.id==='officer'){const scene=root.document.getElementById('scene');scene.dataset.officerDrawn=String(!!rendered?.drawn);scene.dataset.officerWardrobe=String(!!rendered?.drawnWardrobe);scene.dataset.officerArt=rendered?.recruitArt||'';scene.dataset.officerClip=rendered?.clip||pose.clip;}if(actor.mentorId){const scene=root.document.getElementById('scene');scene.dataset.partner=actor.mentorId;scene.dataset.partnerArt=key;scene.dataset.partnerDrawn=String(!!rendered?.drawn);scene.dataset.partnerClip=rendered?.clip||pose.clip;scene.dataset.partnerFrame=String(rendered?.index??'');scene.dataset.partnerEquipment=rendered?.equipment||'original';}return !!rendered || !!root.CWDrawnCharacters?.current?.entries?.[key]; // Respect drawn-first suppression while its image loads.
   }
   function outcomes(before, after, command, result) {
     if (!result?.ok) return;
