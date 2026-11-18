@@ -97,10 +97,11 @@ These make what already exists reliable:
   Short landscape screens get a plain parchment sheet instead, because the 2:3 board
   would make the text too small. The other Night duty screens still use the older
   engine look.
-- Done: the art team's full recruit set is in the game for the default human, female and
-  dark-skinned recruits, the red-bearded dwarf and the stone troll: all nine moves and the
-  truncheon strike. Recruits wearing kit, or holding a sword or crossbow, keep the current
-  art until kit is drawn on the new frames. See `docs/art/RECRUIT-STUDIES-IN-GAME.md`.
+- Done: the art team's full recruit set is in the game (`dist/cw-recruit-art-v2.mjs`, the
+  team's integration): the default human, female and dark-skinned recruits, the red-bearded
+  dwarf and the stone troll, with all nine moves, the truncheon strike, armour, colours and
+  heads. Open points (resolution, sword and crossbow hand points, guild-interior rooms) are
+  in `docs/art/RECRUIT-STUDIES-IN-GAME.md`.
 - Done: the two bugs from the 17 November playtest. "Walk to current assignment" now
   heads for Carrot when Carrot has the assignment, and Carrot's case has a walk button.
 

@@ -1,11 +1,11 @@
 import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import './cw-action-rigs-data.js?v=p21-b407-s039-reuse';
-import './cw-character-runtime.js?v=p21-b498-appearance-recovery';
+import './cw-character-runtime.js?v=recruit-art-v2-r2';
 import './cw-clothing.js?v=p21-b407-s039-reuse';
 import {openCharacterStudio} from './character-studio.mjs?v=p21-b461-watch-ui';
 export async function createActorPainter({baseURL=new URL('./',import.meta.url),stepMS=115,canInterpolateDiagonal=()=>false,durationForStep=null}={}){
  const C=window.CWCharacters,library=await C.createLibrary({baseURL}),preference=C.motionPreference(),motion=new Map(),drawn=new Map(),retained=new Set();let playerKey=C.selected(),selectionToken=0;
- const racePlayer=window.CWRacePlayer.current;const playerEnsure=key=>racePlayer.supports(key)?racePlayer.ensure(key):library.ensure(key);const pin=()=>{library.pin([playerKey,...retained]);racePlayer.pin(playerKey);};pin();await Promise.all([...new Set([C.defaultRecruit,playerKey,'p3_named_colon_base'])].map(k=>k===playerKey?playerEnsure(k):library.ensure(k)));
+ const racePlayer=window.CWRacePlayer.current;const playerEnsure=async key=>{const [meta]=await Promise.all([racePlayer.supports(key)?racePlayer.ensure(key):library.ensure(key),library.ensureRecruitArt(key,{clothing:true,head:true},true)]);return meta;};const pin=()=>{library.pin([playerKey,...retained]);racePlayer.pin(playerKey);};pin();await Promise.all([...new Set([C.defaultRecruit,playerKey,'p3_named_colon_base'])].map(k=>k===playerKey?playerEnsure(k):library.ensure(k)));
  if(!racePlayer.supports(playerKey))await window.CWDrawnCharacters.current.ensureAppearance(playerKey,{clothing:true,head:true},baseURL);
  async function syncAppearance(){
   const token=++selectionToken,key=C.selected(),current=()=>token===selectionToken&&key===C.selected();
@@ -61,7 +61,7 @@ export async function createActorPainter({baseURL=new URL('./',import.meta.url),
   const q=project(p),walk=walks.get(id),travel=walk?{moving:directActors.has(id)?directActors.get(id):walk.report().queued>0,screenX:q.x}:{screenX:q.x},m=C.movement(motion.get(id),p,now,'world',travel);motion.set(id,m);
   const h=C.height(a,key),pose={actorId:id,weapon:id==='player'?'truncheon':undefined,clip:m.moving?'walk':'idle',elapsed:m.moving?now-m.walkStart:now+C.hash(id)%9000,facing:m.facing,reduced:preference.reduced,clothing:id==='player'};
   g.save();g.fillStyle='#15241d80';g.beginPath();g.ellipse(q.x,q.y,Math.max(5,h*.19),Math.max(2,h*.06),0,0,Math.PI*2);g.fill();const frame=C.draw(g,a,pose,q.x,q.y,h);if(id==='player'&&frame.drawn)window.CWWeaponArt?.draw(g,a,pose,q.x,q.y,h,window.CWP21Game?.weaponArtId);g.restore();if(id==='patrol-partner'){const scene=document.getElementById('city-scene');scene.dataset.partner=key;scene.dataset.partnerDrawn=String(!!frame.drawn);scene.dataset.partnerFrame=String(frame.index);scene.dataset.partnerClip=frame.clip;scene.dataset.partnerPosition=JSON.stringify(p);}
- drawn.set(id,{key,height:h,head:window.CWHeads?.selected(key)||'original',drawnWardrobe:!!frame.drawnWardrobe,equipment:frame.equipment,frame:frame.index,provenance:frame.drawn?'drawn-poses':'legacy-cosmetic',clip:frame.clip,facing:m.facing,position:p.slice(0,2)});return true;
+ drawn.set(id,{key,height:h,head:window.CWHeads?.selected(key)||'original',drawnWardrobe:!!frame.drawnWardrobe,equipment:frame.equipment,recruitArt:frame.recruitArt,frame:frame.index,provenance:frame.drawn?'drawn-poses':'legacy-cosmetic',clip:frame.clip,facing:m.facing,position:p.slice(0,2)});return true;
  }
  return {library,residentBounds,retain:keys=>{for(const key of keys)retained.add(key);pin();},register:(id,key)=>{streetKeys.set(id,key);library.request(key,{motionOnly:true});},draw,position,acceptMove,place,routeFrom,duration:id=>acceptedDurations.get(id),settle:(id,now=performance.now(),ms=50)=>walks.get(id)?.finishWithin?.(now,ms),get playerKey(){return playerKey;},get playerMeta(){return racePlayer.get(playerKey)||library.get(playerKey);},openStudio:()=>openCharacterStudio({library,onSelect:playerEnsure}),report:()=>({version:C.version,playerKey,reducedMotion:preference.reduced,cache:library.report(),clothing:window.CWClothing?.selected(playerKey),wardrobe:window.CWClothing?.report(),drawn:Object.fromEntries(drawn),motion:Object.fromEntries([...walks].map(([id,w])=>[id,w.report()]))})};
 }
