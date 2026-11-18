@@ -105,8 +105,9 @@ These make what already exists reliable:
   The title goes on the plaque, rank, pay and city time go on the three plates, and
   the night's choices go on the parchment, with the general pay notes below them.
   Short landscape screens get a plain parchment sheet instead, because the 2:3 board
-  would make the text too small. The other Night duty screens still use the older
-  engine look.
+  would make the text too small. The rest of a shift (incident choices, the Dimwell
+  beat, licence check, enquiries and the shift report) already uses the parchment
+  notebook dialog, checked by playing the Opera shift through on 18 November.
 - Done: the art team's full recruit set is in the game (`dist/cw-recruit-art-v2.mjs`, the
   team's integration): the default human, female and dark-skinned recruits, the red-bearded
   dwarf and the stone troll, with all nine moves, the truncheon strike, armour, colours and
