@@ -1,6 +1,6 @@
 import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import './cw-action-rigs-data.js?v=p21-b407-s039-reuse';
-import './cw-character-runtime.js?v=recruit-art-v2';
+import './cw-character-runtime.js?v=recruit-art-v2-r2';
 import './cw-clothing.js?v=p21-b407-s039-reuse';
 import {openCharacterStudio} from './character-studio.mjs?v=p21-b461-watch-ui';
 export async function createActorPainter({baseURL=new URL('./',import.meta.url),stepMS=115,canInterpolateDiagonal=()=>false,durationForStep=null}={}){

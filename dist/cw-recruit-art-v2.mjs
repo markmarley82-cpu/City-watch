@@ -25,7 +25,7 @@ function canvas(width, height) {
 }
 
 export async function openRecruitArt(baseURL, loadImage) {
-  const response = await fetch(new URL(directory + 'manifest.json', baseURL));
+  const response = await fetch(new URL(directory + 'manifest.json?v=2', baseURL));
   if (!response.ok) throw Error('Recruit art catalogue unavailable');
   const data = await response.json();
   return createRecruitArt(data, {baseURL, loadImage});
@@ -59,7 +59,7 @@ export function createRecruitArt(data, {
     const hit = touch(images, file);
     if (hit) return Promise.resolve(hit);
     if (pending.has(file)) return pending.get(file);
-    const request = loadImage(new URL(directory + file, baseURL).href).then(image => {
+    const request = loadImage(new URL(directory + file + '?v=2', baseURL).href).then(image => {
       if ((image.naturalWidth || image.width) !== cols * width ||
           (image.naturalHeight || image.height) !== rows * height) {
         throw Error('Recruit atlas has the wrong dimensions: ' + file);
@@ -234,5 +234,5 @@ export function createRecruitArt(data, {
 
   return {supports: id => Object.hasOwn(bodies, id), ensure, draw,
     report: () => ({bodies: Object.keys(bodies).length, decodedBytes: images.size * imageBytes,
-      pending: pending.size, compositions: compositions.size})};
+      pending: pending.size, compositions: compositions.size, retrying: [...failures.keys()]})};
 }
