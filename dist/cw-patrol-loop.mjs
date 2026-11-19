@@ -1,11 +1,23 @@
 import {FIRST_CASE_FIGHT,FIRST_CASE_ROUTE} from './cw-patrol-enquiries.mjs?v=opening-case-report';
 const CASES=[['The missing ledger',6],['Break-ins and the old crypt',6],['Assaults on patrol',4]];
+function bridgeObjective(c){
+ const has=id=>(c.evidence||[]).includes(id);
+ if(c.reopened)return 'The passage is open. Walk back to Watch Square and file your report (Duty → Resume bridge enquiry).';
+ if(c.choice==='observe')return 'You are watching the queue at Brass Bridge. Watch the collector, or reopen the passage. Duty → Resume bridge enquiry shows your options.';
+ if(has('notice'))return 'At Brass Bridge, decide: remove the notice now, or watch first.'+(has('tally')?'':' The dispatch clerk on Lower Broad Way is still a lead.')+' Duty → Resume bridge enquiry.';
+ if(has('tally'))return 'Next: inspect the closure notice at Brass Bridge. Duty → Resume bridge enquiry to walk there.';
+ return 'Two leads: the closure notice at Brass Bridge, or the dispatch clerk on Lower Broad Way. Duty → Resume bridge enquiry to walk to one.';
+}
 export function patrolView(record,context={},round=null){
  if(round&&!record.pending)return {...round,showProgress:true,round:true};
  // An open incident (e.g. a brawl left mid-turn) must not hide the active case: say what comes after it.
  if(round&&record.pending&&round.objective)return {...round,title:record.pending.chase?'Pursuit in progress':'Incident in progress',label:context.primaryLabel||round.label,objective:'Finish the incident first. Then: '+round.objective.charAt(0).toLowerCase()+round.objective.slice(1),showProgress:false,round:true};
  const s=record.state,c=Math.max(0,Math.min(2,Number(s.chapter)||0)),stage=Math.max(0,Number(s.stage)||0),[title,total]=CASES[c];
  const rounds=s.flags?.p21PatrolRounds;
+ // The Bridge pilot (cases/bridge-closure.mjs) while it is open: name its next step, not the between-shifts reminder.
+ const bridge=s.flags?.bridgeClosurePilot;
+ if(!record.pending&&bridge?.status==='active')
+  return {title:'The Bridge That Was Closed',done:0,total,label:context.primaryLabel||'Bridge enquiry',objective:bridgeObjective(bridge),showProgress:false,summary:true,round:false};
  if(!record.pending&&c===0&&stage===0&&Number(rounds?.paidShifts)>0)
   return {title:'Between shifts',done:0,total,label:context.primaryLabel||'Choose Night duty',
    objective:context.deliveryAvailable?'Captain Carrot has an assignment outside the Watch House. You can also choose another Night duty.':'Choose Night duty for another shift, or ask Colon about the next case.',

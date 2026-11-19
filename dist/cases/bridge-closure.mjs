@@ -77,7 +77,7 @@ export function apply(record,{id,mentor,position}){
   const next=JSON.parse(JSON.stringify(record)), flags=next.state.flags;
   if(id==='accept'){
     flags[FLAG]={status:'active',partner:mentor,choice:null,evidence:[],reopened:false};
-    return {next,message:'Inspect the bridge notice or ask the dispatch clerk first. Choose either lead in Duty.'};
+    return {next,message:'Two leads to start: the closure notice at Brass Bridge, or the dispatch clerk on Lower Broad Way. Tap a Walk to … button below. When you arrive, tap the button that appears on the street.'};
   }
   const c=flags[FLAG];
   if(id==='copy'){c.followup={observed:true,night:next.state.night};return {next,message:LEADS.copy};}

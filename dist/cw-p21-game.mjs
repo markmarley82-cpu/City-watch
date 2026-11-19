@@ -5,7 +5,7 @@ import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
 import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw6';
 import {canFollowNewspaperLead} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
-import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw4';
+import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw6';
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
 import {createArmoury} from './cw-armoury.mjs?v=p21-b429-patrol-kit';
 import {createCityPointLookup} from './city-point-lookup.mjs?v=p21-b407-s039-reuse';
@@ -179,6 +179,8 @@ function freePatrolNeedsDuty(record=state()){const s=record.state;return !record
 function carrotWaiting(record){const s=record.state,rounds=s.flags?.p21PatrolRounds;return !record.pending&&s.chapter===0&&s.stage===0&&Number(rounds?.paidShifts)>0&&!rounds?.active&&!!patrolDuty?.deliveryAvailable(record);}
 function assignmentAction(record,binding,contact=assignmentContact(record)){
  if(freePatrolNeedsDuty(record))return {kind:'patrol',label:'Choose night duty'};
+ // An open Bridge enquiry comes first: the shortcut opens its case screen (the leads and Walk buttons).
+ if(!binding&&!record.pending&&record.state.flags.bridgeClosurePilot?.status==='active'&&!record.state.flags.p21PatrolRounds?.active)return {kind:'bridge',label:'Bridge enquiry'};
  if(!binding&&carrotWaiting(record))return {kind:'carrot',label:patrolDuty?.deliveryContact(record)?'Talk to Captain Carrot':'Walk to Captain Carrot'};
  const destination=target(record);
  const destinationName=destination==='suspect:smuggler'?'Old Crypt':destination==='suspect:cutpurse-0'?'Market Hall':destination==='suspect:cutpurse-1'?'the Shades Tenement':destination.startsWith('npc:')?names[destination.slice(4)]:city.world.doors.get(destination)?.name;
@@ -186,7 +188,7 @@ function assignmentAction(record,binding,contact=assignmentContact(record)){
 }
 let lastCaseState=null;
 function dutyDeskAction(record=state(),assigned=assignmentContact(record),view=patrolDuty?.view(record)){return !record.pending&&(view?.firstCase||view?.incidentChoice||view?.dimwell||view?.action==='inspect'&&patrolDuty?.shiftDisturbance(record)||assigned?.id==='colon')&&['book','report'].includes(view?.action)?view:null;}
-function primaryAction(){const record=state(),action=assignmentAction(record,encounterBinding(record));if(action.kind==='carrot')return patrolDuty.goCarrot();if(action.kind==='patrol')return patrolDuty.menu();if(action.kind==='chase')return chaseMenu();if(action.kind==='battle')return battle();if(action.kind==='talk')return service('talk',action.id);if(action.kind==='room')return window.CWP21Game.room(city.nearDoor());return walkTo();}
+function primaryAction(){const record=state(),action=assignmentAction(record,encounterBinding(record));if(action.kind==='bridge')return openBridgeCase();if(action.kind==='carrot')return patrolDuty.goCarrot();if(action.kind==='patrol')return patrolDuty.menu();if(action.kind==='chase')return chaseMenu();if(action.kind==='battle')return battle();if(action.kind==='talk')return service('talk',action.id);if(action.kind==='room')return window.CWP21Game.room(city.nearDoor());return walkTo();}
 // One fresh record per HUD refresh. Interactions and saves still read storage separately.
 function refresh(){const v=state(),s=v.state;patrolDuty?.observeDimwell(v);patrolDuty?.observeDeliveryTail(v);syncDeliveryRunner(v);syncMarketActors(v);syncPurseActors(v);const filed=filedCase(lastCaseState,s);lastCaseState={chapter:s.chapter,merit:s.merit,coins:s.coins};if(filed)city.tell(filed);if(window.CWP21Game)window.CWP21Game.weaponArtId=window.CWWeapons.inventory(s).equipped;$('p21-health').textContent='Health '+s.hp+'/'+s.maxhp;$('p21-money').textContent=s.coins+(s.coins===1?' coin':' coins');const rank=window.CWP21State?.career(s);
  $('p21-merit').textContent=(rank?rank.name+' · ':'')+s.merit+' merit';
@@ -218,6 +220,7 @@ function walkToCurrentAssignment(){
  if(!record.pending&&duty&&!duty.firstCase&&patrolDuty.go())return true;
  // Between shifts with Carrot's assignment waiting (the objective names Carrot), walk to Carrot.
  // If something on screen makes goCarrot decline, still head for Carrot rather than the story target (Colon).
+ if(!record.pending&&!duty&&record.state.flags.bridgeClosurePilot?.status==='active'){openBridgeCase();return true;}
  if(!record.pending&&!duty&&carrotWaiting(record))return patrolDuty.goCarrot?.()||walkTo('npc:carrot');
  // Dimwell beat: walk to the same next stop the map marks.
  if(!record.pending&&duty?.dimwell&&!patrolBlocked()){const stop=patrolDuty.mapStop?.();if(stop?.position){city.stop();return city.nav(stop.position.slice(0,2),stop.position[2]);}}
@@ -405,7 +408,7 @@ async function openBridgeCase(){
  bridgeCaseLoading=true;
  try{
   if(!bridgeCaseHost){
-   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=2'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=3'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
    bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
     partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
     onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});
