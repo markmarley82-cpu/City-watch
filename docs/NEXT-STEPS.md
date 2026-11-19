@@ -131,6 +131,8 @@ These make what already exists reliable:
   so it faces the viewer more than the street. Brief: true 2:1 isometric, matching the
   street grid, with the front corner where the footprint's corner falls. The replacement must
   pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
+  The same check on all ten landmark buildings found five more off angle (Market Hall,
+  Archives, Lantern row, Crypt, Storehouse): see `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
 
 ## Housekeeping (Mark)
 
