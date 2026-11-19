@@ -119,8 +119,13 @@ These make what already exists reliable:
   19 November 2026 ("the artwork for the Mended Drum is bad"). The file is
   `dist/assets/landmark-exteriors-v1/drum.webp` (462 × 316, drawn at 2/3 size, map rect
   `[102,240,5,6]`, door point `[106,245]`). It is the stop for the carter lead in Carrot's
-  case, so players look at it closely. Ask Mark what he dislikes before briefing the
-  team. The replacement must pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
+  case, so players look at it closely. **The problem: it's too small.** It reads as a
+  cottage next to the neighbouring buildings and the 60 px characters, not as the city's
+  best-known tavern. Brief: a larger building with a bigger footprint on the map (the
+  current one covers 5 × 6 cells and is drawn 308 px wide), delivered at full size so it
+  isn't scaled down in the game. Moving to a bigger footprint also means moving the
+  door point and checking the neighbouring buildings and street. The replacement must
+  pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
 
 ## Housekeeping (Mark)
 
