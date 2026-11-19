@@ -133,6 +133,8 @@ These make what already exists reliable:
   pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
   The same check on all ten landmark buildings found five more off angle (Market Hall,
   Archives, Lantern row, Crypt, Storehouse): see `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
+  Done 19 November: all six re-angled in the game and the Drum drawn 25% larger
+  (`tools/reangle-landmarks.py`, same doc). A true redraw is still better if an artist joins.
 
 ## Housekeeping (Mark)
 

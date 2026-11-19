@@ -4,9 +4,33 @@ Mark rejected the Mended Drum for being too small and off angle, then asked for 
 same check on every landmark building. This covers the ten buildings in
 `dist/assets/landmark-exteriors-v1/`.
 
-![Each landmark with its map footprint in red](landmark-footprints.png)
+## Update, 19 November 2026: six buildings re-angled in the game
 
-In `landmark-footprints.png`, each building is shown at its file size. The red diamond is
+The art team has left, so instead of redraws the six off-angle buildings were corrected
+with `tools/reangle-landmarks.py`. It moves each column of the picture up or down (walls
+stay upright, nothing is repainted) so the base runs at 2:1 on both sides, with the front
+corner left where it was. The results are in `dist/assets/landmark-exteriors-v2/`, which
+the game now loads. The originals stay in `landmark-exteriors-v1/`.
+
+- Mended Drum, Market Hall, Crypt, Storehouse, Lantern row and Archives: base now 26–27°
+  on both sides (`tools/audit-landmark-angles.py`).
+- The Mended Drum is also drawn 25% larger (5/6 of its file size instead of 2/3, still a
+  reduction, so no blur). Its doors come out about 81 px tall next to 60 px characters.
+  Its space on the map is unchanged: walking and doors are as before.
+- The Archives changes the most. Its front used to face the viewer and now runs along the
+  street; keep an eye on whether Mark prefers it.
+- Roof lines bend slightly where a side was tilted a lot. A real redraw would still be
+  better, but these sit on the street grid.
+
+Before (left) and after (right), in the game:
+
+![Before and after in the game](reangled-in-game.jpg)
+
+## Original check
+
+![Each landmark with its map footprint in red](landmark-footprints-original.png)
+
+In `landmark-footprints-original.png` (and `landmark-footprints.png` for the current art), each building is shown at its file size. The red diamond is
 its footprint on the map, drawn at the game's true 2:1 isometric angle: ground lines rise
 1 pixel for every 2 across (26.6°), from the foot point the game stands the building on.
 A building that fits the map sits on its diamond, with its walls running along the red lines.
@@ -57,4 +81,5 @@ Priority: Mended Drum, Market Hall, Archives, Lantern row, then Crypt and Storeh
 4. Keep the current look (brick, timber, signs, lamps). These redraws are about angle,
    footprint and size, not style.
 
-Rerun the measurement with `tools/audit-landmark-angles.py` once new art arrives.
+Rerun the measurement with `tools/audit-landmark-angles.py` (current art) or
+`tools/audit-landmark-angles.py dist/assets/landmark-exteriors-v1/` (the originals).
