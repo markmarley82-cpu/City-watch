@@ -1,0 +1,84 @@
+{
+  "status": "night lighting candidates for Mark review",
+  "method": "Image-generator lighting studies, transferred as a smoothed per-channel illumination field onto original approved pixels.",
+  "records": [
+    {
+      "name": "drum",
+      "source": "../drum.webp",
+      "night": "drum-night.webp",
+      "dimensions": [
+        1341,
+        1322
+      ],
+      "sourceSHA256": "6f5d0e76bc932098d1c48d1e8c398ef831c0c2d3898f9eb26defac653e9937f5",
+      "nightSHA256": "df2c4faac54306e7fc830e4bc7edaf12ecf09abb73286203b15657f6dda5981e",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    },
+    {
+      "name": "archives",
+      "source": "../archives.webp",
+      "night": "archives-night.webp",
+      "dimensions": [
+        1341,
+        1298
+      ],
+      "sourceSHA256": "77d2f804e299b9d2bc332c19efb5c1ce7f262c9a5321edc80824d1bd92f3e1e2",
+      "nightSHA256": "9ab3c248c49b663f0cfe2e469e949d70ad9640e8982dc0cdf1144e79426760cf",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    },
+    {
+      "name": "market",
+      "source": "../market.webp",
+      "night": "market-night.webp",
+      "dimensions": [
+        1341,
+        1227
+      ],
+      "sourceSHA256": "c9155dd0975b0340aab48d877df7d81cf3b44fd4a22851fb2d31a0b0ade25cbb",
+      "nightSHA256": "95f020cb0567bd7db55916c99f0ecc65073e9bcb4183b11a312452ec7f99d77f",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    },
+    {
+      "name": "lantern",
+      "source": "../lantern.webp",
+      "night": "lantern-night.webp",
+      "dimensions": [
+        1341,
+        1248
+      ],
+      "sourceSHA256": "0480083540717054a25789b21dc939bb35cac67152c05c74579e1c4ae26a0d87",
+      "nightSHA256": "cccc960c741fbdc2be78e97a5d996b8bb426483a1f0de50e89d247bf31d53d58",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    },
+    {
+      "name": "crypt",
+      "source": "../crypt.webp",
+      "night": "crypt-night.webp",
+      "dimensions": [
+        1317,
+        1194
+      ],
+      "sourceSHA256": "f95d11940625c0b4033cd7cebe9922d560b4ca6e43368fe70ce07a077b89ba78",
+      "nightSHA256": "aea70d789309c6cc0018ad5c73c2fdc5e950550c81e05d5832271d3191989d76",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    },
+    {
+      "name": "store",
+      "source": "../store.webp",
+      "night": "store-night.webp",
+      "dimensions": [
+        1341,
+        1315
+      ],
+      "sourceSHA256": "064d86305b9462a0232a35a178e5e4d2ea65ab123f113ebbfbf3852a9d1715a4",
+      "nightSHA256": "b5251f98cbe2cd43277dc49fa5915287006ec3eaec199ef0928189483010cd07",
+      "alphaIdentical": true,
+      "registration": "Use the same anchor and rendered scale as the approved source."
+    }
+  ]
+}
