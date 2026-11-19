@@ -149,7 +149,10 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   if(!deliveryMapped||!atCarrot())return false;
   const ok=save((d,r)=>{
    if(d.active||!deliveryAvailable(r))return false;
-   if(deliveryPoints.some(p=>findPath(carrot,p)===null||findPath(p,carrot)===null)){
+   // Each lead must be a real street position. The routes themselves are not searched here: eight
+   // full route searches froze the game for 12 s on a desktop (longer on a phone) when the case
+   // was accepted, and every Walk to … button searches its own route when tapped.
+   if(deliveryPoints.some(p=>!point(p))){
     city.tell('A lead is cut off on the current map. Speak to Carrot again when the route opens.');return false;
    }
    d.active={routeId:DELIVERY,name:DELIVERY_TITLE,startedAt:now(),evidence:[],observations:[],outcome:null};
