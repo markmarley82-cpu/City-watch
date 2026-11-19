@@ -11,7 +11,8 @@ Bridge, with Times and Inquirer follow-ups.
 ## Setup (for the person running the test)
 
 - Give each tester this link, on **desktop** or an **iPhone** (Safari):
-  **https://markmarley82-cpu.github.io/City-watch/?playtest=bridge**
+  **https://markmarley82-cpu.github.io/City-watch/playtest/bridge.html** (tap Start the playtest;
+  the older link `…/City-watch/?playtest=bridge` also works once the browser has the current game)
   It asks once, then starts from a prepared save: the purse case filed, 17 merit,
   full health, in Watch Square, the Bridge case not yet played. It replaces any
   City Watch progress in that browser, so testers should use a browser they don't
