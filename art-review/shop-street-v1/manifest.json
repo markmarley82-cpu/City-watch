@@ -1,0 +1,228 @@
+{
+  "id": "SHOP-STREET-ART-v1",
+  "status": "candidate",
+  "baseCommit": "fd76ccb21b2fbaefca816703288a764da2479d34",
+  "drawScale": 0.5,
+  "buildings": [
+    {
+      "name": "cobbler",
+      "localPlot": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "nativeSize": [
+        510,
+        620
+      ],
+      "nativeAnchor": [
+        227,
+        617
+      ],
+      "doorHeight": 69.84542101962802
+    },
+    {
+      "name": "pawnbroker",
+      "localPlot": [
+        4,
+        4,
+        3,
+        4
+      ],
+      "nativeSize": [
+        398,
+        581
+      ],
+      "nativeAnchor": [
+        171,
+        578
+      ],
+      "doorHeight": 70.05463000090452
+    },
+    {
+      "name": "curry-house",
+      "localPlot": [
+        7,
+        3,
+        4,
+        5
+      ],
+      "nativeSize": [
+        510,
+        671
+      ],
+      "nativeAnchor": [
+        227,
+        668
+      ],
+      "doorHeight": 70.15068428602581
+    },
+    {
+      "name": "lodging",
+      "localPlot": [
+        11,
+        2,
+        6,
+        6
+      ],
+      "nativeSize": [
+        678,
+        822
+      ],
+      "nativeAnchor": [
+        339,
+        819
+      ],
+      "doorHeight": 69.81174805554383
+    }
+  ],
+  "files": [
+    {
+      "file": "cobbler-day.webp",
+      "bytes": 165122,
+      "sha256": "e2b6941317d3463738f0fa725957c4888aa091e33553f652efcf1bbdf66d8cdf"
+    },
+    {
+      "file": "cobbler-emission.webp",
+      "bytes": 2086,
+      "sha256": "8388afaa50f98d978930594f78ec3b859e981f8e20f3892bed2b8ca9045559b7"
+    },
+    {
+      "file": "cobbler-night.webp",
+      "bytes": 149532,
+      "sha256": "e7263d6b75a2b670cd05e93685ffbae796aa0f467e29b796ab9aa2d4802b0b39"
+    },
+    {
+      "file": "cobbler-roof.webp",
+      "bytes": 38946,
+      "sha256": "5cf1b7915788e76898d6ce7d55630ce2f135c75fe7fd9510946f1deacd249902"
+    },
+    {
+      "file": "cobbler-walls-night.webp",
+      "bytes": 112996,
+      "sha256": "2555c1c24ed147a7b1d5cbeae46455f6c95dbf6aebfe2818edb206e61a2b1b66"
+    },
+    {
+      "file": "cobbler-walls.webp",
+      "bytes": 123274,
+      "sha256": "8a0a5689789850dadfe3bc3780fdfb3aaee1fd02f0ad6c18ce16cb4cfa89c6b5"
+    },
+    {
+      "file": "contact-shadows.webp",
+      "bytes": 6130,
+      "sha256": "fbe525bce726725e25544910d0d49860fe97e65370ad2a8b00bc398b9766b65c"
+    },
+    {
+      "file": "curry-house-day.webp",
+      "bytes": 176034,
+      "sha256": "e67fb256c81734599efc6ae72518196534f24dbd81e25828ee995ea15f6e7f2e"
+    },
+    {
+      "file": "curry-house-emission.webp",
+      "bytes": 4892,
+      "sha256": "e693fba00027727312209511b02764a22e551e2a7d9824b84a4fe766215771a7"
+    },
+    {
+      "file": "curry-house-night.webp",
+      "bytes": 156044,
+      "sha256": "72b01be0329d000f9971b97ac5b83420204435c1e7a70f4d4097184b7b5cdde0"
+    },
+    {
+      "file": "curry-house-roof.webp",
+      "bytes": 41576,
+      "sha256": "a796de6cc39c1282f0ddb95de7dd0bf3bdbf5eac301e73b9dbf26261f3494a34"
+    },
+    {
+      "file": "curry-house-walls-night.webp",
+      "bytes": 118826,
+      "sha256": "d8eb7f757c8e4408ef1e1071a4409a1a9913462ce3e1711ca0e0d70e83b79cd7"
+    },
+    {
+      "file": "curry-house-walls.webp",
+      "bytes": 130666,
+      "sha256": "75f1a9f58956637469674a5aebb82df4120aa8f16ac5fdf1567e9a64e4b37a97"
+    },
+    {
+      "file": "lodging-day.webp",
+      "bytes": 260072,
+      "sha256": "aa5e043b6e211b9dab6a586002cbc2f11970f34b22a95bf5e02894f80a9e50a6"
+    },
+    {
+      "file": "lodging-emission.webp",
+      "bytes": 3326,
+      "sha256": "fbd9875ace4a3dbf11485960385d04630a0247970d33b5e686bbd8f7d10c2501"
+    },
+    {
+      "file": "lodging-night.webp",
+      "bytes": 235568,
+      "sha256": "4fd62cbe4885682e9ddda503eeaeb42a7c7494184e4f67c4e0af4e7c0e0a7b12"
+    },
+    {
+      "file": "lodging-roof.webp",
+      "bytes": 61760,
+      "sha256": "6febe3ae6a422f39c0064b8f582de33926e816e2c7e9ade9cbe91d029555c97a"
+    },
+    {
+      "file": "lodging-walls-night.webp",
+      "bytes": 176558,
+      "sha256": "8c0c1b3ccda49a75daa7b798f3c02cdf8016d51d75700a7be6c6d0782a9bd953"
+    },
+    {
+      "file": "lodging-walls.webp",
+      "bytes": 197764,
+      "sha256": "94ea282501a9d12312d875225d01bca63249381290fe0a57015c2c3618e49c5d"
+    },
+    {
+      "file": "pawnbroker-day.webp",
+      "bytes": 127148,
+      "sha256": "f96ed381f172f231e732359fb29b0ef85285140388f1aa473e2c48fa307add08"
+    },
+    {
+      "file": "pawnbroker-emission.webp",
+      "bytes": 2280,
+      "sha256": "86756ae51491800dbafeda0fe4a815cd0785015669687b3b70c35e43e1259b9d"
+    },
+    {
+      "file": "pawnbroker-night.webp",
+      "bytes": 115176,
+      "sha256": "7ce09deb62670ab713c0823247c3cabeed67cfb659a38f8e4985d4e379318b37"
+    },
+    {
+      "file": "pawnbroker-roof.webp",
+      "bytes": 25724,
+      "sha256": "bd20ded5b29a4e5cf735190028d8c9ef52fff88b57997bcaa7fd58845ed53233"
+    },
+    {
+      "file": "pawnbroker-walls-night.webp",
+      "bytes": 92654,
+      "sha256": "b3bef87983ebde52ae5e2ca19fd1564883c5850abce634089d6fe92df8ef945a"
+    },
+    {
+      "file": "pawnbroker-walls.webp",
+      "bytes": 98094,
+      "sha256": "1d1bd94f600d6cdfb1f5bbe95dcf065b1939545379dfc7629f350943f2d0f37b"
+    },
+    {
+      "file": "shared-paving-day.webp",
+      "bytes": 108274,
+      "sha256": "506208e1c44afc2e169435649996399928bd11c208226ce2d76c2525f34dbb34"
+    },
+    {
+      "file": "shared-paving-night.webp",
+      "bytes": 85978,
+      "sha256": "773dc7f246fbb1340d37782e2489adc9342cc0a876187c26de8ad15e53a06808"
+    },
+    {
+      "file": "street-day-review.jpg",
+      "bytes": 158253,
+      "sha256": "4f1487d27f1dfbed3d54874ac9d77e24041b1654a407faa797fe9adadace5115"
+    },
+    {
+      "file": "street-night-review.jpg",
+      "bytes": 139618,
+      "sha256": "a09304ec42c02ba94b12fe050fd95dd1adaf30bf31fc03ea12432f1e52e597b9"
+    }
+  ],
+  "characterReferencePixels": 60
+}
