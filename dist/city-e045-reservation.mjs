@@ -47,7 +47,21 @@ export function createReservation(contract){
  function segmentClear(a,b){if(!finite(a)||!finite(b))return false;return offsets.every(v=>{const p=probe(a,v),q=probe(b,v);if(Math.max(p[0],q[0])<union[0]||Math.min(p[0],q[0])>union[2]||Math.max(p[1],q[1])<union[1]||Math.min(p[1],q[1])>union[3])return true;return !areas.some(r=>hit(p,q,r));});}
  function gates({basePointClear,baseSegmentClear}){
   if(typeof basePointClear!=='function'||typeof baseSegmentClear!=='function')throw Error('Preserved base point/segment gates are required');
-  const point=p=>basePointClear(p)&&pointClear(p),foot=p=>finite(p)&&offsets.every(v=>point(probe(p,v)));
+  // Each reservation layer wraps the previous ones, so one foot test runs the whole chain of point
+  // gates, and a route search tests the same cell's foot for every step in and out of it: about
+  // 70% of a cross-city route search (1.4 s on a desktop) was spent here. Remember the answer per
+  // whole-number cell and edge. The memory empties every two seconds, so a gate that changes is
+  // seen again almost at once.
+  const point=p=>basePointClear(p)&&pointClear(p),footNow=p=>finite(p)&&offsets.every(v=>point(probe(p,v)));
+  const feet=new Map();let feetAt=-Infinity,calls=0;
+  const foot=p=>{
+   const x=p?.[0],y=p?.[1];
+   if(!Number.isInteger(x)||!Number.isInteger(y)||x<-4096||x>=4096||y<-4096||y>=4096||p.length!==3)return footNow(p);
+   if((++calls&63)===1){const now=performance.now();if(now-feetAt>2000){feet.clear();feetAt=now;}}
+   let byEdge=feet.get(p[2]);if(!byEdge){byEdge=new Map();feet.set(p[2],byEdge);}
+   const k=(x+4096)*8192+(y+4096);let okay=byEdge.get(k);
+   if(okay===undefined){okay=footNow(p);byEdge.set(k,okay);}return okay;
+  };
   return Object.freeze({pointClear:point,canStand:foot,canTraverse:(a,b)=>baseSegmentClear(a,b)&&foot(a)&&foot(b)&&segmentClear(a,b)});
  }
  function membershipPlan(members,originalMembers){

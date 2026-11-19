@@ -21,7 +21,7 @@ export function streetTapTargets(world,point,{zoom=1,radius=18,start}={}){
 // The city graph is fixed after boot; a new topology identity invalidates work.
 // captureOccupied must return the existing occupancy predicate over a detached
 // snapshot. Movement still checks live occupancy before every accepted step.
-export function createTapRoutePlanner({world,position,blocked,captureOccupied,onRoute,onFailure,onError,onCancel=()=>{},schedule=fn=>setTimeout(fn,0),unschedule=id=>clearTimeout(id),maxPops=16}){
+export function createTapRoutePlanner({world,position,blocked,captureOccupied,onRoute,onFailure,onError,onCancel=()=>{},schedule=fn=>setTimeout(fn,0),unschedule=id=>clearTimeout(id),maxPops=16,budgetMS=8,now=()=>performance.now()}){
  let generation=0,active=null,timer=null;
  const identity=()=>[world.members,world.edges,world.neighbours,world.canTraverse,world.members.size,world.edges.size];
  const same=(a,b)=>a.length===b.length&&a.every((x,i)=>x===b[i]);
@@ -35,7 +35,9 @@ export function createTapRoutePlanner({world,position,blocked,captureOccupied,on
   try{
    if(!current(request)){discard(request);return;}
    if(!request.search){const target=request.targets[request.index];if(!target){finish(request,null);return;}request.search=createStreetSearch(world,request.start,target.position,target.edge,{occupied:request.occupied});}
-   const result=request.search.advance(maxPops);
+   // Search for up to budgetMS per tick. 16 pops per tick alone took about 12 s for a cross-city
+   // route, because browsers space chained zero-delay timers about 4 ms apart.
+   const until=now()+budgetMS;let result;do result=request.search.advance(maxPops);while(result.status==='pending'&&now()<until);
    if(!current(request)){discard(request);return;}
    if(result.status==='pending'){queue(request);return;}
    if(result.status==='complete'&&result.path!==null){finish(request,result.path);return;}

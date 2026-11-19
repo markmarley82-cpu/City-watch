@@ -1,7 +1,7 @@
 // Eight original unnamed premises fitted to Atlas's current-source Hide Park north block.
 // The plan supplies placement only; this module owns collision, services and save recovery.
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 import {streetPath,streetReachable,streetReaches} from './city-movement.mjs?v=p21-b407-s039-reuse-reach2';
 
 const key=p=>p.slice(0,2).join(','),clone=v=>JSON.parse(JSON.stringify(v));

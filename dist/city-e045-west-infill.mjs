@@ -1,6 +1,6 @@
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
-import {recoverHidePark} from './city-hide-park.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
+import {recoverHidePark} from './city-hide-park.mjs?v=memo-1';
 const ID='E045-INFILL-003',BASE='assets/e045-infill-003/',active=new WeakSet();
 const finite=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFinite)&&p[2]==='E045';
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);

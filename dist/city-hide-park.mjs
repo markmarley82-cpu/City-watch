@@ -1,7 +1,7 @@
 import {GroundPainter} from './city-ground.mjs?v=p21-b407-s039-reuse';
 import {pointIn} from './city-core.mjs?v=p21-b407-s039-reuse';
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 
 // Original Mate source paintings, registered to the approved Atlas polygon.
 // Ground chunks stream through the same bounded cache as the city streets.

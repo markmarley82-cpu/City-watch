@@ -1,6 +1,6 @@
-import {installRoyalBankAndMint} from './city-royal-bank.mjs?v=b506';
-import {installPostOffice} from './city-post-office.mjs?v=b504';
-import {stageTreacleFrontage,revealTreacleFootway,drawTreacleApproachLabels} from './city-treacle-frontage.mjs?v=p21-b533-treacle-spur';
+import {installRoyalBankAndMint} from './city-royal-bank.mjs?v=memo-1';
+import {installPostOffice} from './city-post-office.mjs?v=memo-1';
+import {stageTreacleFrontage,revealTreacleFootway,drawTreacleApproachLabels} from './city-treacle-frontage.mjs?v=memo-1';
 import {createE025Receiver,recoverE025Patrol} from './city-section-e025-receiver.mjs';
 import {createSmallGodsFrontage,recoverSmallGodsPatrol} from './city-section-small-gods.mjs';
 import {createSectionS041Reuse} from './city-section-s041-reuse.mjs?v=p21-b450-s041';
@@ -47,7 +47,7 @@ import {createMate481S002,applyS002GroundReveal} from './city-mate-481-s002.mjs?
 import {createMate481S003,applyS003GroundReveal} from './city-mate-481-s003.mjs?v=p21-b519-street-streaming';
 import {createAnkhNorthHouses} from './city-ankh-north-houses.mjs?v=p21-b407-s039-reuse';
 import {createDocksideHouses} from './city-dockside-houses.mjs?v=p21-b407-s039-reuse';
-import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=p21-b407-s039-reuse';
+import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=memo-1';
 import {createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
 import {createCityFortifications} from './city-fortifications.mjs?v=p21-b407-s039-reuse';
 import {placeActionPrompt} from './city-action-prompt.mjs?v=p21-b407-s039-reuse';
@@ -56,17 +56,17 @@ import {applyPalaceApproachGround} from './city-palace-approach-ground.mjs?v=p21
 import {createN568Layered,applyN568DoorReveal,applyE045GroundReveal} from './city-e045-n568.mjs?v=p21-b478-e045-court-turn';
 import {createS569Layered} from './city-e045-s569.mjs?v=p21-b474-e045-timber-light';
 import {e045ContactAnchorRequests,e045WorkroomAnchorRequests} from './city-e045-contact-anchors.mjs?v=p21-b407-s039-reuse';
-import {createHidePark,activateParkProps,recoverHidePark} from './city-hide-park.mjs?v=p21-b407-s039-reuse';
+import {createHidePark,activateParkProps,recoverHidePark} from './city-hide-park.mjs?v=memo-1';
 import {compileAtlasStreetsForStartup,createAtlasStreetSurface} from './city-atlas-streets.mjs?v=p21-b525-neighbourhood';
-import {createE045PairReceiver,activateE045Pair,applyE045PairGroundReveal} from './city-e045-pair.mjs?v=p21-b407-s039-reuse';
-import {createE046P03Receiver,activateE046P03} from './city-e046-p03.mjs?v=p21-b407-s039-reuse';
-import {createE046P04P05Receiver,activateE046P04P05} from './city-e046-p04-p05.mjs?v=p21-b407-s039-reuse';
+import {createE045PairReceiver,activateE045Pair,applyE045PairGroundReveal} from './city-e045-pair.mjs?v=memo-1';
+import {createE046P03Receiver,activateE046P03} from './city-e046-p03.mjs?v=memo-1';
+import {createE046P04P05Receiver,activateE046P04P05} from './city-e046-p04-p05.mjs?v=memo-1';
 import {actorDepthRelation,constrainE045PairOrder} from './city-e045-pair-depth.mjs?v=p21-b407-s039-reuse';
 import {createE045PairGround} from './city-e045-pair-ground.mjs?v=p21-b407-s039-reuse';
-import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-workshop.mjs?v=p21-b407-s039-reuse';
-import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=p21-b473-dock-workshop';
-import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=p21-b407-s039-reuse';
-import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=p21-b407-s039-reuse-cache1';
+import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-workshop.mjs?v=memo-1';
+import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=memo-1';
+import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=memo-1';
+import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=memo-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
 import {approachRoofCutawayMask,walkingCutawayMask,walkingGroundSamples,e045PavingSweep} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
@@ -105,7 +105,7 @@ import {createFreeWalk,footProbeOffsets,palacePassageDrag} from './city-free-wal
 import {createAlphaCache} from './city-alpha-cache.mjs?v=p21-b410-mobile-crowd';
 import {bindMapPointer} from './city-pointer.mjs?v=p21-pointer-release-guard';
 import {createStreetStepper,walkDuration,streetPath,acceptStreetStep,streetTapPath,streetTapCellConnected,nextWalkTick} from './city-movement.mjs?v=p21-b444-tap-route-start';
-import {createTapRoutePlanner} from './city-tap-search.mjs?v=p21-b444-tap-route-start';
+import {createTapRoutePlanner} from './city-tap-search.mjs?v=budget-1';
 import {createPalacePrecinct} from './palace-precinct.mjs?v=p21-b407-s039-reuse';
 import {createPalaceApproach} from './city-palace-approach.mjs?v=1';
 import {mountDwarfMapCulture} from './dwarf-map-culture.mjs?v=p21-b407-s039-reuse';
@@ -512,15 +512,19 @@ const streetOccupied=s=>key(s.slice(0,2))===key(npc.slice(0,2))||!!window.CWCity
 // Carts, Colon and passers-by are moving obstacles. A route search that treats them as walls fails
 // whenever one stands in a narrow lane (the docks, a bridge), so a walk the player chose falls back to
 // the route past them and the walker waits for the way to clear (holdForPassing) before re-planning.
-let routeBlocked=null;
+let routeBlocked=null,routePursuit=false;
 function streetPathPast(p,e){return streetPath(world,player,p,e,{occupied:streetOccupied})||streetPath(world,player,p,e);}
-function holdForPassing(now){const at=key(player.slice(0,2));if(routeBlocked?.at!==at)routeBlocked={at,since:now,replans:0};if(now-routeBlocked.since<2500)return true;routeBlocked.since=now;if(++routeBlocked.replans>4){route=[];tapRouteGoal=null;tapRouteMeta=null;tell('The way is blocked. Choose another open point.');return true;}const goal=route.at(-1);route=streetPathPast(goal.slice(0,2),goal[2])||route;return true;}
-function nav(p,e,options={}){const startFoot=freeWalk.foot();stopMapTravel({keepTracking:!!options.pursuit});if(!options.pursuit)window.CWP21Game?.cancelPursuitTracking?.();const r=options.tapPoint?streetTapPath(world,player,options.tapPoint,{zoom:options.tapZoom??zoom,occupied:streetOccupied}):streetPathPast(p,e);if(r===null){blocked++;tell(!world.members.has(key(p))&&!world.wet(p)&&!world.solid.has(key(p))?'You cannot walk on that ground yet. Choose a path, courtyard or open verge.':'No open route reaches that point. Walls, water and closed gates block the way.');update();return false;}if(r.length&&startFoot){characterPainter.routeFrom(player,startFoot,'player',performance.now());freeWalk.clear();}route=r;routeBlocked=null;routeNotice=!options.quiet&&!options.pursuit;lastMove=-Infinity;routeStepMS=WALK_STEP_MS;follow=true;if(!options.quiet)tell(r.length?'Walking to the selected point. Drag anywhere to take control.':'You are at the approach.');update();return true;}
+function holdForPassing(now){if(routePursuit)return false;const at=key(player.slice(0,2));if(routeBlocked?.at!==at)routeBlocked={at,since:now,replans:0};if(now-routeBlocked.since<2500)return true;routeBlocked.since=now;if(++routeBlocked.replans>4){route=[];tapRouteGoal=null;tapRouteMeta=null;tell('The way is blocked. Choose another open point.');return true;}return false;}
+function nav(p,e,options={}){const startFoot=freeWalk.foot();stopMapTravel({keepTracking:!!options.pursuit});if(!options.pursuit)window.CWP21Game?.cancelPursuitTracking?.();// Walks chosen from menus and buttons are planned in the background like map taps: the full
+// search took 1.3 s on a desktop (several on a phone) and froze the game. Pursuits keep the
+// immediate search (short routes, re-planned every few steps).
+if(!options.pursuit&&!options.tapPoint&&!options.immediate){route=[];routePursuit=false;if(tapRoute(p,e,{quiet:!!options.quiet,keepMessage:true,pendingMessage:options.quiet?undefined:'Walking to the selected point. Drag anywhere to take control.'}))return true;}
+const r=options.tapPoint?streetTapPath(world,player,options.tapPoint,{zoom:options.tapZoom??zoom,occupied:streetOccupied}):streetPathPast(p,e);if(r===null){blocked++;tell(!world.members.has(key(p))&&!world.wet(p)&&!world.solid.has(key(p))?'You cannot walk on that ground yet. Choose a path, courtyard or open verge.':'No open route reaches that point. Walls, water and closed gates block the way.');update();return false;}if(r.length&&startFoot){characterPainter.routeFrom(player,startFoot,'player',performance.now());freeWalk.clear();}route=r;routeBlocked=null;routePursuit=!!options.pursuit;routeNotice=!options.quiet&&!options.pursuit;lastMove=-Infinity;routeStepMS=WALK_STEP_MS;follow=true;if(!options.quiet)tell(r.length?'Walking to the selected point. Drag anywhere to take control.':'You are at the approach.');update();return true;}
 const streetStepper=createStreetStepper(world,{stepMS:WALK_STEP_MS,screenSpeed:true,occupied:streetOccupied});
 function tapRoute(p,e,options={}){
  if(document.hidden||blockedModal())return false;
  const startFoot=freeWalk.foot();stopMapTravel();
- return tapPlanner.start({target:p,edge:e,tapPoint:options.tapPoint,zoom:options.tapZoom??zoom,meta:{point:p.slice(0,2),startFoot,quiet:!!options.quiet,notice:options.notice??!options.quiet,arrivalMessage:options.arrivalMessage,failureMessage:options.failureMessage,errorMessage:options.errorMessage}})&&(follow=true,!options.quiet&&tell(options.pendingMessage||'Planning a route. Drag anywhere to take control.'),update(),true);
+ return tapPlanner.start({target:p,edge:e,tapPoint:options.tapPoint,zoom:options.tapZoom??zoom,meta:{point:p.slice(0,2),startFoot,quiet:!!options.quiet,notice:options.notice??!options.quiet,arrivalMessage:options.arrivalMessage,failureMessage:options.failureMessage,errorMessage:options.errorMessage,keepMessage:!!options.keepMessage}})&&(follow=true,!options.quiet&&tell(options.pendingMessage||'Planning a route. Drag anywhere to take control.'),update(),true);
 }
 function serviceRoute(p,e,name='this shop'){
  return tapRoute(p,e,{pendingMessage:'Finding a route to '+name+'. Drag anywhere to take control.',arrivalMessage:'Walking to '+name+'. Drag anywhere to take control.',failureMessage:'No open route reaches '+name+'. Walls, water and closed gates block the way.',errorMessage:'The route to '+name+' could not finish. Choose another shop or walk manually.'});
@@ -871,7 +875,7 @@ let viewDragVector=[0,0];
 let viewDragSector=null;
 startupMark('recovery-end');
 const freeWalk=createFreeWalk(world,{steer:palacePassageAnchors.length?palacePassageDrag:undefined,clearPoint:openGround.clearPoint,stepMS:WALK_STEP_MS,screenSpeed:true,maxFrameDeltaMs:CWLocomotion.profile.maxDeltaMS,occupied:streetOccupied,onCell:p=>{player=p;manualHUDDirty=true;},onStep:n=>{steps+=n;manualHUDDirty=true;}});
-tapPlanner=createTapRoutePlanner({world,position:()=>player,blocked:()=>document.hidden||blockedModal(),captureOccupied:()=>{const cell=key(npc.slice(0,2));return p=>key(p.slice(0,2))===cell;},onRoute:(path,meta)=>{if(path.length&&meta.startFoot){characterPainter.routeFrom(player,meta.startFoot,'player',performance.now());freeWalk.clear();}route=path;tapRouteGoal=path.at(-1)?.slice()||null;tapRouteMeta=meta;routeNotice=meta.notice;lastMove=-Infinity;routeStepMS=WALK_STEP_MS;follow=true;if(!meta.quiet)tell(path.length?meta.arrivalMessage||'Walking to the selected point. Drag anywhere to take control.':'You are at the approach.');update();},onCancel:()=>update(),onFailure:meta=>{blocked++;tapRouteGoal=null;tapRouteMeta=null;tell(meta.failureMessage||(!world.members.has(key(meta.point))&&!world.wet(meta.point)&&!world.solid.has(key(meta.point))?'You cannot walk on that ground yet. Choose a path, courtyard or open verge.':'No open route reaches that point. Walls, water and closed gates block the way.'));update();},onError:(error,meta)=>{tapRouteGoal=null;tapRouteMeta=null;console.warn('Tap route search did not finish',error);tell(meta?.errorMessage||'The route could not finish. Tap another open point.');update();}});
+tapPlanner=createTapRoutePlanner({world,position:()=>player,blocked:()=>document.hidden||blockedModal(),captureOccupied:()=>{const cell=key(npc.slice(0,2));return p=>key(p.slice(0,2))===cell;},onRoute:(path,meta)=>{routePursuit=false;if(path.length&&meta.startFoot){characterPainter.routeFrom(player,meta.startFoot,'player',performance.now());freeWalk.clear();}route=path;tapRouteGoal=path.at(-1)?.slice()||null;tapRouteMeta=meta;routeNotice=meta.notice;lastMove=-Infinity;routeStepMS=WALK_STEP_MS;follow=true;if(!meta.quiet&&!(meta.keepMessage&&path.length))tell(path.length?meta.arrivalMessage||'Walking to the selected point. Drag anywhere to take control.':'You are at the approach.');update();},onCancel:()=>update(),onFailure:meta=>{blocked++;tapRouteGoal=null;tapRouteMeta=null;tell(meta.failureMessage||(!world.members.has(key(meta.point))&&!world.wet(meta.point)&&!world.solid.has(key(meta.point))?'You cannot walk on that ground yet. Choose a path, courtyard or open verge.':'No open route reaches that point. Walls, water and closed gates block the way.'));update();},onError:(error,meta)=>{tapRouteGoal=null;tapRouteMeta=null;console.warn('Tap route search did not finish',error);tell(meta?.errorMessage||'The route could not finish. Tap another open point.');update();}});
 
 function updateManualHUD(){if(manualHUDDirty){manualHUDDirty=false;update();}}
 const savedCityFoot=e046P06Recovery?.cityFoot??e046P04P05Recovery?.cityFoot??e046P03Recovery?.cityFoot??e045PairRecovery?.cityFoot??e045WorkshopRecovery?.cityFoot??palaceBRecovery?.cityFoot??savedNavigation?.cityFoot;
@@ -1142,11 +1146,11 @@ function frame(now){if(document.hidden){cityCarts?.tick(now,{hidden:true});retur
  if(canvas.dataset.ready!=='true')startupMark('ready');
 canvas.dataset.ready='true';if(!paused)startCartTraffic();streetLifeWarmup.afterDraw(now);profile?.mark('diagnostics');profile?.record(now,performance.now()-t);
 }
-const mapPointer=bindMapPointer({canvas,host:window,document,blocked:blockedModal,getView:()=>({x:cam.x,y:cam.y,zoom}),onEngage:()=>{stopMapTravel();window.CWP21Game?.cancelPursuitTracking?.();follow=true;},onDragStart:engageManual,onDrag:driveViewDrag,onDragEnd:stopManualMovement,onTap:(point,view)=>{const entrance=entranceHit(visibleEntranceDoors,point,project,view.zoom,canEnterDoor);if(entrance){tapRoute(entrance.position,entrance.edge,{arrivalMessage:'Walking to '+entrance.name+'. Use Enter at the doorway.'});return;}const p=unproject(point);if(!window.CWP21Game?.dimwellRunnerClick?.(p)&&!window.CWP21Game?.purseContactClick?.(p)&&!window.CWP21Game?.marketContactClick?.(p)&&!window.CWP21Game?.sellerClick?.(p))tapRoute(p,undefined,{tapPoint:point,tapZoom:view.zoom});}});
+const mapPointer=bindMapPointer({canvas,host:window,document,blocked:blockedModal,getView:()=>({x:cam.x,y:cam.y,zoom}),onEngage:()=>{if(stopMapTravel())tell('Walk stopped. You are in control.');window.CWP21Game?.cancelPursuitTracking?.();follow=true;},onDragStart:engageManual,onDrag:driveViewDrag,onDragEnd:stopManualMovement,onTap:(point,view)=>{const entrance=entranceHit(visibleEntranceDoors,point,project,view.zoom,canEnterDoor);if(entrance){tapRoute(entrance.position,entrance.edge,{arrivalMessage:'Walking to '+entrance.name+'. Use Enter at the doorway.'});return;}const p=unproject(point);if(!window.CWP21Game?.dimwellRunnerClick?.(p)&&!window.CWP21Game?.purseContactClick?.(p)&&!window.CWP21Game?.marketContactClick?.(p)&&!window.CWP21Game?.sellerClick?.(p))tapRoute(p,undefined,{tapPoint:point,tapZoom:view.zoom});}});
 // STRIDE circular controller: screen-aligned drag, eight-direction input with guarded source-edge diagonals.
 const cityJoystick=window.CWJoystick.mount({element:document.querySelector('.city-dpad'),buttons:[...document.querySelectorAll('[data-city-step]')],host:window,document,step,stepMS:WALK_STEP_MS,keyboardSpace:'screen',startZone:CWLocomotion.profile.startZone,stopZone:CWLocomotion.profile.stopZone,driveByFrame:true,onDrive:(vector,now,input)=>{if(input)freeWalk.drive(vector,now);else freeWalk.advance(now,vector);updateManualHUD();},blocked:()=>document.hidden||blockedModal(),onEngage:engageManual,onStop:stopManualMovement});
 window.CW_MOVEMENT_JOYSTICK=cityJoystick;
-function stopMapTravel({keepTracking=false}={}){const hadRoute=route.length>0||!!tapPlanner?.pending();tapPlanner?.cancel();tapRouteGoal=null;tapRouteMeta=null;if(!keepTracking)window.CWP21Game?.cancelPursuitTracking?.();route=[];routeNotice=false;arrival=null;cityJoystick.stop();streetStepper.reset();if(hadRoute)update();}
+function stopMapTravel({keepTracking=false}={}){const hadRoute=route.length>0||!!tapPlanner?.pending();tapPlanner?.cancel();tapRouteGoal=null;tapRouteMeta=null;if(!keepTracking)window.CWP21Game?.cancelPursuitTracking?.();route=[];routeNotice=false;arrival=null;cityJoystick.stop();streetStepper.reset();if(hadRoute)update();return hadRoute;}
 for(const event of ['blur','pagehide'])addEventListener(event,()=>{checkpointStreet(performance.now(),true);stopMapTravel();mapPointer.cancel();update();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){checkpointStreet(performance.now(),true);stopMapTravel();mapPointer.cancel();update();}});
 addEventListener('cw:p20-modal',e=>{if(e.detail?.open){stopMapTravel();mapPointer.cancel();update();}});

@@ -1,4 +1,4 @@
-import {createReservation} from './city-e045-reservation.mjs';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 import {footProbeOffsets} from './city-free-walk.mjs';
 import {streetPath} from './city-movement.mjs';
 

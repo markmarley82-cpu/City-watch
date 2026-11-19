@@ -1,5 +1,5 @@
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 
 const activations=new WeakMap(),finite=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFinite)&&typeof p[2]==='string',cell=p=>Math.round(p[0])+','+Math.round(p[1]);
 const sameRect=(a,b)=>Array.isArray(a)&&a.length===4&&a.every((v,i)=>Math.abs(v-b[i])<1e-9);

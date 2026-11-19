@@ -1,5 +1,5 @@
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 import {streetPath} from './city-movement.mjs?v=p21-b407-s039-reuse';
 
 const ID='E046-SOUTH-RETURN-P06-R2';

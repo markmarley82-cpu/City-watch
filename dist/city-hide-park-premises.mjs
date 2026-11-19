@@ -1,7 +1,7 @@
 // Two original unnamed premises on the accepted Hide Park side-street ground.
 // The source drawings, game coordinates and lore classifications remain separate.
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 import {streetPath} from './city-movement.mjs?v=p21-b407-s039-reuse';
 
 const key=p=>p.slice(0,2).join(','),clone=v=>JSON.parse(JSON.stringify(v));

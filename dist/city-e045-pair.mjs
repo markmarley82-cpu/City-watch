@@ -1,5 +1,5 @@
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 const activations=new WeakMap(),finiteState=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFinite)&&typeof p[2]==='string',cell=p=>p.slice(0,2).join(',');
 const PAIR_IDS=['E045-WEST-COMPOSITION-P01','E045-WEST-COMPOSITION-P02'];
 export async function createE045PairReceiver({read,load,addSprites,lightAnchors,release=()=>false,createCanvas=()=>document.createElement('canvas')}){
@@ -42,7 +42,7 @@ export function activateE045Pair({world,ground,receiver,originalMembers,createSu
   const dx=b[0]-a[0],dy=b[1]-a[1],local=Math.max(a[0],b[0])>=bounds[0]&&Math.min(a[0],b[0])<=bounds[2]&&Math.max(a[1],b[1])>=bounds[1]&&Math.min(a[1],b[1])<=bounds[3];
   if(!local)return !priorTraverse||priorTraverse(a,b);
   const cacheable=finiteState(a)&&finiteState(b)&&Number.isInteger(a[0])&&Number.isInteger(a[1])&&Number.isInteger(dx)&&Number.isInteger(dy)&&Math.max(Math.abs(dx),Math.abs(dy))<=1,key=cacheable?a.join(',')+'>'+b.join(','):null;
-  if(key&&sweeps.has(key)){sweepHits++;return sweeps.get(key);}sweepMisses++;const okay=!!traversable(a,b);if(key){if(sweeps.size>=2048)sweeps.delete(sweeps.keys().next().value);sweeps.set(key,okay);}return okay;
+  if(key&&sweeps.has(key)){sweepHits++;return sweeps.get(key);}sweepMisses++;const okay=!!traversable(a,b);if(key){if(sweeps.size>=65536)sweeps.delete(sweeps.keys().next().value);sweeps.set(key,okay);}return okay;
  };
  try{
   for(const r of remove){world.members.delete(r.key);ground.extra.delete(r.key);ground.blocked.add(r.key);}

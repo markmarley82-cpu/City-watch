@@ -1,4 +1,4 @@
-import {createReservation} from './city-e045-reservation.mjs';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 import {streetPath} from './city-movement.mjs';
 const id='POST-OFFICE-001';
 export const POST_OFFICE_DOOR='post-office';

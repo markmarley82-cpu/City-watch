@@ -1,5 +1,5 @@
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {createReservation} from './city-e045-reservation.mjs?v=p21-b407-s039-reuse';
+import {createReservation} from './city-e045-reservation.mjs?v=memo-1';
 const activations=new WeakMap(),finiteState=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFinite)&&typeof p[2]==='string',cell=p=>p.slice(0,2).join(',');
 export async function createE045WorkshopReceiver({read,load,addSprites,lightAnchors}){
  const base='assets/e045-workshop-v1/',data=await read(base+'receiver.json');
