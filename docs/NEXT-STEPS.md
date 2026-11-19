@@ -124,7 +124,12 @@ These make what already exists reliable:
   best-known tavern. Brief: a larger building with a bigger footprint on the map (the
   current one covers 5 × 6 cells and is drawn 308 px wide), delivered at full size so it
   isn't scaled down in the game. Moving to a bigger footprint also means moving the
-  door point and checking the neighbouring buildings and street. The replacement must
+  door point and checking the neighbouring buildings and street.
+  **Also off angle.** The map's ground lines slope 1:2 (26.6°) on both sides. Measured
+  along the foot of the drum art, its left side slopes about 0.38 (21°) and its right
+  side only about 0.23 (13°). Its front corner is also well left of centre (x 120 of 462),
+  so it faces the viewer more than the street. Brief: true 2:1 isometric, matching the
+  street grid, with the front corner where the footprint's corner falls. The replacement must
   pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
 
 ## Housekeeping (Mark)
