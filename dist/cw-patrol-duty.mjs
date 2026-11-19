@@ -141,9 +141,9 @@ export function createPatrolDuty({city,nearest,makeStore,saveNavigation=()=>{},g
   const action=returning&&atCarrot()?'report':!returning&&(lead||inYard&&!a.tail?.status)?'inspect':'menu';
   const objective=returning?'Bring your findings to Captain Carrot at Watch Square.':
    lead?lead.location+' · '+lead.label+'.':inYard?'Decide what to do about the W17 bales.':
-   a.evidence.length?'Follow another lead, check the receiving yard, or prepare a report.':'Choose a lead in The Missing Night Delivery.';
+   a.evidence.length?'Follow another lead, check the receiving yard, or prepare a report. Choose Walk to a lead.':'Pick a lead: the carter at the Mended Drum, the ledger at the Dock Warehouse, or a baker at Crust Hall. Choose Walk to a lead.';
   return {title:DELIVERY_TITLE,done:returning?4:a.evidence.length,total:5,objective,delivery:true,action,
-   label:action==='report'?'File with Carrot':lead?.label||(inYard&&!returning?(a.tail?.status==='seen'?'Review the warehouse handover':'Inspect the receiving yard'):'Review delivery case')};
+   label:action==='report'?'File with Carrot':lead?.label||(inYard&&!returning?(a.tail?.status==='seen'?'Review the warehouse handover':'Inspect the receiving yard'):returning?'Review delivery case':'Walk to a lead')};
  }
  function startDelivery(){
   if(!deliveryMapped||!atCarrot())return false;
