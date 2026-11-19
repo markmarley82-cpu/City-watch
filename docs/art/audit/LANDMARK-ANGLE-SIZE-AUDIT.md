@@ -1,5 +1,14 @@
 # Landmark buildings: angle and size check (19 November 2026)
 
+## Resolved: approved redraws in the game
+
+The six off-angle buildings were replaced by new paintings drawn on the true 2:1 grid
+(branch `art/landmark-grid-redraws`, approved by Mark on 19 November 2026). The game loads them
+from `dist/assets/landmark-exteriors-v3/`, built by `tools/make-landmark-v3.py`: each is scaled so
+its foundation spans its existing map footprint, with its front corner on the footprint's front
+corner, so walking and doors are unchanged. Window and lantern lights come from the night
+versions. Before (left) and after (right): `landmark-redraws-in-game.jpg`.
+
 Mark rejected the Mended Drum for being too small and off angle, then asked for the
 same check on every landmark building. This covers the ten buildings in
 `dist/assets/landmark-exteriors-v1/`.

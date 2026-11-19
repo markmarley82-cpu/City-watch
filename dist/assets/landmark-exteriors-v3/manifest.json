@@ -1,0 +1,537 @@
+{
+ "id": "landmark-exteriors-v3",
+ "build": 510,
+ "actorHeight": 60,
+ "targetDoorHeight": [
+  58,
+  72
+ ],
+ "newNavigation": false,
+ "newDoors": false,
+ "instances": [
+  {
+   "id": "LANDMARK-510:archives",
+   "landmarkID": "archives",
+   "file": "archives.webp",
+   "dimensions": [
+    537,
+    520
+   ],
+   "rect": [
+    134,
+    246,
+    5,
+    6
+   ],
+   "p": [
+    138,
+    251
+   ],
+   "anchor": [
+    269.834,
+    483.036
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 358.0,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "records-hall",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "5445e60867f06144396c8623d5e555d7ac9415cd81e3be58bd81ec265ee0f81f",
+   "windowAnchors": [
+    [
+     64.22,
+     323.04,
+     64.22,
+     401.23
+    ],
+    [
+     233.64,
+     404.71,
+     233.64,
+     485.94
+    ],
+    [
+     459.16,
+     341.1,
+     459.16,
+     409.39
+    ],
+    [
+     100.61,
+     331.41,
+     100.61,
+     419.44
+    ]
+   ],
+   "source": "art/landmark-grid-redraws archives.webp",
+   "sourceScale": 0.2669
+  },
+  {
+   "id": "LANDMARK-510:drum",
+   "landmarkID": "drum",
+   "file": "drum.webp",
+   "dimensions": [
+    532,
+    525
+   ],
+   "rect": [
+    102,
+    240,
+    5,
+    6
+   ],
+   "p": [
+    106,
+    245
+   ],
+   "anchor": [
+    265.928,
+    480.294
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 354.667,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "joined-tavern",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "8c39d0a2dc477a5323862ba6de184055e8b0898958b255713f862f0bbad4c63a",
+   "windowAnchors": [
+    [
+     261.96,
+     398.26,
+     261.96,
+     499.31
+    ],
+    [
+     138.12,
+     355.99,
+     138.12,
+     437.39
+    ],
+    [
+     66.09,
+     322.13,
+     66.09,
+     401.39
+    ],
+    [
+     484.98,
+     311.21,
+     484.98,
+     391.79
+    ]
+   ],
+   "source": "art/landmark-grid-redraws drum.webp",
+   "sourceScale": 0.2646
+  },
+  {
+   "id": "LANDMARK-510:market",
+   "landmarkID": "market",
+   "file": "market.webp",
+   "dimensions": [
+    767,
+    702
+   ],
+   "rect": [
+    51,
+    270,
+    7,
+    9
+   ],
+   "p": [
+    57,
+    278
+   ],
+   "anchor": [
+    391.19,
+    602.959
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 511.333,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "market-hall",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "574df5b50a1403adb67a38250880b0280342dd4e94fae1b511f6bb7ce6975b37",
+   "windowAnchors": [
+    [
+     220.93,
+     491.79,
+     220.93,
+     538.86
+    ],
+    [
+     102.94,
+     408.06,
+     102.94,
+     479.84
+    ],
+    [
+     337.77,
+     515.12,
+     337.77,
+     597.25
+    ]
+   ],
+   "source": "art/landmark-grid-redraws market.webp",
+   "sourceScale": 0.3813
+  },
+  {
+   "id": "LANDMARK-510:crypt",
+   "landmarkID": "crypt",
+   "file": "crypt.webp",
+   "dimensions": [
+    478,
+    433
+   ],
+   "rect": [
+    70,
+    57,
+    5,
+    5
+   ],
+   "p": [
+    74,
+    61
+   ],
+   "anchor": [
+    225.065,
+    374.678
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 318.667,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "burial-chapel",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "ea46ec9de7bb6285c8c9a6b0fefad0d0bfa91734843117b53d3e557c6525093a",
+   "windowAnchors": [
+    [
+     328.34,
+     271.46,
+     328.34,
+     344.6
+    ],
+    [
+     263.11,
+     297.81,
+     263.11,
+     376.87
+    ],
+    [
+     387.55,
+     246.45,
+     387.55,
+     315.34
+    ],
+    [
+     127.23,
+     201.87,
+     127.23,
+     346.56
+    ]
+   ],
+   "source": "art/landmark-grid-redraws crypt.webp",
+   "sourceScale": 0.242
+  },
+  {
+   "id": "LANDMARK-510:lantern",
+   "landmarkID": "lantern",
+   "file": "lantern.webp",
+   "dimensions": [
+    538,
+    501
+   ],
+   "rect": [
+    86,
+    46,
+    5,
+    6
+   ],
+   "p": [
+    90,
+    51
+   ],
+   "anchor": [
+    272.544,
+    442.606
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 358.667,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "joined-terrace",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "cfd3a77035ca7a64d8baa6ee75a3d397c6206b2a3961fbde972ce14b2a63524f",
+   "windowAnchors": [
+    [
+     205.95,
+     345.52,
+     205.95,
+     430.29
+    ],
+    [
+     60.45,
+     285.19,
+     60.45,
+     357.56
+    ],
+    [
+     138.12,
+     313.57,
+     138.12,
+     396.37
+    ],
+    [
+     160.4,
+     247.58,
+     160.4,
+     407.53
+    ]
+   ],
+   "source": "art/landmark-grid-redraws lantern.webp",
+   "sourceScale": 0.2676
+  },
+  {
+   "id": "LANDMARK-510:outpost",
+   "landmarkID": "outpost",
+   "file": "outpost.webp",
+   "dimensions": [
+    294,
+    386
+   ],
+   "rect": [
+    124,
+    165,
+    4,
+    3
+   ],
+   "p": [
+    127,
+    167
+   ],
+   "anchor": [
+    147.0,
+    385.0
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 196,
+   "estimatedDoorHeight": 65,
+   "actorHeight": 60,
+   "uniqueStructure": "watch-outpost",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "6d089f1a84a1ac17231d0b97475983adeb0ba81bd95c84cb6fe95766f1990c0c",
+   "windowAnchors": [
+    [
+     72.211,
+     246.105,
+     72.211,
+     383.158
+    ],
+    [
+     105.368,
+     305.053,
+     105.368,
+     383.158
+    ]
+   ]
+  },
+  {
+   "id": "LANDMARK-510:bakery",
+   "landmarkID": "bakery",
+   "file": "bakery.webp",
+   "dimensions": [
+    336,
+    318
+   ],
+   "rect": [
+    75,
+    273,
+    4,
+    4
+   ],
+   "p": [
+    78,
+    276
+   ],
+   "anchor": [
+    168.0,
+    317.369
+   ],
+   "scale": 0.666666,
+   "renderedWidth": 224,
+   "estimatedDoorHeight": 65,
+   "actorHeight": 60,
+   "uniqueStructure": "corner-bakery",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "59b0d80a7a20d86258677bdac6e06ef250369924ae4b21243c288cb1202712cd",
+   "windowAnchors": [
+    [
+     63.924,
+     191.771,
+     63.924,
+     314.799
+    ],
+    [
+     103.113,
+     197.553,
+     103.113,
+     314.799
+    ]
+   ]
+  },
+  {
+   "id": "LANDMARK-510:shrine",
+   "landmarkID": "shrine",
+   "file": "shrine.webp",
+   "dimensions": [
+    252,
+    376
+   ],
+   "rect": [
+    121,
+    259,
+    3,
+    3
+   ],
+   "p": [
+    123,
+    261
+   ],
+   "anchor": [
+    126.0,
+    375.219
+   ],
+   "scale": 0.666666,
+   "renderedWidth": 168,
+   "estimatedDoorHeight": 65,
+   "actorHeight": 60,
+   "uniqueStructure": "wayside-shrine",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "f9d89807387cedfff06a3d5dadfe3060609377367dabd3edd8ee89c50b3b3d14",
+   "windowAnchors": [
+    [
+     106.961,
+     161.297,
+     106.961,
+     372.224
+    ]
+   ]
+  },
+  {
+   "id": "LANDMARK-510:alley",
+   "landmarkID": "alley",
+   "file": "alley.webp",
+   "dimensions": [
+    336,
+    655
+   ],
+   "rect": [
+    85,
+    261,
+    4,
+    4
+   ],
+   "p": [
+    88,
+    264
+   ],
+   "anchor": [
+    168.0,
+    653.589
+   ],
+   "scale": 0.666666,
+   "renderedWidth": 224,
+   "estimatedDoorHeight": 65,
+   "actorHeight": 60,
+   "uniqueStructure": "crooked-house",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "b3966020ad1f94afab0ec854a09d1a4382aed817b75332e9b425bbc5312cc05c",
+   "windowAnchors": [
+    [
+     130.258,
+     167.54,
+     130.258,
+     648.986
+    ],
+    [
+     92.055,
+     386.63,
+     92.055,
+     648.986
+    ]
+   ]
+  },
+  {
+   "id": "LANDMARK-510:store",
+   "landmarkID": "store",
+   "file": "store.webp",
+   "dimensions": [
+    473,
+    464
+   ],
+   "rect": [
+    54,
+    74,
+    5,
+    5
+   ],
+   "p": [
+    58,
+    78
+   ],
+   "anchor": [
+    229.219,
+    421.922
+   ],
+   "scale": 0.666667,
+   "renderedWidth": 315.333,
+   "estimatedDoorHeight": null,
+   "actorHeight": 60,
+   "uniqueStructure": "riverside-storehouse",
+   "mirrored": false,
+   "stretched": false,
+   "sha256": "c9116f36b6facee1d48fd72af4027d51d43022f4147672bb65baf7f5044943df",
+   "windowAnchors": [
+    [
+     55.08,
+     276.23,
+     55.08,
+     355.85
+    ],
+    [
+     315.55,
+     308.95,
+     315.55,
+     399.76
+    ],
+    [
+     365.02,
+     274.08,
+     365.02,
+     375.0
+    ],
+    [
+     411.08,
+     251.54,
+     411.08,
+     351.97
+    ]
+   ],
+   "source": "art/landmark-grid-redraws store.webp",
+   "sourceScale": 0.2351
+  }
+ ],
+ "visualDoorHeight": 65,
+ "note": "Six approved redraws (art/landmark-grid-redraws, 19 Nov 2026) fitted to the existing footprints by tools/make-landmark-v3.py; outpost, bakery, shrine and alley unchanged from v1."
+}
