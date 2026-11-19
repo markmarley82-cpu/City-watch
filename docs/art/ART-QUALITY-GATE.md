@@ -14,7 +14,7 @@ Work from these files rather than generic fantasy/anime/3D references:
 | Asset type | Approved or in-repo *reference* | What to match |
 |---|---|---|
 | Watch architecture | [Outpost](../../dist/assets/landmark-exteriors-v1/outpost.webp) | 2:1 isometric geometry, warm lantern windows, deliberate dark outlines, timber/brick/slate detail |
-| Tavern architecture | [Mended Drum](../../dist/assets/landmark-exteriors-v1/drum.webp) | Brick/timber variation, door scale, contact shadow, readable silhouette |
+| Tavern architecture | [Mended Drum](../../dist/assets/landmark-exteriors-v1/drum.webp) | Brick/timber variation, door scale, contact shadow, readable silhouette. **Current art rejected by Mark, 19 Nov 2026; replacement needed (see `docs/NEXT-STEPS.md`).** |
 | Common city buildings | [S038 roof 335](../../dist/assets/section-s038/roof-335-full.webp), [roof 349](../../dist/assets/section-s038/roof-349-full.webp) | Same street-level scale and painterly finish without obvious cloned neighbours |
 | Watch character treatment | [Nobby portrait](../../dist/assets/characters-drawn-v1/mentor-nobby-portrait.webp), [Colon](../../dist/assets/characters-drawn-v1/mentor-colon-portrait.webp), [Vimes](../../dist/assets/characters-drawn-v1/vimes-portrait.webp) | Consistent silhouettes and rank/character-appropriate costume at actual in-game display size |
 | Race art | [Recruit](../../dist/assets/characters-drawn-v1/watch-recruit-portrait.webp), [dwarf](../../dist/assets/characters-drawn-v1/p3_dwarf_01-portrait.webp), [troll](../../dist/assets/characters-drawn-v1/p3_troll_01-portrait.webp) | Preserve racial scale differences; inspect edge quality and alpha on cobbles, not just transparent preview |

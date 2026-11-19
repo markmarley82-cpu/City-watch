@@ -115,6 +115,12 @@ These make what already exists reliable:
   in `docs/art/RECRUIT-STUDIES-IN-GAME.md`.
 - Done: the two bugs from the 17 November playtest. "Walk to current assignment" now
   heads for Carrot when Carrot has the assignment, and Carrot's case has a walk button.
+- To do (art team): **redo the Mended Drum exterior.** Mark rejected the current art on
+  19 November 2026 ("the artwork for the Mended Drum is bad"). The file is
+  `dist/assets/landmark-exteriors-v1/drum.webp` (462 × 316, drawn at 2/3 size, map rect
+  `[102,240,5,6]`, door point `[106,245]`). It is the stop for the carter lead in Carrot's
+  case, so players look at it closely. Ask Mark what he dislikes before briefing the
+  team. The replacement must pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
 
 ## Housekeeping (Mark)
 
