@@ -35,7 +35,7 @@ Every mission and case known to the project, from the game files and the design 
 | CW-NC-02 | Dibbler’s Guarantee | extension | Design only |
 | CW-NC-03 | The Lodger Who Never Left | enquiry | Design only |
 | CW-NC-04 | The Lamp That Went Out | extension | Design only |
-| CW-NC-05 | The Bread at the Wrong Door | enquiry | Design only |
+| CW-NC-05 | The Bread at the Wrong Door | enquiry | **Live, tested** (City cases; quay, Crust Hall, Netmender’s Shack, Colon. Partial: bakers cleared. Full: witnessed count + net-mender’s statement. Blaming the bakers is refused.) |
 | CW-NC-06 | An Unquiet Return | enquiry | Design only |
 | CW-NC-07 | The Queue That Paid Twice | enquiry | Design only |
 | CW-NC-08 | A Receipt for a Raincoat | enquiry | **Live, tested** (City cases) |

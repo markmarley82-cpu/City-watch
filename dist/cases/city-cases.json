@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-08, CW-NC-12), plus the old engine's 14 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported to the current city. CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
+ "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-05, CW-NC-08, CW-NC-12), plus the old engine's 14 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported to the current city. CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
  "places": {
   "colon": {
    "name": "Sergeant Colon, Watch Square",
@@ -176,6 +176,14 @@
     85,
     49,
     "APRON:lantern"
+   ]
+  },
+  "bakers": {
+   "name": "Crust Hall, the Bakers’ Guild",
+   "at": [
+    94,
+    293,
+    "APRON:guild-bakers"
    ]
   }
  },
@@ -455,6 +463,152 @@
       "coins": 2,
       "summary": "Collector seen taking money; fraud proven and he can be found.",
       "reply": "“Fake fine, a payment you saw, and a description good enough to find him,” says Carrot. “And you warned the street once you had it. That’s the job done properly.”"
+     }
+    ]
+   }
+  },
+  {
+   "id": "CW-NC-05",
+   "title": "The Bread at the Wrong Door",
+   "where": "the docks, Crust Hall and Netmender’s Shack",
+   "giverLine": "Sergeant Colon: “The dock crews’ bread came short again. Four sacks ordered, the warehouse says they got three and a bit, and the porters are saying the bakers are diddling them. Bakers say they never short anyone. Somebody’s wrong, and the porters are getting peckish, which is never good for public order.”",
+   "brief": "Find out where the missing bread went. A Crust Hall wrapper on a sack doesn’t prove the bakers did anything wrong, so don’t blame them unless you can show it.",
+   "clues": {
+    "wrapper": "The sacks at the quay are Crust Hall’s: the guild’s wheatsheaf is stamped on every one.",
+    "count": "The sacks at the quay hold seven loaves each and are folded over once at the neck.",
+    "tally": "Crust Hall’s tally says four sacks of ten loaves, each folded twice and tucked, the guild’s way. Forty loaves left the bakery.",
+    "counted": "A dock clerk watched you count the bread: twenty-eight loaves in four sacks, all signed for on the tally sheet.",
+    "switch": "The net-mender saw a man lift four sacks off the bread cart behind the warehouse, leave four lighter sacks in their place, and walk off towards the Shades with the full ones."
+   },
+   "scenes": [
+    {
+     "id": "look-sacks",
+     "place": "quay",
+     "label": "Look at the bread sacks",
+     "title": "Bread sacks on the quay",
+     "speaker": "A porter",
+     "text": "“There. Bakers’ sacks, see? Their mark on every one.” The wheatsheaf of the Bakers’ Guild is stamped on all four sacks. The porter folds his arms like a man who has proved something.",
+     "gives": [
+      "wrapper"
+     ]
+    },
+    {
+     "id": "count-loaves",
+     "place": "quay",
+     "label": "Count the loaves in the sacks",
+     "title": "Counting the bread",
+     "requires": [
+      "wrapper"
+     ],
+     "text": "Seven loaves in the first sack. Seven in the second, seven in the third, seven in the fourth. Each sack is folded over once at the neck and tied with dock string.",
+     "gives": [
+      "count"
+     ]
+    },
+    {
+     "id": "ask-bakers",
+     "place": "bakers",
+     "label": "Ask Crust Hall about the dock order",
+     "title": "The bakers’ tally",
+     "speaker": "A flour-dusted baker",
+     "text": "“Forty loaves. Four sacks of ten, same as every week.” She shows you the tally, signed by the carter. “And we fold the neck twice and tuck it, so it travels. We’ve folded it like that since before the Guild had a hall. Anyone who folds once isn’t us.”",
+     "gives": [
+      "tally"
+     ]
+    },
+    {
+     "id": "decide-bread",
+     "place": "quay",
+     "label": "Decide what to do with the bread",
+     "requires": [
+      "wrapper",
+      "count"
+     ],
+     "title": "Hungry porters",
+     "speaker": "The porter",
+     "text": "“Are we eating this or not? The tide won’t wait and neither will my stomach.”",
+     "choice": {
+      "prompt": "You can hand the bread out now, or get a proper count witnessed first.",
+      "options": [
+       {
+        "id": "hand-out",
+        "label": "Hand out the bread now",
+        "text": "The porters cheer, the bread goes, and the sacks go into the river barrel. Good for morale. Bad for evidence.",
+        "gives": []
+       },
+       {
+        "id": "witness",
+        "label": "Have the dock clerk witness a count first",
+        "text": "The dock clerk grumbles, counts with you, and signs the tally sheet. Then the porters eat. It takes ten minutes and earns you several dark looks.",
+        "gives": [
+         "counted"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "ask-netmender",
+     "place": "netshack",
+     "label": "Ask the net-mender what she saw",
+     "requires": [
+      "wrapper"
+     ],
+     "title": "Behind the warehouse",
+     "speaker": "The net-mender",
+     "text": "“Bread cart? Stood behind the warehouse half the morning, nobody watching it. Fellow came along with four sacks on a barrow, swapped them for the four on the cart, cool as you like, and wheeled the full ones off towards the Shades. Thought he was a baker. Didn’t fold anything, mind. Just swapped.”",
+     "gives": [
+      "switch"
+     ]
+    }
+   ],
+   "file": {
+    "place": "colon",
+    "label": "Report to Sergeant Colon",
+    "officer": "Sergeant Colon",
+    "title": "Reporting the bread",
+    "prompt": "“Well? Are the bakers robbing the docks, or are the docks just hungry?”",
+    "reject": "Colon reads your notes twice. “That’s not what this says. Have another look.”",
+    "findings": [
+     {
+      "id": "bakers",
+      "label": "Crust Hall short-delivered the bread",
+      "requires": [
+       "never"
+      ],
+      "reject": "“Their sacks, yes,” says Colon. “But anyone can carry a sack. You’d need more than a wheatsheaf to say the bakers did it, and the Bakers’ Guild has very good lawyers. And very good buns.”"
+     },
+     {
+      "id": "short",
+      "label": "The bread came short, but not from the bakery",
+      "requires": [
+       "wrapper",
+       "count",
+       "tally"
+      ],
+      "outcome": "partial",
+      "merit": 6,
+      "coins": 0,
+      "summary": "Bakers cleared; where the bread went was left open.",
+      "reply": "“Forty went out, twenty-eight turned up, and the sacks are folded wrong,” says Colon. “So it’s not the bakers. Good. I’ll tell the porters to stop glaring at people with flour on them. Where the rest went, well. Somewhere with very full stomachs.”",
+      "reject": "“You’ll want what the bakers sent and what turned up,” says Colon. “Can’t say it came short till you know both numbers.”"
+     },
+     {
+      "id": "switched",
+      "label": "Someone swapped the sacks on the cart after delivery; the bakers are not to blame",
+      "requires": [
+       "wrapper",
+       "count",
+       "tally",
+       "counted",
+       "switch"
+      ],
+      "outcome": "full",
+      "merit": 10,
+      "coins": 2,
+      "summary": "Sacks switched on the cart after delivery; witnessed count and witness statement filed; bakers cleared.",
+      "reply": "“A witnessed count, the bakers’ tally and somebody who saw the swap,” says Colon, impressed despite himself. “That’s a report. Bakers cleared, and next week the cart doesn’t stand about unwatched behind the warehouse. I’ll put someone on it. Not me. I’m allergic to fish.”",
+      "reject": "“For that I need two things,” says Colon. “A count somebody official watched you make, and a witness who saw where the bread went. Bread gets eaten. Stories get bigger. Paper stays the same size.”"
      }
     ]
    }
