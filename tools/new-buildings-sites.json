@@ -1,0 +1,171 @@
+[
+ {
+  "packet": "dockside-street-v1",
+  "name": "bonded-warehouse",
+  "rect": [
+   102,
+   248,
+   6,
+   7
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "cooper-workshop-v1",
+  "name": "cooper-workshop",
+  "rect": [
+   104,
+   273,
+   6,
+   7
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "shop-street-v1",
+  "name": "lodging",
+  "rect": [
+   121,
+   231,
+   6,
+   6
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "artisan-street-v1",
+  "name": "smithy",
+  "rect": [
+   110,
+   158,
+   5,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "dockside-street-v1",
+  "name": "quay-lodging",
+  "rect": [
+   93,
+   18,
+   4,
+   6
+  ],
+  "frontage": 1.0,
+  "dist": 221.0,
+  "near": "lantern"
+ },
+ {
+  "packet": "shop-street-v1",
+  "name": "cobbler",
+  "rect": [
+   104,
+   137,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "shop-street-v1",
+  "name": "curry-house",
+  "rect": [
+   36,
+   106,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "dockside-street-v1",
+  "name": "rope-maker",
+  "rect": [
+   41,
+   99,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "dockside-street-v1",
+  "name": "ship-chandler",
+  "rect": [
+   100,
+   61,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "artisan-street-v1",
+  "name": "cooper",
+  "rect": [
+   89,
+   39,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "artisan-street-v1",
+  "name": "apothecary",
+  "rect": [
+   149,
+   42,
+   4,
+   5
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "shop-street-v1",
+  "name": "pawnbroker",
+  "rect": [
+   104,
+   215,
+   3,
+   4
+  ],
+  "frontage": 1,
+  "dist": 0,
+  "near": "fixed"
+ },
+ {
+  "packet": "artisan-street-v1",
+  "name": "butcher",
+  "rect": [
+   114,
+   250,
+   3,
+   4
+  ],
+  "frontage": 1.0,
+  "dist": 50.4,
+  "near": "drum"
+ }
+]

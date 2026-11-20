@@ -125,6 +125,7 @@ import {createSectionS011} from './city-section-s011.mjs?v=p21-b407-s039-reuse';
 import {createSectionS010} from './city-section-s010.mjs?v=p21-b407-s039-reuse';
 import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
+import {createNewBuildings,loadPalaceMainBlock} from './city-new-buildings.mjs?v=5';
 import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=redraws-1';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
 import {createDimwellWorkshop} from './dimwell-workshop.mjs?v=p21-b407-s039-reuse';
@@ -274,6 +275,7 @@ const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 const guildPaintings=await Promise.all(guildLots.map(l=>load(l.guild_exterior.file)));
 for(const [index,l]of guildLots.entries()){const g=l.guild_exterior,im=guildPaintings[index];addSprite('guild:'+l.game_id,im,l.engine_approach_xy,g.anchor,1,g.rect,{landmark:l,sourceAsset:'guild:'+l.room_id});}
 const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors});
+let newBuildings=null;try{newBuildings=await createNewBuildings({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});}catch(error){console.error('New buildings unavailable',error);}
 const guildReplaces=rect=>guildLots.some(l=>{const r=l.guild_exterior.rect;return rect[0]<r[0]+r[2]&&rect[0]+rect[2]>r[0]&&rect[1]<r[1]+r[3]&&rect[1]+rect[3]>r[1];});
 // Retain a fail-soft source fallback only for held/unfinished landmark art.
 for(let i=0;i<data.landmarks.length;i++){const l=data.landmarks[i];if(l.retired_exterior_placeholder||l.guild_exterior||landmarkExteriors.replaces(l.game_id)||['watch','opera','university','palace'].includes(l.game_id))continue;const r=l.footprint_xywh,cells=rectCells(r).map(engine),xs=cells.map(p=>p[0]),ys=cells.map(p=>p[1]),rect=[Math.min(...xs),Math.min(...ys),r[3],r[2]],h=houseMeta[i%houseMeta.length],scale=Math.min(1.2,(r[2]+r[3])*25/h.size_px[0]);addSprite('landmark:'+l.game_id,images.get(pathDS+h.sprite_file),[rect[0]+rect[2]-1,rect[1]+rect[3]-1],h.anchor_px,scale,rect,{landmark:l,sourceAsset:'legacy:'+h.id});}
@@ -294,11 +296,13 @@ try{
 }catch(e){palaceB=null;console.error('University street scenery unavailable',e);}
 if(palaceB&&universityStreets){
  const id='PALACE-MAIN-RANGE-v2';
- const palace=addSprite(id,palaceB.im,palaceB.p,palaceB.anchor,1,palaceB.rect,{sourceAsset:id,sceneryKind:'palace-range',nightEmission:palaceB.nightEmission});
- palace.roofHidden={...palace,...palaceB.roofHidden};
+ // The approved main block (20 Nov 2026) replaces the composed range drawing at the same foundation.
+ let block=null;try{block=await loadPalaceMainBlock({read,load});}catch(error){console.error('Palace main block unavailable; keeping the composed range',error);}
+ const palace=block?addSprite(id,block.im,block.p,block.anchor,block.scale,palaceB.rect,{sourceAsset:id,sceneryKind:'palace-range',nightEmission:block.emission}):addSprite(id,palaceB.im,palaceB.p,palaceB.anchor,1,palaceB.rect,{sourceAsset:id,sceneryKind:'palace-range',nightEmission:palaceB.nightEmission});
+ palace.roofHidden=block?{...palace,im:block.walls,alpha:pixels(block.walls),nightEmission:block.emission}:{...palace,...palaceB.roofHidden};
  // Reveal backing ground inside actor-local windows; retain the complete Palace outside.
  palace.actorFootCutaway={groundOnly:true,width:48,heightFactor:1.15,centerHeight:.25};
- watchLightAnchors[id]=palaceB.anchors;
+ watchLightAnchors[id]=block?[]:palaceB.anchors;
 }
 let shadesStreets=null;
 try{shadesStreets=await createShadesStreets({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,imageDensity:cityImageDensity,enabled:!new URLSearchParams(location.search).has('shades-before')});}catch(e){console.error('Shades street scenery unavailable; retaining original roofs',e);}
