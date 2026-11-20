@@ -8,7 +8,7 @@ These branches contain art deliveries. The status here describes the artwork and
 | Palace main block | 1 | Candidate | [art/palace-main-block](https://github.com/markmarley82-cpu/City-watch/tree/art/palace-main-block/art-review/palace-main-block-v1) |
 | Shops: cobbler, pawnbroker, curry house, lodging | 4 | Candidate | [art/shop-street-v1](https://github.com/markmarley82-cpu/City-watch/tree/art/shop-street-v1/art-review/shop-street-v1) |
 | Docks: bonded warehouse, rope-maker, ship chandler, quay lodging; separate rope yard | 4 | Candidate | [art/dockside-street-v1](https://github.com/markmarley82-cpu/City-watch/tree/art/dockside-street-v1/art-review/dockside-street-v1) |
-| Artisans: smithy, cooper, butcher, apothecary | 4 | Partial candidate: missing night companions | [art/artisan-street-v1](https://github.com/markmarley82-cpu/City-watch/tree/art/artisan-street-v1/art-review/artisan-street-v1) |
+| Artisans: smithy, cooper, butcher, apothecary | 4 | Complete artwork packet; candidate | [art/artisan-street-v1](https://github.com/markmarley82-cpu/City-watch/tree/art/artisan-street-v1/art-review/artisan-street-v1) |
 
 The landmark redo listed as an art task in NEXT-STEPS already has reviewed replacement art on its delivery branch. Do not commission another Drum or Crypt simply because that replacement is absent from main. Read each packet's manifest and README before integration; the later street packets contain measured plot geometry, shared crops/origins, night/window layers and roof/wall shells, while the landmark packet has its own delivery limits.
 

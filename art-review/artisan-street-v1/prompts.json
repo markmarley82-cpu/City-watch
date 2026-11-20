@@ -22,5 +22,11 @@
       "result": "Generated images are saved to /workspace/scratch/acd721f1fc3b/generated_images as /workspace/scratch/acd721f1fc3b/generated_images/exec-c2aba5a5-c583-4d7c-8483-cdc6001ef6f1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
     }
   ],
-  "registration": "Facade and roof plane coordinates are in registration.json; variants share crops and origins."
+  "registration": "Facade and roof plane coordinates are in registration.json; variants share crops and origins.",
+  "nightCompletion": {
+    "method": "Built-in image generation; illumination transferred onto original registered pixels; roof and wall alpha extracted from existing layers",
+    "prompt": "Use case: lighting-weather. Asset type: transparent isometric City Watch game sprite night companion. Image 1 is EDIT TARGET butcher-day.webp. Image 2 is lighting reference cooper-night.webp only. Relight ONLY the butcher shop in image 1 for night, using the same cool blue moonlit slate and muted readable plaster as image 2, with gentle amber light BEHIND the existing three glass window panes (upper front, upper right, lower right). Preserve EXACTLY the butcher's geometry, roof ridge, footprint, straight 2:1 isometric angle, cleaver sign, door, timber, wrapped parcels, ivy, framing and position. No extra windows, no lantern added, no ground or cast shadow. Keep full original 1300x1400 canvas and exact original silhouette and transparent background. The whole complete building must stay visible, same scale. Detailed hand painted weathered style unchanged. This is a registered game variant, so do not redesign or improve the architecture.",
+    "source": "butcher-day.webp",
+    "lightingReference": "cooper-night.webp"
+  }
 }

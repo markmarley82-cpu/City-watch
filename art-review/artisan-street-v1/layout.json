@@ -57,7 +57,7 @@
         896
       ],
       "drawScale": 0.5,
-      "doorHeightRendered": 70.09181331036723
+      "doorHeightRendered": 70.0996399218447
     },
     {
       "name": "apothecary",
@@ -87,5 +87,61 @@
     16,
     2
   ],
-  "navigationAuthoring": false
+  "navigationAuthoring": false,
+  "terrain": {
+    "files": [
+      "shared-paving-day.webp",
+      "shared-paving-night.webp",
+      "contact-shadows.webp"
+    ],
+    "nativeSize": [
+      1435,
+      721
+    ],
+    "nativeOrigin": [
+      591,
+      -25
+    ],
+    "drawScale": 0.5,
+    "cropFromReviewCanvas": {
+      "left": 109,
+      "top": 625,
+      "width": 1435,
+      "height": 721
+    }
+  },
+  "entrances": [
+    {
+      "name": "smithy",
+      "kind": "human",
+      "proposedLocalWorld": [
+        1.0713346462651683,
+        8.2
+      ]
+    },
+    {
+      "name": "cooper",
+      "kind": "human",
+      "proposedLocalWorld": [
+        6.157881227048372,
+        8.2
+      ]
+    },
+    {
+      "name": "butcher",
+      "kind": "human",
+      "proposedLocalWorld": [
+        9.98560147997349,
+        8.2
+      ]
+    },
+    {
+      "name": "apothecary",
+      "kind": "human",
+      "proposedLocalWorld": [
+        12.98949461995574,
+        8.2
+      ]
+    }
+  ]
 }
