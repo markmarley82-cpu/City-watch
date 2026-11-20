@@ -1,0 +1,325 @@
+{
+  "id": "ARTISAN-STREET-ART-v1",
+  "status": "candidate",
+  "baseCommit": "fd76ccb21b2fbaefca816703288a764da2479d34",
+  "projection": [
+    28,
+    14
+  ],
+  "drawScale": 0.5,
+  "characterReferencePixels": 60,
+  "buildings": [
+    {
+      "name": "smithy",
+      "localPlot": [
+        0,
+        3,
+        5,
+        5
+      ],
+      "nativeSize": [
+        1300,
+        1400
+      ],
+      "nativeAnchor": [
+        650,
+        980
+      ],
+      "doorHeight": 70.11966770039413,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "cooper",
+      "localPlot": [
+        5,
+        3,
+        4,
+        5
+      ],
+      "nativeSize": [
+        1300,
+        1400
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "doorHeight": 70.15232766611996,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "butcher",
+      "localPlot": [
+        9,
+        4,
+        3,
+        4
+      ],
+      "nativeSize": [
+        1300,
+        1400
+      ],
+      "nativeAnchor": [
+        594,
+        896
+      ],
+      "doorHeight": 70.0996399218447,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "apothecary",
+      "localPlot": [
+        12,
+        3,
+        4,
+        5
+      ],
+      "nativeSize": [
+        1300,
+        1400
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "doorHeight": 69.9741800641662,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 3079,
+      "sha256": "e75e97c97ce973c85d567a96f7fec7d9b00433eedf8314d526a9b71f51aba944"
+    },
+    {
+      "file": "apothecary-day.webp",
+      "bytes": 176180,
+      "sha256": "01d795b1ef62a06da0d8507afac58cc1a543427a926f8834c09a791be47003a6"
+    },
+    {
+      "file": "apothecary-emission.webp",
+      "bytes": 9382,
+      "sha256": "0dcfa09e6c01f83b87f54a7d823296cbc9d0e086041674d19104975038742a70"
+    },
+    {
+      "file": "apothecary-night.webp",
+      "bytes": 160248,
+      "sha256": "a1bfaea8736a60f8f3ec30dd82daf41b9d6b100d03beeb015cadb96ca76714e0"
+    },
+    {
+      "file": "apothecary-roof-night.webp",
+      "bytes": 40524,
+      "sha256": "4a98c896a12c6c3fb7ba5b6290a635f13a6fd346addb2b7561dd93a20592e874"
+    },
+    {
+      "file": "apothecary-roof.webp",
+      "bytes": 42344,
+      "sha256": "11ae2636f2b98db98082f23a29be8c9d9ed10587fef598cca59bf435d30cd425"
+    },
+    {
+      "file": "apothecary-walls-night.webp",
+      "bytes": 122650,
+      "sha256": "73a842a051b975cee134f4cebe3840414bf5c68b5bd0a1f382e176c26331eefc"
+    },
+    {
+      "file": "apothecary-walls.webp",
+      "bytes": 141400,
+      "sha256": "443ec59237b97ac70db782fef86a2f570169759fa3be4212d72c976b78d3adc0"
+    },
+    {
+      "file": "butcher-day.webp",
+      "bytes": 119524,
+      "sha256": "9748c76f70cfe4367d36cd88af21a8cb9c17ae8c704d107b1add8a920b1c90e2"
+    },
+    {
+      "file": "butcher-emission.webp",
+      "bytes": 5536,
+      "sha256": "bb2dca43c5aac96cc798457198a72ec518e9161cf76748c4ba9549dd3577bfe2"
+    },
+    {
+      "file": "butcher-night.webp",
+      "bytes": 105300,
+      "sha256": "feecbf7086325306bc649bfc2a69eb374c977c6ea0caaa04e369a974de7fb0a1"
+    },
+    {
+      "file": "butcher-roof-night.webp",
+      "bytes": 27130,
+      "sha256": "83fdf70287e7410a5df7a103d11c3a7b1272594065220f5b10324e194c4c2b08"
+    },
+    {
+      "file": "butcher-roof.webp",
+      "bytes": 29108,
+      "sha256": "9632ee82aecde19de4f5739aacbe2765a443805ab8be3fe7a7891c2af4074353"
+    },
+    {
+      "file": "butcher-walls-night.webp",
+      "bytes": 82798,
+      "sha256": "d4ea6b3d930cb795a1b1ea585ce194e7206d8240dec81b44e07ef20ab69f9fd6"
+    },
+    {
+      "file": "butcher-walls.webp",
+      "bytes": 98332,
+      "sha256": "f21923be53fb3c9e8ce2d4dd7db8e5375fc9d6345cda8926f720f959addbc4cd"
+    },
+    {
+      "file": "contact-shadows.webp",
+      "bytes": 18724,
+      "sha256": "89a989c53233a5dbf43a29c741d11859acf463d37f1d6f123df28b7de3386e42"
+    },
+    {
+      "file": "cooper-day.webp",
+      "bytes": 162074,
+      "sha256": "5ce6d07a303e9aaa3d661096b28ad2ae65bc378887e39af81ea40cc60768ecea"
+    },
+    {
+      "file": "cooper-emission.webp",
+      "bytes": 5256,
+      "sha256": "898c2bd3b79b4e9157ae75ddb96ce0d68354938698b931cb5764c5f5feeb1bb5"
+    },
+    {
+      "file": "cooper-night.webp",
+      "bytes": 141008,
+      "sha256": "eaedc7deb8472f4fad9d240c3ca262bd462f986ee24f2a3ba957cba6dcf735f6"
+    },
+    {
+      "file": "cooper-roof-night.webp",
+      "bytes": 42102,
+      "sha256": "f65889bd4f1910a75f40649d4c057cb0ae124ea1c75bd33ad22a496bab32b555"
+    },
+    {
+      "file": "cooper-roof.webp",
+      "bytes": 49596,
+      "sha256": "f09cca5c080d0d4a258b5d80a481b3ee11d9d399ea7775462c5d061c3ca9b0f2"
+    },
+    {
+      "file": "cooper-walls-night.webp",
+      "bytes": 100656,
+      "sha256": "6f682f0c1744234b7a89d5f6c80eb1ef0c1bb3ca0dea42f6446bb9a693224b32"
+    },
+    {
+      "file": "cooper-walls.webp",
+      "bytes": 118780,
+      "sha256": "3c06abebf9960e2b46607bf08d72e70d2bc0d5b9a4f55af35aa7d7a2dd3b056d"
+    },
+    {
+      "file": "grid-layout.png",
+      "bytes": 58529,
+      "sha256": "b1b99b557a7a9b4b916409f2c975635a6bad1baa61b88b490c29effc670601b8"
+    },
+    {
+      "file": "grid-layout.svg",
+      "bytes": 4054,
+      "sha256": "be300ddd68e25ffc3c5661ce5c5695337874045ae3e2f319f732ecf48d3f5fce"
+    },
+    {
+      "file": "layout.json",
+      "bytes": 2251,
+      "sha256": "1fda4005917ef5977c3e195bd05be699b98ad495b0608490d739083f1a77d3ce"
+    },
+    {
+      "file": "prompts.json",
+      "bytes": 8698,
+      "sha256": "fe3d1d1c19a63a5125d105ec1246c8d3eb4447e3cc72475aab4f058b37314b82"
+    },
+    {
+      "file": "qa.json",
+      "bytes": 3650,
+      "sha256": "374a04b9b4c0ebd21affda6ed6f2a2a71cd0e3256333973bd6ef4081a7697764"
+    },
+    {
+      "file": "registration.json",
+      "bytes": 18586,
+      "sha256": "278c27cebd6bd5a8dc612681d7542b1205c05e6009554daf2a3b12df74d4e16e"
+    },
+    {
+      "file": "shared-paving-day.webp",
+      "bytes": 132078,
+      "sha256": "898fbc1bbb1e06dac9b8a07d6a83cc714c12c3272dd0856facd862c083164e6c"
+    },
+    {
+      "file": "shared-paving-night.webp",
+      "bytes": 102146,
+      "sha256": "612e56257976786dddebfde12ae4c4031116153220d58143151883f5ca480635"
+    },
+    {
+      "file": "smithy-day.webp",
+      "bytes": 145412,
+      "sha256": "55ebcef17d3cb93ccffb61577308b8250912687992308b26950f3030f83a3a64"
+    },
+    {
+      "file": "smithy-emission.webp",
+      "bytes": 3460,
+      "sha256": "1f6ee8a8bb7f3781a01c10f4182b99057c202732d07e8343b35c473ae84aec85"
+    },
+    {
+      "file": "smithy-night.webp",
+      "bytes": 137460,
+      "sha256": "bc007a5b4874009c1f7aaf637050b338a65d4057a1ec28d095dba10932905682"
+    },
+    {
+      "file": "smithy-roof-night.webp",
+      "bytes": 58262,
+      "sha256": "eed8b0ddb3ac3d2974d24a6a3a70c27bc97b6b5d6cade79186e60ed83501e1b9"
+    },
+    {
+      "file": "smithy-roof.webp",
+      "bytes": 58718,
+      "sha256": "bfad8e43eff433f2db66bd63493e9ad9c51c5f4bb0c13c1ad28220448cc8b4fe"
+    },
+    {
+      "file": "smithy-walls-night.webp",
+      "bytes": 83436,
+      "sha256": "6ae1a473e5b6ec947c8fa39e44179a1ed3d0a642d6e388d5020d99cd87f8e2e7"
+    },
+    {
+      "file": "smithy-walls.webp",
+      "bytes": 95250,
+      "sha256": "4979671a26611601a2b3efa3c173aa3353b6f9fc57588088086b9370ad32310d"
+    },
+    {
+      "file": "street-day-review.jpg",
+      "bytes": 132229,
+      "sha256": "385bb804edfccfd4132f6af709034aa2a5013fcf0b02f5461843e9edefd0a1bc"
+    },
+    {
+      "file": "street-night-review.jpg",
+      "bytes": 116584,
+      "sha256": "b5c42beadbd83125315b8ccfad09b73d689a2729f8a2356ca4297dcff48666c2"
+    }
+  ],
+  "missingFiles": [],
+  "deliveryStatus": "complete artwork packet; creative approval and runtime integration pending"
+}

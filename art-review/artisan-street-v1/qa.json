@@ -1,0 +1,153 @@
+{
+  "status": "asset geometry and pixel registration verified; world integration not tested",
+  "buildings": [
+    {
+      "name": "smithy",
+      "footprint": [
+        5,
+        5
+      ],
+      "renderedDoorPixels": 70.11966770039413,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.565051177077976
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.56505117707799
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 0,
+      "decodedBytesPerLayer": 7280000,
+      "rasterFoundationAnglesDegrees": [
+        26.564002034407757,
+        26.564002034407757
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "cooper",
+      "footprint": [
+        4,
+        5
+      ],
+      "renderedDoorPixels": 70.15232766611996,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.56505117707799
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 184,
+      "decodedBytesPerLayer": 7280000,
+      "rasterFoundationAnglesDegrees": [
+        26.61377890395322,
+        26.564002034407757
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "butcher",
+      "footprint": [
+        3,
+        4
+      ],
+      "renderedDoorPixels": 70.0996399218447,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.565051177077976
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 2353,
+      "decodedBytesPerLayer": 7280000,
+      "rasterFoundationAnglesDegrees": [
+        26.56173519323766,
+        26.88015035189403
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "apothecary",
+      "footprint": [
+        4,
+        5
+      ],
+      "renderedDoorPixels": 69.9741800641662,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.56505117707799
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 9768,
+      "decodedBytesPerLayer": 7280000,
+      "rasterFoundationAnglesDegrees": [
+        26.614088044757942,
+        26.793452351909462
+      ],
+      "nightRoofAlphaMismatch": 0
+    }
+  ]
+}

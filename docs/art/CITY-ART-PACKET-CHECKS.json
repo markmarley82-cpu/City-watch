@@ -1,0 +1,193 @@
+{
+  "date": "2026-11-20",
+  "scope": "Static art checks; runtime and physical-phone testing not performed",
+  "buildings": 19,
+  "results": [
+    {
+      "packet": "shop-street-v1",
+      "name": "cobbler",
+      "dimensions": [
+        510,
+        620
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 667
+    },
+    {
+      "packet": "shop-street-v1",
+      "name": "pawnbroker",
+      "dimensions": [
+        398,
+        581
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 642
+    },
+    {
+      "packet": "shop-street-v1",
+      "name": "curry-house",
+      "dimensions": [
+        510,
+        671
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 2691
+    },
+    {
+      "packet": "shop-street-v1",
+      "name": "lodging",
+      "dimensions": [
+        678,
+        822
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 575
+    },
+    {
+      "packet": "dockside-street-v1",
+      "name": "bonded-warehouse",
+      "dimensions": [
+        734,
+        723
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 2470
+    },
+    {
+      "packet": "dockside-street-v1",
+      "name": "rope-maker",
+      "dimensions": [
+        510,
+        620
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 1466
+    },
+    {
+      "packet": "dockside-street-v1",
+      "name": "ship-chandler",
+      "dimensions": [
+        510,
+        710
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 12961
+    },
+    {
+      "packet": "dockside-street-v1",
+      "name": "quay-lodging",
+      "dimensions": [
+        566,
+        797
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 3516
+    },
+    {
+      "packet": "artisan-street-v1",
+      "name": "smithy",
+      "dimensions": [
+        1300,
+        1400
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 0
+    },
+    {
+      "packet": "artisan-street-v1",
+      "name": "cooper",
+      "dimensions": [
+        1300,
+        1400
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 184
+    },
+    {
+      "packet": "artisan-street-v1",
+      "name": "butcher",
+      "dimensions": [
+        1300,
+        1400
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 2353
+    },
+    {
+      "packet": "artisan-street-v1",
+      "name": "apothecary",
+      "dimensions": [
+        1300,
+        1400
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 1,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 9768
+    },
+    {
+      "packet": "palace-main-block-v1",
+      "name": "main",
+      "dimensions": [
+        1200,
+        1000
+      ],
+      "alphaMismatch": 0,
+      "maxLayerAlphaExcess": 4,
+      "emissionOutsideWalls": 0,
+      "emittingPixels": 6910
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "drum",
+      "alphaMismatch": 0
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "archives",
+      "alphaMismatch": 0
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "market",
+      "alphaMismatch": 0
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "lantern",
+      "alphaMismatch": 0
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "crypt",
+      "alphaMismatch": 0
+    },
+    {
+      "packet": "landmark-grid-redraws",
+      "name": "store",
+      "alphaMismatch": 0
+    }
+  ]
+}

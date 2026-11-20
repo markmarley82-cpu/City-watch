@@ -1,0 +1,147 @@
+{
+  "status": "proposed local street layout, site assignment pending",
+  "projection": [
+    28,
+    14
+  ],
+  "sourceScale": 2,
+  "sourceCanvas": [
+    1900,
+    1550
+  ],
+  "sourceOrigin": [
+    700,
+    600
+  ],
+  "plots": [
+    {
+      "name": "smithy",
+      "rect": [
+        0,
+        3,
+        5,
+        5
+      ],
+      "nativeAnchor": [
+        650,
+        980
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.11966770039413
+    },
+    {
+      "name": "cooper",
+      "rect": [
+        5,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.15232766611996
+    },
+    {
+      "name": "butcher",
+      "rect": [
+        9,
+        4,
+        3,
+        4
+      ],
+      "nativeAnchor": [
+        594,
+        896
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.0996399218447
+    },
+    {
+      "name": "apothecary",
+      "rect": [
+        12,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 69.9741800641662
+    }
+  ],
+  "streetPaving": [
+    0,
+    8,
+    16,
+    2.5
+  ],
+  "rearLane": [
+    0,
+    1,
+    16,
+    2
+  ],
+  "navigationAuthoring": false,
+  "terrain": {
+    "files": [
+      "shared-paving-day.webp",
+      "shared-paving-night.webp",
+      "contact-shadows.webp"
+    ],
+    "nativeSize": [
+      1435,
+      721
+    ],
+    "nativeOrigin": [
+      591,
+      -25
+    ],
+    "drawScale": 0.5,
+    "cropFromReviewCanvas": {
+      "left": 109,
+      "top": 625,
+      "width": 1435,
+      "height": 721
+    }
+  },
+  "entrances": [
+    {
+      "name": "smithy",
+      "kind": "human",
+      "proposedLocalWorld": [
+        1.0713346462651683,
+        8.2
+      ]
+    },
+    {
+      "name": "cooper",
+      "kind": "human",
+      "proposedLocalWorld": [
+        6.157881227048372,
+        8.2
+      ]
+    },
+    {
+      "name": "butcher",
+      "kind": "human",
+      "proposedLocalWorld": [
+        9.98560147997349,
+        8.2
+      ]
+    },
+    {
+      "name": "apothecary",
+      "kind": "human",
+      "proposedLocalWorld": [
+        12.98949461995574,
+        8.2
+      ]
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+[
+  {
+    "name": "lantern",
+    "source": "exec-dde6ba56-8b27-4c08-9572-f5dd79c2d3a2.png",
+    "dimensions": [
+      1341,
+      1248
+    ],
+    "base": {
+      "left": [
+        96,
+        863.5
+      ],
+      "corner": [
+        679,
+        1155
+      ],
+      "right": [
+        1247,
+        871
+      ]
+    },
+    "angles": [
+      26.565,
+      26.565
+    ],
+    "registration": "Vertical-column projection fit of newly generated painting. Vertical edges retain their length. Requires visual approval and map-size integration.",
+    "redFringePixelsCleared": 772,
+    "file": "lantern.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  },
+  {
+    "name": "drum",
+    "source": "exec-b5989f4b-a4df-40aa-8431-694213726198.png",
+    "dimensions": [
+      1341,
+      1322
+    ],
+    "base": {
+      "left": [
+        88,
+        972
+      ],
+      "corner": [
+        670,
+        1263
+      ],
+      "right": [
+        1252,
+        972
+      ]
+    },
+    "angles": [
+      26.565,
+      26.565
+    ],
+    "registration": "Vertical-column projection fit of newly generated painting. Vertical edges retain their length. Requires visual approval and map-size integration.",
+    "redFringePixelsCleared": 443,
+    "file": "drum.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  },
+  {
+    "name": "archives",
+    "source": "exec-3d5b6b61-0f06-44d1-a219-d24c206248a9.png",
+    "dimensions": [
+      1341,
+      1298
+    ],
+    "base": {
+      "left": [
+        94,
+        969
+      ],
+      "corner": [
+        674,
+        1259
+      ],
+      "right": [
+        1248,
+        972
+      ]
+    },
+    "angles": [
+      26.565,
+      26.565
+    ],
+    "registration": "Vertical-column projection fit of newly generated painting. Vertical edges retain their length. Requires visual approval and map-size integration.",
+    "redFringePixelsCleared": 2132,
+    "file": "archives.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  },
+  {
+    "name": "market",
+    "source": "exec-4d996af4-1e9f-463d-9745-43775f0f8c13.png",
+    "dimensions": [
+      1341,
+      1227
+    ],
+    "base": {
+      "left": [
+        84,
+        791
+      ],
+      "corner": [
+        684,
+        1091
+      ],
+      "right": [
+        1259,
+        803.5
+      ]
+    },
+    "angles": [
+      26.565,
+      26.565
+    ],
+    "registration": "Vertical-column projection fit of newly generated painting. Vertical edges retain their length. Requires visual approval and map-size integration.",
+    "redFringePixelsCleared": 727,
+    "file": "market.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  },
+  {
+    "name": "crypt",
+    "source": "exec-33b9e41b-54d7-40f5-8610-4bd0b9760d49.png",
+    "dimensions": [
+      1317,
+      1194
+    ],
+    "base": {
+      "left": [
+        82,
+        820
+      ],
+      "corner": [
+        620,
+        1090
+      ],
+      "right": [
+        1239,
+        784
+      ]
+    },
+    "registration": "Roof repainted as one straight plane with parallel ridge, eave and slate courses. New image accepted by Mark. Base points are approximate review coordinates and need map integration.",
+    "file": "crypt.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  },
+  {
+    "name": "store",
+    "source": "exec-ec00fd21-2d49-4ca1-9560-99314c4bfa01.png",
+    "dimensions": [
+      1341,
+      1315
+    ],
+    "base": {
+      "left": [
+        76,
+        969
+      ],
+      "corner": [
+        650,
+        1256
+      ],
+      "right": [
+        1267,
+        947.5
+      ]
+    },
+    "angles": [
+      26.565,
+      26.565
+    ],
+    "registration": "Vertical-column projection fit of newly generated painting. Vertical edges retain their length. Requires visual approval and map-size integration.",
+    "redFringePixelsCleared": 3617,
+    "file": "store.webp",
+    "creativeApproval": {
+      "status": "approved",
+      "date": "2026-11-19",
+      "by": "Mark"
+    }
+  }
+]

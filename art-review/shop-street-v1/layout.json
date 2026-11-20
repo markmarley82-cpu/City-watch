@@ -1,0 +1,91 @@
+{
+  "status": "proposed local street layout, site assignment pending",
+  "projection": [
+    28,
+    14
+  ],
+  "sourceScale": 2,
+  "sourceCanvas": [
+    1900,
+    1600
+  ],
+  "sourceOrigin": [
+    700,
+    650
+  ],
+  "plots": [
+    {
+      "name": "cobbler",
+      "rect": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        227,
+        617
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 69.84542101962802
+    },
+    {
+      "name": "pawnbroker",
+      "rect": [
+        4,
+        4,
+        3,
+        4
+      ],
+      "nativeAnchor": [
+        171,
+        578
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.05463000090452
+    },
+    {
+      "name": "curry-house",
+      "rect": [
+        7,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        227,
+        668
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.15068428602581
+    },
+    {
+      "name": "lodging",
+      "rect": [
+        11,
+        2,
+        6,
+        6
+      ],
+      "nativeAnchor": [
+        339,
+        819
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 69.81174805554383
+    }
+  ],
+  "streetPaving": [
+    0,
+    8,
+    17,
+    2.5
+  ],
+  "lodgingCourt": [
+    11,
+    0,
+    6,
+    2
+  ],
+  "navigationAuthoring": false
+}

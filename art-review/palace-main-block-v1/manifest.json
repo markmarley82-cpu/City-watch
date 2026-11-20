@@ -1,0 +1,152 @@
+{
+  "id": "PALACE-MAIN-BLOCK-ART-v1",
+  "status": "new main block candidate for Mark approval",
+  "referenceCommit": "fd76ccb21b2fbaefca816703288a764da2479d34",
+  "foundation": [
+    149.25,
+    212.75,
+    9.5,
+    9.25
+  ],
+  "nativeSize": [
+    1200,
+    1000
+  ],
+  "scale": 0.5,
+  "anchor": [
+    614,
+    925
+  ],
+  "worldAnchor": [
+    158.75,
+    222
+  ],
+  "existingPublicEntrance": [
+    144,
+    231
+  ],
+  "doorHeightRenderedApprox": 70,
+  "nightAlphaIdentical": true,
+  "roofPlaneRegistration": true,
+  "approvedApproachDaySource": "dist/assets/palace-approach-v1/",
+  "files": [
+    {
+      "file": "gateway-night.webp",
+      "bytes": 27546,
+      "size": [
+        264,
+        260
+      ],
+      "sha256": "ffa5909ed12e2ce4fb87de6dcd1c23a8a03c909807e652d3075d0b68309f9135"
+    },
+    {
+      "file": "lantern-post-night.webp",
+      "bytes": 12366,
+      "size": [
+        258,
+        264
+      ],
+      "sha256": "3f8cc2d5b90b14859c5a83e66874473bac1675621b889274c9f025b0c76b6dd3"
+    },
+    {
+      "file": "main-contact-shadow.webp",
+      "bytes": 4586,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "2241f26764beb72681316dadb520c0563a52757ba5174fc5eccd09d0f46a7476"
+    },
+    {
+      "file": "main-day.webp",
+      "bytes": 330652,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "c66ab7d330400465c609060327a047e03e17a6780f39bb3260dcfe63a4a8ca93"
+    },
+    {
+      "file": "main-night.webp",
+      "bytes": 296720,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "94ff2ebf79a3227a526d6b67bb3db9f7205a9414719f4128f2e09aaa1bccbea7"
+    },
+    {
+      "file": "main-roof-night.webp",
+      "bytes": 415804,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "2f0c3503d3e94958a827b2c4cde43ca20c7b74e9463d9cb08f0299575eb7237a"
+    },
+    {
+      "file": "main-roof.webp",
+      "bytes": 156552,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "40f7596da574d2575bf51196911a4faf37677b3b4bdd38e5a52a6b5945a2d487"
+    },
+    {
+      "file": "main-walls-night.webp",
+      "bytes": 425454,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "eff7354ec8d14a04c173c9247d1531ed735cceb5a062173d1d743628e3bfd271"
+    },
+    {
+      "file": "main-walls.webp",
+      "bytes": 178606,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "57e9c1987699bac7557789b845c2ca12cd5effcad352f520808b965a4596eb20"
+    },
+    {
+      "file": "main-window-emission.webp",
+      "bytes": 7002,
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "11bfdc94e75cf2af32b9d7bb2f381db7121f576478844b68168fb38b375fbef9"
+    },
+    {
+      "file": "palace-review.jpg",
+      "bytes": 153788,
+      "size": [
+        1260,
+        580
+      ],
+      "sha256": "68acb1bcac6c354e1d3307e2496e5ec7117cbd9c1e2c66db04bb96ee160c43e1"
+    },
+    {
+      "file": "wall-corner-night.webp",
+      "bytes": 24684,
+      "size": [
+        264,
+        264
+      ],
+      "sha256": "caae16d12366265d87268c785fff63da4327c764f3ddbbe653bd32cc6df9f106"
+    },
+    {
+      "file": "wall-straight-night.webp",
+      "bytes": 22056,
+      "size": [
+        260,
+        264
+      ],
+      "sha256": "2a32e17d490bd1f220a264fe64f58f40ce72cfa9f2b9c8a793568e4444b7e8fb"
+    }
+  ],
+  "nightLayerExport": "Existing night RGB, existing day layer alpha, unchanged dimensions and registration; tools/export-city-night-layers.cjs"
+}
