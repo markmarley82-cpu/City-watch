@@ -1,0 +1,215 @@
+{
+  "status": "proposed local street layout, site assignment pending",
+  "projection": [
+    28,
+    14
+  ],
+  "sourceScale": 2,
+  "sourceCanvas": [
+    2100,
+    1800
+  ],
+  "sourceOrigin": [
+    750,
+    650
+  ],
+  "plots": [
+    {
+      "name": "bonded-warehouse",
+      "rect": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "nativeAnchor": [
+        339,
+        720
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70
+    },
+    {
+      "name": "rope-maker",
+      "rect": [
+        6,
+        4,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        227,
+        617
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 69.83930009222041
+    },
+    {
+      "name": "ship-chandler",
+      "rect": [
+        10,
+        4,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        227,
+        707
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.11531812677032
+    },
+    {
+      "name": "quay-lodging",
+      "rect": [
+        14,
+        3,
+        4,
+        6
+      ],
+      "nativeAnchor": [
+        227,
+        794
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.00000000000006
+    }
+  ],
+  "streetPaving": [
+    0,
+    9,
+    18,
+    2.5
+  ],
+  "ropeYard": {
+    "name": "rope-yard",
+    "rect": [
+      6,
+      2,
+      4,
+      2
+    ],
+    "nativeOrigin": [
+      118,
+      74
+    ],
+    "nativeSize": [
+      346,
+      247
+    ],
+    "drawScale": 0.5,
+    "sourceBase": {
+      "left": [
+        340,
+        560
+      ],
+      "corner": [
+        810,
+        795
+      ],
+      "right": [
+        1060,
+        675
+      ]
+    },
+    "base": {
+      "left": [
+        6,
+        130
+      ],
+      "corner": [
+        230,
+        242
+      ],
+      "right": [
+        342,
+        186
+      ]
+    },
+    "gate": {
+      "edge": "rear",
+      "localWorldPoints": [
+        [
+          7.3,
+          2
+        ],
+        [
+          8.7,
+          2
+        ]
+      ]
+    },
+    "sourceFile": "exec-8f790c50-3060-4550-b617-624ee2afd141.png"
+  },
+  "rearLane": [
+    0,
+    0,
+    18,
+    2
+  ],
+  "navigationAuthoring": false,
+  "terrain": {
+    "files": [
+      "shared-paving-day.webp",
+      "shared-paving-night.webp",
+      "contact-shadows.webp"
+    ],
+    "nativeSize": [
+      1659,
+      833
+    ],
+    "nativeOrigin": [
+      647,
+      3
+    ],
+    "drawScale": 0.5,
+    "cropFromReviewCanvas": {
+      "left": 103,
+      "top": 647,
+      "width": 1659,
+      "height": 833
+    }
+  },
+  "entrances": [
+    {
+      "name": "bonded-warehouse",
+      "kind": "human",
+      "proposedLocalWorld": [
+        1.2298548239431497,
+        9.2
+      ]
+    },
+    {
+      "name": "rope-maker",
+      "kind": "human",
+      "proposedLocalWorld": [
+        7.0600285468580655,
+        9.2
+      ]
+    },
+    {
+      "name": "ship-chandler",
+      "kind": "human",
+      "proposedLocalWorld": [
+        10.98735736502333,
+        9.2
+      ]
+    },
+    {
+      "name": "quay-lodging",
+      "kind": "human",
+      "proposedLocalWorld": [
+        15.465102864833685,
+        9.2
+      ]
+    },
+    {
+      "name": "bonded-warehouse",
+      "kind": "cart-loading",
+      "proposedLocalWorld": [
+        4.1,
+        9.2
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "rope-yard",
+  "rect": [
+    6,
+    2,
+    4,
+    2
+  ],
+  "nativeOrigin": [
+    118,
+    74
+  ],
+  "nativeSize": [
+    346,
+    247
+  ],
+  "drawScale": 0.5,
+  "sourceBase": {
+    "left": [
+      340,
+      560
+    ],
+    "corner": [
+      810,
+      795
+    ],
+    "right": [
+      1060,
+      675
+    ]
+  },
+  "base": {
+    "left": [
+      6,
+      130
+    ],
+    "corner": [
+      230,
+      242
+    ],
+    "right": [
+      342,
+      186
+    ]
+  },
+  "gate": {
+    "edge": "rear",
+    "localWorldPoints": [
+      [
+        7.3,
+        2
+      ],
+      [
+        8.7,
+        2
+      ]
+    ]
+  },
+  "sourceFile": "exec-8f790c50-3060-4550-b617-624ee2afd141.png"
+}

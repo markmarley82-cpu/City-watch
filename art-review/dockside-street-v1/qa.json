@@ -1,0 +1,156 @@
+{
+  "status": "asset geometry and pixel registration verified; world integration not tested",
+  "buildings": [
+    {
+      "name": "bonded-warehouse",
+      "footprint": [
+        6,
+        7
+      ],
+      "renderedDoorPixels": 70,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.56505117707799
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 2470,
+      "decodedBytesPerLayer": 2122728,
+      "rasterFoundationAnglesDegrees": [
+        26.68273089642876,
+        26.688549432772298
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "rope-maker",
+      "footprint": [
+        4,
+        5
+      ],
+      "renderedDoorPixels": 69.83930009222041,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.565051177077976
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 1466,
+      "decodedBytesPerLayer": 1264800,
+      "rasterFoundationAnglesDegrees": [
+        27.810848427163975,
+        26.564002034407757
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "ship-chandler",
+      "footprint": [
+        4,
+        5
+      ],
+      "renderedDoorPixels": 70.11531812677032,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.565051177077976
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 12961,
+      "decodedBytesPerLayer": 1448400,
+      "rasterFoundationAnglesDegrees": [
+        26.445186388394553,
+        27.13952111609595
+      ],
+      "nightRoofAlphaMismatch": 0
+    },
+    {
+      "name": "quay-lodging",
+      "footprint": [
+        4,
+        6
+      ],
+      "renderedDoorPixels": 70.00000000000006,
+      "referenceOfficerPixels": 60,
+      "edges": [
+        {
+          "name": "foundation-left",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "foundation-right",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-ridge",
+          "angleDegrees": 26.56505117707799
+        },
+        {
+          "name": "roof-eave",
+          "angleDegrees": 26.56505117707799
+        }
+      ],
+      "alphaMismatch": 0,
+      "cutawayMismatch": 0,
+      "outsideEmission": 0,
+      "emittingPixels": 3516,
+      "decodedBytesPerLayer": 1804408,
+      "rasterFoundationAnglesDegrees": [
+        26.517761480470973,
+        26.94875293484022
+      ],
+      "nightRoofAlphaMismatch": 0
+    }
+  ],
+  "yard": {
+    "dayNightAlphaMismatch": 0
+  }
+}

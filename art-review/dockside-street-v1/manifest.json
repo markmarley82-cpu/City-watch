@@ -1,0 +1,414 @@
+{
+  "id": "DOCKSIDE-STREET-ART-v1",
+  "status": "candidate",
+  "baseCommit": "fd76ccb21b2fbaefca816703288a764da2479d34",
+  "projection": [
+    28,
+    14
+  ],
+  "drawScale": 0.5,
+  "characterReferencePixels": 60,
+  "buildings": [
+    {
+      "name": "bonded-warehouse",
+      "localPlot": [
+        0,
+        2,
+        6,
+        7
+      ],
+      "nativeSize": [
+        734,
+        723
+      ],
+      "nativeOrigin": [
+        395,
+        356
+      ],
+      "nativeAnchor": [
+        339,
+        720
+      ],
+      "doorHeight": 70,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "rope-maker",
+      "localPlot": [
+        6,
+        4,
+        4,
+        5
+      ],
+      "nativeSize": [
+        510,
+        620
+      ],
+      "nativeOrigin": [
+        283,
+        365
+      ],
+      "nativeAnchor": [
+        227,
+        617
+      ],
+      "doorHeight": 69.83930009222041,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "ship-chandler",
+      "localPlot": [
+        10,
+        4,
+        4,
+        5
+      ],
+      "nativeSize": [
+        510,
+        710
+      ],
+      "nativeOrigin": [
+        283,
+        455
+      ],
+      "nativeAnchor": [
+        227,
+        707
+      ],
+      "doorHeight": 70.11531812677032,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    },
+    {
+      "name": "quay-lodging",
+      "localPlot": [
+        14,
+        3,
+        4,
+        6
+      ],
+      "nativeSize": [
+        566,
+        797
+      ],
+      "nativeOrigin": [
+        339,
+        514
+      ],
+      "nativeAnchor": [
+        227,
+        794
+      ],
+      "doorHeight": 70.00000000000006,
+      "variants": [
+        "day",
+        "night",
+        "roof",
+        "roof-night",
+        "walls",
+        "walls-night",
+        "emission"
+      ]
+    }
+  ],
+  "yard": {
+    "name": "rope-yard",
+    "rect": [
+      6,
+      2,
+      4,
+      2
+    ],
+    "nativeOrigin": [
+      118,
+      74
+    ],
+    "nativeSize": [
+      346,
+      247
+    ],
+    "drawScale": 0.5,
+    "sourceBase": {
+      "left": [
+        340,
+        560
+      ],
+      "corner": [
+        810,
+        795
+      ],
+      "right": [
+        1060,
+        675
+      ]
+    },
+    "base": {
+      "left": [
+        6,
+        130
+      ],
+      "corner": [
+        230,
+        242
+      ],
+      "right": [
+        342,
+        186
+      ]
+    },
+    "gate": {
+      "edge": "rear",
+      "localWorldPoints": [
+        [
+          7.3,
+          2
+        ],
+        [
+          8.7,
+          2
+        ]
+      ]
+    },
+    "sourceFile": "exec-8f790c50-3060-4550-b617-624ee2afd141.png"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2951,
+      "sha256": "c6ba152e2b4b7ecd286d4ee8bb1d9f384fbf628d6e175cfe3dd3d5266207ef56"
+    },
+    {
+      "file": "bonded-warehouse-day.webp",
+      "bytes": 229232,
+      "sha256": "eec621f6f98379e2b455bad06bab97b31ac943392c755f52030cf9a49a4496dc"
+    },
+    {
+      "file": "bonded-warehouse-emission.webp",
+      "bytes": 4594,
+      "sha256": "d8718c02b0456fa1dee240ef50de2321789747f6acbfebff161cedc4242748ba"
+    },
+    {
+      "file": "bonded-warehouse-night.webp",
+      "bytes": 218410,
+      "sha256": "bafce122629a88ee9ff292174c21246cee53f3965ebfc06db00c018bdfb6a031"
+    },
+    {
+      "file": "bonded-warehouse-roof-night.webp",
+      "bytes": 71428,
+      "sha256": "c3a70d616cd12f27207c613eef861a14e6fcfd3d8356f21ce4110a7c1816a620"
+    },
+    {
+      "file": "bonded-warehouse-roof.webp",
+      "bytes": 73518,
+      "sha256": "c626573fc693ece027e44035163cfe549b822c1d9a5e7dc483c447e82ce923eb"
+    },
+    {
+      "file": "bonded-warehouse-walls-night.webp",
+      "bytes": 143096,
+      "sha256": "54ea3343e234e5ca8bfadccfab32d588132a60c2f3867ef59701560ac78005c7"
+    },
+    {
+      "file": "bonded-warehouse-walls.webp",
+      "bytes": 155316,
+      "sha256": "a0d355d030bf91ec7054a1de6c59930237e4777cd284249ec8bb873900d16e0f"
+    },
+    {
+      "file": "contact-shadows.webp",
+      "bytes": 22156,
+      "sha256": "0827fe316f572c04f6c41e24d18bc0d35bdd619165f4783a91216204608beac1"
+    },
+    {
+      "file": "grid-layout.png",
+      "bytes": 68046,
+      "sha256": "0b19b6faa763433fe0dd3b9483a5d9f29ddec3b05700a4c9956212229ac7ab5c"
+    },
+    {
+      "file": "grid-layout.svg",
+      "bytes": 4661,
+      "sha256": "57438bea61c9c41f3a80958dd95f42f42609f4d855bef64cf14a7a160aa38377"
+    },
+    {
+      "file": "layout.json",
+      "bytes": 3236,
+      "sha256": "2d3bcd50c14020dc6b032f0e301ecefef055ed52cad9954820da819a1b2bf0b4"
+    },
+    {
+      "file": "qa.json",
+      "bytes": 3712,
+      "sha256": "47f230080aaf3221cce1848b6f821d9d4d5302b1b786fc337711a9283b5a0d7b"
+    },
+    {
+      "file": "quay-lodging-day.webp",
+      "bytes": 201434,
+      "sha256": "a7e8e22ab11ec8d3852a362cabe61806b04365c6ef3b8d0feb9adce9c48fa70e"
+    },
+    {
+      "file": "quay-lodging-emission.webp",
+      "bytes": 4442,
+      "sha256": "31b91e4ac64215fa1a056ae3603f5bbee42a2e755b1e86cbb8e46faaa9208919"
+    },
+    {
+      "file": "quay-lodging-night.webp",
+      "bytes": 190290,
+      "sha256": "d349b26ceb21c8b29a0407946c393565b67787e3b905a9dac86e06ec2d6d1e65"
+    },
+    {
+      "file": "quay-lodging-roof-night.webp",
+      "bytes": 42398,
+      "sha256": "c9e077e87b342e702809f1df15bb02e525d2cd51c46bb1a1ac18bdfafeffc7f0"
+    },
+    {
+      "file": "quay-lodging-roof.webp",
+      "bytes": 42084,
+      "sha256": "7ee3f936df87e260190e5df7d49777d0c4e2a08e0d5c9da807b341a9f2c3d169"
+    },
+    {
+      "file": "quay-lodging-walls-night.webp",
+      "bytes": 144798,
+      "sha256": "f4a2bf9b00fc3a2cee476122d582590c73b28740139610415dd028ee176d2611"
+    },
+    {
+      "file": "quay-lodging-walls.webp",
+      "bytes": 160760,
+      "sha256": "de73bcedb842728228815c5af27099167ab7bf91654e1b84f2859c61fb815642"
+    },
+    {
+      "file": "registration.json",
+      "bytes": 19408,
+      "sha256": "5375e5cafb39d154dd60e1b7eb198d92acec66b10afcfe589144698ae81fc8ee"
+    },
+    {
+      "file": "rope-maker-day.webp",
+      "bytes": 157752,
+      "sha256": "cccb78fe1771a2a62b4c944d062e7bf60765528fa35e550fe4bacdc8c4c96865"
+    },
+    {
+      "file": "rope-maker-emission.webp",
+      "bytes": 2698,
+      "sha256": "29df5d233d1c83501d9b37ea69202e2994abaea4bde0db92347ba7b7c509e4df"
+    },
+    {
+      "file": "rope-maker-night.webp",
+      "bytes": 138208,
+      "sha256": "66cccd5b6e600ec52a592fbce78391415df65a185b4db78d10c80fa0a80aebb3"
+    },
+    {
+      "file": "rope-maker-roof-night.webp",
+      "bytes": 39258,
+      "sha256": "73a8ffaf266889e2b31b2c31ed920a61e66433d095d72913c2a497b6d92231f1"
+    },
+    {
+      "file": "rope-maker-roof.webp",
+      "bytes": 43520,
+      "sha256": "61e4129c4e3da51cff150466197097cd7964fc77830af8d3c063b2c000e132db"
+    },
+    {
+      "file": "rope-maker-walls-night.webp",
+      "bytes": 99044,
+      "sha256": "adfb6d8a15d1b58a6b42a677dbd61dd792204e0acfe0cc0468a8fc56ebe03836"
+    },
+    {
+      "file": "rope-maker-walls.webp",
+      "bytes": 110022,
+      "sha256": "ca64bde93d304d6ebf3eaee83341f3f1063f9ff540a2cbe5029451dcce3912e8"
+    },
+    {
+      "file": "rope-yard-day.webp",
+      "bytes": 39088,
+      "sha256": "3cc4c9dad08c15e2506ce15ce05407470b51b2d54b907e9b5198dd22ed681082"
+    },
+    {
+      "file": "rope-yard-night.webp",
+      "bytes": 37366,
+      "sha256": "d283aad2850de1aa5d608c35e1779a06211ca4dd4060aa72a1fad9f06e817038"
+    },
+    {
+      "file": "shared-paving-day.webp",
+      "bytes": 166616,
+      "sha256": "781f05a1896bc5f35221d4d69148ec2270999abf9c753935c4e64a75c93e1ab1"
+    },
+    {
+      "file": "shared-paving-night.webp",
+      "bytes": 129222,
+      "sha256": "d92e496dcaf94dd196e007814f8869eee7f31f3b1572360b5900649419422178"
+    },
+    {
+      "file": "ship-chandler-day.webp",
+      "bytes": 155046,
+      "sha256": "321d5a7f5fe2e50c154f17ca8a11cf272d28ebebe93bd0e00750538e4ff65a10"
+    },
+    {
+      "file": "ship-chandler-emission.webp",
+      "bytes": 6394,
+      "sha256": "c941e4ad502a3cb9ce98170f3c09e5ad977a6c82ecf29ce1bf5eda09d63bef76"
+    },
+    {
+      "file": "ship-chandler-night.webp",
+      "bytes": 151808,
+      "sha256": "5fff89a0781814db7a6440c15e0ec3993cd167e02b2ed278893589f4ddbd3baf"
+    },
+    {
+      "file": "ship-chandler-roof-night.webp",
+      "bytes": 34364,
+      "sha256": "d5c8e6920fbffccf91234e3081e0c81890a93678d36560216945415db161bea2"
+    },
+    {
+      "file": "ship-chandler-roof.webp",
+      "bytes": 33210,
+      "sha256": "bbe10629a7e171dd792c6e59d324ffd11dcfd68086ccc179ecd2cde1c99e8ba8"
+    },
+    {
+      "file": "ship-chandler-walls-night.webp",
+      "bytes": 118810,
+      "sha256": "8677d9dacca7f7678ca05b954eec72811804c34bd0c1b7eef833008eac4760b9"
+    },
+    {
+      "file": "ship-chandler-walls.webp",
+      "bytes": 122478,
+      "sha256": "12ab5369a2fc9d1ab8f2cc2603f0fcda9b64a414effd53ad4116ce61fd2e4343"
+    },
+    {
+      "file": "street-day-review.jpg",
+      "bytes": 166314,
+      "sha256": "ddcc9c22de6ad4488cc11b92f8fd49ac0f5f4605f3cd4c9477ae59ee6e9d6616"
+    },
+    {
+      "file": "street-night-review.jpg",
+      "bytes": 149911,
+      "sha256": "1cffa18aae357aa7dd9eac76d2ffb300b0ff4c37d0293d0b63ca1ef0f3993879"
+    },
+    {
+      "file": "yard-registration.json",
+      "bytes": 679,
+      "sha256": "6b8fe30fe1f179d44f42238324a4a02b97067c1d9c14f8dd3c813d6ef22d2082"
+    },
+    {
+      "file": "yard-review.jpg",
+      "bytes": 71471,
+      "sha256": "1851ea9f2b8f93b40ad0f6856f0dbb27f53211410fdfb5c5a37985f6fb655204"
+    }
+  ]
+}
