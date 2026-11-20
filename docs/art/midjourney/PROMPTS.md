@@ -38,6 +38,35 @@ So all you need from Midjourney is a **clean, sharp, correctly angled picture on
 
 ## Job A: redraw the four old landmarks
 
+### Use Retexture: it keeps the exact angle
+
+The first try (20 Nov) came back as perspective views at random angles, standing on a paving base.
+The ordinary prompt can't hold the street angle. **Retexture** can: it repaints a picture you
+upload but keeps every shape where it is.
+
+1. On midjourney.com, open **Edit** (left menu), then **Upload image**, and choose
+   `refs/blockout-<building>.png`. It's a plain shape drawing at the exact game angle, with doors
+   the right size.
+2. Pick **Retexture** (not Erase or Restyle).
+3. Add `refs/style-exterior-1-mended-drum.png` and `refs/style-exterior-2-archives.png` as
+   **Style references**. Check their thumbnails show above the prompt box labelled as style
+   references before you submit.
+4. Paste the building's description from below, then this ending:
+
+> hand-painted isometric game building, same shape, same angle and same door and window positions as the input, detailed weathered materials, warm lit windows, soft daylight from the upper left, plain flat grey background #808080, no ground, no people, no text --v 7 --sw 300
+
+5. Make 4, upscale the best, and send it. If the paint is too timid, raise `--sw` to 500. If the
+   shapes start to drift, lower it to 200.
+
+| Building | Upload (Retexture) | Description to paste first |
+|---|---|---|
+| Bakery | `blockout-bakery.png` | a small corner bakery: weathered red brick with cream lime plaster patches, a steep clay-tile roof with a big brick chimney, a striped canvas awning over the wide shop window full of loaves, a loaf-shaped hanging sign, a half-glazed shop door with two stone steps, flower boxes |
+| Wayside Shrine | `blockout-shrine.png` | a tiny stone shrine to a minor god: pale weathered stone, a steep copper roof gone green, a stone finial, an arched oak door with a carved stone surround, a candle-lit offering niche, ivy and moss |
+| Crooked Alley House | `blockout-alley.png` | a tall narrow four-storey town house: timber framing over soot-dark brick, small leaded windows with warm light, a steep slate roof with a twisted brick chimney, a lantern by the front door, washing hanging from an upper window |
+| Watch Outpost | `blockout-outpost.png` | a City Watch outpost: a stone watch tower with a slate cap behind a two-storey timber-framed guard room with a clay-tile roof, heavy studded doors with lanterns, a painted Watch shield with a lantern emblem above the door, a notice board |
+
+The ordinary-prompt method below is kept for reference. Use it only if Retexture isn't available.
+
 ### References to upload for every Job A prompt
 
 | File | Use it as | Why |
