@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-20",
+  "staticChecks": "passed",
+  "dimensions": [
+    896,
+    1024
+  ],
+  "commonAnchor": [
+    420,
+    900
+  ],
+  "drawScale": 0.5,
+  "localFootprint": [
+    6,
+    7
+  ],
+  "renderedHumanDoor": 70.2159586212505,
+  "referenceOfficer": 60,
+  "alphaAndLayerErrors": 0,
+  "emissionPixels": 10458,
+  "bounds": [
+    84,
+    154,
+    811,
+    899
+  ],
+  "transparentMargins": [
+    84,
+    154,
+    84,
+    124
+  ],
+  "rasterFoundation": {
+    "left": {
+      "pixels": 290,
+      "slope": 0.5000178361217137,
+      "angleDegrees": 26.565868718842886
+    },
+    "right": {
+      "pixels": 345,
+      "slope": -0.5,
+      "angleDegrees": 26.56505117707799
+    }
+  },
+  "cutaway": "Exterior wall shell, not a furnished interior",
+  "worldPlacement": "not installed or runtime tested"
+}

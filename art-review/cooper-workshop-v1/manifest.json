@@ -1,0 +1,51 @@
+{
+  "id": "cooper-workshop-v1",
+  "status": "prepared art candidate; no world site or runtime integration",
+  "nativeSize": [
+    896,
+    1024
+  ],
+  "drawScale": 0.5,
+  "anchor": [
+    420,
+    900
+  ],
+  "files": [
+    {
+      "file": "cooper-day.webp",
+      "bytes": 665366,
+      "sha256": "65c60861b35e3e00b0f26805eb03eabb5994ec16298dda9651c9c3a72da3f0a1"
+    },
+    {
+      "file": "cooper-night.webp",
+      "bytes": 628532,
+      "sha256": "7f196127f04a5c2bfef391ccb386630d3dba86dd65d257f3dee09c474de04d9b"
+    },
+    {
+      "file": "cooper-roof.webp",
+      "bytes": 230182,
+      "sha256": "a01be35d0bff7bb520d54924b496084bfeb28bd8265f65612ebe321ffb4f5305"
+    },
+    {
+      "file": "cooper-roof-night.webp",
+      "bytes": 216332,
+      "sha256": "4a89b1223100c8eeda956d289d4600657a6c76df0478b71c7b4e1b248cdd28fa"
+    },
+    {
+      "file": "cooper-walls.webp",
+      "bytes": 442026,
+      "sha256": "d4a96c9bcdf733cd9303225abbd7927f8c01d8588b4372cf52ecc12e43d90e38"
+    },
+    {
+      "file": "cooper-walls-night.webp",
+      "bytes": 418830,
+      "sha256": "f58dc78ff22d950d387af919476ef2599781643a33a354b35d4596a14d807c97"
+    },
+    {
+      "file": "cooper-emission.webp",
+      "bytes": 6690,
+      "sha256": "ad9e2288391f9044db8e0f53bbb42edb2bc26bc8d513c7981fee3a8150429686"
+    }
+  ],
+  "pngMirrors": "Included with full source studies in downloadable art pack; same RGBA pixels as WebP"
+}

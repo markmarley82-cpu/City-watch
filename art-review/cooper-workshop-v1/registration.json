@@ -1,0 +1,480 @@
+{
+  "id": "cooper-workshop-v1",
+  "source": "Mark supplied Midjourney IMG_6728.jpeg; image-generator cleanup/day and night studies",
+  "status": "prepared art candidate; no world site or runtime integration",
+  "nativeSize": [
+    896,
+    1024
+  ],
+  "drawScale": 0.5,
+  "localFootprint": [
+    6,
+    7
+  ],
+  "projection": {
+    "axisX": [
+      28,
+      14
+    ],
+    "axisY": [
+      -28,
+      14
+    ]
+  },
+  "nativeAnchor": [
+    420,
+    900
+  ],
+  "base": {
+    "left": [
+      84,
+      732
+    ],
+    "corner": [
+      420,
+      900
+    ],
+    "right": [
+      812,
+      704
+    ]
+  },
+  "humanDoor": {
+    "source": [
+      [
+        190,
+        790
+      ],
+      [
+        190,
+        1005
+      ]
+    ],
+    "native": [
+      [
+        138.66505283799137,
+        609.2065930406973
+      ],
+      [
+        138.40474705120758,
+        749.6382690304896
+      ]
+    ],
+    "renderedHeight": 70.2159586212505,
+    "referenceOfficerHeight": 60
+  },
+  "planes": [
+    {
+      "name": "front-wall",
+      "layer": "walls",
+      "source": [
+        [
+          103,
+          989
+        ],
+        [
+          637,
+          1177
+        ],
+        [
+          636,
+          663
+        ],
+        [
+          102,
+          471
+        ]
+      ],
+      "target": [
+        [
+          84,
+          732
+        ],
+        [
+          420,
+          900
+        ],
+        [
+          420,
+          562
+        ],
+        [
+          84,
+          394
+        ]
+      ]
+    },
+    {
+      "name": "side-wall",
+      "layer": "walls",
+      "source": [
+        [
+          637,
+          1177
+        ],
+        [
+          1171,
+          970
+        ],
+        [
+          1174,
+          449
+        ],
+        [
+          636,
+          663
+        ]
+      ],
+      "target": [
+        [
+          420,
+          900
+        ],
+        [
+          812,
+          704
+        ],
+        [
+          812,
+          366
+        ],
+        [
+          420,
+          562
+        ]
+      ]
+    },
+    {
+      "name": "roof-back",
+      "layer": "roof",
+      "source": [
+        [
+          400,
+          192
+        ],
+        [
+          920,
+          450
+        ],
+        [
+          1174,
+          449
+        ],
+        [
+          735,
+          155
+        ]
+      ],
+      "target": [
+        [
+          280,
+          156
+        ],
+        [
+          616,
+          324
+        ],
+        [
+          812,
+          366
+        ],
+        [
+          476,
+          198
+        ]
+      ]
+    },
+    {
+      "name": "roof-front",
+      "layer": "roof",
+      "source": [
+        [
+          400,
+          192
+        ],
+        [
+          920,
+          450
+        ],
+        [
+          636,
+          663
+        ],
+        [
+          102,
+          471
+        ]
+      ],
+      "target": [
+        [
+          280,
+          156
+        ],
+        [
+          616,
+          324
+        ],
+        [
+          420,
+          562
+        ],
+        [
+          84,
+          394
+        ]
+      ]
+    },
+    {
+      "name": "gable",
+      "layer": "walls",
+      "source": [
+        [
+          636,
+          663
+        ],
+        [
+          1174,
+          449
+        ],
+        [
+          920,
+          450
+        ]
+      ],
+      "target": [
+        [
+          420,
+          562
+        ],
+        [
+          812,
+          366
+        ],
+        [
+          616,
+          324
+        ]
+      ]
+    }
+  ],
+  "chimney": {
+    "source": [
+      [
+        748,
+        218
+      ],
+      [
+        768,
+        207
+      ],
+      [
+        769,
+        193
+      ],
+      [
+        779,
+        184
+      ],
+      [
+        793,
+        184
+      ],
+      [
+        807,
+        191
+      ],
+      [
+        808,
+        211
+      ],
+      [
+        815,
+        208
+      ],
+      [
+        817,
+        170
+      ],
+      [
+        832,
+        161
+      ],
+      [
+        849,
+        162
+      ],
+      [
+        865,
+        169
+      ],
+      [
+        866,
+        191
+      ],
+      [
+        886,
+        218
+      ],
+      [
+        887,
+        239
+      ],
+      [
+        872,
+        247
+      ],
+      [
+        872,
+        354
+      ],
+      [
+        887,
+        364
+      ],
+      [
+        887,
+        382
+      ],
+      [
+        848,
+        399
+      ],
+      [
+        749,
+        360
+      ],
+      [
+        749,
+        341
+      ],
+      [
+        759,
+        337
+      ],
+      [
+        759,
+        255
+      ],
+      [
+        746,
+        250
+      ]
+    ],
+    "target": [
+      [
+        514.76,
+        184.04000000000002
+      ],
+      [
+        529.16,
+        176.12
+      ],
+      [
+        529.88,
+        166.04
+      ],
+      [
+        537.08,
+        159.56
+      ],
+      [
+        547.16,
+        159.56
+      ],
+      [
+        557.24,
+        164.6
+      ],
+      [
+        557.96,
+        179
+      ],
+      [
+        563,
+        176.84
+      ],
+      [
+        564.44,
+        149.48000000000002
+      ],
+      [
+        575.24,
+        143
+      ],
+      [
+        587.48,
+        143.72
+      ],
+      [
+        599,
+        148.76000000000002
+      ],
+      [
+        599.72,
+        164.6
+      ],
+      [
+        614.12,
+        184.04000000000002
+      ],
+      [
+        614.84,
+        199.16000000000003
+      ],
+      [
+        604.04,
+        204.92000000000002
+      ],
+      [
+        604.04,
+        281.96
+      ],
+      [
+        614.84,
+        289.16
+      ],
+      [
+        614.84,
+        302.12
+      ],
+      [
+        586.76,
+        314.36
+      ],
+      [
+        515.48,
+        286.28
+      ],
+      [
+        515.48,
+        272.6
+      ],
+      [
+        522.68,
+        269.72
+      ],
+      [
+        522.68,
+        210.68
+      ],
+      [
+        513.32,
+        207.07999999999998
+      ]
+    ]
+  },
+  "night": "Low-frequency illumination from generated night study applied to registered day pixels; same alpha and geometry",
+  "cutaway": "Exterior wall shell and detachable roof; no furnished interior",
+  "nativeOrigin": [
+    476,
+    536
+  ],
+  "placement": "Draw top-left at projected local plot origin minus nativeOrigin * 0.5; plot is [0,0,6,7]. Native anchor is the front foundation corner. World site not selected.",
+  "sources": {
+    "day": "sources/day-study.png",
+    "night": "sources/night-study.png",
+    "chimneyRepair": "sources/chimney-repair.png",
+    "original": "source-midjourney.jpeg"
+  },
+  "sourceStudiesLocation": "sources/ in downloadable artwork pack; source studies are not runtime assets"
+}
