@@ -1,0 +1,91 @@
+{
+  "status": "proposed local street layout, site assignment pending",
+  "projection": [
+    28,
+    14
+  ],
+  "sourceScale": 2,
+  "sourceCanvas": [
+    1900,
+    1550
+  ],
+  "sourceOrigin": [
+    700,
+    600
+  ],
+  "plots": [
+    {
+      "name": "smithy",
+      "rect": [
+        0,
+        3,
+        5,
+        5
+      ],
+      "nativeAnchor": [
+        650,
+        980
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.11966770039413
+    },
+    {
+      "name": "cooper",
+      "rect": [
+        5,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.15232766611996
+    },
+    {
+      "name": "butcher",
+      "rect": [
+        9,
+        4,
+        3,
+        4
+      ],
+      "nativeAnchor": [
+        594,
+        896
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 70.09181331036723
+    },
+    {
+      "name": "apothecary",
+      "rect": [
+        12,
+        3,
+        4,
+        5
+      ],
+      "nativeAnchor": [
+        594,
+        952
+      ],
+      "drawScale": 0.5,
+      "doorHeightRendered": 69.9741800641662
+    }
+  ],
+  "streetPaving": [
+    0,
+    8,
+    16,
+    2.5
+  ],
+  "rearLane": [
+    0,
+    1,
+    16,
+    2
+  ],
+  "navigationAuthoring": false
+}
