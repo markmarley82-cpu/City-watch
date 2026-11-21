@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "asset": "bakery-day",
+      "rgbaDecode": true,
+      "transparentPixels": 825621,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        26.467,
+        27.317
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "bakery-night",
+      "rgbaDecode": true,
+      "transparentPixels": 812803,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        26.368,
+        27.262
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "shrine-day",
+      "rgbaDecode": true,
+      "transparentPixels": 933078,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        27.656,
+        28.007
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "shrine-night",
+      "rgbaDecode": true,
+      "transparentPixels": 930637,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        27.871,
+        28.31
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "alley-day",
+      "rgbaDecode": true,
+      "transparentPixels": 727114,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        26.387,
+        27.246
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "alley-night",
+      "rgbaDecode": true,
+      "transparentPixels": 731754,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        26.094,
+        27.365
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "outpost-day",
+      "rgbaDecode": true,
+      "transparentPixels": 994778,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        24.924,
+        26.488
+      ],
+      "withinTwoDegrees": true
+    },
+    {
+      "asset": "outpost-night",
+      "rgbaDecode": true,
+      "transparentPixels": 993751,
+      "losslessExportExact": true,
+      "foundationAngles": [
+        24.852,
+        26.489
+      ],
+      "withinTwoDegrees": true
+    }
+  ],
+  "allDayFoundationsWithinTwoDegrees": true,
+  "limitations": [
+    "No runtime placement or physical-phone test.",
+    "Day/night pairs are not pixel-registered; see separate anchors and silhouette overlap.",
+    "Roof/wall cutaways and isolated emissions are not supplied by this exterior painting packet.",
+    "Only largest connected solid contour is fitted; transparent low-alpha pixels are retained from generation."
+  ]
+}
