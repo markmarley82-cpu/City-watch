@@ -2,7 +2,7 @@
 # Market Hall, Lantern Row, Crypt, Storehouse; branch art/landmark-grid-redraws, approved by Mark
 # 19 Nov 2026) plus the four unchanged buildings from landmark-exteriors-v1.
 #
-#   python3 tools/make-landmark-v3.py <folder with the review files>
+#   python3 tools/make-landmark-v3.py <landmark-grid-redraws folder> [<final-four-landmarks-v1 folder>]
 #
 # The folder holds <name>.webp, night/<name>-night.webp and registration.json from
 # art-review/landmark-grid-redraws. Each redraw is drawn on a true 2:1 grid; registration.json
@@ -22,6 +22,15 @@ STORE = 1.5          # stored pixels per drawn pixel
 LIGHTS = 4           # light points per building
 m = json.load(open(V1 + 'manifest.json'))
 reg = {r['name']: r for r in json.load(open(os.path.join(SRC, 'registration.json')))}
+# The final four (bakery, shrine, alley, outpost; art/final-four-landmarks-v1, 21 Nov 2026) use their
+# day painting; their night studies aren't pixel-locked to the day ones, so only the window lights are
+# taken from them, shifted by the difference between the two anchors.
+FINAL = sys.argv[2] if len(sys.argv) > 2 else None
+if FINAL:
+    for a in json.load(open(os.path.join(FINAL, 'registration.json')))['assets']:
+        d, n = a['variants']['day'], a['variants']['night']
+        reg[a['name']] = {'file': d['file'], 'dimensions': d['dimensions'], 'base': d['base'], 'src': FINAL,
+                          'night': n['file'], 'nightShift': [d['nativeAnchor'][0] - n['nativeAnchor'][0], d['nativeAnchor'][1] - n['nativeAnchor'][1]]}
 os.makedirs(OUT, exist_ok=True)
 
 def label(mask):
@@ -64,8 +73,13 @@ for row in m['instances']:
     if lid not in reg:
         shutil.copyfile(V1 + row['file'], OUT + row['file']); rows.append(row); continue
     r = reg[lid]
-    day = Image.open(os.path.join(SRC, r['file'])).convert('RGBA')
-    night = Image.open(os.path.join(SRC, 'night', lid + '-night.webp') if os.path.exists(os.path.join(SRC, 'night')) else os.path.join(SRC, lid + '-night.webp')).convert('RGBA')
+    src = r.get('src', SRC)
+    day = Image.open(os.path.join(src, r['file'])).convert('RGBA')
+    if 'night' in r:
+        n = Image.open(os.path.join(src, r['night'])).convert('RGBA'); night = Image.new('RGBA', day.size, (0, 0, 0, 0))
+        night.alpha_composite(n, (max(0, r['nightShift'][0]), max(0, r['nightShift'][1])), (max(0, -r['nightShift'][0]), max(0, -r['nightShift'][1])))
+    else:
+        night = Image.open(os.path.join(SRC, 'night', lid + '-night.webp') if os.path.exists(os.path.join(SRC, 'night')) else os.path.join(SRC, lid + '-night.webp')).convert('RGBA')
     assert list(day.size) == r['dimensions'] == list(night.size), lid
     rx, ry, rw, rh = row['rect']
     span = r['base']['right'][0] - r['base']['left'][0]
@@ -81,7 +95,7 @@ for row in m['instances']:
     pts = [[round(v * store, 2) for v in p] for p in lights(night, day, r['base'], LIGHTS)]
     rows.append({**row, 'file': row['file'], 'dimensions': [W, H], 'anchor': anchor, 'scale': round(1 / STORE, 6),
                  'renderedWidth': round(W / STORE, 3), 'estimatedDoorHeight': None, 'windowAnchors': pts,
-                 'mirrored': False, 'stretched': False, 'source': 'art/landmark-grid-redraws ' + r['file'],
+                 'mirrored': False, 'stretched': False, 'source': ('art/final-four-landmarks-v1 ' if 'night' in r else 'art/landmark-grid-redraws ') + r['file'],
                  'sourceScale': round(drawn, 4)})
     print(f"{lid:9s} footprint {rw}x{rh}  drawn {drawn:.3f} of source  stored {W}x{H}  lights {len(pts)}")
 for row in rows: row['sha256'] = hashlib.sha256(open(OUT + row['file'], 'rb').read()).hexdigest()
