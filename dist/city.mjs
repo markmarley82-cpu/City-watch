@@ -125,7 +125,6 @@ import {createSectionS011} from './city-section-s011.mjs?v=p21-b407-s039-reuse';
 import {createSectionS010} from './city-section-s010.mjs?v=p21-b407-s039-reuse';
 import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
-import {createClosedGround} from './city-closed-ground.mjs?v=2';
 import {createNewBuildings,loadPalaceMainBlock} from './city-new-buildings.mjs?v=5';
 import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=redraws-1';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
@@ -276,7 +275,9 @@ const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 const guildPaintings=await Promise.all(guildLots.map(l=>load(l.guild_exterior.file)));
 for(const [index,l]of guildLots.entries()){const g=l.guild_exterior,im=guildPaintings[index];addSprite('guild:'+l.game_id,im,l.engine_approach_xy,g.anchor,1,g.rect,{landmark:l,sourceAsset:'guild:'+l.room_id});}
 const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors});
-let closedGround=null;try{closedGround=await createClosedGround({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites});}catch(error){console.error('Closed ground unavailable; the outer ground stays open',error);}
+// The outer ground stays open until the commissioned edge art (docs/art/briefs/CITY-EDGE-FILL.md) fills it; the
+// low-wall version (city-closed-ground.mjs) was rejected by Mark on 21 Nov 2026.
+const closedGround=null;
 let newBuildings=null;try{newBuildings=await createNewBuildings({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});}catch(error){console.error('New buildings unavailable',error);}
 const guildReplaces=rect=>guildLots.some(l=>{const r=l.guild_exterior.rect;return rect[0]<r[0]+r[2]&&rect[0]+rect[2]>r[0]&&rect[1]<r[1]+r[3]&&rect[1]+rect[3]>r[1];});
 // Retain a fail-soft source fallback only for held/unfinished landmark art.
