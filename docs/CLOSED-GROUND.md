@@ -1,4 +1,15 @@
-# Closed-off outer ground (21 November 2026)
+# Outer ground: filled with city (21 November 2026)
+
+**Current version:** the low walls below were rejected. The same zones are now filled with packed
+rows of existing house paintings (`tools/make-edge-fill.py` → `dist/assets/edge-fill-v1/`,
+loaded by `dist/city-edge-fill.mjs`): 613 houses from 167 approved paintings, each reused at most 7
+times and never within 18 cells of itself, covering 91% of the zones. Houses block walking by their
+footprints like every other house; gaps that open onto a street stay walkable as short alleys, and
+gaps shut in by houses are closed. No walls, nothing invisible at the edge of what you can see.
+Screenshots: `edge-fill-in-game.jpg`. At 4× CPU slowdown, frames at the edge now cost the same as in
+Watch Square.
+
+## Earlier version (rejected)
 
 Between the built-up city and the city walls there were large stretches of empty, walkable ground.
 Mark asked for them to be closed off, with no invisible walls.
