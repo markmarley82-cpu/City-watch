@@ -1,0 +1,414 @@
+{
+  "frames": [
+    {
+      "action": "idle",
+      "frame": 1,
+      "visiblePixels": 1047,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "idle",
+      "frame": 2,
+      "visiblePixels": 1064,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "idle",
+      "frame": 3,
+      "visiblePixels": 1047,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "idle",
+      "frame": 4,
+      "visiblePixels": 1046,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "idle",
+      "frame": 5,
+      "visiblePixels": 1073,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "idle",
+      "frame": 6,
+      "visiblePixels": 1062,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 1,
+      "visiblePixels": 1160,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 2,
+      "visiblePixels": 979,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 3,
+      "visiblePixels": 1026,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 4,
+      "visiblePixels": 1042,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 5,
+      "visiblePixels": 947,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "walk",
+      "frame": 6,
+      "visiblePixels": 1103,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 1,
+      "visiblePixels": 1106,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 2,
+      "visiblePixels": 1161,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 3,
+      "visiblePixels": 1168,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 4,
+      "visiblePixels": 1231,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 5,
+      "visiblePixels": 1175,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "attack",
+      "frame": 6,
+      "visiblePixels": 1124,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 1,
+      "visiblePixels": 1118,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 2,
+      "visiblePixels": 1086,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 3,
+      "visiblePixels": 1157,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 4,
+      "visiblePixels": 1167,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 5,
+      "visiblePixels": 1159,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "guard",
+      "frame": 6,
+      "visiblePixels": 1165,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 1,
+      "visiblePixels": 1095,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 2,
+      "visiblePixels": 1110,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 3,
+      "visiblePixels": 1197,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 4,
+      "visiblePixels": 1140,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 5,
+      "visiblePixels": 1087,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "hit",
+      "frame": 6,
+      "visiblePixels": 1080,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 1,
+      "visiblePixels": 1081,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 2,
+      "visiblePixels": 1094,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 3,
+      "visiblePixels": 1128,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 4,
+      "visiblePixels": 1193,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 5,
+      "visiblePixels": 1176,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "shove",
+      "frame": 6,
+      "visiblePixels": 1090,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 1,
+      "visiblePixels": 1082,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 2,
+      "visiblePixels": 1129,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 3,
+      "visiblePixels": 1190,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 4,
+      "visiblePixels": 1207,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 5,
+      "visiblePixels": 1140,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "restrain",
+      "frame": 6,
+      "visiblePixels": 1133,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 1,
+      "visiblePixels": 1016,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 2,
+      "visiblePixels": 1030,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 3,
+      "visiblePixels": 1050,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 4,
+      "visiblePixels": 1108,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 5,
+      "visiblePixels": 1119,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "surrender",
+      "frame": 6,
+      "visiblePixels": 1147,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 1,
+      "visiblePixels": 1050,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 2,
+      "visiblePixels": 1071,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 3,
+      "visiblePixels": 1022,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 4,
+      "visiblePixels": 1042,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 5,
+      "visiblePixels": 1036,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "down",
+      "frame": 6,
+      "visiblePixels": 917,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 1,
+      "visiblePixels": 1108,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 2,
+      "visiblePixels": 1221,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 3,
+      "visiblePixels": 1243,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 4,
+      "visiblePixels": 1250,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 5,
+      "visiblePixels": 1256,
+      "outsideHeadChanges": 0
+    },
+    {
+      "action": "truncheon",
+      "frame": 6,
+      "visiblePixels": 1156,
+      "outsideHeadChanges": 0
+    }
+  ],
+  "files": [
+    {
+      "file": "silver-dwarf-body.webp",
+      "sha256": "e6cdc10371527b3d144a18c11c0f598593a772e4539c6f2bbfb6ceb6eacf11c6",
+      "bytes": 139820
+    },
+    {
+      "file": "silver-dwarf-coat-mask.webp",
+      "sha256": "b1933aea0ccfeda6b19ced5ef8441b925a37249e015d51b654e47f9aaf4db570",
+      "bytes": 1620
+    },
+    {
+      "file": "silver-dwarf-regions-mask.webp",
+      "sha256": "ff628dc340aa53d4c079635c38c803217ed980bb73347913bc9622bae2cda150",
+      "bytes": 2348
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "sha256": "7a5ee88fadbd08c792e8959a09437ea435ada6c98bd87d4f7093c655057a24bc",
+      "bytes": 27642
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "sha256": "d35d0f6599bf409f8b363d0cc29c7b828d05904da76dfabbf44f123f876c9fed",
+      "bytes": 27534
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "sha256": "0a60d044f9417687dd2101f2ad49acec06fbfa5f8b77f3e31162de14ba662795",
+      "bytes": 27902
+    },
+    {
+      "file": "silver-dwarf-head-mask.webp",
+      "sha256": "c3ba25509799e61fde42fd08843264880a3ba72f340dc53e3853213e6846c659",
+      "bytes": 2034
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "sha256": "33e6bc248913d6ecbc3b162819cb63ee3d7e82447126db29a4273577cfe604e6",
+      "bytes": 24270
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "sha256": "261e16b270f0522257ea7d629af9056ffb21dd2904d8e20147d236241e989704",
+      "bytes": 23710
+    }
+  ],
+  "passed": "All 60 cells present; no changed pixels outside the head mask/overlay; source kit copied byte for byte.",
+  "runtimeVerified": false,
+  "physicalPhoneVerified": false
+}
