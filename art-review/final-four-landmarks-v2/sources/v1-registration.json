@@ -1,0 +1,479 @@
+{
+  "packet": "final-four-landmarks-v1",
+  "date": "2026-11-21",
+  "method": "Foundation fits from largest alpha>180 connected component, lower contour, robust line fit; architectural stone irregularities remain. No projection fitting or pixel cleanup applied to exported sources.",
+  "assets": [
+    {
+      "name": "bakery",
+      "status": "proposed: visual review",
+      "creativeApproval": false,
+      "runtimeVerified": false,
+      "variants": {
+        "day": {
+          "file": "bakery-day.webp",
+          "source": "bakery-day.png",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "nativeAnchor": [
+            623,
+            1197
+          ],
+          "base": {
+            "left": [
+              214,
+              993.53
+            ],
+            "corner": [
+              623,
+              1197
+            ],
+            "right": [
+              1021,
+              992.13
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.49787241188225234,
+              "intercept": 886.9885812161001,
+              "angleDegrees": 26.467,
+              "sampleX": [
+                244,
+                583
+              ]
+            },
+            {
+              "slope": -0.5165110965837492,
+              "intercept": 1519.485983865642,
+              "angleDegrees": 27.317,
+              "sampleX": [
+                663,
+                991
+              ]
+            }
+          ],
+          "solidBounds": [
+            214,
+            21,
+            1021,
+            1197
+          ],
+          "sha256": "4828af3c783d6ea441cbb0617f9433a0e9d1a063bd1cfc59653670edca5ad48c"
+        },
+        "night": {
+          "file": "bakery-night.webp",
+          "source": "bakery-night.png",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "nativeAnchor": [
+            621,
+            1199
+          ],
+          "base": {
+            "left": [
+              210,
+              994.79
+            ],
+            "corner": [
+              621,
+              1199
+            ],
+            "right": [
+              1025,
+              993.41
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.4956979197649998,
+              "intercept": 890.6972904861752,
+              "angleDegrees": 26.368,
+              "sampleX": [
+                240,
+                581
+              ]
+            },
+            {
+              "slope": -0.5152953155522646,
+              "intercept": 1521.58392426235,
+              "angleDegrees": 27.262,
+              "sampleX": [
+                661,
+                995
+              ]
+            }
+          ],
+          "solidBounds": [
+            210,
+            13,
+            1025,
+            1199
+          ],
+          "sha256": "84b2e97c35e55e77a6348239a9067d0f4c7fe3d1018b325e54f2ac1814eecb88"
+        }
+      },
+      "dayNightSilhouetteIoU": 0.986072,
+      "pixelLockedDayNight": false,
+      "integrationNote": "Use per-variant anchors; night source is a separate generated lighting study. Register to day alpha before a seamless runtime day/night crossfade. Do not swap raw sources as a pixel-locked texture pair.",
+      "scaleNote": "Source size is not runtime draw size. Fit to a 65\u201375px human doorway beside the 60px officer; validate footprint, door and street in a player screenshot before integration."
+    },
+    {
+      "name": "shrine",
+      "status": "proposed: visual review",
+      "creativeApproval": false,
+      "runtimeVerified": false,
+      "variants": {
+        "day": {
+          "file": "shrine-day.webp",
+          "source": "shrine-day.png",
+          "dimensions": [
+            1136,
+            1385
+          ],
+          "nativeAnchor": [
+            567,
+            1285
+          ],
+          "base": {
+            "left": [
+              221,
+              1103.71
+            ],
+            "corner": [
+              567,
+              1285
+            ],
+            "right": [
+              914,
+              1101.06
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.5240376526278586,
+              "intercept": 987.9002556548388,
+              "angleDegrees": 27.656,
+              "sampleX": [
+                251,
+                527
+              ]
+            },
+            {
+              "slope": -0.5318711375373905,
+              "intercept": 1587.1897891492324,
+              "angleDegrees": 28.007,
+              "sampleX": [
+                607,
+                884
+              ]
+            }
+          ],
+          "solidBounds": [
+            221,
+            25,
+            914,
+            1285
+          ],
+          "sha256": "973e449023168d743f51b38d3bc4ee2562a444f1be1cdabe6f8f62fe652099b4"
+        },
+        "night": {
+          "file": "shrine-night.webp",
+          "source": "shrine-night.png",
+          "dimensions": [
+            1136,
+            1385
+          ],
+          "nativeAnchor": [
+            567,
+            1290
+          ],
+          "base": {
+            "left": [
+              218,
+              1106.71
+            ],
+            "corner": [
+              567,
+              1290
+            ],
+            "right": [
+              916,
+              1103.77
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.5288280827197143,
+              "intercept": 991.4255465175389,
+              "angleDegrees": 27.871,
+              "sampleX": [
+                248,
+                527
+              ]
+            },
+            {
+              "slope": -0.5386697716625395,
+              "intercept": 1597.1955559746573,
+              "angleDegrees": 28.31,
+              "sampleX": [
+                607,
+                886
+              ]
+            }
+          ],
+          "solidBounds": [
+            218,
+            23,
+            916,
+            1290
+          ],
+          "sha256": "0ad9526cb9f009b175ced80d36909b6ee7af69f234015a9b7a304f375be56b05"
+        }
+      },
+      "dayNightSilhouetteIoU": 0.988398,
+      "pixelLockedDayNight": false,
+      "integrationNote": "Use per-variant anchors; night source is a separate generated lighting study. Register to day alpha before a seamless runtime day/night crossfade. Do not swap raw sources as a pixel-locked texture pair.",
+      "scaleNote": "Source size is not runtime draw size. Fit to a 65\u201375px human doorway beside the 60px officer; validate footprint, door and street in a player screenshot before integration."
+    },
+    {
+      "name": "alley",
+      "status": "proposed: visual review",
+      "creativeApproval": false,
+      "runtimeVerified": false,
+      "variants": {
+        "day": {
+          "file": "alley-day.webp",
+          "source": "alley-day.png",
+          "dimensions": [
+            941,
+            1671
+          ],
+          "nativeAnchor": [
+            472,
+            1635
+          ],
+          "base": {
+            "left": [
+              147,
+              1474.24
+            ],
+            "corner": [
+              472,
+              1635
+            ],
+            "right": [
+              792,
+              1472.54
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.49612969214923297,
+              "intercept": 1401.3113212405583,
+              "angleDegrees": 26.387,
+              "sampleX": [
+                177,
+                432
+              ]
+            },
+            {
+              "slope": -0.5149542781255921,
+              "intercept": 1880.3884249668001,
+              "angleDegrees": 27.246,
+              "sampleX": [
+                512,
+                762
+              ]
+            }
+          ],
+          "solidBounds": [
+            147,
+            27,
+            792,
+            1635
+          ],
+          "sha256": "1e1d95b3fbbaf1483d3f0e25d5e7777c53d82d5f234db36d78c506b62cc93e40"
+        },
+        "night": {
+          "file": "alley-night.webp",
+          "source": "alley-night.png",
+          "dimensions": [
+            941,
+            1670
+          ],
+          "nativeAnchor": [
+            474,
+            1640
+          ],
+          "base": {
+            "left": [
+              145,
+              1478.91
+            ],
+            "corner": [
+              474,
+              1640
+            ],
+            "right": [
+              794,
+              1474.94
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.48975792768896487,
+              "intercept": 1407.895634095633,
+              "angleDegrees": 26.094,
+              "sampleX": [
+                175,
+                434
+              ]
+            },
+            {
+              "slope": -0.5175799658508837,
+              "intercept": 1885.9009288560055,
+              "angleDegrees": 27.365,
+              "sampleX": [
+                514,
+                764
+              ]
+            }
+          ],
+          "solidBounds": [
+            145,
+            27,
+            794,
+            1640
+          ],
+          "sha256": "a7262a383257bccb97d8794bc31403f9e1a95d6b37fde7b9abbb82e2cb635af4"
+        }
+      },
+      "dayNightSilhouetteIoU": 0.992273,
+      "pixelLockedDayNight": false,
+      "integrationNote": "Use per-variant anchors; night source is a separate generated lighting study. Register to day alpha before a seamless runtime day/night crossfade. Do not swap raw sources as a pixel-locked texture pair.",
+      "scaleNote": "Source size is not runtime draw size. Fit to a 65\u201375px human doorway beside the 60px officer; validate footprint, door and street in a player screenshot before integration."
+    },
+    {
+      "name": "outpost",
+      "status": "proposed: visual review",
+      "creativeApproval": false,
+      "runtimeVerified": false,
+      "variants": {
+        "day": {
+          "file": "outpost-day.webp",
+          "source": "outpost-day.png",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "nativeAnchor": [
+            592,
+            1352
+          ],
+          "base": {
+            "left": [
+              249,
+              1193.08
+            ],
+            "corner": [
+              592,
+              1352
+            ],
+            "right": [
+              846,
+              1223.01
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.46470347171077026,
+              "intercept": 1077.3719118837375,
+              "angleDegrees": 24.924,
+              "sampleX": [
+                279,
+                552
+              ]
+            },
+            {
+              "slope": -0.4983188658504222,
+              "intercept": 1644.588264281111,
+              "angleDegrees": 26.488,
+              "sampleX": [
+                632,
+                816
+              ]
+            }
+          ],
+          "solidBounds": [
+            249,
+            78,
+            846,
+            1352
+          ],
+          "sha256": "8479d24b6a4b24ac19d4417afd7b0af4511fc92b97ae7a4dbf6c7239c6b3ee62"
+        },
+        "night": {
+          "file": "outpost-night.webp",
+          "source": "outpost-night.png",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "nativeAnchor": [
+            593,
+            1354
+          ],
+          "base": {
+            "left": [
+              246,
+              1194.05
+            ],
+            "corner": [
+              593,
+              1354
+            ],
+            "right": [
+              847,
+              1224.16
+            ]
+          },
+          "foundationFits": [
+            {
+              "slope": 0.46315731856112907,
+              "intercept": 1080.114816636268,
+              "angleDegrees": 24.852,
+              "sampleX": [
+                276,
+                553
+              ]
+            },
+            {
+              "slope": -0.4983378188848049,
+              "intercept": 1646.257080853646,
+              "angleDegrees": 26.489,
+              "sampleX": [
+                633,
+                817
+              ]
+            }
+          ],
+          "solidBounds": [
+            246,
+            72,
+            847,
+            1354
+          ],
+          "sha256": "026f939476876abc7baea377faa360a97eaab061e9fa7dc64c35294adcfeaf10"
+        }
+      },
+      "dayNightSilhouetteIoU": 0.989315,
+      "pixelLockedDayNight": false,
+      "integrationNote": "Use per-variant anchors; night source is a separate generated lighting study. Register to day alpha before a seamless runtime day/night crossfade. Do not swap raw sources as a pixel-locked texture pair.",
+      "scaleNote": "Source size is not runtime draw size. Fit to a 65\u201375px human doorway beside the 60px officer; validate footprint, door and street in a player screenshot before integration."
+    }
+  ]
+}

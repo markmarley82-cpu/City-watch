@@ -1,0 +1,524 @@
+[
+  {
+    "name": "bakery",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "nativeAnchor": [
+      623,
+      1197
+    ],
+    "base": {
+      "left": [
+        214,
+        993.5314231677905
+      ],
+      "corner": [
+        623,
+        1197
+      ],
+      "right": [
+        1021,
+        992.122909696722
+      ]
+    },
+    "drawScale": 0.32407407407407407,
+    "doorHeightRendered": 70,
+    "doorBracket": [
+      [
+        280,
+        839
+      ],
+      [
+        280,
+        1055
+      ]
+    ],
+    "game2x": {
+      "directory": "game2x/",
+      "dimensions": [
+        813,
+        813
+      ],
+      "drawScale": 0.5,
+      "nativeAnchor": [
+        403.9066985645933,
+        776.0454545454545
+      ],
+      "base": {
+        "left": [
+          138.74162679425837,
+          644.1316164556728
+        ],
+        "corner": [
+          403.9066985645933,
+          776.0454545454545
+        ],
+        "right": [
+          661.9401913875598,
+          643.2184414540949
+        ]
+      },
+      "doorHeightRendered": 70
+    },
+    "sourceFootprint": {
+      "left": [
+        214,
+        993.53
+      ],
+      "corner": [
+        623,
+        1197
+      ],
+      "right": [
+        1021,
+        992.13
+      ]
+    },
+    "foundationAngles": [
+      26.46804348460607,
+      27.317808050527255
+    ],
+    "roofMaskPolygons": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1254,
+          0
+        ],
+        [
+          1254,
+          328
+        ],
+        [
+          1024,
+          432
+        ],
+        [
+          625,
+          579
+        ],
+        [
+          211,
+          426
+        ],
+        [
+          0,
+          328
+        ]
+      ]
+    ],
+    "columnCorrection": null,
+    "status": "Proposed; creative and in-game review pending",
+    "files": {
+      "day": "bakery-day.webp",
+      "night": "bakery-night.webp",
+      "roof": "bakery-roof.webp",
+      "walls": "bakery-walls.webp",
+      "roof-night": "bakery-roof-night.webp",
+      "walls-night": "bakery-walls-night.webp",
+      "emission": "bakery-emission.webp"
+    }
+  },
+  {
+    "name": "shrine",
+    "dimensions": [
+      1136,
+      1385
+    ],
+    "nativeAnchor": [
+      567,
+      1285
+    ],
+    "base": {
+      "left": [
+        221,
+        1103.7119219189224
+      ],
+      "corner": [
+        567,
+        1285
+      ],
+      "right": [
+        914,
+        1101.0598344115479
+      ]
+    },
+    "drawScale": 0.22082018927444794,
+    "doorHeightRendered": 70,
+    "doorBracket": [
+      [
+        350,
+        827
+      ],
+      [
+        350,
+        1144
+      ]
+    ],
+    "game2x": {
+      "directory": "game2x/",
+      "dimensions": [
+        502,
+        612
+      ],
+      "drawScale": 0.5,
+      "nativeAnchor": [
+        250.55809859154928,
+        567.8122743682311
+      ],
+      "base": {
+        "left": [
+          97.66021126760563,
+          487.70519582265734
+        ],
+        "corner": [
+          250.55809859154928,
+          567.8122743682311
+        ],
+        "right": [
+          403.8978873239437,
+          486.53329867138433
+        ]
+      },
+      "doorHeightRendered": 70
+    },
+    "sourceFootprint": {
+      "left": [
+        221,
+        1103.71
+      ],
+      "corner": [
+        567,
+        1285
+      ],
+      "right": [
+        914,
+        1101.06
+      ]
+    },
+    "foundationAngles": [
+      27.65647302658075,
+      28.007167484897646
+    ],
+    "roofMaskPolygons": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1136,
+          0
+        ],
+        [
+          1136,
+          491
+        ],
+        [
+          906,
+          597
+        ],
+        [
+          570,
+          725
+        ],
+        [
+          229,
+          634
+        ],
+        [
+          0,
+          491
+        ]
+      ]
+    ],
+    "columnCorrection": null,
+    "status": "Proposed; creative and in-game review pending",
+    "files": {
+      "day": "shrine-day.webp",
+      "night": "shrine-night.webp",
+      "roof": "shrine-roof.webp",
+      "walls": "shrine-walls.webp",
+      "roof-night": "shrine-roof-night.webp",
+      "walls-night": "shrine-walls-night.webp",
+      "emission": "shrine-emission.webp"
+    }
+  },
+  {
+    "name": "alley",
+    "dimensions": [
+      941,
+      1671
+    ],
+    "nativeAnchor": [
+      472,
+      1635
+    ],
+    "base": {
+      "left": [
+        147,
+        1474.2355947004785
+      ],
+      "corner": [
+        472,
+        1635
+      ],
+      "right": [
+        792,
+        1472.544508808141
+      ]
+    },
+    "drawScale": 0.3167420814479638,
+    "doorHeightRendered": 70,
+    "doorBracket": [
+      [
+        275,
+        1318
+      ],
+      [
+        275,
+        1539
+      ]
+    ],
+    "game2x": {
+      "directory": "game2x/",
+      "dimensions": [
+        596,
+        1059
+      ],
+      "drawScale": 0.5,
+      "nativeAnchor": [
+        298.9500531349628,
+        1036.1849192100537
+      ],
+      "base": {
+        "left": [
+          93.10520722635493,
+          934.300116569603
+        ],
+        "corner": [
+          298.9500531349628,
+          1036.1849192100537
+        ],
+        "right": [
+          501.6280552603613,
+          933.2283870902581
+        ]
+      },
+      "doorHeightRendered": 70
+    },
+    "sourceFootprint": {
+      "left": [
+        147,
+        1474.24
+      ],
+      "corner": [
+        472,
+        1635
+      ],
+      "right": [
+        792,
+        1472.54
+      ]
+    },
+    "foundationAngles": [
+      26.390097906385574,
+      27.24642626869022
+    ],
+    "roofMaskPolygons": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          941,
+          0
+        ],
+        [
+          941,
+          451
+        ],
+        [
+          792,
+          531
+        ],
+        [
+          485,
+          635
+        ],
+        [
+          145,
+          575
+        ],
+        [
+          0,
+          451
+        ]
+      ]
+    ],
+    "columnCorrection": null,
+    "status": "Proposed; creative and in-game review pending",
+    "files": {
+      "day": "alley-day.webp",
+      "night": "alley-night.webp",
+      "roof": "alley-roof.webp",
+      "walls": "alley-walls.webp",
+      "roof-night": "alley-roof-night.webp",
+      "walls-night": "alley-walls-night.webp",
+      "emission": "alley-emission.webp"
+    }
+  },
+  {
+    "name": "outpost",
+    "dimensions": [
+      1122,
+      1402
+    ],
+    "nativeAnchor": [
+      592,
+      1353
+    ],
+    "base": {
+      "left": [
+        247,
+        1181.2571651135281
+      ],
+      "corner": [
+        592,
+        1353
+      ],
+      "right": [
+        846,
+        1223.0316984839437
+      ]
+    },
+    "drawScale": 0.39106145251396646,
+    "doorHeightRendered": 70,
+    "doorBracket": [
+      [
+        329,
+        1054
+      ],
+      [
+        329,
+        1233
+      ]
+    ],
+    "game2x": {
+      "directory": "game2x/",
+      "dimensions": [
+        878,
+        1097
+      ],
+      "drawScale": 0.5,
+      "nativeAnchor": [
+        463.2584670231729,
+        1058.6597717546363
+      ],
+      "base": {
+        "left": [
+          193.28520499108734,
+          924.2789658555922
+        ],
+        "corner": [
+          463.2584670231729,
+          1058.6597717546363
+        ],
+        "right": [
+          662.0213903743315,
+          956.9656014528433
+        ]
+      },
+      "doorHeightRendered": 70
+    },
+    "sourceFootprint": {
+      "left": [
+        249,
+        1193.08
+      ],
+      "corner": [
+        592,
+        1352
+      ],
+      "right": [
+        846,
+        1223.01
+      ]
+    },
+    "foundationAngles": [
+      26.559840579910325,
+      26.60808051399777
+    ],
+    "roofMaskPolygons": [
+      [
+        [
+          240,
+          0
+        ],
+        [
+          643,
+          0
+        ],
+        [
+          643,
+          316
+        ],
+        [
+          394,
+          437
+        ],
+        [
+          240,
+          391
+        ]
+      ],
+      [
+        [
+          508,
+          418
+        ],
+        [
+          728,
+          523
+        ],
+        [
+          851,
+          710
+        ],
+        [
+          851,
+          738
+        ],
+        [
+          587,
+          828
+        ],
+        [
+          362,
+          749
+        ]
+      ]
+    ],
+    "columnCorrection": {
+      "pivot": 592,
+      "leftSlopeDelta": 0.03344277429964515,
+      "rightSlopeDelta": 0.0013369035464545487
+    },
+    "status": "Proposed; creative and in-game review pending",
+    "files": {
+      "day": "outpost-day.webp",
+      "night": "outpost-night.webp",
+      "roof": "outpost-roof.webp",
+      "walls": "outpost-walls.webp",
+      "roof-night": "outpost-roof-night.webp",
+      "walls-night": "outpost-walls-night.webp",
+      "emission": "outpost-emission.webp"
+    }
+  }
+]
