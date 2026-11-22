@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "cellWidth": 128,
+  "cellHeight": 96,
+  "cols": 6,
+  "rows": 10,
+  "footX": 64,
+  "footY": 92,
+  "bodies": {
+    "p3_dwarf_01": {
+      "visibleHeight": 44,
+      "files": {
+        "body": "silver-dwarf-body.webp",
+        "coat-mask": "silver-dwarf-coat-mask.webp",
+        "regions-mask": "silver-dwarf-regions-mask.webp",
+        "watch-breastplate": "silver-dwarf-watch-breastplate.webp",
+        "service-mail": "silver-dwarf-service-mail.webp",
+        "leather-jerkin": "silver-dwarf-leather-jerkin.webp",
+        "head-mask": "silver-dwarf-head-mask.webp",
+        "head-dark-braided-beard": "silver-dwarf-head-dark-braided-beard.webp",
+        "head-forked-silver-beard": "silver-dwarf-head-forked-silver-beard.webp"
+      },
+      "heads": [
+        "dark-braided-beard",
+        "forked-silver-beard"
+      ]
+    }
+  },
+  "status": "Proposed; retains authored red-dwarf body and installs the fitted long silver head as default",
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "guard",
+    "hit",
+    "shove",
+    "restrain",
+    "surrender",
+    "down",
+    "truncheon"
+  ],
+  "source": "Existing shipped v2 dwarf atlas and authored fitted silver head; assembled with the runtime head-removal rule"
+}

@@ -1,0 +1,32 @@
+{
+  "bodyID": "p3_dwarf_01",
+  "sheet": [
+    768,
+    960
+  ],
+  "cell": [
+    128,
+    96
+  ],
+  "foot": [
+    64,
+    92
+  ],
+  "facings": "Authored left; mirrored right",
+  "defaultHead": "forked-silver-beard",
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "guard",
+    "hit",
+    "shove",
+    "restrain",
+    "surrender",
+    "down",
+    "truncheon"
+  ],
+  "sourcePoseBody": "p3_dwarf_02",
+  "runtimeVerified": false,
+  "creativeApproval": false
+}
