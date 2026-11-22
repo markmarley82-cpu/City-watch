@@ -1,0 +1,497 @@
+{
+  "schema": 1,
+  "sourceRevision": "5a14c73f55191ad05e4b02e8e92005414a205704",
+  "screenCellPixels": [
+    28,
+    14
+  ],
+  "exportCanvasPixels": [
+    1536,
+    1024
+  ],
+  "exportCanvasIsWorldSize": false,
+  "status": "planning constraints; not room registrations or approved art",
+  "buildings": [
+    {
+      "id": "bonded-warehouse",
+      "exteriorFile": "art-review/dockside-street-v1/bonded-warehouse-day.webp",
+      "siteRectCells": [
+        102,
+        248,
+        6,
+        7
+      ],
+      "maximumOuterFloorCells": [
+        6,
+        7
+      ],
+      "doorSource": {
+        "registration": "art-review/dockside-street-v1/registration.json",
+        "doorNative": [
+          [
+            71.87187014081638,
+            434.3053844704423
+          ],
+          [
+            71.87187014081638,
+            574.3053844704423
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/fools-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "cooper-workshop",
+      "exteriorFile": "art-review/cooper-workshop-v1/cooper-day.webp",
+      "siteRectCells": [
+        104,
+        273,
+        6,
+        7
+      ],
+      "maximumOuterFloorCells": [
+        6,
+        7
+      ],
+      "doorSource": {
+        "registration": "art-review/cooper-workshop-v1/registration.json",
+        "doorNative": null,
+        "drawScale": null
+      },
+      "currentPlaceholderRoom": "assets/rooms/butchers-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "lodging",
+      "exteriorFile": "art-review/shop-street-v1/lodging-day.webp",
+      "siteRectCells": [
+        121,
+        231,
+        6,
+        6
+      ],
+      "maximumOuterFloorCells": [
+        6,
+        6
+      ],
+      "doorSource": {
+        "registration": "art-review/shop-street-v1/registration.json",
+        "doorNative": [
+          [
+            107.87968201049722,
+            554.4902863898265
+          ],
+          [
+            107.12667423267243,
+            694.1137825009141
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/beggars-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "smithy",
+      "exteriorFile": "art-review/artisan-street-v1/smithy-day.webp",
+      "siteRectCells": [
+        110,
+        158,
+        5,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        5,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/artisan-street-v1/registration.json",
+        "doorNative": [
+          [
+            429.51606938927284,
+            714.7730615900663
+          ],
+          [
+            429.9947401908494,
+            855.0123969908545
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/alchemists-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "quay-lodging",
+      "exteriorFile": "art-review/dockside-street-v1/quay-lodging-day.webp",
+      "siteRectCells": [
+        93,
+        18,
+        4,
+        6
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        6
+      ],
+      "doorSource": {
+        "registration": "art-review/dockside-street-v1/registration.json",
+        "doorNative": [
+          [
+            85.04576043068641,
+            573.2147877297941
+          ],
+          [
+            85.04576043068641,
+            713.2147877297942
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/beggars-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "cobbler",
+      "exteriorFile": "art-review/shop-street-v1/cobbler-day.webp",
+      "siteRectCells": [
+        104,
+        137,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/shop-street-v1/registration.json",
+        "doorNative": [
+          [
+            62.205041484623166,
+            377.66770718910266
+          ],
+          [
+            61.58672556313502,
+            517.3585492283587
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/musicians-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "curry-house",
+      "exteriorFile": "art-review/shop-street-v1/curry-house-day.webp",
+      "siteRectCells": [
+        36,
+        106,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/shop-street-v1/registration.json",
+        "doorNative": [
+          [
+            55.41494515741567,
+            416.7569303806781
+          ],
+          [
+            56.0176823015189,
+            557.0582989527297
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/bakers-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "rope-maker",
+      "exteriorFile": "art-review/dockside-street-v1/rope-maker-day.webp",
+      "siteRectCells": [
+        41,
+        99,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/dockside-street-v1/registration.json",
+        "doorNative": [
+          [
+            63.00439825517026,
+            387.30734980931857
+          ],
+          [
+            62.36159862405168,
+            526.9859499937594
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/fools-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "ship-chandler",
+      "exteriorFile": "art-review/dockside-street-v1/ship-chandler-day.webp",
+      "siteRectCells": [
+        100,
+        61,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/dockside-street-v1/registration.json",
+        "doorNative": [
+          [
+            57.83073993422522,
+            448.6151477216638
+          ],
+          [
+            58.2920124413065,
+            588.8457839752044
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/lawyers-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "cooper",
+      "exteriorFile": "art-review/artisan-street-v1/cooper-day.webp",
+      "siteRectCells": [
+        89,
+        39,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/artisan-street-v1/registration.json",
+        "doorNative": [
+          [
+            434.232038050229,
+            722.8065679905098
+          ],
+          [
+            434.84134871470883,
+            863.1112233227498
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": null,
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "apothecary",
+      "exteriorFile": "art-review/artisan-street-v1/apothecary-day.webp",
+      "siteRectCells": [
+        149,
+        42,
+        4,
+        5
+      ],
+      "maximumOuterFloorCells": [
+        4,
+        5
+      ],
+      "doorSource": {
+        "registration": "art-review/artisan-street-v1/registration.json",
+        "doorNative": [
+          [
+            425.51497846085664,
+            697.003156431774
+          ],
+          [
+            425.41169871752146,
+            836.9515165601064
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/alchemists-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "pawnbroker",
+      "exteriorFile": "art-review/shop-street-v1/pawnbroker-day.webp",
+      "siteRectCells": [
+        104,
+        215,
+        3,
+        4
+      ],
+      "maximumOuterFloorCells": [
+        3,
+        4
+      ],
+      "doorSource": {
+        "registration": "art-review/shop-street-v1/registration.json",
+        "doorNative": [
+          [
+            41.73566367151426,
+            361.3006622927958
+          ],
+          [
+            41.954183675132185,
+            501.4099222946048
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/thieves-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    },
+    {
+      "id": "butcher",
+      "exteriorFile": "art-review/artisan-street-v1/butcher-day.webp",
+      "siteRectCells": [
+        114,
+        250,
+        3,
+        4
+      ],
+      "maximumOuterFloorCells": [
+        3,
+        4
+      ],
+      "doorSource": {
+        "registration": "art-review/artisan-street-v1/registration.json",
+        "doorNative": [
+          [
+            480.7951231911368,
+            672.6596557597584
+          ],
+          [
+            481.19368287851546,
+            812.8589356034478
+          ]
+        ],
+        "drawScale": 0.5
+      },
+      "currentPlaceholderRoom": "assets/rooms/butchers-v2.webp",
+      "currentRoomExteriorBinding": null,
+      "candidateStatus": "awaiting footprint-matched interior",
+      "requirements": [
+        "Interior usable floor stays inside exterior rectangle after wall thickness.",
+        "Use same world scale as exterior; image canvas may be enlarged only with matching actor scale.",
+        "Door must correspond to exterior door; document camera rotation if the view differs.",
+        "Match visible windows and provide stairs only within the same envelope."
+      ]
+    }
+  ],
+  "additionalRoomBrief": {
+    "name": "cheap-lodging-common-room",
+    "status": "No distinct 14th exterior in tools/new-buildings-sites.json. Bind to an existing lodging floor only after confirming the intended building; never invent an extra footprint."
+  },
+  "cobblerStudy": {
+    "file": "studies/cobbler-unfitted.png",
+    "status": "unfitted study only",
+    "reason": "Generated from a guild-room reference before checking the 4x5 exterior. Not verified for floor dimensions, door side or actor scale. Do not integrate as finished art."
+  }
+}
