@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Bakery in precise architectural projection.png",
+    "sha256": "08de3558e1d950438c18268534f2a42967d5b0b5b740590613ae97bdc589114f",
+    "git_blob": "5b750b7a96dcb285b5b61e87a599626e30045409",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/bakery-day.png"
+  },
+  {
+    "name": "Corrected dimetric bakery sprite.png",
+    "sha256": "94c2cd53ed60942fe70eb9918d7a76220ace8206f1594f23cc67d03279ac8529",
+    "git_blob": "7631561d003091cb158742b8cfafc380368e7058",
+    "already_uploaded_path": null,
+    "recovered_path": "art-review/final-four-landmarks-v1/recovered-studies/bakery-corrected-study.png"
+  },
+  {
+    "name": "Crooked Ankh-Morpork Townhouse Sprite.png",
+    "sha256": "7ada9093af480d87c77ca9dde85ad8394a2649ea0da18d8733ee0adca1365d3c",
+    "git_blob": "c320c835fb1a6da65878918022d43881e5464ddb",
+    "already_uploaded_path": null,
+    "recovered_path": "art-review/final-four-landmarks-v1/recovered-studies/alley-original-study.png"
+  },
+  {
+    "name": "Dimetric stone shrine with copper roof.png",
+    "sha256": "59424d8d013e18a3a2708c9a3bb768716f10ce331809c5b189e1c7bc769fedb9",
+    "git_blob": "9cc4d7e2fbf5d19591f1ad4f4b1253aaa26c27e2",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/shrine-day.png"
+  },
+  {
+    "name": "Four-Storey House in Dimetric Projection.png",
+    "sha256": "0d14139ca92d027c8cde2e9cb80efe43d63a19981e16a7c01fa74ee3699223fd",
+    "git_blob": "e07c126c76e275a741040ac9d18ea2eea5830c36",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/alley-day.png"
+  },
+  {
+    "name": "Moonlit Alley Building Sprite.png",
+    "sha256": "27dcdd5ecde8af02530151ac0c29c8d222a2f4423635a10ae58954211658ba5f",
+    "git_blob": "3c9f86a1329e9e0a01086af27286136a383fa15f",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/alley-night.png"
+  },
+  {
+    "name": "Moonlit Bakery Sprite with Warm Windows.png",
+    "sha256": "f1a4ad8c6eccc9296d171447230823a5a77316123303fb14d04fe6cf852600c1",
+    "git_blob": "633762665c0f06749dc2ac4ce26ff2325a54f802",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/bakery-night.png"
+  },
+  {
+    "name": "Moonlit Outpost Building Sprite.png",
+    "sha256": "de868b68fcc90b192f96bd30e272d96491ecf4dea76a6361a2cda7fd001a6a6e",
+    "git_blob": "0deaa15a3a5ba987ab215c48695f0f6712b050b7",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/outpost-night.png"
+  },
+  {
+    "name": "Moonlit Shrine Building Sprite.png",
+    "sha256": "5ac55567db79867dd900b4f80d4c00dfd8f7420b013cb8ede646534a1e3f3645",
+    "git_blob": "7da52c8534b74424350cddcd87bf339d6e09791d",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/shrine-night.png"
+  },
+  {
+    "name": "Weathered City Watch Outpost.png",
+    "sha256": "fcceb9deb5a6dbec84fbe097864f4dd25dbd9260759b30515b810c0d24bb6525",
+    "git_blob": "9af486cd86033ef5626b35ce873d7eb7d7ddf1fb",
+    "already_uploaded_path": "art-review/final-four-landmarks-v1/outpost-day.png"
+  },
+  {
+    "name": "Weathered Corner Bakery Sprite.png",
+    "sha256": "e6bfdbd462eec8c396894b2dc30cc3ea41b685c2f16dd60850211bce96e35bfd",
+    "git_blob": "6c40ad21564a60e4492cd5dcfb4bf5186de85360",
+    "already_uploaded_path": null,
+    "recovered_path": "art-review/final-four-landmarks-v1/recovered-studies/bakery-original-study.png"
+  },
+  {
+    "name": "Weathered Tudor Wayside Shrine.png",
+    "sha256": "680a43d33c07dc83f134cb479b869e06f475f3e4fe19f00a39689bf7dace5cf3",
+    "git_blob": "4c82b2989a9687a9fbfc272425516fd470ebf6e8",
+    "already_uploaded_path": null,
+    "recovered_path": "art-review/final-four-landmarks-v1/recovered-studies/shrine-original-study.png"
+  }
+]
