@@ -1,0 +1,169 @@
+{
+  "packet": "final-four-landmarks-v2",
+  "status": "Proposed",
+  "buildings": [
+    {
+      "name": "bakery",
+      "doorHeight": 70
+    },
+    {
+      "name": "shrine",
+      "doorHeight": 70
+    },
+    {
+      "name": "alley",
+      "doorHeight": 70
+    },
+    {
+      "name": "outpost",
+      "doorHeight": 70
+    }
+  ],
+  "files": [
+    {
+      "file": "alley-day.webp",
+      "bytes": 1461126,
+      "sha256": "b07037d6af62338dd60ffb3b8a78d80ba73a6fec7bf31cafb5bd26b9feef13fa"
+    },
+    {
+      "file": "alley-emission.webp",
+      "bytes": 22760,
+      "sha256": "411116e193becb9dfa8a9c0becc9a41e3e5755e445774900112aea67a8915fab"
+    },
+    {
+      "file": "alley-night.webp",
+      "bytes": 1333728,
+      "sha256": "92ccd10dfd2b7c34955c9db988b681d20cbe93672a2247ca8d28f154574911ea"
+    },
+    {
+      "file": "alley-roof-night.webp",
+      "bytes": 378390,
+      "sha256": "36f92a217d0106d694ed7b1919233cc6580e23de60fb9a20206bb04207fdd034"
+    },
+    {
+      "file": "alley-roof.webp",
+      "bytes": 414348,
+      "sha256": "dfa9cd0323b6a86a3cbb9e94aa186fbd3998018ad447158d2357d66149f8b194"
+    },
+    {
+      "file": "alley-walls-night.webp",
+      "bytes": 958376,
+      "sha256": "142af52bc2c66b2a2647a0a73931ab07f4f8babf95fa0eabaccec136c4c40158"
+    },
+    {
+      "file": "alley-walls.webp",
+      "bytes": 1050458,
+      "sha256": "1474ca0e5007a599be08313e71f9c89d573e87aed43aac32af7f9c9b86e05c6e"
+    },
+    {
+      "file": "bakery-day.webp",
+      "bytes": 1341942,
+      "sha256": "ce2c5f0b0c949f1c466274ee513993a0b90157122cd9612efa896ecbbdc6dfe0"
+    },
+    {
+      "file": "bakery-emission.webp",
+      "bytes": 24002,
+      "sha256": "f451eadd4f0eb3ae4164d4c7ff4982e806ce2e2a881655aa7492a237637293c7"
+    },
+    {
+      "file": "bakery-night.webp",
+      "bytes": 1245142,
+      "sha256": "1ca7932c143c4588181af27a24b90e3ea877f99acbf5dbd9f92858076f080cdf"
+    },
+    {
+      "file": "bakery-roof-night.webp",
+      "bytes": 480036,
+      "sha256": "de51ca015737aca94168cbcdb11dcd476cb6cfa1585a45c884dd7d977e3b3986"
+    },
+    {
+      "file": "bakery-roof.webp",
+      "bytes": 507018,
+      "sha256": "641de9e27d6c1a5bea4e7fa86f28bf6ce8d46d2e1ddd3fa665adbc3491fe6e08"
+    },
+    {
+      "file": "bakery-walls-night.webp",
+      "bytes": 767650,
+      "sha256": "1e1587705ecc5be29efcc11971085f1b72703baec69b66ceb4f4fb239743f8f9"
+    },
+    {
+      "file": "bakery-walls.webp",
+      "bytes": 840170,
+      "sha256": "d3a2cb7132c8e4f1d7005a5101e4fda828adbc591b23272dab00a1bc4227299f"
+    },
+    {
+      "file": "outpost-day.webp",
+      "bytes": 935678,
+      "sha256": "12e76afd9da5a9219a2d74a6ba291f22c995df80e6eee8693533db2380d8edf3"
+    },
+    {
+      "file": "outpost-emission.webp",
+      "bytes": 15368,
+      "sha256": "93d138edf69b1c0d331ba808de3c2d23fd8a9d964a5cd139608194cadaad4a3d"
+    },
+    {
+      "file": "outpost-night.webp",
+      "bytes": 859646,
+      "sha256": "11afc12cbdff55bff3eafd9b6b89e7d7158dc82db3676dfccc51d7e744b48980"
+    },
+    {
+      "file": "outpost-roof-night.webp",
+      "bytes": 328172,
+      "sha256": "72b1585a9391057a84764c3cbb213d640d741f9cb727569358a2ad2c9c7a2361"
+    },
+    {
+      "file": "outpost-roof.webp",
+      "bytes": 351020,
+      "sha256": "671ab60c7b102e4d239190c1a0f720b5365487c35a88fc77c1f07c5cc6c91cd4"
+    },
+    {
+      "file": "outpost-walls-night.webp",
+      "bytes": 540752,
+      "sha256": "753d2aa6861fe98acdb56e800c19bad41aac404774d7905bc4effdba4ff03ef5"
+    },
+    {
+      "file": "outpost-walls.webp",
+      "bytes": 595610,
+      "sha256": "50ce0cb2c4945e356152528bb09a897eb601739b1cc39a1f19a0c5872c157359"
+    },
+    {
+      "file": "review.jpg",
+      "bytes": 462635,
+      "sha256": "ad7195fd99542ba243b3db898850bcd92d6863dfa6b62a3471ed4f24b55bcfe3"
+    },
+    {
+      "file": "shrine-day.webp",
+      "bytes": 1161708,
+      "sha256": "3870eaae2ba408c93c0ff7775d19029fec133fad89ce58b26e20f3bbf58b2ec5"
+    },
+    {
+      "file": "shrine-emission.webp",
+      "bytes": 10540,
+      "sha256": "8b117708281c898e771d8797aa82fb953e80f80e362dc950cebcefc3406df69e"
+    },
+    {
+      "file": "shrine-night.webp",
+      "bytes": 1026882,
+      "sha256": "40e8109f45f6b9f840e279fe39d2095a64855c8c115c41c130ae2de48e79006c"
+    },
+    {
+      "file": "shrine-roof-night.webp",
+      "bytes": 453562,
+      "sha256": "e7b803fcf3a9d773bdc2c57009ca83d726ea2b14768ee9a9f39d2b11f0d3b0ed"
+    },
+    {
+      "file": "shrine-roof.webp",
+      "bytes": 518232,
+      "sha256": "60396fafadea9b922b840eab20b0801251c5e4d6fcf7dc0f977ea452c9e6e1c6"
+    },
+    {
+      "file": "shrine-walls-night.webp",
+      "bytes": 576874,
+      "sha256": "b02811a794b884f29050491d1b232f1e6ae086edcdaae19fab7f492f2e88c93b"
+    },
+    {
+      "file": "shrine-walls.webp",
+      "bytes": 647338,
+      "sha256": "45a5045567ff26776da4ed04d00d99c8848b546c59482d527fa42857c84a51ed"
+    }
+  ]
+}

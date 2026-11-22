@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "name": "bakery",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaMismatch": 0,
+      "layerMismatch": 0,
+      "emissionOutsideWalls": 0,
+      "dayRecompositionMismatch": 0,
+      "foundationAngles": [
+        26.46804348460607,
+        27.317808050527255
+      ],
+      "runtimeVerified": false,
+      "physicalPhoneVerified": false
+    },
+    {
+      "name": "shrine",
+      "dimensions": [
+        1136,
+        1385
+      ],
+      "alphaMismatch": 0,
+      "layerMismatch": 0,
+      "emissionOutsideWalls": 0,
+      "dayRecompositionMismatch": 0,
+      "foundationAngles": [
+        27.65647302658075,
+        28.007167484897646
+      ],
+      "runtimeVerified": false,
+      "physicalPhoneVerified": false
+    },
+    {
+      "name": "alley",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "alphaMismatch": 0,
+      "layerMismatch": 0,
+      "emissionOutsideWalls": 0,
+      "dayRecompositionMismatch": 0,
+      "foundationAngles": [
+        26.390097906385574,
+        27.24642626869022
+      ],
+      "runtimeVerified": false,
+      "physicalPhoneVerified": false
+    },
+    {
+      "name": "outpost",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "alphaMismatch": 0,
+      "layerMismatch": 0,
+      "emissionOutsideWalls": 0,
+      "dayRecompositionMismatch": 0,
+      "foundationAngles": [
+        26.559840579910325,
+        26.60808051399777
+      ],
+      "runtimeVerified": false,
+      "physicalPhoneVerified": false
+    }
+  ],
+  "limitations": [
+    "Asset review only; no game placement, runtime lighting or physical-device sign-off.",
+    "Roof layers include upper gables; walls are retained exteriors, not furnished interiors.",
+    "Non-Outpost geometry is preserved from v1 and retains its measured raster tolerances."
+  ]
+}
