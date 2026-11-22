@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot53-phone-zoom`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current chain tag is `pilot54-outpost-angle`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 
@@ -54,6 +54,11 @@ Read this first, then `docs/NEXT-STEPS.md`.
 - **Rooms**: 12 street buildings can be entered. They reuse guild room paintings (`street-*` rooms in
   `dist/guild-interiors/rooms.json`, made by `tools/make-street-rooms.py`). The artisan cooper stays closed.
 - **Cases**: CW-NC-05 "The Bread at the Wrong Door" is live (`dist/cases/city-cases.json`).
+
+- **Outpost angle (22 Nov)**: the Watch Outpost uses the corrected 2:1 painting from `art/final-four-landmarks-v2`
+  (`tools/make-landmark-v3.py` run with that packet; its registration converted to the v1 format). The packet's
+  pixel-locked night and roof/wall layers are not used yet: the game only takes window lights from night art.
+  The silver-dwarf packet (`art/recruit-dwarf-silver`) was not taken: the existing dwarf already offers the silver beard.
 
 ## Open
 

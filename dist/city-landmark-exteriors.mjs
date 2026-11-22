@@ -1,6 +1,6 @@
 /* Ten individual game-original landmark exteriors. Existing map, doors and rooms stay authoritative. */
 export async function createLandmarkExteriors({read,load,addSprites,landmarks,lightAnchors}){
- const base='assets/landmark-exteriors-v3/',manifest=await read(base+'manifest.json?v=4');
+ const base='assets/landmark-exteriors-v3/',manifest=await read(base+'manifest.json?v=5');
  const images=await Promise.all(manifest.instances.map(async row=>{
   const image=await load(base+row.file+'?v='+row.sha256.slice(0,12),row.dimensions);
   if((image.cwSourceWidth||image.naturalWidth||image.width)!==row.dimensions[0]||(image.cwSourceHeight||image.naturalHeight||image.height)!==row.dimensions[1])throw Error('Landmark exterior dimensions changed: '+row.landmarkID);
