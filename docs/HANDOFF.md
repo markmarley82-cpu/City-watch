@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot52-street-rooms`.
+  The current chain tag is `pilot53-phone-zoom`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 

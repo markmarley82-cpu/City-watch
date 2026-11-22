@@ -186,7 +186,8 @@ const waterCollision=installWaterCollision(world,riverContract,allBridges);
 let clockSlot=-1,cityClock=campaignClock(location.search,window.CWP21State?.create(localStorage).read().state);
 let visibleEntranceDoors=[];
 let tapPlanner=null,tapRouteGoal=null,tapRouteMeta=null;
-const DEFAULT_CITY_ZOOM=1;
+// Phones get a closer street-level view (22 Nov 2026); larger screens keep 1.
+const DEFAULT_CITY_ZOOM=(typeof matchMedia==='function'&&matchMedia('(max-width: 600px)').matches)?1.25:1;
 let player=[126,132,'RC1'],npc=[121,135,'RC1'],route=[],routeNotice=false,arrival=null,npcRoute=[],steps=0,blocked=0,visits=new Set(),zoom=DEFAULT_CITY_ZOOM,cam={x:origin.x+75,y:origin.y-180},follow=false,cameraMode='front',inspectedBridge=null,fade=true,sound=false,lastMove=0,routeStepMS=WALK_STEP_MS,lastNPC=0,npcStop=0,frameCost=0,ready=false,saveError='',faded=[],minimumTransmission=1,roomPending=false;
 let savedNavigation=null;
 try{const u=campaign.read();savedNavigation=u;const v={version:7,position:u.position,steps:u.steps,visited:u.visited};if(validSave(v,world)){player=v.position.slice();steps=Number.isSafeInteger(v.steps)&&v.steps>=0?v.steps:0;visits=new Set(v.visited);follow=true;zoom=DEFAULT_CITY_ZOOM;}}catch{saveError='Saving is unavailable; you can still walk.';}
