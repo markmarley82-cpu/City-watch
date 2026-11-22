@@ -1,0 +1,16 @@
+{
+  "cobbler": {"left":[262,624],"front":[830,910],"right":[1270,680],"doorHeight":280,"entry":[1180,724]},
+  "pawnbroker": {"left":[330,640],"front":[824,880],"right":[1200,684],"doorHeight":300,"entry":[1110,728]},
+  "curry-house": {"left":[252,628],"front":[830,918],"right":[1280,680],"doorHeight":280,"entry":[1180,728]},
+  "lodging": {"left":[196,644],"front":[766,938],"right":[1330,660],"doorHeight":245,"entry":[1260,692]},
+  "bonded-warehouse": {"left":[162,620],"front":[820,946],"right":[1360,660],"doorHeight":245,"entry":[1265,710]},
+  "rope-maker": {"left":[224,624],"front":[830,924],"right":[1310,682],"doorHeight":290,"entry":[1225,726]},
+  "ship-chandler": {"left":[208,634],"front":[836,930],"right":[1325,682],"doorHeight":290,"entry":[1240,726]},
+  "quay-lodging": {"left":[228,600],"front":[882,918],"right":[1310,716],"doorHeight":268,"entry":[1238,750]},
+  "smithy": {"left":[240,644],"front":[768,918],"right":[1296,650],"doorHeight":280,"entry":[1220,689]},
+  "cooper": {"left":[226,628],"front":[832,924],"right":[1307,684],"doorHeight":290,"entry":[1225,724]},
+  "butcher": {"left":[326,638],"front":[824,876],"right":[1198,688],"doorHeight":295,"entry":[1120,728]},
+  "apothecary": {"left":[214,626],"front":[832,934],"right":[1320,684],"doorHeight":290,"entry":[1220,736]},
+  "cooper-workshop": {"left":[168,624],"front":[820,928],"right":[1368,650],"doorHeight":228,"entry":[1290,692]},
+  "cheap-lodging-common-room": {"left":[188,644],"front":[768,936],"right":[1350,650],"doorHeight":245,"entry":[1270,690]}
+}

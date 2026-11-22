@@ -1,0 +1,174 @@
+{
+  "rooms": [
+    {
+      "id": "bonded-warehouse",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "c6ffe78666e0bae050842a2655e75be81a945a5ac0a027e379a58bb9425babc3",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "cooper-workshop",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "fbc18c583bbc838f5e2112e9b813fdb9dcb4542ec1370e78acb700661a09b4f4",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "lodging",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "d856280e727698211d13825e8f246e2b7c9fb6de517ed7dcd2c18470995c4bc2",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "smithy",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "4a5c004d3576382c56e13ecd82cd137ba6f39c0c4ecb31d0a5581978fa2e76c5",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "quay-lodging",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "ae45f0977632d7764a650384266cf59345f10a656029ba89880b317b0a332daa",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "cobbler",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "209267e6fa81d30e950abecb153e640aa5e27ebeadf9dc6c223a5249b58c8922",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "curry-house",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "b76e32bd5dbdae5001d17e544396201b925bae53c35bcb4c2543d12f59f4bea9",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "rope-maker",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "d777d34d3cdc3a13010d7e7c9bea747fc5bce9ed064435f8d6cfbb4145cfed08",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "ship-chandler",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "dd53acc4467ac0afa648c79d1d71b3592e1e9bc2007be126ed00c8a206902686",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": false,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "cooper",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "bdd6f081876cd9e9fbd9ca63b78c1885749bac2ca128d3bfecb26f54eeb03227",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "apothecary",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "432611a3d09d851cfc0a3a45ad217ce1fe3726d78f4f30ef1ee96f6acbc06582",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "pawnbroker",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "143855a4d150ca2586ab71577ce26f9b2f5e1086c082e4591c72246741b5470e",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "butcher",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "0a6fa46ce73bb5cab894147783a20d8438575e2b80b023aa2d4acb5f2a83ae90",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    },
+    {
+      "id": "cheap-lodging-common-room",
+      "size": [
+        1536,
+        1024
+      ],
+      "uniqueImageSHA256": "46a9bf9cf9492257d63138ecf74927189b76d73d7b14de8d34c4fd4f1a8dd743",
+      "angleWithinTwoDegrees": true,
+      "sampledScaleFitsOuterFootprint": true,
+      "sampledDoorWithin65to75": true,
+      "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
+    }
+  ],
+  "runtimeTested": false,
+  "physicalPhoneTested": false
+}

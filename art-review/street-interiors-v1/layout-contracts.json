@@ -1,0 +1,1111 @@
+[
+  {
+    "id": "bonded-warehouse",
+    "exteriorFile": "art-review/dockside-street-v1/bonded-warehouse-day.webp",
+    "exteriorRect": [
+      102,
+      248,
+      6,
+      7
+    ],
+    "outerCells": [
+      6,
+      7
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      5.64,
+      6.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.1297709923664123,
+    "worldStepPixels": [
+      87.63358778625954,
+      43.81679389312977
+    ],
+    "actorHeightPixels": 187.78625954198475,
+    "doorHeightPixels": 219.08396946564886,
+    "floorPolygon": [
+      [
+        724.18,
+        352.51
+      ],
+      [
+        1306.07,
+        643.45
+      ],
+      [
+        811.82,
+        890.58
+      ],
+      [
+        229.93,
+        599.63
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        724.18,
+        336.73
+      ],
+      [
+        1337.62,
+        643.45
+      ],
+      [
+        811.82,
+        906.35
+      ],
+      [
+        198.38,
+        599.63
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1289.42,
+        667.55
+      ],
+      [
+        1149.21,
+        737.66
+      ]
+    ],
+    "guide": "guides/bonded-warehouse.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "cooper-workshop",
+    "exteriorFile": "art-review/cooper-workshop-v1/cooper-day.webp",
+    "exteriorRect": [
+      104,
+      273,
+      6,
+      7
+    ],
+    "outerCells": [
+      6,
+      7
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      5.64,
+      6.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.1297709923664123,
+    "worldStepPixels": [
+      87.63358778625954,
+      43.81679389312977
+    ],
+    "actorHeightPixels": 187.78625954198475,
+    "doorHeightPixels": 219.08396946564886,
+    "floorPolygon": [
+      [
+        724.18,
+        352.51
+      ],
+      [
+        1306.07,
+        643.45
+      ],
+      [
+        811.82,
+        890.58
+      ],
+      [
+        229.93,
+        599.63
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        724.18,
+        336.73
+      ],
+      [
+        1337.62,
+        643.45
+      ],
+      [
+        811.82,
+        906.35
+      ],
+      [
+        198.38,
+        599.63
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1289.42,
+        667.55
+      ],
+      [
+        1201.79,
+        711.37
+      ]
+    ],
+    "guide": "guides/cooper-workshop.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "lodging",
+    "exteriorFile": "art-review/shop-street-v1/lodging-day.webp",
+    "exteriorRect": [
+      121,
+      231,
+      6,
+      6
+    ],
+    "outerCells": [
+      6,
+      6
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      5.64,
+      5.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.306451612903226,
+    "worldStepPixels": [
+      92.58064516129033,
+      46.29032258064517
+    ],
+    "actorHeightPixels": 198.38709677419357,
+    "doorHeightPixels": 231.45161290322582,
+    "floorPolygon": [
+      [
+        768.0,
+        366.65
+      ],
+      [
+        1290.15,
+        627.73
+      ],
+      [
+        768.0,
+        888.8
+      ],
+      [
+        245.85,
+        627.73
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        768.0,
+        349.98
+      ],
+      [
+        1323.48,
+        627.73
+      ],
+      [
+        768.0,
+        905.47
+      ],
+      [
+        212.52,
+        627.73
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1272.56,
+        653.19
+      ],
+      [
+        1179.98,
+        699.48
+      ]
+    ],
+    "guide": "guides/lodging.png",
+    "status": "measured blockout; generated painting requires alignment check",
+    "level": 1
+  },
+  {
+    "id": "smithy",
+    "exteriorFile": "art-review/artisan-street-v1/smithy-day.webp",
+    "exteriorRect": [
+      110,
+      158,
+      5,
+      5
+    ],
+    "outerCells": [
+      5,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      4.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.727272727272727,
+    "worldStepPixels": [
+      104.36363636363636,
+      52.18181818181818
+    ],
+    "actorHeightPixels": 223.63636363636363,
+    "doorHeightPixels": 260.9090909090909,
+    "floorPolygon": [
+      [
+        768.0,
+        400.33
+      ],
+      [
+        1252.25,
+        642.45
+      ],
+      [
+        768.0,
+        884.58
+      ],
+      [
+        283.75,
+        642.45
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        768.0,
+        381.55
+      ],
+      [
+        1289.82,
+        642.45
+      ],
+      [
+        768.0,
+        903.36
+      ],
+      [
+        246.18,
+        642.45
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1232.42,
+        671.15
+      ],
+      [
+        1128.05,
+        723.34
+      ]
+    ],
+    "guide": "guides/smithy.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "quay-lodging",
+    "exteriorFile": "art-review/dockside-street-v1/quay-lodging-day.webp",
+    "exteriorRect": [
+      93,
+      18,
+      4,
+      6
+    ],
+    "outerCells": [
+      4,
+      6
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      5.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.727272727272727,
+    "worldStepPixels": [
+      104.36363636363636,
+      52.18181818181818
+    ],
+    "actorHeightPixels": 223.63636363636363,
+    "doorHeightPixels": 260.9090909090909,
+    "floorPolygon": [
+      [
+        663.64,
+        400.33
+      ],
+      [
+        1252.25,
+        694.64
+      ],
+      [
+        872.36,
+        884.58
+      ],
+      [
+        283.75,
+        590.27
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        663.64,
+        381.55
+      ],
+      [
+        1289.82,
+        694.64
+      ],
+      [
+        872.36,
+        903.36
+      ],
+      [
+        246.18,
+        590.27
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1232.42,
+        723.34
+      ],
+      [
+        1128.05,
+        775.52
+      ]
+    ],
+    "guide": "guides/quay-lodging.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "cobbler",
+    "exteriorFile": "art-review/shop-street-v1/cobbler-day.webp",
+    "exteriorRect": [
+      104,
+      137,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/cobbler.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "curry-house",
+    "exteriorFile": "art-review/shop-street-v1/curry-house-day.webp",
+    "exteriorRect": [
+      36,
+      106,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/curry-house.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "rope-maker",
+    "exteriorFile": "art-review/dockside-street-v1/rope-maker-day.webp",
+    "exteriorRect": [
+      41,
+      99,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/rope-maker.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "ship-chandler",
+    "exteriorFile": "art-review/dockside-street-v1/ship-chandler-day.webp",
+    "exteriorRect": [
+      100,
+      61,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/ship-chandler.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "cooper",
+    "exteriorFile": "art-review/artisan-street-v1/cooper-day.webp",
+    "exteriorRect": [
+      89,
+      39,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/cooper.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "apothecary",
+    "exteriorFile": "art-review/artisan-street-v1/apothecary-day.webp",
+    "exteriorRect": [
+      149,
+      42,
+      4,
+      5
+    ],
+    "outerCells": [
+      4,
+      5
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      3.64,
+      4.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.9805825242718447,
+    "worldStepPixels": [
+      111.45631067961165,
+      55.728155339805824
+    ],
+    "actorHeightPixels": 238.83495145631068,
+    "doorHeightPixels": 278.6407766990291,
+    "floorPolygon": [
+      [
+        712.27,
+        420.61
+      ],
+      [
+        1229.43,
+        679.18
+      ],
+      [
+        823.73,
+        882.03
+      ],
+      [
+        306.57,
+        623.46
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.27,
+        400.54
+      ],
+      [
+        1269.55,
+        679.18
+      ],
+      [
+        823.73,
+        902.1
+      ],
+      [
+        266.45,
+        623.46
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1208.25,
+        709.83
+      ],
+      [
+        1096.8,
+        765.56
+      ]
+    ],
+    "guide": "guides/apothecary.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "pawnbroker",
+    "exteriorFile": "art-review/shop-street-v1/pawnbroker-day.webp",
+    "exteriorRect": [
+      104,
+      215,
+      3,
+      4
+    ],
+    "outerCells": [
+      3,
+      4
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      2.64,
+      3.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 4,
+    "worldStepPixels": [
+      112,
+      56
+    ],
+    "actorHeightPixels": 240,
+    "doorHeightPixels": 280,
+    "floorPolygon": [
+      [
+        712.0,
+        476.16
+      ],
+      [
+        1119.68,
+        680.0
+      ],
+      [
+        824.0,
+        827.84
+      ],
+      [
+        416.32,
+        624.0
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.0,
+        456.0
+      ],
+      [
+        1160.0,
+        680.0
+      ],
+      [
+        824.0,
+        848.0
+      ],
+      [
+        376.0,
+        624.0
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1098.4,
+        710.8
+      ],
+      [
+        986.4,
+        766.8
+      ]
+    ],
+    "guide": "guides/pawnbroker.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "butcher",
+    "exteriorFile": "art-review/artisan-street-v1/butcher-day.webp",
+    "exteriorRect": [
+      114,
+      250,
+      3,
+      4
+    ],
+    "outerCells": [
+      3,
+      4
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      2.64,
+      3.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 4,
+    "worldStepPixels": [
+      112,
+      56
+    ],
+    "actorHeightPixels": 240,
+    "doorHeightPixels": 280,
+    "floorPolygon": [
+      [
+        712.0,
+        476.16
+      ],
+      [
+        1119.68,
+        680.0
+      ],
+      [
+        824.0,
+        827.84
+      ],
+      [
+        416.32,
+        624.0
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        712.0,
+        456.0
+      ],
+      [
+        1160.0,
+        680.0
+      ],
+      [
+        824.0,
+        848.0
+      ],
+      [
+        376.0,
+        624.0
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1098.4,
+        710.8
+      ],
+      [
+        986.4,
+        766.8
+      ]
+    ],
+    "guide": "guides/butcher.png",
+    "status": "measured blockout; generated painting requires alignment check"
+  },
+  {
+    "id": "cheap-lodging-common-room",
+    "exteriorFile": "art-review/shop-street-v1/lodging-day.webp",
+    "exteriorRect": [
+      121,
+      231,
+      6,
+      6
+    ],
+    "outerCells": [
+      6,
+      6
+    ],
+    "wallThicknessCells": 0.18,
+    "usableFloorCells": [
+      5.64,
+      5.64
+    ],
+    "cameraTransform": "interior(a,b)=(exteriorDepth-v,u); 90 degree rotation",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "cameraMagnification": 3.306451612903226,
+    "worldStepPixels": [
+      92.58064516129033,
+      46.29032258064517
+    ],
+    "actorHeightPixels": 198.38709677419357,
+    "doorHeightPixels": 231.45161290322582,
+    "floorPolygon": [
+      [
+        768.0,
+        366.65
+      ],
+      [
+        1290.15,
+        627.73
+      ],
+      [
+        768.0,
+        888.8
+      ],
+      [
+        245.85,
+        627.73
+      ]
+    ],
+    "outerFloorPolygon": [
+      [
+        768.0,
+        349.98
+      ],
+      [
+        1323.48,
+        627.73
+      ],
+      [
+        768.0,
+        905.47
+      ],
+      [
+        212.52,
+        627.73
+      ]
+    ],
+    "doorThreshold": [
+      [
+        1272.56,
+        653.19
+      ],
+      [
+        1179.98,
+        699.48
+      ]
+    ],
+    "guide": "guides/cheap-lodging-common-room.png",
+    "status": "measured blockout; generated painting requires alignment check",
+    "level": 0,
+    "bindingStatus": "proposed second floor allocation within the existing lodging site"
+  }
+]
