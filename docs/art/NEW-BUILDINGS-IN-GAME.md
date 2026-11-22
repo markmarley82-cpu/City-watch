@@ -48,3 +48,25 @@ walls). Doors, interiors, roof cutaways for the street buildings and the rope ya
 | apothecary | artisan-street-v1 | [149, 42, 4, 5] |
 | pawnbroker | shop-street-v1 | [104, 215, 3, 4] |
 | butcher | artisan-street-v1 | [114, 250, 3, 4] |
+
+## Rooms (22 November 2026)
+
+Twelve of the street buildings can now be entered. `addStreetDoors` in `dist/city-new-buildings.mjs`
+puts a door on the street in front of each, and `tools/make-street-rooms.py` adds a room for each to
+the guild-interior catalogue. The room reuses a guild room painting, with its own name, two
+things to examine and a person to talk to:
+
+| Building | Room painting |
+|---|---|
+| Apothecary, Smithy | Alchemists' workroom |
+| Curry house | Bakers' kitchen |
+| Butcher, Cooper's workshop | Butchers' hall |
+| Pawnbroker | Thieves' registry counter |
+| Lodging house, Quay lodging | Beggars' reception |
+| Cobbler | Musicians' upstairs rooms |
+| Ship chandler | Lawyers' records room |
+| Bonded warehouse, Rope-maker | Fools' long hall |
+
+The artisan-street cooper has no fitting painting and stays closed. All of these switch to their
+own interiors when the art team delivers them (work order part 2). They don't appear in the
+Guildhouses list.

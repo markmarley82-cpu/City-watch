@@ -1,5 +1,5 @@
 import {createRoomSession,canStand} from './room-core.mjs?v=p21-b407-s039-reuse';
-import {createGuildContactView} from './cw-guild-contact-view.mjs?v=p21-b407-s039-reuse';
+import {createGuildContactView} from './cw-guild-contact-view.mjs?v=street-1';
 export async function createGuildInteriorView({root=document,baseURL=new URL('./',import.meta.url),readRoom=()=>null,writeRoom=()=>{},drawRecruit=null,onExit=()=>{}}={}){
 const $=s=>root.querySelector(s),canvas=$('#room-canvas'),g=canvas.getContext('2d'),catalogue=await(await fetch(new URL('rooms.json',baseURL))).json(),manifest=await(await fetch(new URL('assets/characters-drawn-v1/manifest.json?v=p21-b407-s039-reuse',baseURL))).json(),characters=CWDrawnCharacters.create(manifest,{baseURL,maxDecodedBytes:20*1024*1024}),pictures=new Map();
 let room=null,session=null,picture=null,generation=0,last=0,walkEpoch=0,idleEpoch=0,wasMoving=false,camera=null,zoom=innerWidth<600?1.65:1,ready=false,inspectionFocus=null;

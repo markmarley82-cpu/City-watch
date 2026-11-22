@@ -126,7 +126,7 @@ import {createSectionS010} from './city-section-s010.mjs?v=p21-b407-s039-reuse';
 import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
 import {createEdgeFill} from './city-edge-fill.mjs?v=1';
-import {createNewBuildings,loadPalaceMainBlock} from './city-new-buildings.mjs?v=5';
+import {createNewBuildings,loadPalaceMainBlock,addStreetDoors} from './city-new-buildings.mjs?v=6';
 import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=final-four-1';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
 import {createDimwellWorkshop} from './dimwell-workshop.mjs?v=p21-b407-s039-reuse';
@@ -759,6 +759,7 @@ const hideParkState=activateHideParkPremises({receiver:hideParkPremises,world,gr
 const hideParkRecovery=hideParkState?.persistRecovery(window.CWP21State.create(localStorage),window.CWChase);
 if(hideParkRecovery)savedNavigation=hideParkRecovery.record;
 canvas.dataset.hideParkPremises=JSON.stringify(hideParkState?.report()||{ready:false,newBuildings:0});
+try{if(newBuildings)addStreetDoors(world,newBuildings.manifest);}catch(error){console.error('Street building doors unavailable',error);}
 const startupCache=await startupCachePromise;
 let hideParkNorthState=null;try{hideParkNorthState=activateHideParkNorth({receiver:hideParkNorth,world,ground:openGround,originalMembers:streetLifeHomeMembers,store:window.CWP21State.create(localStorage),Chase:window.CWChase,doorCheck:{...startupCheck(startupCache,'hide-park-north-doors'),fingerprint:()=>worldFingerprint(world,sceneryObjects)}});}catch(error){hideParkNorth?.discard(sceneryObjects);hideParkNorth=null;console.error('Hide Park north reservation rejected; current public ground retained',error);}
 const hideParkNorthRecovery=hideParkNorthState?.persistRecovery();if(hideParkNorthRecovery)savedNavigation=hideParkNorthRecovery.record;
@@ -1286,7 +1287,7 @@ window.CW_AUDIO_CONTEXT=()=>({sceneKey:'rebuilt-city',inside:false,room:null,pos
 window.CWP21City={movementProfile:{reference:CWLocomotion.profile.reference,stepMS:WALK_STEP_MS,timeScale:160/WALK_STEP_MS},refreshClock:()=>{clockSlot=-1;},clock:()=>({...cityClock}),worldServices,world,data,allBridges,characterPainter,nav,serviceRoute,tell,save,update,position:()=>player.slice(),footPosition:()=>freeWalk.foot(),steps:()=>steps,visits:()=>[...visits],stop:()=>{window.CWP21Game?.cancelPursuitTracking?.();stopMapTravel();mapPointer.cancel();},restore:p=>{if(validSave({version:7,position:p,visited:[]},world)){stopMapTravel();mapPointer.cancel();freeWalk.clear();player=p.slice();follow=true;update();}},isNavigating:()=>route.length>0||!!tapPlanner?.pending(),nearDoor,nearColon:()=>distance(player,npc)<=3};
 startupMark('assignment-start');
 window.CWPhoneBoot?.stage('Preparing your Watch assignment');
-npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=cw-nc01-bridge-pilot32');refreshAtlasDoorLabels();
+npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=street-rooms-2');refreshAtlasDoorLabels();
 if(e043QuayRecovery||mateStreetRecovery||recoveredRiverPosition||palaceBRecovery||e045WorkshopRecovery||e045PairRecovery||e046P03Recovery||e046P04P05Recovery||e046P06Recovery||hideParkRecovery){try{const currentCampaign=window.CWP21State.create(localStorage);currentCampaign.navigation(player,[...visits],steps,freeWalk.foot());currentCampaign.project();}catch{}tell(e043QuayRecovery?'Your saved patrol is on clear ground beside the quay lodging house. Your progress and equipment are kept.':mateStreetRecovery?'Your saved patrol is on clear ground beside the joined premises. Your case progress and equipment are kept.':hideParkRecovery?'Your saved patrol is on clear ground beside the new premises. Your case progress and equipment are kept.':e046P06Recovery?'Your saved patrol has moved to clear public ground beside the new dockside workshop. Your case progress and equipment are kept.':e046P04P05Recovery?'Your saved patrol has moved to clear public ground beside the new E046 premises. Your case progress and equipment are kept.':e046P03Recovery?'Your saved patrol has moved to clear public ground beside the western E046 premises. Your case progress and equipment are kept.':e045PairRecovery?'Your saved patrol has moved to clear public ground beside the joined premises.':e045WorkshopRecovery?'Your saved patrol has moved to safe ground on the same street beside the new workshop. Your case progress and equipment are kept.':palaceBRecovery?'Your saved patrol position is no longer available. You have been moved to the nearest safe point on the same street. Your case progress and equipment are kept.':'Your patrol is back on safe ground. Your case progress and equipment are kept.');}
 addEventListener('pageshow',()=>cityFrameLoop.start());
 if(LOW_MEMORY){

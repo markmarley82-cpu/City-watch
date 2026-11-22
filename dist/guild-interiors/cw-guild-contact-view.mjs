@@ -20,10 +20,10 @@ export function createGuildContactView({document:doc,host=doc.defaultView,charac
  const visibility=()=>{if(doc.hidden)stop();else wake();};doc.addEventListener('visibilitychange',visibility);reduced?.addEventListener?.('change',wake);
  function showContact(contact,callbacks){if(disposed)throw Error('Guild presenter is destroyed');if(session)throw Error('Close the active guild contact first');if(!contact?.actorId||!callbacks?.talk||!callbacks?.leave)throw Error('Contact and lifecycle callbacks required');
   const generation=++serial;session={contact,callbacks,focus:doc.activeElement};ready=false;choices.replaceChildren();status.replaceChildren();context.clearRect(0,0,canvas.width,canvas.height);$('.cw-dialogue-heading h2').textContent=contact.name;$('.cw-dialogue-profile-caption').textContent=contact.name;canvas.setAttribute('aria-label','Animated character: '+contact.name);speech.textContent='Speak with '+contact.name+'.';
-  button('Talk',()=>callbacks.talk());button('Leave guildhouse',finish);
+  button('Talk',()=>callbacks.talk());button('Leave',finish);
   try{dialog.showModal();closeButton.focus();}catch(e){const old=clear();try{old?.callbacks.leave();}finally{restoreFocus(old);}throw e;}load(generation);
  }
- function showDialogue(message){if(!session||message.actorId!==session.contact.actorId)return false;speech.textContent=message.text;choices.replaceChildren();button('Thank you',()=>{speech.textContent='Speak with '+session.contact.name+'.';choices.replaceChildren();button('Talk',()=>session?.callbacks.talk());button('Leave guildhouse',finish);choices.querySelector('button')?.focus();});button('Leave guildhouse',finish);speech.focus();return true;}
+ function showDialogue(message){if(!session||message.actorId!==session.contact.actorId)return false;speech.textContent=message.text;choices.replaceChildren();button('Thank you',()=>{speech.textContent='Speak with '+session.contact.name+'.';choices.replaceChildren();button('Talk',()=>session?.callbacks.talk());button('Leave',finish);choices.querySelector('button')?.focus();});button('Leave',finish);speech.focus();return true;}
  function returnToDoor(exit){const old=clear();try{onReturn(exit);}finally{restoreFocus(old);}}
  function destroy(){finish();disposed=true;stop();doc.removeEventListener('visibilitychange',visibility);reduced?.removeEventListener?.('change',wake);dialog.remove();}
  return Object.freeze({showContact,showDialogue,returnToDoor,close:finish,destroy,element:dialog});
