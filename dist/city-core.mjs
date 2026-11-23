@@ -56,9 +56,9 @@ export function compileCity(data,precinct){
   const p=l.engine_approach_xy,id=l.game_id;
   if(['LF-09','LF-15'].includes(l.lf_id)){doors.set(id,{...l,position:p,held:true,reason:'Cattle Market public ingress remains held.'});continue;}
   if(['watch','opera'].includes(id)){doors.set(id,{...l,position:p,edge:'RC1',held:false});continue;}
-  // Registered enlarged premises provide a measured exterior path around neighbouring buildings.
-  if(l.exterior_connector){const c=l.exterior_connector,edge='APRON:'+id;
-   if(!members.get(key(c.contact))?.has(c.parent))throw Error(id+' street contact is unavailable');
+  // The expanded University retains its original street contact and every old save cell.
+  if(id==='university'&&l.exterior_connector){const c=l.exterior_connector,edge='APRON:'+id;
+   if(!members.get(key(c.contact))?.has(c.parent))throw Error('University street contact is unavailable');
    addConnector(edge,c.parent,c.contact,c.cells);doors.set(id,{...l,position:p,edge,held:false,originalForecourt:true});continue;
   }
   // Explicit original private forecourts in this isolated build. They cannot join two streets.

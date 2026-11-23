@@ -66,6 +66,7 @@ import {createE045PairGround} from './city-e045-pair-ground.mjs?v=p21-b407-s039-
 import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-workshop.mjs?v=memo-1';
 import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=memo-1';
 import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=memo-1';
+import {activateDrumPlot} from './city-drum-plot.mjs?v=1';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=memo-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
@@ -109,7 +110,7 @@ import {createTapRoutePlanner} from './city-tap-search.mjs?v=budget-1';
 import {createPalacePrecinct} from './palace-precinct.mjs?v=p21-b407-s039-reuse';
 import {createPalaceApproach} from './city-palace-approach.mjs?v=1';
 import {mountDwarfMapCulture} from './dwarf-map-culture.mjs?v=p21-b407-s039-reuse';
-import {createStreetLampNetwork} from './city-street-lamps.mjs?v=p21-b482-pons-deck-lamps';
+import {createStreetLampNetwork} from './city-street-lamps.mjs?v=drum-large';
 import {applyCityCutaways,cityCutawayEligible} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
 import {fitLegacyBuilding} from './city-legacy-fit.mjs?v=p21-b407-s039-reuse';
 import {createWatchNeighbourhood} from './watch-neighbourhood.mjs?v=p21-b407-s039-reuse';
@@ -127,7 +128,7 @@ import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
 import {createEdgeFill} from './city-edge-fill.mjs?v=1';
 import {createNewBuildings,loadPalaceMainBlock,addStreetDoors} from './city-new-buildings.mjs?v=7';
-import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=drum-large-1';
+import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=drum-large';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
 import {createDimwellWorkshop} from './dimwell-workshop.mjs?v=p21-b407-s039-reuse';
 import {createE043Premise} from './e043-premise.mjs?v=p21-b407-s039-reuse';
@@ -142,7 +143,7 @@ import {createUniversityCampus} from './university-campus.mjs?v=p21-b407-s039-re
 import './cw-joystick.js?v=p21-b407-s039-reuse';
 import './cw-locomotion.js?v=p21-b407-s039-reuse';
 import {installWaterCollision} from './city-water-collision.mjs?v=p21-b407-s039-reuse';
-import {compileCity,pathBetween,project,unproject,key,stateKey,engine,rectCells,pointIn,distance,validSave,manualNeighbour,manualDirectionalNeighbour} from './city-core.mjs?v=drum-large-1';
+import {compileCity,pathBetween,project,unproject,key,stateKey,engine,rectCells,pointIn,distance,validSave,manualNeighbour,manualDirectionalNeighbour} from './city-core.mjs?v=p21-b468-palace-street';
 import {registerHouse} from './city-quarter.mjs?v=p21-b407-s039-reuse';
 import {bridgeInFront,bridgePlacement,bridgeGroundReceiver,bridgeWaterSpan,PONS} from './city-art.mjs?v=p21-b407-s039-reuse';
 import {createUniversityView} from './university-view.mjs?v=p21-b407-s039-reuse';
@@ -152,7 +153,7 @@ import {createPhoneBudget} from './city-phone-budget.mjs?v=p21-b407-s039-reuse';
 import {BRIDGE_LOCAL_CUTAWAY_TRANSMISSION,BridgePainter,bridgeHouseCutawayEligible,bridgeActorInFront,bridgeLocalCutawayContains,bridgeLocalCutawayEligible,bridgeLocalCutawayMask} from './city-bridges.mjs?v=p21-bridge-layer-cache';
 import {createActorPainter} from './character-actors.mjs?v=recruit-art-v2-r3';
 import {createUniversityStreets} from './university-streets.mjs?v=p21-b407-s039-reuse';
-import {createShadesStreets} from './shades-streets.mjs?v=drum-large-1';
+import {createShadesStreets} from './shades-streets.mjs?v=p21-b407-s039-reuse';
 import {createRiverPainter} from './city-river.mjs?v=river-sliced-1';
 import {createRiverDetailPlanSliced,createRiverOutlinePlan} from './river-character.mjs?v=river-sliced-1';
 import {cityLocationLabel} from './city-location-labels.mjs?v=p21-b407-s039-reuse';
@@ -174,10 +175,10 @@ const campaign=window.CWP21State.create(localStorage);
 campaign.campaign(initializeCityClock(campaign.read().state));
 campaign.project();
 window.CWRecruitmentPending=!(campaign.read().state.flags.watchOathVersion&&campaign.read().state.flags.recruitName);
-import {createGapFrontages} from './city-mate-street304.mjs?v=drum-large-1';
+import {createGapFrontages} from './city-mate-street304.mjs?v=p21-b407-s039-reuse';
 const read=createCityJSONLoader();
 window.CWPhoneBoot?.stage('Reading city layout');
-const [data,precinct,roofs,recruit,colon,ds,quarter,infill,pons,cobbles,allBridges,bankContacts,riverContract]=await Promise.all(['assets/city-v07/city-design.json?v=drum-large-1','assets/team-v05/precinct-rc1.json','assets/city-v07/roof-parcels.json','assets/team-v05/watch-recruit.json','assets/team-v05/colon.json','assets/graphics-p17/dolly_sisters/metadata/sprites.json','assets/city-v09/watch-quarter.json','assets/city-v010/adjoining-block.json','assets/city-v010/pons/manifest.json','assets/city-v011/cobbles/manifest.json','assets/river-bridges-v1/bridges.json?v=waterline-1','assets/river-bridges-v1/bank-contacts.json','assets/river-bridges-v1/river.json'].map(read)).catch(e=>{$('city-message').textContent=e.message;throw e;});
+const [data,precinct,roofs,recruit,colon,ds,quarter,infill,pons,cobbles,allBridges,bankContacts,riverContract]=await Promise.all(['assets/city-v07/city-design.json?v=drum-large','assets/team-v05/precinct-rc1.json','assets/city-v07/roof-parcels.json','assets/team-v05/watch-recruit.json','assets/team-v05/colon.json','assets/graphics-p17/dolly_sisters/metadata/sprites.json','assets/city-v09/watch-quarter.json','assets/city-v010/adjoining-block.json','assets/city-v010/pons/manifest.json','assets/city-v011/cobbles/manifest.json','assets/river-bridges-v1/bridges.json?v=waterline-1','assets/river-bridges-v1/bank-contacts.json','assets/river-bridges-v1/river.json'].map(read)).catch(e=>{$('city-message').textContent=e.message;throw e;});
 const world=compileCity(data,precinct),riverPainter=createRiverPainter(riverContract),canvas=$('city-scene'),ctx=canvas.getContext('2d',{alpha:false}),base=[126,132],origin=project(base),local=p=>[p[0]+126,p[1]+132];
 let riverAppearance=null,riverDetailJob=null;
 const parkRegistration=await read('assets/hide-park260/registration.json');
@@ -760,6 +761,11 @@ const hideParkState=activateHideParkPremises({receiver:hideParkPremises,world,gr
 const hideParkRecovery=hideParkState?.persistRecovery(window.CWP21State.create(localStorage),window.CWChase);
 if(hideParkRecovery)savedNavigation=hideParkRecovery.record;
 canvas.dataset.hideParkPremises=JSON.stringify(hideParkState?.report()||{ready:false,newBuildings:0});
+// The large Mended Drum (23 Nov 2026) retires the street cells under its 9 x 8 plot.
+const drumRow=landmarkExteriors.manifest.instances.find(r=>r.landmarkID==='drum'),drumDoor=world.doors.get('drum');
+const drumPlot=drumRow&&drumDoor&&drumRow.rect[2]*drumRow.rect[3]>30?activateDrumPlot({world,ground:openGround,rect:drumRow.rect,door:drumDoor.position,reachable:()=>streetPath(world,[126,132,'RC1'],drumDoor.position.slice(0,2),drumDoor.edge)!==null}):null;
+canvas.dataset.drumPlot=JSON.stringify(drumPlot?.report()||{active:false});
+if(drumPlot&&!drumPlot.active)console.warn('Mended Drum plot held: the street is unchanged');
 try{if(newBuildings)addStreetDoors(world,newBuildings.manifest);}catch(error){console.error('Street building doors unavailable',error);}
 const startupCache=await startupCachePromise;
 let hideParkNorthState=null;try{hideParkNorthState=activateHideParkNorth({receiver:hideParkNorth,world,ground:openGround,originalMembers:streetLifeHomeMembers,store:window.CWP21State.create(localStorage),Chase:window.CWChase,doorCheck:{...startupCheck(startupCache,'hide-park-north-doors'),fingerprint:()=>worldFingerprint(world,sceneryObjects)}});}catch(error){hideParkNorth?.discard(sceneryObjects);hideParkNorth=null;console.error('Hide Park north reservation rejected; current public ground retained',error);}

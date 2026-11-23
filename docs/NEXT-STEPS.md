@@ -118,13 +118,14 @@ These make what already exists reliable:
   in `docs/art/RECRUIT-STUDIES-IN-GAME.md`.
 - Done: the two bugs from the 17 November playtest. "Walk to current assignment" now
   heads for Carrot when Carrot has the assignment, and Carrot's case has a walk button.
-- **Done: larger Mended Drum exterior and placement (23 Nov).** The registered tavern
-  uses an 8 × 9 engine-cell footprint, a 70 px doorway and a measured ten-cell approach.
-  The adjoining warehouse and house are shifted clear; two unnamed infill pieces are
-  replaced by the larger tavern. The case marker and interior entrance follow the new door.
-  Desktop and phone-sized Chromium checks cover the nearby Atlas walk, entrance, interior,
-  return, save/reload and lighting. See `art-review/mended-drum-large-v1/README.md` and
-  its `installation-qa/` evidence. Physical iPhone/Safari acceptance remains Mark's check.
+- **Done: larger Mended Drum exterior and placement (23 Nov).** Mark compared two
+  installs side by side and chose the one with the door facing the open street. The
+  tavern sits on plot `[103,239,9,8]` with its door at `[106,247]` (APRON:drum);
+  `dist/city-drum-plot.mjs` retires the 35 street cells under it and keeps every route
+  connected. Rebuild with `tools/place-mended-drum.py <art-review packet>`. The earlier
+  install that shifted the neighbouring warehouse and house (commit 8acd890) was taken
+  out of `dist/`; its review evidence stays in `art-review/mended-drum-large-v1/`.
+  Physical iPhone/Safari acceptance remains Mark's check.
 - The historical angle audit of the other landmarks remains in
   `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
 

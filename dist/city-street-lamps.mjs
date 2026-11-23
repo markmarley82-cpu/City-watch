@@ -7,7 +7,7 @@ export const mountPonsDeckLamp=i=>{
  return {...i,p:[x,i.p[1]],rect:[i.rect[0]+dx,...i.rect.slice(1)]};
 };
 export async function createStreetLampNetwork({read,load,addSprites,lightAnchors}){
- const m=await read('assets/city-street-lamps-v1/manifest.json?v=p21-b407-s039-reuse'),a=m.fixture,im=await load(a.file);
+ const m=await read('assets/city-street-lamps-v1/manifest.json?v=drum-large'),a=m.fixture,im=await load(a.file);
  if(im.width!==a.dimensions[0]||im.height!==a.dimensions[1])throw Error('Street-lamp source dimensions changed');
  // The Watch neighbourhood shares this source URL and releases its HTML image
  // after density reduction. Neither orientation may retain that borrowed image.
