@@ -1,25 +1,47 @@
-name: Mended Drum source inspection
+name: Mended Drum registered export
 on:
   push:
     branches: [art/mended-drum-large-v1]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: mended-drum-review
+  cancel-in-progress: true
 jobs:
-  inspect:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
-      - run: python -m pip install Pillow==12.0.0
-      - name: Inspect source alpha and sampled geometry
+          node-version: 22
+      - name: Install isolated asset QA tools
         run: |
-          python tools/inspect-mended-drum-large.py
-          cat qa-results/mended-drum-large.md >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+          npm install --prefix "$RUNNER_TEMP/drum-tools" --no-audit --no-fund sharp@0.34.5 playwright@1.63.0
+          "$RUNNER_TEMP/drum-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Register and verify game exports
+        env:
+          NODE_PATH: ${{ runner.temp }}/drum-tools/node_modules
+        run: node tools/prepare-mended-drum-large.cjs
+      - name: Survey actual city footprint
+        env:
+          NODE_PATH: ${{ runner.temp }}/drum-tools/node_modules
+        run: node tools/survey-mended-drum-site.cjs
+      - name: Save prepared art on this review branch
+        run: |
+          git config user.name "City Watch art preparation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add art-review/mended-drum-large-v1/drum-day-2x.webp art-review/mended-drum-large-v1/drum-day-game.webp art-review/mended-drum-large-v1/registered.png art-review/mended-drum-large-v1/game-registration.json art-review/mended-drum-large-v1/review-sheet.webp art-review/mended-drum-large-v1/export-checks.json art-review/mended-drum-large-v1/site-survey.json art-review/mended-drum-large-v1/site-plan.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "Prepare grid-registered Mended Drum exports and site survey [skip ci]"
+            git push origin HEAD:art/mended-drum-large-v1
+          fi
+      - name: Save QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: mended-drum-source-inspection
+          name: mended-drum-registered-review
           path: qa-results/
+          if-no-files-found: warn
