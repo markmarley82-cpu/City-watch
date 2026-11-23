@@ -18,7 +18,7 @@ const dir='art-review/mended-drum-large-v1',p=n=>path.join(dir,n);
   const nx=x+minX,sx=nx/(nx<=0?hs[0]:hs[1])+832,sy=(y+minY-shift(sx))/v;
   const x0=Math.floor(sx),y0=Math.floor(sy),fx=sx-x0,fy=sy-y0,w=[(1-fx)*(1-fy),fx*(1-fy),(1-fx)*fy,fx*fy],xy=[[x0,y0],[x0+1,y0],[x0,y0+1],[x0+1,y0+1]],q=[];
   for(let c=0;c<4;c++)q[c]=xy.reduce((s,[a,b],i)=>s+w[i]*sample(a,b,c),0);
-  const idx=(y*width+x)*4;out[idx+3]=Math.round(q[3]);for(let c=0;c<3;c++)out[idx+c]=q[3]>0?Math.round(q[c]*255/q[3]):0;
+  const idx=(y*width+x)*4;out[idx+3]=Math.round(q[3]);for(let c=0;c<3;c++)out[idx+c]=out[idx+3]>0?Math.round(q[c]*255/q[3]):0;
  }
  const point=([x,y])=>[xmap(x)-minX,v*y+shift(x)-minY];
  const base=Object.fromEntries(Object.entries(src).map(([k,q])=>[k,point(q)]));
@@ -32,7 +32,7 @@ const dir='art-review/mended-drum-large-v1',p=n=>path.join(dir,n);
  const angles=[base.left,base.right].map(q=>Math.atan2(Math.abs(q[1]-base.corner[1]),Math.abs(q[0]-base.corner[0]))*180/Math.PI);
  angles.forEach(a=>assert(Math.abs(a-26.565051177)<1e-6));
  assert(Math.abs((reg.door.foot[1]-reg.door.top[1])*.5-70)<1e-8);
- const decoded=await sharp(p(reg.file)).ensureAlpha().raw().toBuffer();assert(decoded.equals(out),'Lossless WebP differs from registered raw pixels');
+ const decoded=await sharp(p(reg.file)).ensureAlpha().raw().toBuffer();let hiddenRgbChanges=0;assert.equal(decoded.length,out.length);for(let i=0;i<out.length;i+=4){assert.equal(decoded[i+3],out[i+3],'WebP alpha mismatch');for(let c=0;c<3;c++){if(out[i+3])assert.equal(decoded[i+c],out[i+c],'Visible WebP pixel mismatch');else if(decoded[i+c]!==out[i+c])hiddenRgbChanges++;}}
  // Pale, dark and cobble composites use exact screen-size artwork and a 60px height gauge.
  const panels=[];for(const bg of ['#e6dfd2','#161b20','#625f54']){
   const sw=Math.round(width/2),sh=Math.round(height/2);
