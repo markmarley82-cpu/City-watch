@@ -82,7 +82,6 @@ const server=http.createServer((req,res)=>{
   await game.waitForFunction(()=>['ready','failed'].includes(document.body.dataset.cityBoot),null,{timeout:240000});
   assert.equal(await game.evaluate(()=>document.body.dataset.cityBoot),'ready','Real city failed to boot');
   await game.locator('#character-studio[open]').waitFor({timeout:60000});
-  await game.locator('#character-name').fill('Portrait QA');
   await game.locator('#character-apply').click({timeout:60000});
   await game.locator('#cw-oath-name').fill('Portrait QA');
   await game.locator('.cw-oath-submit').click();
@@ -100,6 +99,6 @@ const server=http.createServer((req,res)=>{
   assert.equal(await game.evaluate(()=>!!window.CW_P20_INPUT_BLOCKED),false);
   results.realEntryFlow={boot:true,recruit:true,oath:true,briefing:true,partnerPortrait:true,returnToPatrol:true,pageErrors:gameErrors};
   await gameContext.close();results.passed=true;
- }catch(error){results.passed=false;results.errors.push(error.stack);throw error;}
+ }catch(error){results.passed=false;results.errors.push(error.stack);results.openPages=[];for(const [i,page] of browser.contexts().flatMap(c=>c.pages()).entries()){results.openPages.push(await page.evaluate(()=>({url:location.href,boot:document.body.dataset.cityBoot,dialogs:[...document.querySelectorAll('dialog[open]')].map(d=>({id:d.id,text:d.innerText.slice(0,4000)})),buttons:[...document.querySelectorAll('button')].filter(b=>b.getClientRects().length).map(b=>({id:b.id,text:b.innerText})).slice(0,50)})).catch(()=>({closed:true})));await page.screenshot({path:path.join(out,'failure-'+i+'.jpg'),type:'jpeg',quality:75}).catch(()=>{});}throw error;}
  finally{fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));await browser.close();server.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});
