@@ -28,5 +28,7 @@
   ],
   "sourcePoseBody": "p3_dwarf_02",
   "runtimeVerified": false,
-  "creativeApproval": false
+  "creativeApproval": false,
+  "rendererVerified": true,
+  "rendererVerificationScope": "60 poses x 4 kit choices x 3 heads; 720 exact patrol/combat pairs, mirrored facings; native Canvas, not in-game or phone verification"
 }

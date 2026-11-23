@@ -1,0 +1,451 @@
+{
+  "alphaThreshold": 32,
+  "checks": [
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "idle",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "walk",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "surrender",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "idle",
+      "uniqueFrames": 4,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "walk",
+      "uniqueFrames": 5,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "surrender",
+      "uniqueFrames": 5,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "idle",
+      "uniqueFrames": 4,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "walk",
+      "uniqueFrames": 5,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "surrender",
+      "uniqueFrames": 5,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "idle",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "walk",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "surrender",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-leather-jerkin.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "idle",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "walk",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "surrender",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-service-mail.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "idle",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "walk",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "attack",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "guard",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "hit",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "shove",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "restrain",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "surrender",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "down",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    },
+    {
+      "file": "silver-dwarf-watch-breastplate.webp",
+      "action": "truncheon",
+      "uniqueFrames": 6,
+      "allSixNonempty": true,
+      "significantAlphaClearOfCellBorders": true
+    }
+  ],
+  "footPoint": [
+    64,
+    92
+  ],
+  "sourceGeometryPreserved": true,
+  "lowAlphaBorderFringes": [
+    {
+      "file": "silver-dwarf-body.webp",
+      "action": "down",
+      "frame": 6,
+      "maxBorderAlpha": 6
+    },
+    {
+      "file": "silver-dwarf-head-dark-braided-beard.webp",
+      "action": "down",
+      "frame": 6,
+      "maxBorderAlpha": 2
+    },
+    {
+      "file": "silver-dwarf-head-forked-silver-beard.webp",
+      "action": "down",
+      "frame": 6,
+      "maxBorderAlpha": 6
+    }
+  ],
+  "interpretation": "Down frame 6 reaches the last row only at alpha 6/255 (silver) or 2/255 (dark). No significant silhouette pixels touch the cell border. This is not evidence of a visibly cropped limb."
+}
