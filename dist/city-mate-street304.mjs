@@ -1,7 +1,7 @@
 // Six unique recovered, previously uninstalled paintings. Navigation is built
 // by the existing scene after these measured solid footprints are registered.
 export async function createGapFrontages({objects,world,read,load,pixels,lightAnchors}){
- const root='assets/mate-street304',rows=await read(root+'/receivers.json'),yards=await read(root+'/yards.json'),recovery=await read(root+'/recovery-cells.json'),ids=new Set(),masters=new Set();
+ const root='assets/mate-street304',rows=await read(root+'/receivers.json?v=drum-large-1'),yards=await read(root+'/yards.json'),recovery=await read(root+'/recovery-cells.json'),ids=new Set(),masters=new Set();
  if(!Array.isArray(recovery.cells)||recovery.cells.some(r=>!/^[-]?\d+,[-]?\d+$/.test(r.k)||!Array.isArray(r.lost)||!r.lost.length||r.lost.some(id=>typeof id!=='string')))throw Error('Invalid street recovery cells');
  for(const r of [...rows,...yards]){
   if(ids.has(r.id)||objects.some(o=>o.id===r.id)||masters.has(r.sourceSHA256))throw Error('Duplicate gap building '+r.id);

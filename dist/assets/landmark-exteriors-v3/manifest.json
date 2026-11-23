@@ -32,7 +32,7 @@
     483.036
    ],
    "scale": 0.666667,
-   "renderedWidth": 358.0,
+   "renderedWidth": 358,
    "estimatedDoorHeight": null,
    "actorHeight": 60,
    "uniqueStructure": "records-hall",
@@ -71,61 +71,137 @@
   {
    "id": "LANDMARK-510:drum",
    "landmarkID": "drum",
-   "file": "drum.webp",
+   "file": "../mended-drum-large-v1/drum.webp",
    "dimensions": [
-    532,
-    525
+    1286,
+    894
    ],
    "rect": [
-    102,
+    97,
     240,
-    5,
-    6
+    8,
+    9
    ],
    "p": [
-    106,
-    245
+    104.5,
+    248.5
    ],
    "anchor": [
-    265.928,
-    480.294
+    669,
+    856.2631578947368
    ],
-   "scale": 0.666667,
-   "renderedWidth": 354.667,
-   "estimatedDoorHeight": null,
+   "scale": 0.5,
+   "renderedWidth": 643,
+   "estimatedDoorHeight": 70,
    "actorHeight": 60,
    "uniqueStructure": "joined-tavern",
    "mirrored": false,
    "stretched": false,
-   "sha256": "8c39d0a2dc477a5323862ba6de184055e8b0898958b255713f862f0bbad4c63a",
+   "sha256": "00883f39c522302027c2405b081003ca006d695208c9b384ae05e17ff532f57d",
    "windowAnchors": [
     [
-     261.96,
-     398.26,
-     261.96,
-     499.31
+     249,
+     562.5,
+     249,
+     646.2631578947368
     ],
     [
-     138.12,
-     355.99,
-     138.12,
-     437.39
+     576,
+     703.5,
+     576,
+     809.7631578947368
     ],
     [
-     66.09,
-     322.13,
-     66.09,
-     401.39
+     745,
+     727.5,
+     745,
+     818.2631578947368
     ],
     [
-     484.98,
-     311.21,
-     484.98,
-     391.79
+     846,
+     676,
+     846,
+     767.7631578947368
+    ],
+    [
+     937,
+     630,
+     937,
+     722.2631578947368
+    ],
+    [
+     238.5,
+     420,
+     238.5,
+     641.0131578947368
+    ],
+    [
+     364,
+     483,
+     364,
+     703.7631578947368
+    ],
+    [
+     598.5,
+     573.5,
+     598.5,
+     821.0131578947368
+    ],
+    [
+     768,
+     572,
+     768,
+     806.7631578947368
+    ],
+    [
+     905,
+     501,
+     905,
+     738.2631578947368
+    ],
+    [
+     1043,
+     431.5,
+     1043,
+     669.2631578947368
+    ],
+    [
+     237,
+     336.5,
+     237,
+     640.2631578947368
+    ],
+    [
+     359,
+     393,
+     359,
+     701.2631578947368
+    ],
+    [
+     798,
+     493,
+     798,
+     791.7631578947368
+    ],
+    [
+     916,
+     434,
+     916,
+     732.7631578947368
+    ],
+    [
+     1052,
+     365.5,
+     1052,
+     664.7631578947368
     ]
    ],
-   "source": "art/landmark-grid-redraws drum.webp",
-   "sourceScale": 0.2646
+   "source": "art/mended-drum-large-v1 registered 2x export",
+   "sourceScale": 1,
+   "emission": {
+    "file": "../mended-drum-large-v1/drum-emission.webp",
+    "sha256": "53f68b56206cf323f26b7f20dacc81b57d17365845c252b85132bc00beeffc5b"
+   }
   },
   {
    "id": "LANDMARK-510:market",
@@ -388,7 +464,7 @@
     477.379
    ],
    "scale": 0.666667,
-   "renderedWidth": 348.0,
+   "renderedWidth": 348,
    "estimatedDoorHeight": null,
    "actorHeight": 60,
    "uniqueStructure": "corner-bakery",
@@ -473,7 +549,7 @@
      261.42,
      314.76,
      261.42,
-     438.0
+     438
     ]
    ],
    "source": "art/final-four-landmarks-v1 shrine-day.webp",
@@ -532,14 +608,14 @@
     ],
     [
      173.99,
-     555.0,
+     555,
      173.99,
      816.14
     ],
     [
-     219.0,
+     219,
      705.03,
-     219.0,
+     219,
      838.44
     ]
    ],
@@ -601,7 +677,7 @@
      365.02,
      274.08,
      365.02,
-     375.0
+     375
     ],
     [
      411.08,
