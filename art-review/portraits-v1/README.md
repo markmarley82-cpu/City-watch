@@ -41,3 +41,15 @@ python tools/export-conversation-portraits.py
 ```
 
 Requires Pillow and NumPy. `refs/cobbles.webp` is the existing game tile from `dist/assets/city-paving-v2/cobbles-a.webp`, retained for reproducible compositing checks.
+
+## Portrait-to-map correspondence review — 23 November
+
+[Map, current dialogue and new portrait comparison](world-portrait-review.jpg) · [Explicit candidate mappings](portrait-bindings.json) · [Source audit](world-portrait-audit.json)
+
+Compared all six named characters with the shipped map sprites and dialogue art. The five regular character atlases have 270 nonempty action frames in total; Dibbler uses the actual single-figure crop from `cw-dibbler.mjs`. Review includes each map figure at game size and enlarged 2×, with the current and proposed portraits beside it.
+
+Colon, Carrot, Vimes, Mrs Palm and Dibbler retain their broad costume, hair/headwear and colour identifiers. This is a visual sampling judgement, not exact facial identity certification. Nobby's portrait intentionally has a broader nose and face after Mark rejected the first version as too similar to Dibbler. **His current world sprite still has the older, narrower face. Exact portrait/world facial parity is therefore not signed off.** The comparison makes that remaining difference explicit; no world animation was silently replaced.
+
+The six street-role portraits remain unbound. Assign each to a matching human case NPC after reviewing the actual scene; do not select a portrait from skin colour alone or use these as random fallbacks. The candidate mappings contain explicit named-character keys, no conflicting aliases and no automatic fallback to another person.
+
+Rebuild with `python tools/review-portrait-correspondence.py` (Pillow). It reads the pinned local `origin/main` Git objects and does not write `dist/`. The JSON records the exact source revision. Runtime dialogue bindings, creative acceptance and physical-phone checks are pending.

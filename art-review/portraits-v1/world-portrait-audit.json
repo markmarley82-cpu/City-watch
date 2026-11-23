@@ -1,0 +1,1417 @@
+{
+  "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+  "checks": [
+    {
+      "id": "colon",
+      "referenceSource": "dist/assets/characters-drawn-v1/mentor-colon.webp",
+      "visibleWorldHeight": 60,
+      "sampledFrames": [
+        {
+          "action": "idle",
+          "frame": 0,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 1,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 2,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 3,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 4,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 5,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 6,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 7,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 8,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 9,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 10,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 11,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 12,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 13,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 14,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 15,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 16,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 17,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 18,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 19,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 20,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 21,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 22,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 23,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 24,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 25,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 26,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 27,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 28,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 29,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 30,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 31,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 32,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 33,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 34,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 35,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 36,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 37,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 38,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 39,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 40,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 41,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 42,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 43,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 44,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 45,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 46,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 47,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 48,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 49,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 50,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 51,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 52,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 53,
+          "nonempty": true
+        }
+      ],
+      "assessment": "costume, hair/headwear and broad silhouette consistent in sampled comparison; creative review pending"
+    },
+    {
+      "id": "nobby",
+      "referenceSource": "dist/assets/characters-drawn-v1/mentor-nobby.webp",
+      "visibleWorldHeight": 44,
+      "sampledFrames": [
+        {
+          "action": "idle",
+          "frame": 0,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 1,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 2,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 3,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 4,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 5,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 6,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 7,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 8,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 9,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 10,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 11,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 12,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 13,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 14,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 15,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 16,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 17,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 18,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 19,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 20,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 21,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 22,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 23,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 24,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 25,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 26,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 27,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 28,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 29,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 30,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 31,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 32,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 33,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 34,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 35,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 36,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 37,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 38,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 39,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 40,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 41,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 42,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 43,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 44,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 45,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 46,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 47,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 48,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 49,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 50,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 51,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 52,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 53,
+          "nonempty": true
+        }
+      ],
+      "assessment": "design revision; review the narrower current map face before accepting world/portrait parity"
+    },
+    {
+      "id": "carrot",
+      "referenceSource": "dist/assets/characters-drawn-v1/mentor-carrot.webp",
+      "visibleWorldHeight": 70,
+      "sampledFrames": [
+        {
+          "action": "idle",
+          "frame": 0,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 1,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 2,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 3,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 4,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 5,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 6,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 7,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 8,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 9,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 10,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 11,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 12,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 13,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 14,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 15,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 16,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 17,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 18,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 19,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 20,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 21,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 22,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 23,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 24,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 25,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 26,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 27,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 28,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 29,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 30,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 31,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 32,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 33,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 34,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 35,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 36,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 37,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 38,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 39,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 40,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 41,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 42,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 43,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 44,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 45,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 46,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 47,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 48,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 49,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 50,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 51,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 52,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 53,
+          "nonempty": true
+        }
+      ],
+      "assessment": "costume, hair/headwear and broad silhouette consistent in sampled comparison; creative review pending"
+    },
+    {
+      "id": "vimes",
+      "referenceSource": "dist/assets/characters-drawn-v1/vimes.webp",
+      "visibleWorldHeight": 60,
+      "sampledFrames": [
+        {
+          "action": "idle",
+          "frame": 0,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 1,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 2,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 3,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 4,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 5,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 6,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 7,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 8,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 9,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 10,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 11,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 12,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 13,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 14,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 15,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 16,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 17,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 18,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 19,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 20,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 21,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 22,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 23,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 24,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 25,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 26,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 27,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 28,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 29,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 30,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 31,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 32,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 33,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 34,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 35,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 36,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 37,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 38,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 39,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 40,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 41,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 42,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 43,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 44,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 45,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 46,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 47,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 48,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 49,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 50,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 51,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 52,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 53,
+          "nonempty": true
+        }
+      ],
+      "assessment": "costume, hair/headwear and broad silhouette consistent in sampled comparison; creative review pending"
+    },
+    {
+      "id": "mrs-palm",
+      "referenceSource": "dist/assets/characters-drawn-v1/p3_named_mrs_palm_base.webp",
+      "visibleWorldHeight": 60,
+      "sampledFrames": [
+        {
+          "action": "idle",
+          "frame": 0,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 1,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 2,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 3,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 4,
+          "nonempty": true
+        },
+        {
+          "action": "idle",
+          "frame": 5,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 6,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 7,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 8,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 9,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 10,
+          "nonempty": true
+        },
+        {
+          "action": "walk",
+          "frame": 11,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 12,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 13,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 14,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 15,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 16,
+          "nonempty": true
+        },
+        {
+          "action": "attack",
+          "frame": 17,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 18,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 19,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 20,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 21,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 22,
+          "nonempty": true
+        },
+        {
+          "action": "guard",
+          "frame": 23,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 24,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 25,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 26,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 27,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 28,
+          "nonempty": true
+        },
+        {
+          "action": "hit",
+          "frame": 29,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 30,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 31,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 32,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 33,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 34,
+          "nonempty": true
+        },
+        {
+          "action": "shove",
+          "frame": 35,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 36,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 37,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 38,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 39,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 40,
+          "nonempty": true
+        },
+        {
+          "action": "restrain",
+          "frame": 41,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 42,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 43,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 44,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 45,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 46,
+          "nonempty": true
+        },
+        {
+          "action": "surrender",
+          "frame": 47,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 48,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 49,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 50,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 51,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 52,
+          "nonempty": true
+        },
+        {
+          "action": "down",
+          "frame": 53,
+          "nonempty": true
+        }
+      ],
+      "assessment": "costume, hair/headwear and broad silhouette consistent in sampled comparison; creative review pending"
+    },
+    {
+      "id": "dibbler",
+      "referenceSource": "dist/assets/dibbler-v1/approved-sheet.webp",
+      "visibleWorldHeight": 64,
+      "sampledFrames": [
+        {
+          "action": "runtime single painted figure",
+          "nonempty": true
+        }
+      ],
+      "assessment": "costume, hair/headwear and broad silhouette consistent in sampled comparison; creative review pending"
+    }
+  ],
+  "scope": "source sprite/portrait comparison, not an in-game screenshot or physical-phone test",
+  "unboundStreetRoles": [
+    "porter",
+    "baker",
+    "net-mender",
+    "stallholder",
+    "dock-clerk",
+    "carter"
+  ],
+  "runtimeVerified": false
+}

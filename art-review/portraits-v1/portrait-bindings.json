@@ -1,0 +1,111 @@
+{
+  "schema": "city-watch.portrait-bindings.proposed.v1",
+  "autoApply": false,
+  "named": [
+    {
+      "portraitID": "colon",
+      "image": "portraits/colon.webp",
+      "characterKeysOrExplicitIDs": [
+        "colon",
+        "mentor-colon",
+        "p3_named_colon_base"
+      ],
+      "sourceWorldAsset": "dist/assets/characters-drawn-v1/mentor-colon.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    },
+    {
+      "portraitID": "nobby",
+      "image": "portraits/nobby.webp",
+      "characterKeysOrExplicitIDs": [
+        "mentor-nobby"
+      ],
+      "sourceWorldAsset": "dist/assets/characters-drawn-v1/mentor-nobby.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    },
+    {
+      "portraitID": "carrot",
+      "image": "portraits/carrot.webp",
+      "characterKeysOrExplicitIDs": [
+        "carrot",
+        "mentor-carrot",
+        "p3_named_carrot_base"
+      ],
+      "sourceWorldAsset": "dist/assets/characters-drawn-v1/mentor-carrot.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    },
+    {
+      "portraitID": "vimes",
+      "image": "portraits/vimes.webp",
+      "characterKeysOrExplicitIDs": [
+        "vimes",
+        "p3_named_vimes_base"
+      ],
+      "sourceWorldAsset": "dist/assets/characters-drawn-v1/vimes.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    },
+    {
+      "portraitID": "mrs-palm",
+      "image": "portraits/mrs-palm.webp",
+      "characterKeysOrExplicitIDs": [
+        "palm",
+        "p3_named_mrs_palm_base"
+      ],
+      "sourceWorldAsset": "dist/assets/characters-drawn-v1/p3_named_mrs_palm_base.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    },
+    {
+      "portraitID": "dibbler",
+      "image": "portraits/dibbler.webp",
+      "characterKeysOrExplicitIDs": [
+        "dibbler"
+      ],
+      "sourceWorldAsset": "dist/assets/dibbler-v1/approved-sheet.webp",
+      "sourceCommit": "ac36a7ee27efebf0abcd71e422dfbc90adc0f0d2",
+      "status": "proposed explicit mapping; verify scene-specific actor key before applying"
+    }
+  ],
+  "streetRoles": [
+    {
+      "role": "porter",
+      "image": "portraits/porter.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    },
+    {
+      "role": "baker",
+      "image": "portraits/baker.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    },
+    {
+      "role": "net-mender",
+      "image": "portraits/net-mender.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    },
+    {
+      "role": "stallholder",
+      "image": "portraits/stallholder.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    },
+    {
+      "role": "dock-clerk",
+      "image": "portraits/dock-clerk.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    },
+    {
+      "role": "carter",
+      "image": "portraits/carter.webp",
+      "actorIDs": [],
+      "status": "unbound; assign only to a matching human case NPC after scene review"
+    }
+  ],
+  "fallback": "leave current portrait unchanged; never substitute a random role or another named person"
+}
