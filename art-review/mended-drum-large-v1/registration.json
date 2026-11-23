@@ -56,9 +56,26 @@
     "physicalPhone": false
   },
   "blockers": [
-    "Brown background visible in generator preview; alpha inspection in workflow",
+    "Alpha has no fully opaque pixels; inspect high-alpha coverage and composite before approval",
     "Foundation slopes need correction before any grid registration",
     "Map footprint and neighbouring streets not validated",
     "No night, cutaway or emission export"
+  ],
+  "alphaInspection": {
+    "transparentPixels": 671202,
+    "opaquePixels": 0,
+    "partialAlphaPixels": 901662,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "workflow": "https://github.com/markmarley82-cpu/City-watch/actions/runs/45250089752",
+    "note": "Outer corners are transparent. Interior alpha distribution still needs review; zero fully opaque pixels."
+  },
+  "observedAnglesDegrees": [
+    20.7005852246,
+    25.2581498278
   ]
 }

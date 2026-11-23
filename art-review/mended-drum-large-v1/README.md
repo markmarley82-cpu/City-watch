@@ -2,7 +2,7 @@
 
 Based on main `f58276ef5031ac3b0163c5a9c1bfde7836cddc14`. Requested in issue #10 and docs/NEXT-STEPS.md. No dist assets or map placements change.
 
-The new drawing expands the tavern to three storeys, a broad double entrance and a long side wing, using the approved tavern painting as its visual reference. It is a source study, **not game-ready art**. The attempted alpha cutout still shows a brown backdrop in the preview. The foundation points are manually sampled, not certified geometry. See registration.json and the automated inspection artifact for measured results.
+The new drawing expands the tavern to three storeys, a broad double entrance and a long side wing, using the approved tavern painting as its visual reference. It is a source study, **not game-ready art**. The generator preview shows a brown-looking halo, but encoded inspection confirms 671,202 fully transparent pixels and transparent outer corners. No pixels are fully opaque, so interior alpha and pale/dark compositing still require review. Sampled foundation angles are 20.7° and 25.3°, which fail the 26.6° target. The foundation points are manually sampled, not certified geometry. See registration.json and the automated inspection artifact for measured results.
 
 ## Delivery and limits
 
@@ -18,4 +18,4 @@ At a screen door height of 70 px, the sampled 190 px door implies scale 0.368 an
 
 ## Next required work
 
-Correct the alpha and both foundation edges, produce the 2× transparent WebP, then agree the enlarged map position, move the entrance and check neighbouring buildings and routes. Add night emissions and cutaway layers once the day geometry is accepted. Creative and physical-device acceptance remain open.
+Verify interior alpha and correct both foundation edges, produce the 2× transparent WebP, then agree the enlarged map position, move the entrance and check neighbouring buildings and routes. Add night emissions and cutaway layers once the day geometry is accepted. Creative and physical-device acceptance remain open.
