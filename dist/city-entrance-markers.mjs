@@ -17,7 +17,10 @@ export function visibleEntranceMarkers(index,{camera,zoom,width,height,player,ca
   if(Math.abs((point.x-camera.x)*zoom)>width/2+40||Math.abs((point.y-camera.y)*zoom)>height/2+50)continue;
   const steps=distance(player,door.position);
   if((zoom<.35&&steps>8)||entranceStatus(door,canEnter)!=='enter')continue;
-  markers.push({door,point,near:steps<3});
+  const near=steps<3,screenY=(point.y-camera.y)*zoom+height/2;
+  // Keep signs clear of the top panel and bottom buttons on small screens.
+  if(!near&&(screenY>height-118||screenY<150))continue;
+  markers.push({door,point,near});
  }
  return markers;
 }

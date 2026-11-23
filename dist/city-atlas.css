@@ -100,3 +100,6 @@ html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atl
 
 .atlas-area-picker{position:absolute;z-index:6;left:max(10px,env(safe-area-inset-left));bottom:calc(max(10px,env(safe-area-inset-bottom)) + 52px);min-height:44px;max-width:calc(100% - 74px);background:#e6cfa6;color:#513c23;border:1px solid #80613d;padding:4px 8px;font:16px Georgia,serif}
 .atlas-map-plane[data-detail='false'] .atlas-area-name{font-size:12px;letter-spacing:.04em}
+
+/* Keep the area picker clear of the Here/Case/zoom column (23 Nov 2026). */
+.atlas-patrol-map .atlas-area-picker{width:auto!important;max-width:calc(100% - 84px)!important;right:auto!important;box-sizing:border-box}

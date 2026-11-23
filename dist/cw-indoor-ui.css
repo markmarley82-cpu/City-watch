@@ -63,3 +63,6 @@ body.cw-room-compact #app.cw-clean-play #cw-p20-tools #interact::before{backgrou
 body.cw-room-compact #app.cw-clean-play #cw-p20-tools #cw-ux108b-notebook::before{background-image:url('assets/watch-kit285/notebook.webp')!important}
 body.cw-room-compact #app.cw-clean-play #cw-p20-tools #p13-menu-launch::before{display:none!important}
 body.cw-room-compact #app.cw-clean-play #cw-p20-tools :is(#interact,#cw-ux108b-notebook,#p13-menu-launch):focus-visible{outline:2px solid #f5d28f!important;outline-offset:2px}
+
+/* Keep the room hint above the floating Duty/Notebook buttons on phones (23 Nov 2026). */
+body.cw-room-compact #app.cw-clean-play .log.cw-clean-toast{bottom:96px!important;}
