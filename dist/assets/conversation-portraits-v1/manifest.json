@@ -1,0 +1,71 @@
+{
+  "sourceCommit": "845b536899e42607b3938494d3ce3f62be695cf9",
+  "portraits": {
+    "colon": {
+      "file": "colon-3ab1fd456804.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 60782,
+      "sha256": "3ab1fd4568045595aa6052397ce3bb9a5c97b40fe709401e79a736b99c2ae39e",
+      "source": "art-review/portraits-v1/portraits/colon.webp",
+      "sourceSHA256": "22bedf0cc42d7e9bf43ea0c18d5eb01cc7c054e285c5af887a9bafda47113cd9"
+    },
+    "nobby": {
+      "file": "nobby-8675dd958bf8.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 70732,
+      "sha256": "8675dd958bf84bece9e5937f43ddb130694524ea3d291ddaab16a45d80ea15bb",
+      "source": "art-review/portraits-v1/portraits/nobby.webp",
+      "sourceSHA256": "0c1d707ebaf325ac1ca68058465b9b12e1a1ddb095ab205179a375f3283ed472"
+    },
+    "carrot": {
+      "file": "carrot-1bbda2769adc.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 60368,
+      "sha256": "1bbda2769adc19956f4608f976ae90988cba0ffe188367295233ef7617ec46d4",
+      "source": "art-review/portraits-v1/portraits/carrot.webp",
+      "sourceSHA256": "e3b13a44e91c420c4f09d84ee6231e1ea75716602c56c1feb68cfac2775d514b"
+    },
+    "vimes": {
+      "file": "vimes-4cc6951ec00c.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 57800,
+      "sha256": "4cc6951ec00c7c1a4f36cd74f9a4fdbc5329e439d026f3ce03f378d0f531a031",
+      "source": "art-review/portraits-v1/portraits/vimes.webp",
+      "sourceSHA256": "58d0c7539f4e9e0267dd2279420d056b4412c4d684ff87352816ef77e2f83cf5"
+    },
+    "mrs-palm": {
+      "file": "mrs-palm-bae30ee3462a.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 61614,
+      "sha256": "bae30ee3462a04c6f88d0c4ca56f20a7bcd57635ab238e666f2c2597e791531c",
+      "source": "art-review/portraits-v1/portraits/mrs-palm.webp",
+      "sourceSHA256": "891e4a5dd988423ae625ed62a7582257d1fb10bc71c4f49a385a3e72e9ee98d5"
+    },
+    "dibbler": {
+      "file": "dibbler-a30827375758.webp",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 61682,
+      "sha256": "a30827375758c677a7e49267d8c8aa719822e2aa18470cf35f3ded8c42b47785",
+      "source": "art-review/portraits-v1/portraits/dibbler.webp",
+      "sourceSHA256": "08cc341241e510980b2b7de5e166c5199e9057149bddb33eaa9d2ad0d217f9f5"
+    }
+  }
+}

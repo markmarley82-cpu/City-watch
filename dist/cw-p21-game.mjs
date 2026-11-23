@@ -1,6 +1,6 @@
 import {FIRST_CASE_FIGHT} from './cw-patrol-enquiries.mjs?v=purse-street-leads';
 import {createPatrolConversations} from './city-conversations.mjs?v=p21-b407-s039-reuse';
-import {createDibbler} from './cw-dibbler.mjs?v=p21-b461-watch-ui';
+import {createDibbler} from './cw-dibbler.mjs?v=portraits-v1';
 import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
 import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw8';
@@ -13,7 +13,7 @@ import {createPalaceHost} from './palace/palace-host.mjs?v=b507';
 import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
-import {createPlayerContacts} from './cw-player-contacts.mjs?v=p21-b407-s039-reuse';
+import {createPlayerContacts} from './cw-player-contacts.mjs?v=portraits-v1';
 import {createUniversityWizards} from './university-wizards.mjs?v=p21-b407-s039-reuse';
 import {campaignClock} from './city-clock.mjs?v=game-time';
 import {organiserBriefing} from './city-imp-clock.mjs?v=purse-street-leads';

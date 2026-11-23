@@ -16,9 +16,15 @@
  function decorate(root){
   for(const h of root.querySelectorAll('dialog[open] :is(h2,h3)')){
    if(h.id==='p21-duty-title'||h.closest('header'))continue;
-   const p=who(h.textContent),box=h.parentElement;if(!box)continue;
+   const box=h.parentElement;if(!box)continue;
+   // A dialogue with its own profile already shows the current speaker.
+   if(h.closest('dialog')?.querySelector('.cw-dialogue-portrait')){
+    box.querySelector(':scope > img.cw-speaker-portrait')?.remove();
+    box.classList.remove('cw-has-speaker');continue;
+   }
+   const p=who(h.textContent);
    const old=box.querySelector(':scope > img.cw-speaker-portrait');
-   if(!p){if(old&&old.nextElementSibling===h)old.remove();continue;}
+   if(!p){if(old&&old.nextElementSibling===h){old.remove();box.classList.remove('cw-has-speaker');}continue;}
    if(old&&old.dataset.who===p.file)continue;old?.remove();
    const img=new Image();img.className='cw-speaker-portrait';img.alt='';img.dataset.who=p.file;img.decoding='async';img.src=BASE+p.file+'.webp'+V;
    box.classList.add('cw-has-speaker');h.before(img);
