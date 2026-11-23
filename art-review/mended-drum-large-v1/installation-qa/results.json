@@ -1,0 +1,76 @@
+{
+  "physicalPhoneVerified": false,
+  "flows": [
+    {
+      "viewport": "desktop",
+      "recruitAndOath": true,
+      "seededApproachStart": [
+        100,
+        258,
+        "E064"
+      ],
+      "atlasWalk": true,
+      "entrance": [
+        99,
+        250
+      ],
+      "room": "tavern",
+      "returnToSameDoor": true,
+      "saveReload": true,
+      "dayAndNight": true,
+      "clearEntranceCells": 10,
+      "throughStreetRoutes": [
+        {
+          "edge": "E052",
+          "length": 17
+        },
+        {
+          "edge": "E064",
+          "length": 43
+        },
+        {
+          "edge": "E051",
+          "length": 35
+        }
+      ],
+      "missingAssets": [],
+      "pageErrors": []
+    },
+    {
+      "viewport": "phone",
+      "recruitAndOath": true,
+      "seededApproachStart": [
+        100,
+        258,
+        "E064"
+      ],
+      "atlasWalk": true,
+      "entrance": [
+        99,
+        250
+      ],
+      "room": "tavern",
+      "returnToSameDoor": true,
+      "saveReload": true,
+      "dayAndNight": true,
+      "clearEntranceCells": 10,
+      "throughStreetRoutes": [
+        {
+          "edge": "E052",
+          "length": 17
+        },
+        {
+          "edge": "E064",
+          "length": 43
+        },
+        {
+          "edge": "E051",
+          "length": 35
+        }
+      ],
+      "missingAssets": [],
+      "pageErrors": []
+    }
+  ],
+  "passed": true
+}
