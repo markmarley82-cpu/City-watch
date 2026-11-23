@@ -74,7 +74,7 @@ import {bridgeFallbackCell,nearBridgeLanding} from './city-bridge-contact.mjs?v=
 import {createStartupImageBatch,PARCEL_STARTUP_PATHS} from './city-startup-images.mjs?v=p21-b407-s039-reuse';
 import {queueImageWithRetry} from './city-image-retry.mjs?v=p21-b512-startup-retry';
 import {createCityCarts} from './city-cart-runtime.mjs?v=p21-b521-street-budget';
-import {createStreetLife,createStreetLifeWarmup} from './city-street-life.mjs?v=p21-b521-street-budget';
+import {createStreetLife,createStreetLifeWarmup} from './city-street-life.mjs?v=busier-1';
 import {constrainGuildActorOrder} from './city-guild-actor-depth.mjs?v=p21-b407-s039-reuse';
 import {constrainResidentDepth} from './city-resident-depth.mjs?v=p21-b410-mobile-crowd';
 import {buildWorldServices} from './city-services/shop-world-bindings.mjs?v=p21-b407-s039-reuse';
@@ -840,7 +840,7 @@ function sceneryPaintings(bounds,margin,focus){
  return objects.map(o=>({o,visible:sceneryInside(o.bounds,bounds,0),distance:distanceTo(o)}))
   .sort((a,b)=>Number(b.visible)-Number(a.visible)||a.distance-b.distance).map(({o})=>o);
 }
-const streetLife=createStreetLife({world,homeMembers:streetLifeHomeMembers,painter:characterPainter,player:()=>player,inView:p=>{const b=currentPlayerView?.bounds;if(!b)return true;const q=project(p);const margin=50/zoom;return q.x>=b[0]-60-margin&&q.x<=b[2]+60+margin&&q.y>=b[1]-20-margin&&q.y<=b[3]+160+margin;},blocked:p=>!!window.CWCityCarts?.occupied(p),contacts:()=>[npc,...(window.CWP21Game?.actors||[]).filter(a=>!a.stoodDown).map(a=>a.p)],limit:LOW_MEMORY?5:12});
+const streetLife=createStreetLife({world,homeMembers:streetLifeHomeMembers,painter:characterPainter,player:()=>player,inView:p=>{const b=currentPlayerView?.bounds;if(!b)return true;const q=project(p);const margin=50/zoom;return q.x>=b[0]-60-margin&&q.x<=b[2]+60+margin&&q.y>=b[1]-20-margin&&q.y<=b[3]+160+margin;},blocked:p=>!!window.CWCityCarts?.occupied(p),contacts:()=>[npc,...(window.CWP21Game?.actors||[]).filter(a=>!a.stoodDown).map(a=>a.p)],limit:LOW_MEMORY?8:12});
 const streetLifeWarmup=createStreetLifeWarmup(streetLife,{onError:error=>console.warn('Street resident artwork unavailable',error)});
 window.CWStreetLife=streetLife;
 startupMark('street-life-end');

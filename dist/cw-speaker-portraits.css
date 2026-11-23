@@ -1,0 +1,5 @@
+/* Conversation portraits beside a named speaker's words. */
+.cw-has-speaker{display:flow-root}
+img.cw-speaker-portrait{float:left;width:96px;height:96px;margin:0 12px 6px 0;object-fit:contain;object-position:bottom;background:radial-gradient(circle at 50% 40%,#efe4c9,#d8c59e);border:2px solid #7a5a36;border-radius:8px;box-shadow:0 2px 6px #0004}
+@media (min-width:600px){img.cw-speaker-portrait{width:128px;height:128px}}
+.cw-has-speaker>:is(button,nav,ul,ol,div,section,form){clear:both}
