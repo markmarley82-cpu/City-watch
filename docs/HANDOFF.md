@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot54-outpost-angle`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current chain tag is `pilot55-street-interiors`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 
@@ -59,6 +59,16 @@ Read this first, then `docs/NEXT-STEPS.md`.
   (`tools/make-landmark-v3.py` run with that packet; its registration converted to the v1 format). The packet's
   pixel-locked night and roof/wall layers are not used yet: the game only takes window lights from night art.
   The silver-dwarf packet (`art/recruit-dwarf-silver`) was not taken: the existing dwarf already offers the silver beard.
+
+- **Street interiors (23 Nov)**: the 14 paintings from `art/street-interiors-v1` are fitted to the 13 street
+  buildings by `tools/fit-street-interiors.py` (furniture and hotspots in floor coordinates; run after
+  `tools/make-street-rooms.py`). The lodging house uses the common-room painting; the upstairs bedroom painting
+  is unused. The artisan cooper is open as the Barrel-maker (`new-cooper`).
+- **Room view v2 (23 Nov)**: guild and street rooms use a full-screen view like the Watch House
+  (`roomMarkupV2` in `guild-interiors/room-markup.mjs`, drawing in `interior-view.mjs`). The post office, bank and
+  palace still use the old `roomMarkup`.
+- **Busier streets (held)**: phones 8 street people by day, fewer at night. Patch kept out of `main` until Mark approves
+  (`limit:LOW_MEMORY?5:12` in `city.mjs`, `wanted` in `city-street-life.mjs`).
 
 ## Open
 

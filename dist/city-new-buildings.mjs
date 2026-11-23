@@ -3,7 +3,7 @@
    Each building is ordinary scenery: the open-ground pass leaves its footprint unwalkable. */
 const BASE='assets/new-buildings-v1/';
 // Street buildings with a room (dist/guild-interiors/rooms.json, street-*): door id new-<name>.
-export const STREET_DOORS=Object.freeze({apothecary:'Apothecary',smithy:'Smithy','curry-house':'Curry house',butcher:'Butcher\u2019s shop','cooper-workshop':'Cooper\u2019s workshop',pawnbroker:'Pawnbroker',lodging:'Lodging house','quay-lodging':'Quay lodging',cobbler:'Cobbler','ship-chandler':'Ship chandler','bonded-warehouse':'Bonded warehouse','rope-maker':'Rope-maker\u2019s shed'});
+export const STREET_DOORS=Object.freeze({apothecary:'Apothecary',smithy:'Smithy','curry-house':'Curry house',butcher:'Butcher\u2019s shop','cooper-workshop':'Cooper\u2019s workshop',pawnbroker:'Pawnbroker',lodging:'Lodging house','quay-lodging':'Quay lodging',cobbler:'Cobbler','ship-chandler':'Ship chandler','bonded-warehouse':'Bonded warehouse','rope-maker':'Rope-maker\u2019s shed',cooper:'Barrel-maker'});
 // A door on the street cell in front of the building's front-left face (where its doorway is
 // painted), nearest the middle; the cell must be walkable once the open-ground pass has run.
 export function addStreetDoors(world,manifest){

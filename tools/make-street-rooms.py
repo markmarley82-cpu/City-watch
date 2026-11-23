@@ -54,6 +54,10 @@ STREET = {
    [('The long walk', 'A long, bare floor for laying rope, with hooks at either end and coils waiting to be twisted.'),
     ('Coils of rope', 'Hemp, tarred and plain, sold by the fathom. A length has been cut off one coil very recently.')],
    'Speak with the rope-maker', 'Rope’s rope, officer, until someone uses it for something they shouldn’t. Then it’s evidence, and I want it back.'),
+ 'cooper': ('butchers', 'Barrel-maker', 'The barrel-maker',
+   [('Half-made casks', 'Staves bound in a hoop, waiting for the fire to bend them. Curls of shaving drift round your boots.'),
+    ('The shaving horse', 'A bench you sit astride to shave a stave. The drawknife is sharp enough to make you careful just looking at it.')],
+   'Speak with the barrel-maker', 'Small casks, officer: firkins, kegs, a pin for a pub. The big yard by the docks does the hogsheads. I do the ones people carry home.'),
 }
 cat = json.load(open(ROOMS))
 base = {r['id']: r for r in cat['rooms'] if not r['id'].startswith('street-')}

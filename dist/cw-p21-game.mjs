@@ -17,7 +17,7 @@ import {createPlayerContacts} from './cw-player-contacts.mjs?v=p21-b407-s039-reu
 import {createUniversityWizards} from './university-wizards.mjs?v=p21-b407-s039-reuse';
 import {campaignClock} from './city-clock.mjs?v=game-time';
 import {organiserBriefing} from './city-imp-clock.mjs?v=purse-street-leads';
-import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=street-2';
+import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=room-v2';
 import {createNewspaperStreetSellers} from './cw-newspaper-sellers.mjs?v=p21-b527-patrol-state';
 import {createRecruitment}from './cw-recruitment.mjs?v=p21-b448-first-patrol-map';
 import {createFirstPatrolBriefing}from './cw-first-patrol-briefing.mjs?v=p21-b466-colon-outside';
@@ -27,7 +27,7 @@ const artStartupTrace=message=>{if(new URLSearchParams(location.search).get('art
 const pointLookup=createCityPointLookup(city.world),nearest=pointLookup.nearest;
 // Only explicitly registered guild doors can open campaign interiors.
 let guildInteriors=null;artStartupTrace('guild setup');
-try{const registry=await(await fetch('guild-interiors/guild-bindings.json?v=street-1')).json();if(registry.schema!==1)throw Error('Unsupported guild binding registry');if(registry.bindings.length&&registry.runtimeAssetsReady!==true)throw Error('Guild room assets are not enabled for production');if(registry.bindings.length)guildInteriors=await createGuildInteriorHost({city,makeStore:()=>window.CWP21State.create(localStorage),bindings:registry.bindings});}catch(error){console.warn('Guild interiors unavailable',error);}
+try{const registry=await(await fetch('guild-interiors/guild-bindings.json?v=street-interiors-1')).json();if(registry.schema!==1)throw Error('Unsupported guild binding registry');if(registry.bindings.length&&registry.runtimeAssetsReady!==true)throw Error('Guild room assets are not enabled for production');if(registry.bindings.length)guildInteriors=await createGuildInteriorHost({city,makeStore:()=>window.CWP21State.create(localStorage),bindings:registry.bindings});}catch(error){console.warn('Guild interiors unavailable',error);}
 
 let postalHost=null;
 const postOfficeDoor=d=>d?.game_id==='post-office'&&!d.held;

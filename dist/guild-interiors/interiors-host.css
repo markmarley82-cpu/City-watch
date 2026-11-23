@@ -27,3 +27,19 @@
 #cw-guild-interior-host .cw-joystick-control{width:auto!important;flex:none}
 #cw-guild-interior-host .cw-joystick{--stick-size:64px!important;border-width:2px}
 #cw-guild-interior-host [hidden]{display:none!important}
+/* Room view v2 (23 Nov 2026): full-height painting, markers in the room, like the Watch House view. */
+#cw-guild-interior-host .room-v2{display:flex;flex-direction:column;width:100%;max-width:none;height:100dvh;padding:0}
+#cw-guild-interior-host .room-v2 .room-header{flex:none;background:#17211d;border-bottom:1px solid #8d7650;padding:calc(8px + env(safe-area-inset-top)) 12px 8px}
+#cw-guild-interior-host .room-v2 .room-header small{display:none}
+#cw-guild-interior-host .room-v2 .room-header h1{font:600 22px/1.2 Georgia,serif;margin:0;color:#f1e3c4}
+#cw-guild-interior-host .room-v2 .room-header button{flex:none;min-height:44px;padding:6px 16px;color:#f4e6c8;background:linear-gradient(#6a4c34,#4b3423);border:1px solid #a98352;border-radius:6px;font-weight:600}
+#cw-guild-interior-host .room-v2 .room-stage{flex:1;min-height:0;position:relative}
+#cw-guild-interior-host .room-v2 #room-canvas{width:100%;height:100%!important}
+#cw-guild-interior-host .room-v2 .room-plaque{position:absolute;left:12px;top:12px;margin:0;padding:6px 16px;color:#2b2118;background:linear-gradient(#f5ecd8,#e5d4b0);border:2px solid #5c4630;border-radius:4px;box-shadow:0 0 0 2px #e9dcc0,0 2px 6px #0008;font:15px Georgia,serif;letter-spacing:.06em;pointer-events:none}
+#cw-guild-interior-host .room-v2 .room-plaque:empty{display:none}
+#cw-guild-interior-host .room-v2 .room-bar{flex:none;display:flex;align-items:center;gap:10px;margin:0;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#2a2119;border-top:1px solid #917040}
+#cw-guild-interior-host .room-v2 #room-status{flex:1;min-height:0;padding:0;background:none;border:0;font-size:14px;line-height:1.35}
+#cw-guild-interior-host .room-v2 .room-actions{display:flex;gap:8px;width:auto}
+#cw-guild-interior-host .room-v2 .room-use{min-width:112px;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#cw-guild-interior-host .room-v2 .room-stick{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0;pointer-events:none}
+#cw-guild-interior-host:has(.room-v2),#cw-guild-interior-host:not([data-loading]):has(.room-v2){width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;border-radius:0;overflow:hidden;background:#000}
