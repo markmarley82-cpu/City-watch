@@ -29,7 +29,7 @@ const screenshot=async(page,name)=>{await page.screenshot({path:out+'/'+name+'.j
    assert.equal(inspection.tavern.length,1);assert.deepEqual(inspection.tavern[0].rect,[97,240,8,9]);assert.equal(inspection.tavern[0].displayWidth,643);assert(inspection.tavern[0].emission);
    assert(inspection.entranceCells.every(c=>c.clear),'Blocked entrance cells: '+JSON.stringify(inspection.entranceCells));
    for(const j of inspection.junctions){assert(j.path?.length,'Missing through route '+j.edge);assert(j.path.every(p=>p.clear),'Through route crosses scenery '+j.edge);}
-   await page.locator('#atlas-open').click();await page.locator('#city-destination').selectOption('drum');await page.locator('#city-visit').click();
+   await page.locator('#atlas-open').click();await page.locator('#atlas-dialog .atlas-index-toggle').click();await page.locator('#city-destination').selectOption('drum');await page.locator('#city-visit').click();
    await page.waitForFunction(()=>{const p=window.CWP21City.position();return p[0]===99&&p[1]===250&&!window.CWP21City.isNavigating();},null,{timeout:120000});
    assert.equal(await page.evaluate(()=>window.CWP21City.nearDoor()?.game_id),'drum');
    await screenshot(page,'drum-'+name+'-day');
