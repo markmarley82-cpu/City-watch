@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot55-street-interiors`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current chain tag is `pilot56-portraits-busier`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 
@@ -67,8 +67,13 @@ Read this first, then `docs/NEXT-STEPS.md`.
 - **Room view v2 (23 Nov)**: guild and street rooms use a full-screen view like the Watch House
   (`roomMarkupV2` in `guild-interiors/room-markup.mjs`, drawing in `interior-view.mjs`). The post office, bank and
   palace still use the old `roomMarkup`.
-- **Busier streets (held)**: phones 8 street people by day, fewer at night. Patch kept out of `main` until Mark approves
-  (`limit:LOW_MEMORY?5:12` in `city.mjs`, `wanted` in `city-street-life.mjs`).
+- **Busier streets (23 Nov, live)**: phones get 8 street people by day (was 5), and night halves the count
+  (`limit` in `city.mjs`, `wanted` in `city-street-life.mjs`).
+- **Conversation portraits (23 Nov, live)**: `cw-speaker-portraits.js` puts the art/portraits-v1 portrait beside any
+  parchment dialogue whose heading names Colon, Nobby, Carrot, Vimes, Mrs Palm or Dibbler
+  (`dist/assets/portraits-v1/`). The drawn-character portraits for the first five were also replaced (used by the
+  guild contact view and the ending). The six street-worker portraits are not bound yet. The campaign engine's own
+  dialogues still use its older faces.
 
 ## Open
 

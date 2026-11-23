@@ -1,37 +1,28 @@
-# Named conversation portraits — draft integration
+# Named portraits — integration review
 
-This branch puts six reviewed named portraits into the existing People & Contacts conversation profile and Dibbler’s shop introduction. Colon, Nobby, Carrot, Vimes, Mrs Palm and Dibbler have explicit identity mappings; the three supported Watch partners use their mentor keys. Generic NPC keys, unnamed workers and other partners retain the existing art.
+This branch follows main at 6e03d6f, which has already installed the six named portraits and a heading decorator. The direct contact/shop profiles use 256 px transparent versions (372,978 bytes total), explicit character identity mappings, lazy loading and legacy-image fallbacks.
 
-## Behaviour
+## Compatibility with current main
 
-Images load when the conversation/shop opens. Six lossless RGBA WebPs at 256 × 256 total 372,978 bytes; filenames contain their content hashes. The source commit and checksums are recorded in `dist/assets/conversation-portraits-v1/manifest.json`. An image failure restores the previous portrait. Late failures cannot replace a different person’s current portrait. Shop purchases and input/modal behaviour retain their existing handlers.
+The heading decorator now leaves dialogues with their own profile alone, preventing a second portrait beside the same character's words. Legacy parchment headings still receive one portrait and remove it when the speaker changes. Main's existing portrait assets, larger phone crowd and night crowd behaviour are retained. The import-cache chain is advanced without restoring older city or entry files.
 
-The import-cache chain through the game, city loader, phone loader and entry page is bumped. Only the named dialogue and shop profile surfaces are changed; campaign-engine screens, combat sprites and map faces are not replaced. In particular, Nobby’s existing narrow map face remains different from the newly revised broad portrait.
+The six street-worker portraits remain unbound. Nobby's world sprite still has the older face. This change covers conversation/shop presentation, not a world/combat sprite redraw.
 
-The latest main already includes fitted street interiors (95c34a7); this branch does not redo that integration.
+## Checks
 
-## Validation actually performed
+The previous revision passed the explicit-identity, stale-error and DOM component tests. Current-main decorator compatibility and Chromium tests are in the portrait-review workflow; its result and evidence artifact are the authority for this revision.
 
-- `node tests/cw-conversation-portraits.mjs`: explicit identity selection, exclusion of unrelated actors and prototype keys, production asset presence and stale-error protection.
-- `tests/cw-conversation-portraits-dom.mjs` with Happy DOM 21.0.4: all six named dialogue paths through the actual contacts module, partner modal and input restoration, legacy fallbacks, lazy shop loading, Dibbler purchase/save callback and close. This is DOM component execution, not visual browser proof.
-- Existing bridge-pilot and city-case-data tests pass (18 cases, 23 places).
-- Module syntax, diff whitespace, 256 px asset dimensions and transparency checks pass.
+The Chromium job checks six named dialogue paths at phone, landscape and desktop sizes, image loading, duplicate faces, horizontal fit, return to patrol, a Dibbler purchase and failed-image fallback. It also attempts the real fresh-recruit flow through the oath, first briefing and Nobby conversation. These are automated Chromium checks, not a physical iPhone/Safari sign-off. Screenshots and results.json are retained in the portrait-browser-review artifact.
 
-**Browser and physical-phone verification are not complete.** The local Chromium process could not start in this execution environment, and the separate cloud browser could not access the local server. No screenshots, opening-case playthrough, mobile-layout pass or live deployment are claimed. Review in a real browser before merging or publishing.
+No live deployment is performed by the review workflow.
 
 ## Reproduce
 
 ```sh
-python tools/export-dialogue-portrait-assets.py
 node tests/cw-conversation-portraits.mjs
-npm install --prefix /tmp/cw-portrait-qa --no-audit --no-fund happy-dom@21.0.4
+npm install --prefix /tmp/cw-portrait-qa playwright@1.63.0 happy-dom@21.0.4
 CW_QA_DOM_MODULE=/tmp/cw-portrait-qa/node_modules/happy-dom/lib/index.js node tests/cw-conversation-portraits-dom.mjs
-node tests/cw-nc01-bridge-pilot.mjs
-node tests/cw-city-cases-data.mjs
+NODE_PATH=/tmp/cw-portrait-qa/node_modules node tools/test-portrait-browser.cjs
 ```
 
-The exporter reads the source commit recorded in the manifest. Fetch `art/portraits-v1` if that Git object is not available locally. Pillow is needed for export; Happy DOM is a test-only dependency installed outside the repository.
-
-## Browser review still needed
-
-Open a named conversation, confirm the portrait and text fit on a phone, switch between contacts, close and return to patrol. Open Dibbler’s shop, inspect the portrait in portrait and landscape layouts, buy an item, and return to patrol. Test a blocked portrait request to confirm the old image appears. Do not mark this browser-verified from the automated checks above.
+Install the Playwright Chromium browser before the last command. The asset exporter reads its source commit from dist/assets/conversation-portraits-v1/manifest.json. The workflow does not use repository secrets or publish GitHub Pages.

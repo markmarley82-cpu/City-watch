@@ -40,7 +40,7 @@ export function createStreetLife({world,painter,player,random=Math.random,contac
  function tick(now,{paused=false,night=false}={}){
   if(paused){lastTick=null;return;}
   const elapsed=lastTick===null?0:Math.min(100,Math.max(0,now-lastTick));lastTick=now;plansThisFrame=0;
-  const point=player(),wanted=night?Math.min(6,limit):limit;
+  const point=player(),wanted=night?Math.min(6,Math.ceil(limit/2)):limit;
   // Keep residents already visible, even when their journey leaves the old home radius.
   const keep=active.filter(a=>visible(a.p)||dist(a.p,point)<22);
   // Once the initial population is seeded, new residents must enter from outside

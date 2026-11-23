@@ -48,4 +48,16 @@ assert(shop.querySelector('[data-seller-portrait] canvas'),'Failed new art must 
 shop.querySelector('[data-close]').click();assert(!shop.open);
 assert(stops>=checked);assert(updates>=checked);
 console.log('PASS six named dialogue paths, partner modal/input restore, legacy fallbacks, lazy shop portrait, purchase and close');
+const {readFile}=await import('node:fs/promises');
+window.eval(await readFile(new URL('../dist/cw-speaker-portraits.js',import.meta.url),'utf8'));
+contacts.exchange({id:'colon',name:'Colon',key:'legacy'},entry);
+window.CWSpeakerPortraits.decorate(document);
+assert.equal(document.querySelectorAll('#cw-player-contacts .cw-speaker-portrait').length,0,'Own profile must suppress heading portrait');
+contacts.dismiss();
+const legacy=document.createElement('dialog');legacy.innerHTML='<div><h2>Sergeant Colon</h2><p>Good evening.</p></div>';document.body.append(legacy);legacy.showModal();
+window.CWSpeakerPortraits.decorate(document);window.CWSpeakerPortraits.decorate(document);
+assert.equal(legacy.querySelectorAll('.cw-speaker-portrait').length,1,'Legacy heading gets exactly one face');
+legacy.querySelector('h2').textContent='An unrelated witness';window.CWSpeakerPortraits.decorate(document);
+assert.equal(legacy.querySelectorAll('.cw-speaker-portrait').length,0,'Changed speaker must not keep old face');legacy.close();
+console.log('PASS current-main heading decorator: no duplicate profiles, legacy fallback and speaker changes');
 await window.happyDOM.abort();
