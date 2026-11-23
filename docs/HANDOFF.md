@@ -83,7 +83,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
 ## Open
 
 - **Art work order** (issue #10): parts 1, 2 and 4 are in the game; part 3 (silver dwarf) was declined because
-  the live dwarf already offers the silver beard. **Still owed: a bigger Mended Drum** (brief in `docs/NEXT-STEPS.md`).
+  the live dwarf already offers the silver beard. **Larger Mended Drum installed (23 Nov, PR #14)**: 8 × 9 footprint, 70 px doorway, fitted neighbours and measured entrance path; desktop and phone-sized Chromium entrance/interior/reload checks passed. See `art-review/mended-drum-large-v1/README.md`. Physical iPhone/Safari acceptance remains open.
   Unused but kept: the lodging bedroom painting, the six grid landmarks have no walls/emission layers.
 - **Phone lag and getting stuck**: Mark reported both on his iPhone 11. Simulated-phone tests (4x slowed CPU) showed
   walking speed holds and no snags; frame time is mostly the building see-through compositing

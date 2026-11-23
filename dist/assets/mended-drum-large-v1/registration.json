@@ -69,7 +69,7 @@
  },
  "sourceRevision": "f58276ef5031ac3b0163c5a9c1bfde7836cddc14",
  "creativeApproval": false,
- "runtimeIntegrated": false,
+ "runtimeIntegrated": true,
  "physicalPhoneVerified": false,
  "sha256": "00883f39c522302027c2405b081003ca006d695208c9b384ae05e17ff532f57d",
  "rect": [
@@ -99,5 +99,5 @@
   "SHADES-006:plaster-yard-return",
   "MATE-GAP-D2-1"
  ],
- "emissionPixels": 9336
+ "emissionPixels": 4558
 }

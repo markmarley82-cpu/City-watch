@@ -12,7 +12,7 @@ const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('h
  let emissionPixels=0;
  for(const q of quads){const xs=q.map(p=>p[0]),ys=q.map(p=>p[1]);for(let y=Math.min(...ys);y<=Math.max(...ys);y++)for(let x=Math.min(...xs);x<=Math.max(...xs);x++){
   if(!inside(x+.5,y+.5,q))continue;const i=(y*info.width+x)*4,[r,g,b,a]=data.subarray(i,i+4);
-  if(a>220&&r>170&&g>85&&g<230&&b<140&&r>g*1.12){em[i]=255;em[i+1]=207;em[i+2]=120;em[i+3]=Math.min(a,210);emissionPixels++;}
+  if(a>220&&r>210&&g>90&&g<195&&b<90&&r-g>70&&g-b>50){em[i]=255;em[i+1]=207;em[i+2]=120;em[i+3]=Math.min(a,190);emissionPixels++;}
  }}
  await sharp(em,{raw:{width:info.width,height:info.height,channels:4}}).webp({lossless:true}).toFile(base+'drum-emission.webp');
  const manifestPath='dist/assets/landmark-exteriors-v3/manifest.json',manifest=read(manifestPath),row=manifest.instances.find(r=>r.landmarkID==='drum');
@@ -33,6 +33,6 @@ const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('h
  const newBuildingsPath='dist/assets/new-buildings-v1/manifest.json',newBuildings=read(newBuildingsPath),warehouse=newBuildings.buildings.find(b=>b.name==='bonded-warehouse');
  if(!warehouse.drumRefit){warehouse.rect[1]+=1;warehouse.p[1]+=1;warehouse.drumRefit={dy:1,reason:'Clear the enlarged tavern foundation and its front steps'};}
  write(newBuildingsPath,newBuildings);
- write(base+'registration.json',{...registration,rect:row.rect,p:row.p,entrance:[99,250],streetCentrelineChanged:false,adjoiningHouseShift:[0,.3],warehouseShift:[0,1],replacedUnnamedInfill:['SHADES-006:plaster-yard-return','MATE-GAP-D2-1'],emissionPixels});
+ write(base+'registration.json',{...registration,runtimeIntegrated:true,rect:row.rect,p:row.p,entrance:[99,250],streetCentrelineChanged:false,adjoiningHouseShift:[0,.3],warehouseShift:[0,1],replacedUnnamedInfill:['SHADES-006:plaster-yard-return','MATE-GAP-D2-1'],emissionPixels});
  console.log(JSON.stringify({rect:row.rect,door:drum.engine_approach_xy,emissionPixels,sourceSize:registration.dimensions}));
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -50,7 +50,7 @@ These make what already exists reliable:
 
 ## 4. Finishing Version 1.0
 
-- **Status 23 Nov:** content is complete for 1.0 apart from the bigger Mended Drum (art team). What remains is
+- **Status 23 Nov:** content and the larger Mended Drum installation are complete for 1.0. What remains is
   Mark's play-through on his iPhone, fixing whatever that turns up, and the Bridge playtest.
 
 - **Done: promotion.** Claiming the commendation makes you at least Constable,
@@ -118,24 +118,15 @@ These make what already exists reliable:
   in `docs/art/RECRUIT-STUDIES-IN-GAME.md`.
 - Done: the two bugs from the 17 November playtest. "Walk to current assignment" now
   heads for Carrot when Carrot has the assignment, and Carrot's case has a walk button.
-- To do (art team): **redo the Mended Drum exterior.** Mark rejected the current art on
-  19 November 2026 ("the artwork for the Mended Drum is bad"). The file is
-  `dist/assets/landmark-exteriors-v1/drum.webp` (462 × 316, drawn at 2/3 size, map rect
-  `[102,240,5,6]`, door point `[106,245]`). It is the stop for the carter lead in Carrot's
-  case, so players look at it closely. **The problem: it's too small.** It reads as a
-  cottage next to the neighbouring buildings and the 60 px characters, not as the city's
-  best-known tavern. Brief: a larger building with a bigger footprint on the map (the
-  current one covers 5 × 6 cells and is drawn 308 px wide), delivered at full size so it
-  isn't scaled down in the game. Moving to a bigger footprint also means moving the
-  door point and checking the neighbouring buildings and street.
-  **Also off angle.** The map's ground lines slope 1:2 (26.6°) on both sides. Measured
-  along the foot of the drum art, its left side slopes about 0.38 (21°) and its right
-  side only about 0.23 (13°). Its front corner is also well left of centre (x 120 of 462),
-  so it faces the viewer more than the street. Brief: true 2:1 isometric, matching the
-  street grid, with the front corner where the footprint's corner falls. The replacement must
-  pass the tavern row of `docs/art/ART-QUALITY-GATE.md`.
-  The same check on all ten landmark buildings found five more off angle (Market Hall,
-  Archives, Lantern row, Crypt, Storehouse): see `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
+- **Done: larger Mended Drum exterior and placement (23 Nov).** The registered tavern
+  uses an 8 × 9 engine-cell footprint, a 70 px doorway and a measured ten-cell approach.
+  The adjoining warehouse and house are shifted clear; two unnamed infill pieces are
+  replaced by the larger tavern. The case marker and interior entrance follow the new door.
+  Desktop and phone-sized Chromium checks cover the nearby Atlas walk, entrance, interior,
+  return, save/reload and lighting. See `art-review/mended-drum-large-v1/README.md` and
+  its `installation-qa/` evidence. Physical iPhone/Safari acceptance remains Mark's check.
+- The historical angle audit of the other landmarks remains in
+  `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
 
 ## Housekeeping (Mark)
 

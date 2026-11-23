@@ -32,9 +32,12 @@ const screenshot=async(page,name)=>{await page.screenshot({path:out+'/'+name+'.j
    await page.locator('#atlas-open').click();await page.locator('#atlas-dialog .atlas-index-toggle').click();await page.locator('#city-destination').selectOption('drum');await page.locator('#city-visit').click();
    await page.waitForFunction(()=>{const p=window.CWP21City.position();return p[0]===99&&p[1]===250&&!window.CWP21City.isNavigating();},null,{timeout:120000});
    assert.equal(await page.evaluate(()=>window.CWP21City.nearDoor()?.game_id),'drum');
+   assert.equal(await page.locator('#p21-encounter').isDisabled(),false);
+   assert.match(await page.locator('#p21-encounter').textContent(),/Mended Drum brawl/);
    await screenshot(page,'drum-'+name+'-day');
    await page.locator('#city-use').click();await page.locator('#p21-engine-dialog[open]').waitFor({timeout:30000});
    await page.waitForFunction(()=>document.querySelector('#p21-engine-frame')?.contentWindow?.CWP21Engine?.snapshot().state.place==='tavern',null,{timeout:60000});
+   await page.waitForFunction(()=>!document.querySelector('#p21-engine-dialog').hasAttribute('data-loading'));
    await screenshot(page,'drum-'+name+'-inside');await page.locator('#p21-engine-close').click();
    await page.waitForFunction(()=>!document.querySelector('#p21-engine-dialog')?.open);
    assert.deepEqual((await page.evaluate(()=>window.CWP21City.position())).slice(0,2),[99,250]);
@@ -45,7 +48,7 @@ const screenshot=async(page,name)=>{await page.screenshot({path:out+'/'+name+'.j
    assert.deepEqual((await page.evaluate(()=>window.CWP21City.position())).slice(0,2),[99,250]);
    assert.equal(await page.evaluate(()=>window.CWP21City.nearDoor()?.game_id),'drum');
    assert.equal(errors.length,0,errors.join('\n'));assert.equal(missing.length,0,JSON.stringify(missing));
-   results.flows.push({viewport:name,recruitAndOath:true,seededApproachStart:[100,258,'E064'],atlasWalk:true,entrance:[99,250],room:'tavern',returnToSameDoor:true,saveReload:true,dayAndNight:true,clearEntranceCells:inspection.entranceCells.length,throughStreetRoutes:inspection.junctions.map(j=>({edge:j.edge,length:j.path.length})),missingAssets:missing,pageErrors:errors});
+   results.flows.push({viewport:name,recruitAndOath:true,seededApproachStart:[100,258,'E064'],atlasWalk:true,entrance:[99,250],room:'tavern',brawlAvailable:true,returnToSameDoor:true,saveReload:true,dayAndNight:true,clearEntranceCells:inspection.entranceCells.length,throughStreetRoutes:inspection.junctions.map(j=>({edge:j.edge,length:j.path.length})),missingAssets:missing,pageErrors:errors});
    await context.close();
   }
   results.passed=true;
