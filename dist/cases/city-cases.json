@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-05, CW-NC-08, CW-NC-12), plus the old engine's 14 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported to the current city. CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
+ "note": "Authored City Watch street cases from the docs/cases briefs (CW-NC-05, CW-NC-08, CW-NC-12, CW-NC-43), plus the old engine's 14 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported to the current city. CW-NC-01 The Bridge That Was Closed is the team's pilot in cases/bridge-closure.mjs, offered from Duty. Original stories; unnamed witnesses are invented residents, not canon.",
  "places": {
   "colon": {
    "name": "Sergeant Colon, Watch Square",
@@ -184,6 +184,22 @@
     94,
     293,
     "APRON:guild-bakers"
+   ]
+  },
+  "post": {
+   "name": "the Post Office steps",
+   "at": [
+    136,
+    222,
+    "E010"
+   ]
+  },
+  "bonded": {
+   "name": "the Bonded warehouse door",
+   "at": [
+    105,
+    255,
+    "E064"
    ]
   }
  },
@@ -609,6 +625,155 @@
       "summary": "Sacks switched on the cart after delivery; witnessed count and witness statement filed; bakers cleared.",
       "reply": "“A witnessed count, the bakers’ tally and somebody who saw the swap,” says Colon, impressed despite himself. “That’s a report. Bakers cleared, and next week the cart doesn’t stand about unwatched behind the warehouse. I’ll put someone on it. Not me. I’m allergic to fish.”",
       "reject": "“For that I need two things,” says Colon. “A count somebody official watched you make, and a witness who saw where the bread went. Bread gets eaten. Stories get bigger. Paper stays the same size.”"
+     }
+    ]
+   }
+  },
+  {
+   "id": "CW-NC-43",
+   "title": "The Sack With Two Tags",
+   "where": "the quay, the Post Office, the Bonded warehouse and Netmender’s Shack",
+   "giverLine": "Captain Carrot: “There’s a mail sack sitting on the quay that nobody will touch. It has two tags on it, and they say two different places. The dock clerk won’t pass it on until someone works out which one is right. It’s probably only a muddle. But a muddle with a sack in it can turn into a theft very quickly, so I’d like it settled properly.”",
+   "brief": "Find out which tag on the sack is the real one, and how the second tag got there. Don’t open the sack, and don’t blame anyone you can’t tie to the swap.",
+   "clues": {
+    "tags": "The sack on the quay has two tags. A new routing tag says “Bonded warehouse, the Shades”. An old, curled return label says “Return to the Post Office”.",
+    "dispatch": "At the Post Office, the clerk shows that the dispatch stamp is pressed half over the routing tag. The return label is stuck on top of the stamp, so it went on after the sack left the Post Office.",
+    "expected": "The Bonded warehouse clerk has the sack in his bond book, due today, under the same number as the routing tag.",
+    "held": "The sack is held unopened at the quay office, with the dock clerk as witness, until the record is checked.",
+    "switch": "The net-mender saw the carter’s mate in the red cap paste an old label onto the sack on the quay steps, while the carter was round the back with the horse."
+   },
+   "scenes": [
+    {
+     "id": "look-tags",
+     "place": "quay",
+     "label": "Look at the mail sack",
+     "title": "A sack nobody will touch",
+     "speaker": "The dock clerk",
+     "text": "“Two tags, officer, and they don’t agree.” The sack is sealed and heavy. A crisp routing tag says Bonded warehouse, the Shades. Under it, tied on with different string, an old curled label says Return to the Post Office. “I pass it on to the wrong one, and it’s my name in the book.”",
+     "gives": [
+      "tags"
+     ]
+    },
+    {
+     "id": "ask-post",
+     "place": "post",
+     "label": "Ask at the Post Office about the sack",
+     "requires": [
+      "tags"
+     ],
+     "title": "The dispatch stamp",
+     "speaker": "A Post Office clerk",
+     "text": "The clerk finds the entry at once. “Sent out this morning, to the Bonded warehouse. Look at the stamp: it’s pressed half over the routing tag, the way we always do.” She taps the return label. “That one’s an old label from some other journey, and it’s stuck right on top of our stamp. Whoever put it on, it wasn’t us. It went on after the sack left here.”",
+     "gives": [
+      "dispatch"
+     ]
+    },
+    {
+     "id": "ask-bonded",
+     "place": "bonded",
+     "label": "Ask the Bonded warehouse whether they expect a sack",
+     "requires": [
+      "tags"
+     ],
+     "title": "The bond book",
+     "speaker": "The warehouse clerk",
+     "text": "The clerk runs a finger down his bond book. “Here. One sack from the Post Office, due today, same number as that tag. It hasn’t come.” He frowns. “Duty’s already paid on it, so there’s no reason for anyone to send it back.”",
+     "gives": [
+      "expected"
+     ]
+    },
+    {
+     "id": "decide-sack",
+     "place": "quay",
+     "label": "Decide what to do with the sack",
+     "requires": [
+      "tags"
+     ],
+     "title": "The waiting sack",
+     "speaker": "The dock clerk",
+     "text": "“So what do I do with it? I can’t stand here guarding a sack all day.”",
+     "choice": {
+      "prompt": "You can send the sack back to the Post Office unopened, or keep it here under a witness while the record is checked.",
+      "options": [
+       {
+        "id": "return",
+        "label": "Send it back to the Post Office unopened",
+        "text": "A runner takes the sack back up to the Post Office. It’s safe there, and the quay is clear. But the sack is no longer where the swap happened.",
+        "gives": []
+       },
+       {
+        "id": "hold",
+        "label": "Keep it at the quay office under a witness",
+        "text": "The dock clerk locks the sack in the quay office and writes the time in his book, with your name beside it. Nobody opens it.",
+        "gives": [
+         "held"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "ask-netmender",
+     "place": "netshack",
+     "label": "Ask the net-mender whether she saw the sack",
+     "requires": [
+      "tags"
+     ],
+     "title": "On the quay steps",
+     "speaker": "The net-mender",
+     "text": "“That sack? Came down on the mail cart. The carter went round the back with the horse, and his mate, the one in the red cap, took a little pot of paste out of his coat and stuck an old label on it, quick as you like. Thought he was fixing it. He looked very pleased with himself.”",
+     "gives": [
+      "switch"
+     ]
+    }
+   ],
+   "file": {
+    "place": "carrot",
+    "label": "Report to Captain Carrot",
+    "officer": "Captain Carrot",
+    "title": "Reporting the sack",
+    "prompt": "“So which tag was right, and how did the other one get there?”",
+    "reject": "Carrot reads your notes carefully. “I don’t think that follows from what you found. Have another look?”",
+    "findings": [
+     {
+      "id": "post-error",
+      "label": "The Post Office put the wrong tag on the sack",
+      "requires": [
+       "never"
+      ],
+      "reject": "“The Post Office stamp is pressed over the routing tag,” says Carrot gently, “and the other label is stuck on top of the stamp. That label went on after the sack left them. It wouldn’t be fair to blame the Post Office.”"
+     },
+     {
+      "id": "muddle",
+      "label": "The sack was for the Bonded warehouse; the old label was added after dispatch",
+      "requires": [
+       "tags",
+       "dispatch",
+       "expected"
+      ],
+      "outcome": "partial",
+      "merit": 6,
+      "coins": 0,
+      "summary": "Routing tag confirmed; the return label went on after dispatch; nobody named.",
+      "reply": "“The stamp, the bond book and the tag all agree,” says Carrot. “So the sack goes to the Bonded warehouse, and the old label was added somewhere between here and there. I’ll file it as a routing error. Nobody’s blamed, because we can’t say who did it. That’s fair.”",
+      "reject": "“You’ll want the Post Office’s side and the warehouse’s side,” says Carrot. “Then we know where it was meant to go, and when the other label went on.”"
+     },
+     {
+      "id": "switched",
+      "label": "The carter’s mate pasted the old label on at the quay; the sack is held unopened",
+      "requires": [
+       "tags",
+       "dispatch",
+       "expected",
+       "held",
+       "switch"
+      ],
+      "outcome": "full",
+      "merit": 10,
+      "coins": 2,
+      "summary": "Old label pasted on at the quay by the carter’s mate; sack held unopened under witness; Post Office cleared.",
+      "reply": "“A witness, the stamp, the bond book, and the sack still sealed in the quay office,” says Carrot, beaming. “That’s exactly how it should be done. I’ll have a quiet word with the carter’s mate. It may be he thought he was helping. If he wasn’t, we’ll know soon enough, and the sack goes where it belongs either way.”",
+      "reject": "“For that I need the sack kept safe where it was found, with a witness, and someone who saw the label go on,” says Carrot. “Otherwise it’s just a good guess, and good guesses aren’t evidence.”"
      }
     ]
    }

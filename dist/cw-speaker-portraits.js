@@ -3,7 +3,7 @@
    portrait beside the words. Only headings are matched, so a name inside a sentence never triggers it. */
 (function(){
  'use strict';
- const BASE='assets/portraits-v1/',V='?v=1';
+ const BASE='assets/portraits-v1/',V='?v=2';
  const PEOPLE=[
   [/^(sergeant\s+)?(fred\s+)?colon\b/i,'colon','Sergeant Colon'],
   [/^(corporal\s+)?nobby(\s+nobbs)?\b|^corporal\s+nobbs\b/i,'nobby','Corporal Nobbs'],
@@ -12,11 +12,16 @@
   [/^mrs\.?\s+(rosemary\s+)?palm\b/i,'mrs-palm','Mrs Palm'],
   [/^(cut-me-own-throat\s+)?(c\.?\s*m\.?\s*o\.?\s*t\.?\s+)?dibbler\b/i,'dibbler','Dibbler']
  ];
- function who(text){const t=String(text||'').trim();for(const [re,file,name] of PEOPLE)if(re.test(t))return {file,name};return null;}
+ // Street people in city cases, matched on the case's speaker line only (checked case by case, 23 Nov).
+ const STREET=[
+  [/^(a|the)\s+porter$/i,'porter'],[/^(a|the)\s+(flour-dusted\s+)?baker$/i,'baker'],[/^(a|the)\s+net-mender$/i,'net-mender'],
+  [/^(a|the)\s+(anxious\s+)?stallholder$/i,'stallholder'],[/^(a|the)\s+dock\s+clerk$/i,'dock-clerk'],[/^(a|the)\s+carter$/i,'carter']
+ ];
+ function who(text,street=false){const t=String(text||'').trim();for(const [re,file,name] of PEOPLE)if(re.test(t))return {file,name};if(street)for(const [re,file] of STREET)if(re.test(t))return {file,name:t};return null;}
  function decorate(root){
-  for(const h of root.querySelectorAll('dialog[open] :is(h2,h3)')){
+  for(const h of root.querySelectorAll('dialog[open] :is(h2,h3,p.cw-case-speaker)')){
    if(h.id==='p21-duty-title'||h.closest('header'))continue;
-   const p=who(h.textContent),box=h.parentElement;if(!box)continue;
+   const p=who(h.textContent,h.matches('p.cw-case-speaker')),box=h.parentElement;if(!box)continue;
    const old=box.querySelector(':scope > img.cw-speaker-portrait');
    if(!p){if(old&&old.nextElementSibling===h)old.remove();continue;}
    if(old&&old.dataset.who===p.file)continue;old?.remove();

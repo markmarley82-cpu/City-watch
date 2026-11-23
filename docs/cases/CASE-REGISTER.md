@@ -73,7 +73,7 @@ Every mission and case known to the project, from the game files and the design 
 | CW-NC-40 | A Debt to Nobody | enquiry | Design only |
 | CW-NC-41 | Keep the Lantern Lit | extension | Design only |
 | CW-NC-42 | Tickets for Tomorrow | enquiry | Design only |
-| CW-NC-43 | The Sack With Two Tags | enquiry | Design only |
+| CW-NC-43 | The Sack With Two Tags | enquiry | **Live, tested** (City cases; quay, Post Office steps, Bonded warehouse, Netmender’s Shack, Carrot. Partial: routing tag confirmed, nobody named. Full: sack held under witness + net-mender saw the carter’s mate paste the label. Blaming the Post Office is refused.) |
 | CW-NC-44 | Tally at Low Water | enquiry | Design only |
 | CW-NC-45 | The House With No Complaints | enquiry | Design only |
 | CW-NC-46 | A Coat for the Captain | extension | Design only |

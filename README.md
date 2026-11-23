@@ -57,7 +57,7 @@ They are played by `dist/cw-cases.js` from the data in
 
 Progress is saved in the campaign record (`state.flags.cityCasesV1`), each case
 pays once, and reloading resumes the same branch. The briefs these come from are
-in `docs/cases/`. Built so far: CW-NC-08 and CW-NC-12, plus the old engine's 14
+in `docs/cases/`. Built so far: CW-NC-05, CW-NC-08, CW-NC-12 and CW-NC-43, plus the old engine's 14
 street cases (CW-SC-01 to 14) and its Thirteenth Chime mystery (CW-MY-01), ported
 to the current city. (CW-NC-01, the Bridge case, is the team's pilot in
 `dist/cases/bridge-closure.mjs`.) The case player also supports replayable
