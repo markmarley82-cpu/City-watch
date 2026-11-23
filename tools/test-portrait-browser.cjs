@@ -90,7 +90,7 @@ const server=http.createServer((req,res)=>{
   await game.screenshot({path:path.join(out,'real-first-briefing.jpg'),type:'jpeg',quality:75});
   await game.getByRole('button',{name:'Start patrol',exact:true}).click();
   await game.locator('#p21-duty').click({timeout:30000});
-  await game.getByRole('button',{name:'Talk to patrol partner',exact:true}).click();
+  await game.locator('#p21-duty-actions button').filter({hasText:/^Talk to patrol partner$/}).click();
   await game.locator('#cw-player-contacts[open]').waitFor({timeout:30000});
   await game.waitForFunction(()=>document.querySelector('#cw-player-contacts img[data-portrait-id="nobby"]')?.naturalWidth===256);
   assert.equal(await game.locator('#cw-player-contacts .cw-speaker-portrait').count(),0);
