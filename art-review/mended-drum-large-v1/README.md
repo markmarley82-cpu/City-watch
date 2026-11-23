@@ -1,21 +1,49 @@
-# Larger Mended Drum — source study
+# Mended Drum — larger registered game art
 
-Based on main `f58276ef5031ac3b0163c5a9c1bfde7836cddc14`. Requested in issue #10 and docs/NEXT-STEPS.md. No dist assets or map placements change.
+New painted three-storey tavern, registered to the city grid and exported at 2× game size. Requested in #10 and docs/NEXT-STEPS.md. The original generated source is retained.
 
-The new drawing expands the tavern to three storeys, a broad double entrance and a long side wing, using the approved tavern painting as its visual reference. It is a source study, **not game-ready art**. The generator preview shows a brown-looking halo, but encoded inspection confirms 671,202 fully transparent pixels and transparent outer corners. No pixels are fully opaque, so interior alpha and pale/dark compositing still require review. Sampled foundation angles are 20.7° and 25.3°, which fail the 26.6° target. The foundation points are manually sampled, not certified geometry. See registration.json and the automated inspection artifact for measured results.
+## Ready art files
 
-## Delivery and limits
+| File | Purpose |
+| --- | --- |
+| drum-day-2x.webp | Transparent lossless export, 1286 × 894; draw at 0.5 |
+| drum-day-game.webp | Native game-size preview, 643 × 447 |
+| registered.png | Registered lossless PNG master |
+| registration.json | Foundation, anchor, doorway and grid measurements |
+| game-registration.json | Reproducible export registration |
+| review-sheet.webp | Pale, dark and muted ground-colour composites at native size |
+| site-survey.json / site-plan.svg | Actual runtime objects and streets around the current tavern |
 
-- source.png: latest generated painting, 1536 × 1024.
-- reference.webp: byte-identical approved earlier painting, included for comparison.
-- index.html: side-by-side review, pale/dark/green backgrounds and foundation guide. Open via a static server.
-- registration.json: observed plinth points, proposed 9 × 8 cell footprint and explicit blockers.
-- tools/inspect-mended-drum-large.py: checks encoded alpha, computes sampled foundation angles and estimated door scale. Writes JSON and a Markdown report; does not alter images.
+## Verified
 
-Proposed 9 × 8 cell footprint is deliberately unplaced: the existing landmark rect is 5 × 6. Street/door/neighbour changes belong to integration after corrected art. Do not stretch this image into the current rect or ship it as a transparent WebP.
+- Both registered foundation edges: **26.565051177°**.
+- Foundation screen spans: **252 px and 224 px**, corresponding to nine and eight engine grid steps.
+- Door leaf height: **70 px**, beside the game's 60 px officer. Source door measurements are manual and approximate.
+- Transparent lossless WebP: every decoded alpha value and every visible RGB pixel equals the registered raw export.
+- Native-size pale/dark/ground-colour composites were visually inspected. Chimneys are contained, outer background is clear and no large brown halo is visible.
+- Original painting remains unmodified. Registered export uses the established per-face projection approach; near-opaque generated alpha is normalised on export.
+- Real game boot and site survey passed without page errors.
 
-At a screen door height of 70 px, the sampled 190 px door implies scale 0.368 and full canvas width about 566 px, versus the older brief's 308 px display. This is a size estimate, not a proved map fit. A 2× export would draw at 0.5 after preparation.
+Exporter / browser checks: https://github.com/markmarley82-cpu/City-watch/actions/runs/45251531116
 
-## Next required work
+## Placement result — do not reuse the old collision box
 
-Verify interior alpha and correct both foundation edges, produce the 2× transparent WebP, then agree the enlarged map position, move the entrance and check neighbouring buildings and routes. Add night emissions and cutaway layers once the day geometry is accepted. Creative and physical-device acceptance remain open.
+The current tavern occupies engine rect `[102,240,5,6]`. The artwork's intended orientation needs **8 × 9 engine cells** (nine-cell left face, eight-cell right face), matching the registration. At native size the full canvas is 643 px wide, versus the current main manifest's 354.667 px render width.
+
+The runtime survey checked 132 overlapping nearby positions. **No clear site was found.** Even its best-ranked candidate intersects three Shades buildings and ten registered road cells. The orange outline in site-plan.svg is a surveyed candidate, **not an approved placement**. Do not remove those buildings or cover the road merely to install this art.
+
+Integration requires a deliberate street/block redesign and a moved entrance, followed by route and neighbour checks. This packet changes no dist files, collision or live placement. That is a concrete map integration dependency, not an unfinished foundation correction.
+
+## Review and reproduction
+
+Open index.html through a static server for equal game-scale comparison and measured guides.
+
+```sh
+npm install --prefix /tmp/drum-tools sharp@0.34.5 playwright@1.63.0
+NODE_PATH=/tmp/drum-tools/node_modules node tools/prepare-mended-drum-large.cjs
+NODE_PATH=/tmp/drum-tools/node_modules node tools/survey-mended-drum-site.cjs
+```
+
+Install Playwright Chromium before the survey. The branch workflow builds, validates and saves the exports to this review branch only. It does not publish Pages.
+
+**Status:** registered daytime art exported and QA checked; creative approval, site redesign, runtime installation, physical-phone review and any separate night/cutaway work remain open. The old source study and its failed original angles are documented in source-registration.json; they are not the dimensions to use for the finished export.

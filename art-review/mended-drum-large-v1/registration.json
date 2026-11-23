@@ -1,19 +1,59 @@
 {
   "id": "mended-drum-large-v1",
-  "status": "HOLD: source study, not runtime ready",
-  "source": "source.png",
-  "reference": "../landmark-grid-redraws/drum.webp",
-  "sourceRevision": "f58276ef5031ac3b0163c5a9c1bfde7836cddc14",
+  "file": "drum-day-2x.webp",
   "dimensions": [
-    1536,
-    1024
+    1286,
+    894
   ],
-  "proposedMapFootprintCells": [
+  "drawScale": 0.5,
+  "anchor": [
+    669,
+    856.2631578947368
+  ],
+  "foundation": {
+    "left": [
+      165,
+      604.2631578947369
+    ],
+    "corner": [
+      669,
+      856.2631578947368
+    ],
+    "right": [
+      1117,
+      632.2631578947368
+    ]
+  },
+  "footprintCells": [
     9,
     8
   ],
-  "mapFootprintStatus": "Proposal only; neighbours, street clearance and door relocation unverified",
-  "observedFoundation": {
+  "footprintProjection": {
+    "xStep": 28,
+    "yStep": 14
+  },
+  "door": {
+    "sourceTop": [
+      481,
+      665
+    ],
+    "sourceFoot": [
+      481,
+      855
+    ],
+    "top": [
+      397.258064516129,
+      566.8607809847199
+    ],
+    "foot": [
+      397.258064516129,
+      706.8607809847199
+    ],
+    "screenHeight": 70
+  },
+  "source": "source.png",
+  "method": "Per-face horizontal registration and vertical column projection; uniform vertical scale, no cropped chimneys. Near-opaque generated alpha normalised during export.",
+  "sourceFoundation": {
     "left": [
       181,
       760
@@ -25,57 +65,17 @@
     "right": [
       1364,
       755
-    ],
-    "method": "Manually sampled outer stone plinth; approximately +/- 5 pixels"
+    ]
   },
-  "door": {
-    "top": [
-      400,
-      665
-    ],
-    "foot": [
-      481,
-      855
-    ],
-    "heightPixels": 190,
-    "method": "Approximate door leaf height; not stone arch"
-  },
-  "required": {
-    "foundationSlope": 0.5,
-    "angleDegrees": 26.565051177,
-    "doorHeightScreenPixels": [
-      65,
-      75
-    ],
-    "actorHeightScreenPixels": 60,
-    "exportScale": 0.5
-  },
-  "approval": {
-    "creative": false,
-    "runtime": false,
-    "physicalPhone": false
-  },
-  "blockers": [
-    "Alpha has no fully opaque pixels; inspect high-alpha coverage and composite before approval",
-    "Foundation slopes need correction before any grid registration",
-    "Map footprint and neighbouring streets not validated",
-    "No night, cutaway or emission export"
-  ],
-  "alphaInspection": {
-    "transparentPixels": 671202,
-    "opaquePixels": 0,
-    "partialAlphaPixels": 901662,
-    "cornerAlpha": [
-      0,
-      0,
-      0,
-      0
-    ],
-    "workflow": "https://github.com/markmarley82-cpu/City-watch/actions/runs/45250089752",
-    "note": "Outer corners are transparent. Interior alpha distribution still needs review; zero fully opaque pixels."
-  },
-  "observedAnglesDegrees": [
-    20.7005852246,
-    25.2581498278
-  ]
+  "sourceRevision": "f58276ef5031ac3b0163c5a9c1bfde7836cddc14",
+  "creativeApproval": false,
+  "runtimeIntegrated": false,
+  "physicalPhoneVerified": false,
+  "sha256": "00883f39c522302027c2405b081003ca006d695208c9b384ae05e17ff532f57d",
+  "status": "Registered art export verified; map placement requires street redesign",
+  "geometryVerified": true,
+  "alphaCompositingReviewed": true,
+  "siteSurvey": "site-survey.json",
+  "sitePlan": "site-plan.svg",
+  "mapPlacementVerified": false
 }
