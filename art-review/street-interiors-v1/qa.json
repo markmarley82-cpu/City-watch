@@ -105,7 +105,7 @@
       "uniqueImageSHA256": "dd53acc4467ac0afa648c79d1d71b3592e1e9bc2007be126ed00c8a206902686",
       "angleWithinTwoDegrees": true,
       "sampledScaleFitsOuterFootprint": true,
-      "sampledDoorWithin65to75": false,
+      "sampledDoorWithin65to75": true,
       "note": "Sampled geometry only; no claim of pixel-locked guide alignment or runtime acceptance."
     },
     {

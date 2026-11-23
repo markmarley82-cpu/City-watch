@@ -36,9 +36,9 @@ The fourteenth room is proposed as the ground-floor common room of the existing 
 - All 14 export canvases and unique image checksums checked.
 - All 14 sampled foundation-axis angle checks are within 2° of 26.565°.
 - All 14 sampled floor envelopes fit their exterior limits under the supplied shared actor/camera scale.
-- 13 of 14 sampled doors fall within 65–75 city pixels. Ship chandler is approximately 64.6 px; inspect its opening before accepting the scale. Measurements are approximate.
+- All 14 sampled doors fall within 65–75 city pixels. The chandler was remeasured at the inner jambs (308 and 303 painting pixels; representative 306), approximately 68.2 city pixels. The earlier 290 px sample was an annotation error; the painting is unchanged. Measurements remain approximate.
 - The review sheet composites the actual recruit body and breastplate for scale. It is an asset review, not an in-game screenshot.
-- Furniture obstacle polygons, exact external-door offsets, window correspondence, upstairs access, runtime walking and physical-phone checks remain integration work. Do not treat this packet as runtime-verified or creatively approved.
+- Furniture contact polygons and safe entry spawns are now supplied in `navigation-layouts.json`. Offline raster checks pass for all 14 entry-to-centre routes and all 59 examination stands, with foot clearance and no diagonal corner-cutting. See [collision review](collision-review.jpg) and `navigation-qa.json`. Exact external-door offsets, window correspondence, upstairs access, runtime walking and physical-phone checks remain integration work. Do not treat this packet as runtime-verified or creatively approved.
 
 The old `studies/cobbler-unfitted.png` is preserved as a superseded source study. It is not the new `rooms/cobbler.webp` painting.
 
@@ -49,6 +49,13 @@ No `dist/` or live-game files changed.
 ```sh
 python tools/prepare-street-interior-guides.py
 python tools/export-street-interiors.py
+python tools/check-street-interior-navigation.py
 ```
 
 Requires Pillow. The built-in image generator produced the paintings; the full prompt set and the targeted cobbler correction are recorded in `prompts.json`. The exporter performs format conversion, annotations and review compositing, not procedural replacement of the authored paintings.
+
+## Navigation annotation contract
+
+`furniture-layouts.json` stores conservative manually sampled contact rectangles in the room plane. The checker projects these into per-image polygons, erodes the floor by the officer foot radius, expands obstacles by the same radius and searches an 8 px grid. Four-pixel rasterisation rounds clearance outward. It rejects diagonal moves through blocked corners, isolated portal pixels and spawns more than 120 painting pixels from the sampled threshold. Thresholds come from `painted-anchors.json`; repeated runs do not move them further inward.
+
+The 59 contact footprints are integration candidates, not pixel segmentation or a certification that every painted prop has a perfect collider. The room patches deliberately omit NPC and dialogue data; merge those from the existing room after checking positions. Do not auto-apply these patches or silently retain the old guild-room obstacles. The suggested two-floor lodging allocation still needs confirmation during integration.

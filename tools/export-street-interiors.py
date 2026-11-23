@@ -44,7 +44,10 @@ for i,c in enumerate(contracts):
       'safeCenter':normalized(xy(.62*ed,.62*ew)),
       'status':'painting delivered; candidate for integration review',
       'runtimeVerified':False,'creativeApproval':False,
-      'collisionStatus':'requires furniture-footprint annotation and runtime routing test; do not retain guild-room obstacles'}
+      'collisionStatus':'run tools/check-street-interior-navigation.py after export to attach tested layout annotations'}
+    if 'doorEdgeSamples' in a:
+        entry['doorEdgeSamples']=a['doorEdgeSamples']
+        entry['doorMeasurementNote']=a['doorMeasurementNote']
     if n=='lodging': entry.update(level=1,doorRole='internal landing doorway; proposed upper sleeping floor')
     if n=='cheap-lodging-common-room':
         entry.update(exteriorFile=next(x['exteriorFile'] for x in contracts if x['id']=='lodging'),
