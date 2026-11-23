@@ -1,0 +1,64 @@
+{
+  "id": "mended-drum-large-v1",
+  "status": "HOLD: source study, not runtime ready",
+  "source": "source.png",
+  "reference": "../landmark-grid-redraws/drum.webp",
+  "sourceRevision": "f58276ef5031ac3b0163c5a9c1bfde7836cddc14",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "proposedMapFootprintCells": [
+    9,
+    8
+  ],
+  "mapFootprintStatus": "Proposal only; neighbours, street clearance and door relocation unverified",
+  "observedFoundation": {
+    "left": [
+      181,
+      760
+    ],
+    "corner": [
+      832,
+      1006
+    ],
+    "right": [
+      1364,
+      755
+    ],
+    "method": "Manually sampled outer stone plinth; approximately +/- 5 pixels"
+  },
+  "door": {
+    "top": [
+      400,
+      665
+    ],
+    "foot": [
+      481,
+      855
+    ],
+    "heightPixels": 190,
+    "method": "Approximate door leaf height; not stone arch"
+  },
+  "required": {
+    "foundationSlope": 0.5,
+    "angleDegrees": 26.565051177,
+    "doorHeightScreenPixels": [
+      65,
+      75
+    ],
+    "actorHeightScreenPixels": 60,
+    "exportScale": 0.5
+  },
+  "approval": {
+    "creative": false,
+    "runtime": false,
+    "physicalPhone": false
+  },
+  "blockers": [
+    "Brown background visible in generator preview; alpha inspection in workflow",
+    "Foundation slopes need correction before any grid registration",
+    "Map footprint and neighbouring streets not validated",
+    "No night, cutaway or emission export"
+  ]
+}

@@ -3,7 +3,7 @@ import {conflictsWithPainting} from './city-scenery-overlap.mjs?v=p21-b407-s039-
 import {project} from './city-core.mjs?v=p21-b407-s039-reuse';
 export const SHADES_BASE='assets/shades-streets-v1/';
 export async function createShadesStreets({read,load,addSprites,imageDensity,enabled=true}){
- const manifest=await read(SHADES_BASE+'manifest.json?v=boundary-ranges-018');
+ const manifest=await read(SHADES_BASE+'manifest.json?v=drum-large-1');
  const ims=new Map(await Promise.all(manifest.assets.map(async a=>{
   const im=await load(SHADES_BASE+a.file,a.dimensions);
   if((im.cwSourceWidth||im.width)!==a.dimensions[0]||(im.cwSourceHeight||im.height)!==a.dimensions[1])throw Error('Shades painting dimensions differ: '+a.id);

@@ -1,0 +1,218 @@
+{
+  "boot": "ready",
+  "surveyedSource": "real city sceneryObjects after startup",
+  "old": {
+    "id": "LANDMARK-510:drum",
+    "rect": [
+      97,
+      240,
+      8,
+      9
+    ],
+    "kind": "building"
+  },
+  "orientation": {
+    "rectWidth": 8,
+    "rectHeight": 9,
+    "leftFaceCells": 9,
+    "rightFaceCells": 8
+  },
+  "candidateCount": 132,
+  "bestCandidates": [
+    {
+      "rect": [
+        97,
+        240,
+        8,
+        9
+      ],
+      "buildingConflicts": [],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 0
+    },
+    {
+      "rect": [
+        96,
+        240,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 1
+    },
+    {
+      "rect": [
+        95,
+        240,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 2
+    },
+    {
+      "rect": [
+        94,
+        240,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 3
+    },
+    {
+      "rect": [
+        93,
+        240,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 4
+    },
+    {
+      "rect": [
+        97,
+        239,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-005:stone-stair-home",
+          "rect": [
+            96.975,
+            236.225,
+            5.389212827988338,
+            3.721574344023324
+          ]
+        }
+      ],
+      "roadCells": 2,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 1
+    },
+    {
+      "rect": [
+        95,
+        239,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        },
+        {
+          "id": "SHADES-005:stone-stair-home",
+          "rect": [
+            96.975,
+            236.225,
+            5.389212827988338,
+            3.721574344023324
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 3
+    },
+    {
+      "rect": [
+        94,
+        239,
+        8,
+        9
+      ],
+      "buildingConflicts": [
+        {
+          "id": "SHADES-001:passage-home",
+          "rect": [
+            93.5,
+            238,
+            3.4,
+            10.6
+          ]
+        },
+        {
+          "id": "SHADES-005:stone-stair-home",
+          "rect": [
+            96.975,
+            236.225,
+            5.389212827988338,
+            3.721574344023324
+          ]
+        }
+      ],
+      "roadCells": 0,
+      "waterCells": 0,
+      "doorConflicts": [],
+      "distance": 4
+    }
+  ],
+  "clearSiteFound": true,
+  "pageErrors": [],
+  "mapChanged": false
+}
