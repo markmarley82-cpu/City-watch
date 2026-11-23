@@ -19,6 +19,7 @@ function overlap(a,b){return a[0]-.5<b[0]+b[2]-.5&&a[0]+a[2]-.5>b[0]-.5&&a[1]-.5
   await page.goto('http://127.0.0.1:'+server.address().port+'/City-watch/index.html');
   await page.waitForFunction(()=>document.body.dataset.cityBoot==='ready'&&window.__DrumSurvey,null,{timeout:240000});
   const survey=await page.evaluate(()=>window.__DrumSurvey),old=survey.objects.find(o=>o.id==='LANDMARK-510:drum');assert(old);
+  fs.writeFileSync(packet+'/site-context.json',JSON.stringify({objects:survey.objects.filter(o=>overlap(o.rect,[75,215,55,60])),roads:survey.roads.filter(p=>p[0]>=75&&p[0]<=130&&p[1]>=215&&p[1]<=275),doors:survey.doors.filter(d=>d.p?.[0]>=75&&d.p[0]<=130&&d.p[1]>=215&&d.p[1]<=275),water:survey.water},null,2));
   const candidates=[];
   for(let x=old.rect[0]-8;x<=old.rect[0]+3;x++)for(let y=old.rect[1]-8;y<=old.rect[1]+3;y++){
    const r=[x,y,8,9];if(!overlap(r,old.rect))continue;

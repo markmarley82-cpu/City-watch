@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "City Watch art preparation"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add art-review/mended-drum-large-v1/drum-day-2x.webp art-review/mended-drum-large-v1/drum-day-game.webp art-review/mended-drum-large-v1/registered.png art-review/mended-drum-large-v1/game-registration.json art-review/mended-drum-large-v1/review-sheet.webp art-review/mended-drum-large-v1/export-checks.json art-review/mended-drum-large-v1/site-survey.json art-review/mended-drum-large-v1/site-plan.svg
+          git add art-review/mended-drum-large-v1/drum-day-2x.webp art-review/mended-drum-large-v1/drum-day-game.webp art-review/mended-drum-large-v1/registered.png art-review/mended-drum-large-v1/game-registration.json art-review/mended-drum-large-v1/review-sheet.webp art-review/mended-drum-large-v1/export-checks.json art-review/mended-drum-large-v1/site-survey.json art-review/mended-drum-large-v1/site-plan.svg art-review/mended-drum-large-v1/site-context.json
           if ! git diff --cached --quiet; then
             git commit -m "Prepare grid-registered Mended Drum exports and site survey [skip ci]"
             git push origin HEAD:art/mended-drum-large-v1

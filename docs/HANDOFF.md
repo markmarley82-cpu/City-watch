@@ -1,4 +1,4 @@
-# Handoff for a new chat (22 November 2026)
+# Handoff for a new chat (updated 23 November 2026)
 
 Read this first, then `docs/NEXT-STEPS.md`.
 
@@ -51,9 +51,9 @@ Read this first, then `docs/NEXT-STEPS.md`.
     sites in `tools/new-buildings-sites.json`).
 - **Empty edge ground**: filled with 613 reused house paintings (`dist/city-edge-fill.mjs`,
   `tools/make-edge-fill.py`). The low-wall version was rejected and is no longer loaded.
-- **Rooms**: 12 street buildings can be entered. They reuse guild room paintings (`street-*` rooms in
-  `dist/guild-interiors/rooms.json`, made by `tools/make-street-rooms.py`). The artisan cooper stays closed.
-- **Cases**: CW-NC-05 "The Bread at the Wrong Door" is live (`dist/cases/city-cases.json`).
+- **Rooms**: all 13 street buildings can be entered, with their own paintings (see Street interiors below).
+- **Cases**: CW-NC-05 "The Bread at the Wrong Door" and CW-NC-43 "The Sack With Two Tags" are live (`dist/cases/city-cases.json`).
+- **Phone view (22 Nov)**: phones (≤600 px wide) use city zoom 1.25.
 
 - **Outpost angle (22 Nov)**: the Watch Outpost uses the corrected 2:1 painting from `art/final-four-landmarks-v2`
   (`tools/make-landmark-v3.py` run with that packet; its registration converted to the v1 format). The packet's
@@ -82,13 +82,14 @@ Read this first, then `docs/NEXT-STEPS.md`.
 
 ## Open
 
-- **Art work order**: issue #10, `docs/art/briefs/WORK-ORDER-2026-11-21.md`.
-  1. Final-four follow-up: night versions locked to the day ones, roof layers, the Outpost angle.
-  2. Street interiors. The branch `art/street-interiors-v1` exists but is still empty.
-  3. Silver-bearded dwarf recruit.
-  4. Conversation portraits.
-
-  When the interiors arrive, swap the `image` of each `street-*` room and open the artisan cooper.
-- **CW-NC-43 "The Sack With Two Tags"** is live (23 Nov), fourth on the City cases board. Played through to the full outcome in a browser.
+- **Art work order** (issue #10): parts 1, 2 and 4 are in the game; part 3 (silver dwarf) was declined because
+  the live dwarf already offers the silver beard. **Still owed: a bigger Mended Drum** (brief in `docs/NEXT-STEPS.md`).
+  Unused but kept: the lodging bedroom painting, the six grid landmarks have no walls/emission layers.
+- **Phone lag and getting stuck**: Mark reported both on his iPhone 11. Simulated-phone tests (4x slowed CPU) showed
+  walking speed holds and no snags; frame time is mostly the building see-through compositing
+  (`city-local-cutaway.mjs`), drawing people, and ground repaints (`city-ground-cache.mjs`). Headless timings were too
+  noisy to prove a fix, so nothing was changed. Needs Mark's own report of where it happens.
+- **Automated check (23 Nov)**: a fresh iPhone 11 player completes the opening purse case end to end with no errors;
+  `tools/test-crawl-errors.cjs` reports no failures on all pages.
 - The Bridge case still needs Mark's playtest (`docs/cases/Bridge-Shift-Playtest.md`).
 - Housekeeping for Mark: set the Drive folder to Restricted; decide on git history cleanup.

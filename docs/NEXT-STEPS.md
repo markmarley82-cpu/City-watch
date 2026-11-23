@@ -50,6 +50,9 @@ These make what already exists reliable:
 
 ## 4. Finishing Version 1.0
 
+- **Status 23 Nov:** content is complete for 1.0 apart from the bigger Mended Drum (art team). What remains is
+  Mark's play-through on his iPhone, fixing whatever that turns up, and the Bridge playtest.
+
 - **Done: promotion.** Claiming the commendation makes you at least Constable,
   and the Commander's Decision at least Corporal (`career()` in
   `dist/cw-p21-state.js`); higher ranks earned on Night duty are kept.
