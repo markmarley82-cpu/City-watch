@@ -355,7 +355,15 @@
     ]
    ],
    "source": "art/final-four-landmarks-v1 outpost-day.webp",
-   "sourceScale": 0.3272
+   "sourceScale": 0.3272,
+   "walls": {
+    "file": "outpost-walls.webp",
+    "sha256": "c8bc8891a5b5fc56f51a93dc6fd02a0c229c18caf0b37f9fbf0a3f9b8688bfd5"
+   },
+   "emission": {
+    "file": "outpost-emission.webp",
+    "sha256": "31329f2563ec6398bb38d3608e66e5ec28ecc11aed89b5d48ce7ca68c3c4158a"
+   }
   },
   {
    "id": "LANDMARK-510:bakery",
@@ -414,7 +422,15 @@
     ]
    ],
    "source": "art/final-four-landmarks-v1 bakery-day.webp",
-   "sourceScale": 0.2776
+   "sourceScale": 0.2776,
+   "walls": {
+    "file": "bakery-walls.webp",
+    "sha256": "3060a01c5cbbc4f492308d7c6452aaec4cc90f85735e809ea0d212d0ca6fe657"
+   },
+   "emission": {
+    "file": "bakery-emission.webp",
+    "sha256": "5743e55c956eac478af78a197856db340da6e77b1d3f41e9adfa847a922c0bfe"
+   }
   },
   {
    "id": "LANDMARK-510:shrine",
@@ -461,7 +477,15 @@
     ]
    ],
    "source": "art/final-four-landmarks-v1 shrine-day.webp",
-   "sourceScale": 0.2424
+   "sourceScale": 0.2424,
+   "walls": {
+    "file": "shrine-walls.webp",
+    "sha256": "373036c96d82d05ceb4ae06738382fdbd0ad6a09cb3d7bf7ab7c568078866761"
+   },
+   "emission": {
+    "file": "shrine-emission.webp",
+    "sha256": "9a6fe2136f58da3abbbe3fd1ed1049aace180855df04261b88636f22a4f72f94"
+   }
   },
   {
    "id": "LANDMARK-510:alley",
@@ -520,7 +544,15 @@
     ]
    ],
    "source": "art/final-four-landmarks-v1 alley-day.webp",
-   "sourceScale": 0.3473
+   "sourceScale": 0.3473,
+   "walls": {
+    "file": "alley-walls.webp",
+    "sha256": "a746c7ce804baa89bafceb82aacab952225ae464318fcedb4ecf5daf27ace996"
+   },
+   "emission": {
+    "file": "alley-emission.webp",
+    "sha256": "e05a8dea584f75ae58bb6958deac8e135b823575e63618ca1da2c095e5f20911"
+   }
   },
   {
    "id": "LANDMARK-510:store",

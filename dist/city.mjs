@@ -127,7 +127,7 @@ import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
 import {createEdgeFill} from './city-edge-fill.mjs?v=1';
 import {createNewBuildings,loadPalaceMainBlock,addStreetDoors} from './city-new-buildings.mjs?v=7';
-import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=final-four-2';
+import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=final-four-3';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
 import {createDimwellWorkshop} from './dimwell-workshop.mjs?v=p21-b407-s039-reuse';
 import {createE043Premise} from './e043-premise.mjs?v=p21-b407-s039-reuse';
@@ -276,7 +276,7 @@ const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 // Insert only in authored order, regardless of which request finishes first.
 const guildPaintings=await Promise.all(guildLots.map(l=>load(l.guild_exterior.file)));
 for(const [index,l]of guildLots.entries()){const g=l.guild_exterior,im=guildPaintings[index];addSprite('guild:'+l.game_id,im,l.engine_approach_xy,g.anchor,1,g.rect,{landmark:l,sourceAsset:'guild:'+l.room_id});}
-const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors});
+const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors,pixels});
 // The low-wall version (city-closed-ground.mjs) was rejected by Mark on 21 Nov 2026; the empty outer ground is
 // filled with packed houses instead (city-edge-fill.mjs).
 const closedGround=null;

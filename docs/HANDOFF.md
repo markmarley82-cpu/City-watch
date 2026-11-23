@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot57-sack-two-tags`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current chain tag is `pilot58-landmark-layers`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 
@@ -74,6 +74,11 @@ Read this first, then `docs/NEXT-STEPS.md`.
   (`dist/assets/portraits-v1/`). The drawn-character portraits for the first five were also replaced (used by the
   guild contact view and the ending). The six street-worker portraits show beside matching case speakers (porter, baker, net-mender, stallholder, dock clerk, carter), matched on the speaker line. The campaign engine's own
   dialogues still use its older faces.
+
+- **Landmark layers (23 Nov)**: the Bakery, Shrine, Alley House and Outpost carry the v2 packet's walls layer
+  (shown in the see-through window behind them, as `roofHidden`) and window emission (`nightEmission`), added by
+  `tools/add-landmark-layers.py`. The six grid redraws have no such layers yet. The packet's full night paintings
+  are not used: the game lights buildings itself.
 
 ## Open
 
