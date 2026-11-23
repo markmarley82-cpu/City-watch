@@ -1,0 +1,114 @@
+{
+  "checks": [
+    {
+      "id": "colon",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "22bedf0cc42d7e9bf43ea0c18d5eb01cc7c054e285c5af887a9bafda47113cd9"
+    },
+    {
+      "id": "nobby",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "0c1d707ebaf325ac1ca68058465b9b12e1a1ddb095ab205179a375f3283ed472"
+    },
+    {
+      "id": "carrot",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "e3b13a44e91c420c4f09d84ee6231e1ea75716602c56c1feb68cfac2775d514b"
+    },
+    {
+      "id": "vimes",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "58d0c7539f4e9e0267dd2279420d056b4412c4d684ff87352816ef77e2f83cf5"
+    },
+    {
+      "id": "mrs-palm",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "891e4a5dd988423ae625ed62a7582257d1fb10bc71c4f49a385a3e72e9ee98d5"
+    },
+    {
+      "id": "dibbler",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "08cc341241e510980b2b7de5e166c5199e9057149bddb33eaa9d2ad0d217f9f5"
+    },
+    {
+      "id": "porter",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "e21e348af6de325a5ea0deda2572d7522e4cfbdef306599f75bc989fcff61942"
+    },
+    {
+      "id": "baker",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "967f6bb05beb5522b933c5c5d5930fab6cf3dfae90bd32fb73c5ba4c655653ad"
+    },
+    {
+      "id": "net-mender",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "d264447132b39d91b62508328c7c76f5f833d910a95a6c2ecb15109b55612be8"
+    },
+    {
+      "id": "stallholder",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "b243f05485f4051a3d7c7869342a56465df000915ea6292f3e8a8914b83f39e5"
+    },
+    {
+      "id": "dock-clerk",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "f61deb4e7dc46cc506577513fcfbe6b63f1d7b4694cf92bb5b15ebbfdec6247b"
+    },
+    {
+      "id": "carter",
+      "dimensionsPassed": true,
+      "transparentBackgroundPassed": true,
+      "headMarginPassed": true,
+      "visibleBrightRedArtifactPixels": 0,
+      "sourceHiddenRedPixels": 0,
+      "sha256": "1a9df159f49e1679ebda218df24f4a94e6f2f861029876ae498f432da7549124"
+    }
+  ],
+  "runtimeVerified": false,
+  "physicalPhoneVerified": false
+}

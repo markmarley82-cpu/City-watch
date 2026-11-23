@@ -1,0 +1,417 @@
+{
+  "schema": "city-watch.conversation-portraits.v1",
+  "packet": "portraits-v1",
+  "status": "12 individually painted candidates; no runtime bindings changed",
+  "lighting": "warm key from upper left",
+  "format": "lossless RGBA WebP",
+  "characters": [
+    {
+      "id": "colon",
+      "name": "Sergeant Fred Colon",
+      "image": "portraits/colon.webp",
+      "source": "sources/colon.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "22bedf0cc42d7e9bf43ea0c18d5eb01cc7c054e285c5af887a9bafda47113cd9",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        21,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        57,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "nobby",
+      "name": "Corporal Nobby Nobbs",
+      "image": "portraits/nobby.webp",
+      "source": "sources/nobby.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "0c1d707ebaf325ac1ca68058465b9b12e1a1ddb095ab205179a375f3283ed472",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        17,
+        1241,
+        1254
+      ],
+      "exportAlphaBounds": [
+        19,
+        34,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "carrot",
+      "name": "Captain Carrot Ironfoundersson",
+      "image": "portraits/carrot.webp",
+      "source": "sources/carrot.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e3b13a44e91c420c4f09d84ee6231e1ea75716602c56c1feb68cfac2775d514b",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        23,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        49,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "vimes",
+      "name": "Commander Sam Vimes",
+      "image": "portraits/vimes.webp",
+      "source": "sources/vimes.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "58d0c7539f4e9e0267dd2279420d056b4412c4d684ff87352816ef77e2f83cf5",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        28,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        43,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "mrs-palm",
+      "name": "Mrs Rosemary Palm",
+      "image": "portraits/mrs-palm.webp",
+      "source": "sources/mrs-palm.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "891e4a5dd988423ae625ed62a7582257d1fb10bc71c4f49a385a3e72e9ee98d5",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        0,
+        1251,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        40,
+        486,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "dibbler",
+      "name": "Cut-Me-Own-Throat Dibbler",
+      "image": "portraits/dibbler.webp",
+      "source": "sources/dibbler.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "08cc341241e510980b2b7de5e166c5199e9057149bddb33eaa9d2ad0d217f9f5",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        5,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        41,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "porter",
+      "name": "Street porter",
+      "image": "portraits/porter.webp",
+      "source": "sources/porter.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e21e348af6de325a5ea0deda2572d7522e4cfbdef306599f75bc989fcff61942",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        29,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        50,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "baker",
+      "name": "Street baker",
+      "image": "portraits/baker.webp",
+      "source": "sources/baker.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "967f6bb05beb5522b933c5c5d5930fab6cf3dfae90bd32fb73c5ba4c655653ad",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        47,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        54,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "net-mender",
+      "name": "Street net-mender",
+      "image": "portraits/net-mender.webp",
+      "source": "sources/net-mender.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "d264447132b39d91b62508328c7c76f5f833d910a95a6c2ecb15109b55612be8",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        17,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        40,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "stallholder",
+      "name": "Street stallholder",
+      "image": "portraits/stallholder.webp",
+      "source": "sources/stallholder.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b243f05485f4051a3d7c7869342a56465df000915ea6292f3e8a8914b83f39e5",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        34,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        45,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "dock-clerk",
+      "name": "Dock clerk",
+      "image": "portraits/dock-clerk.webp",
+      "source": "sources/dock-clerk.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "f61deb4e7dc46cc506577513fcfbe6b63f1d7b4694cf92bb5b15ebbfdec6247b",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        21,
+        1240,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        47,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    },
+    {
+      "id": "carter",
+      "name": "Street carter",
+      "image": "portraits/carter.webp",
+      "source": "sources/carter.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "1a9df159f49e1679ebda218df24f4a94e6f2f861029876ae498f432da7549124",
+      "alpha": true,
+      "drawSize": [
+        256,
+        256
+      ],
+      "recommendedSmallSize": [
+        128,
+        128
+      ],
+      "alignment": "bottom-center; do not auto-crop to alpha bounds",
+      "sourceAlphaBounds": [
+        0,
+        31,
+        1254,
+        1254
+      ],
+      "exportAlphaBounds": [
+        16,
+        57,
+        496,
+        512
+      ],
+      "status": "proposed conversation portrait; creative and runtime review pending"
+    }
+  ]
+}
