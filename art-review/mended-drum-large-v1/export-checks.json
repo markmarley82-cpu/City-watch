@@ -1,0 +1,22 @@
+{
+  "exportGeometryPass": true,
+  "angles": [
+    26.565051177077976,
+    26.56505117707799
+  ],
+  "doorScreenHeight": 70,
+  "footprintCells": [
+    9,
+    8
+  ],
+  "foundationScreenSpans": [
+    252,
+    224
+  ],
+  "losslessPixels": true,
+  "dimensions": [
+    1286,
+    894
+  ],
+  "sourcePreserved": true
+}
