@@ -93,7 +93,7 @@ import {installCityImageDiagnostics} from './city-image-diagnostics.mjs?v=p21-b4
 import {createCityJSONLoader} from './city-json-loader.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise002} from './e045-premise-002.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise} from './e045-premise.mjs?v=p21-b407-s039-reuse';
-import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=p21-b493-atlas-pinch';
+import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=atlas-labels-v2';
 import {fitWatchSquare} from './city-square-camera.mjs?v=p21-b407-s039-reuse';
 import {createOperaTexture,createWornTile,sourceImageResidency} from './city-source-surfaces.mjs?v=p21-b407-s039-reuse';
 import {bridgeDeckContains} from './city-bridge-contact.mjs?v=p21-b407-s039-reuse';

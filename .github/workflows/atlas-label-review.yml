@@ -1,0 +1,42 @@
+name: Atlas label and navigation checks
+on:
+  push:
+    branches: [fix/atlas-label-crowding]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: atlas-label-review
+  cancel-in-progress: true
+jobs:
+  atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check label layout and existing cases
+        run: |
+          node --check dist/city-atlas-lifecycle.mjs
+          node --check dist/city.mjs
+          node --check tools/test-atlas-labels.cjs
+          node tests/city-atlas-labels.mjs
+          node tests/city-image-retry.mjs
+          node tests/cw-city-cases-data.mjs
+          node tests/cw-nc01-bridge-pilot.mjs
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/atlas-qa" --no-audit --no-fund playwright@1.63.0
+          "$RUNNER_TEMP/atlas-qa/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Check live map labels and walking controls
+        env:
+          NODE_PATH: ${{ runner.temp }}/atlas-qa/node_modules
+        run: node tools/test-atlas-labels.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atlas-label-review
+          path: qa-results/atlas-labels/
+          if-no-files-found: warn

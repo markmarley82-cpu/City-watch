@@ -101,7 +101,10 @@ These make what already exists reliable:
     4G alone), and the per-district ground work. Loading distant districts'
     art later would be the next big step; it touches how each district is
     installed.
-- Overlapping labels on the city map (needs the map source).
+- **Done: overlapping map labels (24 Nov).** Landmark, district and street names now use measured
+  collision-aware placement, small vertical offsets and crowding/clipping suppression. Pins and
+  routes stay at their original coordinates. Phone/landscape/tablet/desktop checks cover pan, zoom,
+  pinch, focus, district/destination selection, rotation and Walk here. See `docs/qa/ATLAS-LABEL-READABILITY.md`.
 - Done: `bridge.html` and `layout.html` (old test scenes) load without errors again.
 - Done: the Night duty menu sits on the team's Night Duty board
   (`dist/cw-night-board.css`, built in `nightBoard()` in `dist/cw-patrol-duty.mjs`).

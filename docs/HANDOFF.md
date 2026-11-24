@@ -1,4 +1,4 @@
-# Handoff for a new chat (updated 23 November 2026)
+# Handoff for a new chat (updated 24 November 2026)
 
 Read this first, then `docs/NEXT-STEPS.md`.
 
@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current chain tag is `pilot58-landmark-layers`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current boot/map cache tag is `atlas-labels-v2`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 

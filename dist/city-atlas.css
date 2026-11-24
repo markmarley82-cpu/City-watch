@@ -103,3 +103,11 @@ html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atl
 
 /* Keep the area picker clear of the Here/Case/zoom column (23 Nov 2026). */
 .atlas-patrol-map .atlas-area-picker{width:auto!important;max-width:calc(100% - 84px)!important;right:auto!important;box-sizing:border-box}
+
+/* Real label boxes allow collision checks without moving any map target. */
+.atlas-survey .atlas-place-pin::after{display:none!important}
+.atlas-pin-label{display:none;position:absolute;bottom:32px;left:50%;transform:translateX(-50%);translate:0 var(--atlas-label-shift,0px);width:max-content;max-width:130px;text-align:center;white-space:normal;color:#4b3520;font:600 italic 12px/1.15 Georgia,serif;text-shadow:0 0 4px #ecd9b3,0 0 4px #ecd9b3;pointer-events:auto}
+.atlas-survey .atlas-place-pin:is(.is-primary,.is-selected,:focus-visible)>.atlas-pin-label{display:block}
+.atlas-survey .atlas-place-pin.is-selected>.atlas-pin-label{max-width:140px;color:#742f20}
+.atlas-survey .atlas-place-pin[aria-label='Opera House']>.atlas-pin-label{bottom:auto;top:34px}
+.atlas-survey :is(.atlas-area-name,.atlas-street-name){translate:0 var(--atlas-label-shift,0px)}
