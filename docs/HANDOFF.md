@@ -66,7 +66,10 @@ Read this first, then `docs/NEXT-STEPS.md`.
   is unused. The artisan cooper is open as the Barrel-maker (`new-cooper`).
 - **Room view v2 (23 Nov)**: guild and street rooms use a full-screen view like the Watch House
   (`roomMarkupV2` in `guild-interiors/room-markup.mjs`, drawing in `interior-view.mjs`). The post office, bank and
-  palace still use the old `roomMarkup`.
+  palace now share the following camera and tappable markers through `guild-interiors/civic-room-view.mjs`
+  (24 Nov). Their authored sessions, contacts, saved visits and street returns stay in their civic hosts.
+  Whole room toggles the overview; Contacts still reaches staff outside the camera. See
+  `docs/qa/CIVIC-ROOM-VIEW-V2.md` for the browser checks.
 - **Busier streets (23 Nov, live)**: phones get 8 street people by day (was 5), and night halves the count
   (`limit` in `city.mjs`, `wanted` in `city-street-life.mjs`).
 - **Conversation portraits (23 Nov, live)**: `cw-speaker-portraits.js` puts the art/portraits-v1 portrait beside any
