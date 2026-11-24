@@ -12,3 +12,7 @@ The boot cache chain is versioned through index.html, phone-map.js and city.mjs.
 - Existing city case and Bridge pilot data checks also run.
 
 The Actions artifact includes screenshots and results.json. Tests demonstrate recovery from injected image-request failures, not a diagnosis of the original public connection failure or proof of physical Safari performance. This does not defer distant art or reduce the startup download size.
+
+## Result
+
+All policy checks and four browser scenarios passed in [Actions run 45504409025](https://github.com/markmarley82-cpu/City-watch/actions/runs/45504409025). The [artifact](https://github.com/markmarley82-cpu/City-watch/actions/runs/45504409025/artifacts/14973461409) contains phone/desktop recovery screenshots, the permanent-failure screen, the resumed phone patrol and results.json. No JavaScript page errors occurred.
