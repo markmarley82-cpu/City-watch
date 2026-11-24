@@ -11,7 +11,7 @@ export function createPlayerContacts({city,actors,state,member,university,seller
  const distance=a=>Math.hypot(city.position()[0]-a.p[0],city.position()[1]-a.p[1]),kind=a=>contactKind(a,{university,sellers});
  let dialog=null,heading,subheading,portrait,content,focus,previousBlock=false,shown=0,partnerTalks=0;
  const make=(tag,cls,text)=>{const e=doc.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
- function mount(){if(dialog)return;const link=make('link');link.rel='stylesheet';link.href=new URL('cw-npc-dialogue.css?v=p21-b407-s039-reuse',import.meta.url).href;doc.head.append(link);
+ function mount(){if(dialog)return;const link=make('link');link.rel='stylesheet';link.href=new URL('cw-npc-dialogue.css?v=seal-1',import.meta.url).href;doc.head.append(link);
   dialog=make('dialog','cw-npc-dialogue');dialog.id='cw-player-contacts';dialog.setAttribute('aria-labelledby','cw-player-contact-name');
   const folio=make('div','cw-dialogue-folio'),top=make('header','cw-dialogue-top'),close=make('button','cw-dialogue-close','Close ×');close.type='button';close.onclick=dismiss;top.append(make('span','','THE WATCH · PEOPLE & CONTACTS'),close);
   const spread=make('div','cw-dialogue-spread'),profile=make('aside','cw-dialogue-profile');portrait=make('div','cw-dialogue-portrait');profile.append(portrait,make('p','cw-dialogue-profile-caption','Patrol contact'));

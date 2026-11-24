@@ -21,6 +21,8 @@
  function decorate(root){
   for(const h of root.querySelectorAll('dialog[open] :is(h2,h3,p.cw-case-speaker)')){
    if(h.id==='p21-duty-title'||h.closest('header'))continue;
+   // The contacts folio already shows the speaker's portrait in its side panel.
+   if(h.closest('dialog')?.querySelector('.cw-dialogue-portrait :is(img,canvas)')){h.parentElement?.querySelector(':scope > img.cw-speaker-portrait')?.remove();continue;}
    const p=who(h.textContent,h.matches('p.cw-case-speaker')),box=h.parentElement;if(!box)continue;
    const old=box.querySelector(':scope > img.cw-speaker-portrait');
    if(!p){if(old&&old.nextElementSibling===h)old.remove();continue;}

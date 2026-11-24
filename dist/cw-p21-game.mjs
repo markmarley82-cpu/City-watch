@@ -13,8 +13,8 @@ import {createPalaceHost} from './palace/palace-host.mjs?v=civic-v2';
 import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
-import {createPlayerContacts} from './cw-player-contacts.mjs?v=p21-b407-s039-reuse';
-import {createUniversityWizards} from './university-wizards.mjs?v=p21-b407-s039-reuse';
+import {createPlayerContacts} from './cw-player-contacts.mjs?v=seal-1';
+import {createUniversityWizards} from './university-wizards.mjs?v=seal-1';
 import {campaignClock} from './city-clock.mjs?v=game-time';
 import {organiserBriefing} from './city-imp-clock.mjs?v=purse-street-leads';
 import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=room-v2';
@@ -245,7 +245,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw15');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-cw16');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{
@@ -515,7 +515,7 @@ function chaseMenu(){const v=state(),c=v.pending?.chase;if(!c)return;const near=
  if(near&&['caught','surrendered'].includes(c.status))button('Let them go',()=>finishChase('released'));
  button('Continue pursuit',()=>city.tell('Follow the last sighting. The circle moves your recruit; release it to stop.'));
  button('Call off the search',()=>finishChase('lost'));d.showModal();}
-window.CWP21Game={canEnter:d=>!d?.held&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,battle,state,
+window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,battle,state,
  interact(){const pending=state().pending;if(pending?.chase){chaseMenu();return true;}if(pending){battle();return true;}const marketDuty=patrolDuty?.view();
  if(marketDuty?.delivery&&['inspect','report'].includes(marketDuty.action)){patrolDuty.primary();return true;}
  if(patrolDuty?.deliveryContact()){patrolDuty.deliveryMenu();return true;}

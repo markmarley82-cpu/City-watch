@@ -11,7 +11,7 @@
    Case data is fetched only when needed, never at cold startup. */
 (function () {
   'use strict';
-  const DATA_URL = 'cases/city-cases.json?v=8';
+  const DATA_URL = 'cases/city-cases.json?v=9';
   const BOARD_MAX = 5; // available cases shown at once; more appear as these are closed
   const FLAG = 'cityCasesV1';
   const NEAR = 2.2;
