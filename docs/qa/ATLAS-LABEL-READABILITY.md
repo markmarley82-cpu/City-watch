@@ -14,3 +14,7 @@ Placement runs once per animation frame while the map is open, after pan, zoom, 
 - Screenshots and results.json are retained by the Atlas label and navigation checks workflow. Existing city/Bridge and startup-retry checks run alongside it.
 
 These are Chromium layout and input checks. Physical iPhone/Safari acceptance remains separate.
+
+## Result
+
+All four viewport flows and the layout/existing regression checks passed in [Actions run 45510255448](https://github.com/markmarley82-cpu/City-watch/actions/runs/45510255448). The [artifact](https://github.com/markmarley82-cpu/City-watch/actions/runs/45510255448/artifacts/14974734032) contains overview, initial and selected-route screenshots at all four sizes, the phone landscape resize and results.json. No JavaScript page errors were reported.
