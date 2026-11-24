@@ -9,7 +9,7 @@ import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw6
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
 import {createArmoury} from './cw-armoury.mjs?v=p21-b429-patrol-kit';
 import {createCityPointLookup} from './city-point-lookup.mjs?v=p21-b407-s039-reuse';
-import {createPalaceHost} from './palace/palace-host.mjs?v=b507';
+import {createPalaceHost} from './palace/palace-host.mjs?v=civic-v2';
 import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
@@ -31,11 +31,11 @@ try{const registry=await(await fetch('guild-interiors/guild-bindings.json?v=stre
 
 let postalHost=null;
 const postOfficeDoor=d=>d?.game_id==='post-office'&&!d.held;
-const openPostOffice=()=>postalHost??=(import('./post-office/host.mjs?v=b507').then(m=>m.createPostOfficeHost({city,makeStore:()=>window.CWP21State.create(localStorage)})).catch(e=>{postalHost=null;throw e;}));
+const openPostOffice=()=>postalHost??=(import('./post-office/host.mjs?v=civic-v2').then(m=>m.createPostOfficeHost({city,makeStore:()=>window.CWP21State.create(localStorage)})).catch(e=>{postalHost=null;throw e;}));
 const enterPostOffice=door=>openPostOffice().then(host=>host.enter(door)).catch(e=>{city.tell(e.message);return false;});
 let royalBankHost=null;
 const royalBankDoor=d=>d?.game_id==='royal-bank'&&!d.held;
-const openRoyalBank=()=>royalBankHost??=(import('./royal-bank/host.mjs?v=b507').then(m=>m.createRoyalBankHost({city,makeStore:()=>window.CWP21State.create(localStorage)})).catch(e=>{royalBankHost=null;throw e;}));
+const openRoyalBank=()=>royalBankHost??=(import('./royal-bank/host.mjs?v=civic-v2').then(m=>m.createRoyalBankHost({city,makeStore:()=>window.CWP21State.create(localStorage)})).catch(e=>{royalBankHost=null;throw e;}));
 const enterRoyalBank=door=>openRoyalBank().then(host=>host.enter(door)).catch(e=>{city.tell(e.message);return false;});
 artStartupTrace('palace setup');const palaceInteriors=await createPalaceHost({city,makeStore:()=>window.CWP21State.create(localStorage)});
 artStartupTrace('palace ready');const universityInteriors=createUniversityHost({city,makeStore:()=>window.CWP21State.create(localStorage)});

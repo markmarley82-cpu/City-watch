@@ -1,28 +1,29 @@
 import {createRoomSession} from '../guild-interiors/room-core.mjs?v=p21-b407-s039-reuse';
 import {createGuildCampaign} from '../guild-interiors/guild-campaign.mjs?v=p21-b407-s039-reuse';
-import {roomMarkup} from '../guild-interiors/room-markup.mjs?v=p21-b407-s039-reuse';
+import {civicRoomMarkup,createCivicRoomView,loadCivicRoomStyles} from '../guild-interiors/civic-room-view.mjs?v=1';
 import {createInteriorLightingClock} from '../city-clock.mjs?v=b507';
 import {loadPostalPaint} from "./paint.mjs?v=b505";
 // Royal Bank uses the same movement controls and campaign ledger as Palace reception.
 export async function createRoyalBankHost({city,makeStore}){
  const room=await(await fetch(new URL('reception.json?v=b505',import.meta.url))).json();
  const readLighting=createInteriorLightingClock(()=>makeStore().read().state,()=>location.search);
+ const presentation=createCivicRoomView(room);
  let styleReady;
  function loadStyle(){
-  return styleReady??=new Promise(resolve=>{
+  return styleReady??=Promise.all([loadCivicRoomStyles(document),new Promise(resolve=>{
    const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('royal-bank.css?v=b504',import.meta.url).href;
    link.onload=()=>resolve(true);
    link.onerror=()=>{link.remove();styleReady=null;resolve(false);};
    document.head.append(link);
-  });
+  })]).then(results=>{const ok=results.every(Boolean);if(!ok)styleReady=null;return ok;});
  }
  loadStyle();
  const dialog=document.createElement('dialog');dialog.id='cw-royal-bank-host';dialog.className='cw-interior-opening';dialog.setAttribute('aria-label','Ankh-Morpork Royal Bank');
- const root=document.createElement('div');root.innerHTML=roomMarkup.replace(/id="([^"]+)"/g,'id="royal-bank-$1"').replace(/aria-labelledby="([^"]+)"/g,'aria-labelledby="royal-bank-$1"');const panel=document.createElement('section');panel.className='cw-opening-panel';
+ const root=document.createElement('div');root.innerHTML=civicRoomMarkup('royal-bank');const panel=document.createElement('section');panel.className='cw-opening-panel';
  panel.innerHTML='<p role="status">Opening the Royal Bank…</p><button type="button">Cancel</button>';
  dialog.append(panel,root);document.body.append(dialog);
  const $=id=>root.querySelector('#royal-bank-'+id),canvas=$('room-canvas'),g=canvas.getContext('2d'),status=$('room-status');
- $('room-select').closest('label').hidden=true;root.querySelector('.preview-note').hidden=true;root.querySelector('.room-header small').textContent='CITY WATCH · ROYAL BANK';$('room-name').textContent='Royal Bank public hall';$('exit').textContent='Return to street';$('reenter').hidden=true;$('zoom').textContent='Closer view';canvas.setAttribute('aria-label','Royal Bank. Drag to steer, tap clear floor to walk, or use arrow keys.');
+ $('room-select').closest('label').hidden=true;root.querySelector('.preview-note').hidden=true;root.querySelector('.room-header small').textContent='CITY WATCH · ROYAL BANK';$('room-name').textContent='Royal Bank public hall';$('exit').textContent='Return to street';$('reenter').hidden=true;$('zoom').textContent='Whole room';canvas.setAttribute('aria-label','Royal Bank. Drag to steer, tap clear floor to walk, or use arrow keys.');
  $('target').replaceChildren(...room.hotspots.map(h=>new Option(h.title,h.id)));
  const look=root.querySelector('.room-look'),actions=root.querySelector('.room-actions'),places=document.createElement('button');
  places.type='button';places.textContent='Contacts';look.id='royal-bank-contact-drawer';look.hidden=true;
@@ -34,12 +35,13 @@ export async function createRoyalBankHost({city,makeStore}){
  look.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();showContacts(false);places.focus();}});
 
  const inspection=$('room-inspection'),portrait=document.createElement('canvas');portrait.width=180;portrait.height=180;portrait.className='royal-bank-portrait';inspection.querySelector('.inspection-folio').append(portrait);
+ let pendingUse=null;
  let visit=null,session=null,picture=null,ready=false,last=0,focus=null,zoom=1,camera=null,opening=false,inspectionActor=null,walkStart=0,wasWalking=false,requested=null;
  const ledger=createGuildCampaign({makeStore,rooms:[room],world:city.world,bindings:[{doorID:'royal-bank',roomID:room.id}],flagKey:'royalBankVisitV1',acceptDoorState:(p,d)=>city.world.transitions(p[2],p.slice(0,2)).includes(d.edge),position:city.position,visits:city.visits,steps:city.steps,stop:city.stop,restore:p=>{city.restore(p);city.update();}});
  const blocked=()=>!dialog.open||!ready||inspection.open||session?.view().pendingSave||session?.view().closed;
  function report(text){status.textContent=text;}
  const stick=CWJoystick.mount({...CWLocomotion.profile,element:$('stick'),projection:'orthogonal',blocked,context:()=>room.id,step:(dx,dy)=>session.moveBy(dx,dy),driveByFrame:true,onEngage:()=>session?.stop(performance.now()),onDrive:(vector,now,input)=>input?session.drive(vector,now):session.advance(now),onStop:()=>session?.stop(performance.now())});
- function halt(){gesture=null;stick.stop();session?.stop(performance.now());}
+ function halt(){pendingUse=null;gesture=null;stick.stop();session?.stop(performance.now());}
  function returned(){if(!visit)return;try{if(!ledger.finish(visit.id,session.snapshot()))return;visit=null;ready=false;halt();dialog.close();city.tell('Returned to the Royal Bank entrance.');focus?.isConnected&&focus.focus({preventScroll:true});}catch(e){report(e.message);}}
  const cancel=panel.querySelector('button'),openingStatus=panel.querySelector('[role="status"]');
  function cancelOpening(){
@@ -76,8 +78,9 @@ export async function createRoyalBankHost({city,makeStore}){
  function leave(){if(blocked())return;halt();session.requestExit();report('Returning to the public entrance…');}
  $('exit').onclick=leave;dialog.addEventListener('cancel',e=>{e.preventDefault();if(dialog.hasAttribute('data-loading'))cancelOpening();else if(inspection.open)inspection.close();else leave();});
  $('retry-save').onclick=()=>{if(session.retrySave()){$('retry-save').hidden=true;report('Progress saved.');}};
- $('zoom').onclick=()=>{zoom=zoom===1?1.65:1;$('zoom').textContent=zoom===1?'Closer view':'Whole room';};
+ $('zoom').onclick=()=>{zoom=zoom===1?0:1;$('zoom').textContent=zoom===1?'Whole room':'Follow officer';};
  $('approach').onclick=()=>{if(blocked())return;halt();const h=room.hotspots.find(h=>h.id===$('target').value);if(session.moveTo(h.stand)){requested=h;showContacts(false);canvas.focus({preventScroll:true});report('Approaching '+h.title.toLowerCase()+'…');}};
+ function goSpot(h){if(blocked())return;halt();if(h.id==='exit'){$('exit').click();return;}$('target').value=h.id;const v=session.view();if(Math.hypot(v.position[0]-h.stand[0],v.position[1]-h.stand[1])<=h.radius){requested=h;$('interact').onclick();}else{$('approach').click();if(session.view().route.length)pendingUse=h;}}
  function target(){const v=session?.view();if(!v||v.route.length||v.exitRequested)return null;if(!requested)return session.nearestHotspot();return Math.hypot(v.position[0]-requested.stand[0],v.position[1]-requested.stand[1])<=requested.radius?requested:null;}
  $('interact').onclick=()=>{if(blocked())return;const h=target();if(!h)return;halt();const found=session.examine(h.id);if(!found)return;$('inspection-title').textContent=h.title;$('inspection-text').textContent=h.text;inspectionActor=room.art.staff.find(n=>n.id===h.npc);portrait.hidden=!inspectionActor;portrait.setAttribute('role','img');portrait.setAttribute('aria-label',inspectionActor?.name||'');inspection.showModal();$('inspection-close').focus();};
  $('inspection-close').onclick=()=>inspection.close();inspection.addEventListener('close',()=>{$('interact').focus();});inspection.addEventListener('keydown',e=>e.stopPropagation());
@@ -100,14 +103,17 @@ export async function createRoyalBankHost({city,makeStore}){
   const prior=gesture;gesture=null;
   if(prior.moved){session.stop(performance.now());return;}
   if(e.type!=='pointerup'||blocked()||!camera||Math.hypot(e.clientX-prior.x,e.clientY-prior.y)>=12)return;
-  const b=canvas.getBoundingClientRect(),p=[(e.clientX-b.left-camera.x)/camera.scale/1536,(e.clientY-b.top-camera.y)/camera.scale/1024];
+  const b=canvas.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top,spot=presentation.hit(x,y,camera);
+  if(spot){goSpot(spot);return;}
+  const p=[(x-camera.x)/camera.scale/1536,(y-camera.y)/camera.scale/1024];
   if(session.moveTo(p))report('Walking…');else report('The wall, furniture or closed door blocks that point.');
  }
  canvas.addEventListener('keydown',e=>{const dir={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!dir||blocked())return;e.preventDefault();e.stopPropagation();requested=null;session.moveBy(...dir,.013);});
  for(const name of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(name,stopPointer);
  function paint(now){if(!dialog.open||!ready||document.hidden){last=0;return;}if(!blocked())session.step(last?now-last:0,now);last=now;
   const box=canvas.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);if(canvas.width!==Math.round(box.width*d)||canvas.height!==Math.round(box.height*d)){canvas.width=Math.round(box.width*d);canvas.height=Math.round(box.height*d);}g.setTransform(d,0,0,d,0,0);g.fillStyle='#121412';g.fillRect(0,0,box.width,box.height);
-  const view=session.view(),p=view.position,scale=Math.min(box.width/1536,box.height/1024)*zoom;camera={scale,x:box.width/2-(zoom===1?.5:.5+(p[0]-.5)*.4)*1536*scale,y:box.height/2-(zoom===1?.5:.5+(p[1]-.5)*.4)*1024*scale};g.save();g.translate(camera.x,camera.y);g.scale(scale,scale);picture.base(g);
+  const view=session.view(),p=view.position,nextCamera=presentation.camera(box.width,box.height,p,zoom===1),scale=nextCamera.scale;camera=nextCamera;g.save();g.translate(camera.x,camera.y);g.scale(scale,scale);picture.base(g);
+  if(!view.moving&&wasWalking&&pendingUse){const h=pendingUse;pendingUse=null;if(!blocked()&&Math.hypot(p[0]-h.stand[0],p[1]-h.stand[1])<=h.radius)$('interact').onclick();}
   if(view.moving&&!wasWalking)walkStart=now;wasWalking=view.moving;const pose={clip:view.moving&&!inspection.open?'walk':'idle',elapsed:now-walkStart,facing:view.facing,reduced:matchMedia('(prefers-reduced-motion: reduce)').matches};
   const key=city.characterPainter.playerKey,a=city.characterPainter.playerMeta;
   if(a)CWCharacters.draw(g,a,{...pose,actorId:'player',clothing:true,weapon:'truncheon'},p[0]*1536,p[1]*1024,room.actorHeight*CWCharacters.height(a,key)/60);
@@ -115,6 +121,7 @@ export async function createRoyalBankHost({city,makeStore}){
   g.restore();const h=target();if(h&&requested&&status.textContent.startsWith('Approaching '))report('At '+h.title+'.');$('interact').disabled=blocked()||!h;$('interact').textContent=h?.kind==='talk'||!h?'Talk':'Examine';$('interact').hidden=!h;$('exit').disabled=view.pendingSave;$('retry-save').hidden=!view.pendingSave;
   if(inspection.open&&inspectionActor){const c=portrait.getContext('2d');c.clearRect(0,0,180,180);picture.clerk(c,inspectionActor.id,90,172,160);}
 
+  presentation.markers(g,camera,view,pendingUse||target(),box.width,box.height);canvas.dataset.view='v2';
   canvas.dataset.room=room.id;canvas.dataset.position=p.join(',');canvas.dataset.moving=String(view.moving);canvas.dataset.loaded='true';canvas.dataset.clock=lighting.phase;canvas.dataset.clockBasis=lighting.basis;
  }
  requestAnimationFrame(function frame(now){paint(now);requestAnimationFrame(frame);});addEventListener('pagehide',()=>{if(visit)halt();});addEventListener('blur',()=>{if(visit)halt();});document.addEventListener('visibilitychange',()=>{if(document.hidden){halt();last=0;}});
