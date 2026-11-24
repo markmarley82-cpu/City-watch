@@ -1,0 +1,41 @@
+name: Civic room interface checks
+on:
+  push:
+    branches: [fix/civic-room-view-v2]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: civic-room-review
+  cancel-in-progress: true
+jobs:
+  rooms:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/civic-qa" --no-audit --no-fund playwright@1.63.0
+          "$RUNNER_TEMP/civic-qa/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Check syntax and existing cases
+        run: |
+          node --check dist/guild-interiors/civic-room-view.mjs
+          node --check dist/post-office/host.mjs
+          node --check dist/royal-bank/host.mjs
+          node --check dist/palace/palace-host.mjs
+          node tests/cw-city-cases-data.mjs
+          node tests/cw-nc01-bridge-pilot.mjs
+      - name: Check civic rooms on phone, landscape, tablet and desktop
+        env:
+          NODE_PATH: ${{ runner.temp }}/civic-qa/node_modules
+        run: node tools/test-civic-room-view.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: civic-room-review
+          path: qa-results/civic-rooms/
+          if-no-files-found: warn
