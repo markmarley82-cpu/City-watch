@@ -1,3 +1,4 @@
+import {placeAtlasLabels} from './city-atlas-labels.mjs?v=1';
 import {surveyGeometry,planPoint,normalizedPoint,rectPolygon} from './city-survey.mjs?v=p21-b471-atlas-parity';
 export {surveyGeometry,planPoint,normalizedPoint,rectPolygon} from './city-survey.mjs?v=p21-b471-atlas-parity';
 // Display anchors for districts and major playable areas, not boundary claims.
@@ -116,8 +117,25 @@ export function bindCityAtlas(dialog,{getNetwork=()=>null,getStreetLanes=()=>[],
   }
   Object.assign(viewport.dataset,{publicCourses:String(courses.length),pavedLaneSegments:String(survey.lanes.length),housingLaneSegments:String(survey.lanes.filter(s=>s.housingLane).length),walkableCells:String(survey.walkable.cellCount),namedRoadCells:String(survey.roadGround.cellCount),walkableRuns:String(survey.walkable.runs.length),loaded:'true',projection:'linear-engine-survey',roads:String(survey.roads.length),parcels:String(survey.buildings.length),water:String(survey.water.length),bounds:JSON.stringify(survey.bounds)});
  }
+ // Batch geometry reads/writes only while the map is open, including pan and pinch.
+ let labelFrame=0;
+ function scheduleLabels(){if(!labelFrame&&dialog.open)labelFrame=requestAnimationFrame(()=>{labelFrame=0;layoutLabels();});}
+ function layoutLabels(){
+  if(!dialog.open)return;
+  const nodes=[...plane.querySelectorAll('.atlas-pin-label,.atlas-area-name,.atlas-street-name')];
+  for(const n of nodes){n.style.visibility='';n.style.setProperty('--atlas-label-shift','0px');}
+  const rect=n=>{const r=n.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};
+  const obstacles=[playerPin,beatPin,cartouche,controls,index,summary,areas,dialog.querySelector('#atlas-close')].filter(n=>n&&!n.hidden&&n.getClientRects().length).map(rect);
+  const labels=nodes.filter(n=>n.getClientRects().length).map(n=>{const pin=n.closest('.atlas-place-pin'),focused=pin===doc.activeElement,selected=pin?.classList.contains('is-selected');return{id:n,...rect(n),priority:focused?500:selected?400:pin?300:n.classList.contains('atlas-area-name')?200:100};});
+  const placed=placeAtlasLabels(labels,{bounds:rect(viewport),obstacles});
+  for(const n of nodes){const shift=placed.get(n);n.style.visibility=shift===undefined?'hidden':'';n.style.setProperty('--atlas-label-shift',(shift||0)+'px');}
+  plane.dataset.labelsPlaced=String(placed.size);
+ }
+ viewport.addEventListener('scroll',scheduleLabels,{passive:true});
+ viewport.addEventListener('focusin',scheduleLabels);viewport.addEventListener('focusout',scheduleLabels);
+ doc.fonts?.ready.then(scheduleLabels);
  function metrics(){const ratio=survey.bounds[2]/survey.bounds[3];baseWidth=Math.min(viewport.clientWidth||1,(viewport.clientHeight||1)*ratio);baseHeight=baseWidth/ratio;}
- function layout(){const w=baseWidth*zoom,h=baseHeight*zoom;offsetX=viewport.clientWidth/2;offsetY=viewport.clientHeight/2;content.style.width=(w+viewport.clientWidth)+'px';content.style.height=(h+viewport.clientHeight)+'px';Object.assign(plane.style,{width:w+'px',height:h+'px',left:offsetX+'px',top:offsetY+'px'});out.disabled=zoom<=1;inside.disabled=zoom>=8;viewport.dataset.zoom=zoom.toFixed(2);plane.dataset.detail=String(zoom>=2);}
+ function layout(){const w=baseWidth*zoom,h=baseHeight*zoom;offsetX=viewport.clientWidth/2;offsetY=viewport.clientHeight/2;content.style.width=(w+viewport.clientWidth)+'px';content.style.height=(h+viewport.clientHeight)+'px';Object.assign(plane.style,{width:w+'px',height:h+'px',left:offsetX+'px',top:offsetY+'px'});out.disabled=zoom<=1;inside.disabled=zoom>=8;viewport.dataset.zoom=zoom.toFixed(2);plane.dataset.detail=String(zoom>=2);scheduleLabels();}
  function focusStop(){
   const stop=getBeatStop();if(!stop)return;
   if(stop.caseObjective&&zoom<5){zoom=5;layout();}
@@ -125,7 +143,7 @@ export function bindCityAtlas(dialog,{getNetwork=()=>null,getStreetLanes=()=>[],
  }
  function center(p){if(p){viewport.scrollLeft=offsetX+p[0]*baseWidth*zoom-viewport.clientWidth/2;viewport.scrollTop=offsetY+p[1]*baseHeight*zoom-viewport.clientHeight/2;}}
  function scale(next,anchor=[viewport.clientWidth/2,viewport.clientHeight/2]){const p=[(viewport.scrollLeft+anchor[0]-offsetX)/(baseWidth*zoom),(viewport.scrollTop+anchor[1]-offsetY)/(baseHeight*zoom)];zoom=Math.max(1,Math.min(8,next));layout();viewport.scrollLeft=offsetX+p[0]*baseWidth*zoom-anchor[0];viewport.scrollTop=offsetY+p[1]*baseHeight*zoom-anchor[1];if(zoom===1)center([.5,.5]);}
- function sync(){const d=getSelected();refreshPlayer();visit.disabled=!d||!!d.held;routeLine?.removeAttribute('points');viewport.dataset.route='[]';availability.textContent=d?.held?'Closed':'';availability.hidden=!d?.held;
+ function sync(){scheduleLabels();const d=getSelected();refreshPlayer();visit.disabled=!d||!!d.held;routeLine?.removeAttribute('points');viewport.dataset.route='[]';availability.textContent=d?.held?'Closed':'';availability.hidden=!d?.held;
   pins.forEach(({pin,d:item})=>{const chosen=active&&d?.game_id===item.game_id;pin.classList.toggle('is-selected',chosen);pin.setAttribute('aria-pressed',String(chosen));});
   if(active&&d&&!d.held){const path=getRoute(d);if(Array.isArray(path)){const points=[getPlayer(),...path].filter(p=>planPoint(p));routeLine.setAttribute('points',pts(points));viewport.dataset.route=JSON.stringify(points);availability.textContent=path.length?'Marked walking route':'You are at the approach';}else availability.textContent='Route blocked right now';availability.hidden=false;}
  }
@@ -152,11 +170,11 @@ export function bindCityAtlas(dialog,{getNetwork=()=>null,getStreetLanes=()=>[],
  viewport.addEventListener('wheel',e=>{e.preventDefault();if(e.ctrlKey||e.metaKey)scale(zoom*Math.exp(-e.deltaY*.005),anchor(e));else{viewport.scrollLeft+=e.deltaX;viewport.scrollTop+=e.deltaY;}},{passive:false});
  viewport.addEventListener('keydown',e=>{if(e.target!==viewport)return;const d={ArrowLeft:[-80,0],ArrowRight:[80,0],ArrowUp:[0,-80],ArrowDown:[0,80]}[e.key];if(d){e.preventDefault();viewport.scrollLeft+=d[0];viewport.scrollTop+=d[1];}else if(e.key==='+'||e.key==='='){e.preventDefault();scale(zoom*1.5);}else if(e.key==='-'){e.preventDefault();scale(zoom/1.5);}});
  const resize=new ResizeObserver(()=>{if(!dialog.open)return;const p=[(viewport.scrollLeft+viewport.clientWidth/2-offsetX)/(baseWidth*zoom),(viewport.scrollTop+viewport.clientHeight/2-offsetY)/(baseHeight*zoom)];metrics();layout();center(p);});resize.observe(viewport);
- dialog.addEventListener('close',()=>{pointers.clear();gesture=null;active=false;toggleIndex(false);});
+ dialog.addEventListener('close',()=>{cancelAnimationFrame(labelFrame);labelFrame=0;pointers.clear();gesture=null;active=false;toggleIndex(false);});
  return {open(){
   places=getDestinations().filter(d=>d&&planPoint(d.position));const destinations=new Map(places.map(d=>[d.game_id,d]));for(const option of select.options){const d=destinations.get(option.value);if(d)option.textContent=d.name+(d.held?' · Closed':'');}
   paint();pins.forEach(({pin})=>pin.remove());pins=[];const primary=new Set(['watch','opera','palace','university','drum','shades','warehouse']);
-  for(const d of places){const pin=button('',()=>choose(d.game_id),'atlas-place-pin');pin.setAttribute('aria-label',d.name+(d.held?' · Closed':''));pin.dataset.placeId=d.game_id;pin.dataset.label=d.name;pin.dataset.position=JSON.stringify(d.position.slice(0,2));pin.title=d.name;pin.classList.toggle('is-primary',primary.has(d.game_id)||d.overviewPin===true);position(pin,normalizedPoint(d.position,survey.bounds));plane.append(pin);pins.push({pin,d});}
+  for(const d of places){const pin=button('',()=>choose(d.game_id),'atlas-place-pin');pin.setAttribute('aria-label',d.name+(d.held?' · Closed':''));const name=node('span','atlas-pin-label',d.name);name.setAttribute('aria-hidden','true');pin.append(name);pin.dataset.placeId=d.game_id;pin.dataset.label=d.name;pin.dataset.position=JSON.stringify(d.position.slice(0,2));pin.title=d.name;pin.classList.toggle('is-primary',primary.has(d.game_id)||d.overviewPin===true);position(pin,normalizedPoint(d.position,survey.bounds));plane.append(pin);pins.push({pin,d});}
   const stop=getBeatStop();beat.hidden=!stop;beatPin.textContent=stop?.name||'';
   beat.textContent=stop?.caseObjective?'Case':'Beat';
   beat.setAttribute('aria-label',stop?.caseObjective?'Centre map on case objective':'Centre map on next beat stop');

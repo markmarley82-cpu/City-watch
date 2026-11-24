@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {placeAtlasLabels} from '../dist/city-atlas-labels.mjs';
+const bounds={x:0,y:0,width:300,height:200};
+const a={id:'selected',x:80,y:80,width:90,height:15,priority:400};
+const b={id:'district',x:80,y:80,width:90,height:15,priority:200};
+const source=JSON.stringify([b,a]);
+let placed=placeAtlasLabels([b,a],{bounds});
+assert.equal(placed.get('selected'),0);assert.equal(placed.get('district'),-36);
+assert.equal(JSON.stringify([b,a]),source,'Input geometry changed');
+placed=placeAtlasLabels([a,b],{bounds,obstacles:[{x:70,y:80,width:120,height:20}]});
+assert.equal(placed.get('selected'),-36);assert.equal(placed.get('district'),36);
+assert.equal(placeAtlasLabels([{...a,x:-10}],{bounds}).size,0,'Clipped label shown');
+assert.equal(placeAtlasLabels([{...a,width:NaN}],{bounds}).size,0);
+assert.equal(placeAtlasLabels([a,{...b,shifts:[0]}],{bounds}).has('district'),false,'Crowded label not suppressed');
+assert.deepEqual([...placeAtlasLabels([a,b],{bounds})],[...placeAtlasLabels([a,b],{bounds})],'Layout is not deterministic');
+assert.equal(placeAtlasLabels([{...a,y:2}],{bounds}).get('selected'),18,'Edge label did not take available offset');
+console.log('PASS label priority, local offsets, obstacles, clipping, crowded fallback, deterministic layout and unchanged anchors');
