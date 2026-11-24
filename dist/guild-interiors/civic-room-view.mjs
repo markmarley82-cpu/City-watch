@@ -34,7 +34,9 @@ export function createCivicRoomView(room){
    x=Math.max(half,Math.min(width-half,x));y=Math.max(14,Math.min(height-14,y));g.lineWidth=3;g.strokeStyle='#000d';g.strokeText(text,x,y);g.fillStyle=color;g.fillText(text,x,y);
   };
   for(const h of spots){const [x,y]=point(h,c);if(x<-34||x>width+34||y<-34||y>height+34)continue;const selected=h.id===active?.id,color=selected?'#f3d58a':'#fff';g.strokeStyle=color;g.lineWidth=2;g.beginPath();g.ellipse(x,y,15,6.5,0,0,Math.PI*2);g.stroke();label(h===EXIT?'↩':h.kind==='talk'?'…':'◆',x,y-22,16,color);if(h===EXIT||selected)label(h===EXIT?'EXIT':h.title,x,y+(h===EXIT?17:-42),13,color);}
-  label('YOU',view.position[0]*1536*c.scale+c.x,(view.position[1]*1024-room.actorHeight-12)*c.scale+c.y,12,'#fff');g.restore();
+  const player=[view.position[0]*1536*c.scale+c.x,view.position[1]*1024*c.scale+c.y];
+  const crowded=spots.some(h=>(h===EXIT||h.id===active?.id)&&Math.hypot(...point(h,c).map((v,i)=>v-player[i]))<80);
+  if(!crowded)label('YOU',player[0],player[1]-(room.actorHeight+12)*c.scale,12,'#fff');g.restore();
  }
  return Object.freeze({camera,hit,markers});
 }

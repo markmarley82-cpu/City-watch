@@ -19,6 +19,8 @@ async function shot(page,name){await page.screenshot({path:out+'/'+name+'.jpg',t
     assert.equal(await canvas.getAttribute('data-view'),'v2');
     const geometry=await dialog.evaluate(d=>{const c=d.querySelector('canvas'),r=c.getBoundingClientRect();return{scroll:d.scrollWidth,width:d.clientWidth,canvas:{x:r.x,y:r.y,width:r.width,height:r.height},viewport:[innerWidth,innerHeight]};});
     assert(geometry.scroll<=geometry.width+2,'Horizontal room overflow '+JSON.stringify(geometry));assert(geometry.canvas.height>device.viewport.height*.65,'Room stage too small '+JSON.stringify(geometry));
+    const controls=await dialog.locator('.room-actions button').evaluateAll(bs=>bs.filter(b=>b.getClientRects().length).map(b=>{const r=b.getBoundingClientRect();return{text:b.textContent,x:r.x,y:r.y,right:r.right,bottom:r.bottom};}));
+    for(const b of controls)assert(b.x>=0&&b.y>=0&&b.right<=device.viewport.width+1&&b.bottom<=device.viewport.height+1,'Clipped control '+JSON.stringify(b));
     await shot(page,prefix+'-'+name+'-room');
     const hotspot=room.hotspots.find(h=>h.kind==='talk');assert(hotspot);
     const point=await page.evaluate(async({prefix,room,stand})=>{const {createCivicRoomView}=await import('./guild-interiors/civic-room-view.mjs?v=1'),canvas=document.getElementById(prefix+'-room-canvas'),b=canvas.getBoundingClientRect(),p=canvas.dataset.position.split(',').map(Number),c=createCivicRoomView(room).camera(b.width,b.height,p,true);return{x:b.x+stand[0]*1536*c.scale+c.x,y:b.y+stand[1]*1024*c.scale+c.y-22};},{prefix,room,stand:hotspot.stand});

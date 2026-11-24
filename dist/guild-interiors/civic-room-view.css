@@ -12,3 +12,6 @@
  :is(#cw-post-office-host,#cw-royal-bank-host,#cw-palace-host) .room-v2 :is(#post-office-room-status,#royal-bank-room-status,#palace-room-status){left:8px;right:auto;bottom:8px;max-width:calc(100vw - 300px);font-size:12px}
  :is(#cw-post-office-host,#cw-royal-bank-host,#cw-palace-host) .room-v2 .room-look{left:auto;width:min(420px,calc(100vw - 16px));bottom:64px}
 }
+
+/* Clear the legacy landscape grid placement before positioning overlays. */
+:is(#cw-post-office-host,#cw-royal-bank-host,#cw-palace-host) .room-v2 :is(.room-controls,.room-look){grid-area:auto}
