@@ -145,6 +145,32 @@
     sync();
   }
 
-  function start() { watchBanner(); watchDuty(); watchCrossing(); }
+  /* A player whose browser cleared the save lands on recruitment with no Duty menu yet.
+     Offer the backup restore there too, and do not promise a saved patrol that is not there. */
+  // Recruited means the oath was signed (the game records the recruit's name); a new browser writes a blank campaign at start.
+  const hasCampaign = () => { try { const c = JSON.parse(localStorage.getItem('city_watch_p21_campaign_v1') || 'null'); return !!(c && c.state && c.state.flags && c.state.flags.recruitName); } catch (e) { return false; } };
+  function fixLoadingNote() {
+    if (hasCampaign()) return;
+    for (const s of document.querySelectorAll('small')) if (/Your saved patrol will resume unchanged/.test(s.textContent)) s.textContent = 'A new recruit is reporting for duty.';
+  }
+  function addRecruitRestore() {
+    for (const host of [document.getElementById('character-studio'), document.getElementById('cw-recruitment-gate')]) {
+      if (!host || host.querySelector('.cw-fixes-restore')) continue;
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'cw-fixes-restore';
+      b.textContent = 'Played before? Restore a saved patrol from a backup file';
+      b.addEventListener('click', importSave);
+      const footer = host.querySelector('.character-footer');
+      if (footer) footer.before(b); else host.append(b);
+    }
+  }
+  function watchRecruit() {
+    addRecruitRestore();
+    if (hasCampaign()) return; // already recruited: the Duty menu has the restore button
+    let queued = false;
+    const o = new MutationObserver(() => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; if (hasCampaign()) { o.disconnect(); return; } addRecruitRestore(); }); });
+    o.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function start() { fixLoadingNote(); watchBanner(); watchDuty(); watchCrossing(); watchRecruit(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

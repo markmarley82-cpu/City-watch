@@ -75,5 +75,5 @@
   addEventListener('unhandledrejection',e=>{if(document.body.dataset.cityBoot!=='ready')boot.fail(e.reason);});
   addEventListener('error',e=>{if(e.error&&document.body.dataset.cityBoot!=='ready')boot.fail(e.error);});
   document.body.dataset.cityBoot='loading';armWatchdog();
-  const module=document.createElement('script');module.type='module';const cityModuleURL=new URL("city.mjs",document.baseURI).href+"?v="+encodeURIComponent(window.CW_LAB_RELEASE.runtimeCacheToken||window.CW_LAB_RELEASE.version)+"-atlas-labels-v2-startup-recovery-v2-civic-v2-jimmy-view-drag-atlas-districts-prouts-cw-nc01-pilot64-polish";module.textContent="import("+JSON.stringify(cityModuleURL)+").catch(e=>window.CWPhoneBoot.fail(e));";document.body.append(module);
+  const module=document.createElement('script');module.type='module';const cityModuleURL=new URL("city.mjs",document.baseURI).href+"?v="+encodeURIComponent(window.CW_LAB_RELEASE.runtimeCacheToken||window.CW_LAB_RELEASE.version)+"-atlas-labels-v2-startup-recovery-v2-civic-v2-jimmy-view-drag-atlas-districts-prouts-cw-nc01-pilot65-polish";module.textContent="import("+JSON.stringify(cityModuleURL)+").catch(e=>window.CWPhoneBoot.fail(e));";document.body.append(module);
 })();

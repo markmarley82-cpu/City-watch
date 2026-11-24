@@ -9,7 +9,12 @@ export function activateDrumPlot({world,ground,rect,door,reachable=()=>true}){
  const priorPoint=ground.clearPoint,priorTraverse=world.canTraverse,blockedBefore=new Set(),solidBefore=new Set();
  const inPlot=p=>p[0]>b[0]&&p[0]<b[2]&&p[1]>b[1]&&p[1]<b[3];
  // A short step is sampled finely enough that it cannot cut a corner of the plot.
- const crosses=(p,q)=>{const n=Math.max(2,Math.ceil(Math.hypot(q[0]-p[0],q[1]-p[1])/.05));for(let i=0;i<=n;i++){const t=i/n;if(inPlot([p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t]))return true;}return false;};
+ // Exact segment test against the open plot box (Liang-Barsky), instead of sampling points
+ // every 0.05 cells: this runs for every walking step and route search near the Drum.
+ const crosses=(p,q)=>{let lo=0,hi=1;for(let k=0;k<2;k++){const a=p[k],d=q[k]-a,mn=b[k],mx=b[k+2];
+  if(d===0){if(!(a>mn&&a<mx))return false;continue;}
+  let t1=(mn-a)/d,t2=(mx-a)/d;if(t1>t2){const t=t1;t1=t2;t2=t;}if(t1>lo)lo=t1;if(t2<hi)hi=t2;if(!(lo<hi))return false;}
+  return true;};
  for(let x=rx;x<rx+w;x++)for(let y=ry;y<ry+h;y++){
   const k=key(x,y);if(world.members.has(k)){removed.push([k,world.members.get(k)]);world.members.delete(k);}
   if(ground.blocked?.has(k))blockedBefore.add(k);if(world.solid.has(k))solidBefore.add(k);world.solid.add(k);ground.extra?.delete(k);ground.blocked?.add(k);
