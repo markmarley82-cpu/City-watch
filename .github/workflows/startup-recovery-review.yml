@@ -1,0 +1,41 @@
+name: Startup image recovery checks
+on:
+  push:
+    branches: [fix/startup-image-recovery]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: startup-image-recovery
+  cancel-in-progress: true
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check retry policy and existing cases
+        run: |
+          node --check dist/city.mjs
+          node --check dist/phone-map.js
+          node --check tools/test-startup-recovery.cjs
+          node tests/city-image-retry.mjs
+          node tests/cw-city-cases-data.mjs
+          node tests/cw-nc01-bridge-pilot.mjs
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/startup-qa" --no-audit --no-fund playwright@1.63.0
+          "$RUNNER_TEMP/startup-qa/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Inject failed painting requests in the full game
+        env:
+          NODE_PATH: ${{ runner.temp }}/startup-qa/node_modules
+        run: node tools/test-startup-recovery.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: startup-recovery-review
+          path: qa-results/startup-recovery/
+          if-no-files-found: warn

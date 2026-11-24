@@ -73,7 +73,7 @@ import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse
 import {approachRoofCutawayMask,walkingCutawayMask,walkingGroundSamples,e045PavingSweep} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
 import {bridgeFallbackCell,nearBridgeLanding} from './city-bridge-contact.mjs?v=p21-b407-s039-reuse';
 import {createStartupImageBatch,PARCEL_STARTUP_PATHS} from './city-startup-images.mjs?v=p21-b407-s039-reuse';
-import {queueImageWithRetry} from './city-image-retry.mjs?v=p21-b512-startup-retry';
+import {queueImageWithRetry} from './city-image-retry.mjs?v=startup-recovery-v2';
 import {createCityCarts} from './city-cart-runtime.mjs?v=p21-b521-street-budget';
 import {createStreetLife,createStreetLifeWarmup} from './city-street-life.mjs?v=busier-1';
 import {constrainGuildActorOrder} from './city-guild-actor-depth.mjs?v=p21-b407-s039-reuse';
@@ -213,7 +213,7 @@ function drainImageQueue(){
  }
 }
 function queueImage(path,url){return new Promise((resolve,reject)=>{imageQueue.push({path,url,resolve,reject});drainImageQueue();});}
-const retryImage=(p,url)=>queueImageWithRetry(queueImage,p,url,{retries:1,onRetry:({error})=>{imageLoadRetries++;lastImageLoadFailure={path:p,message:error.message,retrying:true};}});
+const retryImage=(p,url)=>queueImageWithRetry(queueImage,p,url,{onRetry:({error})=>{imageLoadRetries++;lastImageLoadFailure={path:p,message:error.message,retrying:true};}});
 async function load(p){const url=new URL(p,document.baseURI).href;if(images.has(p))return images.get(p);const other=imagesByURL.get(url);if(other){images.set(p,other);return other;}let pending=pendingImages.get(url);if(pending)joinedImageRequests++;else{pending=retryImage(p,url);pendingImages.set(url,pending);}try{const im=await pending;images.set(p,im);imagesByURL.set(url,im);return im;}finally{if(pendingImages.get(url)===pending)pendingImages.delete(url);}}
 // A reduced painting is constructed from an expendable decoder. Never borrow a
 // retained scene image here: releasing that shared HTMLImageElement would leave

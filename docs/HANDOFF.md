@@ -92,6 +92,9 @@ Read this first, then `docs/NEXT-STEPS.md`.
   walking speed holds and no snags; frame time is mostly the building see-through compositing
   (`city-local-cutaway.mjs`), drawing people, and ground repaints (`city-ground-cache.mjs`). Headless timings were too
   noisy to prove a fix, so nothing was changed. Needs Mark's own report of where it happens.
+- **Startup image recovery (24 Nov)**: the loader waits 300 ms and 1.2 s before two cache-busted retries;
+  healthy loads do not wait. Permanent failures retain the Retry loading screen. See
+  `docs/qa/STARTUP-IMAGE-RECOVERY.md` and `tools/test-startup-recovery.cjs`.
 - **Automated check (23 Nov)**: a fresh iPhone 11 player completes the opening purse case end to end with no errors;
   `tools/test-crawl-errors.cjs` reports no failures on all pages.
 - The Bridge case still needs Mark's playtest (`docs/cases/Bridge-Shift-Playtest.md`).
