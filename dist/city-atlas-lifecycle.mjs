@@ -122,6 +122,8 @@ export function bindCityAtlas(dialog,{getNetwork=()=>null,getStreetLanes=()=>[],
  function scheduleLabels(){if(!labelFrame&&dialog.open)labelFrame=requestAnimationFrame(()=>{labelFrame=0;layoutLabels();});}
  function layoutLabels(){
   if(!dialog.open)return;
+  // Keep the district picker above the destination sheet when it is open.
+  areas.style.bottom=summary.hidden?'':Math.ceil(summary.getBoundingClientRect().height+20)+'px';
   const nodes=[...plane.querySelectorAll('.atlas-pin-label,.atlas-area-name,.atlas-street-name')];
   for(const n of nodes){n.style.visibility='';n.style.setProperty('--atlas-label-shift','0px');}
   const rect=n=>{const r=n.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};
@@ -148,7 +150,7 @@ export function bindCityAtlas(dialog,{getNetwork=()=>null,getStreetLanes=()=>[],
   if(active&&d&&!d.held){const path=getRoute(d);if(Array.isArray(path)){const points=[getPlayer(),...path].filter(p=>planPoint(p));routeLine.setAttribute('points',pts(points));viewport.dataset.route=JSON.stringify(points);availability.textContent=path.length?'Marked walking route':'You are at the approach';}else availability.textContent='Route blocked right now';availability.hidden=false;}
  }
  function focusSelection(){const points=JSON.parse(viewport.dataset.route||'[]').map(p=>normalizedPoint(p,survey.bounds)).filter(Boolean);if(!points.length)return;const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);const topMargin=Math.max(90,cartouche.offsetHeight+40),bottomMargin=summary.hidden?60:summary.offsetHeight+38,availableHeight=Math.max(70,viewport.clientHeight-topMargin-bottomMargin);zoom=Math.max(1,Math.min(3,(viewport.clientWidth-90)/(Math.max(.03,right-left)*baseWidth),availableHeight/(Math.max(.03,bottom-top)*baseHeight)));layout();center([(left+right)/2,(top+bottom)/2]);viewport.scrollTop+=(bottomMargin-topMargin)/2;}
- function toggleIndex(open){summary.hidden=!open;index.hidden=open;index.setAttribute('aria-expanded',String(open));if(open){active=true;sync();focusSelection();select.focus({preventScroll:true});}else if(dialog.open)index.focus({preventScroll:true});}
+ function toggleIndex(open){summary.hidden=!open;index.hidden=open;index.setAttribute('aria-expanded',String(open));if(open){active=true;sync();focusSelection();select.focus({preventScroll:true});}else if(dialog.open)index.focus({preventScroll:true});scheduleLabels();}
  function choose(id){select.value=id;active=true;summary.hidden=false;index.hidden=true;index.setAttribute('aria-expanded','true');select.dispatchEvent(new Event('change',{bubbles:true}));select.focus({preventScroll:true});}
  select.addEventListener('change',()=>{active=true;sync();focusSelection();});
  viewport.addEventListener('click',e=>{const hit=e.target.closest('.atlas-place-pin');if(!hit)return;let chosen=pins.find(p=>p.pin===hit);if(e.detail>0){const r=plane.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;const nearest=pins.filter(p=>zoom>=2||p.pin.classList.contains('is-primary')||p.pin.classList.contains('is-selected')).map(p=>{const q=normalizedPoint(p.d.position,survey.bounds);return {...p,distance:Math.hypot(q[0]*r.width-x,q[1]*r.height-y)};}).sort((a,b)=>a.distance-b.distance)[0];if(nearest?.distance<=22)chosen=nearest;}if(chosen){e.preventDefault();e.stopImmediatePropagation();choose(chosen.d.game_id);}},true);

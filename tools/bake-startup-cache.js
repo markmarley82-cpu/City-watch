@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
     const page = await (await browser.newContext({ ...devices['iPhone 13'] })).newPage();
     await page.addInitScript(() => { window.__CW_BAKE = { checks: {} }; });
     const base = 'http://127.0.0.1:' + server.address().port + '/City-watch/', seen = []; let booted = false;
-    page.on('request', r => { const u = r.url(); if (!booted && u.startsWith(base) && r.resourceType() !== 'document') seen.push(u.slice(base.length)); });
+    page.on('request', r => { const u = r.url(); if (!booted && u.startsWith(base) && r.resourceType() !== 'document' && r.headers()['x-cw-prefetch'] !== '1') seen.push(u.slice(base.length)); });
     await page.goto('http://127.0.0.1:' + server.address().port + '/City-watch/index.html');
     await page.waitForFunction(() => ['ready', 'failed'].includes(document.body.dataset.cityBoot), null, { timeout: 300000 });
     booted = true;

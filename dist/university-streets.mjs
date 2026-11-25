@@ -6,9 +6,9 @@ export function sourceReservation(rect){return [rect[0]-.5,rect[1]-.5,rect[2],re
 export async function createUniversityStreets({read,load,loadScenery=load,addSprites,imageDensity}){
  const previous=new URLSearchParams(globalThis.location?.search||'').get('frontage')==='previous';
  const manifest=await read(STREET_BASE+(previous?'manifest-before-v22.json':'manifest.json')+'?v=p21-b86-consolidated');
- const ims=new Map();
+ const ims=new Map(),mirrored=new Set(manifest.instances.filter(i=>i.mirror).map(i=>i.asset));
  // Load the current manifest: every structure has its own authored painting.
- for(let i=0;i<manifest.assets.length;i+=3)await Promise.all(manifest.assets.slice(i,i+3).map(async a=>ims.set(a.id,await loadScenery(STREET_BASE+a.file))));
+ for(let i=0;i<manifest.assets.length;i+=3)await Promise.all(manifest.assets.slice(i,i+3).map(async a=>ims.set(a.id,await (mirrored.has(a.id)&&imageDensity?imageDensity.image:loadScenery)(STREET_BASE+a.file,a.dimensions))));
  const floor=await load(STREET_BASE+manifest.ground.file),assets=new Map(manifest.assets.map(a=>[a.id,a]));
  const placements=[],reflections=new Map();
  for(const item of manifest.instances){const a=assets.get(item.asset);let im=ims.get(item.asset),anchor=a.anchor;

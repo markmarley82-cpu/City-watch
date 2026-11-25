@@ -18,6 +18,7 @@ async function geometry(page,stage){
   for(const other of data.labels.slice(i+1))assert(!overlap(l,other),'Overlapping labels at '+stage+': '+l.text+' / '+other.text);
   for(const obstacle of data.obstacles)assert(!overlap(l,obstacle),'Label under map control or player at '+stage+': '+l.text);
  }
+ const controls=await page.locator('#atlas-dialog').evaluate(d=>[...d.querySelectorAll('.atlas-map-cartouche,.atlas-map-controls,.atlas-index-toggle,.atlas-place-index,.atlas-area-picker,#atlas-close')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};}));for(let i=0;i<controls.length;i++)for(let j=i+1;j<controls.length;j++)assert(!overlap(controls[i],controls[j]),'Map controls overlap at '+stage);
  return data;
 }
 (async()=>{
