@@ -3,7 +3,7 @@ const out=output('qa-results/sweep-combat'),results={flows:[]};
 const key='city_watch_p21_campaign_v1';
 const record=p=>p.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);
 function rewards(r){return{coins:r.state.coins,merit:r.state.merit,hp:r.state.hp,chapter:r.state.chapter,stage:r.state.stage,items:r.state.items,encounters:r.encounters,pending:r.pending};}
-async function frame(page){await page.locator('#p21-combat-dialog[open]:not([data-loading])').waitFor({timeout:60000});await page.waitForFunction(()=>window.__qaBattle);return page.frames().find(f=>f.url().includes('field-training/index.html'));}
+async function frame(page){await page.locator('#p21-combat-dialog[open]:not([data-loading])').waitFor({timeout:60000});await page.waitForFunction(()=>window.__qaBattle);const f=page.frames().find(f=>f.url().includes('field-training/index.html'));await f.locator('#scene[data-officer-art="source-hd"]').waitFor({timeout:30000});return f;}
 async function command(page,f,goal){
  const decision=await f.evaluate(goal=>{const s=parent.__qaBattle,C=BastionCombat;if(s.phase==='result')return{op:'done'};const foes=s.actors.filter(a=>a.team==='opposition'&&['active','surrendered'].includes(a.status));const order=foes.slice().sort((a,b)=>Number(b.id==='lookout')-Number(a.id==='lookout'));
   if(s.budget.action){for(const a of order)if(goal==='arrest'&&!C.availability(s,'restrain',a.id))return{op:'restrain',id:a.id};else if(goal==='release'&&(a.status==='surrendered'||a.morale<=4)&&!C.availability(s,'bargain',a.id))return{op:'bargain',id:a.id};for(const a of order)if(!C.availability(s,'talk',a.id))return{op:'talk',id:a.id};}

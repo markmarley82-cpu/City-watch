@@ -276,7 +276,7 @@ body{background:#08131b!important}
     details.files.push(file);resolve();
    };
    script.onerror=()=>{clearTimeout(timer);reject(new Error('Missing or blocked file: '+file+'. Upload this file next to index.html.'));};
-   const resourceURL=new URL(file,document.baseURI);resourceURL.searchParams.set('v',window.CW_LAB_RELEASE.runtimeCacheToken||window.CW_LAB_RELEASE.version);
+   const resourceURL=new URL(file,document.baseURI);resourceURL.searchParams.set('v',file==='cw-character-runtime.js'?'source-hd-1':window.CW_LAB_RELEASE.runtimeCacheToken||window.CW_LAB_RELEASE.version);
    script.src=resourceURL.href;
    document.head.appendChild(script);
   });

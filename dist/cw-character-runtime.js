@@ -148,7 +148,7 @@
   if(typeof document!=='undefined'&&!read&&!load){
    await import(url('cw-race-player.js?v=p21-b407-s039-reuse'));
    await globalThis.CWRacePlayer.open(base);
-   recruitArtOpening ||= import(url('cw-recruit-art-v2.mjs?v=2')).then(({openRecruitArt})=>
+   recruitArtOpening ||= import(url('cw-recruit-art-v2.mjs?v=source-hd-1')).then(({openRecruitArt})=>
     openRecruitArt(base,globalThis.CWDrawnCharacters.getImageLoader())).then(value=>{recruitArt=value;recruitArtError=null;})
     .catch(error=>{recruitArtError=String(error.message||error);recruitArtOpening=null;});
    await recruitArtOpening;

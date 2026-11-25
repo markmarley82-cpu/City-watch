@@ -45,3 +45,5 @@
 #cw-guild-interior-host:has(.room-v2),#cw-guild-interior-host:not([data-loading]):has(.room-v2){width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;border-radius:0;overflow:hidden;background:#000}
 
 #cw-guild-interior-host .inspection-folio{background:#ead6ae padding-box;border-color:#59412b}
+
+#cw-guild-interior-host .room-v2 #room-zoom{min-width:44px;min-height:44px;max-width:100px;font-size:13px;white-space:normal;line-height:1.1}

@@ -10,14 +10,14 @@ import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-
 import {createArmoury} from './cw-armoury.mjs?v=p21-b429-patrol-kit';
 import {createCityPointLookup} from './city-point-lookup.mjs?v=p21-b407-s039-reuse';
 import {createPalaceHost} from './palace/palace-host.mjs?v=civic-v2';
-import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
+import {createUniversityHost} from './university-host.mjs?v=source-hd-1';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
 import {createPlayerContacts} from './cw-player-contacts.mjs?v=seal-2';
 import {createUniversityWizards} from './university-wizards.mjs?v=seal-2';
 import {campaignClock} from './city-clock.mjs?v=game-time';
 import {organiserBriefing} from './city-imp-clock.mjs?v=purse-street-leads';
-import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=room-sharp-2';
+import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=rooms-complete-1';
 import {createNewspaperStreetSellers} from './cw-newspaper-sellers.mjs?v=p21-b527-patrol-state';
 import {createRecruitment}from './cw-recruitment.mjs?v=three-peoples-1';
 import {createFirstPatrolBriefing}from './cw-first-patrol-briefing.mjs?v=p21-b466-colon-outside';
@@ -245,7 +245,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-campaign-faces-v2-seal2');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-campaign-faces-v2-rooms-complete-1');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{
@@ -306,7 +306,7 @@ function closeEngine(){
 let battleLoadTimer;
 async function battle({savedHandoff=false}={}){if(combatID&&$('p21-combat-dialog').open)return;const v=state();if(dimwellEncounterHold(v)){city.tell(DIMWELL_RENDEZVOUS);return;}const binding=v.pending?.binding??encounterBinding(v);if(v.pending?.chase){chaseMenu();return;}if(!v.pending&&!binding){city.tell('Walk to an active incident or the Mended Drum to begin an encounter.');return;}city.stop();let pending;try{const st=savedHandoff?window.CWP21State.create(localStorage):saveNav();pending=st.begin({[FIRST_CASE_FIGHT]:'CW-OPENING-PURSE','shift-disturbance':'CW-SHIFT-DISTURBANCE',smuggler:'P21-DELIVERY','crypt-raider':'P21-DELIVERY','cutpurse-0':'P21-PATROL','cutpurse-1':'P21-PATROL'}[binding]||'taproom',binding,encounterLocation(v.pending?.position||city.position()));}catch{saveFailure();return;}combatID=pending.id;activeEncounter=pending;battleSettlement=null;const d=$('p21-combat-dialog'),frame=$('p21-combat-frame');
  d.dataset.loading='';$('p21-combat-loading').hidden=false;$('p21-combat-close').textContent='Cancel';frame.inert=true;
- frame.src='field-training/index.html?campaign=1&v=p21-b499-purse-appearances-cw2';d.showModal();
+ frame.src='field-training/index.html?campaign=1&v=source-hd-1';d.showModal();
  battleLoadTimer=setTimeout(()=>{closeBattle();city.tell('The encounter could not open. You can resume it from the street.');},25000);}
 window.addEventListener('message',e=>{
  if(window.CWGameRestarting)return;

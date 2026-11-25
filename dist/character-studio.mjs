@@ -2,7 +2,7 @@
 import './cw-recruit-preview.js?v=p21-b407-s039-reuse';
 import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import './cw-action-rigs-data.js?v=p21-b407-s039-reuse';
-if(!window.CWCharacters)await import('./cw-character-runtime.js?v=recruit-art-v2-r2');
+if(!window.CWCharacters)await import('./cw-character-runtime.js?v=source-hd-1');
 if(!window.CWClothing)await import('./cw-clothing.js?v=p21-b407-s039-reuse');
 if(!window.CWHeads)await import('./cw-heads.js?v=p21-b407-s039-reuse');
 if(!window.CWRecruitChoices)await import('./cw-recruit-choices.js?v=p21-b407-s039-reuse');
@@ -12,7 +12,7 @@ function ensureStyles(){
  if(!styles)styles=new Promise((yes,no)=>{const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('character-studio.css?v=p21-b461-watch-ui',import.meta.url);const timer=setTimeout(()=>{link.remove();no(Error('Recruit styling timed out'));},15000);link.onload=()=>{clearTimeout(timer);yes();};link.onerror=()=>{clearTimeout(timer);link.remove();no(Error('Recruit styling unavailable'));};document.head.append(link);}).catch(e=>{styles=null;throw e;});return styles;
 }
 const PLAYABLE=['human','dwarf','troll'];
-function fixedRecruit(race,entries){return race.bodies.find(key=>C.recruits.includes(key)&&entries[key]);}
+function fixedRecruit(race,entries){const preferred={human:'watch-recruit',dwarf:'p3_dwarf_02',troll:'p3_troll_01'}[race.id];return preferred&&race.bodies.includes(preferred)&&entries[preferred]?preferred:race.bodies.find(key=>C.recruits.includes(key)&&entries[key]);}
 function build(){
  const dialog=document.createElement('dialog');dialog.id='character-studio';dialog.className='race-only';dialog.setAttribute('aria-labelledby','character-studio-title');
  dialog.innerHTML=`<header class="kit-header"><h2 id="character-studio-title" tabindex="-1">Choose your recruit</h2><button type="button" class="kit-close kit-leather" data-close aria-label="Close character selection">× Close</button></header><div class="kit-reading-sheet"><div class="kit-page kit-paper"><section class="kit-preview" aria-label="Recruit preview"><div class="kit-stage"><canvas id="character-canvas" role="img" aria-label="Your recruit"></canvas></div><h3 id="character-caption" class="kit-caption"></h3></section><section class="race-selection" aria-labelledby="race-choice-title"><h3 id="race-choice-title">Recruit options</h3><div id="character-races" role="radiogroup" aria-labelledby="race-choice-title"></div></section><details class="kit-lore"><summary>About this recruit</summary><p id="recruit-lore-note"></p></details><p id="character-status" role="status" aria-live="polite"></p></div><footer class="character-footer"><button type="button" class="kit-leather" data-close>Cancel</button><button type="button" id="character-retry" class="kit-leather" hidden>Retry</button><button type="button" id="character-apply" class="kit-leather">Continue to oath →</button></footer></div>`;

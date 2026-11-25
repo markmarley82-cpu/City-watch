@@ -1,0 +1,28 @@
+name: Source resolution recruit combat checks
+on:
+  push:
+    branches: [fix/recruit-hd-combat]
+permissions:
+  contents: read
+jobs:
+  combat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          node tests/recruit-source-hd.mjs
+          node tests/cw-combat-settlement.cjs
+      - run: npm install --prefix "$RUNNER_TEMP/combat-qa" --no-audit --no-fund playwright@1.63.0
+      - run: '"$RUNNER_TEMP/combat-qa/node_modules/.bin/playwright" install --with-deps chromium'
+      - run: node tools/test-sweep-combat.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/combat-qa/node_modules
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-hd-combat
+          path: qa-results/sweep-combat/

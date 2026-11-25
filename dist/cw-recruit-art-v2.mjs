@@ -25,7 +25,7 @@ function canvas(width, height) {
 }
 
 export async function openRecruitArt(baseURL, loadImage) {
-  const response = await fetch(new URL(directory + 'manifest.json?v=2', baseURL));
+  const response = await fetch(new URL('assets/recruit-art-hd/manifest.json?v=1', baseURL));
   if (!response.ok) throw Error('Recruit art catalogue unavailable');
   const data = await response.json();
   return createRecruitArt(data, {baseURL, loadImage});
@@ -36,16 +36,17 @@ export function createRecruitArt(data, {
 } = {}) {
   const {cols, rows, cellWidth: width, cellHeight: height, footX, footY, bodies} = data;
   const standard = rows === 10 && width === 128 && height === 96 && footX === 64 && footY === 92;
+  const splitActions = data.splitActions === true && rows === 10 && width === 256 && height === 192 && footX === 128 && footY === 184;
   const roomMotion = rows === 2 && width === 192 && height === 192 && footX === 96 && footY === 184;
-  if (data.schemaVersion !== 1 || cols !== 6 || !(standard || roomMotion) || !bodies) throw Error('Invalid recruit atlas contract');
+  if (data.schemaVersion !== 1 || cols !== 6 || !(standard || roomMotion || splitActions) || !bodies) throw Error('Invalid recruit atlas contract');
 
   const images = new Map();
   const pending = new Map();
   const failures = new Map();
   const compositions = new Map();
-  const imageBytes = cols * width * rows * height * 4;
+  const imageBytes = cols * width * (splitActions ? 1 : rows) * height * 4;
   const maxImages = Math.max(6, Math.floor(maxDecodedBytes / imageBytes));
-  const limitCompositions = 64;
+  const limitCompositions = splitActions ? 32 : 64;
   let pinned = new Set();
 
   function touch(cache, key) {
@@ -56,13 +57,14 @@ export function createRecruitArt(data, {
     return value;
   }
 
-  function load(file) {
+  function load(file, action = 'idle') {
+    if (splitActions) file = action + '/' + file;
     const hit = touch(images, file);
     if (hit) return Promise.resolve(hit);
     if (pending.has(file)) return pending.get(file);
     const request = loadImage(new URL((data.directory || directory) + file + '?v=2', baseURL).href).then(image => {
       if ((image.naturalWidth || image.width) !== cols * width ||
-          (image.naturalHeight || image.height) !== rows * height) {
+          (image.naturalHeight || image.height) !== (splitActions ? 1 : rows) * height) {
         throw Error('Recruit atlas has the wrong dimensions: ' + file);
       }
       images.set(file, image);
@@ -114,8 +116,9 @@ export function createRecruitArt(data, {
   function ensure(id, pose = {}, pin = false) {
     if (!bodies[id]) return Promise.resolve(false);
     const files = Object.values(appearance(id, pose).spec);
-    if (pin) pinned = new Set(files);
-    return Promise.all(files.map(load)).then(() => true);
+    const actions = splitActions ? [...new Set(['idle','walk',pose.clip === 'attack' && /truncheon|baton/.test(String(pose.weapon)) ? 'truncheon' : pose.clip || 'idle'])] : ['idle'];
+    if (pin) pinned = new Set(actions.flatMap(action => files.map(file => splitActions ? action + '/' + file : file)));
+    return Promise.all(actions.flatMap(action => files.map(file => load(file,action)))).then(() => true);
   }
 
   function regionPixels(image, frame) {
@@ -161,7 +164,7 @@ export function createRecruitArt(data, {
         for (let channel = 0; channel < 3; channel++) pixels.data[i + channel] = tint[channel] * shade;
       }
       context.putImageData(pixels, 0, 0);
-      if (minX < maxX) badgePoint = [minX + (maxX - minX) * .39, minY + 6];
+      if (minX < maxX) badgePoint = [minX + (maxX - minX) * .39, minY + 6 * (height/96)];
     }
     if (layers.armour) stamp(layers.armour);
     if (badgePoint) {
@@ -195,19 +198,25 @@ export function createRecruitArt(data, {
       : Math.floor(Math.max(0, Number(pose.elapsed) || 0) / frameTimes[actionRow]);
     const localFrame = repeating ? tick % cols : Math.min(cols - 1, tick);
     const frame = {
-      index: row * cols + localFrame, frame: localFrame, sx: localFrame * width, sy: row * height,
+      index: row * cols + localFrame, frame: localFrame, sx: localFrame * width, sy: splitActions ? 0 : row * height,
       sw: width, sh: height, flip: pose.facing > 0, clip: action,
-      drawn: true, available: true, provenance: 'drawn-poses', recruitArt: roomMotion ? 'room-hd' : 'v2',
+      drawn: true, available: true, provenance: 'drawn-poses', recruitArt: splitActions ? 'source-hd' : roomMotion ? 'room-hd' : 'v2',
       playerArt: playerActor(pose.actorId), weapon: truncheon ? 'truncheon' : 'unarmed',
     };
     const style = appearance(id, pose);
     const expected = Object.entries(style.spec);
-    if (frame.playerArt) pinned = new Set(expected.map(([, file]) => file));
+    const actionFile = truncheon ? 'truncheon' : action;
+    if (frame.playerArt) pinned = new Set(expected.flatMap(([,file]) => splitActions ? ['idle/'+file,'walk/'+file,actionFile+'/'+file] : [file]));
     const loaded = {};
     for (const [layer, file] of expected) {
-      const image = touch(images, file);
+      const cacheKey = splitActions ? actionFile + '/' + file : file;
+      const image = touch(images, cacheKey);
       if (image) loaded[layer] = image;
-      else if (!pending.has(file) && !(failures.get(file) > Date.now())) load(file).catch(() => {});
+      else if (!pending.has(cacheKey) && !(failures.get(cacheKey) > Date.now())) load(file,actionFile).catch(() => {});
+    }
+    if (splitActions && action !== 'idle' && Object.keys(loaded).length !== expected.length) {
+      const waiting=draw(context,id,{...pose,clip:'idle',frame:0},x,y,renderHeight);
+      return waiting ? {...waiting,requestedClip:action,appearancePending:true} : null;
     }
     if (!loaded.body) return null;
     const ready = Object.keys(loaded).length === expected.length;

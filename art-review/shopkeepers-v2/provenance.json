@@ -1,0 +1,93 @@
+[
+  {
+    "role": "butcher",
+    "source": "exec-74bd9edd-b960-4b9b-93af-8a74a346c384.png",
+    "sourceSHA256": "aaebc8d43c7f7437e0c62eccdb7c9131f13502e758460606d1779ecabc4f8869",
+    "runtime": "butcher.webp",
+    "runtimeSHA256": "3213f3161ea3f5c99152bb26e3f21db7fc57a3ad70de9a67af487b47ad47aa23"
+  },
+  {
+    "role": "apothecary",
+    "source": "exec-9875e04f-0084-428e-836d-6ce79f81cacd.png",
+    "sourceSHA256": "42f23cabf36068958a0088ac2704d8ca9acee4a2a706573070b9026cdb96b993",
+    "runtime": "apothecary.webp",
+    "runtimeSHA256": "13cacfafbd9ce3674fdb50d01fd8b52fc2668dd62a39f75441df44d11040f1ab"
+  },
+  {
+    "role": "smithy",
+    "source": "exec-5162730e-20e4-46fa-af0b-692ba2a88a69.png",
+    "sourceSHA256": "48b6e5dfeaec03405416b881c9c6d083589a459f011c2b4011fb3e4755d78c60",
+    "runtime": "smithy.webp",
+    "runtimeSHA256": "c957d2ca86d21ec78a30f19887ecb7e5c8441b2c9fd3c130319eb4cee3ae5f86"
+  },
+  {
+    "role": "curry-house",
+    "source": "exec-8890cce9-8d5b-4813-91e3-d044866a7553.png",
+    "sourceSHA256": "54f47c6b7aac3ffab1fe1451d8fc56ae95c4f458cc20a002cafd261df1453ad7",
+    "runtime": "curry-house.webp",
+    "runtimeSHA256": "f76d236bf3665304c49ee4ecc8816300d3605287d53cfce48b0a9d5cb60b903f"
+  },
+  {
+    "role": "ship-chandler",
+    "source": "exec-7643208f-5201-4128-893d-dc75f444ecf3.png",
+    "sourceSHA256": "4f5bec0273aa46cdc4bdbb0b4c8bbf47c30a2c0dfc0b7baa7880cfec3dbf3326",
+    "runtime": "ship-chandler.webp",
+    "runtimeSHA256": "debf097c6fa03691d882144ff55ca34a715b30e38ce3ad13ee55cb436f1a7766"
+  },
+  {
+    "role": "bonded-warehouse",
+    "source": "exec-8bf1b619-17fa-4dcb-a30a-ef2fc800faf0.png",
+    "sourceSHA256": "0983fffce23732806eb6c31adab26675aec8bbf68818590eb2dd69f83f91fec9",
+    "runtime": "bonded-warehouse.webp",
+    "runtimeSHA256": "20973cb6f9d3af9aa2bec7e2c1f596daf34811514aafff1791ee20ab7cd5294b"
+  },
+  {
+    "role": "cooper",
+    "source": "exec-a69c9336-e864-4c77-ada9-18c91a186a05.png",
+    "sourceSHA256": "9b965068f6b1dcf14f9aac4b581ab0dbacbec21b6f1c0b68f160c2ad0a4778f3",
+    "runtime": "cooper.webp",
+    "runtimeSHA256": "a60bd2484385c74540c951f30d20aa935532a75837cb94df1207b5dce3cb1136"
+  },
+  {
+    "role": "quay-lodging",
+    "source": "exec-2e8afa27-9e10-48b5-9eef-a3816ef01135.png",
+    "sourceSHA256": "3dbc3705779b64d6cf71f85ccaac4d7a26e00e51bb74e405f539c868c21bb645",
+    "runtime": "quay-lodging.webp",
+    "runtimeSHA256": "b1ed83eead928ecf4cbe2e8408cac9e9d99cd42964df727886ba3276f98fdffc"
+  },
+  {
+    "role": "cooper-workshop",
+    "source": "exec-2713b0ef-b3da-480b-aa6c-a42088ba818a.png",
+    "sourceSHA256": "2d66ff2aaf039ee6778a30e07b69a015bad6830ed5ebb6664b0e722c85e62072",
+    "runtime": "cooper-workshop.webp",
+    "runtimeSHA256": "6f5698fe51b9813ee88835a7817ebf5490f2fc02927d02cfb2f5bd072e0df533"
+  },
+  {
+    "role": "pawnbroker",
+    "source": "exec-25b4155b-043c-4093-ad42-ba4c474780d0.png",
+    "sourceSHA256": "dbb8afe590a6195b3b40a845cda1a56542a2064de13485071a4a5462f18aaa30",
+    "runtime": "pawnbroker.webp",
+    "runtimeSHA256": "cbe458217591dccc1a182828b777e0a8880133ab732c0b61a3b8ba9b059758a1"
+  },
+  {
+    "role": "lodging",
+    "source": "exec-8595b546-8572-435f-b80a-1259a7d93e58.png",
+    "sourceSHA256": "9ef180eab0184cb5c72e43f76b90a13298e0295900a4a5be11f7bc8a1dbbb2c4",
+    "runtime": "lodging.webp",
+    "runtimeSHA256": "2066f3ad69a3e4845b0778581650d163561591acc777f4b8d88799d2b539dcd1"
+  },
+  {
+    "role": "cobbler",
+    "source": "exec-e13e018b-9060-4478-9c4a-8ec9f910da0e.png",
+    "sourceSHA256": "8cb1165e29ab49e6211ad5c799c2ec4a02a4cc7207ae78a36a92260bad3ecaa9",
+    "runtime": "cobbler.webp",
+    "runtimeSHA256": "524b81a288a9cf65c183959461bc0fd0a24b4cb53a67af5adf278918907b0fcc"
+  },
+  {
+    "role": "rope-maker",
+    "source": "exec-1411b2e8-f445-4b8f-9c67-4c796c074886.png",
+    "sourceSHA256": "23bf45fc337fcf054880d1b2e3a043bee2afa38b46df953bf3b8d17810a75d6b",
+    "runtime": "rope-maker.webp",
+    "runtimeSHA256": "8eb06e907ad031c5b0d0363574ef0793ecbae641dcec885c053f2eec45fa0272"
+  }
+]
