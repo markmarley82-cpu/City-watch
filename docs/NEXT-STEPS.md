@@ -112,6 +112,8 @@ These make what already exists reliable:
 - **Done: junction continuity (25 Nov).** Explicit graph handoffs and forward continuation prevent
   retaining the wrong street end cap. Base audit: 1,237 passing / zero stalled (previously 95 stalls).
   Six real pointer-drag crossings on both phone and desktop pass, with saved position restored.
+  Planned routes validate their exact legal street identity independently of manual preference;
+  regression coverage includes 12 routes / 3,342 steps and Post Office ↔ Drum Atlas travel.
 - **Done: combat settlement audit (25 Nov).** Actual phone arrest and release play-throughs retain
   saved turns and settled outcomes across reload, pay once and ignore replayed results. Boundary
   checks also cover defeat, withdrawal, stale stores and failed storage; settlement rules were retained.
