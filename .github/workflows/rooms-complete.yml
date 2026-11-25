@@ -1,0 +1,71 @@
+name: Complete street interior checks
+on:
+  push:
+    branches: [fix/rooms-complete]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.assets.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==13.0.0
+      - run: python tools/prepare-recruit-hd.py
+      - id: assets
+        run: |
+          git config user.name 'City Watch asset preparation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist/assets/recruit-art-hd/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Pack source-resolution recruit actions [skip ci]'
+            git push origin HEAD:fix/rooms-complete
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  rooms:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - browser: chromium
+            size: 390x700
+          - browser: webkit
+            size: 390x700
+          - browser: webkit
+            size: 844x390
+          - browser: chromium
+            size: 320x640
+          - browser: chromium
+            size: 768x1024
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          node tests/street-room-repair.mjs
+          node tests/recruit-source-hd.mjs
+          node tests/cw-city-cases-data.mjs
+          node tests/cw-nc01-bridge-pilot.mjs
+      - run: npm install --prefix "$RUNNER_TEMP/room-qa" --no-audit --no-fund playwright@1.63.0
+      - run: '"$RUNNER_TEMP/room-qa/node_modules/.bin/playwright" install --with-deps ${{ matrix.browser }}'
+      - run: node tools/test-all-street-rooms.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/room-qa/node_modules
+          QA_BROWSER: ${{ matrix.browser }}
+          QA_SIZE: ${{ matrix.size }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rooms-${{ matrix.browser }}-${{ matrix.size }}
+          path: qa-results/

@@ -1,0 +1,5 @@
+/* Painting registration only: collision and navigation remain in room-core. */
+export function actorHeight(room){return room.presentation?.humanHeight||room.actorHeight||240;}
+export function frontDepth(polygon,x){const ys=[];for(let i=0;i<polygon.length;i++){const a=polygon[i],b=polygon[(i+1)%polygon.length];if(x<Math.min(a[0],b[0])||x>Math.max(a[0],b[0]))continue;if(a[0]===b[0])ys.push(a[1],b[1]);else ys.push(a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]));}return ys.length?Math.max(...ys):null;}
+export function foregroundFor(room,position){const x=position[0]*1536,y=position[1]*1024;return (room.presentation?.foreground||[]).filter(o=>{const xs=o.base.map(p=>p[0]),left=Math.min(...xs),right=Math.max(...xs),depth=frontDepth(o.base,Math.max(left,Math.min(right,x)));return depth!==null&&y<depth-1;});}
+export function clipRoomForeground(g,room,position){const masks=foregroundFor(room,position);for(const o of masks){g.beginPath();g.rect(-1536,-1024,4608,3072);g.moveTo(...o.mask[0]);for(const p of o.mask.slice(1))g.lineTo(...p);g.closePath();g.clip('evenodd');}return masks.length;}

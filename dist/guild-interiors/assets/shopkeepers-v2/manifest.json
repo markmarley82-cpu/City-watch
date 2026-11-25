@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "characters": {
+    "shop-butcher": {
+      "image": "assets/shopkeepers-v2/butcher.webp",
+      "width": 258,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 129.0,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1331
+    },
+    "shop-apothecary": {
+      "image": "assets/shopkeepers-v2/apothecary.webp",
+      "width": 193,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 96.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1329
+    },
+    "shop-smithy": {
+      "image": "assets/shopkeepers-v2/smithy.webp",
+      "width": 255,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 127.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1331
+    },
+    "shop-curry-house": {
+      "image": "assets/shopkeepers-v2/curry-house.webp",
+      "width": 249,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 124.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1339
+    },
+    "shop-ship-chandler": {
+      "image": "assets/shopkeepers-v2/ship-chandler.webp",
+      "width": 230,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 115.0,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1319
+    },
+    "shop-bonded-warehouse": {
+      "image": "assets/shopkeepers-v2/bonded-warehouse.webp",
+      "width": 149,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 74.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1488
+    },
+    "shop-cooper": {
+      "image": "assets/shopkeepers-v2/cooper.webp",
+      "width": 221,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 110.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1348
+    },
+    "shop-quay-lodging": {
+      "image": "assets/shopkeepers-v2/quay-lodging.webp",
+      "width": 251,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 125.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1347
+    },
+    "shop-cooper-workshop": {
+      "image": "assets/shopkeepers-v2/cooper-workshop.webp",
+      "width": 176,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 88.0,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1337
+    },
+    "shop-pawnbroker": {
+      "image": "assets/shopkeepers-v2/pawnbroker.webp",
+      "width": 187,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 93.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1338
+    },
+    "shop-lodging": {
+      "image": "assets/shopkeepers-v2/lodging.webp",
+      "width": 236,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 118.0,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1326
+    },
+    "shop-cobbler": {
+      "image": "assets/shopkeepers-v2/cobbler.webp",
+      "width": 207,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 103.5,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1339
+    },
+    "shop-rope-maker": {
+      "image": "assets/shopkeepers-v2/rope-maker.webp",
+      "width": 232,
+      "height": 524,
+      "visibleHeight": 512,
+      "footX": 116.0,
+      "footY": 518,
+      "relativeHeight": 1,
+      "original": true,
+      "nativeFacing": "left",
+      "sourceHeight": 1326
+    }
+  }
+}
