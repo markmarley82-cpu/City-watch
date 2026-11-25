@@ -1,0 +1,25 @@
+name: Verify published room repair
+on:
+  push:
+    branches: [fix/rooms-live-verify]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefix "$RUNNER_TEMP/live-qa" --no-audit --no-fund playwright@1.63.0
+      - run: '"$RUNNER_TEMP/live-qa/node_modules/.bin/playwright" install --with-deps chromium'
+      - run: node tools/test-published-room-repair.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/live-qa/node_modules
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: published-room-repair
+          path: qa-results/live-release/
