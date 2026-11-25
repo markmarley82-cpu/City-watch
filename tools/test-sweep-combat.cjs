@@ -12,7 +12,7 @@ async function command(page,f,goal){
  },goal);
  if(decision.op==='done')return false;const seq=await page.evaluate(()=>window.__qaSeq);
  if(decision.op==='end')await f.locator('#end-turn').click();else{
-  await f.locator('[data-target="'+decision.id+'"]').click();const menu=decision.op==='move'?'move':decision.op==='restrain'?'tactics':'talk';await f.locator('[data-menu="'+menu+'"]').click();if(decision.op==='move')await f.locator('#menu-back').click();else await f.locator('#menu-'+menu+' [data-action="'+decision.op+'"]').click();
+  await f.locator('[data-target="'+decision.id+'"]').click();const menu=decision.op==='move'?'move':decision.op==='restrain'?'tactics':'talk';await f.locator('button[data-menu="'+(menu==='tactics'?'fight':menu)+'"]').click();if(menu==='tactics')await f.locator('#menu-back').click();if(decision.op==='move')await f.locator('#menu-back').click();else await f.locator('#menu-'+menu+' [data-action="'+decision.op+'"]').click();
  }
  await page.waitForFunction(v=>window.__qaSeq>v,seq,{timeout:10000});return true;
 }

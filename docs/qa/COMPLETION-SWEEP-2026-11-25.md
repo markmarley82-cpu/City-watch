@@ -17,3 +17,9 @@ Requested scope: finish map control overlap, reduce phone startup downloads, che
 Tests use disposable state and the public restore API to position an officer at a test doorway/junction. Campaign portrait checks instrument the existing dialogue adapter to open its real portrait slots; they are not a full story playthrough. Browser/physical-device performance claims will be limited to the evidence collected. Human uncoached Bridge acceptance and physical iPhone/Safari release acceptance are separate.
 
 Status: implementation complete; browser verification and deployment pending. Keep all five areas in scope until their checks are resolved.
+
+## Collected evidence
+
+- Run 45533092271: all four Atlas layouts passed; phone, landscape, tablet and desktop screenshots reviewed with the district picker clear of the destination sheet.
+- The same run's separately baked, cold Chromium phone comparison at 6 Mbps/40 ms measured 55,072,099 → 44,841,786 transferred bytes before ready (10,230,313 bytes / 18.6% fewer). Ready time was 89,469 → 74,568 ms in this one comparison. University requests before ready fell from 148 to 8, with matching world/door geometry and later University images arriving at its entrance. This is an emulated browser measurement, not physical Safari timing.
+- Run 45533790831: all 18 campaign portrait layouts passed, as did failed-image fallback and stale-image-error protection. These reuse approved artwork without changing any dialogue outcomes.
