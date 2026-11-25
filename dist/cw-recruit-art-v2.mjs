@@ -46,7 +46,7 @@ export function createRecruitArt(data, {
   const compositions = new Map();
   const imageBytes = cols * width * (splitActions ? 1 : rows) * height * 4;
   const maxImages = Math.max(6, Math.floor(maxDecodedBytes / imageBytes));
-  const limitCompositions = 64;
+  const limitCompositions = splitActions ? 32 : 64;
   let pinned = new Set();
 
   function touch(cache, key) {
