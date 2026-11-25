@@ -41,8 +41,6 @@ jobs:
       fail-fast: false
       matrix:
         area: [map, startup, movement, campaign]
-    env:
-      NODE_PATH: ${{ runner.temp }}/sweep-qa/node_modules
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -52,6 +50,7 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/sweep-qa" --no-audit --no-fund playwright@1.63.0
           "$RUNNER_TEMP/sweep-qa/node_modules/.bin/playwright" install --with-deps chromium
+          echo "NODE_PATH=$RUNNER_TEMP/sweep-qa/node_modules" >> "$GITHUB_ENV"
       - name: Prepare comparable deployed startup builds
         if: matrix.area == 'startup'
         run: |
