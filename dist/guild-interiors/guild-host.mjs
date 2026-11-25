@@ -1,14 +1,23 @@
 import {createGuildCampaign} from './guild-campaign.mjs?v=p21-b407-s039-reuse';
-import {createGuildInteriorView} from './interior-view.mjs?v=room-sharp-1';
+import {createGuildInteriorView} from './interior-view.mjs?v=room-sharp-2';
 import {roomMarkupV2 as roomMarkup} from './room-markup.mjs?v=room-v2';
 export function currentRecruitPainter(city,C=globalThis.CWCharacters){
- return (context,pose,x,y,h)=>{const key=city.characterPainter.playerKey,a=city.characterPainter.playerMeta;if(!a||!C?.draw)throw Error('Current recruit appearance is unavailable');return C.draw(context,a,{...pose,actorId:'player',weapon:'truncheon',clothing:true},x,y,h*C.height(a,key)/60);};
+ let motion=null,opening=null;
+ const baseURL=new URL('../',import.meta.url),poseFor=pose=>({...pose,actorId:'player',weapon:'truncheon',clothing:true});
+ const painter=(context,pose,x,y,h)=>{const key=city.characterPainter.playerKey,a=city.characterPainter.playerMeta;if(!a||!C?.draw)throw Error('Current recruit appearance is unavailable');const height=h*C.height(a,key)/60,look=poseFor(pose);return motion?.draw(context,key,look,x,y,height)||C.draw(context,a,look,x,y,height);};
+ painter.prepare=async()=>{
+  try{
+   opening ||= Promise.all([import('../cw-recruit-art-v2.mjs?v=room-motion-hd-1'),fetch(new URL('guild-interiors/assets/recruit-motion-hd/manifest.json',baseURL)).then(r=>{if(!r.ok)throw Error('Room recruit catalogue unavailable');return r.json();})]).then(([api,data])=>api.createRecruitArt(data,{baseURL,loadImage:url=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('Room recruit art unavailable'));image.src=url;})}));
+   motion=await opening;await motion.ensure(city.characterPainter.playerKey,poseFor({}),true);
+  }catch(error){motion=null;opening=null;console.warn('Using standard room recruit frames',error);}
+ };
+ return painter;
 }
 export async function createGuildInteriorHost({city,makeStore,bindings=[],baseURL=new URL('./',import.meta.url),drawRecruit,document:doc=document}={}){
  const catalogue=await(await fetch(new URL('rooms.json?v=street-interiors-1',baseURL))).json(),seen=new Set();
  for(const b of bindings){if(seen.has(b.doorID)||!catalogue.rooms.some(r=>r.id===b.roomID)||!city.world.doors.has(b.doorID))throw Error('Invalid or duplicate explicit guild door binding');seen.add(b.doorID);}
  const ledger=createGuildCampaign({makeStore,rooms:catalogue.rooms,world:city.world,bindings,position:city.position,visits:city.visits,steps:city.steps,stop:city.stop,restore:p=>{city.restore(p);city.update();}});
- for(const file of ['cw-guild-contact-view.css','cw-joystick.css','interiors-host.css']){const href=new URL(file+'?v=room-sharp-1',baseURL).href;if([...doc.styleSheets].some(s=>s.href===href))continue;await new Promise((yes,no)=>{const link=doc.createElement('link');link.rel='stylesheet';link.href=href;link.onload=yes;link.onerror=()=>no(Error('Guild interface styling could not load'));doc.head.append(link);});}
+ for(const file of ['cw-guild-contact-view.css','cw-joystick.css','interiors-host.css']){const href=new URL(file+'?v=room-sharp-2',baseURL).href;if([...doc.styleSheets].some(s=>s.href===href))continue;await new Promise((yes,no)=>{const link=doc.createElement('link');link.rel='stylesheet';link.href=href;link.onload=yes;link.onerror=()=>no(Error('Guild interface styling could not load'));doc.head.append(link);});}
  const dialog=doc.createElement('dialog');dialog.id='cw-guild-interior-host';dialog.setAttribute('aria-label','Guildhouse interior');const root=doc.createElement('div');root.innerHTML=roomMarkup;root.querySelector('#room-select').closest('label').hidden=true;root.querySelector('.preview-note').hidden=true;root.querySelector('.room-header small').textContent='CITY WATCH · GUILDHOUSE';const opening=doc.createElement('section');opening.className='cw-opening-panel';
  opening.innerHTML='<p role="status">Opening guildhouse…</p><button type="button">Cancel</button>';
  dialog.append(opening,root);doc.body.append(dialog);let visit=null,focus=null;

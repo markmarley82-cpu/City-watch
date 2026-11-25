@@ -35,8 +35,9 @@ export function createRecruitArt(data, {
   baseURL, loadImage, makeCanvas = canvas, maxDecodedBytes = 28 * 1024 * 1024,
 } = {}) {
   const {cols, rows, cellWidth: width, cellHeight: height, footX, footY, bodies} = data;
-  if (data.schemaVersion !== 1 || cols !== 6 || rows !== 10 || width !== 128 || height !== 96 ||
-      footX !== 64 || footY !== 92 || !bodies) throw Error('Invalid recruit atlas contract');
+  const standard = rows === 10 && width === 128 && height === 96 && footX === 64 && footY === 92;
+  const roomMotion = rows === 2 && width === 192 && height === 192 && footX === 96 && footY === 184;
+  if (data.schemaVersion !== 1 || cols !== 6 || !(standard || roomMotion) || !bodies) throw Error('Invalid recruit atlas contract');
 
   const images = new Map();
   const pending = new Map();
@@ -59,7 +60,7 @@ export function createRecruitArt(data, {
     const hit = touch(images, file);
     if (hit) return Promise.resolve(hit);
     if (pending.has(file)) return pending.get(file);
-    const request = loadImage(new URL(directory + file + '?v=2', baseURL).href).then(image => {
+    const request = loadImage(new URL((data.directory || directory) + file + '?v=2', baseURL).href).then(image => {
       if ((image.naturalWidth || image.width) !== cols * width ||
           (image.naturalHeight || image.height) !== rows * height) {
         throw Error('Recruit atlas has the wrong dimensions: ' + file);
@@ -185,7 +186,7 @@ export function createRecruitArt(data, {
     if (!body) return null;
     const action = pose.clip || 'idle';
     const actionRow = clips.indexOf(action);
-    if (actionRow < 0) return null;
+    if (actionRow < 0 || actionRow >= rows) return null;
     const truncheon = action === 'attack' && /truncheon|baton/.test(String(pose.weapon));
     const row = truncheon ? 9 : actionRow;
     const repeating = actionRow < 2;
@@ -196,7 +197,7 @@ export function createRecruitArt(data, {
     const frame = {
       index: row * cols + localFrame, frame: localFrame, sx: localFrame * width, sy: row * height,
       sw: width, sh: height, flip: pose.facing > 0, clip: action,
-      drawn: true, available: true, provenance: 'drawn-poses', recruitArt: 'v2',
+      drawn: true, available: true, provenance: 'drawn-poses', recruitArt: roomMotion ? 'room-hd' : 'v2',
       playerArt: playerActor(pose.actorId), weapon: truncheon ? 'truncheon' : 'unarmed',
     };
     const style = appearance(id, pose);

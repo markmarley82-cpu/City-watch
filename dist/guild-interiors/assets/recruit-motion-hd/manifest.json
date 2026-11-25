@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "cellWidth": 192,
+  "cellHeight": 192,
+  "cols": 6,
+  "rows": 2,
+  "footX": 96,
+  "footY": 184,
+  "bodies": {
+    "watch-recruit": {
+      "visibleHeight": 117.0,
+      "files": {
+        "body": "watch-recruit-body.webp",
+        "coat-mask": "watch-recruit-coat-mask.webp",
+        "regions-mask": "watch-recruit-regions-mask.webp",
+        "watch-breastplate": "watch-recruit-watch-breastplate.webp",
+        "service-mail": "watch-recruit-service-mail.webp",
+        "leather-jerkin": "watch-recruit-leather-jerkin.webp",
+        "head-dark-waves-and-beard": "watch-recruit-head-dark-waves-and-beard.webp",
+        "head-auburn-and-freckles": "watch-recruit-head-auburn-and-freckles.webp",
+        "head-mask": "watch-recruit-head-mask.webp"
+      },
+      "heads": [
+        "dark-waves-and-beard",
+        "auburn-and-freckles"
+      ]
+    },
+    "watch-recruit-female": {
+      "visibleHeight": 117.0,
+      "files": {
+        "body": "watch-recruit-female-body.webp",
+        "coat-mask": "watch-recruit-female-coat-mask.webp",
+        "regions-mask": "watch-recruit-female-regions-mask.webp",
+        "watch-breastplate": "watch-recruit-female-watch-breastplate.webp",
+        "service-mail": "watch-recruit-female-service-mail.webp",
+        "leather-jerkin": "watch-recruit-female-leather-jerkin.webp",
+        "head-dark-waves-and-beard": "watch-recruit-female-head-dark-waves-and-beard.webp",
+        "head-auburn-and-freckles": "watch-recruit-female-head-auburn-and-freckles.webp",
+        "head-mask": "watch-recruit-female-head-mask.webp"
+      },
+      "heads": [
+        "dark-waves-and-beard",
+        "auburn-and-freckles"
+      ]
+    },
+    "watch-recruit-dark": {
+      "visibleHeight": 117.0,
+      "files": {
+        "body": "watch-recruit-dark-body.webp",
+        "coat-mask": "watch-recruit-dark-coat-mask.webp",
+        "regions-mask": "watch-recruit-dark-regions-mask.webp",
+        "watch-breastplate": "watch-recruit-dark-watch-breastplate.webp",
+        "service-mail": "watch-recruit-dark-service-mail.webp",
+        "leather-jerkin": "watch-recruit-dark-leather-jerkin.webp",
+        "head-dark-waves-and-beard": "watch-recruit-dark-head-dark-waves-and-beard.webp",
+        "head-auburn-and-freckles": "watch-recruit-dark-head-auburn-and-freckles.webp",
+        "head-mask": "watch-recruit-dark-head-mask.webp"
+      },
+      "heads": [
+        "dark-waves-and-beard",
+        "auburn-and-freckles"
+      ]
+    },
+    "p3_dwarf_02": {
+      "visibleHeight": 88.0,
+      "files": {
+        "body": "dwarf-recruit-body.webp",
+        "coat-mask": "dwarf-recruit-coat-mask.webp",
+        "regions-mask": "dwarf-recruit-regions-mask.webp",
+        "watch-breastplate": "dwarf-recruit-watch-breastplate.webp",
+        "service-mail": "dwarf-recruit-service-mail.webp",
+        "leather-jerkin": "dwarf-recruit-leather-jerkin.webp",
+        "head-dark-braided-beard": "dwarf-recruit-head-dark-braided-beard.webp",
+        "head-forked-silver-beard": "dwarf-recruit-head-forked-silver-beard.webp",
+        "head-mask": "dwarf-recruit-head-mask.webp"
+      },
+      "heads": [
+        "dark-braided-beard",
+        "forked-silver-beard"
+      ]
+    },
+    "p3_troll_01": {
+      "visibleHeight": 154.0,
+      "files": {
+        "body": "troll-recruit-body.webp",
+        "watch-breastplate": "troll-recruit-watch-breastplate.webp",
+        "service-mail": "troll-recruit-service-mail.webp",
+        "leather-jerkin": "troll-recruit-leather-jerkin.webp",
+        "head-broad-granite": "troll-recruit-head-broad-granite.webp",
+        "head-craggy-brow": "troll-recruit-head-craggy-brow.webp",
+        "head-mask": "troll-recruit-head-mask.webp"
+      },
+      "heads": [
+        "broad-granite",
+        "craggy-brow"
+      ]
+    }
+  },
+  "directory": "guild-interiors/assets/recruit-motion-hd/"
+}
