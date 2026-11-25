@@ -5,7 +5,7 @@ import {createGuildContactView} from './cw-guild-contact-view.mjs?v=rooms-comple
 export async function createGuildInteriorView({root=document,baseURL=new URL('./',import.meta.url),readRoom=()=>null,writeRoom=()=>{},drawRecruit=null,onExit=()=>{}}={}){
 const $=s=>root.querySelector(s),canvas=$('#room-canvas'),g=canvas.getContext('2d'),catalogue=await(await fetch(new URL('rooms.json?v=rooms-complete-1',baseURL))).json(),manifest=await(await fetch(new URL('assets/characters-drawn-v1/manifest.json?v=p21-b407-s039-reuse',baseURL))).json(),characters=await createShopCharacters(CWDrawnCharacters.create(manifest,{baseURL,maxDecodedBytes:20*1024*1024}),baseURL),pictures=new Map();
 let room=null,session=null,picture=null,generation=0,last=0,walkEpoch=0,idleEpoch=0,wasMoving=false,camera=null,ready=false,inspectionFocus=null,pendingUse=null,content=null,overview=false;
-const reduced=matchMedia('(prefers-reduced-motion: reduce)'),blocked=()=>!!root.querySelector('dialog[open]')||contact.element.open||!ready||session?.view().pendingSave||session?.view().closed;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)'),blocked=()=>!!root.querySelector('dialog[open]')||contact.element.open||contact.element.dataset.opening==='true'||!ready||session?.view().pendingSave||session?.view().closed;
 function report(text){$('#room-status').textContent=text;}
 function saved(){return readRoom(room.id);}
 function save(snapshot){writeRoom(snapshot);}

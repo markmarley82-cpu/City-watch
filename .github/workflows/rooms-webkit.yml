@@ -1,0 +1,55 @@
+name: Safari room and modal verification
+on:
+  push:
+    branches: [fix/rooms-webkit]
+permissions:
+  contents: read
+jobs:
+  lifecycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefix "$RUNNER_TEMP/modal-qa" --no-audit --no-fund playwright@1.63.0
+      - run: '"$RUNNER_TEMP/modal-qa/node_modules/.bin/playwright" install --with-deps chromium webkit'
+      - run: node tools/test-dialogue-lifecycle.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/modal-qa/node_modules
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dialogue-reopen-review
+          path: qa-results/dialogue-lifecycle/
+  safari:
+    needs: lifecycle
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        size: [390x700,844x390]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          node tests/street-room-repair.mjs
+          node tests/recruit-source-hd.mjs
+      - run: npm install --prefix "$RUNNER_TEMP/safari-qa" --no-audit --no-fund playwright@1.63.0
+      - run: '"$RUNNER_TEMP/safari-qa/node_modules/.bin/playwright" install --with-deps webkit'
+      - run: node tools/test-all-street-rooms.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/safari-qa/node_modules
+          QA_BROWSER: webkit
+          QA_SIZE: ${{ matrix.size }}
+          QA_BODIES: watch-recruit,p3_dwarf_02,p3_troll_01
+          QA_GROUP: primary
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rooms-webkit-${{ matrix.size }}-primary
+          path: qa-results/
