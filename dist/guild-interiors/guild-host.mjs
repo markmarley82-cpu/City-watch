@@ -1,5 +1,5 @@
 import {createGuildCampaign} from './guild-campaign.mjs?v=p21-b407-s039-reuse';
-import {createGuildInteriorView} from './interior-view.mjs?v=room-v2';
+import {createGuildInteriorView} from './interior-view.mjs?v=room-sharp-1';
 import {roomMarkupV2 as roomMarkup} from './room-markup.mjs?v=room-v2';
 export function currentRecruitPainter(city,C=globalThis.CWCharacters){
  return (context,pose,x,y,h)=>{const key=city.characterPainter.playerKey,a=city.characterPainter.playerMeta;if(!a||!C?.draw)throw Error('Current recruit appearance is unavailable');return C.draw(context,a,{...pose,actorId:'player',weapon:'truncheon',clothing:true},x,y,h*C.height(a,key)/60);};
@@ -8,7 +8,7 @@ export async function createGuildInteriorHost({city,makeStore,bindings=[],baseUR
  const catalogue=await(await fetch(new URL('rooms.json?v=street-interiors-1',baseURL))).json(),seen=new Set();
  for(const b of bindings){if(seen.has(b.doorID)||!catalogue.rooms.some(r=>r.id===b.roomID)||!city.world.doors.has(b.doorID))throw Error('Invalid or duplicate explicit guild door binding');seen.add(b.doorID);}
  const ledger=createGuildCampaign({makeStore,rooms:catalogue.rooms,world:city.world,bindings,position:city.position,visits:city.visits,steps:city.steps,stop:city.stop,restore:p=>{city.restore(p);city.update();}});
- for(const file of ['cw-guild-contact-view.css','cw-joystick.css','interiors-host.css']){const href=new URL(file==='interiors-host.css'?file+'?v=room-v2':file,baseURL).href;if([...doc.styleSheets].some(s=>s.href===href))continue;await new Promise((yes,no)=>{const link=doc.createElement('link');link.rel='stylesheet';link.href=href;link.onload=yes;link.onerror=()=>no(Error('Guild interface styling could not load'));doc.head.append(link);});}
+ for(const file of ['cw-guild-contact-view.css','cw-joystick.css','interiors-host.css']){const href=new URL(file+'?v=room-sharp-1',baseURL).href;if([...doc.styleSheets].some(s=>s.href===href))continue;await new Promise((yes,no)=>{const link=doc.createElement('link');link.rel='stylesheet';link.href=href;link.onload=yes;link.onerror=()=>no(Error('Guild interface styling could not load'));doc.head.append(link);});}
  const dialog=doc.createElement('dialog');dialog.id='cw-guild-interior-host';dialog.setAttribute('aria-label','Guildhouse interior');const root=doc.createElement('div');root.innerHTML=roomMarkup;root.querySelector('#room-select').closest('label').hidden=true;root.querySelector('.preview-note').hidden=true;root.querySelector('.room-header small').textContent='CITY WATCH · GUILDHOUSE';const opening=doc.createElement('section');opening.className='cw-opening-panel';
  opening.innerHTML='<p role="status">Opening guildhouse…</p><button type="button">Cancel</button>';
  dialog.append(opening,root);doc.body.append(dialog);let visit=null,focus=null;

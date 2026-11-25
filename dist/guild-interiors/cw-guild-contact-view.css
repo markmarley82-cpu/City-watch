@@ -69,3 +69,12 @@
 #cw-guild-contact-dialog .cw-guild-art-status:empty{display:none}
 #cw-guild-contact-dialog .cw-guild-art-status{font-size:14px;overflow-wrap:anywhere}
 #cw-guild-contact-dialog .cw-guild-art-status button{display:block;min-height:44px;width:100%;margin-top:8px;font:inherit}
+
+/* Always paint a readable sheet, including when decorative images cannot decode
+   on a memory-constrained phone. Texture is decoration, never the text surface. */
+#cw-guild-contact-dialog .cw-dialogue-folio{background:#ead6ae padding-box;border-color:#59412b}
+#cw-guild-contact-dialog .cw-dialogue-top{background:#302218;border-radius:4px;padding-inline:8px}
+#cw-guild-contact-dialog .cw-dialogue-close{background-color:#523a26;border:1px solid #b39157}
+#cw-guild-contact-dialog .cw-dialogue-responses button{background-color:#ddc294;border:1px solid #927044}
+#cw-guild-contact-dialog .cw-dialogue-responses button:hover{background-color:#edd7ae}
+#cw-guild-contact-dialog .cw-dialogue-responses button:focus-visible{background-color:#42574a;color:#fff1cf}
