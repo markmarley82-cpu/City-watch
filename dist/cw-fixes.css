@@ -27,3 +27,8 @@ html body :is(h1,h2,h3)[tabindex="-1"]:focus-visible {
 
 /* Restore link on the recruit screen (24 Nov 2026). */
 .cw-fixes-restore{display:block;margin:6px auto 8px;padding:8px 10px;min-height:44px;background:none;border:0;color:inherit;font:italic 14px/1.3 Georgia,serif;text-decoration:underline;text-underline-offset:3px;opacity:.85;cursor:pointer}
+
+/* Backup reminder at the top of the Duty menu (25 Nov 2026). */
+#p21-duty-actions .cw-fixes-backup-due{margin:4px 0 10px;padding:10px 12px;border:1px solid #9b6b35;border-radius:3px;background:#f3e2bd;color:#3b2a18}
+#p21-duty-actions .cw-fixes-backup-due p{margin:0 0 8px;font:14px/1.4 Georgia,serif}
+#p21-duty-actions .cw-fixes-backup-due button{width:100%;min-height:44px;font-weight:bold}

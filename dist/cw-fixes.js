@@ -48,6 +48,8 @@
     const message = document.getElementById('city-message');
     if (message) { delete message.dataset.cwAssignment; message.textContent = text; }
   }
+  // Outside the city_watch_ prefix so it is not copied into backups or wiped by a restore.
+  const BACKUP_AT = 'cw_last_backup_at', BACKUP_EVERY = 3 * 24 * 3600 * 1000;
   function exportSave() {
     const keys = saveKeys();
     if (!keys.length) { alert('There is no saved patrol in this browser yet.'); return; }
@@ -60,6 +62,8 @@
     a.href = url; a.download = 'city-watch-save-' + new Date().toISOString().slice(0, 10) + '.json';
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 10000);
+    try { localStorage.setItem(BACKUP_AT, String(Date.now())); } catch (e) { /* storage blocked */ }
+    document.querySelectorAll('.cw-fixes-backup-due').forEach(n => n.remove());
     say('Save backup created. Keep the file somewhere safe, such as Files or iCloud Drive.');
   }
   function importSave() {
@@ -113,6 +117,13 @@
     const make = (label, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.dataset.cwBackup = 'true'; b.addEventListener('click', fn); return b; };
     const exp = make('Back up save to a file', exportSave), imp = make('Restore save from a file', importSave);
     save.after(exp, imp);
+    let last = 0; try { last = +localStorage.getItem(BACKUP_AT) || 0; } catch (e) { /* storage blocked */ }
+    if (hasCampaign() && !standalone() && Date.now() - last > BACKUP_EVERY) {
+      const due = document.createElement('div'); due.dataset.cwBackup = 'true'; due.className = 'cw-fixes-backup-due';
+      const p = document.createElement('p'); p.textContent = last ? 'It has been a few days since your last backup. Safari can clear saves of sites you have not visited for a week.' : 'Your patrol is saved only in this browser, and Safari can clear it after a week away. Back it up to a file now and then.';
+      due.append(p, make('Back up now', exportSave));
+      actions.prepend(due);
+    }
     if (!standalone()) {
       const tip = document.createElement('p'); tip.dataset.cwBackup = 'true'; tip.className = 'cw-fixes-tip';
       tip.textContent = 'Tip: add City Watch to your Home Screen (Share → Add to Home Screen). Safari can clear the saves of sites you haven’t visited for a week, but not of Home Screen apps.';
@@ -171,6 +182,10 @@
     o.observe(document.body, { childList: true, subtree: true });
   }
 
-  function start() { fixLoadingNote(); watchBanner(); watchDuty(); watchCrossing(); watchRecruit(); }
+  function keepSave() {
+    try { if (hasCampaign() && navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(p => p || navigator.storage.persist()).catch(() => {}); } catch (e) { /* not supported */ }
+  }
+  window.addEventListener('cw-recruit-signed', keepSave);
+  function start() { keepSave(); fixLoadingNote(); watchBanner(); watchDuty(); watchCrossing(); watchRecruit(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
