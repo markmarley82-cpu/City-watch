@@ -1,4 +1,4 @@
-import {manualNeighbour} from './city-core.mjs?v=junction-continuity-v2';
+import {manualNeighbour} from './city-core.mjs?v=junction-continuity-v3';
 export const footProbeOffsets=Object.freeze([[0,0],[-.12,-.12],[-.12,.12],[.12,-.12],[.12,.12]].map(Object.freeze));
 // This short portal is one city cell wide. Preserve a primarily along-lane
 // thumb drag without letting shallow cross-axis drift peel into the yards.

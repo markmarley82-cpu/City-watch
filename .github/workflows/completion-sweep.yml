@@ -1,7 +1,7 @@
 name: City completion sweep checks
 on:
   push:
-    branches: [fix/completion-sweep]
+    branches: [fix/completion-sweep, fix/planned-route-identity]
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,6 +28,7 @@ jobs:
           node --check tools/test-sweep-portraits.cjs
           node --check tools/test-sweep-combat.cjs
           node tests/city-junction-continuity.mjs
+          node tests/city-route-step-consistency.mjs
           node tests/cw-combat-settlement.cjs
           node tests/city-atlas-labels.mjs
           node tests/city-image-retry.mjs

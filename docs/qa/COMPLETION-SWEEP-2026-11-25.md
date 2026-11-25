@@ -16,7 +16,7 @@ Requested scope: finish map control overlap, reduce phone startup downloads, che
 
 Tests use disposable state and the public restore API to position an officer at a test doorway/junction. Campaign portrait checks instrument the existing dialogue adapter to open its real portrait slots; they are not a full story playthrough. Browser/physical-device performance claims will be limited to the evidence collected. Human uncoached Bridge acceptance and physical iPhone/Safari release acceptance are separate.
 
-Status: all five areas implemented and browser-verified; publishing to main and checking the deployed build.
+Status: all five areas implemented and browser-verified. Publication and public smoke verification are tracked in PRs #18 and #19.
 
 ## Collected evidence
 
@@ -25,3 +25,9 @@ Status: all five areas implemented and browser-verified; publishing to main and 
 - Run 45533790831: all 18 campaign portrait layouts passed, as did failed-image fallback and stale-image-error protection. These reuse approved artwork without changing any dialogue outcomes.
 - Run 45533790831: six installed-city pointer-drag crossings passed on both phone and desktop (12 total), followed by explicit Save game and exact-position restoration after reload on both layouts. No page errors. Positions are test fixtures on the actual installed world; movement itself uses pointer events.
 - Run 45534573089 (code/test head `3f7d4b1dc3881ee7dcc60518713aa63afac583de`): campaign portraits passed again; actual phone combat completed with two lawful arrests (8 merit) and two releases (5 merit). Both survived a saved-turn reload and a settled-state reload. Replaying the real result message produced no extra payment or archive entry; no page errors. Result screenshots reviewed.
+
+## Public-route follow-up
+
+The first public smoke test resumed an existing Constable save at the Post Office and reproduced a stop at Short Street `[113,248]` on the Atlas route to the Drum. The manual chooser's new preferred street identity disagreed with the planner's still-legal identity at overlapping registered bands; exact-step validation rejected that route. `manualNeighbour` now supports validating a requested target identity, and `acceptStreetStep` uses it for already-planned steps. Manual choices keep forward continuation; occupancy, graph joins, traversal and diagonal/bridge guards still apply. A regression test failed on 127 planned steps before the correction and now accepts all 3,342 steps on 12 cross-city base-map routes. Browser verification adds Post Office ↔ Drum through actual Atlas controls on both phone and desktop before republication.
+
+Follow-up run 45535972015 (code/test head `1432458f1e0f141e25549ebfca227db7101d8fbc`): all 12 pointer crossings and saved-position reloads passed again. Actual Atlas Post Office → Drum and Drum → Post Office journeys reached the exact installed doorway on both phone and desktop (four complete journeys). Map and campaign portrait/combat jobs also passed.

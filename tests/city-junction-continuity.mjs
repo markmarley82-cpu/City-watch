@@ -10,4 +10,5 @@ assert.equal(failures.length,0,JSON.stringify(failures));assert(passed.length>=1
 // Painted overlap alone never creates a transition, even after the new lookahead.
 const a=[0,0,'a'],toy={edges:new Map([['a',{kind:'STREET',a:'n',b:'x',points:[[0,0],[0,1]]}],['b',{kind:'STREET',a:'q',b:'z',points:[[0,0],[1,0]]}]]),members:new Map([['0,0',new Set(['a','b'])],['0,1',new Set(['a'])],['1,0',new Set(['b'])]]),wet:()=>false,neighbours:p=>p[2]==='a'?[[0,1,'a']]:[[1,0,'b']]};
 const {manualNeighbour}=await import('../dist/city-core.mjs');assert.equal(manualNeighbour(toy,a,1,0),null);assert.equal(manualNeighbour(toy,a,0,1,()=>true),null);assert.equal(manualNeighbour(toy,a,1,1),null);
+assert.equal(manualNeighbour(toy,a,1,0,()=>false,'b'),null);assert.equal(manualNeighbour(toy,a,0,1,()=>true,'a'),null);assert.equal(manualNeighbour(toy,a,1,1,()=>false,'b'),null);
 console.log('PASS unregistered overlap, occupied cells and diagonal corner guards');
