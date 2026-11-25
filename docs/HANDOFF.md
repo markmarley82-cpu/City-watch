@@ -1,4 +1,4 @@
-# Handoff for a new chat (updated 24 November 2026)
+# Handoff for a new chat (updated 25 November 2026)
 
 Read this first, then `docs/NEXT-STEPS.md`.
 
@@ -26,7 +26,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   re-run the workflow.
 - **Cache tags**: Pages caches files for 10 minutes. When a module changes, bump its `?v=` tag where
   it's imported, and the chain up to `index.html` (`phone-map.js?v=…`, which sets the city module tag).
-  The current boot/map cache tag is `atlas-labels-v2`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
+  The current boot/map cache tag is `completion-sweep-v1`. Phones (≤600 px wide) use city zoom 1.25 (`DEFAULT_CITY_ZOOM` in `dist/city.mjs`).
 
 ## Testing (local)
 
@@ -76,7 +76,7 @@ Read this first, then `docs/NEXT-STEPS.md`.
   parchment dialogue whose heading names Colon, Nobby, Carrot, Vimes, Mrs Palm or Dibbler
   (`dist/assets/portraits-v1/`). The drawn-character portraits for the first five were also replaced (used by the
   guild contact view and the ending). The six street-worker portraits show beside matching case speakers (porter, baker, net-mender, stallholder, dock clerk, carter), matched on the speaker line. The campaign engine's own
-  dialogues still use its older faces.
+  dialogues now use the same approved six faces through `cw-campaign-portraits.js` (25 Nov); other speakers retain their existing renderer.
 
 - **Landmark layers (23 Nov)**: the Bakery, Shrine, Alley House and Outpost carry the v2 packet's walls layer
   (shown in the see-through window behind them, as `roofHidden`) and window emission (`nightEmission`), added by

@@ -97,14 +97,26 @@ These make what already exists reliable:
     (about 9 MB of data files shrink several times), and bake `startup-cache.json` first
     (`node tools/bake-startup-cache.js <copy of dist>`), or the door check runs and adds
     about 6 s.
-  - What is left: about 24 MB of images before you can move before you can move (~30 s on
-    4G alone), and the per-district ground work. Loading distant districts'
-    art later would be the next big step; it touches how each district is
-    installed.
+  - University phone streaming (25 Nov): distant paintings now use the existing camera image
+    budget; reflected images remain eager. The cold, separately baked 6 Mbps Chromium comparison
+    transferred 55.07 → 44.84 MB before ready (18.6% fewer); 89.5 → 74.6 s in that run.
+    This differs from the older CPU-throttled measurements above and is not physical Safari timing.
+    Geometry matched and University art arrived on approach. See `docs/qa/COMPLETION-SWEEP-2026-11-25.md`.
+  - Further startup work can examine other distant districts and per-district ground generation.
 - **Done: overlapping map labels (24 Nov).** Landmark, district and street names now use measured
   collision-aware placement, small vertical offsets and crowding/clipping suppression. Pins and
   routes stay at their original coordinates. Phone/landscape/tablet/desktop checks cover pan, zoom,
   pinch, focus, district/destination selection, rotation and Walk here. See `docs/qa/ATLAS-LABEL-READABILITY.md`.
+- **Done: map control overlap (25 Nov).** District selection stays above an open destination
+  sheet; the title stays clear of Close. Control-against-control checks pass on four layouts.
+- **Done: junction continuity (25 Nov).** Explicit graph handoffs and forward continuation prevent
+  retaining the wrong street end cap. Base audit: 1,237 passing / zero stalled (previously 95 stalls).
+  Six real pointer-drag crossings on both phone and desktop pass, with saved position restored.
+- **Done: combat settlement audit (25 Nov).** Actual phone arrest and release play-throughs retain
+  saved turns and settled outcomes across reload, pay once and ignore replayed results. Boundary
+  checks also cover defeat, withdrawal, stale stores and failed storage; settlement rules were retained.
+- **Done: campaign portrait alignment (25 Nov).** Colon, Carrot, Vimes, Mrs Palm, Nobby and Dibbler
+  use the same approved faces as city conversations; 18 layouts and failed-image fallback checked.
 - Done: `bridge.html` and `layout.html` (old test scenes) load without errors again.
 - Done: the Night duty menu sits on the team's Night Duty board
   (`dist/cw-night-board.css`, built in `nightBoard()` in `dist/cw-patrol-duty.mjs`).
