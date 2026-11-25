@@ -32,6 +32,19 @@ jobs:
           mkdir _site
           cp -a dist/. _site/
           rm -f _site/play-*.html _site/source-inventory.json
+      # Test build at <site>/next/: the newest work-in-progress branch, so changes can
+      # be tried on a phone before they replace the live game. Same saves as live.
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/gallant-thompson-ii1f0c
+          path: next-src
+      - name: Prepare test build
+        continue-on-error: true
+        run: |
+          mkdir -p _site/next
+          cp -a next-src/dist/. _site/next/
+          rm -f _site/next/play-*.html _site/next/source-inventory.json
+          python3 -I next-src/tools/build-half-art.py next-src/dist next-src/art-half-resolution _site/next
       # Boot the game once in a headless phone browser to bake startup-cache.json
       # (expensive startup checks, verified for this exact build) and a fresh
       # cw-prefetch-list.json. See tools/bake-startup-cache.js. Optional: if it
