@@ -92,7 +92,7 @@ export function validSave(v,w){return !!v&&v.version===7&&Array.isArray(v.positi
 // Manual diagonals require both clear side paths on the approved source graph.
 // At a registered join, prefer the centreline under the requested destination.
 // Retaining a bridge's rounded cap past the join can strand manual movement.
-export function manualNeighbour(world,start,dx,dy,occupied=()=>false){
+export function manualNeighbour(world,start,dx,dy,occupied=()=>false,targetEdge=null){
  if(!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return null;
  const available=s=>!occupied(s),[x,y,id]=start;
  // A registered junction may hand off through a zero-distance connector
@@ -103,6 +103,9 @@ export function manualNeighbour(world,start,dx,dy,occupied=()=>false){
  const next=[...neighbours.values()];
  const at=(list,x,y)=>list.filter(s=>s[0]===x&&s[1]===y);
  const choose=candidates=>{
+  // A planned route already chose a legal graph identity. Validate that exact
+  // identity; manual preference must not reject a different legal route step.
+  if(targetEdge!==null)return candidates.find(s=>s[2]===targetEdge)||null;
   const current=world.edges.get(id);
   candidates=[...new Map(candidates.map(s=>[stateKey(s),s])).values()];
   if(candidates.length<2||dx&&dy&&!/^E00[1-7]$/.test(id)&&!candidates.some(s=>/^E00[1-7]$/.test(s[2])))return candidates[0]||null;

@@ -93,7 +93,7 @@ import {installCityImageDiagnostics} from './city-image-diagnostics.mjs?v=p21-b4
 import {createCityJSONLoader} from './city-json-loader.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise002} from './e045-premise-002.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise} from './e045-premise.mjs?v=p21-b407-s039-reuse';
-import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=completion-sweep-v1';
+import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=completion-sweep-v2';
 import {fitWatchSquare} from './city-square-camera.mjs?v=p21-b407-s039-reuse';
 import {createOperaTexture,createWornTile,sourceImageResidency} from './city-source-surfaces.mjs?v=p21-b407-s039-reuse';
 import {bridgeDeckContains} from './city-bridge-contact.mjs?v=p21-b407-s039-reuse';
@@ -102,10 +102,10 @@ import {createCityFrameLoop} from './city-frame-loop.mjs?v=p21-b408-walking-fram
 import {drawLocalCutaway,localCutawayContains} from './city-local-cutaway.mjs?v=p21-b522-reveal-raster';
 import {joinUniversityPublicFootways} from './city-university-walk-joins.mjs?v=p21-b532-university-links';
 import {openPublicGround} from './city-open-ground.mjs?v=p21-b470-public-paving';
-import {createFreeWalk,footProbeOffsets,palacePassageDrag} from './city-free-walk.mjs?v=junction-continuity-v2';
+import {createFreeWalk,footProbeOffsets,palacePassageDrag} from './city-free-walk.mjs?v=junction-continuity-v3';
 import {createAlphaCache} from './city-alpha-cache.mjs?v=p21-b410-mobile-crowd';
 import {bindMapPointer} from './city-pointer.mjs?v=p21-pointer-release-guard';
-import {createStreetStepper,walkDuration,streetPath,acceptStreetStep,streetTapPath,streetTapCellConnected,nextWalkTick} from './city-movement.mjs?v=junction-continuity-v2';
+import {createStreetStepper,walkDuration,streetPath,acceptStreetStep,streetTapPath,streetTapCellConnected,nextWalkTick} from './city-movement.mjs?v=junction-continuity-v3';
 import {createTapRoutePlanner} from './city-tap-search.mjs?v=budget-1';
 import {createPalacePrecinct} from './palace-precinct.mjs?v=p21-b407-s039-reuse';
 import {createPalaceApproach} from './city-palace-approach.mjs?v=1';
@@ -143,7 +143,7 @@ import {createUniversityCampus} from './university-campus.mjs?v=p21-b407-s039-re
 import './cw-joystick.js?v=p21-b407-s039-reuse';
 import './cw-locomotion.js?v=p21-b407-s039-reuse';
 import {installWaterCollision} from './city-water-collision.mjs?v=p21-b407-s039-reuse';
-import {compileCity,pathBetween,project,unproject,key,stateKey,engine,rectCells,pointIn,distance,validSave,manualNeighbour,manualDirectionalNeighbour} from './city-core.mjs?v=junction-continuity-v2';
+import {compileCity,pathBetween,project,unproject,key,stateKey,engine,rectCells,pointIn,distance,validSave,manualNeighbour,manualDirectionalNeighbour} from './city-core.mjs?v=junction-continuity-v3';
 import {registerHouse} from './city-quarter.mjs?v=p21-b407-s039-reuse';
 import {bridgeInFront,bridgePlacement,bridgeGroundReceiver,bridgeWaterSpan,PONS} from './city-art.mjs?v=p21-b407-s039-reuse';
 import {createUniversityView} from './university-view.mjs?v=p21-b407-s039-reuse';
@@ -1294,7 +1294,7 @@ window.CW_AUDIO_CONTEXT=()=>({sceneKey:'rebuilt-city',inside:false,room:null,pos
 window.CWP21City={movementProfile:{reference:CWLocomotion.profile.reference,stepMS:WALK_STEP_MS,timeScale:160/WALK_STEP_MS},refreshClock:()=>{clockSlot=-1;},clock:()=>({...cityClock}),worldServices,world,data,allBridges,characterPainter,nav,serviceRoute,tell,save,update,position:()=>player.slice(),footPosition:()=>freeWalk.foot(),steps:()=>steps,visits:()=>[...visits],stop:()=>{window.CWP21Game?.cancelPursuitTracking?.();stopMapTravel();mapPointer.cancel();},restore:p=>{if(validSave({version:7,position:p,visited:[]},world)){stopMapTravel();mapPointer.cancel();freeWalk.clear();player=p.slice();follow=true;update();}},isNavigating:()=>route.length>0||!!tapPlanner?.pending(),nearDoor,nearColon:()=>distance(player,npc)<=3};
 startupMark('assignment-start');
 window.CWPhoneBoot?.stage('Preparing your Watch assignment');
-npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=completion-sweep-v1');refreshAtlasDoorLabels();
+npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=completion-sweep-v2');refreshAtlasDoorLabels();
 if(e043QuayRecovery||mateStreetRecovery||recoveredRiverPosition||palaceBRecovery||e045WorkshopRecovery||e045PairRecovery||e046P03Recovery||e046P04P05Recovery||e046P06Recovery||hideParkRecovery){try{const currentCampaign=window.CWP21State.create(localStorage);currentCampaign.navigation(player,[...visits],steps,freeWalk.foot());currentCampaign.project();}catch{}tell(e043QuayRecovery?'Your saved patrol is on clear ground beside the quay lodging house. Your progress and equipment are kept.':mateStreetRecovery?'Your saved patrol is on clear ground beside the joined premises. Your case progress and equipment are kept.':hideParkRecovery?'Your saved patrol is on clear ground beside the new premises. Your case progress and equipment are kept.':e046P06Recovery?'Your saved patrol has moved to clear public ground beside the new dockside workshop. Your case progress and equipment are kept.':e046P04P05Recovery?'Your saved patrol has moved to clear public ground beside the new E046 premises. Your case progress and equipment are kept.':e046P03Recovery?'Your saved patrol has moved to clear public ground beside the western E046 premises. Your case progress and equipment are kept.':e045PairRecovery?'Your saved patrol has moved to clear public ground beside the joined premises.':e045WorkshopRecovery?'Your saved patrol has moved to safe ground on the same street beside the new workshop. Your case progress and equipment are kept.':palaceBRecovery?'Your saved patrol position is no longer available. You have been moved to the nearest safe point on the same street. Your case progress and equipment are kept.':'Your patrol is back on safe ground. Your case progress and equipment are kept.');}
 addEventListener('pageshow',()=>cityFrameLoop.start());
 if(LOW_MEMORY){

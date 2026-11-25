@@ -1,5 +1,5 @@
-import {bridgeCornerClear} from './city-free-walk.mjs?v=junction-continuity-v2';
-import {manualNeighbour,manualDirectionalNeighbour,project,unproject,closest,distance} from './city-core.mjs?v=junction-continuity-v2';
+import {bridgeCornerClear} from './city-free-walk.mjs?v=junction-continuity-v3';
+import {manualNeighbour,manualDirectionalNeighbour,project,unproject,closest,distance} from './city-core.mjs?v=junction-continuity-v3';
 
 // Map input assistance uses only steps cleared by the existing city graph.
 // A blocked diagonal may follow one open axis; it never crosses that corner.
@@ -26,7 +26,7 @@ export function walkDuration(from,to,stepMS=160,{screenSpeed=false}={}){const dx
 export function acceptStreetStep(world,from,to,{occupied=()=>false,stepMS=160,screenSpeed=false}={}){
  if(!Array.isArray(to)||occupied(to))return null;
  const dx=to[0]-from[0],dy=to[1]-from[1];
- const next=dx||dy?manualNeighbour(world,from,dx,dy,occupied):world.neighbours(from).find(p=>p[0]===to[0]&&p[1]===to[1]&&p[2]===to[2]);
+ const next=dx||dy?manualNeighbour(world,from,dx,dy,occupied,to[2]):world.neighbours(from).find(p=>p[0]===to[0]&&p[1]===to[1]&&p[2]===to[2]);
  if(!next||next[0]!==to[0]||next[1]!==to[1]||next[2]!==to[2]||world.canTraverse&&!world.canTraverse(from,to)||!bridgeCornerClear(world,from,to,{occupied}))return null;
  return {position:next,duration:walkDuration(from,next,stepMS,{screenSpeed}),sliding:false};
 }
