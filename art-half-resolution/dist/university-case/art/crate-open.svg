@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 100" width="61.5" height="50">
+<defs><linearGradient id="wood"><stop stop-color="#221912" /><stop offset=".46" stop-color="#75523a" /><stop offset="1" stop-color="#33231a" /></linearGradient><linearGradient id="brass"><stop stop-color="#49341e" /><stop offset=".55" stop-color="#d3a562" /><stop offset="1" stop-color="#785631" /></linearGradient><linearGradient id="paper"><stop stop-color="#e0c491" /><stop offset="1" stop-color="#826848" /></linearGradient></defs>
+<g stroke="#211a15" stroke-linejoin="round">
+<path d="M17 34 58 17 107 29 66 48Z" fill="#171511" stroke-width="3" />
+<path d="M58 16 92 7 108 28 68 42Z" fill="url(#wood)" stroke-width="2" />
+<path d="M63 20 96 12m-29 14 33-9m-29 15 33-11" stroke="#a77b45" stroke-opacity=".52" stroke-width="1.7" />
+<path d="m22 35 37-15 35 10-34 17Z" fill="#59402a" stroke="#bd8c58" />
+<path d="m35 36 34-11 14 3-34 13z" fill="url(#brass)" stroke-width="1.8" /><ellipse cx="70" cy="28" rx="7" ry="4" fill="#503b25" stroke="#b99154" /><path d="m43 34 8 3 17-7-6-2z" fill="#c7a873" />
+<path d="M17 35 62 49 106 31 107 69 65 85 17 73Z" fill="url(#wood)" stroke-width="2" /><path d="M62 49 65 85l42-16-1-38Z" fill="#3d2b20" />
+<path d="m19 45 43 13m-43-4 44 13m-44-4 44 13m1-18 42-17m-41 26 41-17m-41 26 41-17" fill="none" stroke="#97724e" stroke-opacity=".5" />
+<path d="m23 39 7 2v34l-7-2Zm30 9 8 3 3 32-8-2Zm43-12 7-3v36l-7 3Z" fill="#372c25" stroke="#805c41" />
+<path d="m71 46 16-8 3 10-15 8z" fill="url(#paper)" stroke="#503921" />
+<path d="m75 45 8-4m-7 7 9-5" stroke="#6e583e" stroke-width=".7" />
+</g></svg>
