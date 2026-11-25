@@ -96,7 +96,9 @@ export function createPavingUnderlay(world, privateCourts, materials, {grid=null
       if(!streetSurface)streetSurface=document.createElement('canvas');
       const {width,height}=ctx.canvas;if(streetSurface.width!==width)streetSurface.width=width;if(streetSurface.height!==height)streetSurface.height=height;
       const transform=ctx.getTransform();
-      const g=streetSurface.getContext('2d');g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,width,height);g.setTransform(transform);paint(g);
+      // Only the requested view's pixels are used (a scrolled ground strip asks for a thin band).
+      const R=pixelRegion(view,transform,width,height);
+      const g=streetSurface.getContext('2d');g.setTransform(1,0,0,1,0,0);g.clearRect(R[0],R[1],R[2],R[3]);g.save();g.beginPath();g.rect(R[0],R[1],R[2],R[3]);g.clip();g.setTransform(transform);paint(g);g.restore();
       if(!streetMask)streetMask=document.createElement('canvas');
       // Streaming can repaint the terrain on the same pixel grid. The road
       // mask is independent of streamed images, so keep its existing pixels.
@@ -107,7 +109,7 @@ export function createPavingUnderlay(world, privateCourts, materials, {grid=null
         if(streetMask.width!==width)streetMask.width=width;
         if(streetMask.height!==height)streetMask.height=height;
         const m=streetMask.getContext('2d');
-        m.setTransform(1,0,0,1,0,0);m.clearRect(0,0,width,height);
+        m.setTransform(1,0,0,1,0,0);m.clearRect(R[0],R[1],R[2],R[3]);
         m.setTransform(transform);m.transform(28,14,-28,14,0,0);
         m.strokeStyle='#fff';m.fillStyle='#fff';m.lineCap='round';m.lineJoin='round';
         // Keep two device pixels around the paint bounds for antialiasing.
@@ -121,8 +123,8 @@ export function createPavingUnderlay(world, privateCourts, materials, {grid=null
         for(const {x,y,w,h,bounds} of maskRects)if(visible(bounds))m.fillRect(x,y,w,h);
         streetMaskKey=maskKey;
       }
-      g.save();g.setTransform(1,0,0,1,0,0);g.globalCompositeOperation='destination-in';g.drawImage(streetMask,0,0);g.restore();
-      ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(streetSurface,0,0);ctx.restore();
+      if(R[2]>0&&R[3]>0){g.save();g.setTransform(1,0,0,1,0,0);g.globalCompositeOperation='destination-in';g.drawImage(streetMask,R[0],R[1],R[2],R[3],R[0],R[1],R[2],R[3]);g.restore();
+      ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(streetSurface,R[0],R[1],R[2],R[3],R[0],R[1],R[2],R[3]);ctx.restore();}
     },
     dispose(){for(const c of [streetSurface,streetMask])if(c)c.width=c.height=1;streetSurface=streetMask=streetMaskKey=null;},
     // Continuous visual land includes building plots and spaces between roads.
@@ -148,4 +150,11 @@ export function createPavingUnderlay(world, privateCourts, materials, {grid=null
     },
     report:()=>({id:'P21-PAVING-COVERAGE-1',cells:receivers.length,flagstoneCells:receivers.filter(r=>r.material==='flags').length,clipRegions:regions.length,continuousLand:!!land,landBoundary:land,featheredStreetEdges:true,landStyle:materials.landLabel||(materials.worn?'Retained painted worn setts with blended road courses, foundation contacts and source decals':'cobbles'),sharedCourtFootings:footprints.length-contactFootprints.length,geometryChanged:false})
   };
+}
+// Device-pixel box of a world view under a scale+translate transform, padded and clamped.
+function pixelRegion(view,t,width,height){
+ if(!view||![view[0],view[1],view[2],view[3]].every(Number.isFinite)||t.b||t.c)return [0,0,width,height];
+ const xs=[view[0]*t.a+t.e,view[2]*t.a+t.e],ys=[view[1]*t.d+t.f,view[3]*t.d+t.f];
+ const x0=Math.max(0,Math.floor(Math.min(...xs))-2),y0=Math.max(0,Math.floor(Math.min(...ys))-2),x1=Math.min(width,Math.ceil(Math.max(...xs))+2),y1=Math.min(height,Math.ceil(Math.max(...ys))+2);
+ return [x0,y0,Math.max(0,x1-x0),Math.max(0,y1-y0)];
 }

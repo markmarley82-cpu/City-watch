@@ -15,7 +15,7 @@ export function createCityImageDensity({load,loadSource=load,enabled=false,facto
   if(pending.has(path))return pending.get(path);
   const work=(async()=>{const source=await loadSource(path);
    try{
-    const sourceWidth=source.naturalWidth||source.width,sourceHeight=source.naturalHeight||source.height;
+    const sourceWidth=source.cwFullWidth||source.naturalWidth||source.width,sourceHeight=source.cwFullHeight||source.naturalHeight||source.height;
     if(!(sourceWidth>0&&sourceHeight>0))throw Error('City painting has no decoded dimensions: '+path);
     const canvas=reducedCanvas(path,sourceWidth,sourceHeight,true);
     canvas.getContext('2d').drawImage(source,0,0,canvas.width,canvas.height);
@@ -34,7 +34,7 @@ export function createCityImageDensity({load,loadSource=load,enabled=false,facto
  async function ensure(path){
   const canvas=cache.get(path);if(!canvas||canvas.cwReady!==false)return canvas;
   if(pending.has(path))return pending.get(path);
-  const work=(async()=>{let source=null;try{source=await loadSource(path);const sourceWidth=source.naturalWidth||source.width,sourceHeight=source.naturalHeight||source.height;
+  const work=(async()=>{let source=null;try{source=await loadSource(path);const sourceWidth=source.cwFullWidth||source.naturalWidth||source.width,sourceHeight=source.cwFullHeight||source.naturalHeight||source.height;
     if(sourceWidth!==canvas.cwSourceWidth||sourceHeight!==canvas.cwSourceHeight)throw Error('Streamed city painting dimensions differ: '+path);
     const width=Math.max(1,Math.round(sourceWidth*factor)),height=Math.max(1,Math.round(sourceHeight*factor));
     if(canvas.width!==width)canvas.width=width;

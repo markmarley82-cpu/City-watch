@@ -11,6 +11,7 @@ let library,view,styles;
 function ensureStyles(){
  if(!styles)styles=new Promise((yes,no)=>{const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('character-studio.css?v=p21-b461-watch-ui',import.meta.url);const timer=setTimeout(()=>{link.remove();no(Error('Recruit styling timed out'));},15000);link.onload=()=>{clearTimeout(timer);yes();};link.onerror=()=>{clearTimeout(timer);link.remove();no(Error('Recruit styling unavailable'));};document.head.append(link);}).catch(e=>{styles=null;throw e;});return styles;
 }
+const PLAYABLE=['human','dwarf','troll'];
 function fixedRecruit(race,entries){return race.bodies.find(key=>C.recruits.includes(key)&&entries[key]);}
 function build(){
  const dialog=document.createElement('dialog');dialog.id='character-studio';dialog.className='race-only';dialog.setAttribute('aria-labelledby','character-studio-title');
@@ -51,5 +52,7 @@ function build(){
 }
 export async function openCharacterStudio(options={}){
  library=options.library||library||await C.createLibrary({baseURL:new URL('./',import.meta.url)});await ensureStyles();if(!view)view=build();const v=view;if(v.dialog.open)return;
- v.options=options;v.races=H.races.filter(r=>fixedRecruit(r,library.entries));v.busy=false;v.nextDraft=null;v.returnFocus=options.returnFocus||document.activeElement;const selected=options.draft?.key||C.selected(options.legacySelection),race=H.raceOf(selected)||v.races[0];v.populate();options.onOpen?.();v.dialog.showModal();v.find('.kit-page').scrollTop=0;v.find('#character-studio-title').focus({preventScroll:true});await v.choose(race.id);
+ v.options=options;const selected=options.draft?.key||C.selected(options.legacySelection),own=H.raceOf(selected)?.id;
+ // New recruits choose from the three core Watch peoples (Mark, 25 Nov 2026). A saved recruit of another people keeps theirs when editing.
+ v.races=H.races.filter(r=>(PLAYABLE.includes(r.id)||r.id===own)&&fixedRecruit(r,library.entries));v.busy=false;v.nextDraft=null;v.returnFocus=options.returnFocus||document.activeElement;const race=(own&&v.races.find(r=>r.id===own))||v.races[0];v.populate();options.onOpen?.();v.dialog.showModal();v.find('.kit-page').scrollTop=0;v.find('#character-studio-title').focus({preventScroll:true});await v.choose(race.id);
 }

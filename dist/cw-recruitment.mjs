@@ -23,7 +23,7 @@ export function signRecruit({storage,campaignAPI,characters,clothing,heads,draft
 
 export async function createRecruitment({city,storage=localStorage,campaignAPI=window.CWP21State}){
   await import('./watch-oath/watch-oath.js?v=p21-b407-s039-reuse');
-  const {openCharacterStudio}=await import('./character-studio.mjs?v=p21-b461-watch-ui');
+  const {openCharacterStudio}=await import('./character-studio.mjs?v=three-peoples-1');
   const oath=window.CWWatchOath;let opening=false,screen=null,gate=null,phase='ready';
   const state=()=>campaignAPI.create(storage).read().state;
   function status(next){phase=next;document.body.dataset.recruitment=next;window.CWRecruitmentPending=!registered(state());}

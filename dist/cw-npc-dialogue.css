@@ -68,3 +68,8 @@
 /* Monogram seal instead of oversized clipped letters when a page has no portrait (23 Nov 2026). */
 :is(#cw-npc-dialogue,.cw-npc-dialogue) .cw-dialogue-portrait:has(> .cw-dialogue-initial){display:grid;place-items:center;}
 :is(#cw-npc-dialogue,.cw-npc-dialogue) .cw-dialogue-initial{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;font:600 24px/1 Georgia,serif;letter-spacing:1px;color:#f3d9a8;background:radial-gradient(circle at 40% 35%,#a8382b,#6b1a12 70%);box-shadow:inset 0 0 0 3px #c2564599,inset 0 0 0 6px #6b1a12,0 2px 5px #0007;text-shadow:0 1px 1px #0008;}
+/* Readable before the painted frame arrives: Safari can show the dialogue before the notebook
+   border picture and button tabs are decoded, leaving text over the room (Mark, 25 Nov 2026).
+   The plain parchment sits inside the border; the painted frame covers it once drawn. */
+:is(#cw-npc-dialogue,.cw-npc-dialogue) .cw-dialogue-folio{background:#e7d2a6 padding-box!important}
+:is(#cw-npc-dialogue,.cw-npc-dialogue) .cw-dialogue-responses button{background-color:#dcc28f}

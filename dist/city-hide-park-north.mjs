@@ -9,7 +9,7 @@ const finite=p=>Array.isArray(p)&&p.length===3&&p.slice(0,2).every(Number.isFini
 const inside=(p,b,pad=0)=>p[0]>=b[0]-pad&&p[0]<=b[2]+pad&&p[1]>=b[1]-pad&&p[1]<=b[3]+pad;
 
 export async function createHideParkNorth({read,load,addSprites,lightAnchors}){
- const base='assets/hide-park-north258/',data=await read(base+'manifest.json');
+ const base='assets/hide-park-north258/',data=await read(base+'manifest.json?v=placed-1');
  if(data.schema!==1||data.premises.length!==8||data.uniquePremises!==8||data.repeatedInstances!==0||new Set(data.premises.map(p=>p.id)).size!==8||data.premises.some(p=>p.originalUnnamed!==true||p.uniformScale!==1))throw Error('Hide Park north unique-premise contract changed');
  const prepared=await Promise.all(data.premises.map(async r=>{
   const images=await Promise.all([r.body,r.roofHidden].map(f=>load(base+f)));

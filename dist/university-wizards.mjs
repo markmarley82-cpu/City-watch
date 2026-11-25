@@ -26,7 +26,7 @@ export function createUniversityWizards({city,actors,document:doc=globalThis.doc
  function make(tag,className,text){const node=doc.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
  function mount(){
   if(dialog)return;
-  if(!doc.querySelector('link[data-university-wizards-style]')){const link=make('link');link.rel='stylesheet';link.href=new URL('cw-npc-dialogue.css?v=seal-1',import.meta.url).href;link.dataset.universityWizardsStyle='true';doc.head.append(link);}
+  if(!doc.querySelector('link[data-university-wizards-style]')){const link=make('link');link.rel='stylesheet';link.href=new URL('cw-npc-dialogue.css?v=seal-2',import.meta.url).href;link.dataset.universityWizardsStyle='true';doc.head.append(link);}
   dialog=make('dialog','cw-npc-dialogue');dialog.id='cw-university-wizards';dialog.setAttribute('aria-labelledby','cw-university-wizard-name');
   const folio=make('div','cw-dialogue-folio'),top=make('header','cw-dialogue-top'),close=make('button','cw-dialogue-close','Close ×');close.type='button';close.onclick=dismiss;top.append(make('span','', 'THE WATCH · CONVERSATIONS'),close);
   const spread=make('div','cw-dialogue-spread'),profile=make('aside','cw-dialogue-profile');portrait=make('div','cw-dialogue-portrait');profile.append(portrait,make('p','cw-dialogue-profile-caption','University approach'));

@@ -1,6 +1,6 @@
 import './cw-joystick.js?v=p21-b407-s039-reuse';
 import {bridgeWalk,project,unproject,cellKey,pathBetween,validBridgeSave,cutawayOpacity} from './bridge-core.mjs?v=p21-b407-s039-reuse';
-import {createActorPainter} from './character-actors.mjs?v=recruit-art-v2-r3';
+import {createActorPainter} from './character-actors.mjs?v=recruit-art-v2-r3-three';
 const $=id=>document.getElementById(id),KEY='city_watch_lab01_v06_bridge',walk=bridgeWalk();
 await window.CW_LAB.prepare();
 const characterPainter=await createActorPainter({stepMS:140});

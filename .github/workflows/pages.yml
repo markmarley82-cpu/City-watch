@@ -33,6 +33,9 @@ jobs:
           mkdir _site
           cp -a dist/. _site/
           rm -f _site/play-*.html _site/source-inventory.json
+          # Half-size paintings for phones (art-half-resolution/), only where the
+          # original is unchanged; writes _site/half/ and _site/half/index.json.
+          python3 -I tools/build-half-art.py dist art-half-resolution _site
       # Test build at <site>/next/: the newest work-in-progress branch, so changes can
       # be tried on a phone before they replace the live game. Same saves as live.
       - uses: actions/checkout@v4

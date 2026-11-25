@@ -13,13 +13,13 @@ import {createPalaceHost} from './palace/palace-host.mjs?v=civic-v2';
 import {createUniversityHost} from './university-host.mjs?v=p21-b502-university-ui-cw2';
 import {projectCase01Notebook} from './university-case/notebook.mjs?v=cw1';
 import {createRecruitGuide} from './cw-recruit-guide.mjs?v=p21-b461-watch-ui';
-import {createPlayerContacts} from './cw-player-contacts.mjs?v=seal-1';
-import {createUniversityWizards} from './university-wizards.mjs?v=seal-1';
+import {createPlayerContacts} from './cw-player-contacts.mjs?v=seal-2';
+import {createUniversityWizards} from './university-wizards.mjs?v=seal-2';
 import {campaignClock} from './city-clock.mjs?v=game-time';
 import {organiserBriefing} from './city-imp-clock.mjs?v=purse-street-leads';
 import {createGuildInteriorHost} from './guild-interiors/guild-host.mjs?v=room-sharp-2';
 import {createNewspaperStreetSellers} from './cw-newspaper-sellers.mjs?v=p21-b527-patrol-state';
-import {createRecruitment}from './cw-recruitment.mjs?v=p21-b448-first-patrol-map';
+import {createRecruitment}from './cw-recruitment.mjs?v=three-peoples-1';
 import {createFirstPatrolBriefing}from './cw-first-patrol-briefing.mjs?v=p21-b466-colon-outside';
 import {createCityServicesHost} from './city-services/city-services-host.mjs?v=p21-b461-watch-ui';
 const city=window.CWP21City,$=id=>document.getElementById(id);
@@ -245,7 +245,7 @@ async function loadEngine(){
  cancelEngineLoad=()=>finish(Error('Watch service opening cancelled.'));
  timer=setTimeout(()=>finish(Error('The Watch services could not start. Return to the city and retry.')),45000);
  frame.onload=()=>{const check=()=>{if(done)return;try{const api=frame.contentWindow?.CWP21Engine,boot=frame.contentWindow?.CW_BOOT_DIAGNOSTICS?.();if(boot?.phase==='error')finish(Error('Watch services could not load. Try again from the street.'));else if(api&&boot?.phase==='ready')finish(null,api);else poll=setTimeout(check,100);}catch(e){finish(e);}};check();};
- frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-campaign-faces-v2');return ready;
+ frame.src='campaign-engine.html?unified=1&v='+encodeURIComponent((window.CW_LAB_RELEASE?.runtimeCacheToken||'p21-b153-deferred-painting-recovery')+'-campaign-faces-v2-seal2');return ready;
 }
 function invokeEngine(api,command,id,context){
  return new Promise((resolve,reject)=>{

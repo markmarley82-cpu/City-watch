@@ -67,7 +67,7 @@ import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-works
 import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=memo-1';
 import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=memo-1';
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
-import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=memo-1';
+import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
 import {approachRoofCutawayMask,walkingCutawayMask,walkingGroundSamples,e045PavingSweep} from './city-cutaway.mjs?v=p21-e045-paving-sweep-candidate';
@@ -121,7 +121,7 @@ import {createCourtSurface} from './e045-court-surface.mjs?v=p21-b478-e045-court
 import {createNeighbourhoodStreets} from './city-neighbourhood-streets.mjs?v=p21-b534-shades-footway';
 import {createE045Riverfront} from './city-e045-riverfront.mjs?v=p21-b407-s039-reuse';
 import {createOperaPublicSteps,fullBodyPublicApproach} from './city-public-approaches.mjs?v=p21-b407-s039-reuse';
-import {createCityFootways} from './city-footways.mjs?v=p21-b407-s039-reuse';
+import {createCityFootways} from './city-footways.mjs?v=strip-1';
 import {createSectionS011} from './city-section-s011.mjs?v=p21-b407-s039-reuse';
 import {createSectionS010} from './city-section-s010.mjs?v=p21-b407-s039-reuse';
 import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
@@ -135,10 +135,10 @@ import {createE043Premise} from './e043-premise.mjs?v=p21-b407-s039-reuse';
 import {createE043Premise002} from './e043-premise-002.mjs?v=p21-b407-s039-reuse';
 import {createE043Premise003} from './e043-premise-003.mjs?v=p21-b407-s039-reuse';
 import {createE043Premise004} from './e043-premise-004.mjs?v=p21-b407-s039-reuse';
-import {GroundFrameCache} from './city-ground-cache.mjs?v=p21-b408-walking-frame-pacing';
+import {GroundFrameCache} from './city-ground-cache.mjs?v=scroll-1';
 import {createSceneryIndex} from './city-scenery-index.mjs?v=p21-b407-s039-reuse';
 import {createQuayWallPainter} from './river-quay-walls.mjs?v=p21-b407-s039-reuse';
-import {createPavingUnderlay,CITY_LAND_FINISH} from './city-paving.mjs?v=p21-b414-terrain-redraw';
+import {createPavingUnderlay,CITY_LAND_FINISH} from './city-paving.mjs?v=strip-1';
 import {createUniversityCampus} from './university-campus.mjs?v=p21-b407-s039-reuse';
 import './cw-joystick.js?v=p21-b407-s039-reuse';
 import './cw-locomotion.js?v=p21-b407-s039-reuse';
@@ -148,10 +148,10 @@ import {registerHouse} from './city-quarter.mjs?v=p21-b407-s039-reuse';
 import {bridgeInFront,bridgePlacement,bridgeGroundReceiver,bridgeWaterSpan,PONS} from './city-art.mjs?v=p21-b407-s039-reuse';
 import {createUniversityView} from './university-view.mjs?v=p21-b407-s039-reuse';
 import {GroundPainter,groundView,intersects} from './city-ground.mjs?v=p21-b407-s039-reuse';
-import {createCityImageDensity} from './city-image-density.mjs?v=p21-b523-painting-budget';
+import {createCityImageDensity} from './city-image-density.mjs?v=half-art-1';
 import {createPhoneBudget} from './city-phone-budget.mjs?v=p21-b407-s039-reuse';
 import {BRIDGE_LOCAL_CUTAWAY_TRANSMISSION,BridgePainter,bridgeHouseCutawayEligible,bridgeActorInFront,bridgeLocalCutawayContains,bridgeLocalCutawayEligible,bridgeLocalCutawayMask} from './city-bridges.mjs?v=p21-bridge-layer-cache';
-import {createActorPainter} from './character-actors.mjs?v=recruit-art-v2-r3';
+import {createActorPainter} from './character-actors.mjs?v=recruit-art-v2-r3-three';
 import {createUniversityStreets} from './university-streets.mjs?v=phone-deferred-v2';
 import {createShadesStreets} from './shades-streets.mjs?v=p21-b407-s039-reuse';
 import {createRiverPainter} from './city-river.mjs?v=river-sliced-1';
@@ -178,7 +178,7 @@ window.CWRecruitmentPending=!(campaign.read().state.flags.watchOathVersion&&camp
 import {createGapFrontages} from './city-mate-street304.mjs?v=p21-b407-s039-reuse';
 const read=createCityJSONLoader();
 window.CWPhoneBoot?.stage('Reading city layout');
-const [data,precinct,roofs,recruit,colon,ds,quarter,infill,pons,cobbles,allBridges,bankContacts,riverContract]=await Promise.all(['assets/city-v07/city-design.json?v=drum-large','assets/team-v05/precinct-rc1.json','assets/city-v07/roof-parcels.json','assets/team-v05/watch-recruit.json','assets/team-v05/colon.json','assets/graphics-p17/dolly_sisters/metadata/sprites.json','assets/city-v09/watch-quarter.json','assets/city-v010/adjoining-block.json','assets/city-v010/pons/manifest.json','assets/city-v011/cobbles/manifest.json','assets/river-bridges-v1/bridges.json?v=waterline-1','assets/river-bridges-v1/bank-contacts.json','assets/river-bridges-v1/river.json'].map(read)).catch(e=>{$('city-message').textContent=e.message;throw e;});
+const [data,precinct,roofs,recruit,colon,ds,quarter,infill,pons,cobbles,allBridges,bankContacts,riverContract]=await Promise.all(['assets/city-v07/city-design.json?v=guild-trim-1','assets/team-v05/precinct-rc1.json','assets/city-v07/roof-parcels.json','assets/team-v05/watch-recruit.json','assets/team-v05/colon.json','assets/graphics-p17/dolly_sisters/metadata/sprites.json','assets/city-v09/watch-quarter.json','assets/city-v010/adjoining-block.json','assets/city-v010/pons/manifest.json','assets/city-v011/cobbles/manifest.json','assets/river-bridges-v1/bridges.json?v=waterline-1','assets/river-bridges-v1/bank-contacts.json','assets/river-bridges-v1/river.json'].map(read)).catch(e=>{$('city-message').textContent=e.message;throw e;});
 const world=compileCity(data,precinct),riverPainter=createRiverPainter(riverContract),canvas=$('city-scene'),ctx=canvas.getContext('2d',{alpha:false}),base=[126,132],origin=project(base),local=p=>[p[0]+126,p[1]+132];
 let riverAppearance=null,riverDetailJob=null;
 const parkRegistration=await read('assets/hide-park260/registration.json');
@@ -193,7 +193,8 @@ let player=[126,132,'RC1'],npc=[121,135,'RC1'],route=[],routeNotice=false,arriva
 let savedNavigation=null;
 try{const u=campaign.read();savedNavigation=u;const v={version:7,position:u.position,steps:u.steps,visited:u.visited};if(validSave(v,world)){player=v.position.slice();steps=Number.isSafeInteger(v.steps)&&v.steps>=0?v.steps:0;visits=new Set(v.visited);follow=true;zoom=DEFAULT_CITY_ZOOM;}}catch{saveError='Saving is unavailable; you can still walk.';}
 const memoryQuery=typeof location!=='undefined'&&new URLSearchParams(location.search).has('low-memory'),memoryAgent=typeof navigator!=='undefined'?navigator:null,memoryIOS=!!memoryAgent&&(/iPhone|iPad|iPod/.test(memoryAgent.userAgent)||(memoryAgent.platform==='MacIntel'&&memoryAgent.maxTouchPoints>1)),LOW_MEMORY=memoryQuery||memoryIOS||!!(memoryAgent?.deviceMemory&&memoryAgent.deviceMemory<=4);
-const phoneBudget=createPhoneBudget({enabled:LOW_MEMORY,paintFPS:30});
+// ?fps=60 lifts the phone paint cap for comparison on a real device (default 30).
+const phoneBudget=createPhoneBudget({enabled:LOW_MEMORY,paintFPS:/[?&]fps=60(&|$)/.test(location.search)?60:30});
 const images=new Map(),imagesByURL=new Map(),pendingImages=new Map(),imageQueue=[];const IMAGE_LOAD_LIMIT=LOW_MEMORY?2:4;let activeImageLoads=0,peakImageLoads=0,joinedImageRequests=0,completedImageLoads=0,decodedImagePixels=0,largestDecodedImage=null;
 const IMAGE_LOAD_TIMEOUT_MS=20000;
 let imageLoadTimeouts=0,imageLoadRetries=0,lastImageLoadFailure=null;
@@ -207,7 +208,9 @@ function drainImageQueue(){
    else{const width=i.naturalWidth||i.width,height=i.naturalHeight||i.height,pixels=width*height,entry={path:job.path,width,height,pixels};decodedImagePixels+=pixels;if(!largestDecodedImage||pixels>largestDecodedImage.pixels)largestDecodedImage=entry;completedImageLoads++;window.CWPhoneBoot?.image();job.resolve(i);}
    drainImageQueue();
   };
-  i.onload=()=>finish();i.onerror=()=>finish(Error('Painting could not load: '+job.path));
+  // Decode off the main thread before the painting is first drawn: otherwise the first
+  // drawImage decodes it synchronously and walking into new streets stutters on phones.
+  i.onload=()=>{if(typeof i.decode==='function')i.decode().then(()=>finish(),()=>finish());else finish();};i.onerror=()=>finish(Error('Painting could not load: '+job.path));
   timer=setTimeout(()=>{imageLoadTimeouts++;finish(Error('Painting timed out after 20 seconds: '+job.path));},IMAGE_LOAD_TIMEOUT_MS);
   try{i.src=job.url;}catch(error){finish(error);}
  }
@@ -218,7 +221,12 @@ async function load(p){const url=new URL(p,document.baseURI).href;if(images.has(
 // A reduced painting is constructed from an expendable decoder. Never borrow a
 // retained scene image here: releasing that shared HTMLImageElement would leave
 // an already registered building complete but 0x0 on low-memory phones.
-function loadDensitySource(p){return retryImage(p,new URL(p,document.baseURI).href);}
+// Phones load ready-made half-size paintings (built at deploy from art-half-resolution/) instead of
+// downloading and decoding the full painting only to shrink it. ?fullart=1 keeps the old path for comparison.
+const halfArt=LOW_MEMORY&&!/[?&]fullart=1(&|$)/.test(location.search)?await fetch('half/index.json?v=1').then(r=>r.ok?r.json():null).catch(()=>null):null;
+function loadDensitySource(p){const bare=p.split('?')[0],full=halfArt?.[bare],fullLoad=()=>retryImage(p,new URL(p,document.baseURI).href);
+ if(!full)return fullLoad();
+ return retryImage('half/'+bare,new URL('half/'+bare,document.baseURI).href).then(i=>{i.cwFullWidth=full[0];i.cwFullHeight=full[1];return i;},fullLoad);}
 const constructionReleases=[];
 function releaseConstructionSource(path,image){if(!LOW_MEMORY)return false;const width=image.naturalWidth||image.width,height=image.naturalHeight||image.height;for(const [key,value]of images)if(value===image){images.delete(key);imagesByURL.delete(new URL(key,document.baseURI).href);}const released=phoneBudget.releaseSource(image);if(released)constructionReleases.push({path,width,height,sourceMiB:width*height*4/1048576});return released;}
 const imageLoaderReport=()=>({lowMemory:LOW_MEMORY,ios:memoryIOS,limit:IMAGE_LOAD_LIMIT,timeoutMs:IMAGE_LOAD_TIMEOUT_MS,timeouts:imageLoadTimeouts,retries:imageLoadRetries,lastFailure:lastImageLoadFailure,active:activeImageLoads,queued:imageQueue.length,pending:pendingImages.size,peak:peakImageLoads,completed:completedImageLoads,joined:joinedImageRequests,cached:images.size,decodedMiB:Number((decodedImagePixels*4/1048576).toFixed(1)),largest:largestDecodedImage,...sourceImageResidency(images),constructionReleases});
@@ -911,7 +919,7 @@ windowLighting.registerScene(sceneryObjects);
 // Shared bridge/street cells already have the continuous city paving.
 // The old diamond fallback would paint a hard patch over that landing.
 const roadTiles=[...world.members].filter(([,ids])=>bridgeFallbackCell(ids)).map(([k,ids])=>({p:k.split(',').map(Number),ids}));
-const groundCache=new GroundFrameCache(LOW_MEMORY?{margin:96,maxPixels:2*1048576}:{margin:128,maxPixels:8*1048576});
+const groundCache=new GroundFrameCache(LOW_MEMORY?{margin:96,maxPixels:2*1048576,refreshMS:600}:{margin:128,maxPixels:8*1048576,refreshMS:600});if(/[?&]noscroll=1(&|$)/.test(location.search))groundCache.scroll=false; // compare against whole-picture repaints
 const groundSources=[ground,conceptGround,shadesGround,bankPainter,hideParkArt.ground,deferredGround].filter(Boolean);
 let lastSceneryPrefetch=-Infinity,lastSceneryView=null;
 // Full debug snapshots serialize city-wide state; keep that work off most phone paints.
@@ -1294,7 +1302,7 @@ window.CW_AUDIO_CONTEXT=()=>({sceneKey:'rebuilt-city',inside:false,room:null,pos
 window.CWP21City={movementProfile:{reference:CWLocomotion.profile.reference,stepMS:WALK_STEP_MS,timeScale:160/WALK_STEP_MS},refreshClock:()=>{clockSlot=-1;},clock:()=>({...cityClock}),worldServices,world,data,allBridges,characterPainter,nav,serviceRoute,tell,save,update,position:()=>player.slice(),footPosition:()=>freeWalk.foot(),steps:()=>steps,visits:()=>[...visits],stop:()=>{window.CWP21Game?.cancelPursuitTracking?.();stopMapTravel();mapPointer.cancel();},restore:p=>{if(validSave({version:7,position:p,visited:[]},world)){stopMapTravel();mapPointer.cancel();freeWalk.clear();player=p.slice();follow=true;update();}},isNavigating:()=>route.length>0||!!tapPlanner?.pending(),nearDoor,nearColon:()=>distance(player,npc)<=3};
 startupMark('assignment-start');
 window.CWPhoneBoot?.stage('Preparing your Watch assignment');
-npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=room-motion-hd-1');refreshAtlasDoorLabels();
+npc=[121,135,'RC1'];npcRoute=[];await import('./cw-p21-game.mjs?v=room-motion-hd-1-mine');refreshAtlasDoorLabels();
 if(e043QuayRecovery||mateStreetRecovery||recoveredRiverPosition||palaceBRecovery||e045WorkshopRecovery||e045PairRecovery||e046P03Recovery||e046P04P05Recovery||e046P06Recovery||hideParkRecovery){try{const currentCampaign=window.CWP21State.create(localStorage);currentCampaign.navigation(player,[...visits],steps,freeWalk.foot());currentCampaign.project();}catch{}tell(e043QuayRecovery?'Your saved patrol is on clear ground beside the quay lodging house. Your progress and equipment are kept.':mateStreetRecovery?'Your saved patrol is on clear ground beside the joined premises. Your case progress and equipment are kept.':hideParkRecovery?'Your saved patrol is on clear ground beside the new premises. Your case progress and equipment are kept.':e046P06Recovery?'Your saved patrol has moved to clear public ground beside the new dockside workshop. Your case progress and equipment are kept.':e046P04P05Recovery?'Your saved patrol has moved to clear public ground beside the new E046 premises. Your case progress and equipment are kept.':e046P03Recovery?'Your saved patrol has moved to clear public ground beside the western E046 premises. Your case progress and equipment are kept.':e045PairRecovery?'Your saved patrol has moved to clear public ground beside the joined premises.':e045WorkshopRecovery?'Your saved patrol has moved to safe ground on the same street beside the new workshop. Your case progress and equipment are kept.':palaceBRecovery?'Your saved patrol position is no longer available. You have been moved to the nearest safe point on the same street. Your case progress and equipment are kept.':'Your patrol is back on safe ground. Your case progress and equipment are kept.');}
 addEventListener('pageshow',()=>cityFrameLoop.start());
 if(LOW_MEMORY){

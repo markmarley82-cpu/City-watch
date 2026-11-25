@@ -1,7 +1,7 @@
 /* Mark-approved paving direction: actual cached terrain, never a screenshot overlay.
  * Existing public cells, bridge paintings, courts and navigation remain authoritative. */
 import {project,closest,distance} from './city-core.mjs?v=p21-b407-s039-reuse';
-import {pavingRegions,cityLandBoundary} from './city-paving.mjs?v=p21-b407-s039-reuse';
+import {pavingRegions,cityLandBoundary} from './city-paving.mjs?v=strip-1';
 import {streetSurfaceProfile} from './city-street-hierarchy.mjs?v=p21-b407-s039-reuse';
 const bridge=id=>/^E00[1-7]$/.test(id);
 const hash=(x,y,s=0)=>{let n=Math.imul(Math.round(x*100)+s,374761393)^Math.imul(Math.round(y*100),668265263);n=Math.imul(n^(n>>>13),1274126177);return (n>>>0)/4294967296;};
@@ -198,23 +198,40 @@ export function createCityFootways(world,images,options={}){
     surfaceBytes=width*height*4;
     const g=publicSurface.getContext('2d'),epoch=surfaceEpoch;
     try{
-     g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,width,height);
+     // Work only inside the requested view's pixels (a scrolled ground strip asks for a thin band).
+     const R=pixelRegion(view,t,width,height);
+     g.setTransform(1,0,0,1,0,0);g.clearRect(R[0],R[1],R[2],R[3]);
+     g.save();g.beginPath();g.rect(R[0],R[1],R[2],R[3]);g.clip();
      g.save();g.setTransform(t);this.paint(g,view);this.paintJunctionCourse(g,view);g.restore();
      g.save();g.setTransform(t);g.transform(28,14,-28,14,0,0);
      g.globalAlpha=1;g.globalCompositeOperation='destination-out';g.fillStyle='#fff';
      g.beginPath();
-     for(const [x,y,w,h] of plan.footprints)if(w>.1&&h>.1)g.rect(x-.45,y-.45,w-.1,h-.1);
-     for(const cell of plan.unpavedCells){const[x,y]=cell.split(',').map(Number);g.rect(x-.5,y-.5,1,1);}
-     g.fill();g.restore();
+     const near=cellsNear(view);
+     for(const [x,y,w,h] of plan.footprints)if(w>.1&&h>.1&&near(x,y,w,h))g.rect(x-.45,y-.45,w-.1,h-.1);
+     for(const cell of plan.unpavedCells){const[x,y]=cell.split(',').map(Number);if(near(x-.5,y-.5,1,1))g.rect(x-.5,y-.5,1,1);}
+     g.fill();g.restore();g.restore();
      // A changing version during paint must never promote a stale surface.
      if(retain&&Object.is(readSurfaceVersion(),version)&&epoch===surfaceEpoch&&publicSurface.width===width&&publicSurface.height===height)surfaceKey={width,height,version,a:t.a,b:t.b,c:t.c,d:t.d,e:t.e,f:t.f,x0:view[0],y0:view[1],x1:view[2],y1:view[3]};
     }catch(error){surfaceKey=null;publicSurface.width=width;throw error;}
    }
-   ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(publicSurface,0,0);ctx.restore();
+   {const R=pixelRegion(view,t,width,height);if(R[2]>0&&R[3]>0){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(publicSurface,R[0],R[1],R[2],R[3],R[0],R[1],R[2],R[3]);ctx.restore();}}
   },
   invalidateSurface(){surfaceKey=null;surfaceEpoch++;},
   dispose(){publicSurface.width=publicSurface.height=1;surfaceBytes=0;surfaceKey=null;surfaceEpoch++;},
   report:()=>({id:plan.id,sharedCourtFootingRings:plan.footprints.length-footingRings.length,structuralExclusion:'source-pixel-mask',surfaceMiB:surfaceBytes/1048576,surfaceVersioned:!!readSurfaceVersion,surfaceReuses,surfaceCached:!!surfaceKey,boundedClipIntersections:!!options.boundClipIntersections,continuousStreetEdges:true,blendedMaterialShoulders:true,misbegotJoinStrips:plan.misbegotStrips.length,southernJunctionCourses:plan.junctionCourses.map(c=>({edge:c.edge,a:c.a,b:c.b,width:c.width,carriageWidth:c.carriageWidth})),streetBands:plan.bands.length,visibleBands,publicCells:plan.receivers.length,unpavedEarthCells:plan.unpavedCells.size,kerbStones:plan.kerbs.length,thresholds:plan.thresholds.length,repairPatches:plan.repairs.length,paintDraws:draws,decodedMaterialMiB:4,bridgeArtRetained:7,navigationChanged:false,footprintsExcluded:true,bespokePrivateCourtsRetained:true,surveyedCartways:plan.bands.filter(b=>b.surface).map(b=>({edge:b.id,id:b.surface.id,length:b.surface.length,widthRange:[b.surface.minWidth,b.surface.maxWidth],carriageRange:b.surface.carriageRange,footwayRange:[b.footwayWidth,.72],stations:b.surface.stations}))}),
   plan
  };
+}
+
+// Device-pixel box of a world view under a scale+translate transform, padded and clamped.
+function pixelRegion(view,t,width,height){
+ if(!view||![view[0],view[1],view[2],view[3]].every(Number.isFinite)||t.b||t.c)return [0,0,width,height];
+ const xs=[view[0]*t.a+t.e,view[2]*t.a+t.e],ys=[view[1]*t.d+t.f,view[3]*t.d+t.f];
+ const x0=Math.max(0,Math.floor(Math.min(...xs))-2),y0=Math.max(0,Math.floor(Math.min(...ys))-2),x1=Math.min(width,Math.ceil(Math.max(...xs))+2),y1=Math.min(height,Math.ceil(Math.max(...ys))+2);
+ return [x0,y0,Math.max(0,x1-x0),Math.max(0,y1-y0)];
+}
+// Cell rectangles (grid units) whose isometric diamond can touch the world view.
+function cellsNear(view){
+ if(!view||![view[0],view[1],view[2],view[3]].every(Number.isFinite))return ()=>true;
+ return (x,y,w,h)=>{const sx0=28*(x-(y+h)),sx1=28*((x+w)-y),sy0=14*(x+y),sy1=14*(x+w+y+h);return sx1>=view[0]-28&&sx0<=view[2]+28&&sy1>=view[1]-14&&sy0<=view[3]+14;};
 }

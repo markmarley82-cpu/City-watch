@@ -2,7 +2,7 @@ import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import './cw-action-rigs-data.js?v=p21-b407-s039-reuse';
 import './cw-character-runtime.js?v=recruit-art-v2-r2';
 import './cw-clothing.js?v=p21-b407-s039-reuse';
-import {openCharacterStudio} from './character-studio.mjs?v=p21-b461-watch-ui';
+import {openCharacterStudio} from './character-studio.mjs?v=three-peoples-1';
 export async function createActorPainter({baseURL=new URL('./',import.meta.url),stepMS=115,canInterpolateDiagonal=()=>false,durationForStep=null}={}){
  const C=window.CWCharacters,library=await C.createLibrary({baseURL}),preference=C.motionPreference(),motion=new Map(),drawn=new Map(),retained=new Set();let playerKey=C.selected(),selectionToken=0;
  const racePlayer=window.CWRacePlayer.current;const playerEnsure=async key=>{const [meta]=await Promise.all([racePlayer.supports(key)?racePlayer.ensure(key):library.ensure(key),library.ensureRecruitArt(key,{clothing:true,head:true},true)]);return meta;};const pin=()=>{library.pin([playerKey,...retained]);racePlayer.pin(playerKey);};pin();await Promise.all([...new Set([C.defaultRecruit,playerKey,'p3_named_colon_base'])].map(k=>k===playerKey?playerEnsure(k):library.ensure(k)));
