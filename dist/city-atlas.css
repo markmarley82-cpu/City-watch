@@ -111,3 +111,5 @@ html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atl
 .atlas-survey .atlas-place-pin.is-selected>.atlas-pin-label{max-width:140px;color:#742f20}
 .atlas-survey .atlas-place-pin[aria-label='Opera House']>.atlas-pin-label{bottom:auto;top:34px}
 .atlas-survey :is(.atlas-area-name,.atlas-street-name){translate:0 var(--atlas-label-shift,0px)}
+/* The title must not cover Close on narrow phones. */
+.atlas-map-cartouche{box-sizing:border-box;max-width:calc(100% - 110px)}

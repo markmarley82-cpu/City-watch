@@ -25,7 +25,7 @@
           if (next >= files.length) return Promise.resolve();
           const url = files[next++];
           // Read the body so the download completes into the HTTP cache, then discard it.
-          return fetch(url, { priority: 'low', credentials: 'same-origin' })
+          return fetch(url, { priority: 'low', credentials: 'same-origin', headers: { 'X-CW-Prefetch': '1' } })
             .then(r => (r.ok ? r.arrayBuffer() : null))
             .catch(() => null)
             .then(worker);

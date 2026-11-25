@@ -94,18 +94,37 @@ export function validSave(v,w){return !!v&&v.version===7&&Array.isArray(v.positi
 // Retaining a bridge's rounded cap past the join can strand manual movement.
 export function manualNeighbour(world,start,dx,dy,occupied=()=>false){
  if(!Number.isInteger(dx)||!Number.isInteger(dy)||Math.max(Math.abs(dx),Math.abs(dy))!==1)return null;
- const available=s=>!occupied(s),next=world.neighbours(start).filter(available),[x,y,id]=start;
+ const available=s=>!occupied(s),[x,y,id]=start;
+ // A registered junction may hand off through a zero-distance connector
+ // (for example street -> E020 -> Watch Square). Follow those graph states
+ // before looking for a spatial step; never infer joins from painted overlap.
+ const linked=[start],seen=new Set([stateKey(start)]),neighbours=new Map();
+ for(let i=0;i<linked.length;i++)for(const q of world.neighbours(linked[i]).filter(available)){const k=stateKey(q);neighbours.set(k,q);if(q[0]===x&&q[1]===y&&!seen.has(k)){seen.add(k);linked.push(q);}}
+ const next=[...neighbours.values()];
  const at=(list,x,y)=>list.filter(s=>s[0]===x&&s[1]===y);
  const choose=candidates=>{
   const current=world.edges.get(id);
-  if(!/^E00[1-7]$/.test(id)&&!candidates.some(s=>/^E00[1-7]$/.test(s[2])))return candidates[0]||null;
+  candidates=[...new Map(candidates.map(s=>[stateKey(s),s])).values()];
+  if(candidates.length<2||dx&&dy&&!/^E00[1-7]$/.test(id)&&!candidates.some(s=>/^E00[1-7]$/.test(s[2])))return candidates[0]||null;
   const score=s=>{
    const edge=world.edges.get(s[2]);
    // Precincts and private forecourts retain their existing handoff rules.
    if(!current?.a||!edge?.a)return s[2]===id?0:Infinity;
    return Math.min(...edge.points.slice(1).map((p,i)=>distance(s,closest(s,edge.points[i],p))));
   };
-  return candidates.sort((a,b)=>score(a)-score(b)||Number(b[2]===id)-Number(a[2]===id))[0]||null;
+  // Prefer the registered band that continues in the requested direction.
+  // Keeping a crossing street's wide end cap can carry the foot beyond the
+  // join's handoff cells and strand it even though the outgoing street is clear.
+  const reach=s=>{if(!current?.a||!world.edges.get(s[2])?.a||dx&&dy)return 0;let n=0;while(n<16&&world.members.get(key([s[0]+dx*(n+1),s[1]+dy*(n+1)]))?.has(s[2]))n++;return n;};
+  const continuation=s=>{
+   if(dx&&dy)return {steps:0,changes:0};
+   let frontier=new Map([[stateKey(s),{p:s,cost:0}]]),steps=0;
+   while(steps<16){const closure=new Map(frontier),todo=[...frontier.values()];for(let i=0;i<todo.length;i++){const row=todo[i];for(const q of world.neighbours(row.p))if(q[0]===row.p[0]&&q[1]===row.p[1]){const cost=row.cost+Number(q[2]!==row.p[2]),key=stateKey(q);if(!closure.has(key)||cost<closure.get(key).cost){const next={p:q,cost};closure.set(key,next);todo.push(next);}}}
+    const next=new Map();for(const row of closure.values())for(const q of world.neighbours(row.p))if(q[0]===row.p[0]+dx&&q[1]===row.p[1]+dy){const cost=row.cost+Number(q[2]!==row.p[2]),key=stateKey(q);if(!next.has(key)||cost<next.get(key).cost)next.set(key,{p:q,cost});}
+    if(!next.size)break;frontier=next;steps++;
+   }return {steps,changes:Math.min(...[...frontier.values()].map(r=>r.cost))};
+  };
+  return candidates.map(s=>({s,onward:continuation(s),band:reach(s),centre:score(s)})).sort((a,b)=>b.onward.steps-a.onward.steps||a.onward.changes-b.onward.changes||b.band-a.band||a.centre-b.centre||Number(b.s[2]===id)-Number(a.s[2]===id))[0]?.s||null;
  };
  if(!dx||!dy)return choose(at(next,x+dx,y+dy));
  const a=at(next,x+dx,y),b=at(next,x,y+dy),candidates=[];

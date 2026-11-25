@@ -1,0 +1,83 @@
+name: City completion sweep checks
+on:
+  push:
+    branches: [fix/completion-sweep]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: completion-sweep
+  cancel-in-progress: true
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check changed code and campaign contracts
+        run: |
+          node --check dist/city-core.mjs
+          node --check dist/city.mjs
+          node --check dist/city-atlas-lifecycle.mjs
+          node --check dist/university-streets.mjs
+          node --check dist/cw-campaign-portraits.js
+          node --check tools/test-sweep-startup.cjs
+          node --check tools/test-sweep-movement.cjs
+          node --check tools/test-sweep-portraits.cjs
+          node --check tools/test-sweep-combat.cjs
+          node tests/city-junction-continuity.mjs
+          node tests/cw-combat-settlement.cjs
+          node tests/city-atlas-labels.mjs
+          node tests/city-image-retry.mjs
+          node tests/cw-city-cases-data.mjs
+          node tests/cw-nc01-bridge-pilot.mjs
+  browser:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        area: [map, startup, movement, campaign]
+    env:
+      NODE_PATH: ${{ runner.temp }}/sweep-qa/node_modules
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install isolated browser tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/sweep-qa" --no-audit --no-fund playwright@1.63.0
+          "$RUNNER_TEMP/sweep-qa/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Prepare comparable deployed startup builds
+        if: matrix.area == 'startup'
+        run: |
+          git fetch --no-tags --depth=1 origin d979c0db27b09a109fb6e6b26cf6c1d0dd06298d
+          mkdir -p qa-baseline qa-site
+          git archive d979c0db27b09a109fb6e6b26cf6c1d0dd06298d dist tools/bake-startup-cache.js | tar -x -C qa-baseline
+          cp -a dist/. qa-site/
+          node qa-baseline/tools/bake-startup-cache.js qa-baseline/dist
+          node tools/bake-startup-cache.js qa-site
+      - name: Check map controls, text and walking
+        if: matrix.area == 'map'
+        run: node tools/test-atlas-labels.cjs
+      - name: Measure cold phone downloads and distant-art arrival
+        if: matrix.area == 'startup'
+        run: node tools/test-sweep-startup.cjs
+      - name: Check installed-city drag crossings and saved position
+        if: matrix.area == 'movement'
+        run: node tools/test-sweep-movement.cjs
+      - name: Check actual campaign portraits and combat settlement
+        if: matrix.area == 'campaign'
+        run: |
+          node tools/test-sweep-portraits.cjs
+          node tools/test-sweep-combat.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: completion-sweep-${{ matrix.area }}
+          path: qa-results/
+          if-no-files-found: warn

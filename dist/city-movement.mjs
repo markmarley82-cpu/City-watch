@@ -1,5 +1,5 @@
-import {bridgeCornerClear} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
-import {manualNeighbour,manualDirectionalNeighbour,project,unproject,closest,distance} from './city-core.mjs?v=p21-b407-s039-reuse';
+import {bridgeCornerClear} from './city-free-walk.mjs?v=junction-continuity-v2';
+import {manualNeighbour,manualDirectionalNeighbour,project,unproject,closest,distance} from './city-core.mjs?v=junction-continuity-v2';
 
 // Map input assistance uses only steps cleared by the existing city graph.
 // A blocked diagonal may follow one open axis; it never crosses that corner.

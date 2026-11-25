@@ -1,0 +1,13 @@
+const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),zlib=require('node:zlib');
+const {chromium,devices}=require('playwright');
+async function serve(folder='dist'){
+ const root=path.resolve(folder),cache=new Map();
+ const server=http.createServer((req,res)=>{const url=new URL(req.url,'http://localhost');if(!url.pathname.startsWith('/City-watch/')){res.writeHead(404);return res.end();}const file=path.resolve(root,decodeURIComponent(url.pathname.slice(12))||'index.html');if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}const ext=path.extname(file),type={'.html':'text/html','.js':'application/javascript','.mjs':'application/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.ogg':'audio/ogg','.mp3':'audio/mpeg'}[ext]||'application/octet-stream';let body=cache.get(file);if(!body){body=fs.readFileSync(file);cache.set(file,body);}res.setHeader('Content-Type',type);if(/\.(?:html|js|mjs|css|json|svg)$/.test(file)&&/gzip/.test(req.headers['accept-encoding']||'')){const key=file+':gzip';if(!cache.has(key))cache.set(key,zlib.gzipSync(body));body=cache.get(key);res.setHeader('Content-Encoding','gzip');res.setHeader('Vary','Accept-Encoding');}res.setHeader('Content-Length',body.length);res.end(body);});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));return{base:'http://127.0.0.1:'+server.address().port+'/City-watch/',close:()=>server.close()};
+}
+async function ready(page){await page.waitForFunction(()=>['ready','failed'].includes(document.body.dataset.cityBoot),null,{timeout:300000});const status=await page.evaluate(()=>document.body.dataset.cityBoot);if(status!=='ready')throw Error(await page.locator('body').innerText());}
+async function recruit(page,name='Sweep QA'){await page.locator('#character-studio[open]').waitFor({timeout:60000});await page.locator('#character-apply').click();await page.locator('#cw-oath-name').fill(name);await page.locator('.cw-oath-submit').click();await page.locator('#cw-first-patrol-briefing[open]').waitFor();await page.getByRole('button',{name:'Start patrol',exact:true}).click();}
+async function boot(page,base,name){await page.goto(base+'index.html?lighting-preview=day',{waitUntil:'domcontentloaded'});await ready(page);if(name)await recruit(page,name);}
+const phone={...devices['iPhone 13'],viewport:{width:390,height:844}};
+function output(dir){fs.mkdirSync(dir,{recursive:true});return{shot:(page,name)=>page.screenshot({path:dir+'/'+name+'.jpg',type:'jpeg',quality:80}),write:r=>fs.writeFileSync(dir+'/results.json',JSON.stringify(r,null,2))};}
+module.exports={serve,ready,recruit,boot,chromium,phone,output};

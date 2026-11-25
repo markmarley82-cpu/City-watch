@@ -9,7 +9,7 @@ window.CWInstallNpcDialogue = engine => {
  dialog.innerHTML='<div class="cw-dialogue-folio"><header class="cw-dialogue-top"><span>THE WATCH · CONVERSATIONS</span><button type="button" class="cw-dialogue-close" aria-label="Close conversation">Close <span aria-hidden="true">×</span></button></header><div class="cw-dialogue-spread"><aside class="cw-dialogue-profile"><div class="cw-dialogue-portrait"></div><p class="cw-dialogue-profile-caption">Conversation record</p></aside><section class="cw-dialogue-page"><div class="cw-dialogue-heading"></div><div class="cw-dialogue-content"></div></section></div></div>';
  document.body.append(dialog);
  const head=dialog.querySelector('.cw-dialogue-heading'),content=dialog.querySelector('.cw-dialogue-content'),portrait=dialog.querySelector('.cw-dialogue-portrait'),caption=dialog.querySelector('.cw-dialogue-profile-caption');
- const known=[['Sergeant Colon','colon'],['Colon','colon'],['Captain Carrot','carrot'],['Carrot','carrot'],['Commander Vimes','vimes'],['Vimes','vimes'],['Mrs Palm','palm'],['Watch Igor','igor'],['Igor','igor'],['Street Urchin','witness'],['Urchin','witness']];
+ const known=[['Nobby','nobby'],['Nobby Nobbs','nobby'],['Corporal Nobbs','nobby'],['Dibbler','dibbler'],['CMOT Dibbler','dibbler'],['Sergeant Colon','colon'],['Colon','colon'],['Captain Carrot','carrot'],['Carrot','carrot'],['Commander Vimes','vimes'],['Vimes','vimes'],['Mrs Palm','palm'],['Watch Igor','igor'],['Igor','igor'],['Street Urchin','witness'],['Urchin','witness']];
  function speakerFor(name,skin){
   const found=known.find(([n])=>n.toLowerCase()===String(name).toLowerCase());
   const id=found?.[1]||skin||null;
