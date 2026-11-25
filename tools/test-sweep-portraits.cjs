@@ -3,7 +3,7 @@ const out=output('qa-results/sweep-portraits'),results={flows:[]};
 (async()=>{const site=await serve(),browser=await chromium.launch();try{
  const ctx=await browser.newContext(phone),page=await ctx.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{let install;Object.defineProperty(window,'CWInstallNpcDialogue',{configurable:true,get:()=>install,set:fn=>{install=engine=>{window.__qaPortraitEngine=engine;const apply=engine.install;engine.install=adapters=>{window.__qaCampaignConversations=adapters;apply(adapters);};return fn(engine);};}});});
- await boot(page,site.base,'Portrait QA');await page.locator('#p21-duty').click();await page.getByRole('button',{name:'Inventory',exact:true}).click();await page.locator('#p21-engine-dialog[open]').waitFor();let f;await page.waitForFunction(()=>document.getElementById('p21-engine-frame').contentWindow?.__qaCampaignConversations,{timeout:180000});f=page.frames().find(f=>f.url().includes('campaign-engine.html'));
+ await boot(page,site.base,'Portrait QA');await page.locator('#p21-duty').click();await page.locator('#p21-duty-actions button').filter({hasText:/^Inventory$/}).click();await page.locator('#p21-engine-dialog[open]').waitFor();let f;await page.waitForFunction(()=>document.getElementById('p21-engine-frame').contentWindow?.__qaCampaignConversations,{timeout:180000});f=page.frames().find(f=>f.url().includes('campaign-engine.html'));
  for(const viewport of [{width:390,height:844},{width:844,height:390},{width:1280,height:900}]){
   await page.setViewportSize(viewport);
   for(const [name,file]of [['Sergeant Colon','colon'],['Captain Carrot','carrot'],['Commander Vimes','vimes'],['Mrs Palm','mrs-palm'],['Nobby Nobbs','nobby'],['Dibbler','dibbler']]){

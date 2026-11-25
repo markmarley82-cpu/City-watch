@@ -20,7 +20,7 @@ async function command(page,f,goal){
  for(const goal of ['arrest','release']){
   const ctx=await browser.newContext(phone),page=await ctx.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{window.__qaSeq=0;window.addEventListener('message',e=>{if(e.origin!==location.origin)return;if(e.data?.type==='cw-p21-battle-state'){window.__qaBattle=e.data.battle;window.__qaSeq++;}if(e.data?.type==='cw-p21-battle-result'){window.__qaResult=e.data;window.__qaResultSource=e.source;}});});
   await boot(page,site.base,'Combat QA');await page.evaluate(()=>{const d=CWP21City.world.doors.get('drum');CWP21City.restore([...d.position,d.edge]);CWP21Game.refresh();});const before=await record(page);
-  await page.locator('#p21-duty').click();await page.getByRole('button',{name:'Street incidents & combat',exact:true}).click();await page.getByRole('button',{name:'Start Mended Drum brawl',exact:true}).click();let f=await frame(page);
+  await page.locator('#p21-duty').click();await page.locator('#p21-duty-actions button').filter({hasText:/^Street incidents & combat$/}).click();await page.locator('#p21-duty-actions button').filter({hasText:/^Start Mended Drum brawl$/}).click();let f=await frame(page);
   await command(page,f,goal);const saved=await record(page);assert(saved.pending?.battle);const encounter=saved.pending.id;await out.shot(page,goal+'-saved-turn');
   await page.reload({waitUntil:'domcontentloaded'});await ready(page);assert.equal((await record(page)).pending.id,encounter);assert.deepEqual((await record(page)).pending.battle,saved.pending.battle);await page.locator('#city-use').click();f=await frame(page);
   for(let n=0;n<100;n++){if(!await command(page,f,goal))break;}
