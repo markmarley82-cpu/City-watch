@@ -3,6 +3,8 @@
    by its footprint, like every other house; gaps shut in by houses are closed too. */
 export async function createEdgeFill({read,load,addSprites,lightAnchors}){
  const manifest=await read('assets/edge-fill-v1/manifest.json?v=1');
+ // Houses outside the city wall (tools/make-outer-fill.py, 26 Nov 2026): the city carries on past it.
+ if(!/[?&]outer=0(&|$)/.test(location.search))try{const outer=await read('assets/edge-fill-v1/outer.json?v=1');manifest.houses=[...manifest.houses,...outer.houses];}catch(error){console.warn('Outer houses unavailable',error);}
  const images=new Map();
  for(const h of manifest.houses)if(!images.has(h.path))images.set(h.path,load(h.path,h.dimensions));
  const loaded=new Map(await Promise.all([...images].map(async([k,v])=>[k,await v])));

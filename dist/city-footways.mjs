@@ -86,13 +86,21 @@ export function createCityFootways(world,images,options={}){
  const bandIDs=new Set(plan.bands.map(b=>b.id));
  // Plazas and door aprons retain their authored areas. Street material follows
  // the continuous road course; retaining its old cell union leaves stair teeth.
- const areas=pavingRegions(plan.receivers.filter(r=>r.material==='flags'||[...(world.members.get(r.p.join(','))||[])].some(id=>!bandIDs.has(id))));
+ // Street cells far from every one of their own street's centre lines (e.g. the lanes inside the east
+ // and south city walls) are paved as areas too; otherwise they stay bare ground (26 Nov 2026).
+ const bandsByID=new Map();for(const b of plan.bands){if(!bandsByID.has(b.id))bandsByID.set(b.id,[]);bandsByID.get(b.id).push(b);}
+ const offCourse=r=>[...(world.members.get(r.p.join(','))||[])].every(id=>(bandsByID.get(id)||[]).every(b=>edgeDistance(r.p,b)>b.width/2+.75));
+ const areas=pavingRegions(plan.receivers.filter(r=>r.material==='flags'||[...(world.members.get(r.p.join(','))||[])].some(id=>!bandIDs.has(id))||offCourse(r)));
  for(const r of areas)publicPath.addPath(outlinePath(rectPolygon(r.rect)));
  for(const r of plan.regions)if(r.material==='flags')flagPath.addPath(outlinePath(r.points));
  const roads=plan.bands.map(b=>({...b,path:pathFor(b.points),outerPath:b.surface&&outlinePath(b.surface.outline),carriagePath:b.surface&&outlinePath(b.surface.carriageOutline)}));
  for(const b of roads)publicPath.addPath(b.outerPath||roundedStreetPath(b.points,b.width));
- const landPath=options.grid?pathFor(cityLandBoundary(options.grid),true):null;
- let draws=0,visibleBands=0,surfaceReuses=0,surfaceKey=null,surfaceEpoch=0;
+ // The planned land rectangle stops short of the lanes inside the east and south city walls, which
+ // were left unpaved; widen it to every walkable cell (26 Nov 2026).
+ let landPath=options.grid?(()=>{const b=cityLandBoundary(options.grid),xs=b.map(p=>p[0]),ys=b.map(p=>p[1]);let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  for(const k of world.members.keys()){const [x,y]=k.split(',').map(Number);if(x-.5<x0)x0=x-.5;if(x+.5>x1)x1=x+.5;if(y-.5<y0)y0=y-.5;if(y+.5>y1)y1=y+.5;}
+  return pathFor([[x0,y0],[x1,y0],[x1,y1],[x0,y1]],true);})():null;
+ let latePicked=false,lateCells=0,draws=0,visibleBands=0,surfaceReuses=0,surfaceKey=null,surfaceEpoch=0;
  const readSurfaceVersion=typeof options.surfaceVersion==='function'?options.surfaceVersion:null;
  const publicSurface=document.createElement('canvas');let surfaceBytes=0;
  function textures(g){let p=patterns.get(g);if(p)return p;p={};for(const [kind,image]of Object.entries(images)){p[kind]=g.createPattern(image,'repeat');p[kind].setTransform(new DOMMatrix().scale(4.8/image.width,4.8/image.height));}patterns.set(g,p);return p;}
@@ -114,6 +122,13 @@ export function createCityFootways(world,images,options={}){
    ctx.restore();
   },
   paint(ctx,view){
+   // Walkable cells added after this plan was compiled (the lanes inside the city walls are joined
+   // later by the fortification pass) are paved as areas, and the land clip grows to include them.
+   if(!latePicked){latePicked=true;const known=new Set(plan.receivers.map(r=>r.p.join(','))),late=[];
+    const bare=new Set([...world.unpaved.values()].flatMap(a=>[...a.cells]));for(const [k,ids] of world.members){if(known.has(k)||bare.has(k)||[...ids].every(id=>bridge(id)))continue;late.push({p:k.split(',').map(Number),material:'cobbles'});}
+    if(late.length){for(const r of pavingRegions(late))publicPath.addPath(outlinePath(rectPolygon(r.rect)));
+     if(landPath){const grown=new Path2D(landPath);for(const r of late)grown.rect(r.p[0]-.5,r.p[1]-.5,1,1);landPath=grown;}}
+    lateCells=late.length;}
    const corners=[[view[0],view[1]],[view[2],view[1]],[view[2],view[3]],[view[0],view[3]]].map(([x,y])=>[x/56+y/28,y/28-x/56]),worldView=box(corners),bounds=[worldView[0]-5,worldView[1]-5,worldView[2]+5,worldView[3]+5];
    ctx.save();ctx.transform(28,14,-28,14,0,0);
    // Bound vector intersections before combining the city-wide street union
@@ -218,7 +233,7 @@ export function createCityFootways(world,images,options={}){
   },
   invalidateSurface(){surfaceKey=null;surfaceEpoch++;},
   dispose(){publicSurface.width=publicSurface.height=1;surfaceBytes=0;surfaceKey=null;surfaceEpoch++;},
-  report:()=>({id:plan.id,sharedCourtFootingRings:plan.footprints.length-footingRings.length,structuralExclusion:'source-pixel-mask',surfaceMiB:surfaceBytes/1048576,surfaceVersioned:!!readSurfaceVersion,surfaceReuses,surfaceCached:!!surfaceKey,boundedClipIntersections:!!options.boundClipIntersections,continuousStreetEdges:true,blendedMaterialShoulders:true,misbegotJoinStrips:plan.misbegotStrips.length,southernJunctionCourses:plan.junctionCourses.map(c=>({edge:c.edge,a:c.a,b:c.b,width:c.width,carriageWidth:c.carriageWidth})),streetBands:plan.bands.length,visibleBands,publicCells:plan.receivers.length,unpavedEarthCells:plan.unpavedCells.size,kerbStones:plan.kerbs.length,thresholds:plan.thresholds.length,repairPatches:plan.repairs.length,paintDraws:draws,decodedMaterialMiB:4,bridgeArtRetained:7,navigationChanged:false,footprintsExcluded:true,bespokePrivateCourtsRetained:true,surveyedCartways:plan.bands.filter(b=>b.surface).map(b=>({edge:b.id,id:b.surface.id,length:b.surface.length,widthRange:[b.surface.minWidth,b.surface.maxWidth],carriageRange:b.surface.carriageRange,footwayRange:[b.footwayWidth,.72],stations:b.surface.stations}))}),
+  report:()=>({lateCells,id:plan.id,sharedCourtFootingRings:plan.footprints.length-footingRings.length,structuralExclusion:'source-pixel-mask',surfaceMiB:surfaceBytes/1048576,surfaceVersioned:!!readSurfaceVersion,surfaceReuses,surfaceCached:!!surfaceKey,boundedClipIntersections:!!options.boundClipIntersections,continuousStreetEdges:true,blendedMaterialShoulders:true,misbegotJoinStrips:plan.misbegotStrips.length,southernJunctionCourses:plan.junctionCourses.map(c=>({edge:c.edge,a:c.a,b:c.b,width:c.width,carriageWidth:c.carriageWidth})),streetBands:plan.bands.length,visibleBands,publicCells:plan.receivers.length,unpavedEarthCells:plan.unpavedCells.size,kerbStones:plan.kerbs.length,thresholds:plan.thresholds.length,repairPatches:plan.repairs.length,paintDraws:draws,decodedMaterialMiB:4,bridgeArtRetained:7,navigationChanged:false,footprintsExcluded:true,bespokePrivateCourtsRetained:true,surveyedCartways:plan.bands.filter(b=>b.surface).map(b=>({edge:b.id,id:b.surface.id,length:b.surface.length,widthRange:[b.surface.minWidth,b.surface.maxWidth],carriageRange:b.surface.carriageRange,footwayRange:[b.footwayWidth,.72],stations:b.surface.stations}))}),
   plan
  };
 }
