@@ -68,12 +68,14 @@ export function options(record,mentor,position){
     if(proof)result.push(action('file-proved','File the signed order and corroborating tally','watch'));
   }
   result.push(action('stand-down','Stand down the enquiry','watch'));
-  return result.map(a=>({...a,here:there(position,a.stop)}));
+  // Testers 26 Nov: the walk back to Watch Square to file lost people. Reports can be filed at
+  // any stop of the enquiry.
+  return result.map(a=>({...a,here:/^file-/.test(a.id)?['watch','bridge','clerk'].some(s=>there(position,s)):there(position,a.stop)}));
 }
 // Pure transition: the adapter commits the returned record with compare-and-swap.
 export function apply(record,{id,mentor,position}){
   const offer=options(record,mentor,position).find(a=>a.id===id);
-  if(!offer||!there(position,offer.stop))return null;
+  if(!offer||!(offer.here??there(position,offer.stop)))return null;
   const next=JSON.parse(JSON.stringify(record)), flags=next.state.flags;
   if(id==='accept'){
     flags[FLAG]={status:'active',partner:mentor,choice:null,evidence:[],reopened:false};
@@ -132,7 +134,7 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
       else if(c.partner!==mentor)line('p','Return with '+roster[c.partner]+', or stand down the enquiry at Watch Square.');
     }
     for(const a of options(record,mentor,pos)){
-      if(!standsAt(pos,STOPS[a.stop])){
+      if(!(a.here??standsAt(pos,STOPS[a.stop]))){
         const place=a.stop==='watch'?'Watch Square':a.stop==='bridge'?'Brass Bridge approach':a.stop==='copy'?'Contract Bridge approach':'Lower Broad Way dispatch contact';
         if(box.querySelector('[data-case-stop="'+a.stop+'"]'))continue;
         button('Walk to '+place,()=>{

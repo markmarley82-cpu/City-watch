@@ -232,10 +232,22 @@ function walkToCurrentAssignment(){
 // Where-to-go guide: the destination "Walk to current assignment" would choose, found by a dry run
 // that records the requested walk instead of moving, and opens no menus. Null when there is none.
 let lastGuide=null;
+// Testers 26 Nov: the trail kept pointing at Carrot's assignment during the Bridge case.
+// While the case is open, the trail leads to its next stop instead.
+let bridgeGuideMod=null;const bridgeGuideLoad=()=>bridgeGuideMod||import('./cases/bridge-closure.mjs?v=5').then(m=>bridgeGuideMod=m).catch(()=>null);
+function bridgeGuide(record){
+ const c=record.state?.flags?.bridgeClosurePilot;if(!c||c.status==='filed')return undefined;
+ if(!bridgeGuideMod){bridgeGuideLoad();return undefined;}
+ const M=bridgeGuideMod,mentor=Partner.assignment(record.state,record.pending).mentorId,opts=M.options(record,mentor,city.position()).filter(a=>a.id!=='stand-down');
+ if(!opts.length)return undefined;if(opts.some(a=>a.here))return null;
+ const stop=M.STOPS[opts[0].stop],names={bridge:'Brass Bridge',clerk:'Dispatch clerk',watch:'Watch Square',copy:'Second notice'};
+ return {at:stop.slice(),name:names[opts[0].stop]||'Bridge enquiry'};
+}
 function guideTarget(){
  const record=state();
  if(record.pending||loading||window.CWRecruitmentPending)return null;
  if(document.querySelector('dialog[open]'))return lastGuide;
+ {const g=bridgeGuide(record);if(g!==undefined){lastGuide=g;return g;}}
  const nav=city.nav,stop=city.stop,tell=city.tell,D=HTMLDialogElement.prototype,showModal=D.showModal,show=D.show;let hit=null;
  city.nav=(p,e)=>{hit=[p[0],p[1],e];return true;};city.stop=()=>{};city.tell=()=>{};D.showModal=function(){};D.show=function(){};
  try{walkToCurrentAssignment();}catch{hit=null;}
@@ -428,7 +440,7 @@ async function openBridgeCase(){
  bridgeCaseLoading=true;
  try{
   if(!bridgeCaseHost){
-   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=4'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=5'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
    bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
     partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
     onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});
@@ -441,6 +453,8 @@ const duty=[[bridgeCaseLabel,openBridgeCase],[()=>freePatrolNeedsDuty()?'':'Nigh
 function buildDuty(){$('p21-duty-actions').replaceChildren();for(const [label,fn] of duty){const text=typeof label==='function'?label():label;if(!text)continue;const b=document.createElement('button');b.textContent=text;b.onclick=()=>{$('p21-duty-dialog').close();fn();};$('p21-duty-actions').append(b);}}
 document.getElementById('p21-orders-bar').append($('p21-encounter'));
 buildDuty();
+// Playtest link: open the case card straight away so testers know what they are doing.
+try{if(sessionStorage.getItem('cw_playtest_open')==='bridge'){sessionStorage.removeItem('cw_playtest_open');bridgeGuideLoad();const go=()=>document.body.dataset.cityBoot==='ready'&&!document.querySelector('dialog[open]')&&!window.CWRecruitmentPending?openBridgeCase():setTimeout(go,500);setTimeout(go,1500);}}catch{}
 $('p21-duty').onclick=()=>{if(window.CWRecruitmentPending||document.querySelector('dialog[open],.cw-oath'))return;buildDuty();city.stop();$('p21-duty-dialog').showModal();};document.querySelector('[data-close-duty]').onclick=()=>$('p21-duty-dialog').close();$('p21-orders').onclick=()=>service('casebook');$('p21-track').onclick=primaryAction;$('p21-encounter').onclick=battle;
 $('city-save').onclick=()=>savePatrol('P21 saved · assignment, health, evidence, city position and encounters.');
 window.CW_UNIVERSITY_NOTEBOOK=projectCase01Notebook;

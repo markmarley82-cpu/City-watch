@@ -326,7 +326,7 @@
   let bridgeMod = null, bridgeLoading = false;
   function bridgeModule() {
     if (bridgeMod) return bridgeMod;
-    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=4').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
+    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=5').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
     return null;
   }
   function bridgeLead(record) {
@@ -337,7 +337,7 @@
     const mentor = record.state.flags.patrolMentorAssignment?.mentorId || 'WATCH-04';
     const pos = city().footPosition?.() || city().position();
     // Check the stop position directly: the module's follow-up options do not carry a 'here' flag.
-    const here = m.options(record, mentor, pos).filter(x => x.id !== 'stand-down' && m.STOPS[x.stop] && m.standsAt(pos, m.STOPS[x.stop]));
+    const here = m.options(record, mentor, pos).filter(x => x.id !== 'stand-down' && m.STOPS[x.stop] && (x.here ?? m.standsAt(pos, m.STOPS[x.stop])));
     if (!here.length) return null;
     return { bridge: true, label: here.length === 1 ? here[0].label : 'Bridge enquiry: ' + here.length + ' things to do here' };
   }

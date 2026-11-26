@@ -36,6 +36,7 @@ document.getElementById('start').addEventListener('click', async () => {
     const old = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('city_watch_')) old.push(k); }
     for (const k of old) localStorage.removeItem(k);
     for (const [k, v] of entries) localStorage.setItem(k, v);
+    try { sessionStorage.setItem('cw_playtest_open', 'bridge'); } catch (e) {}
     status.textContent = 'Opening the game…';
     location.replace('../index.html?fresh=' + Date.now());
   } catch (e) {
