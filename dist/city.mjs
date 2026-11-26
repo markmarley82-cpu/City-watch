@@ -69,7 +69,7 @@ import {createHideParkPremises,activateHideParkPremises,createHideParkApron} fro
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
 import {createCityGuide} from './city-guide.mjs?v=12';
 import {createSquareMarket,activateSquareMarket} from './city-square-market.mjs?v=2';
-import {createCountryside} from './city-countryside.mjs?v=2';
+import {createCountryside} from './city-countryside.mjs?v=3';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';

@@ -22,7 +22,7 @@ export async function createCountryside({read,load,addSprites,lowMemory=false,ke
  const painter={
   get revision(){return revision;},errors,pump(){if(errors.size){errors.clear();revision++;}},
   update(view){
-   const pad=448;visible=tiles.filter(t=>t.box[2]>=view[0]-pad&&t.box[0]<=view[2]+pad&&t.box[3]>=view[1]-pad&&t.box[1]<=view[3]+pad);
+   const pad=64;visible=tiles.filter(t=>t.box[2]>=view[0]-pad&&t.box[0]<=view[2]+pad&&t.box[3]>=view[1]-pad&&t.box[1]<=view[3]+pad);
    const now=performance.now();for(const t of visible){t.used=now;want(t);}
    const loaded=tiles.filter(t=>t.surface).sort((a,b)=>a.used-b.used);
    while(loaded.length>keep){const t=loaded.shift();if(visible.includes(t))break;t.surface=null;resident--;}
