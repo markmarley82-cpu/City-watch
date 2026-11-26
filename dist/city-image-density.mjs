@@ -47,11 +47,21 @@ export function createCityImageDensity({load,loadSource=load,enabled=false,facto
  }
  async function prefetch(objects,{required=false,maxPending=Infinity}={}){
   if(!enabled)return [];
-  const paths=[...new Set(objects.flatMap(o=>[o?.im?.cwPath,o?.nightEmission?.cwPath]).filter(path=>path&&cache.get(path)?.cwReady===false))];
   if(!required){
    const slots=Math.max(0,maxPending-pending.size);
-   return Promise.allSettled(paths.filter(path=>!pending.has(path)&&(retries.get(path)?.at||0)<=now()).slice(0,slots).map(ensure));
+   if(!slots)return [];
+   const work=[];
+   for(const object of objects){
+    for(const image of [object?.im,object?.nightEmission]){
+     const path=image?.cwPath;
+     if(!path||cache.get(path)?.cwReady!==false||pending.has(path)||(retries.get(path)?.at||0)>now())continue;
+     work.push(ensure(path));
+     if(work.length>=slots)return Promise.allSettled(work);
+    }
+   }
+   return Promise.allSettled(work);
   }
+  const paths=[...new Set(objects.flatMap(o=>[o?.im?.cwPath,o?.nightEmission?.cwPath]).filter(path=>path&&cache.get(path)?.cwReady===false))];
   // A registered transparent canvas is geometry, not a delivered painting.
   // Retry only failed nearby sources once, then let the existing boot UI report
   // the real source error rather than accepting an incomplete first frame.
