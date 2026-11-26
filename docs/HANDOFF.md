@@ -1,4 +1,4 @@
-# Handoff for a new chat (updated 25 November 2026)
+# Handoff for a new chat (updated 26 November 2026)
 
 Read this first, then `docs/NEXT-STEPS.md`.
 
@@ -88,14 +88,28 @@ Read this first, then `docs/NEXT-STEPS.md`.
 - **Art work order** (issue #10): parts 1, 2 and 4 are in the game; part 3 (silver dwarf) was declined because
   the live dwarf already offers the silver beard. **Larger Mended Drum installed (23 Nov)**: Mark chose the version with the door on the open street, plot `[103,239,9,8]`, door `[106,247]`, via `dist/city-drum-plot.mjs` and `tools/place-mended-drum.py`; the earlier neighbour-shifting install (8acd890) is no longer in `dist/`. Physical iPhone/Safari acceptance remains open.
   Unused but kept: the lodging bedroom painting, the six grid landmarks have no walls/emission layers.
-- **Phone lag and getting stuck**: Mark reported both on his iPhone 11. Simulated-phone tests (4x slowed CPU) showed
-  walking speed holds and no snags; frame time is mostly the building see-through compositing
-  (`city-local-cutaway.mjs`), drawing people, and ground repaints (`city-ground-cache.mjs`). Headless timings were too
-  noisy to prove a fix, so nothing was changed. Needs Mark's own report of where it happens.
+- **Phone lag (24–26 Nov)**: Mark reports "running better, occasional stutter" on his iPhone 11. Live now:
+  the ground picture slides and paints only the new strip (`city-ground-cache.mjs`, `?noscroll=1` to compare);
+  paving/footway painters work only on the requested area; phones load ready-made half-size paintings from
+  `art-half-resolution/` (copied to `_site/half/` at deploy by `tools/build-half-art.py`, `?fullart=1` to compare);
+  paintings decode before first draw. `?perf=1` shows an on-phone speed meter; `?fps=60` lifts the 30 fps phone
+  paint cap — waiting on Mark's report before making 60 the default. Site upload is ~440 MB (1 GB Pages limit):
+  a second full copy (e.g. a /next/ test build with its own half art) pushes it near the limit and deploys fail.
 - **Startup image recovery (24 Nov)**: the loader waits 300 ms and 1.2 s before two cache-busted retries;
   healthy loads do not wait. Permanent failures retain the Retry loading screen. See
   `docs/qa/STARTUP-IMAGE-RECOVERY.md` and `tools/test-startup-recovery.cjs`.
 - **Automated check (23 Nov)**: a fresh iPhone 11 player completes the opening purse case end to end with no errors;
   `tools/test-crawl-errors.cjs` reports no failures on all pages.
+- **Done 24–26 Nov (Mark's voice-call list)**: new recruits choose Human, Dwarf or Troll only (werewolf stays a
+  partner; `character-studio.mjs` PLAYABLE); Hide Park north's eight premises are drawn on their plots
+  (`tools/fix-hide-park-north-placement.py`; was the "stray shop door"); seven guild plots trimmed to their painted
+  walls (`tools/trim-guild-plots.py`; Musicians' Guild invisible wall); where-to-go lantern trail and edge arrow
+  (`city-guide.mjs`, target = Duty → Walk to current assignment via `CWP21Game.guideTarget`, `?guide=0` off);
+  map shows that route and a goal pin, opens fitted to you and the goal, larger labels, slim destination bar;
+  markets in the two widest squares (`city-square-market.mjs`, `?market=0` off); restore-from-backup link on
+  the recruit screen and a 3-day backup reminder (`cw-fixes.js`); Market case place fixed to E046; Old Crypt
+  sealed before chapter 1 instead of a blank screen; inventory bag lining added.
+- **City edge** stays packed houses (Mark rejected walls on 21 Nov). Remaining narrow alleys are mostly in those
+  edge houses and are intentional.
 - The Bridge case still needs Mark's playtest (`docs/cases/Bridge-Shift-Playtest.md`).
 - Housekeeping for Mark: set the Drive folder to Restricted; decide on git history cleanup.

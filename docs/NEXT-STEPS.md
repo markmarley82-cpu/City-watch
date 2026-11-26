@@ -143,6 +143,10 @@ These make what already exists reliable:
   install that shifted the neighbouring warehouse and house (commit 8acd890) was taken
   out of `dist/`; its review evidence stays in `art-review/mended-drum-large-v1/`.
   Physical iPhone/Safari acceptance remains Mark's check.
+- **Done (24–26 Nov): Mark's voice-call list.** Three playable peoples; Hide Park north buildings on their plots;
+  guild invisible walls removed; lantern trail + edge arrow to the current assignment; map route, goal pin and
+  readability; markets in the two widest squares; smoother phone walking (see HANDOFF "Phone lag").
+  Waiting on Mark: his `?perf=1&fps=60` report, and any spot that still feels too tight or too wide.
 - The historical angle audit of the other landmarks remains in
   `docs/art/audit/LANDMARK-ANGLE-SIZE-AUDIT.md`.
 
