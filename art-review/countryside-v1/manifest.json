@@ -1,0 +1,9373 @@
+{
+  "schema": "city-watch-countryside-v1",
+  "decorativeOnly": true,
+  "pixelsPerCell": [
+    112,
+    56
+  ],
+  "gamePixelsPerCell": [
+    56,
+    28
+  ],
+  "artScale": 2,
+  "bandDepth": 16,
+  "wallBounds": [
+    7.5,
+    4.5,
+    241.5,
+    342.5
+  ],
+  "southEastTallSetback": 3,
+  "gates": [
+    {
+      "name": "Traitors",
+      "position": [
+        35,
+        4.5
+      ],
+      "direction": [
+        0,
+        -1
+      ],
+      "roadEnd": [
+        35,
+        -11.5
+      ],
+      "roadBounds": [
+        32,
+        -11.5,
+        38,
+        4.5
+      ]
+    },
+    {
+      "name": "Rimwards",
+      "position": [
+        80,
+        4.5
+      ],
+      "direction": [
+        0,
+        -1
+      ],
+      "roadEnd": [
+        80,
+        -11.5
+      ],
+      "roadBounds": [
+        77,
+        -11.5,
+        83,
+        4.5
+      ]
+    },
+    {
+      "name": "Least",
+      "position": [
+        196,
+        4.5
+      ],
+      "direction": [
+        0,
+        -1
+      ],
+      "roadEnd": [
+        196,
+        -11.5
+      ],
+      "roadBounds": [
+        193,
+        -11.5,
+        199,
+        4.5
+      ]
+    },
+    {
+      "name": "Deosil",
+      "position": [
+        7.5,
+        64
+      ],
+      "direction": [
+        -1,
+        0
+      ],
+      "roadEnd": [
+        -8.5,
+        64
+      ],
+      "roadBounds": [
+        -8.5,
+        61,
+        7.5,
+        67
+      ]
+    },
+    {
+      "name": "Shambling",
+      "position": [
+        7.5,
+        285
+      ],
+      "direction": [
+        -1,
+        0
+      ],
+      "roadEnd": [
+        -8.5,
+        285
+      ],
+      "roadBounds": [
+        -8.5,
+        282,
+        7.5,
+        288
+      ]
+    },
+    {
+      "name": "Trading",
+      "position": [
+        241.5,
+        275
+      ],
+      "direction": [
+        1,
+        0
+      ],
+      "roadEnd": [
+        257.5,
+        275
+      ],
+      "roadBounds": [
+        241.5,
+        272,
+        257.5,
+        278
+      ]
+    },
+    {
+      "name": "Limping",
+      "position": [
+        241.5,
+        320
+      ],
+      "direction": [
+        1,
+        0
+      ],
+      "roadEnd": [
+        257.5,
+        320
+      ],
+      "roadBounds": [
+        241.5,
+        317,
+        257.5,
+        323
+      ]
+    },
+    {
+      "name": "Onion",
+      "position": [
+        82,
+        342.5
+      ],
+      "direction": [
+        0,
+        1
+      ],
+      "roadEnd": [
+        82,
+        358.5
+      ],
+      "roadBounds": [
+        79,
+        342.5,
+        85,
+        358.5
+      ]
+    },
+    {
+      "name": "Hubwards",
+      "position": [
+        174,
+        342.5
+      ],
+      "direction": [
+        0,
+        1
+      ],
+      "roadEnd": [
+        174,
+        358.5
+      ],
+      "roadBounds": [
+        171,
+        342.5,
+        177,
+        358.5
+      ]
+    }
+  ],
+  "tiles": [
+    {
+      "id": "north-00",
+      "side": "north",
+      "position": [
+        -8.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        -11.5,
+        7.5,
+        4.5
+      ],
+      "file": "ground/day/north-00.webp",
+      "nightFile": "ground/night/north-00.webp"
+    },
+    {
+      "id": "north-01",
+      "side": "north",
+      "position": [
+        7.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        7.5,
+        -11.5,
+        23.5,
+        4.5
+      ],
+      "file": "ground/day/north-01.webp",
+      "nightFile": "ground/night/north-01.webp"
+    },
+    {
+      "id": "north-02",
+      "side": "north",
+      "position": [
+        23.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        23.5,
+        -11.5,
+        39.5,
+        4.5
+      ],
+      "file": "ground/day/north-02.webp",
+      "nightFile": "ground/night/north-02.webp"
+    },
+    {
+      "id": "north-03",
+      "side": "north",
+      "position": [
+        39.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        39.5,
+        -11.5,
+        55.5,
+        4.5
+      ],
+      "file": "ground/day/north-03.webp",
+      "nightFile": "ground/night/north-03.webp"
+    },
+    {
+      "id": "north-04",
+      "side": "north",
+      "position": [
+        55.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        55.5,
+        -11.5,
+        71.5,
+        4.5
+      ],
+      "file": "ground/day/north-04.webp",
+      "nightFile": "ground/night/north-04.webp"
+    },
+    {
+      "id": "north-05",
+      "side": "north",
+      "position": [
+        71.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        71.5,
+        -11.5,
+        87.5,
+        4.5
+      ],
+      "file": "ground/day/north-05.webp",
+      "nightFile": "ground/night/north-05.webp"
+    },
+    {
+      "id": "north-06",
+      "side": "north",
+      "position": [
+        87.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        87.5,
+        -11.5,
+        103.5,
+        4.5
+      ],
+      "file": "ground/day/north-06.webp",
+      "nightFile": "ground/night/north-06.webp"
+    },
+    {
+      "id": "north-07",
+      "side": "north",
+      "position": [
+        103.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        103.5,
+        -11.5,
+        119.5,
+        4.5
+      ],
+      "file": "ground/day/north-07.webp",
+      "nightFile": "ground/night/north-07.webp"
+    },
+    {
+      "id": "north-08",
+      "side": "north",
+      "position": [
+        119.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        119.5,
+        -11.5,
+        135.5,
+        4.5
+      ],
+      "file": "ground/day/north-08.webp",
+      "nightFile": "ground/night/north-08.webp"
+    },
+    {
+      "id": "north-09",
+      "side": "north",
+      "position": [
+        135.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        135.5,
+        -11.5,
+        151.5,
+        4.5
+      ],
+      "file": "ground/day/north-09.webp",
+      "nightFile": "ground/night/north-09.webp"
+    },
+    {
+      "id": "north-10",
+      "side": "north",
+      "position": [
+        151.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        151.5,
+        -11.5,
+        167.5,
+        4.5
+      ],
+      "file": "ground/day/north-10.webp",
+      "nightFile": "ground/night/north-10.webp"
+    },
+    {
+      "id": "north-11",
+      "side": "north",
+      "position": [
+        167.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        167.5,
+        -11.5,
+        183.5,
+        4.5
+      ],
+      "file": "ground/day/north-11.webp",
+      "nightFile": "ground/night/north-11.webp"
+    },
+    {
+      "id": "north-12",
+      "side": "north",
+      "position": [
+        183.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        183.5,
+        -11.5,
+        199.5,
+        4.5
+      ],
+      "file": "ground/day/north-12.webp",
+      "nightFile": "ground/night/north-12.webp"
+    },
+    {
+      "id": "north-13",
+      "side": "north",
+      "position": [
+        199.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        199.5,
+        -11.5,
+        215.5,
+        4.5
+      ],
+      "file": "ground/day/north-13.webp",
+      "nightFile": "ground/night/north-13.webp"
+    },
+    {
+      "id": "north-14",
+      "side": "north",
+      "position": [
+        215.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        215.5,
+        -11.5,
+        231.5,
+        4.5
+      ],
+      "file": "ground/day/north-14.webp",
+      "nightFile": "ground/night/north-14.webp"
+    },
+    {
+      "id": "north-15",
+      "side": "north",
+      "position": [
+        231.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        231.5,
+        -11.5,
+        247.5,
+        4.5
+      ],
+      "file": "ground/day/north-15.webp",
+      "nightFile": "ground/night/north-15.webp"
+    },
+    {
+      "id": "north-16",
+      "side": "north",
+      "position": [
+        241.5,
+        -11.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        247.5,
+        -11.5,
+        257.5,
+        4.5
+      ],
+      "file": "ground/day/north-16.webp",
+      "nightFile": "ground/night/north-16.webp"
+    },
+    {
+      "id": "south-00",
+      "side": "south",
+      "position": [
+        -8.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        342.5,
+        7.5,
+        358.5
+      ],
+      "file": "ground/day/south-00.webp",
+      "nightFile": "ground/night/south-00.webp"
+    },
+    {
+      "id": "south-01",
+      "side": "south",
+      "position": [
+        7.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        7.5,
+        342.5,
+        23.5,
+        358.5
+      ],
+      "file": "ground/day/south-01.webp",
+      "nightFile": "ground/night/south-01.webp"
+    },
+    {
+      "id": "south-02",
+      "side": "south",
+      "position": [
+        23.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        23.5,
+        342.5,
+        39.5,
+        358.5
+      ],
+      "file": "ground/day/south-02.webp",
+      "nightFile": "ground/night/south-02.webp"
+    },
+    {
+      "id": "south-03",
+      "side": "south",
+      "position": [
+        39.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        39.5,
+        342.5,
+        55.5,
+        358.5
+      ],
+      "file": "ground/day/south-03.webp",
+      "nightFile": "ground/night/south-03.webp"
+    },
+    {
+      "id": "south-04",
+      "side": "south",
+      "position": [
+        55.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        55.5,
+        342.5,
+        71.5,
+        358.5
+      ],
+      "file": "ground/day/south-04.webp",
+      "nightFile": "ground/night/south-04.webp"
+    },
+    {
+      "id": "south-05",
+      "side": "south",
+      "position": [
+        71.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        71.5,
+        342.5,
+        87.5,
+        358.5
+      ],
+      "file": "ground/day/south-05.webp",
+      "nightFile": "ground/night/south-05.webp"
+    },
+    {
+      "id": "south-06",
+      "side": "south",
+      "position": [
+        87.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        87.5,
+        342.5,
+        103.5,
+        358.5
+      ],
+      "file": "ground/day/south-06.webp",
+      "nightFile": "ground/night/south-06.webp"
+    },
+    {
+      "id": "south-07",
+      "side": "south",
+      "position": [
+        103.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        103.5,
+        342.5,
+        119.5,
+        358.5
+      ],
+      "file": "ground/day/south-07.webp",
+      "nightFile": "ground/night/south-07.webp"
+    },
+    {
+      "id": "south-08",
+      "side": "south",
+      "position": [
+        119.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        119.5,
+        342.5,
+        135.5,
+        358.5
+      ],
+      "file": "ground/day/south-08.webp",
+      "nightFile": "ground/night/south-08.webp"
+    },
+    {
+      "id": "south-09",
+      "side": "south",
+      "position": [
+        135.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        135.5,
+        342.5,
+        151.5,
+        358.5
+      ],
+      "file": "ground/day/south-09.webp",
+      "nightFile": "ground/night/south-09.webp"
+    },
+    {
+      "id": "south-10",
+      "side": "south",
+      "position": [
+        151.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        151.5,
+        342.5,
+        167.5,
+        358.5
+      ],
+      "file": "ground/day/south-10.webp",
+      "nightFile": "ground/night/south-10.webp"
+    },
+    {
+      "id": "south-11",
+      "side": "south",
+      "position": [
+        167.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        167.5,
+        342.5,
+        183.5,
+        358.5
+      ],
+      "file": "ground/day/south-11.webp",
+      "nightFile": "ground/night/south-11.webp"
+    },
+    {
+      "id": "south-12",
+      "side": "south",
+      "position": [
+        183.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        183.5,
+        342.5,
+        199.5,
+        358.5
+      ],
+      "file": "ground/day/south-12.webp",
+      "nightFile": "ground/night/south-12.webp"
+    },
+    {
+      "id": "south-13",
+      "side": "south",
+      "position": [
+        199.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        199.5,
+        342.5,
+        215.5,
+        358.5
+      ],
+      "file": "ground/day/south-13.webp",
+      "nightFile": "ground/night/south-13.webp"
+    },
+    {
+      "id": "south-14",
+      "side": "south",
+      "position": [
+        215.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        215.5,
+        342.5,
+        231.5,
+        358.5
+      ],
+      "file": "ground/day/south-14.webp",
+      "nightFile": "ground/night/south-14.webp"
+    },
+    {
+      "id": "south-15",
+      "side": "south",
+      "position": [
+        231.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        231.5,
+        342.5,
+        247.5,
+        358.5
+      ],
+      "file": "ground/day/south-15.webp",
+      "nightFile": "ground/night/south-15.webp"
+    },
+    {
+      "id": "south-16",
+      "side": "south",
+      "position": [
+        241.5,
+        342.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        247.5,
+        342.5,
+        257.5,
+        358.5
+      ],
+      "file": "ground/day/south-16.webp",
+      "nightFile": "ground/night/south-16.webp"
+    },
+    {
+      "id": "west-00",
+      "side": "west",
+      "position": [
+        -8.5,
+        4.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        4.5,
+        7.5,
+        20.5
+      ],
+      "file": "ground/day/west-00.webp",
+      "nightFile": "ground/night/west-00.webp"
+    },
+    {
+      "id": "west-01",
+      "side": "west",
+      "position": [
+        -8.5,
+        20.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        20.5,
+        7.5,
+        36.5
+      ],
+      "file": "ground/day/west-01.webp",
+      "nightFile": "ground/night/west-01.webp"
+    },
+    {
+      "id": "west-02",
+      "side": "west",
+      "position": [
+        -8.5,
+        36.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        36.5,
+        7.5,
+        52.5
+      ],
+      "file": "ground/day/west-02.webp",
+      "nightFile": "ground/night/west-02.webp"
+    },
+    {
+      "id": "west-03",
+      "side": "west",
+      "position": [
+        -8.5,
+        52.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        52.5,
+        7.5,
+        68.5
+      ],
+      "file": "ground/day/west-03.webp",
+      "nightFile": "ground/night/west-03.webp"
+    },
+    {
+      "id": "west-04",
+      "side": "west",
+      "position": [
+        -8.5,
+        68.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        68.5,
+        7.5,
+        84.5
+      ],
+      "file": "ground/day/west-04.webp",
+      "nightFile": "ground/night/west-04.webp"
+    },
+    {
+      "id": "west-05",
+      "side": "west",
+      "position": [
+        -8.5,
+        84.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        84.5,
+        7.5,
+        100.5
+      ],
+      "file": "ground/day/west-05.webp",
+      "nightFile": "ground/night/west-05.webp"
+    },
+    {
+      "id": "west-06",
+      "side": "west",
+      "position": [
+        -8.5,
+        100.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        100.5,
+        7.5,
+        116.5
+      ],
+      "file": "ground/day/west-06.webp",
+      "nightFile": "ground/night/west-06.webp"
+    },
+    {
+      "id": "west-07",
+      "side": "west",
+      "position": [
+        -8.5,
+        116.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        116.5,
+        7.5,
+        132.5
+      ],
+      "file": "ground/day/west-07.webp",
+      "nightFile": "ground/night/west-07.webp"
+    },
+    {
+      "id": "west-08",
+      "side": "west",
+      "position": [
+        -8.5,
+        132.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        132.5,
+        7.5,
+        148.5
+      ],
+      "file": "ground/day/west-08.webp",
+      "nightFile": "ground/night/west-08.webp"
+    },
+    {
+      "id": "west-09",
+      "side": "west",
+      "position": [
+        -8.5,
+        148.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        148.5,
+        7.5,
+        164.5
+      ],
+      "file": "ground/day/west-09.webp",
+      "nightFile": "ground/night/west-09.webp"
+    },
+    {
+      "id": "west-10",
+      "side": "west",
+      "position": [
+        -8.5,
+        164.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        164.5,
+        7.5,
+        180.5
+      ],
+      "file": "ground/day/west-10.webp",
+      "nightFile": "ground/night/west-10.webp"
+    },
+    {
+      "id": "west-11",
+      "side": "west",
+      "position": [
+        -8.5,
+        180.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        180.5,
+        7.5,
+        196.5
+      ],
+      "file": "ground/day/west-11.webp",
+      "nightFile": "ground/night/west-11.webp"
+    },
+    {
+      "id": "west-12",
+      "side": "west",
+      "position": [
+        -8.5,
+        196.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        196.5,
+        7.5,
+        212.5
+      ],
+      "file": "ground/day/west-12.webp",
+      "nightFile": "ground/night/west-12.webp"
+    },
+    {
+      "id": "west-13",
+      "side": "west",
+      "position": [
+        -8.5,
+        212.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        212.5,
+        7.5,
+        228.5
+      ],
+      "file": "ground/day/west-13.webp",
+      "nightFile": "ground/night/west-13.webp"
+    },
+    {
+      "id": "west-14",
+      "side": "west",
+      "position": [
+        -8.5,
+        228.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        228.5,
+        7.5,
+        244.5
+      ],
+      "file": "ground/day/west-14.webp",
+      "nightFile": "ground/night/west-14.webp"
+    },
+    {
+      "id": "west-15",
+      "side": "west",
+      "position": [
+        -8.5,
+        244.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        244.5,
+        7.5,
+        260.5
+      ],
+      "file": "ground/day/west-15.webp",
+      "nightFile": "ground/night/west-15.webp"
+    },
+    {
+      "id": "west-16",
+      "side": "west",
+      "position": [
+        -8.5,
+        260.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        260.5,
+        7.5,
+        276.5
+      ],
+      "file": "ground/day/west-16.webp",
+      "nightFile": "ground/night/west-16.webp"
+    },
+    {
+      "id": "west-17",
+      "side": "west",
+      "position": [
+        -8.5,
+        276.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        276.5,
+        7.5,
+        292.5
+      ],
+      "file": "ground/day/west-17.webp",
+      "nightFile": "ground/night/west-17.webp"
+    },
+    {
+      "id": "west-18",
+      "side": "west",
+      "position": [
+        -8.5,
+        292.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        292.5,
+        7.5,
+        308.5
+      ],
+      "file": "ground/day/west-18.webp",
+      "nightFile": "ground/night/west-18.webp"
+    },
+    {
+      "id": "west-19",
+      "side": "west",
+      "position": [
+        -8.5,
+        308.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        308.5,
+        7.5,
+        324.5
+      ],
+      "file": "ground/day/west-19.webp",
+      "nightFile": "ground/night/west-19.webp"
+    },
+    {
+      "id": "west-20",
+      "side": "west",
+      "position": [
+        -8.5,
+        324.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        324.5,
+        7.5,
+        340.5
+      ],
+      "file": "ground/day/west-20.webp",
+      "nightFile": "ground/night/west-20.webp"
+    },
+    {
+      "id": "west-21",
+      "side": "west",
+      "position": [
+        -8.5,
+        326.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        -8.5,
+        340.5,
+        7.5,
+        342.5
+      ],
+      "file": "ground/day/west-21.webp",
+      "nightFile": "ground/night/west-21.webp"
+    },
+    {
+      "id": "east-00",
+      "side": "east",
+      "position": [
+        241.5,
+        4.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        4.5,
+        257.5,
+        20.5
+      ],
+      "file": "ground/day/east-00.webp",
+      "nightFile": "ground/night/east-00.webp"
+    },
+    {
+      "id": "east-01",
+      "side": "east",
+      "position": [
+        241.5,
+        20.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        20.5,
+        257.5,
+        36.5
+      ],
+      "file": "ground/day/east-01.webp",
+      "nightFile": "ground/night/east-01.webp"
+    },
+    {
+      "id": "east-02",
+      "side": "east",
+      "position": [
+        241.5,
+        36.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        36.5,
+        257.5,
+        52.5
+      ],
+      "file": "ground/day/east-02.webp",
+      "nightFile": "ground/night/east-02.webp"
+    },
+    {
+      "id": "east-03",
+      "side": "east",
+      "position": [
+        241.5,
+        52.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        52.5,
+        257.5,
+        68.5
+      ],
+      "file": "ground/day/east-03.webp",
+      "nightFile": "ground/night/east-03.webp"
+    },
+    {
+      "id": "east-04",
+      "side": "east",
+      "position": [
+        241.5,
+        68.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        68.5,
+        257.5,
+        84.5
+      ],
+      "file": "ground/day/east-04.webp",
+      "nightFile": "ground/night/east-04.webp"
+    },
+    {
+      "id": "east-05",
+      "side": "east",
+      "position": [
+        241.5,
+        84.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        84.5,
+        257.5,
+        100.5
+      ],
+      "file": "ground/day/east-05.webp",
+      "nightFile": "ground/night/east-05.webp"
+    },
+    {
+      "id": "east-06",
+      "side": "east",
+      "position": [
+        241.5,
+        100.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        100.5,
+        257.5,
+        116.5
+      ],
+      "file": "ground/day/east-06.webp",
+      "nightFile": "ground/night/east-06.webp"
+    },
+    {
+      "id": "east-07",
+      "side": "east",
+      "position": [
+        241.5,
+        116.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        116.5,
+        257.5,
+        132.5
+      ],
+      "file": "ground/day/east-07.webp",
+      "nightFile": "ground/night/east-07.webp"
+    },
+    {
+      "id": "east-08",
+      "side": "east",
+      "position": [
+        241.5,
+        132.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        132.5,
+        257.5,
+        148.5
+      ],
+      "file": "ground/day/east-08.webp",
+      "nightFile": "ground/night/east-08.webp"
+    },
+    {
+      "id": "east-09",
+      "side": "east",
+      "position": [
+        241.5,
+        148.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        148.5,
+        257.5,
+        164.5
+      ],
+      "file": "ground/day/east-09.webp",
+      "nightFile": "ground/night/east-09.webp"
+    },
+    {
+      "id": "east-10",
+      "side": "east",
+      "position": [
+        241.5,
+        164.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        164.5,
+        257.5,
+        180.5
+      ],
+      "file": "ground/day/east-10.webp",
+      "nightFile": "ground/night/east-10.webp"
+    },
+    {
+      "id": "east-11",
+      "side": "east",
+      "position": [
+        241.5,
+        180.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        180.5,
+        257.5,
+        196.5
+      ],
+      "file": "ground/day/east-11.webp",
+      "nightFile": "ground/night/east-11.webp"
+    },
+    {
+      "id": "east-12",
+      "side": "east",
+      "position": [
+        241.5,
+        196.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        196.5,
+        257.5,
+        212.5
+      ],
+      "file": "ground/day/east-12.webp",
+      "nightFile": "ground/night/east-12.webp"
+    },
+    {
+      "id": "east-13",
+      "side": "east",
+      "position": [
+        241.5,
+        212.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        212.5,
+        257.5,
+        228.5
+      ],
+      "file": "ground/day/east-13.webp",
+      "nightFile": "ground/night/east-13.webp"
+    },
+    {
+      "id": "east-14",
+      "side": "east",
+      "position": [
+        241.5,
+        228.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        228.5,
+        257.5,
+        244.5
+      ],
+      "file": "ground/day/east-14.webp",
+      "nightFile": "ground/night/east-14.webp"
+    },
+    {
+      "id": "east-15",
+      "side": "east",
+      "position": [
+        241.5,
+        244.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        244.5,
+        257.5,
+        260.5
+      ],
+      "file": "ground/day/east-15.webp",
+      "nightFile": "ground/night/east-15.webp"
+    },
+    {
+      "id": "east-16",
+      "side": "east",
+      "position": [
+        241.5,
+        260.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        260.5,
+        257.5,
+        276.5
+      ],
+      "file": "ground/day/east-16.webp",
+      "nightFile": "ground/night/east-16.webp"
+    },
+    {
+      "id": "east-17",
+      "side": "east",
+      "position": [
+        241.5,
+        276.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        276.5,
+        257.5,
+        292.5
+      ],
+      "file": "ground/day/east-17.webp",
+      "nightFile": "ground/night/east-17.webp"
+    },
+    {
+      "id": "east-18",
+      "side": "east",
+      "position": [
+        241.5,
+        292.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        292.5,
+        257.5,
+        308.5
+      ],
+      "file": "ground/day/east-18.webp",
+      "nightFile": "ground/night/east-18.webp"
+    },
+    {
+      "id": "east-19",
+      "side": "east",
+      "position": [
+        241.5,
+        308.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        308.5,
+        257.5,
+        324.5
+      ],
+      "file": "ground/day/east-19.webp",
+      "nightFile": "ground/night/east-19.webp"
+    },
+    {
+      "id": "east-20",
+      "side": "east",
+      "position": [
+        241.5,
+        324.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        324.5,
+        257.5,
+        340.5
+      ],
+      "file": "ground/day/east-20.webp",
+      "nightFile": "ground/night/east-20.webp"
+    },
+    {
+      "id": "east-21",
+      "side": "east",
+      "position": [
+        241.5,
+        326.5
+      ],
+      "footprint": [
+        16,
+        16
+      ],
+      "dimensions": [
+        1792,
+        896
+      ],
+      "anchor": [
+        896,
+        0
+      ],
+      "anchorKind": "back ground corner",
+      "coverageBounds": [
+        241.5,
+        340.5,
+        257.5,
+        342.5
+      ],
+      "file": "ground/day/east-21.webp",
+      "nightFile": "ground/night/east-21.webp"
+    }
+  ],
+  "sprites": [
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-000",
+      "type": "farmhouse",
+      "side": "north",
+      "origin": [
+        48,
+        -7.5
+      ],
+      "position": [
+        51,
+        -4.5
+      ],
+      "bounds": [
+        48,
+        -7.5,
+        51,
+        -4.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-001",
+      "type": "barn",
+      "side": "north",
+      "origin": [
+        53.5,
+        -6.0
+      ],
+      "position": [
+        57.0,
+        -3.0
+      ],
+      "bounds": [
+        53.5,
+        -6.0,
+        57.0,
+        -3.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-002",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        51.2,
+        -3.5
+      ],
+      "position": [
+        52.7,
+        -2.0
+      ],
+      "bounds": [
+        51.2,
+        -3.5,
+        52.7,
+        -2.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-003",
+      "type": "cart",
+      "side": "north",
+      "origin": [
+        49,
+        -0.7000000000000002
+      ],
+      "position": [
+        51,
+        0.2999999999999998
+      ],
+      "bounds": [
+        49,
+        -0.7000000000000002,
+        51,
+        0.2999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-004",
+      "type": "farmhouse",
+      "side": "north",
+      "origin": [
+        149,
+        -7.5
+      ],
+      "position": [
+        152,
+        -4.5
+      ],
+      "bounds": [
+        149,
+        -7.5,
+        152,
+        -4.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-005",
+      "type": "barn",
+      "side": "north",
+      "origin": [
+        154.5,
+        -6.0
+      ],
+      "position": [
+        158.0,
+        -3.0
+      ],
+      "bounds": [
+        154.5,
+        -6.0,
+        158.0,
+        -3.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-006",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        152.2,
+        -3.5
+      ],
+      "position": [
+        153.7,
+        -2.0
+      ],
+      "bounds": [
+        152.2,
+        -3.5,
+        153.7,
+        -2.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-007",
+      "type": "cart",
+      "side": "north",
+      "origin": [
+        150,
+        -0.7000000000000002
+      ],
+      "position": [
+        152,
+        0.2999999999999998
+      ],
+      "bounds": [
+        150,
+        -0.7000000000000002,
+        152,
+        0.2999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-008",
+      "type": "farmhouse",
+      "side": "north",
+      "origin": [
+        213,
+        -7.5
+      ],
+      "position": [
+        216,
+        -4.5
+      ],
+      "bounds": [
+        213,
+        -7.5,
+        216,
+        -4.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-009",
+      "type": "barn",
+      "side": "north",
+      "origin": [
+        218.5,
+        -6.0
+      ],
+      "position": [
+        222.0,
+        -3.0
+      ],
+      "bounds": [
+        218.5,
+        -6.0,
+        222.0,
+        -3.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-010",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        216.2,
+        -3.5
+      ],
+      "position": [
+        217.7,
+        -2.0
+      ],
+      "bounds": [
+        216.2,
+        -3.5,
+        217.7,
+        -2.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-011",
+      "type": "cart",
+      "side": "north",
+      "origin": [
+        214,
+        -0.7000000000000002
+      ],
+      "position": [
+        216,
+        0.2999999999999998
+      ],
+      "bounds": [
+        214,
+        -0.7000000000000002,
+        216,
+        0.2999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-012",
+      "type": "farmhouse",
+      "side": "south",
+      "origin": [
+        37,
+        351.5
+      ],
+      "position": [
+        40,
+        354.5
+      ],
+      "bounds": [
+        37,
+        351.5,
+        40,
+        354.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-013",
+      "type": "barn",
+      "side": "south",
+      "origin": [
+        42.5,
+        350.0
+      ],
+      "position": [
+        46.0,
+        353.0
+      ],
+      "bounds": [
+        42.5,
+        350.0,
+        46.0,
+        353.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-014",
+      "type": "haystack",
+      "side": "south",
+      "origin": [
+        40.2,
+        349.0
+      ],
+      "position": [
+        41.7,
+        350.5
+      ],
+      "bounds": [
+        40.2,
+        349.0,
+        41.7,
+        350.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-015",
+      "type": "cart",
+      "side": "south",
+      "origin": [
+        38,
+        346.7
+      ],
+      "position": [
+        40,
+        347.7
+      ],
+      "bounds": [
+        38,
+        346.7,
+        40,
+        347.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-016",
+      "type": "farmhouse",
+      "side": "south",
+      "origin": [
+        111,
+        351.5
+      ],
+      "position": [
+        114,
+        354.5
+      ],
+      "bounds": [
+        111,
+        351.5,
+        114,
+        354.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-017",
+      "type": "barn",
+      "side": "south",
+      "origin": [
+        116.5,
+        350.0
+      ],
+      "position": [
+        120.0,
+        353.0
+      ],
+      "bounds": [
+        116.5,
+        350.0,
+        120.0,
+        353.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-018",
+      "type": "haystack",
+      "side": "south",
+      "origin": [
+        114.2,
+        349.0
+      ],
+      "position": [
+        115.7,
+        350.5
+      ],
+      "bounds": [
+        114.2,
+        349.0,
+        115.7,
+        350.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-019",
+      "type": "cart",
+      "side": "south",
+      "origin": [
+        112,
+        346.7
+      ],
+      "position": [
+        114,
+        347.7
+      ],
+      "bounds": [
+        112,
+        346.7,
+        114,
+        347.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-020",
+      "type": "farmhouse",
+      "side": "south",
+      "origin": [
+        191,
+        351.5
+      ],
+      "position": [
+        194,
+        354.5
+      ],
+      "bounds": [
+        191,
+        351.5,
+        194,
+        354.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-021",
+      "type": "barn",
+      "side": "south",
+      "origin": [
+        196.5,
+        350.0
+      ],
+      "position": [
+        200.0,
+        353.0
+      ],
+      "bounds": [
+        196.5,
+        350.0,
+        200.0,
+        353.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-022",
+      "type": "haystack",
+      "side": "south",
+      "origin": [
+        194.2,
+        349.0
+      ],
+      "position": [
+        195.7,
+        350.5
+      ],
+      "bounds": [
+        194.2,
+        349.0,
+        195.7,
+        350.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-023",
+      "type": "cart",
+      "side": "south",
+      "origin": [
+        192,
+        346.7
+      ],
+      "position": [
+        194,
+        347.7
+      ],
+      "bounds": [
+        192,
+        346.7,
+        194,
+        347.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-024",
+      "type": "farmhouse",
+      "side": "west",
+      "origin": [
+        -4.5,
+        92
+      ],
+      "position": [
+        -1.5,
+        95
+      ],
+      "bounds": [
+        -4.5,
+        92,
+        -1.5,
+        95
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-025",
+      "type": "barn",
+      "side": "west",
+      "origin": [
+        -3.5,
+        97.5
+      ],
+      "position": [
+        0.0,
+        100.5
+      ],
+      "bounds": [
+        -3.5,
+        97.5,
+        0.0,
+        100.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-026",
+      "type": "haystack",
+      "side": "west",
+      "origin": [
+        -0.5,
+        95.2
+      ],
+      "position": [
+        1.0,
+        96.7
+      ],
+      "bounds": [
+        -0.5,
+        95.2,
+        1.0,
+        96.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-027",
+      "type": "cart",
+      "side": "west",
+      "origin": [
+        1.2999999999999998,
+        93
+      ],
+      "position": [
+        3.3,
+        94
+      ],
+      "bounds": [
+        1.2999999999999998,
+        93,
+        3.3,
+        94
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-028",
+      "type": "farmhouse",
+      "side": "west",
+      "origin": [
+        -4.5,
+        174
+      ],
+      "position": [
+        -1.5,
+        177
+      ],
+      "bounds": [
+        -4.5,
+        174,
+        -1.5,
+        177
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-029",
+      "type": "barn",
+      "side": "west",
+      "origin": [
+        -3.5,
+        179.5
+      ],
+      "position": [
+        0.0,
+        182.5
+      ],
+      "bounds": [
+        -3.5,
+        179.5,
+        0.0,
+        182.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-030",
+      "type": "haystack",
+      "side": "west",
+      "origin": [
+        -0.5,
+        177.2
+      ],
+      "position": [
+        1.0,
+        178.7
+      ],
+      "bounds": [
+        -0.5,
+        177.2,
+        1.0,
+        178.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-031",
+      "type": "cart",
+      "side": "west",
+      "origin": [
+        1.2999999999999998,
+        175
+      ],
+      "position": [
+        3.3,
+        176
+      ],
+      "bounds": [
+        1.2999999999999998,
+        175,
+        3.3,
+        176
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-032",
+      "type": "farmhouse",
+      "side": "west",
+      "origin": [
+        -4.5,
+        305
+      ],
+      "position": [
+        -1.5,
+        308
+      ],
+      "bounds": [
+        -4.5,
+        305,
+        -1.5,
+        308
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-033",
+      "type": "barn",
+      "side": "west",
+      "origin": [
+        -3.5,
+        310.5
+      ],
+      "position": [
+        0.0,
+        313.5
+      ],
+      "bounds": [
+        -3.5,
+        310.5,
+        0.0,
+        313.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-034",
+      "type": "haystack",
+      "side": "west",
+      "origin": [
+        -0.5,
+        308.2
+      ],
+      "position": [
+        1.0,
+        309.7
+      ],
+      "bounds": [
+        -0.5,
+        308.2,
+        1.0,
+        309.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-035",
+      "type": "cart",
+      "side": "west",
+      "origin": [
+        1.2999999999999998,
+        306
+      ],
+      "position": [
+        3.3,
+        307
+      ],
+      "bounds": [
+        1.2999999999999998,
+        306,
+        3.3,
+        307
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-036",
+      "type": "farmhouse",
+      "side": "east",
+      "origin": [
+        250.5,
+        51
+      ],
+      "position": [
+        253.5,
+        54
+      ],
+      "bounds": [
+        250.5,
+        51,
+        253.5,
+        54
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-037",
+      "type": "barn",
+      "side": "east",
+      "origin": [
+        249.0,
+        56.5
+      ],
+      "position": [
+        252.5,
+        59.5
+      ],
+      "bounds": [
+        249.0,
+        56.5,
+        252.5,
+        59.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-038",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        248.0,
+        54.2
+      ],
+      "position": [
+        249.5,
+        55.7
+      ],
+      "bounds": [
+        248.0,
+        54.2,
+        249.5,
+        55.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-039",
+      "type": "cart",
+      "side": "east",
+      "origin": [
+        245.7,
+        52
+      ],
+      "position": [
+        247.7,
+        53
+      ],
+      "bounds": [
+        245.7,
+        52,
+        247.7,
+        53
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-040",
+      "type": "farmhouse",
+      "side": "east",
+      "origin": [
+        250.5,
+        186
+      ],
+      "position": [
+        253.5,
+        189
+      ],
+      "bounds": [
+        250.5,
+        186,
+        253.5,
+        189
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-041",
+      "type": "barn",
+      "side": "east",
+      "origin": [
+        249.0,
+        191.5
+      ],
+      "position": [
+        252.5,
+        194.5
+      ],
+      "bounds": [
+        249.0,
+        191.5,
+        252.5,
+        194.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-042",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        248.0,
+        189.2
+      ],
+      "position": [
+        249.5,
+        190.7
+      ],
+      "bounds": [
+        248.0,
+        189.2,
+        249.5,
+        190.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-043",
+      "type": "cart",
+      "side": "east",
+      "origin": [
+        245.7,
+        187
+      ],
+      "position": [
+        247.7,
+        188
+      ],
+      "bounds": [
+        245.7,
+        187,
+        247.7,
+        188
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3,
+        3
+      ],
+      "dimensions": [
+        324,
+        306
+      ],
+      "anchor": [
+        175,
+        304
+      ],
+      "tall": true,
+      "file": "sprites/farmhouse.webp",
+      "nightFile": "sprites/farmhouse-night.webp",
+      "id": "farmhouse-044",
+      "type": "farmhouse",
+      "side": "east",
+      "origin": [
+        250.5,
+        292
+      ],
+      "position": [
+        253.5,
+        295
+      ],
+      "bounds": [
+        250.5,
+        292,
+        253.5,
+        295
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        3
+      ],
+      "dimensions": [
+        364,
+        310
+      ],
+      "anchor": [
+        202,
+        307
+      ],
+      "tall": true,
+      "file": "sprites/barn.webp",
+      "nightFile": "sprites/barn-night.webp",
+      "id": "barn-045",
+      "type": "barn",
+      "side": "east",
+      "origin": [
+        249.0,
+        297.5
+      ],
+      "position": [
+        252.5,
+        300.5
+      ],
+      "bounds": [
+        249.0,
+        297.5,
+        252.5,
+        300.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-046",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        248.0,
+        295.2
+      ],
+      "position": [
+        249.5,
+        296.7
+      ],
+      "bounds": [
+        248.0,
+        295.2,
+        249.5,
+        296.7
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2,
+        1
+      ],
+      "dimensions": [
+        170,
+        113
+      ],
+      "anchor": [
+        82,
+        111
+      ],
+      "tall": false,
+      "file": "sprites/cart.webp",
+      "nightFile": "sprites/cart-night.webp",
+      "id": "cart-047",
+      "type": "cart",
+      "side": "east",
+      "origin": [
+        245.7,
+        293
+      ],
+      "position": [
+        247.7,
+        294
+      ],
+      "bounds": [
+        245.7,
+        293,
+        247.7,
+        294
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2.5,
+        2.5
+      ],
+      "dimensions": [
+        310,
+        430
+      ],
+      "anchor": [
+        187,
+        420
+      ],
+      "tall": true,
+      "file": "sprites/windmill.webp",
+      "nightFile": "sprites/windmill-night.webp",
+      "id": "windmill-048",
+      "type": "windmill",
+      "side": "north",
+      "origin": [
+        106,
+        -7.0
+      ],
+      "position": [
+        108.5,
+        -4.5
+      ],
+      "bounds": [
+        106,
+        -7.0,
+        108.5,
+        -4.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        2.5,
+        2.5
+      ],
+      "dimensions": [
+        310,
+        430
+      ],
+      "anchor": [
+        187,
+        420
+      ],
+      "tall": true,
+      "file": "sprites/windmill.webp",
+      "nightFile": "sprites/windmill-night.webp",
+      "id": "windmill-049",
+      "type": "windmill",
+      "side": "south",
+      "origin": [
+        137,
+        351.5
+      ],
+      "position": [
+        139.5,
+        354.0
+      ],
+      "bounds": [
+        137,
+        351.5,
+        139.5,
+        354.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        1
+      ],
+      "dimensions": [
+        92,
+        150
+      ],
+      "anchor": [
+        20,
+        148
+      ],
+      "tall": true,
+      "file": "sprites/gibbet.webp",
+      "nightFile": "sprites/gibbet-night.webp",
+      "id": "gibbet-050",
+      "type": "gibbet",
+      "side": "west",
+      "origin": [
+        3.5999999999999996,
+        70
+      ],
+      "position": [
+        4.6,
+        71
+      ],
+      "bounds": [
+        3.5999999999999996,
+        70,
+        4.6,
+        71
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        2.5
+      ],
+      "dimensions": [
+        322,
+        204
+      ],
+      "anchor": [
+        185,
+        200
+      ],
+      "tall": true,
+      "file": "sprites/tannery.webp",
+      "nightFile": "sprites/tannery-night.webp",
+      "id": "tannery-051",
+      "type": "tannery",
+      "side": "north",
+      "origin": [
+        91,
+        1.0
+      ],
+      "position": [
+        94.5,
+        3.5
+      ],
+      "bounds": [
+        91,
+        1.0,
+        94.5,
+        3.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        2.5
+      ],
+      "dimensions": [
+        322,
+        204
+      ],
+      "anchor": [
+        185,
+        200
+      ],
+      "tall": true,
+      "file": "sprites/tannery.webp",
+      "nightFile": "sprites/tannery-night.webp",
+      "id": "tannery-052",
+      "type": "tannery",
+      "side": "west",
+      "origin": [
+        3.0,
+        261
+      ],
+      "position": [
+        6.5,
+        263.5
+      ],
+      "bounds": [
+        3.0,
+        261,
+        6.5,
+        263.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        2.5
+      ],
+      "dimensions": [
+        322,
+        204
+      ],
+      "anchor": [
+        185,
+        200
+      ],
+      "tall": true,
+      "file": "sprites/tannery.webp",
+      "nightFile": "sprites/tannery-night.webp",
+      "id": "tannery-053",
+      "type": "tannery",
+      "side": "south",
+      "origin": [
+        93,
+        345.85
+      ],
+      "position": [
+        96.5,
+        348.35
+      ],
+      "bounds": [
+        93,
+        345.85,
+        96.5,
+        348.35
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        2.5
+      ],
+      "dimensions": [
+        322,
+        204
+      ],
+      "anchor": [
+        185,
+        200
+      ],
+      "tall": true,
+      "file": "sprites/tannery.webp",
+      "nightFile": "sprites/tannery-night.webp",
+      "id": "tannery-054",
+      "type": "tannery",
+      "side": "east",
+      "origin": [
+        244.85,
+        310
+      ],
+      "position": [
+        248.35,
+        312.5
+      ],
+      "bounds": [
+        244.85,
+        310,
+        248.35,
+        312.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        3.5,
+        2.5
+      ],
+      "dimensions": [
+        322,
+        204
+      ],
+      "anchor": [
+        185,
+        200
+      ],
+      "tall": true,
+      "file": "sprites/tannery.webp",
+      "nightFile": "sprites/tannery-night.webp",
+      "id": "tannery-055",
+      "type": "tannery",
+      "side": "south",
+      "origin": [
+        162,
+        345.85
+      ],
+      "position": [
+        165.5,
+        348.35
+      ],
+      "bounds": [
+        162,
+        345.85,
+        165.5,
+        348.35
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-056",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        10.75233939903758,
+        -9.100000000000001
+      ],
+      "position": [
+        12.552339399037582,
+        -7.300000000000002
+      ],
+      "bounds": [
+        10.75233939903758,
+        -9.100000000000001,
+        12.552339399037582,
+        -7.300000000000002
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-057",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        16.225785398417973,
+        -2.0
+      ],
+      "position": [
+        17.725785398417973,
+        -0.5
+      ],
+      "bounds": [
+        16.225785398417973,
+        -2.0,
+        17.725785398417973,
+        -0.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-058",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        23.84936226272164,
+        -9.100000000000001
+      ],
+      "position": [
+        25.64936226272164,
+        -7.300000000000002
+      ],
+      "bounds": [
+        23.84936226272164,
+        -9.100000000000001,
+        25.64936226272164,
+        -7.300000000000002
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-059",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        30.746099115065128,
+        -9.8
+      ],
+      "position": [
+        31.746099115065128,
+        -7.300000000000001
+      ],
+      "bounds": [
+        30.746099115065128,
+        -9.8,
+        31.746099115065128,
+        -7.300000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-060",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        38.494149020179314,
+        -9.8
+      ],
+      "position": [
+        39.494149020179314,
+        -7.300000000000001
+      ],
+      "bounds": [
+        38.494149020179314,
+        -9.8,
+        39.494149020179314,
+        -7.300000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-061",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        45.27332581352556,
+        1.8499999999999999
+      ],
+      "position": [
+        47.07332581352556,
+        3.65
+      ],
+      "bounds": [
+        45.27332581352556,
+        1.8499999999999999,
+        47.07332581352556,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-062",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        52.9753391994582,
+        -3.0
+      ],
+      "position": [
+        53.9753391994582,
+        -0.5
+      ],
+      "bounds": [
+        52.9753391994582,
+        -3.0,
+        53.9753391994582,
+        -0.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-063",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        59.88513021913428,
+        -2.3
+      ],
+      "position": [
+        61.68513021913428,
+        -0.4999999999999998
+      ],
+      "bounds": [
+        59.88513021913428,
+        -2.3,
+        61.68513021913428,
+        -0.4999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-064",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        65.69318278288794,
+        -1.9
+      ],
+      "position": [
+        66.69318278288794,
+        0.6000000000000001
+      ],
+      "bounds": [
+        65.69318278288794,
+        -1.9,
+        66.69318278288794,
+        0.6000000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-065",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        72.16262883170957,
+        1.15
+      ],
+      "position": [
+        73.16262883170957,
+        3.65
+      ],
+      "bounds": [
+        72.16262883170957,
+        1.15,
+        73.16262883170957,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-066",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        86.0195739242551,
+        -3.0
+      ],
+      "position": [
+        87.0195739242551,
+        -0.5
+      ],
+      "bounds": [
+        86.0195739242551,
+        -3.0,
+        87.0195739242551,
+        -0.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-067",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        93.78521637400243,
+        -1.9
+      ],
+      "position": [
+        94.78521637400243,
+        0.6000000000000001
+      ],
+      "bounds": [
+        93.78521637400243,
+        -1.9,
+        94.78521637400243,
+        0.6000000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-068",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        101.2384642729868,
+        1.15
+      ],
+      "position": [
+        102.2384642729868,
+        3.65
+      ],
+      "bounds": [
+        101.2384642729868,
+        1.15,
+        102.2384642729868,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-069",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        108.49381429585071,
+        -1.2
+      ],
+      "position": [
+        110.29381429585071,
+        0.6000000000000001
+      ],
+      "bounds": [
+        108.49381429585071,
+        -1.2,
+        110.29381429585071,
+        0.6000000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-070",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        115.65890116616288,
+        -9.8
+      ],
+      "position": [
+        116.65890116616288,
+        -7.300000000000001
+      ],
+      "bounds": [
+        115.65890116616288,
+        -9.8,
+        116.65890116616288,
+        -7.300000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-071",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        122.91945322303297,
+        -2.3
+      ],
+      "position": [
+        124.71945322303297,
+        -0.4999999999999998
+      ],
+      "bounds": [
+        122.91945322303297,
+        -2.3,
+        124.71945322303297,
+        -0.4999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-072",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        129.1145785825306,
+        -2.3
+      ],
+      "position": [
+        130.91457858253062,
+        -0.4999999999999998
+      ],
+      "bounds": [
+        129.1145785825306,
+        -2.3,
+        130.91457858253062,
+        -0.4999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-073",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        136.57757740745816,
+        -0.8999999999999999
+      ],
+      "position": [
+        138.07757740745816,
+        0.6000000000000001
+      ],
+      "bounds": [
+        136.57757740745816,
+        -0.8999999999999999,
+        138.07757740745816,
+        0.6000000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-074",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        143.65352821497677,
+        -9.100000000000001
+      ],
+      "position": [
+        145.45352821497679,
+        -7.300000000000002
+      ],
+      "bounds": [
+        143.65352821497677,
+        -9.100000000000001,
+        145.45352821497679,
+        -7.300000000000002
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-075",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        157.48741999337645,
+        1.8499999999999999
+      ],
+      "position": [
+        159.28741999337646,
+        3.65
+      ],
+      "bounds": [
+        157.48741999337645,
+        1.8499999999999999,
+        159.28741999337646,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-076",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        164.21753923696582,
+        1.15
+      ],
+      "position": [
+        165.21753923696582,
+        3.65
+      ],
+      "bounds": [
+        164.21753923696582,
+        1.15,
+        165.21753923696582,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-077",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        170.62283973102706,
+        -3.0
+      ],
+      "position": [
+        171.62283973102706,
+        -0.5
+      ],
+      "bounds": [
+        170.62283973102706,
+        -3.0,
+        171.62283973102706,
+        -0.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-078",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        177.66191275478639,
+        -1.2
+      ],
+      "position": [
+        179.4619127547864,
+        0.6000000000000001
+      ],
+      "bounds": [
+        177.66191275478639,
+        -1.2,
+        179.4619127547864,
+        0.6000000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-079",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        185.45745416363678,
+        -9.8
+      ],
+      "position": [
+        186.45745416363678,
+        -7.300000000000001
+      ],
+      "bounds": [
+        185.45745416363678,
+        -9.8,
+        186.45745416363678,
+        -7.300000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-080",
+      "type": "haystack",
+      "side": "north",
+      "origin": [
+        206.05016164561377,
+        2.15
+      ],
+      "position": [
+        207.55016164561377,
+        3.65
+      ],
+      "bounds": [
+        206.05016164561377,
+        2.15,
+        207.55016164561377,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-081",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        212.64497029531736,
+        1.15
+      ],
+      "position": [
+        213.64497029531736,
+        3.65
+      ],
+      "bounds": [
+        212.64497029531736,
+        1.15,
+        213.64497029531736,
+        3.65
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-082",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        220.41230233945078,
+        -9.8
+      ],
+      "position": [
+        221.41230233945078,
+        -7.300000000000001
+      ],
+      "bounds": [
+        220.41230233945078,
+        -9.8,
+        221.41230233945078,
+        -7.300000000000001
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-083",
+      "type": "tree",
+      "side": "north",
+      "origin": [
+        227.09713505484794,
+        -2.3
+      ],
+      "position": [
+        228.89713505484795,
+        -0.4999999999999998
+      ],
+      "bounds": [
+        227.09713505484794,
+        -2.3,
+        228.89713505484795,
+        -0.4999999999999998
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-084",
+      "type": "hedge",
+      "side": "north",
+      "origin": [
+        233.3225017753237,
+        -3.0
+      ],
+      "position": [
+        234.3225017753237,
+        -0.5
+      ],
+      "bounds": [
+        233.3225017753237,
+        -3.0,
+        234.3225017753237,
+        -0.5
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-085",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        10.224231497825501,
+        354.3
+      ],
+      "position": [
+        12.024231497825502,
+        356.1
+      ],
+      "bounds": [
+        10.224231497825501,
+        354.3,
+        12.024231497825502,
+        356.1
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-086",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        16.284244215838754,
+        346.4
+      ],
+      "position": [
+        18.084244215838755,
+        348.2
+      ],
+      "bounds": [
+        16.284244215838754,
+        346.4,
+        18.084244215838755,
+        348.2
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-087",
+      "type": "haystack",
+      "side": "south",
+      "origin": [
+        24.1701049009864,
+        354.3
+      ],
+      "position": [
+        25.6701049009864,
+        355.8
+      ],
+      "bounds": [
+        24.1701049009864,
+        354.3,
+        25.6701049009864,
+        355.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-088",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        30.58600403550312,
+        346.4
+      ],
+      "position": [
+        31.58600403550312,
+        348.9
+      ],
+      "bounds": [
+        30.58600403550312,
+        346.4,
+        31.58600403550312,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-089",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        45.87732667368608,
+        347.5
+      ],
+      "position": [
+        46.87732667368608,
+        350.0
+      ],
+      "bounds": [
+        45.87732667368608,
+        347.5,
+        46.87732667368608,
+        350.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-090",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        52.03093844945894,
+        346.4
+      ],
+      "position": [
+        53.03093844945894,
+        348.9
+      ],
+      "bounds": [
+        52.03093844945894,
+        346.4,
+        53.03093844945894,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-091",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        59.727622847245556,
+        347.5
+      ],
+      "position": [
+        60.727622847245556,
+        350.0
+      ],
+      "bounds": [
+        59.727622847245556,
+        347.5,
+        60.727622847245556,
+        350.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-092",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        66.7567044429554,
+        354.3
+      ],
+      "position": [
+        67.7567044429554,
+        356.8
+      ],
+      "bounds": [
+        66.7567044429554,
+        354.3,
+        67.7567044429554,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-093",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        73.05779752057978,
+        354.3
+      ],
+      "position": [
+        74.05779752057978,
+        356.8
+      ],
+      "bounds": [
+        73.05779752057978,
+        354.3,
+        74.05779752057978,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-094",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        86.36912365821013,
+        354.3
+      ],
+      "position": [
+        88.16912365821013,
+        356.1
+      ],
+      "bounds": [
+        86.36912365821013,
+        354.3,
+        88.16912365821013,
+        356.1
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-095",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        93.61562541842551,
+        354.3
+      ],
+      "position": [
+        94.61562541842551,
+        356.8
+      ],
+      "bounds": [
+        93.61562541842551,
+        354.3,
+        94.61562541842551,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-096",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        101.71966815515157,
+        347.5
+      ],
+      "position": [
+        102.71966815515157,
+        350.0
+      ],
+      "bounds": [
+        101.71966815515157,
+        347.5,
+        102.71966815515157,
+        350.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-097",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        108.46235501324666,
+        354.3
+      ],
+      "position": [
+        109.46235501324666,
+        356.8
+      ],
+      "bounds": [
+        108.46235501324666,
+        354.3,
+        109.46235501324666,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-098",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        114.44417234731122,
+        346.4
+      ],
+      "position": [
+        115.44417234731122,
+        348.9
+      ],
+      "bounds": [
+        114.44417234731122,
+        346.4,
+        115.44417234731122,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-099",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        121.82954533617833,
+        347.5
+      ],
+      "position": [
+        122.82954533617833,
+        350.0
+      ],
+      "bounds": [
+        121.82954533617833,
+        347.5,
+        122.82954533617833,
+        350.0
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-100",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        129.1475152115602,
+        346.4
+      ],
+      "position": [
+        130.1475152115602,
+        348.9
+      ],
+      "bounds": [
+        129.1475152115602,
+        346.4,
+        130.1475152115602,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-101",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        136.38009242854363,
+        354.3
+      ],
+      "position": [
+        138.18009242854365,
+        356.1
+      ],
+      "bounds": [
+        136.38009242854363,
+        354.3,
+        138.18009242854365,
+        356.1
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-102",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        143.44520265166287,
+        354.3
+      ],
+      "position": [
+        144.44520265166287,
+        356.8
+      ],
+      "bounds": [
+        143.44520265166287,
+        354.3,
+        144.44520265166287,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-103",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        150.9443285885221,
+        346.4
+      ],
+      "position": [
+        151.9443285885221,
+        348.9
+      ],
+      "bounds": [
+        150.9443285885221,
+        346.4,
+        151.9443285885221,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-104",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        156.39544573502275,
+        354.3
+      ],
+      "position": [
+        157.39544573502275,
+        356.8
+      ],
+      "bounds": [
+        156.39544573502275,
+        354.3,
+        157.39544573502275,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-105",
+      "type": "haystack",
+      "side": "south",
+      "origin": [
+        178.65687888323882,
+        354.3
+      ],
+      "position": [
+        180.15687888323882,
+        355.8
+      ],
+      "bounds": [
+        178.65687888323882,
+        354.3,
+        180.15687888323882,
+        355.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-106",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        185.50966653555585,
+        346.4
+      ],
+      "position": [
+        186.50966653555585,
+        348.9
+      ],
+      "bounds": [
+        185.50966653555585,
+        346.4,
+        186.50966653555585,
+        348.9
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-107",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        191.5174359500433,
+        343.35
+      ],
+      "position": [
+        192.5174359500433,
+        345.85
+      ],
+      "bounds": [
+        191.5174359500433,
+        343.35,
+        192.5174359500433,
+        345.85
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-108",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        206.8080499021191,
+        354.3
+      ],
+      "position": [
+        208.60804990211912,
+        356.1
+      ],
+      "bounds": [
+        206.8080499021191,
+        354.3,
+        208.60804990211912,
+        356.1
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-109",
+      "type": "tree",
+      "side": "south",
+      "origin": [
+        213.43152481553625,
+        346.4
+      ],
+      "position": [
+        215.23152481553626,
+        348.2
+      ],
+      "bounds": [
+        213.43152481553625,
+        346.4,
+        215.23152481553626,
+        348.2
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-110",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        219.8726125522601,
+        354.3
+      ],
+      "position": [
+        220.8726125522601,
+        356.8
+      ],
+      "bounds": [
+        219.8726125522601,
+        354.3,
+        220.8726125522601,
+        356.8
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-111",
+      "type": "hedge",
+      "side": "south",
+      "origin": [
+        234.00376854313436,
+        343.35
+      ],
+      "position": [
+        235.00376854313436,
+        345.85
+      ],
+      "bounds": [
+        234.00376854313436,
+        343.35,
+        235.00376854313436,
+        345.85
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-112",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        7.555501344678445
+      ],
+      "position": [
+        3.6,
+        10.055501344678445
+      ],
+      "bounds": [
+        2.6,
+        7.555501344678445,
+        3.6,
+        10.055501344678445
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-113",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        14.439148809058992
+      ],
+      "position": [
+        2.5,
+        16.93914880905899
+      ],
+      "bounds": [
+        1.5,
+        14.439148809058992,
+        2.5,
+        16.93914880905899
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-114",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        22.87246779691765
+      ],
+      "position": [
+        -4.300000000000001,
+        25.37246779691765
+      ],
+      "bounds": [
+        -5.300000000000001,
+        22.87246779691765,
+        -4.300000000000001,
+        25.37246779691765
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-115",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        28.85445200501227
+      ],
+      "position": [
+        -4.300000000000001,
+        31.35445200501227
+      ],
+      "bounds": [
+        -5.300000000000001,
+        28.85445200501227,
+        -4.300000000000001,
+        31.35445200501227
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-116",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        1.8,
+        36.21373746032472
+      ],
+      "position": [
+        3.6,
+        38.01373746032472
+      ],
+      "bounds": [
+        1.8,
+        36.21373746032472,
+        3.6,
+        38.01373746032472
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-117",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        -6.1000000000000005,
+        43.673619481530615
+      ],
+      "position": [
+        -4.300000000000001,
+        45.47361948153061
+      ],
+      "bounds": [
+        -6.1000000000000005,
+        43.673619481530615,
+        -4.300000000000001,
+        45.47361948153061
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-118",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        49.34334081256251
+      ],
+      "position": [
+        2.5,
+        51.84334081256251
+      ],
+      "bounds": [
+        1.5,
+        49.34334081256251,
+        2.5,
+        51.84334081256251
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-119",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        -6.1000000000000005,
+        57.09125264135052
+      ],
+      "position": [
+        -4.300000000000001,
+        58.89125264135052
+      ],
+      "bounds": [
+        -6.1000000000000005,
+        57.09125264135052,
+        -4.300000000000001,
+        58.89125264135052
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-120",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        70.4989116570234
+      ],
+      "position": [
+        2.5,
+        72.9989116570234
+      ],
+      "bounds": [
+        1.5,
+        70.4989116570234,
+        2.5,
+        72.9989116570234
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-121",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        5.65,
+        78.49483103846198
+      ],
+      "position": [
+        6.65,
+        80.99483103846198
+      ],
+      "bounds": [
+        5.65,
+        78.49483103846198,
+        6.65,
+        80.99483103846198
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-122",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        84.39481171656503
+      ],
+      "position": [
+        3.6,
+        86.89481171656503
+      ],
+      "bounds": [
+        2.6,
+        84.39481171656503,
+        3.6,
+        86.89481171656503
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-123",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        5.65,
+        91.73814199628893
+      ],
+      "position": [
+        6.65,
+        94.23814199628893
+      ],
+      "bounds": [
+        5.65,
+        91.73814199628893,
+        6.65,
+        94.23814199628893
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-124",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        98.39450807802221
+      ],
+      "position": [
+        3.6,
+        100.89450807802221
+      ],
+      "bounds": [
+        2.6,
+        98.39450807802221,
+        3.6,
+        100.89450807802221
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-125",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        105.56916361367466
+      ],
+      "position": [
+        -4.300000000000001,
+        108.06916361367466
+      ],
+      "bounds": [
+        -5.300000000000001,
+        105.56916361367466,
+        -4.300000000000001,
+        108.06916361367466
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-126",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        112.41777697530284
+      ],
+      "position": [
+        3.6,
+        114.91777697530284
+      ],
+      "bounds": [
+        2.6,
+        112.41777697530284,
+        3.6,
+        114.91777697530284
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-127",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        0.7,
+        120.42138889308163
+      ],
+      "position": [
+        2.5,
+        122.22138889308162
+      ],
+      "bounds": [
+        0.7,
+        120.42138889308163,
+        2.5,
+        122.22138889308162
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-128",
+      "type": "haystack",
+      "side": "west",
+      "origin": [
+        1.0,
+        127.83710822448732
+      ],
+      "position": [
+        2.5,
+        129.33710822448734
+      ],
+      "bounds": [
+        1.0,
+        127.83710822448732,
+        2.5,
+        129.33710822448734
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-129",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        -6.1000000000000005,
+        133.05542029627347
+      ],
+      "position": [
+        -4.300000000000001,
+        134.85542029627348
+      ],
+      "bounds": [
+        -6.1000000000000005,
+        133.05542029627347,
+        -4.300000000000001,
+        134.85542029627348
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-130",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        140.4305667751559
+      ],
+      "position": [
+        2.5,
+        142.9305667751559
+      ],
+      "bounds": [
+        1.5,
+        140.4305667751559,
+        2.5,
+        142.9305667751559
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-131",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        148.249447420552
+      ],
+      "position": [
+        2.5,
+        150.749447420552
+      ],
+      "bounds": [
+        1.5,
+        148.249447420552,
+        2.5,
+        150.749447420552
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-132",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        154.1911244349364
+      ],
+      "position": [
+        -4.300000000000001,
+        156.6911244349364
+      ],
+      "bounds": [
+        -5.300000000000001,
+        154.1911244349364,
+        -4.300000000000001,
+        156.6911244349364
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-133",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        161.6853629334541
+      ],
+      "position": [
+        3.6,
+        164.1853629334541
+      ],
+      "bounds": [
+        2.6,
+        161.6853629334541,
+        3.6,
+        164.1853629334541
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-134",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        168.59904508139115
+      ],
+      "position": [
+        -4.300000000000001,
+        171.09904508139115
+      ],
+      "bounds": [
+        -5.300000000000001,
+        168.59904508139115,
+        -4.300000000000001,
+        171.09904508139115
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-135",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        0.7,
+        182.86859448080543
+      ],
+      "position": [
+        2.5,
+        184.66859448080544
+      ],
+      "bounds": [
+        0.7,
+        182.86859448080543,
+        2.5,
+        184.66859448080544
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-136",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        189.17906809045462
+      ],
+      "position": [
+        2.5,
+        191.67906809045462
+      ],
+      "bounds": [
+        1.5,
+        189.17906809045462,
+        2.5,
+        191.67906809045462
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-137",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        197.90478752775948
+      ],
+      "position": [
+        -4.300000000000001,
+        200.40478752775948
+      ],
+      "bounds": [
+        -5.300000000000001,
+        197.90478752775948,
+        -4.300000000000001,
+        200.40478752775948
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-138",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        0.7,
+        203.83227966521633
+      ],
+      "position": [
+        2.5,
+        205.63227966521634
+      ],
+      "bounds": [
+        0.7,
+        203.83227966521633,
+        2.5,
+        205.63227966521634
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-139",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        -6.1000000000000005,
+        210.57189767571887
+      ],
+      "position": [
+        -4.300000000000001,
+        212.37189767571888
+      ],
+      "bounds": [
+        -6.1000000000000005,
+        210.57189767571887,
+        -4.300000000000001,
+        212.37189767571888
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-140",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        218.53932213685601
+      ],
+      "position": [
+        3.6,
+        221.03932213685601
+      ],
+      "bounds": [
+        2.6,
+        218.53932213685601,
+        3.6,
+        221.03932213685601
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-141",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        -6.1000000000000005,
+        225.97905748066975
+      ],
+      "position": [
+        -4.300000000000001,
+        227.77905748066976
+      ],
+      "bounds": [
+        -6.1000000000000005,
+        225.97905748066975,
+        -4.300000000000001,
+        227.77905748066976
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-142",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        0.7,
+        232.74360697345043
+      ],
+      "position": [
+        2.5,
+        234.54360697345044
+      ],
+      "bounds": [
+        0.7,
+        232.74360697345043,
+        2.5,
+        234.54360697345044
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-143",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        239.72579805969173
+      ],
+      "position": [
+        3.6,
+        242.22579805969173
+      ],
+      "bounds": [
+        2.6,
+        239.72579805969173,
+        3.6,
+        242.22579805969173
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-144",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        1.8,
+        245.22872454596472
+      ],
+      "position": [
+        3.6,
+        247.02872454596474
+      ],
+      "bounds": [
+        1.8,
+        245.22872454596472,
+        3.6,
+        247.02872454596474
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-145",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        4.8500000000000005,
+        253.4462487637093
+      ],
+      "position": [
+        6.65,
+        255.2462487637093
+      ],
+      "bounds": [
+        4.8500000000000005,
+        253.4462487637093,
+        6.65,
+        255.2462487637093
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-146",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        267.3223244516105
+      ],
+      "position": [
+        3.6,
+        269.8223244516105
+      ],
+      "bounds": [
+        2.6,
+        267.3223244516105,
+        3.6,
+        269.8223244516105
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-147",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        273.24392534671193
+      ],
+      "position": [
+        3.6,
+        275.74392534671193
+      ],
+      "bounds": [
+        2.6,
+        273.24392534671193,
+        3.6,
+        275.74392534671193
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-148",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        0.7,
+        294.0723636052494
+      ],
+      "position": [
+        2.5,
+        295.8723636052494
+      ],
+      "bounds": [
+        0.7,
+        294.0723636052494,
+        2.5,
+        295.8723636052494
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-149",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        1.8,
+        302.08153151540614
+      ],
+      "position": [
+        3.6,
+        303.88153151540615
+      ],
+      "bounds": [
+        1.8,
+        302.08153151540614,
+        3.6,
+        303.88153151540615
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-150",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        1.5,
+        309.5862573933646
+      ],
+      "position": [
+        2.5,
+        312.0862573933646
+      ],
+      "bounds": [
+        1.5,
+        309.5862573933646,
+        2.5,
+        312.0862573933646
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-151",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        -5.300000000000001,
+        315.21738404438145
+      ],
+      "position": [
+        -4.300000000000001,
+        317.71738404438145
+      ],
+      "bounds": [
+        -5.300000000000001,
+        315.21738404438145,
+        -4.300000000000001,
+        317.71738404438145
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-152",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        4.8500000000000005,
+        322.9065714587764
+      ],
+      "position": [
+        6.65,
+        324.7065714587764
+      ],
+      "bounds": [
+        4.8500000000000005,
+        322.9065714587764,
+        6.65,
+        324.7065714587764
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-153",
+      "type": "hedge",
+      "side": "west",
+      "origin": [
+        2.6,
+        330.5482885612539
+      ],
+      "position": [
+        3.6,
+        333.0482885612539
+      ],
+      "bounds": [
+        2.6,
+        330.5482885612539,
+        3.6,
+        333.0482885612539
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-154",
+      "type": "tree",
+      "side": "west",
+      "origin": [
+        1.8,
+        337.3916559877986
+      ],
+      "position": [
+        3.6,
+        339.1916559877986
+      ],
+      "bounds": [
+        1.8,
+        337.3916559877986,
+        3.6,
+        339.1916559877986
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-155",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        8.966280549812389
+      ],
+      "position": [
+        247.5,
+        11.466280549812389
+      ],
+      "bounds": [
+        246.5,
+        8.966280549812389,
+        247.5,
+        11.466280549812389
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-156",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        245.4,
+        14.450514093973768
+      ],
+      "position": [
+        247.20000000000002,
+        16.250514093973766
+      ],
+      "bounds": [
+        245.4,
+        14.450514093973768,
+        247.20000000000002,
+        16.250514093973766
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-157",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        22.628346560065772
+      ],
+      "position": [
+        247.5,
+        25.128346560065772
+      ],
+      "bounds": [
+        246.5,
+        22.628346560065772,
+        247.5,
+        25.128346560065772
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-158",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        28.854407786090977
+      ],
+      "position": [
+        243.35,
+        31.354407786090977
+      ],
+      "bounds": [
+        242.35,
+        28.854407786090977,
+        243.35,
+        31.354407786090977
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-159",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        43.82983658267814
+      ],
+      "position": [
+        246.4,
+        46.32983658267814
+      ],
+      "bounds": [
+        245.4,
+        43.82983658267814,
+        246.4,
+        46.32983658267814
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-160",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        57.55857116954586
+      ],
+      "position": [
+        247.5,
+        60.05857116954586
+      ],
+      "bounds": [
+        246.5,
+        57.55857116954586,
+        247.5,
+        60.05857116954586
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-161",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        246.5,
+        64.22355211394728
+      ],
+      "position": [
+        248.3,
+        66.02355211394728
+      ],
+      "bounds": [
+        246.5,
+        64.22355211394728,
+        248.3,
+        66.02355211394728
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-162",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        253.3,
+        70.45205461868099
+      ],
+      "position": [
+        254.8,
+        71.95205461868099
+      ],
+      "bounds": [
+        253.3,
+        70.45205461868099,
+        254.8,
+        71.95205461868099
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-163",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        242.35,
+        78.68072895197065
+      ],
+      "position": [
+        243.85,
+        80.18072895197065
+      ],
+      "bounds": [
+        242.35,
+        78.68072895197065,
+        243.85,
+        80.18072895197065
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-164",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        85.27840736423335
+      ],
+      "position": [
+        243.35,
+        87.77840736423335
+      ],
+      "bounds": [
+        242.35,
+        85.27840736423335,
+        243.35,
+        87.77840736423335
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-165",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        91.21653004184054
+      ],
+      "position": [
+        243.35,
+        93.71653004184054
+      ],
+      "bounds": [
+        242.35,
+        91.21653004184054,
+        243.35,
+        93.71653004184054
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-166",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        98.97279846869445
+      ],
+      "position": [
+        246.4,
+        101.47279846869445
+      ],
+      "bounds": [
+        245.4,
+        98.97279846869445,
+        246.4,
+        101.47279846869445
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-167",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        105.68115339123263
+      ],
+      "position": [
+        247.5,
+        108.18115339123263
+      ],
+      "bounds": [
+        246.5,
+        105.68115339123263,
+        247.5,
+        108.18115339123263
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-168",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        245.4,
+        113.01376665807837
+      ],
+      "position": [
+        247.20000000000002,
+        114.81376665807836
+      ],
+      "bounds": [
+        245.4,
+        113.01376665807837,
+        247.20000000000002,
+        114.81376665807836
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-169",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        119.59373122549826
+      ],
+      "position": [
+        247.5,
+        122.09373122549826
+      ],
+      "bounds": [
+        246.5,
+        119.59373122549826,
+        247.5,
+        122.09373122549826
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-170",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        127.05128778702742
+      ],
+      "position": [
+        246.4,
+        129.55128778702743
+      ],
+      "bounds": [
+        245.4,
+        127.05128778702742,
+        246.4,
+        129.55128778702743
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-171",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        253.3,
+        140.72289984853765
+      ],
+      "position": [
+        254.3,
+        143.22289984853765
+      ],
+      "bounds": [
+        253.3,
+        140.72289984853765,
+        254.3,
+        143.22289984853765
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-172",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        147.58024201057694
+      ],
+      "position": [
+        247.5,
+        150.08024201057694
+      ],
+      "bounds": [
+        246.5,
+        147.58024201057694,
+        247.5,
+        150.08024201057694
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-173",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        253.3,
+        155.52692592776515
+      ],
+      "position": [
+        254.3,
+        158.02692592776515
+      ],
+      "bounds": [
+        253.3,
+        155.52692592776515,
+        254.3,
+        158.02692592776515
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-174",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        246.5,
+        162.9992152462085
+      ],
+      "position": [
+        248.0,
+        164.4992152462085
+      ],
+      "bounds": [
+        246.5,
+        162.9992152462085,
+        248.0,
+        164.4992152462085
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-175",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        253.3,
+        169.4295720155602
+      ],
+      "position": [
+        254.3,
+        171.9295720155602
+      ],
+      "bounds": [
+        253.3,
+        169.4295720155602,
+        254.3,
+        171.9295720155602
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-176",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        175.0297081532565
+      ],
+      "position": [
+        243.35,
+        177.5297081532565
+      ],
+      "bounds": [
+        242.35,
+        175.0297081532565,
+        243.35,
+        177.5297081532565
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-177",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        183.25991806003796
+      ],
+      "position": [
+        246.4,
+        185.75991806003796
+      ],
+      "bounds": [
+        245.4,
+        183.25991806003796,
+        246.4,
+        185.75991806003796
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-178",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        253.3,
+        190.92495099023472
+      ],
+      "position": [
+        254.3,
+        193.42495099023472
+      ],
+      "bounds": [
+        253.3,
+        190.92495099023472,
+        254.3,
+        193.42495099023472
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-179",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        246.5,
+        196.84286205630158
+      ],
+      "position": [
+        248.0,
+        198.34286205630158
+      ],
+      "bounds": [
+        246.5,
+        196.84286205630158,
+        248.0,
+        198.34286205630158
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-180",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        204.1301892215107
+      ],
+      "position": [
+        246.4,
+        206.6301892215107
+      ],
+      "bounds": [
+        245.4,
+        204.1301892215107,
+        246.4,
+        206.6301892215107
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-181",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        246.5,
+        210.3793331546
+      ],
+      "position": [
+        248.3,
+        212.17933315460002
+      ],
+      "bounds": [
+        246.5,
+        210.3793331546,
+        248.3,
+        212.17933315460002
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-182",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        217.5904303391739
+      ],
+      "position": [
+        246.4,
+        220.0904303391739
+      ],
+      "bounds": [
+        245.4,
+        217.5904303391739,
+        246.4,
+        220.0904303391739
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-183",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        224.6164875000593
+      ],
+      "position": [
+        247.5,
+        227.1164875000593
+      ],
+      "bounds": [
+        246.5,
+        224.6164875000593,
+        247.5,
+        227.1164875000593
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-184",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        246.5,
+        232.45619241270074
+      ],
+      "position": [
+        248.3,
+        234.25619241270076
+      ],
+      "bounds": [
+        246.5,
+        232.45619241270074,
+        248.3,
+        234.25619241270076
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-185",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        253.3,
+        239.00217197418144
+      ],
+      "position": [
+        254.8,
+        240.50217197418144
+      ],
+      "bounds": [
+        253.3,
+        239.00217197418144,
+        254.8,
+        240.50217197418144
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "dimensions": [
+        134,
+        120
+      ],
+      "anchor": [
+        68,
+        119
+      ],
+      "tall": false,
+      "file": "sprites/haystack.webp",
+      "nightFile": "sprites/haystack-night.webp",
+      "id": "haystack-186",
+      "type": "haystack",
+      "side": "east",
+      "origin": [
+        253.3,
+        246.6549607977312
+      ],
+      "position": [
+        254.8,
+        248.1549607977312
+      ],
+      "bounds": [
+        253.3,
+        246.6549607977312,
+        254.8,
+        248.1549607977312
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-187",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        245.4,
+        252.9980915691321
+      ],
+      "position": [
+        247.20000000000002,
+        254.7980915691321
+      ],
+      "bounds": [
+        245.4,
+        252.9980915691321,
+        247.20000000000002,
+        254.7980915691321
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-188",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        253.3,
+        260.11134227439874
+      ],
+      "position": [
+        255.10000000000002,
+        261.91134227439875
+      ],
+      "bounds": [
+        253.3,
+        260.11134227439874,
+        255.10000000000002,
+        261.91134227439875
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-189",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        266.7574960793337
+      ],
+      "position": [
+        246.4,
+        269.2574960793337
+      ],
+      "bounds": [
+        245.4,
+        266.7574960793337,
+        246.4,
+        269.2574960793337
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-190",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        281.5387429709105
+      ],
+      "position": [
+        243.35,
+        284.0387429709105
+      ],
+      "bounds": [
+        242.35,
+        281.5387429709105,
+        243.35,
+        284.0387429709105
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-191",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        287.61387030987606
+      ],
+      "position": [
+        246.4,
+        290.11387030987606
+      ],
+      "bounds": [
+        245.4,
+        287.61387030987606,
+        246.4,
+        290.11387030987606
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-192",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        246.5,
+        294.759318337426
+      ],
+      "position": [
+        247.5,
+        297.259318337426
+      ],
+      "bounds": [
+        246.5,
+        294.759318337426,
+        247.5,
+        297.259318337426
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-193",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        242.35,
+        301.28494444825736
+      ],
+      "position": [
+        243.35,
+        303.78494444825736
+      ],
+      "bounds": [
+        242.35,
+        301.28494444825736,
+        243.35,
+        303.78494444825736
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-194",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        253.3,
+        308.8057480469866
+      ],
+      "position": [
+        255.10000000000002,
+        310.6057480469866
+      ],
+      "bounds": [
+        253.3,
+        308.8057480469866,
+        255.10000000000002,
+        310.6057480469866
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1,
+        2.5
+      ],
+      "dimensions": [
+        173,
+        90
+      ],
+      "anchor": [
+        59,
+        87
+      ],
+      "tall": false,
+      "file": "sprites/hedge.webp",
+      "nightFile": "sprites/hedge-night.webp",
+      "id": "hedge-195",
+      "type": "hedge",
+      "side": "east",
+      "origin": [
+        245.4,
+        329.07601580046145
+      ],
+      "position": [
+        246.4,
+        331.57601580046145
+      ],
+      "bounds": [
+        245.4,
+        329.07601580046145,
+        246.4,
+        331.57601580046145
+      ],
+      "anchorKind": "front ground corner"
+    },
+    {
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "dimensions": [
+        240,
+        213
+      ],
+      "anchor": [
+        105,
+        207
+      ],
+      "tall": true,
+      "file": "sprites/tree.webp",
+      "nightFile": "sprites/tree-night.webp",
+      "id": "tree-196",
+      "type": "tree",
+      "side": "east",
+      "origin": [
+        246.5,
+        337.38866933399
+      ],
+      "position": [
+        248.3,
+        339.18866933399
+      ],
+      "bounds": [
+        246.5,
+        337.38866933399,
+        248.3,
+        339.18866933399
+      ],
+      "anchorKind": "front ground corner"
+    }
+  ]
+}
