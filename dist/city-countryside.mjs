@@ -6,14 +6,16 @@ import {project} from './city-core.mjs?v=junction-continuity-v3';
 const BASE='assets/countryside-v1/';
 export async function createCountryside({read,load,addSprites,lowMemory=false,keep=lowMemory?8:16}){
  const m=await read(BASE+'manifest.json?v=1');
- const k=1/m.artScale,density=lowMemory?.5:1;
+ const k=1/m.artScale,dir=lowMemory?'ground-half/':'ground-1x/';
  const tiles=m.tiles.map(t=>{const q=project(t.position),w=t.dimensions[0]*k,h=t.dimensions[1]*k,x=q.x-t.anchor[0]*k,y=q.y-t.anchor[1]*k;return {...t,box:[x,y,x+w,y+h],surface:null,pending:null,used:0};});
+ // Own loader, not the city's: the city keeps every picture forever, and these must be let go.
+ const tileImage=src=>new Promise((ok,fail)=>{const im=new Image();im.decoding='async';im.onload=()=>(im.decode?im.decode().catch(()=>{}):Promise.resolve()).then(()=>ok(im));im.onerror=()=>fail(new Error('tile '+src));im.src=src;});
  let revision=0,resident=0;const errors=new Map();
  function want(t){
   if(t.surface||t.pending||errors.has(t.id))return;
-  t.pending=load(BASE+t.file).then(im=>{
-   const c=document.createElement('canvas');c.width=Math.round((im.naturalWidth||im.width)*k*density);c.height=Math.round((im.naturalHeight||im.height)*k*density);
-   c.getContext('2d').drawImage(im,0,0,c.width,c.height);t.surface=c;resident++;revision++;
+  // Pre-shrunk copies (game size, or half on phones): no big decode or resize on the phone.
+  t.pending=tileImage(BASE+t.file.replace('ground/',dir)).then(im=>{
+   t.surface=im;resident++;revision++;
   }).catch(e=>{errors.set(t.id,String(e?.message||e));}).finally(()=>{t.pending=null;});
  }
  let visible=[];
@@ -23,7 +25,7 @@ export async function createCountryside({read,load,addSprites,lowMemory=false,ke
    const pad=448;visible=tiles.filter(t=>t.box[2]>=view[0]-pad&&t.box[0]<=view[2]+pad&&t.box[3]>=view[1]-pad&&t.box[1]<=view[3]+pad);
    const now=performance.now();for(const t of visible){t.used=now;want(t);}
    const loaded=tiles.filter(t=>t.surface).sort((a,b)=>a.used-b.used);
-   while(loaded.length>keep){const t=loaded.shift();if(visible.includes(t))break;t.surface.width=t.surface.height=0;t.surface=null;resident--;}
+   while(loaded.length>keep){const t=loaded.shift();if(visible.includes(t))break;t.surface=null;resident--;}
   },
   draw(g){for(const t of visible)if(t.surface)g.drawImage(t.surface,t.box[0],t.box[1],t.box[2]-t.box[0],t.box[3]-t.box[1]);},
   report:()=>({tiles:tiles.length,resident,visible:visible.length,errors:[...errors]})
