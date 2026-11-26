@@ -229,6 +229,23 @@ function walkToCurrentAssignment(){
  if(!record.pending&&duty?.dimwell&&!patrolBlocked()){const stop=patrolDuty.mapStop?.();if(stop?.position){city.stop();return city.nav(stop.position.slice(0,2),stop.position[2]);}}
  return walkTo();
 }
+// Where-to-go guide: the destination "Walk to current assignment" would choose, found by a dry run
+// that records the requested walk instead of moving, and opens no menus. Null when there is none.
+let lastGuide=null;
+function guideTarget(){
+ const record=state();
+ if(record.pending||loading||window.CWRecruitmentPending)return null;
+ if(document.querySelector('dialog[open]'))return lastGuide;
+ const nav=city.nav,stop=city.stop,tell=city.tell,D=HTMLDialogElement.prototype,showModal=D.showModal,show=D.show;let hit=null;
+ city.nav=(p,e)=>{hit=[p[0],p[1],e];return true;};city.stop=()=>{};city.tell=()=>{};D.showModal=function(){};D.show=function(){};
+ try{walkToCurrentAssignment();}catch{hit=null;}
+ finally{city.nav=nav;city.stop=stop;city.tell=tell;D.showModal=showModal;D.show=show;}
+ if(!hit||!Number.isFinite(hit[0])||typeof hit[2]!=='string'){lastGuide=null;return null;}
+ const near=(q,r)=>q&&Math.hypot(q[0]-hit[0],q[1]-hit[1])<r;
+ const door=[...city.world.doors.values()].find(d=>near(d.position,1.6)),actor=actors.find(a=>near(a.p,2.2));
+ lastGuide={at:hit,name:door?.name||(actor&&(names[actor.id]||actor.name))||'Your assignment'};
+ return lastGuide;
+}
 function walkTo(id=target()){
  city.stop();const chase=state().pending?.chase;if(chase){const p=chase.visible?chase.route[chase.index]:chase.lastSeen;chaseTracking=true;lastChaseTarget=p.join(',');return city.nav(p.slice(0,2),p[2],{pursuit:true});}let p,e;
  if(id.startsWith('npc:')){const a=actors.find(a=>a.id===id.slice(4));p=a.p.slice(0,2);e=a.p[2];if(a.id==='colon'){p=[121,134];e='RC1';}}
@@ -515,7 +532,7 @@ function chaseMenu(){const v=state(),c=v.pending?.chase;if(!c)return;const near=
  if(near&&['caught','surrendered'].includes(c.status))button('Let them go',()=>finishChase('released'));
  button('Continue pursuit',()=>city.tell('Follow the last sighting. The circle moves your recruit; release it to stop.'));
  button('Call off the search',()=>finishChase('lost'));d.showModal();}
-window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,battle,state,
+window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,guideTarget,battle,state,
  interact(){const pending=state().pending;if(pending?.chase){chaseMenu();return true;}if(pending){battle();return true;}const marketDuty=patrolDuty?.view();
  if(marketDuty?.delivery&&['inspect','report'].includes(marketDuty.action)){patrolDuty.primary();return true;}
  if(patrolDuty?.deliveryContact()){patrolDuty.deliveryMenu();return true;}
