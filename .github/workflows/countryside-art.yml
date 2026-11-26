@@ -1,0 +1,27 @@
+name: Bake and verify countryside art
+on:
+  push:
+    branches: [art/countryside-v1]
+    paths:
+      - 'art-review/countryside-v1/**'
+      - '.github/workflows/countryside-art.yml'
+permissions:
+  contents: write
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.3.5 Pillow==12.0.0
+      - run: python art-review/countryside-v1/build.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art-review/countryside-v1/ground art-review/countryside-v1/manifest.json art-review/countryside-v1/contact-*.webp
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Bake and verify day and night countryside tiles'
+          git push origin HEAD:refs/heads/art/countryside-v1

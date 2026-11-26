@@ -1,0 +1,155 @@
+{
+  "farmhouse": {
+    "footprint": [
+      3,
+      3
+    ],
+    "dimensions": [
+      324,
+      306
+    ],
+    "anchor": [
+      175,
+      304
+    ],
+    "tall": true,
+    "file": "sprites/farmhouse.webp",
+    "nightFile": "sprites/farmhouse-night.webp"
+  },
+  "barn": {
+    "footprint": [
+      3.5,
+      3
+    ],
+    "dimensions": [
+      364,
+      310
+    ],
+    "anchor": [
+      202,
+      307
+    ],
+    "tall": true,
+    "file": "sprites/barn.webp",
+    "nightFile": "sprites/barn-night.webp"
+  },
+  "windmill": {
+    "footprint": [
+      2.5,
+      2.5
+    ],
+    "dimensions": [
+      310,
+      430
+    ],
+    "anchor": [
+      187,
+      420
+    ],
+    "tall": true,
+    "file": "sprites/windmill.webp",
+    "nightFile": "sprites/windmill-night.webp"
+  },
+  "tannery": {
+    "footprint": [
+      3.5,
+      2.5
+    ],
+    "dimensions": [
+      322,
+      204
+    ],
+    "anchor": [
+      185,
+      200
+    ],
+    "tall": true,
+    "file": "sprites/tannery.webp",
+    "nightFile": "sprites/tannery-night.webp"
+  },
+  "haystack": {
+    "footprint": [
+      1.5,
+      1.5
+    ],
+    "dimensions": [
+      134,
+      120
+    ],
+    "anchor": [
+      68,
+      119
+    ],
+    "tall": false,
+    "file": "sprites/haystack.webp",
+    "nightFile": "sprites/haystack-night.webp"
+  },
+  "cart": {
+    "footprint": [
+      2,
+      1
+    ],
+    "dimensions": [
+      170,
+      113
+    ],
+    "anchor": [
+      82,
+      111
+    ],
+    "tall": false,
+    "file": "sprites/cart.webp",
+    "nightFile": "sprites/cart-night.webp"
+  },
+  "tree": {
+    "footprint": [
+      1.8,
+      1.8
+    ],
+    "dimensions": [
+      240,
+      213
+    ],
+    "anchor": [
+      105,
+      207
+    ],
+    "tall": true,
+    "file": "sprites/tree.webp",
+    "nightFile": "sprites/tree-night.webp"
+  },
+  "hedge": {
+    "footprint": [
+      1,
+      2.5
+    ],
+    "dimensions": [
+      173,
+      90
+    ],
+    "anchor": [
+      59,
+      87
+    ],
+    "tall": false,
+    "file": "sprites/hedge.webp",
+    "nightFile": "sprites/hedge-night.webp"
+  },
+  "gibbet": {
+    "footprint": [
+      1,
+      1
+    ],
+    "dimensions": [
+      92,
+      150
+    ],
+    "anchor": [
+      20,
+      148
+    ],
+    "tall": true,
+    "file": "sprites/gibbet.webp",
+    "nightFile": "sprites/gibbet-night.webp"
+  }
+}
