@@ -68,6 +68,7 @@ import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06Foregroun
 import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=memo-1';
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
 import {createCityGuide} from './city-guide.mjs?v=12';
+import {createSquareMarket,activateSquareMarket} from './city-square-market.mjs?v=2';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
@@ -287,6 +288,7 @@ const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 // Insert only in authored order, regardless of which request finishes first.
 const guildPaintings=await Promise.all(guildLots.map(l=>load(l.guild_exterior.file)));
 for(const [index,l]of guildLots.entries()){const g=l.guild_exterior,im=guildPaintings[index];addSprite('guild:'+l.game_id,im,l.engine_approach_xy,g.anchor,1,g.rect,{landmark:l,sourceAsset:'guild:'+l.room_id});}
+let squareMarket=null;if(!/[?&]market=0(&|$)/.test(location.search))try{squareMarket=await createSquareMarket({read,load,addSprites:addStreetSprites});}catch(error){console.warn('Square market unavailable',error);}
 const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors,pixels});
 // The low-wall version (city-closed-ground.mjs) was rejected by Mark on 21 Nov 2026; the empty outer ground is
 // filled with packed houses instead (city-edge-fill.mjs).
@@ -775,6 +777,7 @@ canvas.dataset.hideParkPremises=JSON.stringify(hideParkState?.report()||{ready:f
 const drumRow=landmarkExteriors.manifest.instances.find(r=>r.landmarkID==='drum'),drumDoor=world.doors.get('drum');
 const drumPlot=drumRow&&drumDoor&&drumRow.rect[2]*drumRow.rect[3]>30?activateDrumPlot({world,ground:openGround,rect:drumRow.rect,door:drumDoor.position,reachable:()=>streetPath(world,[126,132,'RC1'],drumDoor.position.slice(0,2),drumDoor.edge)!==null}):null;
 canvas.dataset.drumPlot=JSON.stringify(drumPlot?.report()||{active:false});
+const squareMarketState=activateSquareMarket({market:squareMarket,world,ground:openGround,activatePlot:activateDrumPlot,streetPath});canvas.dataset.squareMarket=JSON.stringify(squareMarketState);
 if(drumPlot&&!drumPlot.active)console.warn('Mended Drum plot held: the street is unchanged');
 try{if(newBuildings)addStreetDoors(world,newBuildings.manifest);}catch(error){console.error('Street building doors unavailable',error);}
 const startupCache=await startupCachePromise;
