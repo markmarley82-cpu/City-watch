@@ -35,7 +35,8 @@ export function updateImpClock(button,clock){
  if(!button?.querySelector)return;
  const output=button.querySelector('output');if(!output)return;
  const model=impClockModel(clock);
- button.dataset.time=clock.time;button.dataset.mood=model.mood;
- output.textContent=model.text;
- button.setAttribute('aria-label',model.label);
+ if(button.dataset.time!==clock.time)button.dataset.time=clock.time;
+ if(button.dataset.mood!==model.mood)button.dataset.mood=model.mood;
+ if(output.textContent!==model.text)output.textContent=model.text;
+ if(button.getAttribute('aria-label')!==model.label)button.setAttribute('aria-label',model.label);
 }
