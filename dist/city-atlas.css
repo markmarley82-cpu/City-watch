@@ -113,3 +113,20 @@ html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atl
 .atlas-survey :is(.atlas-area-name,.atlas-street-name){translate:0 var(--atlas-label-shift,0px)}
 /* The title must not cover Close on narrow phones. */
 .atlas-map-cartouche{box-sizing:border-box;max-width:calc(100% - 110px)}
+/* Map readability and where-to-go (26 Nov 2026). */
+.atlas-survey .atlas-guide-pin{position:absolute;z-index:5;transform:translate(-50%,10px);padding:4px 8px;border:2px solid #f2c45c;border-radius:4px;background:#2b1d12f0;color:#fbe7b8;font:700 13px/1.2 Georgia,serif;white-space:nowrap;pointer-events:none;box-shadow:0 2px 6px #0007}
+.atlas-survey .atlas-guide-pin::before{content:'';position:absolute;left:50%;top:-14px;width:12px;height:12px;background:#e0a63a;border:2px solid #2b1d12;transform:translateX(-50%) rotate(45deg)}
+.atlas-survey .atlas-guide-line{filter:drop-shadow(0 0 .4px #6b3d12)}
+.atlas-survey .atlas-place-pin.is-primary::after,.atlas-survey .atlas-pin-label{font-size:14px!important;color:#2e1f10!important;text-shadow:0 0 3px #f5e6c4,0 0 3px #f5e6c4,0 0 6px #f5e6c4!important}
+.atlas-survey .atlas-area-name{font-size:17px;color:#4a3418;font-weight:600}
+.atlas-survey .atlas-map-plane[data-detail='false'] .atlas-area-name{font-size:14px}
+.atlas-survey .atlas-street-name{font-size:12px;color:#3f2c16}
+/* Destination sheet: one slim bar instead of a block over half the map. */
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary:not([hidden]){right:max(64px,calc(env(safe-area-inset-right) + 64px));width:auto!important;max-width:none!important;padding:6px 8px!important;display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 8px}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary>label{display:none}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary select{flex:1 1 140px;min-width:0;min-height:44px}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary>span{flex:1 0 100%;order:3;font-size:12px}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-summary .atlas-map-actions{display:flex;gap:6px;margin:0}
+html body.cw-lab-painted-ui #atlas-dialog.cw-notebook-menu.atlas-patrol-map .atlas-map-controls button{white-space:nowrap;font-size:13px!important;padding-inline:2px!important}
+/* The Goal label wins over place names that land on it. */
+.atlas-survey .atlas-guide-pin{z-index:6}

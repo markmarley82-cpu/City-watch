@@ -67,7 +67,7 @@ import {createE045WorkshopReceiver,activateE045Workshop} from './city-e045-works
 import {createE046P06,activateE046P06,preserveE046P06Foreground,e046P06ForegroundOccludesMarker} from './city-e046-p06.mjs?v=memo-1';
 import {createHideParkPremises,activateHideParkPremises,createHideParkApron} from './city-hide-park-premises.mjs?v=memo-1';
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
-import {createCityGuide} from './city-guide.mjs?v=11';
+import {createCityGuide} from './city-guide.mjs?v=12';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
@@ -94,7 +94,7 @@ import {installCityImageDiagnostics} from './city-image-diagnostics.mjs?v=p21-b4
 import {createCityJSONLoader} from './city-json-loader.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise002} from './e045-premise-002.mjs?v=p21-b407-s039-reuse';
 import {createE045Premise} from './e045-premise.mjs?v=p21-b407-s039-reuse';
-import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=completion-sweep-v2';
+import {bindCityAtlas} from './city-atlas-lifecycle.mjs?districts=2&v=map-guide-2';
 import {fitWatchSquare} from './city-square-camera.mjs?v=p21-b407-s039-reuse';
 import {createOperaTexture,createWornTile,sourceImageResidency} from './city-source-surfaces.mjs?v=p21-b407-s039-reuse';
 import {bridgeDeckContains} from './city-bridge-contact.mjs?v=p21-b407-s039-reuse';
@@ -1257,7 +1257,7 @@ const refreshDwarfCulture=mountDwarfMapCulture($('destination-detail').parentEle
 function atlasWalkableExclusions(){
  return new Set([[33,248],[84,264]].filter(p=>!streetTapCellConnected(world,p)).map(key));
 }
-const cityAtlas=bindCityAtlas($('atlas-dialog'),{getPlayer:()=>freeWalk.foot()||player,getBeatStop:()=>window.CWP21Game?.patrolDuty?.mapStop(),getDestinations:()=>[...select.options].map(o=>selected(o.value)),getSelected:selected,getNetwork:()=>world,getWalkableExclusions:atlasWalkableExclusions,getStreetLanes:()=>atlasStreetPlan?.strips||[],getCourses:()=>neighbourhoodStreets?.finish||[],getParcels:()=>sceneryObjects.filter(o=>o.rect&&!o.person&&!o.bridgePart&&!['street-lamp','ground-contact','street-furniture'].includes(o.sceneryKind)&&o.collisionMode!=='explicit-park-prop').map(o=>o.rect),getRoute:d=>streetPath(world,player,d.position,d.edge,{occupied:streetOccupied})});
+const cityAtlas=bindCityAtlas($('atlas-dialog'),{getGuide:()=>cityGuide?.route()||null,getPlayer:()=>freeWalk.foot()||player,getBeatStop:()=>window.CWP21Game?.patrolDuty?.mapStop(),getDestinations:()=>[...select.options].map(o=>selected(o.value)),getSelected:selected,getNetwork:()=>world,getWalkableExclusions:atlasWalkableExclusions,getStreetLanes:()=>atlasStreetPlan?.strips||[],getCourses:()=>neighbourhoodStreets?.finish||[],getParcels:()=>sceneryObjects.filter(o=>o.rect&&!o.person&&!o.bridgePart&&!['street-lamp','ground-contact','street-furniture'].includes(o.sceneryKind)&&o.collisionMode!=='explicit-park-prop').map(o=>o.rect),getRoute:d=>streetPath(world,player,d.position,d.edge,{occupied:streetOccupied})});
 // Lantern trail and edge arrow to the current assignment (?guide=0 turns it off).
 cityGuide=createCityGuide({world,streetPath,project,getPlayer:()=>freeWalk.foot()||player,getTarget:()=>window.CWP21Game?.guideTarget?.()||null,canvas,enabled:!/[?&]guide=0(&|$)/.test(location.search)});window.CWCityGuide=cityGuide;
 select.onchange=detail;detail();$('atlas-open').onclick=()=>{stopMapTravel();refreshAtlasDoorLabels();detail();$('atlas-dialog').showModal();cityAtlas.open();};$('atlas-close').onclick=()=>$('atlas-dialog').close();$('city-visit').onclick=()=>{const d=selected();$('atlas-dialog').close();nav(d.position,d.edge);};$('city-home').onclick=()=>{$('atlas-dialog').close();nav([126,132],'RC1');};$('city-look').hidden=true;$('city-look').onclick=()=>{const d=selected();$('atlas-dialog').close();camera();tell('The view follows your patrol. Choose Walk there to visit '+d.name+'.');};

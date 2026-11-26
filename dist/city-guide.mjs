@@ -61,7 +61,16 @@ export function createCityGuide({world,streetPath,project,getPlayer,getTarget,ca
   if(label.textContent!==text)label.textContent=text;
   label.dataset.side=dy>.35?'above':'below';label.dataset.edge=dx>.5?'right':dx<-.5?'left':'mid';
  }
- return Object.freeze({update,drawGround,drawArrow,
+ // For the map: the current destination and its street route (fresh if the cached one is stale).
+ function route(){
+  if(hidden)return null;
+  let next=null;try{next=getTarget();}catch{next=null;}
+  if(!next)return null;
+  const p=getPlayer();
+  if(!same(next.at,target?.at)||!from||Math.hypot(p[0]-from[0],p[1]-from[1])>=2){target=next;from=p.slice();lastRoute=performance.now();try{path=streetPath(world,p,next.at.slice(0,2),next.at[2])||null;}catch{path=null;}}
+  return path?{name:target.name,at:target.at,path:path.slice()}:null;
+ }
+ return Object.freeze({update,drawGround,drawArrow,route,
   setEnabled(on){hidden=!on;if(hidden&&arrow)arrow.hidden=true;},
   report:()=>({drawn,enabled:!hidden,target:target&&{name:target.name,at:target.at},steps:path?path.length-1:null})});
 }
