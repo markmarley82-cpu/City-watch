@@ -934,7 +934,6 @@ const diagnosticsInterval=LOW_MEMORY?2000:500,routeProjection=new WeakMap();
 let lastDiagnostics=-Infinity,lastSceneryStatus=-Infinity,lastGroundPump=0,lastBridgeView=null,lastBridgeResolution=null,bridgeObjectKey='',cachedBridgeObjects=[];
 function drawRoadTile({p,ids},view,g=ctx){const q=project(p);if(q.x+45<view[0]||q.x-45>view[2]||q.y+35<view[1]||q.y-35>view[3])return;const im=images.get(pathDS+'graphics/terrain/worn-'+Math.abs((p[0]*17+p[1]*11)%4)+'.png');g.save();const d=diamond(p);g.beginPath();d.forEach((p,i)=>i?g.lineTo(p.x,p.y):g.moveTo(p.x,p.y));g.closePath();g.clip();g.drawImage(im,q.x-28,q.y-14,56,28);g.fillStyle=ids.has('RC1')?'#d6bc7b25':'#bcab7915';g.fill();g.restore();}
 function paintTerrain(g,view){
- if(countryside){countryside.painter.update(view);countryside.painter.draw(g);}
  const resolution=zoom<.25?.25:zoom<.5?.5:1;
  pavingUnderlay.drawLand(g,view);cityFootways.drawLand(g,view);pavingUnderlay.streets(g,view,g=>{pavingUnderlay.draw(g,view);
  for(const court of infill.privateCourts){const [x,y,w,h]=court.rect;for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++){const q=project([xx,yy]);if(q.x+30<view[0]||q.x-30>view[2]||q.y+16<view[1]||q.y-16>view[3])continue;g.save();const a=diamond([xx,yy]);g.beginPath();a.forEach((p,i)=>i?g.lineTo(p.x,p.y):g.moveTo(p.x,p.y));g.closePath();g.clip();g.drawImage(images.get(pathDS+'graphics/terrain/worn-'+Math.abs((xx+yy)%4)+'.png'),q.x-28,q.y-14,56,28);g.fillStyle='#43382b30';g.fill();g.restore();}}
@@ -951,6 +950,9 @@ function paintTerrain(g,view){
  // Its cached alpha excludes named street bands and every current reservation.
  e045CourtSurface?.draw(g,view);
  neighbourhoodStreets?.draw(g,view);
+ // Fields go over any paving outside the wall's outer face (the city land paints cobbles out there).
+ if(countryside){countryside.painter.update(view);g.save();const out=new Path2D(),c=[[7.5-.45,4.5-.45],[241.5+.45,4.5-.45],[241.5+.45,342.5+.45],[7.5-.45,342.5+.45]].map(project);
+  out.rect(view[0]-64,view[1]-64,view[2]-view[0]+128,view[3]-view[1]+128);out.moveTo(c[0].x,c[0].y);for(const q of c.slice(1))out.lineTo(q.x,q.y);out.closePath();g.clip(out,'evenodd');countryside.painter.draw(g);g.restore();}
  cityFortifications.drawGround(g);
  atlasStreetSurface?.draw(g,view);
  hideParkArt.draw(g,view,resolution);
