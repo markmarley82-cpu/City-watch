@@ -49,7 +49,7 @@ import {createAnkhNorthHouses} from './city-ankh-north-houses.mjs?v=p21-b407-s03
 import {createDocksideHouses} from './city-dockside-houses.mjs?v=p21-b407-s039-reuse';
 import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=memo-1';
 import {createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
-import {createCityFortifications} from './city-fortifications.mjs?v=p21-b407-s039-reuse';
+import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-1';
 import {placeActionPrompt} from './city-action-prompt.mjs?v=p21-b407-s039-reuse';
 import {updateImpClock} from './city-imp-clock.mjs?v=purse-street-leads';
 import {applyPalaceApproachGround} from './city-palace-approach-ground.mjs?v=p21-b407-s039-reuse';
@@ -69,6 +69,7 @@ import {createHideParkPremises,activateHideParkPremises,createHideParkApron} fro
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
 import {createCityGuide} from './city-guide.mjs?v=12';
 import {createSquareMarket,activateSquareMarket} from './city-square-market.mjs?v=2';
+import {createCountryside} from './city-countryside.mjs?v=1';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
@@ -128,7 +129,7 @@ import {createSectionS011} from './city-section-s011.mjs?v=p21-b407-s039-reuse';
 import {createSectionS010} from './city-section-s010.mjs?v=p21-b407-s039-reuse';
 import {createSectionS012} from './city-section-s012.mjs?v=p21-b407-s039-reuse';
 import {createDocksideBuildings} from './city-dockside-buildings.mjs?v=p21-b407-s039-reuse';
-import {createEdgeFill} from './city-edge-fill.mjs?v=2';
+import {createEdgeFill} from './city-edge-fill.mjs?v=3';
 import {createNewBuildings,loadPalaceMainBlock,addStreetDoors} from './city-new-buildings.mjs?v=7';
 import {createLandmarkExteriors} from './city-landmark-exteriors.mjs?v=drum-large';
 import {createWharfingerStreets} from './wharfinger-streets.mjs?v=p21-b407-s039-reuse';
@@ -288,6 +289,7 @@ const guildLots=data.landmarks.filter(l=>l.guild_exterior);
 // Insert only in authored order, regardless of which request finishes first.
 const guildPaintings=await Promise.all(guildLots.map(l=>load(l.guild_exterior.file)));
 for(const [index,l]of guildLots.entries()){const g=l.guild_exterior,im=guildPaintings[index];addSprite('guild:'+l.game_id,im,l.engine_approach_xy,g.anchor,1,g.rect,{landmark:l,sourceAsset:'guild:'+l.room_id});}
+let countryside=null;if(!/[?&]fields=0(&|$)/.test(location.search))try{countryside=await createCountryside({read,load,addSprites:addStreetSprites,lowMemory:LOW_MEMORY});}catch(error){console.warn('Countryside unavailable',error);}
 let squareMarket=null;if(!/[?&]market=0(&|$)/.test(location.search))try{squareMarket=await createSquareMarket({read,load,addSprites:addStreetSprites});}catch(error){console.warn('Square market unavailable',error);}
 const landmarkExteriors=await createLandmarkExteriors({read,load:cityImageDensity.deferredImage,addSprites:addStreetSprites,landmarks:data.landmarks,lightAnchors:watchLightAnchors,pixels});
 // The low-wall version (city-closed-ground.mjs) was rejected by Mark on 21 Nov 2026; the empty outer ground is
@@ -925,13 +927,14 @@ windowLighting.registerScene(sceneryObjects);
 // The old diamond fallback would paint a hard patch over that landing.
 const roadTiles=[...world.members].filter(([,ids])=>bridgeFallbackCell(ids)).map(([k,ids])=>({p:k.split(',').map(Number),ids}));
 const groundCache=new GroundFrameCache(LOW_MEMORY?{margin:96,maxPixels:2*1048576,refreshMS:600}:{margin:128,maxPixels:8*1048576,refreshMS:600});if(/[?&]noscroll=1(&|$)/.test(location.search))groundCache.scroll=false; // compare against whole-picture repaints
-const groundSources=[ground,conceptGround,shadesGround,bankPainter,hideParkArt.ground,deferredGround].filter(Boolean);
+const groundSources=[ground,conceptGround,shadesGround,bankPainter,hideParkArt.ground,deferredGround,countryside?.painter].filter(Boolean);
 let lastSceneryPrefetch=-Infinity,lastSceneryView=null;
 // Full debug snapshots serialize city-wide state; keep that work off most phone paints.
 const diagnosticsInterval=LOW_MEMORY?2000:500,routeProjection=new WeakMap();
 let lastDiagnostics=-Infinity,lastSceneryStatus=-Infinity,lastGroundPump=0,lastBridgeView=null,lastBridgeResolution=null,bridgeObjectKey='',cachedBridgeObjects=[];
 function drawRoadTile({p,ids},view,g=ctx){const q=project(p);if(q.x+45<view[0]||q.x-45>view[2]||q.y+35<view[1]||q.y-35>view[3])return;const im=images.get(pathDS+'graphics/terrain/worn-'+Math.abs((p[0]*17+p[1]*11)%4)+'.png');g.save();const d=diamond(p);g.beginPath();d.forEach((p,i)=>i?g.lineTo(p.x,p.y):g.moveTo(p.x,p.y));g.closePath();g.clip();g.drawImage(im,q.x-28,q.y-14,56,28);g.fillStyle=ids.has('RC1')?'#d6bc7b25':'#bcab7915';g.fill();g.restore();}
 function paintTerrain(g,view){
+ if(countryside){countryside.painter.update(view);countryside.painter.draw(g);}
  const resolution=zoom<.25?.25:zoom<.5?.5:1;
  pavingUnderlay.drawLand(g,view);cityFootways.drawLand(g,view);pavingUnderlay.streets(g,view,g=>{pavingUnderlay.draw(g,view);
  for(const court of infill.privateCourts){const [x,y,w,h]=court.rect;for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++){const q=project([xx,yy]);if(q.x+30<view[0]||q.x-30>view[2]||q.y+16<view[1]||q.y-16>view[3])continue;g.save();const a=diamond([xx,yy]);g.beginPath();a.forEach((p,i)=>i?g.lineTo(p.x,p.y):g.moveTo(p.x,p.y));g.closePath();g.clip();g.drawImage(images.get(pathDS+'graphics/terrain/worn-'+Math.abs((xx+yy)%4)+'.png'),q.x-28,q.y-14,56,28);g.fillStyle='#43382b30';g.fill();g.restore();}}

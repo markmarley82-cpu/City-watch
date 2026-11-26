@@ -76,7 +76,27 @@ export async function createCityFortifications({world,ground,objects,read,load,a
  function add(id,face,p,rect,{kind='wall',lights=[],gate=null}={}){const P=project(p),anchor=[P.x-face.box[0],P.y-face.box[1]];decoded+=face.im.width*face.im.height*4;lightCount+=lights.length;images.push(face.im);lightAnchors[id]=lights;rows.push([id,face.im,p,anchor,1,rect,{sourceAsset:id,sceneryKind:kind,cutawayEligible:true,actorFootCutaway:gate?{width:26,heightFactor:1}:undefined,cityFortification:true}]);}
  // Small independent canvases keep culling, actor occlusion and night bakes bounded.
  let wallIndex=0;
- for(const wall of layout.walls){const length=distance(wall.centerline[0],wall.centerline[1]),parts=Math.ceil(length/5);for(let i=0;i<parts;i++){
+ // Painted wall kit (art/city-walls-v1, 26 Nov 2026): 5-cell straight sections in three designs, an
+ // interval tower every few sections and a tower at each corner. Collision stays the layout's walls.
+ let kit=null;if(!/[?&]oldwalls=1(&|$)/.test(location.search))try{const km=await read('assets/city-walls-v1/manifest.json?v=1'),pieces=new Map(km.sprites.map(s=>[s.id,s])),ims=new Map();await Promise.all(km.sprites.map(async s=>ims.set(s.id,await load('assets/city-walls-v1/'+s.file))));kit={km,pieces,ims};}catch(error){console.warn('Wall kit unavailable; drawing the old walls',error);kit=null;}
+ const sideName={top:'north',bottom:'south',left:'west',right:'east'};
+ function placeKit(piece,origin,id){const s=kit.pieces.get(piece),f=s.footprint,p=[origin[0]+s.frontCornerCells[0],origin[1]+s.frontCornerCells[1]];
+  rows.push([id,kit.ims.get(piece),p,s.anchor,1/kit.km.artworkScale,[origin[0]+f[0],origin[1]+f[1],f[2],f[3]],{sourceAsset:'city-walls-v1:'+piece,sceneryKind:'wall',cutawayEligible:true,cityFortification:true}]);}
+ if(kit){
+  for(const wall of layout.walls){
+   const side=sideName[wall.side],[a,b]=wall.centerline,axis=a[1]===b[1]?0:1,lo=Math.min(a[axis],b[axis]),hi=Math.max(a[axis],b[axis]),fixed=a[1-axis];
+   const at=u=>axis===0?[u,fixed]:[fixed,u];let u=lo,n=0;
+   while(hi-u>.01){
+    const left=hi-u,tower=n%5===3&&left>=3;
+    if(tower){placeKit(side+'-interval-tower',at(u),'fort:wall:'+wallIndex++);u+=3;}
+    else{const start=left>=5?u:Math.max(lo,hi-5);placeKit(side+'-straight-'+(n%3+1),at(start),'fort:wall:'+wallIndex++);u=start+5;}
+    n++;
+   }
+  }
+  const [x0,y0,x1,y1]=[layout.envelope.bounds[0],layout.envelope.bounds[1],layout.envelope.bounds[2],layout.envelope.bounds[3]];
+  for(const [corner,pt] of [['northwest',[x0,y0]],['northeast',[x1,y0]],['southwest',[x0,y1]],['southeast',[x1,y1]]])placeKit(corner+'-corner-tower',pt,'fort:corner:'+corner);
+ }
+ if(!kit)for(const wall of layout.walls){const length=distance(wall.centerline[0],wall.centerline[1]),parts=Math.ceil(length/5);for(let i=0;i<parts;i++){
   const a=mix(wall.centerline[0],wall.centerline[1],i/parts),b=mix(wall.centerline[0],wall.centerline[1],(i+1)/parts),p=mix(a,b,.5),face=renderCurtain(materials,a,b,{width:wall.foundationWidth,height:126,seed:wallIndex});
   add('fort:wall:'+wallIndex,face,p,face.physicalRect);wallIndex++;
  }}
