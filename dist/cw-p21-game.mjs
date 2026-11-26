@@ -428,7 +428,7 @@ async function openBridgeCase(){
  bridgeCaseLoading=true;
  try{
   if(!bridgeCaseHost){
-   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=3'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=4'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
    bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
     partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
     onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});

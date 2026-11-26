@@ -103,7 +103,7 @@ export function apply(record,{id,mentor,position}){
   next.state.merit+=c.merit;
   // A future Inquirer edition can rely on these facts alone; no private evidence or name.
   c.publicReport={caseId:'CW-NC-01',passageReopened:true,watchObserved:c.choice==='observe',night:next.state.night};
-  return {next,message:proved?'Report filed: the signed order and tally identify who benefited and directed the diversion. 4 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.'};
+  return {next,message:proved?'Report filed: the signed order and tally identify who benefited and directed the diversion. 4 merit.':(c.outcome==='collector-observed'?'Report filed: the passage is open and the collection was witnessed. The organiser remains unproved. 2 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.')};
 }
 
 export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,onChange,showDuty,doc=document}){
@@ -121,12 +121,12 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
     line('h3',TITLE);
     if(!c)line('p','Drivers say the Watch has diverted them away from Brass Bridge. The Watch has no closure on record. Try the bridge notice or the dispatch clerk on Lower Broad Way first.');
     else if(c.status==='filed'){
-      line('p',c.outcome==='organiser-proved'?'Filed: the organiser was identified from the written order and the tally.':'Filed: the passage reopened. The organiser was not proved.');
+      line('p',c.outcome==='organiser-proved'?'Filed: the organiser was identified from the written order and the tally.':(c.outcome==='collector-observed'?'Filed: the passage reopened and the collection was witnessed. The organiser was not proved.':'Filed: the passage reopened. The organiser was not proved.'));
       if(c.followup)line('p',LEADS.copy);
       else if(record.state.night>c.publicReport?.night)line('p','A driver heard that a second notice appeared by Contract Bridge. The Inquirer is asking questions too. You can check it without buying a paper.');
     }
     else {
-      line('p',roster[c.partner]+' · '+(c.choice==='observe'&&!c.reopened?'Drivers are still waiting while you observe.':c.reopened?'The passage is open. You can file your report.':'Check either lead before deciding what to do about the notice.'));
+      line('p',roster[c.partner]+' · '+(c.choice==='observe'&&!c.reopened?'Drivers are still waiting while you observe. End the watch at the bridge before you file.':c.reopened?'The passage is open. You can file your report.':'Check either lead before deciding what to do about the notice.'));
       if(c.evidence.length){const list=doc.createElement('ul');for(const id of c.evidence){const item=doc.createElement('li');item.textContent=evidenceText(id);list.append(item);}box.append(list);}
       if(record.pending||record.state.flags.p21PatrolRounds?.active)line('p','Finish or stand down the current patrol before returning to this enquiry.');
       else if(c.partner!==mentor)line('p','Return with '+roster[c.partner]+', or stand down the enquiry at Watch Square.');
