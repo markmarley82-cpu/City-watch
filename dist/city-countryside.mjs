@@ -30,8 +30,8 @@ export async function createCountryside({read,load,addSprites,lowMemory=false,ke
   draw(g){for(const t of visible)if(t.surface)g.drawImage(t.surface,t.box[0],t.box[1],t.box[2]-t.box[0],t.box[3]-t.box[1]);},
   report:()=>({tiles:tiles.length,resident,visible:visible.length,errors:[...errors]})
  };
- const types=new Map();
- await Promise.all([...new Set(m.sprites.map(s=>s.file))].map(async f=>types.set(f,await load(BASE+f))));
- const objects=addSprites(m.sprites.map(s=>{const [x0,y0,x1,y1]=s.bounds;return ['countryside:'+s.id,types.get(s.file),s.position,s.anchor,k,[x0,y0,x1-x0,y1-y0],{sceneryKind:'street-furniture',sourceAsset:'countryside-v1:'+s.type,countryside:true}];}));
+ const types=new Map(),glows=new Map(),lit=/farmhouse|windmill/;
+ await Promise.all([...new Set(m.sprites.map(s=>s.file))].map(async f=>{types.set(f,await load(BASE+f));if(lit.test(f))glows.set(f,await load(BASE+f.replace('sprites/','sprites/glow/')).catch(()=>null));}));
+ const objects=addSprites(m.sprites.map(s=>{const [x0,y0,x1,y1]=s.bounds;return ['countryside:'+s.id,types.get(s.file),s.position,s.anchor,k,[x0,y0,x1-x0,y1-y0],{sceneryKind:'street-furniture',sourceAsset:'countryside-v1:'+s.type,countryside:true,...(glows.get(s.file)?{nightEmission:glows.get(s.file)}:{})}];}));
  return Object.freeze({painter,objects,report:()=>({...painter.report(),sprites:objects.length})});
 }

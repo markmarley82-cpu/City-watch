@@ -49,7 +49,7 @@ import {createAnkhNorthHouses} from './city-ankh-north-houses.mjs?v=p21-b407-s03
 import {createDocksideHouses} from './city-dockside-houses.mjs?v=p21-b407-s039-reuse';
 import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=memo-1';
 import {createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
-import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-3';
+import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-4';
 import {placeActionPrompt} from './city-action-prompt.mjs?v=p21-b407-s039-reuse';
 import {updateImpClock} from './city-imp-clock.mjs?v=purse-street-leads';
 import {applyPalaceApproachGround} from './city-palace-approach-ground.mjs?v=p21-b407-s039-reuse';
@@ -69,7 +69,7 @@ import {createHideParkPremises,activateHideParkPremises,createHideParkApron} fro
 import {activateDrumPlot} from './city-drum-plot.mjs?v=2';
 import {createCityGuide} from './city-guide.mjs?v=12';
 import {createSquareMarket,activateSquareMarket} from './city-square-market.mjs?v=2';
-import {createCountryside} from './city-countryside.mjs?v=3';
+import {createCountryside} from './city-countryside.mjs?v=4';
 import {createHideParkNorth,activateHideParkNorth} from './city-hide-park-north.mjs?v=placed-1';
 import {loadPalaceBReceiver} from './city-palace-b-receiver.mjs?v=p21-b516-palace-grid-refit';
 import {recoverPalaceBSave} from './city-palace-b-save.mjs?v=p21-b407-s039-reuse';
