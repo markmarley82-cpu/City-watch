@@ -71,6 +71,12 @@ export function renderGate(materials,gate,index){
   m.face([world(A[0],0,A[1]),world(A[0],depth,A[1]),world(B[0],depth,B[1]),world(B[0],0,B[1])],'#848174',{material:'masonry',shade:.24});
  }
  for(const u of [-2.98,2.98])m.face([world(u,.25,0),world(u,depth-.3,0),world(u,depth-.3,73),world(u,.25,73)],'#665442',{material:'timber',shade:.12});
+ // Mark 26 Nov 2026: the gates are shut. Oak doors fill the arch one cell out from the wall line,
+ // where the walking stops, with iron bands and a centre seam.
+ if(gate.closed!==false){const dv=1.05,arc=[];for(let i=0;i<=14;i++){const q=i*Math.PI/14;arc.push(world(2.98*Math.cos(q),dv,spring+(rise-1)*Math.sin(q)));}
+  m.face([world(-2.98,dv,0),world(2.98,dv,0),...arc],'#4b3926',{material:'timber',shade:.1,depth:.03});
+  for(const z of [14,40,66])m.face([world(-2.98,dv+.01,z),world(2.98,dv+.01,z),world(2.98,dv+.01,z+5),world(-2.98,dv+.01,z+5)],'#2c2a27',{material:null,depth:.04});
+  m.face([world(-.06,dv+.012,0),world(.06,dv+.012,0),world(.06,dv+.012,spring+rise-2),world(-.06,dv+.012,spring+rise-2)],'#1f1a14',{material:null,depth:.05});}
  for(const u of [-3.8,3.8]){const v=visibleV+(visibleV?.1:-.1);panel(u,v,83,.5,19,'#483f2e');panel(u,v,86,.35,12,'#cdb16c');m.lights.push([world(u,v,92),world(u,v,0)]);}
  return {...m.finish(),footprintDepth:depth,clearWidth:6,heights,uniformGeometry:true};
 }

@@ -49,7 +49,7 @@ import {createAnkhNorthHouses} from './city-ankh-north-houses.mjs?v=p21-b407-s03
 import {createDocksideHouses} from './city-dockside-houses.mjs?v=p21-b407-s039-reuse';
 import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=memo-1';
 import {createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
-import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-2';
+import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-3';
 import {placeActionPrompt} from './city-action-prompt.mjs?v=p21-b407-s039-reuse';
 import {updateImpClock} from './city-imp-clock.mjs?v=purse-street-leads';
 import {applyPalaceApproachGround} from './city-palace-approach-ground.mjs?v=p21-b407-s039-reuse';
@@ -779,6 +779,9 @@ canvas.dataset.hideParkPremises=JSON.stringify(hideParkState?.report()||{ready:f
 const drumRow=landmarkExteriors.manifest.instances.find(r=>r.landmarkID==='drum'),drumDoor=world.doors.get('drum');
 const drumPlot=drumRow&&drumDoor&&drumRow.rect[2]*drumRow.rect[3]>30?activateDrumPlot({world,ground:openGround,rect:drumRow.rect,door:drumDoor.position,reachable:()=>streetPath(world,[126,132,'RC1'],drumDoor.position.slice(0,2),drumDoor.edge)!==null}):null;
 canvas.dataset.drumPlot=JSON.stringify(drumPlot?.report()||{active:false});
+// Mark 26 Nov 2026: stay inside the city. Everything beyond the wall's outer face is fields to look at,
+// not to walk; the gates are the visible end of the street. ?outside=1 restores the old open ground.
+const outsideClosed=/[?&]outside=1(&|$)/.test(location.search)?[]:[[-80,-80,420,84],[-80,343,420,100],[-80,4,87,339],[242,4,100,339]].map(rect=>activateDrumPlot({world,ground:openGround,rect,door:[126,132],reachable:()=>true}));
 const squareMarketState=activateSquareMarket({market:squareMarket,world,ground:openGround,activatePlot:activateDrumPlot,streetPath});canvas.dataset.squareMarket=JSON.stringify(squareMarketState);
 if(drumPlot&&!drumPlot.active)console.warn('Mended Drum plot held: the street is unchanged');
 try{if(newBuildings)addStreetDoors(world,newBuildings.manifest);}catch(error){console.error('Street building doors unavailable',error);}

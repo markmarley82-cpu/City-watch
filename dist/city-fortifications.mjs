@@ -1,4 +1,4 @@
-import {renderCurtain,renderGate,createFortificationMaterials} from './city-fortification-mesh.mjs?v=p21-b407-s039-reuse';
+import {renderCurtain,renderGate,createFortificationMaterials} from './city-fortification-mesh.mjs?v=gates-shut-1';
 import {project,key,distance,closest} from './city-core.mjs?v=p21-b407-s039-reuse';
 import {footProbeOffsets} from './city-free-walk.mjs?v=p21-b407-s039-reuse';
 import {resolveGateApron} from './city-fortification-geometry.mjs?v=p21-b407-s039-reuse';
