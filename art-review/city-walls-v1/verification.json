@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "daySprites": 20,
+  "nightSprites": 20,
+  "joinChecks": 96,
+  "gateOpenings": 9,
+  "reviewAssemblies": 2,
+  "joinSample": "Five longitudinal positions and three heights through each stone seam."
+}

@@ -1,0 +1,1140 @@
+{
+  "schema": "city-watch-wall-kit-v1",
+  "artworkScale": 2,
+  "cellPixels": [
+    112,
+    56
+  ],
+  "gameCellPixels": [
+    56,
+    28
+  ],
+  "wallBounds": [
+    7.5,
+    4.5,
+    241.5,
+    342.5
+  ],
+  "wallFootprintDepth": 0.9,
+  "groundPosition": "Place the front-corner anchor at projection(placementOrigin + frontCornerCells).",
+  "collision": "Straight footprint is 0.9 cells deep. Tower footprints and outer buttresses are art depths. No collision or gate layout changes.",
+  "gates": [
+    {
+      "id": "gate:hubwards",
+      "position": [
+        173.755102,
+        342.5
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          176.755102,
+          342.5,
+          5,
+          2.75
+        ],
+        [
+          165.755102,
+          342.5,
+          5,
+          2.75
+        ]
+      ]
+    },
+    {
+      "id": "gate:rimwards",
+      "position": [
+        79.557692,
+        4.5
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          71.557692,
+          1.75,
+          5,
+          2.75
+        ],
+        [
+          82.557692,
+          1.75,
+          5,
+          2.75
+        ]
+      ]
+    },
+    {
+      "id": "gate:deosil",
+      "position": [
+        7.5,
+        64
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          4.75,
+          67,
+          2.75,
+          5
+        ],
+        [
+          4.75,
+          56,
+          2.75,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "gate:least",
+      "position": [
+        196,
+        4.5
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          188,
+          1.75,
+          5,
+          2.75
+        ],
+        [
+          199,
+          1.75,
+          5,
+          2.75
+        ]
+      ]
+    },
+    {
+      "id": "gate:trading",
+      "position": [
+        241.5,
+        275
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          241.5,
+          267,
+          2.75,
+          5
+        ],
+        [
+          241.5,
+          278,
+          2.75,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "gate:limping",
+      "position": [
+        241.5,
+        320
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          241.5,
+          312,
+          2.75,
+          5
+        ],
+        [
+          241.5,
+          323,
+          2.75,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "gate:onion",
+      "position": [
+        82,
+        342.5
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          85,
+          342.5,
+          5,
+          2.75
+        ],
+        [
+          74,
+          342.5,
+          5,
+          2.75
+        ]
+      ]
+    },
+    {
+      "id": "gate:shambling",
+      "position": [
+        7.5,
+        285
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          4.75,
+          288,
+          2.75,
+          5
+        ],
+        [
+          4.75,
+          277,
+          2.75,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "gate:traitors",
+      "position": [
+        35,
+        4.5
+      ],
+      "width": 6,
+      "keepExisting": true,
+      "towerRects": [
+        [
+          27,
+          1.75,
+          5,
+          2.75
+        ],
+        [
+          38,
+          1.75,
+          5,
+          2.75
+        ]
+      ]
+    }
+  ],
+  "riverOpenings": [
+    {
+      "id": "water:upstream",
+      "interface": [
+        [
+          209,
+          164
+        ],
+        [
+          209,
+          192
+        ]
+      ],
+      "keepExisting": true
+    },
+    {
+      "id": "water:downstream",
+      "interface": [
+        [
+          12,
+          152
+        ],
+        [
+          12,
+          195
+        ]
+      ],
+      "keepExisting": true
+    },
+    {
+      "id": "water:cut-bypass",
+      "interface": [
+        [
+          209,
+          86
+        ],
+        [
+          209,
+          113
+        ]
+      ],
+      "keepExisting": true
+    }
+  ],
+  "sprites": [
+    {
+      "id": "north-straight-1",
+      "type": "straight",
+      "side": "north",
+      "axis": "x",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        286.8,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        32,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/north-straight-1.webp",
+      "nightFile": "sprites/north-straight-1-night.webp"
+    },
+    {
+      "id": "north-straight-2",
+      "type": "straight",
+      "side": "north",
+      "axis": "x",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        286.8,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        32,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/north-straight-2.webp",
+      "nightFile": "sprites/north-straight-2-night.webp"
+    },
+    {
+      "id": "north-straight-3",
+      "type": "straight",
+      "side": "north",
+      "axis": "x",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        286.8,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        32,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/north-straight-3.webp",
+      "nightFile": "sprites/north-straight-3-night.webp"
+    },
+    {
+      "id": "north-interval-tower",
+      "type": "interval-tower",
+      "side": "north",
+      "axis": "x",
+      "dimensions": [
+        287,
+        622
+      ],
+      "footprint": [
+        0,
+        -1.25,
+        3,
+        1.7
+      ],
+      "length": 3,
+      "wallWalkHeightPx": 200,
+      "frontCornerCells": [
+        3,
+        0.45
+      ],
+      "anchor": [
+        174.8,
+        618.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        32,
+        522
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "file": "sprites/north-interval-tower.webp",
+      "nightFile": "sprites/north-interval-tower-night.webp"
+    },
+    {
+      "id": "south-straight-1",
+      "type": "straight",
+      "side": "south",
+      "axis": "x",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        296.8,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        42,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/south-straight-1.webp",
+      "nightFile": "sprites/south-straight-1-night.webp"
+    },
+    {
+      "id": "south-straight-2",
+      "type": "straight",
+      "side": "south",
+      "axis": "x",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        296.8,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        42,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/south-straight-2.webp",
+      "nightFile": "sprites/south-straight-2-night.webp"
+    },
+    {
+      "id": "south-straight-3",
+      "type": "straight",
+      "side": "south",
+      "axis": "x",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        5,
+        0.9
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        5,
+        0.45
+      ],
+      "anchor": [
+        296.8,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        42,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "file": "sprites/south-straight-3.webp",
+      "nightFile": "sprites/south-straight-3-night.webp"
+    },
+    {
+      "id": "south-interval-tower",
+      "type": "interval-tower",
+      "side": "south",
+      "axis": "x",
+      "dimensions": [
+        287,
+        582
+      ],
+      "footprint": [
+        0,
+        -0.45,
+        3,
+        1.7
+      ],
+      "length": 3,
+      "wallWalkHeightPx": 200,
+      "frontCornerCells": [
+        3,
+        1.25
+      ],
+      "anchor": [
+        185,
+        576
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        87,
+        457
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "file": "sprites/south-interval-tower.webp",
+      "nightFile": "sprites/south-interval-tower-night.webp"
+    },
+    {
+      "id": "west-straight-1",
+      "type": "straight",
+      "side": "west",
+      "axis": "y",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        67.2,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        322,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/west-straight-1.webp",
+      "nightFile": "sprites/west-straight-1-night.webp"
+    },
+    {
+      "id": "west-straight-2",
+      "type": "straight",
+      "side": "west",
+      "axis": "y",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        67.2,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        322,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/west-straight-2.webp",
+      "nightFile": "sprites/west-straight-2-night.webp"
+    },
+    {
+      "id": "west-straight-3",
+      "type": "straight",
+      "side": "west",
+      "axis": "y",
+      "dimensions": [
+        354,
+        510
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        67.2,
+        506.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        322,
+        354
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/west-straight-3.webp",
+      "nightFile": "sprites/west-straight-3-night.webp"
+    },
+    {
+      "id": "west-interval-tower",
+      "type": "interval-tower",
+      "side": "west",
+      "axis": "y",
+      "dimensions": [
+        287,
+        622
+      ],
+      "footprint": [
+        -1.25,
+        0,
+        1.7,
+        3
+      ],
+      "length": 3,
+      "wallWalkHeightPx": 200,
+      "frontCornerCells": [
+        0.45,
+        3
+      ],
+      "anchor": [
+        112.2,
+        618.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        255,
+        522
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "file": "sprites/west-interval-tower.webp",
+      "nightFile": "sprites/west-interval-tower-night.webp"
+    },
+    {
+      "id": "east-straight-1",
+      "type": "straight",
+      "side": "east",
+      "axis": "y",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        57.2,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        312,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/east-straight-1.webp",
+      "nightFile": "sprites/east-straight-1-night.webp"
+    },
+    {
+      "id": "east-straight-2",
+      "type": "straight",
+      "side": "east",
+      "axis": "y",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        57.2,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        312,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/east-straight-2.webp",
+      "nightFile": "sprites/east-straight-2-night.webp"
+    },
+    {
+      "id": "east-straight-3",
+      "type": "straight",
+      "side": "east",
+      "axis": "y",
+      "dimensions": [
+        354,
+        491
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        0.9,
+        5
+      ],
+      "wallThickness": 0.9,
+      "length": 5,
+      "wallWalkHeightPx": 136,
+      "frontCornerCells": [
+        0.45,
+        5
+      ],
+      "anchor": [
+        57.2,
+        485.6
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        312,
+        333
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "file": "sprites/east-straight-3.webp",
+      "nightFile": "sprites/east-straight-3-night.webp"
+    },
+    {
+      "id": "east-interval-tower",
+      "type": "interval-tower",
+      "side": "east",
+      "axis": "y",
+      "dimensions": [
+        287,
+        582
+      ],
+      "footprint": [
+        -0.45,
+        0,
+        1.7,
+        3
+      ],
+      "length": 3,
+      "wallWalkHeightPx": 200,
+      "frontCornerCells": [
+        1.25,
+        3
+      ],
+      "anchor": [
+        102,
+        576
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        200,
+        457
+      ],
+      "joinSockets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "file": "sprites/east-interval-tower.webp",
+      "nightFile": "sprites/east-interval-tower-night.webp"
+    },
+    {
+      "id": "northwest-corner-tower",
+      "type": "corner-tower",
+      "corner": "northwest",
+      "dimensions": [
+        234,
+        598
+      ],
+      "footprint": [
+        -1.48,
+        -1.48,
+        1.93,
+        1.93
+      ],
+      "wallWalkHeightPx": 208,
+      "frontCornerCells": [
+        0.45,
+        0.45
+      ],
+      "anchor": [
+        117,
+        593.2
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        117,
+        568
+      ],
+      "joinSockets": [
+        [
+          0.45,
+          0
+        ],
+        [
+          0,
+          0.45
+        ]
+      ],
+      "file": "sprites/northwest-corner-tower.webp",
+      "nightFile": "sprites/northwest-corner-tower-night.webp"
+    },
+    {
+      "id": "northeast-corner-tower",
+      "type": "corner-tower",
+      "corner": "northeast",
+      "dimensions": [
+        234,
+        598
+      ],
+      "footprint": [
+        -0.45,
+        -1.48,
+        1.93,
+        1.93
+      ],
+      "wallWalkHeightPx": 208,
+      "frontCornerCells": [
+        1.48,
+        0.45
+      ],
+      "anchor": [
+        112.68,
+        593.04
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        55,
+        539
+      ],
+      "joinSockets": [
+        [
+          -0.45,
+          0
+        ],
+        [
+          0,
+          0.45
+        ]
+      ],
+      "file": "sprites/northeast-corner-tower.webp",
+      "nightFile": "sprites/northeast-corner-tower-night.webp"
+    },
+    {
+      "id": "southwest-corner-tower",
+      "type": "corner-tower",
+      "corner": "southwest",
+      "dimensions": [
+        234,
+        598
+      ],
+      "footprint": [
+        -1.48,
+        -0.45,
+        1.93,
+        1.93
+      ],
+      "wallWalkHeightPx": 208,
+      "frontCornerCells": [
+        0.45,
+        1.48
+      ],
+      "anchor": [
+        121.32,
+        593.04
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        179,
+        539
+      ],
+      "joinSockets": [
+        [
+          0.45,
+          0
+        ],
+        [
+          0,
+          -0.45
+        ]
+      ],
+      "file": "sprites/southwest-corner-tower.webp",
+      "nightFile": "sprites/southwest-corner-tower-night.webp"
+    },
+    {
+      "id": "southeast-corner-tower",
+      "type": "corner-tower",
+      "corner": "southeast",
+      "dimensions": [
+        234,
+        561
+      ],
+      "footprint": [
+        -0.45,
+        -0.45,
+        1.93,
+        1.93
+      ],
+      "wallWalkHeightPx": 208,
+      "frontCornerCells": [
+        1.48,
+        1.48
+      ],
+      "anchor": [
+        117,
+        556.88
+      ],
+      "anchorKind": "front ground corner",
+      "originPixel": [
+        117,
+        474
+      ],
+      "joinSockets": [
+        [
+          -0.45,
+          0
+        ],
+        [
+          0,
+          -0.45
+        ]
+      ],
+      "file": "sprites/southeast-corner-tower.webp",
+      "nightFile": "sprites/southeast-corner-tower-night.webp"
+    }
+  ]
+}
