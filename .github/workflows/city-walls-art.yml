@@ -1,0 +1,28 @@
+name: Bake and verify city wall kit
+on:
+  push:
+    branches: [art/city-walls-v1]
+    paths:
+      - 'art-review/city-walls-v1/build.mjs'
+      - 'art-review/city-walls-v1/materials.webp'
+      - '.github/workflows/city-walls-art.yml'
+permissions:
+  contents: write
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --prefix "$RUNNER_TEMP/wall-bake" --no-audit --no-fund @napi-rs/canvas@0.1.100
+      - run: NODE_PATH="$RUNNER_TEMP/wall-bake/node_modules" node art-review/city-walls-v1/build.mjs
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art-review/city-walls-v1/sprites art-review/city-walls-v1/manifest.json art-review/city-walls-v1/contact-*.webp art-review/city-walls-v1/verification.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Bake and verify the day and night city wall sprites'
+          git push origin HEAD:refs/heads/art/city-walls-v1
