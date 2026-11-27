@@ -592,6 +592,7 @@ function actorVisible(p,r){
 function alphaAt(o,p){if(o.sampleAlpha)return o.sampleAlpha(p);if(!o.im)return p.x>o.bounds[0]&&p.x<o.bounds[0]+o.bounds[2]&&p.y>o.bounds[1]&&p.y<o.bounds[1]+o.bounds[3]?1:0;const q=project(o.p),x=Math.floor((p.x-q.x)/o.scale+o.anchor[0]),y=Math.floor((p.y-q.y)/o.scale+o.anchor[1]);return x>=0&&y>=0&&x<o.im.width&&y<o.im.height?o.alpha.sample(x,y):0;}
 function inFront(p,o){if(o.bridgePart)return bridgeActorInFront(p,o);if(o.e045DepthContract){const relation=actorDepthRelation(p,o.e045DepthContract);if(relation!==null)return relation;}const r=o.rect;return p[0]>r[0]+r[2]-.5||p[1]>r[1]+r[3]-.5;}
 // Image structures share the proven bridge-local window compositor; opaque art remains outside actor windows.
+const frontFade=!/[?&]frontfade=0(&|$)/.test(location.search);
 let bridgeCutawayMasks=new Map();
 function cutaways(list,people,playerPosition=player){
  const op=new Map(list.map(o=>[o.id,1])),sets=[];
@@ -682,6 +683,12 @@ function cutaways(list,people,playerPosition=player){
  if(fade)revealE045WestDoor({receiver:e045West,state:e045WestState,player:playerPosition,objects:list,project,alphaAt,masks:bridgeCutawayMasks});
  if(fade&&treacleFrontage)revealTreacleFootway({player:playerPosition,world,ground:openGround,objects:list,project,alphaAt,masks:bridgeCutawayMasks,join:neighbourhoodStreets?.treacleJoin});
  if(fade&&n568Contact.canUse(playerPosition))applyN568DoorReveal({receiver:n568Receiver,player:playerPosition,objects:list,project,alphaAt,inFront,masks:bridgeCutawayMasks});
+ // Testers 26 Nov: on a phone, rooftops nearer the camera hid the street around the officer.
+ // Buildings in front of the player and close to them on screen turn see-through. ?frontfade=0 turns it off.
+ if(fade&&frontFade&&playerPosition){const q=project(playerPosition),rx=150,top=q.y-70,bottom=q.y+130;
+  for(const o of list){if(!cityCutawayEligible(o)||o.bridgePart)continue;const [x,y,w,height]=o.bounds;
+   if(x>q.x+rx||x+w<q.x-rx||y>bottom||y+height<top||y+height<q.y+8)continue;
+   if(inFront(playerPosition,o))continue;op.set(o.id,Math.min(op.get(o.id)??1,.42));}}
  for(const {samples,cover} of sets)for(const p of samples){let tr=1;for(const o of cover){const local=bridgeCutawayMasks.get(o.id)?.filter(mask=>localCutawayContains(mask,p));const opacity=local?.length?Math.min(...local.map(mask=>mask.opacity)):op.get(o.id);tr*=1-opacity*alphaAt(o,p);}minimumTransmission=Math.min(minimumTransmission,tr);}faded=[...new Set([...op].filter(([,a])=>a<1).map(([id])=>id).concat([...bridgeCutawayMasks.keys()]))];const transmission=minimumTransmission.toFixed(5),fadedIDs=faded.join(',');if(canvas.dataset.transmission!==transmission)canvas.dataset.transmission=transmission;if(canvas.dataset.faded!==fadedIDs)canvas.dataset.faded=fadedIDs;return op;}
 function drawImageObject(o,opacity){const p=project(o.p);drawLocalCutaway(ctx,o.im,[p.x-o.anchor[0]*o.scale,p.y-o.anchor[1]*o.scale,o.im.width*o.scale,o.im.height*o.scale],bridgeCutawayMasks.get(o.id),opacity);}
 function drawLitScenery(o,opacity){
