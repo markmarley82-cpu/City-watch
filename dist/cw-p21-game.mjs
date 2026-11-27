@@ -124,6 +124,32 @@ function syncPurseActors(record){
  actors.push(...purseActors);
  for(const actor of purseActors)city.characterPainter.library.request(actor.key);
 }
+// Bridge case people (testers 26 Nov: "nothing happens on screen"). While the enquiry is open the
+// toll collector stands by the notice with drivers queued behind, and the dispatch clerk waits at
+// his post. Tap one to walk to that stop; tap again there to open the case.
+let bridgeActors=[];
+function bridgePeople(record){
+ const c=record.state?.flags?.bridgeClosurePilot;if(!c||c.status==='filed'||record.pending)return [];
+ const at=q=>nearest(q),list=[{id:'bridge-clerk',name:'Dispatch clerk',key:'scholar',p:at([123,165]),stop:'clerk'}];
+ if(!c.reopened){list.push({id:'bridge-collector',name:'Man in a borrowed Watch sash',key:'p3_human_02',p:at([135,162]),stop:'bridge'},
+  {id:'bridge-driver-1',name:'Waiting carter',key:'farmer',p:at([131,160]),stop:'bridge'},
+  {id:'bridge-driver-2',name:'Waiting carter',key:'p3_dwarf_01',p:at([130,158]),stop:'bridge'});}
+ else list.push({id:'bridge-driver-1',name:'Carter, now on his way',key:'farmer',p:at([134,166]),stop:'bridge'});
+ return list;
+}
+function syncBridgeActors(record){
+ const next=bridgePeople(record);
+ if(next.length===bridgeActors.length&&next.every((a,i)=>a.id===bridgeActors[i].id&&a.name===bridgeActors[i].name))return;
+ for(const a of bridgeActors){const i=actors.indexOf(a);if(i>=0)actors.splice(i,1);}
+ bridgeActors=next;actors.push(...bridgeActors);for(const a of bridgeActors)city.characterPainter.library.request(a.key);
+}
+function bridgeContactClick(p){
+ const a=bridgeActors.find(a=>distance(p,a.p)<=1.1);if(!a)return false;
+ const stop={bridge:[133,163,'E011'],clerk:[125,164,'APRON:outpost']}[a.stop],me=city.footPosition?.()||city.position();
+ if(distance(me,stop)<=1.6||distance(me,a.p)<=1.8){city.stop();openBridgeCase();}
+ else{city.tell(a.name+'. Walking over.');city.nav(stop.slice(0,2),stop[2]);}
+ return true;
+}
 function purseContactClick(p){
  const actor=purseActors.find(a=>distance(p,a.p)<=1);
  if(!actor)return false;
@@ -168,7 +194,7 @@ function marketContactClick(p){
  }else city.nav(actor.p.slice(0,2),actor.p[2]);
  return true;
 }
-function npcNear(){return actors.filter(a=>!a.id.startsWith('market-case-')&&!a.id.startsWith('purse-')&&a.id!=='dibbler'&&a.id!=='colon'&&a.id!=='patrol-partner'&&a.id!=='chase-suspect'&&a.id!=='delivery-runner'&&a.id!=='patrol-detainee'&&!newspaperSellers.isSeller(a.id)&&distance(city.position(),a.p)<=3).sort((a,b)=>distance(city.position(),a.p)-distance(city.position(),b.p))[0]||(city.nearColon()?{id:'colon',name:names.colon}:null);}
+function npcNear(){return actors.filter(a=>!a.id.startsWith('market-case-')&&!a.id.startsWith('purse-')&&!a.id.startsWith('bridge-')&&a.id!=='dibbler'&&a.id!=='colon'&&a.id!=='patrol-partner'&&a.id!=='chase-suspect'&&a.id!=='delivery-runner'&&a.id!=='patrol-detainee'&&!newspaperSellers.isSeller(a.id)&&distance(city.position(),a.p)<=3).sort((a,b)=>distance(city.position(),a.p)-distance(city.position(),b.p))[0]||(city.nearColon()?{id:'colon',name:names.colon}:null);}
 function assignmentContact(record){const current=target(record);if(!current.startsWith('npc:'))return null;const id=current.slice(4);if(id==='colon')return city.nearColon()?{id,name:names.colon}:null;return actors.find(a=>a.id===id&&distance(city.position(),a.p)<=3)||null;}
 const DIMWELL_RENDEZVOUS='Meet Nobby at the Park Lane approach before starting another encounter.';
 function dimwellEncounterHold(record){return !record.pending&&patrolDuty?.dimwellPartnerAway(record);}
@@ -190,7 +216,7 @@ let lastCaseState=null;
 function dutyDeskAction(record=state(),assigned=assignmentContact(record),view=patrolDuty?.view(record)){return !record.pending&&(view?.firstCase||view?.incidentChoice||view?.dimwell||view?.action==='inspect'&&patrolDuty?.shiftDisturbance(record)||assigned?.id==='colon')&&['book','report'].includes(view?.action)?view:null;}
 function primaryAction(){const record=state(),action=assignmentAction(record,encounterBinding(record));if(action.kind==='bridge')return openBridgeCase();if(action.kind==='carrot')return patrolDuty.goCarrot();if(action.kind==='patrol')return patrolDuty.menu();if(action.kind==='chase')return chaseMenu();if(action.kind==='battle')return battle();if(action.kind==='talk')return service('talk',action.id);if(action.kind==='room')return window.CWP21Game.room(city.nearDoor());return walkTo();}
 // One fresh record per HUD refresh. Interactions and saves still read storage separately.
-function refresh(){const v=state(),s=v.state;patrolDuty?.observeDimwell(v);patrolDuty?.observeDeliveryTail(v);syncDeliveryRunner(v);syncMarketActors(v);syncPurseActors(v);const filed=filedCase(lastCaseState,s);lastCaseState={chapter:s.chapter,merit:s.merit,coins:s.coins};if(filed)city.tell(filed);if(window.CWP21Game)window.CWP21Game.weaponArtId=window.CWWeapons.inventory(s).equipped;$('p21-health').textContent='Health '+s.hp+'/'+s.maxhp;$('p21-money').textContent=s.coins+(s.coins===1?' coin':' coins');const rank=window.CWP21State?.career(s);
+function refresh(){const v=state(),s=v.state;patrolDuty?.observeDimwell(v);patrolDuty?.observeDeliveryTail(v);syncDeliveryRunner(v);syncMarketActors(v);syncPurseActors(v);syncBridgeActors(v);const filed=filedCase(lastCaseState,s);lastCaseState={chapter:s.chapter,merit:s.merit,coins:s.coins};if(filed)city.tell(filed);if(window.CWP21Game)window.CWP21Game.weaponArtId=window.CWWeapons.inventory(s).equipped;$('p21-health').textContent='Health '+s.hp+'/'+s.maxhp;$('p21-money').textContent=s.coins+(s.coins===1?' coin':' coins');const rank=window.CWP21State?.career(s);
  $('p21-merit').textContent=(rank?rank.name+' · ':'')+s.merit+' merit';
  if(window.CWP21Game?.patrolDuty){
   const inCustody=window.CWP21Game.patrolDuty.escortActive(v);
@@ -546,7 +572,7 @@ function chaseMenu(){const v=state(),c=v.pending?.chase;if(!c)return;const near=
  if(near&&['caught','surrendered'].includes(c.status))button('Let them go',()=>finishChase('released'));
  button('Continue pursuit',()=>city.tell('Follow the last sighting. The circle moves your recruit; release it to stop.'));
  button('Call off the search',()=>finishChase('lost'));d.showModal();}
-window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,guideTarget,battle,state,
+window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,bridgeContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,guideTarget,battle,state,
  interact(){const pending=state().pending;if(pending?.chase){chaseMenu();return true;}if(pending){battle();return true;}const marketDuty=patrolDuty?.view();
  if(marketDuty?.delivery&&['inspect','report'].includes(marketDuty.action)){patrolDuty.primary();return true;}
  if(patrolDuty?.deliveryContact()){patrolDuty.deliveryMenu();return true;}
