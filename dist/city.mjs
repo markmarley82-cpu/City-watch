@@ -688,7 +688,10 @@ function cutaways(list,people,playerPosition=player){
  if(fade&&frontFade&&playerPosition){const q=project(playerPosition),rx=150,top=q.y-70,bottom=q.y+130;
   for(const o of list){if(!cityCutawayEligible(o)||o.bridgePart)continue;const [x,y,w,height]=o.bounds;
    if(x>q.x+rx||x+w<q.x-rx||y>bottom||y+height<top||y+height<q.y+8)continue;
-   if(inFront(playerPosition,o))continue;op.set(o.id,Math.min(op.get(o.id)??1,.42));}}
+   if(inFront(playerPosition,o))continue;
+   // Only the buildings right by the officer: a far block that merely overlaps on a zoomed-out screen stays solid.
+   const r=o.rect;if(r){const dx=Math.max(r[0]-.5-playerPosition[0],0,playerPosition[0]-(r[0]+r[2]-.5)),dy=Math.max(r[1]-.5-playerPosition[1],0,playerPosition[1]-(r[1]+r[3]-.5));if(Math.hypot(dx,dy)>3.5)continue;}
+   op.set(o.id,Math.min(op.get(o.id)??1,.42));}}
  for(const {samples,cover} of sets)for(const p of samples){let tr=1;for(const o of cover){const local=bridgeCutawayMasks.get(o.id)?.filter(mask=>localCutawayContains(mask,p));const opacity=local?.length?Math.min(...local.map(mask=>mask.opacity)):op.get(o.id);tr*=1-opacity*alphaAt(o,p);}minimumTransmission=Math.min(minimumTransmission,tr);}faded=[...new Set([...op].filter(([,a])=>a<1).map(([id])=>id).concat([...bridgeCutawayMasks.keys()]))];const transmission=minimumTransmission.toFixed(5),fadedIDs=faded.join(',');if(canvas.dataset.transmission!==transmission)canvas.dataset.transmission=transmission;if(canvas.dataset.faded!==fadedIDs)canvas.dataset.faded=fadedIDs;return op;}
 function drawImageObject(o,opacity){const p=project(o.p);drawLocalCutaway(ctx,o.im,[p.x-o.anchor[0]*o.scale,p.y-o.anchor[1]*o.scale,o.im.width*o.scale,o.im.height*o.scale],bridgeCutawayMasks.get(o.id),opacity);}
 function drawLitScenery(o,opacity){
