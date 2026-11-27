@@ -326,7 +326,7 @@
   let bridgeMod = null, bridgeLoading = false;
   function bridgeModule() {
     if (bridgeMod) return bridgeMod;
-    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=5').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
+    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=6').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
     return null;
   }
   function bridgeLead(record) {

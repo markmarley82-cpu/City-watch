@@ -135,6 +135,8 @@ function bridgePeople(record){
   {id:'bridge-driver-1',name:'Waiting carter',key:'farmer',p:at([131,160]),stop:'bridge'},
   {id:'bridge-driver-2',name:'Waiting carter',key:'p3_dwarf_01',p:at([130,158]),stop:'bridge'});}
  else list.push({id:'bridge-driver-1',name:'Carter, now on his way',key:'farmer',p:at([134,166]),stop:'bridge'});
+ // The trader once confronted: by the notice, then held beside the lamp after an arrest.
+ if(c.confront)list.push({id:'bridge-trader',name:c.confront==='arrested'?'Mr Hobb, under arrest':'Mr Ernest Hobb, carrier',key:'p3_human_01',p:at(c.confront==='arrested'?[131,162]:[136,163]),stop:'bridge'});
  return list;
 }
 function syncBridgeActors(record){
@@ -260,7 +262,7 @@ function walkToCurrentAssignment(){
 let lastGuide=null;
 // Testers 26 Nov: the trail kept pointing at Carrot's assignment during the Bridge case.
 // While the case is open, the trail leads to its next stop instead.
-let bridgeGuideMod=null;const bridgeGuideLoad=()=>bridgeGuideMod||import('./cases/bridge-closure.mjs?v=5').then(m=>bridgeGuideMod=m).catch(()=>null);
+let bridgeGuideMod=null;const bridgeGuideLoad=()=>bridgeGuideMod||import('./cases/bridge-closure.mjs?v=6').then(m=>bridgeGuideMod=m).catch(()=>null);
 function bridgeGuide(record){
  const c=record.state?.flags?.bridgeClosurePilot;if(!c||c.status==='filed')return undefined;
  if(!bridgeGuideMod){bridgeGuideLoad();return undefined;}
@@ -466,7 +468,7 @@ async function openBridgeCase(){
  bridgeCaseLoading=true;
  try{
   if(!bridgeCaseHost){
-   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=5'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
+   const [{createBridgeClosure},{streetPath}]=await Promise.all([import('./cases/bridge-closure.mjs?v=6'),import('./city-movement.mjs?v=p21-b444-tap-route-start')]);
    bridgeCaseHost=createBridgeClosure({city,dialog:$('p21-duty-dialog'),box:$('p21-duty-actions'),makeStore:()=>window.CWP21State.create(localStorage),
     partner:r=>Partner.assignment(r.state,r.pending).mentorId,findPath:(a,b)=>streetPath(city.world,a,b.slice(0,2),b[2]),
     onChange:message=>{city.tell(message);refresh();},showDuty:buildDuty});

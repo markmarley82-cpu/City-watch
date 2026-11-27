@@ -8,6 +8,7 @@ export const STOPS=Object.freeze({
   copy:Object.freeze([107,162,'E030'])
 });
 const roster=Object.freeze({'WATCH-04':'Nobby','WATCH-03':'Colon'});
+export const TRADER='Mr Hobb';
 const find=(record)=>record.state.flags[FLAG];
 export function closedOpening(record){
   const rounds=record.state.flags.p21PatrolRounds;
@@ -63,9 +64,15 @@ export function options(record,mentor,position){
   if(mentor==='WATCH-03'&&c.reopened&&c.evidence.includes('public')&&c.evidence.includes('tally')&&!c.evidence.includes('declaration'))
     result.push(action('declaration','Take the driver’s declaration with Colon','clerk'));
   const proof=c.evidence.includes('tally')&&['order','declaration'].some(key=>c.evidence.includes(key));
-  if(c.reopened){
-    result.push(action('file-relief',c.evidence.includes('collector')?'File the reopening and witnessed collection':'File the reopening; organiser unproved','watch'));
-    if(proof)result.push(action('file-proved','File the signed order and corroborating tally','watch'));
+  // Testers 26 Nov wanted a payoff: with proof in hand you face the trader himself.
+  if(c.reopened&&proof&&!c.confront)result.push(action('confront','Confront the trader who signed the order','bridge'));
+  if(c.confront==='faced'){
+    result.push(action('arrest','Arrest him for posing as the Watch','bridge'));
+    result.push(action('repay','Make him pay back every carter he turned away','bridge'));
+  }
+  if(c.reopened&&c.confront!=='faced'){
+    if(!c.confront)result.push(action('file-relief',c.evidence.includes('collector')?'File the reopening and witnessed collection':'File the reopening; organiser unproved','watch'));
+    if(proof&&c.confront)result.push(action('file-proved',c.confront==='arrested'?'File the arrest, the signed order and the tally':'File the repayment, the signed order and the tally','watch'));
   }
   result.push(action('stand-down','Stand down the enquiry','watch'));
   // Testers 26 Nov: the walk back to Watch Square to file lost people. Reports can be filed at
@@ -95,17 +102,29 @@ export function apply(record,{id,mentor,position}){
     if(id==='clear'&&mentor==='WATCH-03')c.evidence.push('public');
     return {next,message:'The notice is down and the waiting drivers can pass. Report to the Watch when ready.'};
   }
+  if(id==='confront'){
+    c.confront='faced';
+    return {next,message:'Mr Ernest Hobb, carrier, comes to collect the morning’s takings and finds you holding his signed order. “A misunderstanding,” he says, and looks for the nearest alley.'};
+  }
+  if(id==='arrest'){
+    c.confront='arrested';
+    return {next,message:mentor==='WATCH-04'?TRADER+' bolts for the alley. Nobby, who knows every alley, is already in it. One outstretched foot later, he is under arrest for posing as the Watch.':TRADER+' measures the gap past Sergeant Colon, then measures Sergeant Colon, and comes quietly. He is under arrest for posing as the Watch.'};
+  }
+  if(id==='repay'){
+    c.confront='repaid';
+    return {next,message:TRADER+' pays back every carter he turned away, coin by coin, in front of the whole queue. The carters cheer the Watch, which makes a change.'};
+  }
   if(id==='observe'){
     c.choice='observe';
     return {next,message:mentor==='WATCH-04'?'Nobby joins the waiting drivers. You can watch the collector or reopen the crossing.':'Colon stays beside you while the queue waits. Watch the collector, or call it off and reopen.'};
   }
   const proved=id==='file-proved';
   c.status='filed';c.outcome=proved?'organiser-proved':c.evidence.includes('collector')?'collector-observed':'passage-reopened';
-  c.merit=proved?4:2;
+  c.merit=proved?5:2;
   next.state.merit+=c.merit;
   // A future Inquirer edition can rely on these facts alone; no private evidence or name.
   c.publicReport={caseId:'CW-NC-01',passageReopened:true,watchObserved:c.choice==='observe',night:next.state.night};
-  return {next,message:proved?'Report filed: the signed order and tally identify who benefited and directed the diversion. 4 merit.':(c.outcome==='collector-observed'?'Report filed: the passage is open and the collection was witnessed. The organiser remains unproved. 2 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.')};
+  return {next,message:proved?(c.confront==='arrested'?'Report filed: '+TRADER+' is charged with posing as the Watch; the signed order and tally prove it. 5 merit.':'Report filed: '+TRADER+' has repaid the carters; the signed order and tally prove who ran the diversion. 5 merit.'):(c.outcome==='collector-observed'?'Report filed: the passage is open and the collection was witnessed. The organiser remains unproved. 2 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.')};
 }
 
 export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,onChange,showDuty,doc=document}){
@@ -123,12 +142,12 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
     line('h3',TITLE);
     if(!c)line('p','Drivers say the Watch has diverted them away from Brass Bridge. The Watch has no closure on record. Try the bridge notice or the dispatch clerk on Lower Broad Way first.');
     else if(c.status==='filed'){
-      line('p',c.outcome==='organiser-proved'?'Filed: the organiser was identified from the written order and the tally.':(c.outcome==='collector-observed'?'Filed: the passage reopened and the collection was witnessed. The organiser was not proved.':'Filed: the passage reopened. The organiser was not proved.'));
+      line('p',c.outcome==='organiser-proved'?(c.confront==='arrested'?'Filed: '+TRADER+' arrested for posing as the Watch, proved by the written order and the tally.':c.confront==='repaid'?'Filed: '+TRADER+' repaid the carters he turned away, proved by the written order and the tally.':'Filed: the organiser was identified from the written order and the tally.'):(c.outcome==='collector-observed'?'Filed: the passage reopened and the collection was witnessed. The organiser was not proved.':'Filed: the passage reopened. The organiser was not proved.'));
       if(c.followup)line('p',LEADS.copy);
       else if(record.state.night>c.publicReport?.night)line('p','A driver heard that a second notice appeared by Contract Bridge. The Inquirer is asking questions too. You can check it without buying a paper.');
     }
     else {
-      line('p',roster[c.partner]+' · '+(c.choice==='observe'&&!c.reopened?'Drivers are still waiting while you observe. End the watch at the bridge before you file.':c.reopened?'The passage is open. You can file your report.':'Check either lead before deciding what to do about the notice.'));
+      line('p',roster[c.partner]+' · '+(c.choice==='observe'&&!c.reopened?'Drivers are still waiting while you observe. End the watch at the bridge before you file.':c.confront==='faced'?TRADER+' is at the bridge with your partner between him and the alley. Decide what happens to him.':c.reopened?'The passage is open. You can file your report.':'Check either lead before deciding what to do about the notice.'));
       if(c.evidence.length){const list=doc.createElement('ul');for(const id of c.evidence){const item=doc.createElement('li');item.textContent=evidenceText(id);list.append(item);}box.append(list);}
       if(record.pending||record.state.flags.p21PatrolRounds?.active)line('p','Finish or stand down the current patrol before returning to this enquiry.');
       else if(c.partner!==mentor)line('p','Return with '+roster[c.partner]+', or stand down the enquiry at Watch Square.');

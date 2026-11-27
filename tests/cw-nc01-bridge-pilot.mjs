@@ -60,8 +60,8 @@ function run(partner,steps,outcome){
  assert.deepEqual(articles(store().read().state),printed);
  assert.deepEqual([...data.keys()],[State.KEY]);
 }
-run('WATCH-04',[['tally','clerk'],['notice','bridge'],['observe','bridge'],['collector','bridge'],['order','bridge'],['reopen','bridge'],['file-proved','watch']],'organiser-proved');
-run('WATCH-03',[['notice','bridge'],['clear','bridge'],['tally','clerk'],['declaration','clerk'],['file-proved','watch']],'organiser-proved');
+run('WATCH-04',[['tally','clerk'],['notice','bridge'],['observe','bridge'],['collector','bridge'],['order','bridge'],['reopen','bridge'],['confront','bridge'],['arrest','bridge'],['file-proved','watch']],'organiser-proved');
+run('WATCH-03',[['notice','bridge'],['clear','bridge'],['tally','clerk'],['declaration','clerk'],['confront','bridge'],['repay','bridge'],['file-proved','bridge']],'organiser-proved');
 run('WATCH-03',[['notice','bridge'],['clear','bridge'],['file-relief','watch']],'passage-reopened');
 run('WATCH-04',[['notice','bridge'],['observe','bridge'],['collector','bridge'],['reopen','bridge'],['file-relief','watch']],'collector-observed');
 const {store}=setup();

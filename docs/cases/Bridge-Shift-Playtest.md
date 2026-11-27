@@ -64,8 +64,8 @@ Bridge, with Times and Inquirer follow-ups.
 | Partner | Bridge call | Evidence you can get | Strongest report |
 |---|---|---|---|
 | Nobby | Remove the notice now | notice, tally | Passage reopened, organiser unproved (+2 merit) |
-| Nobby | Watch first (Nobby blends into the queue) | collector, then the signed route order | Organiser proved, with the tally (+4 merit) |
-| Colon | Colon keeps the lane clear while you remove it | public confirmation, then the driver's declaration with Colon at the dispatch clerk | Organiser proved, with the tally (+4 merit) |
+| Nobby | Watch first (Nobby blends into the queue) | collector, then the signed route order | Confront Mr Hobb (arrest or repay), then organiser proved (+5 merit) |
+| Colon | Colon keeps the lane clear while you remove it | public confirmation, then the driver's declaration with Colon at the dispatch clerk | Confront Mr Hobb (arrest or repay), then organiser proved (+5 merit) |
 | Colon | Watch first (Colon stays beside you) | collector | Passage reopened, collection witnessed (+2 merit) |
 
 ## Milestone
@@ -74,3 +74,7 @@ Met when two players make different reasonable choices, see different
 consequences, and both say they did good police work. Revise first if:
 everyone picks the same partner and call; players file a report they cannot
 explain; or the "organiser unproved" report feels like failing.
+
+## Changes after the first testers (26–27 Nov)
+
+Testers got bored early: lost, and buildings in the way. Since then the lantern trail leads to the case's next stop, reports can be filed at any stop, buildings in front of the officer fade, the playtest opens the case card at once, the collector, carters and clerk stand in the street, and with proof in hand you confront the trader, Mr Ernest Hobb, and choose to arrest him or make him repay the carters.
