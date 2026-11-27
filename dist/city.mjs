@@ -48,8 +48,8 @@ import {createMate481S003,applyS003GroundReveal} from './city-mate-481-s003.mjs?
 import {createAnkhNorthHouses} from './city-ankh-north-houses.mjs?v=p21-b407-s039-reuse';
 import {createDocksideHouses} from './city-dockside-houses.mjs?v=p21-b407-s039-reuse';
 import {createE045WestReceiver,activateE045West,revealE045WestDoor} from './city-e045-west-infill.mjs?v=memo-1';
-import {createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
-import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-4';
+import {BLOCK as pavingBlock,createBlockCorrection} from './city-infill-ground301.mjs?v=p21-b407-s039-reuse-defer1';
+import {createCityFortifications} from './city-fortifications.mjs?v=wallkit-5';
 import {placeActionPrompt} from './city-action-prompt.mjs?v=p21-b407-s039-reuse';
 import {updateImpClock} from './city-imp-clock.mjs?v=purse-street-leads';
 import {applyPalaceApproachGround} from './city-palace-approach-ground.mjs?v=p21-b407-s039-reuse';
@@ -762,7 +762,11 @@ const streetEdgeRepairs=[
 const palaceRearStore=sceneryObjects.find(o=>o.id==='uu18:060:rear_store');
 const palacePassageAnchors=palaceB&&universityStreets&&palaceRearStore?.rect.join(',')==='159.5,213.26,2,6'
  ? [159,160,161].map(x=>({position:[x,212],edgeID:'E010'})): [];
-const openGround=openPublicGround(world,sceneryObjects.filter(o=>!reservedCollisionModes.includes(o.collisionMode)),data,{reach:Infinity,retiredFootprints:retiredLegacyFootprints,publicServiceCrossings:[...streetEdgeRepairs,{"ownerEdgeID":"E028","relationIDs":["E077"],"polygon":[[175,237],[180,237],[180,241],[175,241]]},{"ownerEdgeID":"E043","relationIDs":["E082"],"polygon":[[40,96],[48,96],[48,110],[40,110]]},{"ownerEdgeID":"E042","relationIDs":["E073","E075"],"polygon":[[74,59],[84,59],[84,70],[74,70]]},{"ownerEdgeID":"E052","relationIDs":["E079"],"polygon":[[114,255],[117,255],[117,258],[114,258]]},{"ownerEdgeID":"E035","relationIDs":["E074"],"polygon":[[79,245.5],[82,245.5],[82,246.5],[79,246.5]]},{"ownerEdgeID":"E035","relationIDs":["E074"],"polygon":[[80.5,244.5],[82.5,244.5],[82.5,245.5],[80.5,245.5]]},{"ownerEdgeID":"E046","relationIDs":["E070"],"polygon":[[40,245],[42,245],[42,248],[40,248]]}],privateAreas:[...infill.privateCourts.map(c=>c.rect),...(edgeFill?.privateAreas||[])],retainClearAnchors:[...palacePassageAnchors,...e045ContactAnchorRequests(sceneryObjects),...e045WorkroomAnchorRequests(sceneryObjects)]});
+// Navigation covers the wall and its 16-cell surround even when decorative art is unavailable.
+const wallLayout=await read('assets/city-walls296/layout.json?v=p21-b407-s039-reuse');
+const [wallWest,wallNorth,wallEast,wallSouth]=wallLayout.envelope.bounds;
+const patrolBounds=[Math.floor(wallWest-16),Math.floor(wallNorth-16),Math.ceil(wallEast+16),Math.ceil(wallSouth+16)];
+const openGround=openPublicGround(world,sceneryObjects.filter(o=>!o.countryside&&!reservedCollisionModes.includes(o.collisionMode)),data,{reach:Infinity,bounds:patrolBounds,retiredFootprints:retiredLegacyFootprints,publicServiceCrossings:[...streetEdgeRepairs,{"ownerEdgeID":"E028","relationIDs":["E077"],"polygon":[[175,237],[180,237],[180,241],[175,241]]},{"ownerEdgeID":"E043","relationIDs":["E082"],"polygon":[[40,96],[48,96],[48,110],[40,110]]},{"ownerEdgeID":"E042","relationIDs":["E073","E075"],"polygon":[[74,59],[84,59],[84,70],[74,70]]},{"ownerEdgeID":"E052","relationIDs":["E079"],"polygon":[[114,255],[117,255],[117,258],[114,258]]},{"ownerEdgeID":"E035","relationIDs":["E074"],"polygon":[[79,245.5],[82,245.5],[82,246.5],[79,246.5]]},{"ownerEdgeID":"E035","relationIDs":["E074"],"polygon":[[80.5,244.5],[82.5,244.5],[82.5,245.5],[80.5,245.5]]},{"ownerEdgeID":"E046","relationIDs":["E070"],"polygon":[[40,245],[42,245],[42,248],[40,248]]}],privateAreas:[...infill.privateCourts.map(c=>c.rect),...(edgeFill?.privateAreas||[])],retainClearAnchors:[...palacePassageAnchors,...e045ContactAnchorRequests(sceneryObjects),...e045WorkroomAnchorRequests(sceneryObjects)]});
 let e045WorkshopState=null;try{if(e045Workshop)e045WorkshopState=activateE045Workshop({world,ground:openGround,receiver:e045Workshop,originalMembers:streetLifeHomeMembers});}catch(error){e045Workshop.discard(sceneryObjects);e045Workshop=null;console.error('E045 workshop reservation rejected; current ground retained',error);}
 let e045PairState=null,e045PairGround=null;try{if(e045Pair){e045PairState=activateE045Pair({world,ground:openGround,receiver:e045Pair,originalMembers:streetLifeHomeMembers,createSurface:()=>createE045PairGround({contract:e045Pair.data.ground,world,clearPoint:openGround.clearPoint,texture:images.get('assets/city-paving-v2/cobbles-b.webp'),createCanvas:(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c;}})});e045PairGround=e045PairState.surface;}}catch(error){e045Pair.discard(sceneryObjects);e045Pair=null;console.error('E045 pair reservation rejected; current scene retained',error);}
 let e045WestState=null;try{if(e045West){e045WestState=activateE045West({world,ground:openGround,receiver:e045West,originalMembers:streetLifeHomeMembers,store:window.CWP21State.create(localStorage),Chase:window.CWChase});if(e045WestState.recovery)savedNavigation=e045WestState.recovery.record;}}catch(error){e045West?.discard(sceneryObjects);e045West=null;console.warn('E045 west reservation rejected; current scene retained',error);}
@@ -820,12 +824,18 @@ window.CWPhoneBoot?.stage('Fitting neighbourhood streets');
 // Side-street paving and the Atlas map's extra waypoints are a read-only visual layer (no
 // walls, doors or routes). They are compiled after the city is ready, in the same small
 // slices, so the player can move about 11 s sooner on a mid-range phone. Compiling after
-// startup gives the same plan (checked against the old order). It starts once the loading
-// screen has handed over (after the public paving below), about 6 ms per frame so walking
-// stays smooth; deferredGround tells the ground cache to repaint when each layer arrives.
+// startup gives the same plan. The ground cache refreshes when each layer arrives.
 let atlasStreetJob=null;const deferredGround={revision:0,errors:new Set(),pump(){}};
-function startRiverDetail(){if(riverDetailJob)return riverDetailJob;riverDetailJob=(async()=>{if(!riverAppearance)return;let plan;try{plan=await createRiverDetailPlanSliced(riverContract,{budgetMS:6,pause:()=>new Promise(resolve=>requestAnimationFrame(()=>resolve()))});}catch(error){console.warn('River detail sliced plan failed; computing it at once.',error);}riverPainter.setAppearance(riverAppearance,plan);deferredGround.revision++;})();return riverDetailJob;}
-function startAtlasStreets(){if(atlasStreetJob)return atlasStreetJob;atlasStreetJob=(async()=>{try{const plan=await compileAtlasStreetsForStartup({world,ground:openGround,objects:sceneryObjects,layout:await read('assets/atlas-streets-v1/layout.json?v=p21-b407-s039-reuse')},{budgetMS:6,pause:()=>new Promise(resolve=>requestAnimationFrame(()=>resolve()))});atlasStreetSurface=createAtlasStreetSurface({plan,images:Object.fromEntries(['cobbles-a','flags-b'].map(n=>[n,images.get('assets/city-paving-v2/'+n+'.webp')]))});atlasStreetPlan=plan;deferredGround.revision++;addAtlasWaypoints(plan.waypoints||[]);canvas.dataset.atlasStreets=JSON.stringify(atlasStreetSurface.report());canvas.dataset.housingLanes=JSON.stringify(atlasStreetSurface.report());}catch(error){console.warn('Atlas side-street paving unavailable; existing streets retained',error);}})();return atlasStreetJob;}
+// Yield background painting to input and animation on phones.
+const surfaceWork={
+ budgetMS:LOW_MEMORY?2:6,
+ pause:()=>new Promise(resolve=>{
+  if(LOW_MEMORY && typeof requestIdleCallback==='function')requestIdleCallback(resolve,{timeout:100});
+  else requestAnimationFrame(resolve);
+ })
+};
+function startRiverDetail(){if(riverDetailJob)return riverDetailJob;riverDetailJob=(async()=>{if(!riverAppearance)return;let plan;try{plan=await createRiverDetailPlanSliced(riverContract,surfaceWork);}catch(error){console.warn('River detail sliced plan failed; computing it at once.',error);}riverPainter.setAppearance(riverAppearance,plan);deferredGround.revision++;})();return riverDetailJob;}
+function startAtlasStreets(){if(atlasStreetJob)return atlasStreetJob;atlasStreetJob=(async()=>{try{const plan=await compileAtlasStreetsForStartup({world,ground:openGround,objects:sceneryObjects,layout:await read('assets/atlas-streets-v1/layout.json?v=p21-b407-s039-reuse')},surfaceWork);atlasStreetSurface=createAtlasStreetSurface({plan,images:Object.fromEntries(['cobbles-a','flags-b'].map(n=>[n,images.get('assets/city-paving-v2/'+n+'.webp')]))});atlasStreetPlan=plan;deferredGround.revision++;addAtlasWaypoints(plan.waypoints||[]);canvas.dataset.atlasStreets=JSON.stringify(atlasStreetSurface.report());canvas.dataset.housingLanes=JSON.stringify(atlasStreetSurface.report());}catch(error){console.warn('Atlas side-street paving unavailable; existing streets retained',error);}})();return atlasStreetJob;}
 canvas.dataset.atlasStreets=JSON.stringify(atlasStreetSurface?.report()||{ready:false,originalGroundRetained:true});
 // Keep old patrol/battle records when a corrected quay foundation occupies
 // formerly admitted empty ground. Only positions touched by this receiver move.
@@ -839,7 +849,7 @@ const e045SectionRecovery=recoverHidePark({world,ground:openGround,store:window.
 if(e045SectionRecovery)savedNavigation=e045SectionRecovery.record;
 canvas.dataset.e045Section=JSON.stringify({integrated:true,exteriorContact:s569Contact.door.game_id,northExteriorContact:n568Contact.door.game_id,recovered:!!e045SectionRecovery});
 startupMark('fortifications-start');
-const cityFortifications=await createCityFortifications({world,ground:openGround,objects:sceneryObjects,read,load,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});
+const cityFortifications=await createCityFortifications({layout:wallLayout,world,ground:openGround,objects:sceneryObjects,read,load,addSprites:addStreetSprites,lightAnchors:watchLightAnchors});
 startupMark('fortifications-end');
 canvas.dataset.fortifications=JSON.stringify(cityFortifications.report());
 const mateStreetRecovery=recoverHidePark({world,ground:openGround,store:window.CWP21State.create(localStorage),Chase:window.CWChase,polygon:[],relocated:mateStreetArt.recoveryRects});
@@ -849,7 +859,15 @@ startupMark('public-paving-start');
 // writes. It tests about a million pixels, so it is painted after startup too (same result,
 // checked against the old order); until then the retained ground shows there.
 let publicPaving={draw(){},dispose(){},report:()=>({id:'MATE-E042-E043-PUBLIC-GROUND-REWORK301',ready:false,deferred:true})};
-const startPublicPaving=()=>createBlockCorrection({world,ground:openGround,createCanvas:(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c;},texture:images.get('assets/city-paving-v2/cobbles-a.webp'),DOMMatrix,budgetMS:6,pause:()=>new Promise(resolve=>requestAnimationFrame(()=>resolve()))}).then(surface=>{publicPaving=surface;deferredGround.revision++;canvas.dataset.publicPaving=JSON.stringify(surface.report());}).catch(error=>console.warn('Public paving correction unavailable; retained ground remains visible',error));
+const [blockX0,blockY0,blockX1,blockY1]=pavingBlock;
+// Project all four corners and start 512 projected pixels before the block enters view.
+const pavingLoadView=[28*(blockX0-blockY1)-512,14*(blockX0+blockY0)-512,28*(blockX1-blockY0)+512,14*(blockX1+blockY1)+512];
+let publicPavingStarted=false;
+const startPublicPaving=()=>{
+ if(publicPavingStarted)return;
+ publicPavingStarted=true;
+ return createBlockCorrection({world,ground:openGround,createCanvas:(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c;},texture:images.get('assets/city-paving-v2/cobbles-a.webp'),DOMMatrix,...surfaceWork}).then(surface=>{publicPaving=surface;deferredGround.revision++;canvas.dataset.publicPaving=JSON.stringify(surface.report());}).catch(error=>console.warn('Public paving correction unavailable; retained ground remains visible',error));
+};
 startupMark('public-paving-end');
 canvas.dataset.publicPaving=JSON.stringify(publicPaving.report());
 // The Alchemists' painted front wall occupied the former open row y249.
@@ -954,6 +972,7 @@ function paintTerrain(g,view){
  // Bespoke yard/court paintings remain in their scenery packs.
  universityCampus.drawGround(g);
  e045PairGround?.draw(g,view);
+ if(LOW_MEMORY&&!publicPavingStarted&&intersects(view,pavingLoadView))startPublicPaving();
  publicPaving.draw(g,view);
  cityFootways.draw(g,view);
  // A connected court course must survive the generic public-cell paving.
@@ -1177,6 +1196,24 @@ function frame(now){if(document.hidden){cityCarts?.tick(now,{hidden:true});retur
       (left+width-x)*sx+2,(top+height-y)*sy+2);
   }
  });
+ // A cyclic scenery sort can put an officer on top of a wall despite its cutaway.
+ // Use the same foreground mask that makes the officer visible through that wall.
+ if(bridgeCutawayMasks.size){
+  for(const actor of [...actors,...extra]){
+   if(actor.id!=='player'&&actor.id!=='patrol-partner')continue;
+   const actorIndex=render.indexOf(actor);
+   const foot=project(actor.p);
+   for(let i=0;i<actorIndex;i++){
+    const wall=render[i];
+    if(!wall.cityFortification||inFront(actor.p,wall))continue;
+    const masks=bridgeCutawayMasks.get(wall.id);
+    if(!masks?.some(mask=>localCutawayContains(mask,{x:foot.x,y:foot.y-28})))continue;
+    render.splice(actorIndex,1);
+    render.splice(i,0,actor);
+    break;
+   }
+  }
+ }
  const watchSquarePanning=LOW_MEMORY&&distance(renderPlayer,base)<=17;
  windowLighting.beginFrame(cityClock.darkness,{...r,reusePanningTiles:watchSquarePanning,fixedPanningTiles:LOW_MEMORY&&!watchSquarePanning,timeMs:now,reducedMotion:lampMotionPreference.matches,zoom,camera:cam,objects:render,opacities:op,playerLight:project(renderPlayer)});windowLighting.drawGround(ctx);profile?.mark('visibility-cutaway-sort');for(const o of render)if(o.cart){windowLighting.drawActor(ctx,g=>cityCarts.draw(g,o),{imageBounded:true});}else if(o.person){const id=o.id==='player'?'watch-recruit':o.id;windowLighting.drawActor(ctx,g=>person(o.p,id,now,g),{imageBounded:true});if(o.id==='player')windowLighting.drawPlayerLantern(ctx);}else drawLitScenery(o,op.get(o.id));
  window.CWP21Game?.newspaperSellers?.drawLabels(ctx,project,zoom);window.CWP21Game?.dibbler?.drawLabels(ctx,project,zoom);
@@ -1310,7 +1347,7 @@ canvas.dataset.e043Premise003=JSON.stringify(e043Premise003?.report()||{ready:fa
 canvas.dataset.e045Premise002=JSON.stringify(e045Premise002?.report()||{ready:false});
 canvas.dataset.e045Premise=JSON.stringify(e045Premise?.report()||{ready:false});
 canvas.dataset.e043Premise004=JSON.stringify(e043Premise004?.report()||{ready:false});
-canvas.dataset.landmarkExteriors=JSON.stringify(landmarkExteriors.report());canvas.dataset.genericLandmarkStandIns=JSON.stringify(sceneryObjects.filter(o=>o.id.startsWith('landmark:')&&o.sourceAsset?.startsWith('legacy:')).map(o=>o.landmark?.game_id));canvas.dataset.river=JSON.stringify(riverPainter.report());canvas.dataset.waterCollision=JSON.stringify(waterCollision.report());canvas.dataset.ankhNorthHouses=JSON.stringify(ankhNorthHouses?.report()||null);canvas.dataset.docksideHouses=JSON.stringify(docksideHouses?.report()||null);canvas.dataset.housingLanes=JSON.stringify(atlasStreetSurface?.report()||null);canvas.dataset.paving=JSON.stringify({...pavingUnderlay.report(),approvedFinish:cityFootways.report(),paintedShoplane:paintedShoplane?.report()||null});ready=true;(function startWhenPlayable(){if(document.body.dataset.cityBoot==='ready')setTimeout(()=>startRiverDetail().then(startPublicPaving).then(startAtlasStreets),1000);else if(document.body.dataset.cityBoot!=='failed')setTimeout(startWhenPlayable,400);})();new ResizeObserver(size).observe(canvas);addEventListener('resize',size);size();if(!follow)camera('front');update();tell(saveError||'Report to Sergeant Colon, or follow your assignment through the seven-bridge city.');const query=new URL(location.href).searchParams,inspect=query.get('inspect'),place=query.get('place');if(allBridges.bridges.some(b=>b.edge===inspect)){bridgePicker.value=inspect;select.value='crossing:'+inspect;detail();$('city-look').onclick();}else if(place&&world.doors.has(place)){select.value=place;detail();$('city-look').onclick();}if(query.get('area')==='dimwell')camera('dimwell');if(query.get('area')==='shades')camera('shades');if(query.has('campus'))camera('campus');if(follow){const p=project(player);cam={x:p.x,y:p.y-90};}window.CWPhoneBoot?.stage('Loading paintings near your patrol');await cityImageDensity.prefetch(sceneryObjects.filter(o=>visibleNear(o.bounds,canvasSize,160)),{required:true});canvas.dataset.imageDensity=JSON.stringify(cityImageDensity.report());canvas.dataset.imageLoader=JSON.stringify(imageLoaderReport());startupMark('draw-start');
+canvas.dataset.landmarkExteriors=JSON.stringify(landmarkExteriors.report());canvas.dataset.genericLandmarkStandIns=JSON.stringify(sceneryObjects.filter(o=>o.id.startsWith('landmark:')&&o.sourceAsset?.startsWith('legacy:')).map(o=>o.landmark?.game_id));canvas.dataset.river=JSON.stringify(riverPainter.report());canvas.dataset.waterCollision=JSON.stringify(waterCollision.report());canvas.dataset.ankhNorthHouses=JSON.stringify(ankhNorthHouses?.report()||null);canvas.dataset.docksideHouses=JSON.stringify(docksideHouses?.report()||null);canvas.dataset.housingLanes=JSON.stringify(atlasStreetSurface?.report()||null);canvas.dataset.paving=JSON.stringify({...pavingUnderlay.report(),approvedFinish:cityFootways.report(),paintedShoplane:paintedShoplane?.report()||null});ready=true;(function startWhenPlayable(){if(document.body.dataset.cityBoot==='ready')setTimeout(()=>startRiverDetail().then(()=>LOW_MEMORY?undefined:startPublicPaving()).then(startAtlasStreets),1000);else if(document.body.dataset.cityBoot!=='failed')setTimeout(startWhenPlayable,400);})();new ResizeObserver(size).observe(canvas);addEventListener('resize',size);size();if(!follow)camera('front');update();tell(saveError||'Report to Sergeant Colon, or follow your assignment through the seven-bridge city.');const query=new URL(location.href).searchParams,inspect=query.get('inspect'),place=query.get('place');if(allBridges.bridges.some(b=>b.edge===inspect)){bridgePicker.value=inspect;select.value='crossing:'+inspect;detail();$('city-look').onclick();}else if(place&&world.doors.has(place)){select.value=place;detail();$('city-look').onclick();}if(query.get('area')==='dimwell')camera('dimwell');if(query.get('area')==='shades')camera('shades');if(query.has('campus'))camera('campus');if(follow){const p=project(player);cam={x:p.x,y:p.y-90};}window.CWPhoneBoot?.stage('Loading paintings near your patrol');await cityImageDensity.prefetch(sceneryObjects.filter(o=>visibleNear(o.bounds,canvasSize,160)),{required:true});canvas.dataset.imageDensity=JSON.stringify(cityImageDensity.report());canvas.dataset.imageLoader=JSON.stringify(imageLoaderReport());startupMark('draw-start');
 window.CWPhoneBoot?.stage('Drawing your patrol');
 const cityFrameLoop=createCityFrameLoop({paint:frame,fail:error=>window.CWPhoneBoot?.fail(error)});
 window.CWCityFrameStatus=cityFrameLoop.report;

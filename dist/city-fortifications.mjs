@@ -34,8 +34,8 @@ export function projectFace(image,a,b,height,{portal=null}={}){
  return {im:c,box:[left,top,c.width,c.height],map:(x,y)=>{const u=mapU(x);return [A.x+(B.x-A.x)*u-left,A.y+(B.y-A.y)*u-height+height*y/ih-top];}};
 }
 
-export async function createCityFortifications({world,ground,objects,read,load,addSprites,lightAnchors}){
- const layout=await read('assets/city-walls296/layout.json?v=p21-b407-s039-reuse');
+export async function createCityFortifications({layout,world,ground,objects,read,load,addSprites,lightAnchors}){
+ layout??=await read('assets/city-walls296/layout.json?v=p21-b407-s039-reuse');
  const [stone,cobble,materialAtlas]=await Promise.all([load('assets/city-walls296/stone.webp'),load('assets/city-paving-v2/cobbles-a.webp'),load('assets/city-walls300/painted-materials.webp')]);
  const materials=createFortificationMaterials(materialAtlas);
  const original=new Map([...world.members].map(([k,v])=>[k,new Set(v)])),sourceDoors=[...world.doors.keys()];
@@ -80,17 +80,61 @@ export async function createCityFortifications({world,ground,objects,read,load,a
  // interval tower every few sections and a tower at each corner. Collision stays the layout's walls.
  let kit=null;if(!/[?&]oldwalls=1(&|$)/.test(location.search))try{const kitHalf=true,km=await read('assets/city-walls-v1/manifest.json?v=1'),pieces=new Map(km.sprites.map(s=>[s.id,s])),ims=new Map();const glows=new Map();await Promise.all(km.sprites.map(async s=>{ims.set(s.id,await load('assets/city-walls-v1/'+(kitHalf?'half/':'')+s.file));glows.set(s.id,await load('assets/city-walls-v1/half/glow/'+s.file).catch(()=>null));}));kit={km,pieces,ims,glows};}catch(error){console.warn('Wall kit unavailable; drawing the old walls',error);kit=null;}
  const sideName={top:'north',bottom:'south',left:'west',right:'east'};
- function placeKit(piece,origin,id){const s=kit.pieces.get(piece),f=s.footprint,p=[origin[0]+s.frontCornerCells[0],origin[1]+s.frontCornerCells[1]];
-  rows.push([id,kit.ims.get(piece),p,s.anchor.map(v=>v/kit.km.artworkScale),1,[origin[0]+f[0],origin[1]+f[1],f[2],f[3]],{sourceAsset:'city-walls-v1:'+piece,sceneryKind:'wall',cutawayEligible:true,cityFortification:true,...(kit.glows.get(piece)?{nightEmission:kit.glows.get(piece)}:{})}]);}
+ const fittedPieces=new Map();
+ function fitStraight(piece,length,axis){
+  const key=piece+':'+length;
+  if(fittedPieces.has(key))return fittedPieces.get(key);
+  const sprite=kit.pieces.get(piece),image=kit.ims.get(piece),scale=kit.km.artworkScale;
+  const ratio=length/sprite.length,slope=axis===0?.5:-.5;
+  // Compress along the projected wall run. Vertical masonry stays vertical.
+  const shear=slope*(ratio-1);
+  const top=Math.floor(Math.min(0,shear*image.width));
+  const bottom=image.height+Math.ceil(Math.max(0,shear*image.width));
+  function transform(source){
+   if(!source)return null;
+   const target=canvas(image.width*ratio,bottom-top);
+   const ctx=target.getContext('2d');
+   ctx.setTransform(ratio,shear,0,1,0,-top);
+   ctx.drawImage(source,0,0);
+   return target;
+  }
+  const [ax,ay]=sprite.anchor.map(v=>v/scale);
+  const fitted={image:transform(image),glow:transform(kit.glows.get(piece)),anchor:[ax*ratio,ay+shear*ax-top]};
+  fittedPieces.set(key,fitted);
+  return fitted;
+ }
+ function placeKit(piece,origin,id,length=null,axis=0){
+  const s=kit.pieces.get(piece),f=s.footprint.slice(),corner=s.frontCornerCells.slice();
+  const fitted=length!==null&&length!==s.length?fitStraight(piece,length,axis):null;
+  if(fitted){corner[axis]*=length/s.length;f[axis+2]=length;}
+  const p=[origin[0]+corner[0],origin[1]+corner[1]];
+  const glow=fitted?fitted.glow:kit.glows.get(piece);
+  rows.push([id,fitted?fitted.image:kit.ims.get(piece),p,fitted?fitted.anchor:s.anchor.map(v=>v/kit.km.artworkScale),1,
+   [origin[0]+f[0],origin[1]+f[1],f[2],f[3]],{sourceAsset:'city-walls-v1:'+piece,sceneryKind:'wall',cutawayEligible:true,cityFortification:true,...(glow?{nightEmission:glow}:{})}]);
+ }
  if(kit){
   for(const wall of layout.walls){
-   const side=sideName[wall.side],[a,b]=wall.centerline,axis=a[1]===b[1]?0:1,lo=Math.min(a[axis],b[axis]),hi=Math.max(a[axis],b[axis]),fixed=a[1-axis];
-   const at=u=>axis===0?[u,fixed]:[fixed,u];let u=lo,n=0;
-   while(hi-u>.01){
-    const left=hi-u,tower=n%5===3&&left>=3;
-    if(tower){placeKit(side+'-interval-tower',at(u),'fort:wall:'+wallIndex++);u+=3;}
-    else{const start=left>=5?u:Math.max(lo,hi-5);placeKit(side+'-straight-'+(n%3+1),at(start),'fort:wall:'+wallIndex++);u=start+5;}
-    n++;
+   const side=sideName[wall.side],[a,b]=wall.centerline,axis=a[1]===b[1]?0:1;
+   const lo=Math.min(a[axis],b[axis]),hi=Math.max(a[axis],b[axis]),fixed=a[1-axis];
+   const sections=[];
+   let nominal=0,straights=0;
+   while(nominal<hi-lo-.000001){
+    const tower=sections.length%5===3 && hi-lo-nominal>=3;
+    sections.push(tower);
+    nominal+=tower?3:5;
+    if(!tower)straights++;
+   }
+   // Share a short end between adjacent straights. Towers keep their full footprint.
+   const excess=nominal-(hi-lo),adjusted=Math.min(straights,Math.ceil(excess));
+   const fittedLength=adjusted?5-excess/adjusted:5;
+   let u=lo;
+   for(const [n,tower] of sections.entries()){
+    const length=tower?3:(straights<=adjusted?fittedLength:5);
+    if(!tower)straights--;
+    const origin=axis===0?[u,fixed]:[fixed,u];
+    const piece=side+(tower?'-interval-tower':'-straight-'+(n%3+1));
+    placeKit(piece,origin,'fort:wall:'+wallIndex++,tower?null:length,axis);
+    u+=length;
    }
   }
   const [x0,y0,x1,y1]=[layout.envelope.bounds[0],layout.envelope.bounds[1],layout.envelope.bounds[2],layout.envelope.bounds[3]];
