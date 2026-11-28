@@ -326,13 +326,14 @@
   let bridgeMod = null, bridgeLoading = false;
   function bridgeModule() {
     if (bridgeMod) return bridgeMod;
-    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=6').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
+    if (!bridgeLoading) { bridgeLoading = true; import('./cases/bridge-closure.mjs?v=7').then(m => { bridgeMod = m; refreshLead(); }).catch(() => { bridgeLoading = false; }); }
     return null;
   }
   function bridgeLead(record) {
     const c = record.state.flags.bridgeClosurePilot; if (!c) return null;
     const followup = c.status === 'filed' && !c.followup && Number.isSafeInteger(c.publicReport?.night) && record.state.night > c.publicReport.night;
-    if (c.status !== 'active' && !followup) return null; // never before the enquiry is taken
+    if (c.status !== 'active' && c.status !== 'prologue' && !followup) return null; // never before the enquiry is taken
+    if (c.status === 'prologue' && c.stage === 'alarm') return null;
     const m = bridgeModule(); if (!m || !window.CWP21Game?.openBridgeCase) return null;
     const mentor = record.state.flags.patrolMentorAssignment?.mentorId || 'WATCH-04';
     const pos = city().footPosition?.() || city().position();

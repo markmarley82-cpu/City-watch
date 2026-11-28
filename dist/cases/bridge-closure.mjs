@@ -5,7 +5,9 @@ export const STOPS=Object.freeze({
   watch:Object.freeze([121,134,'RC1']),
   bridge:Object.freeze([133,163,'E011']),
   clerk:Object.freeze([125,164,'APRON:outpost']),
-  copy:Object.freeze([107,162,'E030'])
+  copy:Object.freeze([107,162,'E030']),
+  // Opening chase (Mark, 28 Nov 2026): the lookout runs from the bridge into the yards west of it.
+  alley:Object.freeze([121,158,'E029'])
 });
 const roster=Object.freeze({'WATCH-04':'Nobby','WATCH-03':'Colon'});
 export const TRADER='Mr Hobb';
@@ -37,6 +39,7 @@ const LEADS=Object.freeze({
   order:'When the collector returned, they handed back a signed route order. Its trader’s mark matches the tally.',
   public:'The waiting drivers confirm that the passage is open and that the notice was removed.',
   declaration:'A driver who saw Colon reopen the passage returned with a written order carrying the trader’s mark. The clerk matched it to the tally.',
+  lookout:'The lookout was paid a shilling by a man in a carrier’s coat to watch which carts crossed Brass Bridge and tell them the Watch had shut it.',
   copy:'The crease across the stamp is printed in ink. This notice is a copy of another sheet, not evidence that the same person hung it.'
 });
 export const evidenceText=id=>LEADS[id];
@@ -46,6 +49,16 @@ export function options(record,mentor,position){
   const c=find(record);
   if(!c)return canOffer(record,mentor)?[action('accept','Take the bridge enquiry','watch')]:[];
   if(record.pending||record.state.flags.p21PatrolRounds?.active)return [];
+  if(c.status==='prologue'){
+    // The opening: alarm, robbery, chase, first fight, then the lookout talks and the enquiry proper begins.
+    const p=c.stage;
+    const out=p==='alarm'?[action('alarm','Run for Brass Bridge','watch')]:
+      p==='robbery'?[action('carter','Talk to the robbed carter','bridge')]:
+      p==='cornered'||p==='collar'?[action('collar','Collar the lookout','alley')]:
+      p==='fought'?[action('paid','Ask him what he was doing on the bridge','alley')]:[];
+    // The alarm is answered wherever you stand; everything else at its stop.
+    return out.map(a=>({...a,here:a.id==='alarm'?true:a.id==='paid'?true:there(position,a.stop)||a.stop==='alley'&&!!c.cornerAt&&standsAt(position,[...c.cornerAt])}));
+  }
   if(c.status==='filed')return !c.followup&&record.state.night>c.publicReport?.night?[action('copy','Inspect the second notice','copy')]:[];
   if(c.partner!==mentor)return [action('stand-down','Stand down the enquiry','watch')];
   const result=[];
@@ -66,18 +79,42 @@ export function options(record,mentor,position){
   const proof=c.evidence.includes('tally')&&['order','declaration'].some(key=>c.evidence.includes(key));
   // Testers 26 Nov wanted a payoff: with proof in hand you face the trader himself.
   if(c.reopened&&proof&&!c.confront)result.push(action('confront','Confront the trader who signed the order','bridge'));
+  if(c.confront==='fighting')result.push(action('arrest','Go after '+TRADER,'bridge'));
   if(c.confront==='faced'){
     result.push(action('arrest','Arrest him for posing as the Watch','bridge'));
     result.push(action('repay','Make him pay back every carter he turned away','bridge'));
   }
-  if(c.reopened&&c.confront!=='faced'){
+  if(c.reopened&&c.confront!=='faced'&&c.confront!=='fighting'){
     if(!c.confront)result.push(action('file-relief',c.evidence.includes('collector')?'File the reopening and witnessed collection':'File the reopening; organiser unproved','watch'));
-    if(proof&&c.confront)result.push(action('file-proved',c.confront==='arrested'?'File the arrest, the signed order and the tally':'File the repayment, the signed order and the tally','watch'));
+    if(proof&&c.confront)result.push(action('file-proved',c.confront==='arrested'?'File the arrest, the signed order and the tally':c.confront==='escaped'?'File the signed order and the tally; Hobb fled':'File the repayment, the signed order and the tally','watch'));
   }
   result.push(action('stand-down','Stand down the enquiry','watch'));
   // Testers 26 Nov: the walk back to Watch Square to file lost people. Reports can be filed at
   // any stop of the enquiry.
   return result.map(a=>({...a,here:/^file-/.test(a.id)?['watch','bridge','clerk'].some(s=>there(position,s)):there(position,a.stop)}));
+}
+// The opening for a new recruit (and the playtest): starts the case at the alarm.
+export function startPrologue(record,mentor){
+  if(find(record)||record.pending)return null;
+  const next=JSON.parse(JSON.stringify(record));
+  next.state.flags[FLAG]={status:'prologue',stage:'alarm',prologue:true,partner:mentor||'WATCH-04',choice:null,evidence:[],reopened:false};
+  return next;
+}
+// The game calls this when the officer catches up with the lookout at the end of his run.
+export function corner(record,at){
+  const c=find(record);if(c?.status!=='prologue'||c.stage!=='chase')return null;
+  const next=JSON.parse(JSON.stringify(record)),d=next.state.flags[FLAG];d.stage='cornered';if(Array.isArray(at))d.cornerAt=at.slice(0,3);return next;
+}
+// Read a finished fight back into the case (lookout in the opening, Hobb at the end).
+export function observe(record){
+  const c=find(record);if(!c||record.pending)return null;
+  const binding=c.status==='prologue'&&c.stage==='collar'?'opening-lookout':c.confront==='fighting'?'bridge-hobb':null;
+  if(!binding)return null;
+  const e=(record.encounters||[]).slice(c.encounterStart||0).find(x=>x.binding===binding);if(!e)return null;
+  const next=JSON.parse(JSON.stringify(record)),d=next.state.flags[FLAG],won=['arrested','incapacitated','surrendered'].includes(e.subjectStatus)||/arrest|subdued/.test(e.result?.outcome||e.outcome||'');
+  if(binding==='opening-lookout'){d.stage='fought';d.lookoutResult=won?(e.subjectStatus||'subdued'):'escaped';}
+  else d.confront=won?'arrested':'escaped';
+  return next;
 }
 // Pure transition: the adapter commits the returned record with compare-and-swap.
 export function apply(record,{id,mentor,position}){
@@ -89,6 +126,14 @@ export function apply(record,{id,mentor,position}){
     return {next,message:'Two leads to start: the closure notice at Brass Bridge, or the dispatch clerk on Lower Broad Way. Tap a Walk to … button below. When you arrive, tap the button that appears on the street.'};
   }
   const c=flags[FLAG];
+  if(id==='alarm'){c.stage='robbery';return {next,message:'Nobby falls in beside you, grumbling about his tea. Follow the lantern trail to Brass Bridge.'};}
+  if(id==='carter'){c.stage='chase';return {next,chase:true,message:'“That lad by the rail! He was watching every cart, then he had my purse!” The lad bolts west into the yards. After him!'};}
+  if(id==='collar'){c.stage='collar';c.encounterStart=next.encounters?.length||0;return {next,fight:'opening-lookout',message:'The lad turns, fists up. “Come on then, copper!”'};}
+  if(id==='paid'){
+    const won=c.lookoutResult!=='escaped';
+    c.status='active';delete c.stage;c.evidence=['lookout'];c.choice=null;c.reopened=false;
+    return {next,message:(won?'Sat on a crate, nursing his ear, the lad talks. ':'He got away, but he dropped a scrap of paper in the scuffle. ')+'A man in a carrier’s coat paid him a shilling to watch which carts crossed Brass Bridge, and to tell them the Watch had shut it. The Watch never shut it. Now it’s your case: the notice on the bridge, or the dispatch clerk who counts the carts.'};
+  }
   if(id==='copy'){c.followup={observed:true,night:next.state.night};return {next,message:LEADS.copy};}
   if(id==='stand-down'){
     delete flags[FLAG];return {next,message:'Enquiry stood down. You can take it again from Watch Square.'};
@@ -103,8 +148,14 @@ export function apply(record,{id,mentor,position}){
     return {next,message:'The notice is down and the waiting drivers can pass. Report to the Watch when ready.'};
   }
   if(id==='confront'){
-    c.confront='faced';
+    c.confront='faced';if(c.prologue)c.fightHobb=true;
     return {next,message:'Mr Ernest Hobb, carrier, comes to collect the morning’s takings and finds you holding his signed order. “A misunderstanding,” he says, and looks for the nearest alley.'};
+  }
+  if(id==='arrest'&&c.confront==='fighting'){c.encounterStart=next.encounters?.length||0;return {next,fight:'bridge-hobb',message:TRADER+' is still squaring up by the rail.'};}
+  if(id==='arrest'&&c.fightHobb){
+    // Hobb puts up a proper fight; the result is read back from the encounter record.
+    c.confront='fighting';c.encounterStart=next.encounters?.length||0;
+    return {next,fight:'bridge-hobb',message:TRADER+' drops his ledger and swings a cudgel. “No copper’s taking me in!”'};
   }
   if(id==='arrest'){
     c.confront='arrested';
@@ -121,13 +172,14 @@ export function apply(record,{id,mentor,position}){
   const proved=id==='file-proved';
   c.status='filed';c.outcome=proved?'organiser-proved':c.evidence.includes('collector')?'collector-observed':'passage-reopened';
   c.merit=proved?5:2;
+  if(c.prologue&&c.lookoutResult&&c.lookoutResult!=='escaped')c.merit+=1;
   next.state.merit+=c.merit;
   // A future Inquirer edition can rely on these facts alone; no private evidence or name.
   c.publicReport={caseId:'CW-NC-01',passageReopened:true,watchObserved:c.choice==='observe',night:next.state.night};
-  return {next,message:proved?(c.confront==='arrested'?'Report filed: '+TRADER+' is charged with posing as the Watch; the signed order and tally prove it. 5 merit.':'Report filed: '+TRADER+' has repaid the carters; the signed order and tally prove who ran the diversion. 5 merit.'):(c.outcome==='collector-observed'?'Report filed: the passage is open and the collection was witnessed. The organiser remains unproved. 2 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.')};
+  return {next,message:proved?(c.confront==='arrested'?'Report filed: '+TRADER+' is charged with posing as the Watch; the signed order and tally prove it. '+c.merit+' merit.':c.confront==='escaped'?'Report filed: '+TRADER+' fled, but the signed order and tally prove he ran the diversion. A warrant is out. '+c.merit+' merit.':'Report filed: '+TRADER+' has repaid the carters; the signed order and tally prove who ran the diversion. '+c.merit+' merit.'):(c.outcome==='collector-observed'?'Report filed: the passage is open and the collection was witnessed. The organiser remains unproved. 2 merit.':'Report filed: the passage is open. The organiser remains unproved. 2 merit.')};
 }
 
-export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,onChange,showDuty,doc=document}){
+export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,onChange,showDuty,onFight=()=>{},onChase=()=>{},doc=document}){
   let routes;
   function open(){
     routes=routes||resolveStops(city.world,findPath);
@@ -139,8 +191,16 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
     box.replaceChildren();
     const line=(tag,value)=>{const el=doc.createElement(tag);el.textContent=value;box.append(el);};
     const button=(label,handler)=>{const el=doc.createElement('button');el.type='button';el.textContent=label;el.onclick=handler;box.append(el);};
-    line('h3',TITLE);
-    if(!c)line('p','Drivers say the Watch has diverted them away from Brass Bridge. The Watch has no closure on record. Try the bridge notice or the dispatch clerk on Lower Broad Way first.');
+    line('h3',c?.status==='prologue'&&c.stage!=='fought'?'Thief on Brass Bridge!':TITLE);
+    if(c?.status==='prologue'){
+      const say={alarm:'A runner bursts through the Watch House door, out of breath. “Thief! On Brass Bridge! A carter’s just been robbed!” Sergeant Colon jerks a thumb at you. “Well, don’t stand there, recruit. Take Nobby.”',
+        robbery:'Follow the lantern trail to Brass Bridge and find the carter who was robbed.',
+        chase:'The lookout is running. Keep him in sight and follow him into the yards.',
+        cornered:'You’ve run him into a yard with no way out.',collar:'The lad is squaring up. Collar him.',
+        fought:c.lookoutResult==='escaped'?'He slipped away, but something fell from his pocket.':'The lad is caught. Ask him what he was really doing on the bridge.'}[c.stage];
+      line('p',say||'');
+    }
+    else if(!c)line('p','Drivers say the Watch has diverted them away from Brass Bridge. The Watch has no closure on record. Try the bridge notice or the dispatch clerk on Lower Broad Way first.');
     else if(c.status==='filed'){
       line('p',c.outcome==='organiser-proved'?(c.confront==='arrested'?'Filed: '+TRADER+' arrested for posing as the Watch, proved by the written order and the tally.':c.confront==='repaid'?'Filed: '+TRADER+' repaid the carters he turned away, proved by the written order and the tally.':'Filed: the organiser was identified from the written order and the tally.'):(c.outcome==='collector-observed'?'Filed: the passage reopened and the collection was witnessed. The organiser was not proved.':'Filed: the passage reopened. The organiser was not proved.'));
       if(c.followup)line('p',LEADS.copy);
@@ -164,7 +224,11 @@ export function createBridgeClosure({city,dialog,box,makeStore,partner,findPath,
         const current=makeStore(), latest=current.read();
         const result=apply(latest,{id:a.id,mentor:partner(latest),position:city.footPosition?.()||city.position()});
         if(!result||!current.replaceRecord(result.next,latest.revision)){city.tell('Your patrol changed. Reopen Duty and try again.');render();return;}
-        onChange(result.message);render();line('p',result.message);
+        onChange(result.message);
+        if(result.fight){dialog.close();onFight(result.fight);return;}
+        if(result.chase){dialog.close();onChase();return;}
+        if(a.id==='alarm'){dialog.close();if(!city.nav(STOPS.bridge.slice(0,2),STOPS.bridge[2]))city.tell('Follow the lantern trail to Brass Bridge.');return;}
+        render();line('p',result.message);
       });
     }
     button('Back to Duty',showDuty);

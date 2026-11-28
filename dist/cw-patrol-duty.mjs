@@ -1,4 +1,4 @@
-import './cw-opening-suspect.js?v=p21-b499-purse-appearances';
+import './cw-opening-suspect.js?v=opening-fight-2';
 import {enquiryForStop,loadEnquiryCases,newEnquiry,enquiryView,collectEnquiry,prepareEnquiry,validEnquiry,FIRST_CASE_ROUTE,FIRST_CASE_FIGHT,openingPurseCase} from './cw-patrol-enquiries.mjs?v=purse-street-leads';
 import {campaignClock,shiftClock} from './city-clock.mjs?v=game-time';
 import {streetPath} from './city-movement.mjs?v=p21-b407-s039-reuse';

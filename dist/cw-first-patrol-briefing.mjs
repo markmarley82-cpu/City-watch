@@ -5,7 +5,8 @@ export const FIRST_PATROL_ROUTE=FIRST_CASE_ROUTE;
 export function firstPatrolBriefingEligible(record){
  const state=record?.state,flags=state?.flags||{},rounds=flags.p21PatrolRounds;
  return !!flags.watchOathVersion&&typeof flags.recruitName==='string'&&!!flags.recruitName.trim()&&
-  state.chapter===0&&state.stage===0&&!record.pending&&record.steps===0&&
+  // A recruit who started with the Brass Bridge alarm gets this briefing once that case is filed.
+  state.chapter===0&&state.stage===0&&!record.pending&&(flags.bridgeClosurePilot?.prologue?flags.bridgeClosurePilot.status==='filed':record.steps===0&&/[?&]opening=old(&|$)/.test(globalThis.location?.search||''))&&
   !flags[FIRST_PATROL_BRIEFING_FLAG]&&!rounds?.active;
 }
 

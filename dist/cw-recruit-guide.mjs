@@ -96,7 +96,9 @@ export function createRecruitGuide({city,game,freshRecruit=false,storage=localSt
  addEventListener('message',message);combatCopy.textContent=battleAdvice(null);
  const timer=setInterval(()=>{
   if(doc.hidden)return;event();
-  if(freshRecruit&&!welcomeOffered&&progress.status==='unseen'&&game.state().state.flags.watchOathVersion&&!window.CWRecruitmentPending&&doc.body.dataset.cityBoot==='ready'&&!doc.querySelector('dialog[open],.cw-oath,#watch-notebook.open')){
+  // The Brass Bridge opening teaches by doing (Mark: no step-by-step tutorial). The guide stays in the Dis-organiser
+  // menu; its welcome pop-up is only offered with the old opening (?opening=old).
+  if(freshRecruit&&!welcomeOffered&&progress.status==='unseen'&&game.state().state.flags.watchOathVersion&&!game.state().state.flags.bridgeClosurePilot?.prologue&&/[?&]opening=old(&|$)/.test(location.search)&&!window.CWRecruitmentPending&&doc.body.dataset.cityBoot==='ready'&&!doc.querySelector('dialog[open],.cw-oath,#watch-notebook.open')){
    welcomeOffered=true;if(open(true))save({...progress,status:'offered'});
   }
  },1000);

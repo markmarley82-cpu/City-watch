@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import State from '../dist/cw-p21-state.js';
 import {compileCity} from '../dist/city-core.mjs';
 import {streetPath} from '../dist/city-movement.mjs';
-import {FLAG, STOPS, apply, canOffer, options, resolveStops} from '../dist/cases/bridge-closure.mjs';
+import {FLAG, STOPS, apply, canOffer, options, resolveStops, startPrologue, corner, observe} from '../dist/cases/bridge-closure.mjs';
 import {BRIDGE_CASE, BRIDGE_REPORT, bridgeReportPublished, withBridgeEdition} from '../dist/newspapers/bridge-closure-edition.mjs';
 import {createNewspapers} from '../dist/newspapers/newspapers.mjs';
 const read=(path,fixture)=>JSON.parse(readFileSync(new URL(process.env.CW_PILOT_EXTRACT?'../'+fixture:'../dist/'+path,import.meta.url)));
@@ -70,3 +70,20 @@ assert.deepEqual(options(active,'WATCH-03',STOPS.watch).map(a=>a.id),['stand-dow
 expectNone(active,'file-proved','WATCH-04',STOPS.watch);
 assert.equal(apply(active,{id:'stand-down',mentor:'WATCH-03',position:STOPS.watch}).next.state.flags[FLAG],undefined);
 console.log(JSON.stringify({routes:distances,provedBranches:2,partialBranches:2,saveReload:true,deduplicated:true,publicArticleNextEdition:true,followingLead:true}));
+
+// The opening (28 Nov 2026): alarm, carter, chase, fight with the lookout, then the case proper.
+{
+ const {store}=setup();const go=(rec,id,at)=>{const t=apply(rec,{id,mentor:'WATCH-04',position:at});assert.ok(t,id);return t;};
+ let r=startPrologue(store().read(),'WATCH-04');assert.equal(r.state.flags[FLAG].stage,'alarm');
+ assert.equal(startPrologue(r,'WATCH-04'),null);
+ r=go(r,'alarm',STOPS.watch).next;assert.equal(r.state.flags[FLAG].stage,'robbery');
+ assert.equal(apply(r,{id:'carter',mentor:'WATCH-04',position:STOPS.watch}),null);
+ const t=go(r,'carter',STOPS.bridge);assert.equal(t.chase,true);r=t.next;
+ r=corner(r,STOPS.alley);assert.equal(r.state.flags[FLAG].stage,'cornered');
+ const f=go(r,'collar',STOPS.alley);assert.equal(f.fight,'opening-lookout');r=f.next;
+ assert.equal(observe(r),null);
+ r={...r,encounters:[{binding:'opening-lookout',subjectStatus:'arrested'}]};r=observe(r);assert.equal(r.state.flags[FLAG].stage,'fought');
+ r=go(r,'paid',STOPS.alley).next;const c=r.state.flags[FLAG];assert.equal(c.status,'active');assert.deepEqual(c.evidence,['lookout']);
+ assert.ok(options(r,'WATCH-04',STOPS.bridge).some(a=>a.id==='notice'));
+}
+console.log('opening prologue ok');
