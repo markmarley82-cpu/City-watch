@@ -6,7 +6,7 @@
   let library = null, ready = false, error = null, recruit = C.defaultRecruit, name = '';
   const loading=new Map(),failures=new Map();let assignedKey=null;
   const identities = {partner: 'watch-recruit-female', patron: 'dockworker', lookout: 'cutpurse'};
-  const opponentKeys=new Set(['cutpurse','dockworker','produce-vendor','dwarf','troll','scholar','p3_gnoll_01','zombie','vampire','werefolk']);
+  const opponentKeys=new Set(['opening-lookout','opening-hobb','opening-collector','cutpurse','dockworker','produce-vendor','dwarf','troll','scholar','p3_gnoll_01','zombie','vampire','werefolk']);
   const artKey=actor=>actor.id==='officer'?recruit:actor.mentorId?root.CWPatrolPartner.art(actor.mentorId):opponentKeys.has(actor.appearance)?actor.appearance:identities[actor.art];
   const readyPromise = (async () => {
     await root.CW_LAB.prepare();

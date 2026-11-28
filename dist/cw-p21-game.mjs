@@ -3,7 +3,7 @@ import {createPatrolConversations} from './city-conversations.mjs?v=p21-b407-s03
 import {createDibbler} from './cw-dibbler.mjs?v=p21-b461-watch-ui';
 import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
-import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw8-o2';
+import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw8-o3';
 import {canFollowNewspaperLead} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
 import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw6';
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
@@ -130,7 +130,7 @@ function syncPurseActors(record){
 let bridgeActors=[];
 // The opening (28 Nov 2026): a runner at the Watch House, a trader who points the way, the robbed
 // carter, and the lookout who runs into the yards when you get close.
-const bridgeLookout={id:'bridge-lookout',name:'Lad in a flat cap',key:'cutpurse',p:null,stop:'alley'};
+const bridgeLookout={id:'bridge-lookout',name:'Lad in a flat cap',key:'opening-lookout',p:null,stop:'alley'};
 let bridgeChase=null,bridgeTraderSpoke=false;
 function bridgePeople(record){
  const c=record.state?.flags?.bridgeClosurePilot;if(!c||c.status==='filed'||record.pending&&c.status!=='prologue')return [];
@@ -146,12 +146,12 @@ function bridgePeople(record){
   return list;
  }
  const at=q=>nearest(q),list=[{id:'bridge-clerk',name:'Dispatch clerk',key:'scholar',p:at([123,165]),stop:'clerk'}];
- if(!c.reopened){list.push({id:'bridge-collector',name:'Man in a borrowed Watch sash',key:'p3_human_02',p:at([135,162]),stop:'bridge'},
+ if(!c.reopened){list.push({id:'bridge-collector',name:'Man in a borrowed Watch sash',key:'opening-collector',p:at([135,162]),stop:'bridge'},
   {id:'bridge-driver-1',name:'Waiting carter',key:'farmer',p:at([131,160]),stop:'bridge'},
   {id:'bridge-driver-2',name:'Waiting carter',key:'p3_dwarf_01',p:at([130,158]),stop:'bridge'});}
  else list.push({id:'bridge-driver-1',name:'Carter, now on his way',key:'farmer',p:at([134,166]),stop:'bridge'});
  // The trader once confronted: by the notice, then held beside the lamp after an arrest.
- if(c.confront)list.push({id:'bridge-trader',name:c.confront==='arrested'?'Mr Hobb, under arrest':'Mr Ernest Hobb, carrier',key:'p3_human_01',p:at(c.confront==='arrested'?[131,162]:[136,163]),stop:'bridge'});
+ if(c.confront)list.push({id:'bridge-trader',name:c.confront==='arrested'?'Mr Hobb, under arrest':'Mr Ernest Hobb, carrier',key:'opening-hobb',p:at(c.confront==='arrested'?[131,162]:[136,163]),stop:'bridge'});
  return list;
 }
 function tickBridgeChase(){
@@ -408,7 +408,7 @@ function closeEngine(){
 let battleLoadTimer;
 async function battle({savedHandoff=false}={}){if(combatID&&$('p21-combat-dialog').open)return;const v=state();if(dimwellEncounterHold(v)){city.tell(DIMWELL_RENDEZVOUS);return;}const binding=v.pending?.binding??encounterBinding(v);if(v.pending?.chase){chaseMenu();return;}if(!v.pending&&!binding){city.tell('Walk to an active incident or the Mended Drum to begin an encounter.');return;}city.stop();let pending;try{const st=savedHandoff?window.CWP21State.create(localStorage):saveNav();pending=st.begin({'opening-lookout':'CW-OPENING-LOOKOUT','bridge-hobb':'CW-BRIDGE-HOBB',[FIRST_CASE_FIGHT]:'CW-OPENING-PURSE','shift-disturbance':'CW-SHIFT-DISTURBANCE',smuggler:'P21-DELIVERY','crypt-raider':'P21-DELIVERY','cutpurse-0':'P21-PATROL','cutpurse-1':'P21-PATROL'}[binding]||'taproom',binding,encounterLocation(v.pending?.position||city.position()));}catch{saveFailure();return;}combatID=pending.id;activeEncounter=pending;battleSettlement=null;const d=$('p21-combat-dialog'),frame=$('p21-combat-frame');
  d.dataset.loading='';$('p21-combat-loading').hidden=false;$('p21-combat-close').textContent='Cancel';frame.inert=true;
- frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening3';d.showModal();
+ frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening5';d.showModal();
  battleLoadTimer=setTimeout(()=>{closeBattle();city.tell('The encounter could not open. You can resume it from the street.');},25000);}
 window.addEventListener('message',e=>{
  if(window.CWGameRestarting)return;

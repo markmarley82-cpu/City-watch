@@ -1,7 +1,7 @@
 import './cw-action-frames.js?v=p21-b407-s039-reuse';
 import '../cw-action-rigs-data.js?v=p21-b407-s039-reuse';
 /* Approved recruit folio. Live sprite/head/kit controls; no baked-in UI. */
-if(!window.CWCharacters)await import('./cw-character-runtime.js?v=p21-b498-appearance-recovery');
+if(!window.CWCharacters)await import('./cw-character-runtime.js?v=p21-b498-appearance-recovery-cast2');
 if(!window.CWClothing)await import('./cw-clothing.js?v=p21-b407-s039-reuse');
 if(!window.CWHeads)await import('../cw-heads.js?v=p21-b407-s039-reuse');
 if(!window.CWClothing.report().fittedBodies)await import('../cw-race-wardrobe.js?v=p21-b407-s039-reuse');

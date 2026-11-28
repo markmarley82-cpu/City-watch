@@ -1,0 +1,66 @@
+{
+  "format": "Transparent lossless WebP",
+  "sheet": [
+    4,
+    2
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    232
+  ],
+  "order": [
+    "street-idle",
+    "run-away-contact",
+    "run-away-extension",
+    "street-step",
+    "combat-guard",
+    "combat-windup",
+    "combat-strike",
+    "combat-recoil"
+  ],
+  "characters": {
+    "lookout": {
+      "sheet": "lookout/sheet.webp",
+      "frames": [
+        "lookout/street-idle.webp",
+        "lookout/run-away-contact.webp",
+        "lookout/run-away-extension.webp",
+        "lookout/street-step.webp",
+        "lookout/combat-guard.webp",
+        "lookout/combat-windup.webp",
+        "lookout/combat-strike.webp",
+        "lookout/combat-recoil.webp"
+      ]
+    },
+    "hobb": {
+      "sheet": "hobb/sheet.webp",
+      "frames": [
+        "hobb/street-idle.webp",
+        "hobb/run-away-contact.webp",
+        "hobb/run-away-extension.webp",
+        "hobb/street-step.webp",
+        "hobb/combat-guard.webp",
+        "hobb/combat-windup.webp",
+        "hobb/combat-strike.webp",
+        "hobb/combat-recoil.webp"
+      ]
+    },
+    "collector": {
+      "sheet": "collector/sheet.webp",
+      "frames": [
+        "collector/street-idle.webp",
+        "collector/run-away-contact.webp",
+        "collector/run-away-extension.webp",
+        "collector/street-step.webp",
+        "collector/combat-guard.webp",
+        "collector/combat-windup.webp",
+        "collector/combat-strike.webp",
+        "collector/combat-recoil.webp"
+      ]
+    }
+  }
+}
