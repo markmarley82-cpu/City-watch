@@ -21,7 +21,9 @@ In the first seconds the player should know where to go, and within a couple of 
 
 **Teach by doing, with no pop-up tutorial:** the trader teaches following the trail, the chase teaches movement, the lookout teaches combat, and the carters teach questioning.
 
-## 2. Life between cases
+## 2. Life between cases — first version built 28 Nov 2026
+
+**Status:** `dist/cases/street-incidents.mjs` (a pickpocket, a brawl, a cart in the road, a lost child) spawns one incident a few steps away when the city is quiet, at most every 75 s and 25 steps. The lantern trail points at it, you tap the people, and you pick what to do. The pickpocket and the brawl can turn into fights (`incident-thief`, `incident-brawl`). Each pays 1 merit, or 2 for a won fight.
 
 After Hobb, patrol with small **street incidents** that pop up as you walk: a pickpocket, a tavern brawl, a lost dog, a cart in the road. Each takes about a minute and pays a little merit. Then the next proper case arrives from Vimes, a bit tougher than the last.
 

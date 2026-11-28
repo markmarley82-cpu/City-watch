@@ -3,7 +3,7 @@ import {createPatrolConversations} from './city-conversations.mjs?v=p21-b407-s03
 import {createDibbler} from './cw-dibbler.mjs?v=p21-b461-watch-ui';
 import './field-training/cw-encounter-feel.js?v=p21-b407-s039-reuse';
 import {createPartnerTrail} from './city-partner-trail.mjs?v=p21-b407-s039-reuse';
-import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw8-o4';
+import {createPatrolDuty} from './cw-patrol-duty.mjs?v=p21-b534-cw8-o5';
 import {canFollowNewspaperLead} from './newspapers/campaign-leads.mjs?v=p21-b407-s039-reuse';
 import {createPatrolLoop} from './cw-patrol-loop.mjs?v=p21-b527-patrol-state-cw6';
 import {patrolAction,caseProgress,filedCase} from './patrol-flow.mjs?v=p21-b407-s039-reuse';
@@ -66,7 +66,7 @@ let detaineeTrail=[];
 const detainee={id:'patrol-detainee',key:'cutpurse',name:'Suspect in custody',p:city.position().slice(),stoodDown:true};
 const companion={id:'patrol-partner',exactFoot:true,moving:false,p:city.position().slice(),key:Partner.art(patrolMember.id),name:patrolMember.name};
 async function syncPartner(){const v=state(),m=Partner.member(v.state,v.pending);await window.CWDrawnCharacters.current.ensureAppearance(Partner.art(m.id),{});patrolMember=m;companion.key=Partner.art(m.id);companion.name=m.name;companion.mentorId=m.id;const condition=v.pending?.battle?.actors?.find(a=>a.id==='partner'&&a.mentorId===m.id)||v.state.flags.patrolPartnerVitals?.[m.id];companion.stoodDown=condition?.hp===0;const start=city.position();companion.p=partnerFeet.reset(city.footPosition?.()||start);partnerTrail=[companion.p.slice()];lastPartnerStep='';}
-function updatePartner(now,visualFoot){moveMarketVisitor(visualFoot);tickBridgeChase();dibbler.update(now);updateChase(now);const p=city.position(),k=p.join(',');if(k!==lastPartnerStep){lastPartnerStep=k;partnerTrail.push(p.slice());if(partnerTrail.length>2)partnerTrail.shift();if(!detainee.stoodDown&&detaineeTrail.at(-1)?.join(',')!==k){detaineeTrail.push(p.slice());if(detaineeTrail.length>3)detainee.p=detaineeTrail.shift();}}const before=companion.p;companion.p=partnerFeet.sample(visualFoot||city.footPosition?.()||p);companion.moving=Math.hypot(companion.p[0]-before[0],companion.p[1]-before[1])>1e-8;partnerDraws++;}
+function updatePartner(now,visualFoot){moveMarketVisitor(visualFoot);tickBridgeChase();tickIncidents();dibbler.update(now);updateChase(now);const p=city.position(),k=p.join(',');if(k!==lastPartnerStep){lastPartnerStep=k;partnerTrail.push(p.slice());if(partnerTrail.length>2)partnerTrail.shift();if(!detainee.stoodDown&&detaineeTrail.at(-1)?.join(',')!==k){detaineeTrail.push(p.slice());if(detaineeTrail.length>3)detainee.p=detaineeTrail.shift();}}const before=companion.p;companion.p=partnerFeet.sample(visualFoot||city.footPosition?.()||p);companion.moving=Math.hypot(companion.p[0]-before[0],companion.p[1]-before[1])>1e-8;partnerDraws++;}
 function partnerMenu(){
  if(state().state.flags.bridgeClosurePilot?.status==='active'){city.tell('File or stand down the bridge enquiry before changing partners.');return false;}
  if(patrolDuty?.dimwellPartnerAway(state())){city.tell('Meet Nobby at the Park Lane approach before changing partners.');return false;}
@@ -192,6 +192,45 @@ function bridgeContactClick(p){
  else{city.tell(a.name+'. Walking over.');city.nav(stop.slice(0,2),stop[2]);}
  return true;
 }
+// ---- Street incidents (28 Nov 2026) ----
+let incidentMod=null,incidentActors=[],incidentTick=0;
+const incidentLoad=()=>incidentMod||import('./cases/street-incidents.mjs?v=1').then(m=>incidentMod=m).catch(()=>null);
+incidentLoad();
+function incidentStore(fn){const st=window.CWP21State.create(localStorage),latest=st.read(),r=fn(latest);if(r&&st.replaceRecord(r.next,latest.revision)){refresh();return r;}return null;}
+function tickIncidents(){
+ const now=Date.now();if(now-incidentTick<1500||!incidentMod)return;incidentTick=now;
+ if(document.querySelector('dialog[open]')||document.body.dataset.cityBoot!=='ready')return;
+ const v=state(),a=incidentMod.data(v).active,me=city.footPosition?.()||city.position();
+ if(a){if(a.stage!=='fight'&&distance(me,a.at)>16)incidentStore(r=>incidentMod.abandon(r,now));return;}
+ if(!incidentMod.canSpawn(v,now,city.steps()))return;
+ // Somewhere a few steps ahead of you on public ground, never on top of you.
+ for(let k=0;k<8;k++){const ang=Math.random()*Math.PI*2,d=5+Math.random()*3,q=nearest([Math.round(me[0]+Math.cos(ang)*d),Math.round(me[1]+Math.sin(ang)*d)]);
+  if(!q||distance(q,me)<4||distance(q,me)>10)continue;
+  const r=incidentStore(rec=>incidentMod.spawn(rec,{at:q,now,steps:city.steps()}));if(r){city.tell(r.alert+' Tap them to step in.');break;}}
+}
+function syncIncidentActors(v){
+ if(!incidentMod)return;const a=incidentMod.data(v).active,want=a?incidentMod.TYPES[a.type].people.map(p=>({id:'incident-'+p.role,name:p.name,key:p.key,p:nearest([a.at[0]+(p.dx||0),a.at[1]+(p.dy||0)])||a.at.slice(),incident:true})):[];
+ if(want.length===incidentActors.length&&want.every((w,i)=>w.id===incidentActors[i].id&&w.p.join()===incidentActors[i].p.join()))return;
+ for(const x of incidentActors){const i=actors.indexOf(x);if(i>=0)actors.splice(i,1);}
+ incidentActors=want;actors.push(...want);for(const x of want)city.characterPainter.library.request(x.key);
+}
+function incidentObserve(v){if(!incidentMod)return;const r=incidentMod.observe(v);if(r){const st=window.CWP21State.create(localStorage),latest=st.read(),again=incidentMod.observe(latest);if(again&&st.replaceRecord(again.next,latest.revision))setTimeout(()=>city.tell(again.message),600);}}
+function openIncident(){
+ const v=state(),a=incidentMod?.data(v).active;if(!a)return false;const T=incidentMod.TYPES[a.type];
+ city.stop();const dialog=$('p21-duty-dialog'),box=$('p21-duty-actions');box.replaceChildren();
+ const line=(tag,t)=>{const e=document.createElement(tag);e.textContent=t;box.append(e);};
+ line('h3',T.title);line('p',a.stage==='fight'?'They’re still squaring up.':T.intro);
+ for(const o of incidentMod.options(v)){const b=document.createElement('button');b.type='button';b.textContent=o.label;b.onclick=()=>{
+   const r=incidentStore(rec=>incidentMod.apply(rec,o.id,{now:Date.now(),steps:city.steps()}));dialog.close();if(!r)return;city.tell(r.message);if(r.fight)setTimeout(()=>battle(),300);};box.append(b);}
+ const back=document.createElement('button');back.type='button';back.textContent='Leave it';back.onclick=()=>dialog.close();box.append(back);
+ if(!dialog.open)dialog.showModal();return true;
+}
+function incidentContactClick(p){
+ const x=incidentActors.find(a=>distance(p,a.p)<=1.2);if(!x)return false;
+ const me=city.footPosition?.()||city.position();
+ if(distance(me,x.p)<=2.6){openIncident();}else{city.nav(x.p.slice(0,2),x.p[2]);city.tell('Walking over. Tap them again when you get there.');}
+ return true;
+}
 function purseContactClick(p){
  const actor=purseActors.find(a=>distance(p,a.p)<=1);
  if(!actor)return false;
@@ -236,11 +275,11 @@ function marketContactClick(p){
  }else city.nav(actor.p.slice(0,2),actor.p[2]);
  return true;
 }
-function npcNear(){return actors.filter(a=>!a.id.startsWith('market-case-')&&!a.id.startsWith('purse-')&&!a.id.startsWith('bridge-')&&a.id!=='dibbler'&&a.id!=='colon'&&a.id!=='patrol-partner'&&a.id!=='chase-suspect'&&a.id!=='delivery-runner'&&a.id!=='patrol-detainee'&&!newspaperSellers.isSeller(a.id)&&distance(city.position(),a.p)<=3).sort((a,b)=>distance(city.position(),a.p)-distance(city.position(),b.p))[0]||(city.nearColon()?{id:'colon',name:names.colon}:null);}
+function npcNear(){return actors.filter(a=>!a.id.startsWith('market-case-')&&!a.id.startsWith('purse-')&&!a.id.startsWith('bridge-')&&!a.id.startsWith('incident-')&&a.id!=='dibbler'&&a.id!=='colon'&&a.id!=='patrol-partner'&&a.id!=='chase-suspect'&&a.id!=='delivery-runner'&&a.id!=='patrol-detainee'&&!newspaperSellers.isSeller(a.id)&&distance(city.position(),a.p)<=3).sort((a,b)=>distance(city.position(),a.p)-distance(city.position(),b.p))[0]||(city.nearColon()?{id:'colon',name:names.colon}:null);}
 function assignmentContact(record){const current=target(record);if(!current.startsWith('npc:'))return null;const id=current.slice(4);if(id==='colon')return city.nearColon()?{id,name:names.colon}:null;return actors.find(a=>a.id===id&&distance(city.position(),a.p)<=3)||null;}
 const DIMWELL_RENDEZVOUS='Meet Nobby at the Park Lane approach before starting another encounter.';
 function dimwellEncounterHold(record){return !record.pending&&patrolDuty?.dimwellPartnerAway(record);}
-function encounterBinding(record=state()){const s=record.state,p=city.position();if(dimwellEncounterHold(record)||patrolDuty?.escortActive(record))return null;{const bc=s.flags?.bridgeClosurePilot;if(bc?.status==='prologue'&&bc.stage==='collar')return 'opening-lookout';if(bc?.confront==='fighting'&&bc.status!=='filed')return 'bridge-hobb';}if(patrolDuty?.openingSuspect(record))return FIRST_CASE_FIGHT;if(s.chapter===1&&s.stage===3&&distance(p,city.world.doors.get('crypt').position)<5)return 'smuggler';if(s.chapter===1&&s.stage===4&&!s.flags.cryptWon&&distance(p,city.world.doors.get('crypt').position)<5)return 'crypt-raider';if(s.chapter===2&&s.stage===1){for(const [i,id] of ['market','shades'].entries())if(distance(p,nearest(city.world.doors.get(id).position))<5&&!s.flags.lorePatrolArrests?.includes('cutpurse-'+i))return 'cutpurse-'+i;}if(patrolDuty?.shiftDisturbance(record))return 'shift-disturbance';return distance(p,city.world.doors.get('drum').position)<5?'taproom':null;}
+function encounterBinding(record=state()){const s=record.state,p=city.position();if(dimwellEncounterHold(record)||patrolDuty?.escortActive(record))return null;{const si=s.flags?.streetIncidentsV1?.active;if(si?.stage==='fight')return si.type==='brawl'?'incident-brawl':'incident-thief';const bc=s.flags?.bridgeClosurePilot;if(bc?.status==='prologue'&&bc.stage==='collar')return 'opening-lookout';if(bc?.confront==='fighting'&&bc.status!=='filed')return 'bridge-hobb';}if(patrolDuty?.openingSuspect(record))return FIRST_CASE_FIGHT;if(s.chapter===1&&s.stage===3&&distance(p,city.world.doors.get('crypt').position)<5)return 'smuggler';if(s.chapter===1&&s.stage===4&&!s.flags.cryptWon&&distance(p,city.world.doors.get('crypt').position)<5)return 'crypt-raider';if(s.chapter===2&&s.stage===1){for(const [i,id] of ['market','shades'].entries())if(distance(p,nearest(city.world.doors.get(id).position))<5&&!s.flags.lorePatrolArrests?.includes('cutpurse-'+i))return 'cutpurse-'+i;}if(patrolDuty?.shiftDisturbance(record))return 'shift-disturbance';return distance(p,city.world.doors.get('drum').position)<5?'taproom':null;}
 function freePatrolNeedsDuty(record=state()){const s=record.state;return !record.pending&&!patrolDuty?.onShift(record)&&s.chapter>=2&&s.stage>=quests[2].length-1&&!!s.flags?.finalChoice;}
 // Between shifts in chapter 0, when Captain Carrot's assignment is waiting, point the shortcut at him
 // (the reminder text already names Carrot).
@@ -258,7 +297,7 @@ let lastCaseState=null;
 function dutyDeskAction(record=state(),assigned=assignmentContact(record),view=patrolDuty?.view(record)){return !record.pending&&(view?.firstCase||view?.incidentChoice||view?.dimwell||view?.action==='inspect'&&patrolDuty?.shiftDisturbance(record)||assigned?.id==='colon')&&['book','report'].includes(view?.action)?view:null;}
 function primaryAction(){const record=state(),action=assignmentAction(record,encounterBinding(record));if(action.kind==='bridge')return openBridgeCase();if(action.kind==='carrot')return patrolDuty.goCarrot();if(action.kind==='patrol')return patrolDuty.menu();if(action.kind==='chase')return chaseMenu();if(action.kind==='battle')return battle();if(action.kind==='talk')return service('talk',action.id);if(action.kind==='room')return window.CWP21Game.room(city.nearDoor());return walkTo();}
 // One fresh record per HUD refresh. Interactions and saves still read storage separately.
-function refresh(){const v=state(),s=v.state;patrolDuty?.observeDimwell(v);patrolDuty?.observeDeliveryTail(v);syncDeliveryRunner(v);syncMarketActors(v);syncPurseActors(v);bridgeObserve(v);syncBridgeActors(v);const filed=filedCase(lastCaseState,s);lastCaseState={chapter:s.chapter,merit:s.merit,coins:s.coins};if(filed)city.tell(filed);if(window.CWP21Game)window.CWP21Game.weaponArtId=window.CWWeapons.inventory(s).equipped;$('p21-health').textContent='Health '+s.hp+'/'+s.maxhp;$('p21-money').textContent=s.coins+(s.coins===1?' coin':' coins');const rank=window.CWP21State?.career(s);
+function refresh(){const v=state(),s=v.state;patrolDuty?.observeDimwell(v);patrolDuty?.observeDeliveryTail(v);syncDeliveryRunner(v);syncMarketActors(v);syncPurseActors(v);bridgeObserve(v);syncBridgeActors(v);incidentObserve(v);syncIncidentActors(v);const filed=filedCase(lastCaseState,s);lastCaseState={chapter:s.chapter,merit:s.merit,coins:s.coins};if(filed)city.tell(filed);if(window.CWP21Game)window.CWP21Game.weaponArtId=window.CWWeapons.inventory(s).equipped;$('p21-health').textContent='Health '+s.hp+'/'+s.maxhp;$('p21-money').textContent=s.coins+(s.coins===1?' coin':' coins');const rank=window.CWP21State?.career(s);
  $('p21-merit').textContent=(rank?rank.name+' · ':'')+s.merit+' merit';
  if(window.CWP21Game?.patrolDuty){
   const inCustody=window.CWP21Game.patrolDuty.escortActive(v);
@@ -320,6 +359,7 @@ function guideTarget(){
  const record=state();
  if(record.pending||loading||window.CWRecruitmentPending)return null;
  if(document.querySelector('dialog[open]'))return lastGuide;
+ {const ia=incidentMod?.data(record).active;if(ia&&ia.stage!=='fight'){lastGuide={at:ia.at.slice(),name:incidentMod.TYPES[ia.type].title};return lastGuide;}}
  {const g=bridgeGuide(record);if(g!==undefined){lastGuide=g;return g;}}
  const nav=city.nav,stop=city.stop,tell=city.tell,D=HTMLDialogElement.prototype,showModal=D.showModal,show=D.show;let hit=null;
  city.nav=(p,e)=>{hit=[p[0],p[1],e];return true;};city.stop=()=>{};city.tell=()=>{};D.showModal=function(){};D.show=function(){};
@@ -406,9 +446,9 @@ function closeEngine(){
  refresh();city.update();
 }
 let battleLoadTimer;
-async function battle({savedHandoff=false}={}){if(combatID&&$('p21-combat-dialog').open)return;const v=state();if(dimwellEncounterHold(v)){city.tell(DIMWELL_RENDEZVOUS);return;}const binding=v.pending?.binding??encounterBinding(v);if(v.pending?.chase){chaseMenu();return;}if(!v.pending&&!binding){city.tell('Walk to an active incident or the Mended Drum to begin an encounter.');return;}city.stop();let pending;try{const st=savedHandoff?window.CWP21State.create(localStorage):saveNav();pending=st.begin({'opening-lookout':'CW-OPENING-LOOKOUT','bridge-hobb':'CW-BRIDGE-HOBB',[FIRST_CASE_FIGHT]:'CW-OPENING-PURSE','shift-disturbance':'CW-SHIFT-DISTURBANCE',smuggler:'P21-DELIVERY','crypt-raider':'P21-DELIVERY','cutpurse-0':'P21-PATROL','cutpurse-1':'P21-PATROL'}[binding]||'taproom',binding,encounterLocation(v.pending?.position||city.position()));}catch{saveFailure();return;}combatID=pending.id;activeEncounter=pending;battleSettlement=null;const d=$('p21-combat-dialog'),frame=$('p21-combat-frame');
+async function battle({savedHandoff=false}={}){if(combatID&&$('p21-combat-dialog').open)return;const v=state();if(dimwellEncounterHold(v)){city.tell(DIMWELL_RENDEZVOUS);return;}const binding=v.pending?.binding??encounterBinding(v);if(v.pending?.chase){chaseMenu();return;}if(!v.pending&&!binding){city.tell('Walk to an active incident or the Mended Drum to begin an encounter.');return;}city.stop();let pending;try{const st=savedHandoff?window.CWP21State.create(localStorage):saveNav();pending=st.begin({'incident-thief':'CW-STREET-THIEF','incident-brawl':'CW-STREET-BRAWL','opening-lookout':'CW-OPENING-LOOKOUT','bridge-hobb':'CW-BRIDGE-HOBB',[FIRST_CASE_FIGHT]:'CW-OPENING-PURSE','shift-disturbance':'CW-SHIFT-DISTURBANCE',smuggler:'P21-DELIVERY','crypt-raider':'P21-DELIVERY','cutpurse-0':'P21-PATROL','cutpurse-1':'P21-PATROL'}[binding]||'taproom',binding,encounterLocation(v.pending?.position||city.position()));}catch{saveFailure();return;}combatID=pending.id;activeEncounter=pending;battleSettlement=null;const d=$('p21-combat-dialog'),frame=$('p21-combat-frame');
  d.dataset.loading='';$('p21-combat-loading').hidden=false;$('p21-combat-close').textContent='Cancel';frame.inert=true;
- frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening14';d.showModal();
+ frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening15';d.showModal();
  battleLoadTimer=setTimeout(()=>{closeBattle();city.tell('The encounter could not open. You can resume it from the street.');},25000);}
 window.addEventListener('message',e=>{
  if(window.CWGameRestarting)return;
@@ -621,7 +661,7 @@ function chaseMenu(){const v=state(),c=v.pending?.chase;if(!c)return;const near=
  if(near&&['caught','surrendered'].includes(c.status))button('Let them go',()=>finishChase('released'));
  button('Continue pursuit',()=>city.tell('Follow the last sighting. The circle moves your recruit; release it to stop.'));
  button('Call off the search',()=>finishChase('lost'));d.showModal();}
-window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,bridgeContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,guideTarget,battle,state,
+window.CWP21Game={canEnter:d=>!d?.held&&!(d?.game_id==='crypt'&&state().state.chapter<1)&&!!(d?.shop_key||d?.lodging_grade!==undefined||royalBankDoor(d)||postOfficeDoor(d)||palaceInteriors.canHandle(d)||guildInteriors?.canHandle(d)||d?.game_id==='university'||d?.legacy_binding?.legacy_interior_key),cityServices,enterUniversity:universityInteriors.enter,updatePartner,partnerMenu,cancelPursuitTracking,newspaperSellers,universityWizards,playerContacts,dibbler,contactClick:p=>{const a=actors.filter(a=>!a.stoodDown&&a.p&&!['dibbler','patrol-detainee','delivery-runner'].includes(a.id)&&!newspaperSellers.isSeller(a.id)&&Math.hypot(a.p[0]-p[0],a.p[1]-p[1])<=1).sort((a,b)=>distance(a.p,p)-distance(b.p,p))[0];if(!a)return false;if(a.id==='carrot'&&patrolDuty?.deliveryContact())return patrolDuty.deliveryMenu();if(distance(city.position(),a.p)<=3)playerContacts.talk(a.id);else walkTo('npc:'+a.id);return true;},purseContactClick,bridgeContactClick,incidentContactClick,marketContactClick,dimwellRunnerClick:p=>patrolDuty?.dimwellRunnerClick(p),sellerClick:p=>dibbler.click(p)||newspaperSellers.click(p),refresh,palaceInteriors,room:d=>royalBankDoor(d)?enterRoyalBank(d):postOfficeDoor(d)?enterPostOffice(d):palaceInteriors.canHandle(d)?palaceInteriors.enter(d):guildInteriors?.canHandle(d)?guildInteriors.enter(d):service('room',d.game_id),actors,walkTo,guideTarget,battle,state,
  interact(){const pending=state().pending;if(pending?.chase){chaseMenu();return true;}if(pending){battle();return true;}const marketDuty=patrolDuty?.view();
  if(marketDuty?.delivery&&['inspect','report'].includes(marketDuty.action)){patrolDuty.primary();return true;}
  if(patrolDuty?.deliveryContact()){patrolDuty.deliveryMenu();return true;}

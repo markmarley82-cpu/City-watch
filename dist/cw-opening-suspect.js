@@ -25,6 +25,14 @@
    const helper=battle.actors.find(a=>a.team==='opposition'&&a!==actor);if(helper){helper.name='Hobb’s collector';helper.appearance='opening-collector';}
    return {name:actor.name,badge:'Mr Hobb',key:'dockworker'};
   }
+  // Street incidents (28 Nov 2026): a pickpocket on his own, or two brawlers.
+  if(binding==='incident-thief'||binding==='incident-brawl'){
+   const actor=battle.actors?.find(a=>a.id==='patron'&&a.team==='opposition');if(!actor)return null;
+   const others=battle.actors.filter(a=>a.team==='opposition'&&a!==actor);
+   if(binding==='incident-thief'){actor.name='Pickpocket';actor.appearance='cutpurse';for(const other of others){const i=battle.actors.indexOf(other);if(i>(battle.turn||0))battle.actors.splice(i,1);else{other.status='released';}}}
+   else{actor.name='Docker with a grudge';actor.appearance='dockworker';if(others[0]){others[0].name='Dwarf with a bigger grudge';others[0].appearance='dwarf';}}
+   return {name:actor.name,badge:actor.name,key:actor.appearance};
+  }
   if(binding!=='yard-purse-suspect')return null;
   const art=look(variant),actor=battle.actors?.find(a=>a.id==='patron'&&a.team==='opposition');
   if(!art||!actor)return null;
