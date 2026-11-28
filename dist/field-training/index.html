@@ -709,7 +709,8 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#353a30';ctx.fillRect(0,0,w,h);
     view=I.camera(w,h);
-    const battleScene=window.BastionLocations.resolve(state);canvas.dataset.district=battleScene.id;canvas.dataset.battlePlace=state.location?.placeLabel||battleScene.label;const sceneLabel=document.querySelector('.scene-label');if(sceneLabel)sceneLabel.textContent=(state.location?.placeLabel||battleScene.label)+(window.BastionLocations.lightingCopy(state.location?.lighting)?' · '+state.location.lighting.phase:'');
+    const bridgeFinale=campaignContext?.pending.binding==='bridge-hobb';
+    const battleScene=window.BastionLocations.resolve(bridgeFinale?{location:'bridge'}:state);canvas.dataset.district=battleScene.id;canvas.dataset.battlePlace=bridgeFinale?'Brass Bridge':state.location?.placeLabel||battleScene.label;const sceneLabel=document.querySelector('.scene-label');if(sceneLabel)sceneLabel.textContent=canvas.dataset.battlePlace+(window.BastionLocations.lightingCopy(state.location?.lighting)?' · '+state.location.lighting.phase:'');
     const background=battlePainting(battleScene)||(battleScene.id==='tavern'?images.courtyard:null);
     if(background){canvas.dataset.backdropLighting=JSON.stringify(backdropPainter.paint(ctx,background,w,h,state.location,battleScene.cropTop||0,dpr));}
     else window.BastionLocations.shadeBackground(ctx,w,h,state.location);
@@ -798,7 +799,7 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
     $('health').textContent=isBattle?'Stamina '+a.hp+'/'+a.maxHp:state.phase==='patrol'?'Patrol resumed':'Encounter concluded';
     $('budget').textContent=isBattle?(state.mode==='classic'?'Fixed formation':state.budget.move+' moves')+' · '+state.budget.action+' action':state.mode==='hybrid'?'Street hybrid':'Review encounter';
     $('kit-count').textContent=weapon?.range?a.bolts+' bolts · '+(a.loaded?'loaded':'unloaded'):state.items+' bandages · '+(state.supplies?.coffee||0)+' coffee';
-    $('actors').innerHTML=state.actors.filter(b=>b.team==='opposition').map(b=>`<button class="actor-card" data-target="${b.id}" aria-pressed="${target===b.id}" aria-label="Select ${escape(b.name)}, stamina ${b.hp} of ${b.maxHp}, resolve ${b.morale}, ${b.status}"><img class="portrait" src="${portrait(b)}" alt=""><span class="actor-copy"><span class="actor-name">${escape(b.name)}</span><span class="actor-stat">${b.hp}/${b.maxHp} · ${b.status==='active'?'Resolve '+b.morale:b.status}${b.shaken?' · shaken':''}</span><span class="bar"><i style="width:${100*b.hp/b.maxHp}%"></i></span></span></button>`).join('');
+    $('actors').innerHTML=state.actors.filter(b=>b.team==='opposition'&&(campaignContext?.pending.binding!=='opening-lookout'||b.id==='patron')).map(b=>`<button class="actor-card" data-target="${b.id}" aria-pressed="${target===b.id}" aria-label="Select ${escape(b.name)}, stamina ${b.hp} of ${b.maxHp}, resolve ${b.morale}, ${b.status}"><img class="portrait" src="${portrait(b)}" alt=""><span class="actor-copy"><span class="actor-name">${escape(b.name)}</span><span class="actor-stat">${b.hp}/${b.maxHp} · ${b.status==='active'?'Resolve '+b.morale:b.status}${b.shaken?' · shaken':''}</span><span class="bar"><i style="width:${100*b.hp/b.maxHp}%"></i></span></span></button>`).join('');
     const surrender=C.resolution(state,target),talkButton=$('menu-talk').querySelector('button'),exitButton=$('menu-talk').querySelectorAll('button')[1];
     talkButton.dataset.action=surrender.surrendered?'restrain':'talk';
     talkButton.dataset.resolution=surrender.surrendered&&!surrender.adjacent?'approach':'';
