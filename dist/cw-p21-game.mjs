@@ -408,7 +408,7 @@ function closeEngine(){
 let battleLoadTimer;
 async function battle({savedHandoff=false}={}){if(combatID&&$('p21-combat-dialog').open)return;const v=state();if(dimwellEncounterHold(v)){city.tell(DIMWELL_RENDEZVOUS);return;}const binding=v.pending?.binding??encounterBinding(v);if(v.pending?.chase){chaseMenu();return;}if(!v.pending&&!binding){city.tell('Walk to an active incident or the Mended Drum to begin an encounter.');return;}city.stop();let pending;try{const st=savedHandoff?window.CWP21State.create(localStorage):saveNav();pending=st.begin({'opening-lookout':'CW-OPENING-LOOKOUT','bridge-hobb':'CW-BRIDGE-HOBB',[FIRST_CASE_FIGHT]:'CW-OPENING-PURSE','shift-disturbance':'CW-SHIFT-DISTURBANCE',smuggler:'P21-DELIVERY','crypt-raider':'P21-DELIVERY','cutpurse-0':'P21-PATROL','cutpurse-1':'P21-PATROL'}[binding]||'taproom',binding,encounterLocation(v.pending?.position||city.position()));}catch{saveFailure();return;}combatID=pending.id;activeEncounter=pending;battleSettlement=null;const d=$('p21-combat-dialog'),frame=$('p21-combat-frame');
  d.dataset.loading='';$('p21-combat-loading').hidden=false;$('p21-combat-close').textContent='Cancel';frame.inert=true;
- frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening5';d.showModal();
+ frame.src='field-training/index.html?campaign=1&v=source-hd-1-opening5-combat-buttons1';d.showModal();
  battleLoadTimer=setTimeout(()=>{closeBattle();city.tell('The encounter could not open. You can resume it from the street.');},25000);}
 window.addEventListener('message',e=>{
  if(window.CWGameRestarting)return;
