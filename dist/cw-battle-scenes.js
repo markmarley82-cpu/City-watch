@@ -16,7 +16,9 @@
   const p=Array.isArray(position)&&Number.isFinite(position[0])&&Number.isFinite(position[1])?position.slice(0,3):[0,0,''];const edgeId=typeof p[2]==='string'?p[2]:'';
   const doors=world.doors instanceof Map?[...world.doors.values()]:Array.isArray(world.landmarks)?world.landmarks:[];
   const edges=world.edges instanceof Map?world.edges: new Map((world.relations||[]).map(e=>[e.edge_id,e]));const edge=edges.get(edgeId);
-  const snapshot=(district,place=null)=>({version:1,district,placeId:place?.game_id||null,placeLabel:place?.name||edge?.name||get(district).label,edge:edgeId,position:p.slice(0,2)});
+  // Mark 28 Nov 2026: map-data edge names ("… perimeter ARC (source shape not …") must never reach the screen.
+  const nice=v=>typeof v==='string'&&v&&!/[()]|\bARC\b|source|perimeter|\b[A-Z]\d{2,}\b/i.test(v)?v:null;
+  const snapshot=(district,place=null)=>({version:1,district,placeId:place?.game_id||null,placeLabel:nice(place?.name)||nice(edge?.name)||get(district).label,edge:edgeId,position:p.slice(0,2)});
   const apron=edgeId.startsWith('APRON:')?edgeId.slice(6):null;if(apron&&places[apron])return snapshot(places[apron],doors.find(d=>d.game_id===apron));
   if(edgeId==='RC1')return snapshot('watch',doors.find(d=>d.game_id==='watch'));
   if(['BRIDGE','CUT'].includes(edge?.kind))return snapshot('bridge');

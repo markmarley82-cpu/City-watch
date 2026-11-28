@@ -24,7 +24,7 @@
  });
  const bindings=Object.freeze({smuggler:'thief-pair','crypt-raider':'wizard-ward','cutpurse-0':'dwarf-stand','cutpurse-1':'troll-windup'});
  const pools=Object.freeze({smuggler:['thief-pair','gnoll-diversion','vampire-feint'],'crypt-raider':['wizard-ward','undead-stand'],'cutpurse-0':['dwarf-stand','vampire-feint','gnoll-diversion'],'cutpurse-1':['troll-windup','werewolf-pressure','undead-stand']});
- const artKeys=new Set(Object.values(roles).map(r=>r.appearance));
+ const artKeys=new Set([...Object.values(roles).map(r=>r.appearance),'opening-lookout','opening-hobb','opening-collector']);
  const clone=v=>JSON.parse(JSON.stringify(v));
  const spec=a=>a?.opponent?.schema===1&&Object.hasOwn(roles,a.opponent.role)?roles[a.opponent.role]:null;
  const active=a=>a.team==='watch'&&a.status==='active'&&a.hp>0;

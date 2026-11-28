@@ -10,7 +10,8 @@
   // The opening fight (Mark, 28 Nov 2026): one lad, easy, to learn the controls.
   if(binding==='opening-lookout'){
    const actor=battle.actors?.find(a=>a.id==='patron'&&a.team==='opposition');if(!actor)return null;
-   for(const other of battle.actors.filter(a=>a.team==='opposition'&&a!==actor)){other.status='released';other.hp=Math.max(1,other.hp||1);}
+   // Just the one lad: drop the second opponent entirely (it would otherwise show as a 'released' card).
+   for(const other of battle.actors.filter(a=>a.team==='opposition'&&a!==actor)){const i=battle.actors.indexOf(other);if(i>(battle.turn||0))battle.actors.splice(i,1);else{other.status='released';other.hp=Math.max(1,other.hp||1);}}
    actor.name='Lad in a flat cap';actor.appearance='opening-lookout';
    // Start toe to toe so the first fight is about swinging and guarding, not moving about.
    const officer=battle.actors.find(a=>a.id==='officer');if(officer&&Number.isFinite(officer.x)){officer.x=1;officer.y=3;actor.x=2;actor.y=3;const partner=battle.actors.find(a=>a.id==='partner');if(partner&&Number.isFinite(partner.x)){partner.x=1;partner.y=5;}}
