@@ -1,0 +1,25 @@
+/* Match the Watch duty and Atlas controls without changing their hit areas. */
+.shell :is(.command-tabs button, #commands button, .command-title button, .end, .brand button) {
+  border: 1px solid #987b53;
+  border-radius: 5px;
+  background: var(--cw-watch-control-action, linear-gradient(#f3e4c4,#dec59a));
+  color: var(--cw-watch-control-ink, #342a20);
+  font-family: var(--cw-watch-control-font, Georgia, serif);
+  box-shadow: none;
+  text-shadow: none;
+  touch-action: manipulation;
+}
+.shell .command-tabs button[aria-pressed="true"],
+.shell :is(.end, #commands-close, .brand button) {
+  background: var(--cw-watch-control-close, linear-gradient(#5b4231,#3e2b22));
+  border-color: #987b53;
+  color: #fff1cf;
+}
+.shell :is(.command-tabs button, #commands button, .command-title button, .end, .brand button):is(:disabled, [aria-disabled="true"]) {
+  opacity: .55;
+  filter: none;
+}
+.shell :is(.command-tabs button, #commands button, .command-title button, .end, .brand button):focus-visible {
+  outline: 3px solid #c79547;
+  outline-offset: -3px;
+}
