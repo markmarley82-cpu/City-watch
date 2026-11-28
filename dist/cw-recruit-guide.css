@@ -22,8 +22,10 @@
 .cw-recruit-guide-ribbon button{border:1px solid #8c6943;background:#473b2b;color:#fff1d2;min-width:44px;min-height:44px;font:13px Georgia,serif;padding:5px}.cw-recruit-guide-ribbon button:nth-of-type(1){max-width:42%;font-weight:bold}
 .cw-recruit-guide-target{outline:3px solid #dbba6f!important;outline-offset:-3px!important}
 .cw-recruit-guide-live{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-#p21-combat-dialog{position:fixed}#p21-combat-dialog .cw-recruit-battle-help{position:absolute;top:60px;right:10px;z-index:4;max-width:min(460px,calc(100% - 20px));background:#e5d0a7;color:#30271f;border:1px solid #846440;font:14px/1.35 Georgia,serif}
-.cw-recruit-battle-help summary{min-height:44px;box-sizing:border-box;padding:10px;cursor:pointer}.cw-recruit-battle-help p{padding:0 12px 12px;margin:0;max-height:45dvh;overflow:auto}
+#p21-combat-dialog{position:fixed}
+#p21-combat-dialog .cw-recruit-battle-help{flex:none}
+.cw-recruit-battle-help summary{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 8px;color:inherit;font:14px Georgia,serif;text-decoration:underline;cursor:pointer}
+.cw-recruit-battle-help p{position:absolute;top:52px;right:7px;z-index:4;max-width:min(460px,calc(100% - 14px));max-height:45dvh;overflow:auto;box-sizing:border-box;margin:0;padding:12px;background:#e5d0a7;color:#30271f;border:1px solid #846440;font:14px/1.35 Georgia,serif}
 @media(max-width:360px){.cw-recruit-guide-ribbon{font-size:12px}.cw-guide-actions{grid-template-columns:1fr}}
 @media(max-height:450px){.cw-recruit-guide-ribbon{top:2px;font-size:12px;padding:0 4px}}
 

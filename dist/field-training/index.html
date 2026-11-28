@@ -955,7 +955,7 @@ img.watch-mark{display:block;width:42px;height:44px;object-fit:contain;flex:none
 
   if(campaignMode){
     $('setup-open').hidden=true;
-    document.querySelector('.cw-training-return').onclick=e=>{e.preventDefault();parent.postMessage({type:'cw-p21-battle-state',encounterId:campaignContext?.pending.id,battle:C.clone(state)},location.origin);parent.postMessage({type:'cw-p21-battle-exit',encounterId:campaignContext?.pending.id},location.origin);};
+    document.querySelector('.cw-training-return').style.display='none';
     $('return').textContent='Record outcome & return to city';
     window.addEventListener('message',e=>{
       if(e.origin!==location.origin||e.source!==parent)return;

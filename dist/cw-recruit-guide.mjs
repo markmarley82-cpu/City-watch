@@ -3,7 +3,7 @@ export function createRecruitGuide({city,game,freshRecruit=false,storage=localSt
  let progress,storageOK=true,focus=null,lastRibbon='',highlight=null,welcomeOffered=false,section='patrol',welcoming=false,searchTerm='',lessonKey='',lessonSince=Date.now(),attempts=0;
  try{progress=decodeProgress(storage.getItem(GUIDE_KEY));}catch{progress=newProgress();storageOK=false;}
  const make=(tag,cls,text)=>{const e=doc.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
- const style=make('link');style.rel='stylesheet';style.href=new URL('cw-recruit-guide.css?v=p21-b407-s039-reuse',import.meta.url).href;doc.head.append(style);
+ const style=make('link');style.rel='stylesheet';style.href=new URL('cw-recruit-guide.css?v=p21-b407-s039-reuse-bridge-ui1',import.meta.url).href;doc.head.append(style);
  const button=(text,fn)=>{const b=make('button','',text);b.type='button';b.onclick=fn;return b;};
  const help=button('Recruit guide',()=>open());help.id='cw-recruit-guide-open';
  (doc.querySelector('.cw-phone-extra-actions')||doc.querySelector('.city-tools')).append(help);
@@ -90,7 +90,7 @@ export function createRecruitGuide({city,game,freshRecruit=false,storage=localSt
   focus=doc.activeElement;city.stop();if(welcome)section='patrol';draw(welcome);dialog.showModal();removeHighlight();ribbon.hidden=true;return true;
  }
  // Help is inside the existing encounter's modal, never a second blocking popup.
- const combat=doc.getElementById('p21-combat-dialog'),combatHelp=make('details','cw-recruit-battle-help'),combatCopy=make('p');combatHelp.append(make('summary','','How do I fight?' ),combatCopy);combat.append(combatHelp);
+ const combat=doc.getElementById('p21-combat-dialog'),combatHelp=make('details','cw-recruit-battle-help'),combatCopy=make('p');combatHelp.append(make('summary','','Fight help'),combatCopy);combat.querySelector('header').insertBefore(combatHelp,doc.getElementById('p21-combat-close'));
  const battleFrame=doc.getElementById('p21-combat-frame'),engineFrame=doc.getElementById('p21-engine-frame'),engineHelp=make('details','cw-recruit-room-help'),engineCopy=make('p');engineHelp.append(make('summary','','What do I press?'),engineCopy);doc.getElementById('p21-engine-dialog')?.append(engineHelp);engineHelp.hidden=true;
  function message(e){if(e.origin!==location.origin)return;if(engineFrame&&e.source===engineFrame.contentWindow&&e.data?.type==='cw-p21-state'){const advice=roomAdvice(e.data.state,doc.getElementById('p21-engine-title')?.textContent);engineHelp.hidden=!advice;if(advice!==engineCopy.textContent){engineCopy.textContent=advice;engineHelp.open=progress.status==='guided'&&!!advice;}return;}if(e.source!==battleFrame.contentWindow)return;if(e.data?.type==='cw-p21-battle-state'){combatCopy.textContent=battleAdvice(e.data.battle);}}
  addEventListener('message',message);combatCopy.textContent=battleAdvice(null);
